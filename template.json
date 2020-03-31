@@ -14,10 +14,17 @@
           "base": 0,
           "min": 0
         },
+        "damage": {
+          "value": "d6"
+        },
         "level": {
           "value": 1,
           "min": 0,
           "max": 10
+        },
+        "xp": {
+          "value": 0,
+          "min": 0
         }
       }
     }
@@ -59,21 +66,13 @@
     },
     "details": {
       "alignment": {
-        "type": "String",
-        "label": "Alignment"
+        "value": "",
+        "description": ""
       },
-      "biography": {
-        "type": "String",
-        "label": "Biography"
-      },
-      "class": {
-        "type": "String",
-        "label": "Class"
-      },
-      "race": {
-        "type": "String",
-        "label": "Race"
-      }
+      "look": {},
+      "biography": {},
+      "class": {},
+      "race": {}
     }
   },
   "npc": {
