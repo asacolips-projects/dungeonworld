@@ -5,28 +5,28 @@
  */
 
 // Import Modules
-import { SimpleItemSheet } from "./item-sheet.js";
-import { SimpleActorSheet } from "./actor-sheet.js";
+import { DwItemSheet } from "./item-sheet.js";
+import { DwActorSheet } from "./actor-sheet.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
 
-Hooks.once("init", async function() {
-  console.log(`Initializing Simple Worldbuilding System`);
+Hooks.once("init", async function () {
+  console.log(`Initializing Dungeon World!`);
 
 	/**
 	 * Set an initiative formula for the system
 	 * @type {String}
 	 */
-	CONFIG.Combat.initiative = {
-	  formula: "1d20",
+  CONFIG.Combat.initiative = {
+    formula: "1d20",
     decimals: 2
   };
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("dnd5e", SimpleActorSheet, { makeDefault: true });
+  Actors.registerSheet("dungeonworld", DwActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("dnd5e", SimpleItemSheet, {makeDefault: true});
+  Items.registerSheet("dungeonworld", DwItemSheet, { makeDefault: true });
 });

@@ -6,14 +6,9 @@
         <div class="header-fields">
             <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
             <div class="resource">
-                <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
+                <input type="text" name="data.attributes.hp.value" value="{{data.attributes.hp.value}}" data-dtype="Number"/>
                 <span> / </span>
-                <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
-            </div>
-            <div class="resource">
-                <input type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number"/>
-                <span> / </span>
-                <input type="text" name="data.power.max" value="{{data.power.max}}" data-dtype="Number"/>
+                <input type="text" name="data.attributes.hp.max" value="{{data.attributes.hp.max}}" data-dtype="Number"/>
             </div>
         </div>
     </header>
@@ -50,7 +45,7 @@
         </div>
 
         {{!-- Attributes Tab --}}
-        <div class="tab attributes" data-group="primary" data-tab="attributes">
+        {{!-- <div class="tab attributes" data-group="primary" data-tab="attributes">
             <header class="attributes-header flexrow">
                 <span class="attribute-key">Attribute Key</span>
                 <span class="attribute-value">Value</span>
@@ -80,7 +75,7 @@
                 </li>
             {{/each}}
             </ol>
-        </div>
+        </div> --}}
     </section>
 </form>
 
