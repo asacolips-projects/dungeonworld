@@ -24,6 +24,12 @@ export class DwActorSheet extends ActorSheet {
     for (let attr of Object.values(data.data.attributes)) {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
+    // Ability Scores
+    for (let [a, abl] of Object.entries(data.actor.data.abilities)) {
+      abl.mod = Math.floor((abl.value - 10) / 2);
+      abl.label = CONFIG.DW.abilities[a];
+      abl.debilityLabel = CONFIG.DW.debilities[a];
+    }
     return data;
   }
 

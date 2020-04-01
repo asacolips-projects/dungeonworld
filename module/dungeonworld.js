@@ -5,6 +5,7 @@
  */
 
 // Import Modules
+import { DW } from "./config.js";
 import { DwItemSheet } from "./item-sheet.js";
 import { DwActorSheet } from "./actor-sheet.js";
 
@@ -24,9 +25,34 @@ Hooks.once("init", async function () {
     decimals: 2
   };
 
+  CONFIG.DW = DW;
+
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("dungeonworld", DwActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("dungeonworld", DwItemSheet, { makeDefault: true });
 });
+
+/* -------------------------------------------- */
+/*  Foundry VTT Setup                           */
+/* -------------------------------------------- */
+
+/**
+ * This function runs after game data has been requested and loaded from the servers, so entities exist
+ */
+Hooks.once("setup", function () {
+
+  // Localize CONFIG objects once up-front
+  const toLocalize = [
+    "abilities", "debilities"
+  ];
+  for (let o of toLocalize) {
+    CONFIG.DW[o] = Object.entries(CONFIG.DW[o]).reduce((obj, e) => {
+      obj[e[0]] = game.i18n.localize(e[1]);
+      return obj;
+    }, {});
+  }
+});
+
+/* -------------------------------------------- */

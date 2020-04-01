@@ -1,5 +1,19 @@
 {
   "Dungeon World": "Dungeon World",
   "DW.title": "Dungeon World",
-  "DW.description": "Run games of Dungeon World in FoundryVTT!"
+  "DW.description": "Run games of Dungeon World in FoundryVTT!",
+
+  "DW.AbilityStr": "Strength",
+  "DW.AbilityDex": "Dexterity",
+  "DW.AbilityCon": "Constitution",
+  "DW.AbilityInt": "Intelligence",
+  "DW.AbilityWis": "Wisdom",
+  "DW.AbilityCha": "Charisma",
+
+  "DW.DebilityStr": "Weak",
+  "DW.DebilityDex": "Shaky",
+  "DW.DebilityCon": "Sick",
+  "DW.DebilityInt": "Stunned",
+  "DW.DebilityWis": "Confused",
+  "DW.DebilityCha": "Scarred"
 }

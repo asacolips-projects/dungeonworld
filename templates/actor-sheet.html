@@ -55,9 +55,10 @@
             <ol class="abilities-list">
             {{#each data.abilities as |ability key|}}
                 <li class="ability flexrow" data-ability="{{key}}">
-                    <label for="data.abilities.{{key}}.value" class="cell__title">{{key}}</label>
+                    <label for="data.abilities.{{key}}.value" class="cell__title">{{ ability.label }}</label>
                     <input class="ability-value" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="{{ability.dtype}}"/>
                     <span class="ability-mod">{{ability.mod}}</span>
+                    <label class="ability-value checkbox"><input type="checkbox" name="data.abilities.{{key}}.debility" {{checked ability.debility}}/>{{ ability.debilityLabel }}</label>
                 </li>
             {{/each}}
             </ol>
