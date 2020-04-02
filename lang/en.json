@@ -15,5 +15,8 @@
   "DW.DebilityCon": "Sick",
   "DW.DebilityInt": "Stunned",
   "DW.DebilityWis": "Confused",
-  "DW.DebilityCha": "Scarred"
+  "DW.DebilityCha": "Scarred",
+
+  "DW.Level": "Level",
+  "DW.XP": "Experience"
 }

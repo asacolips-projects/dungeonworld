@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&family=IM+Fell+DW+Pica:ital@0;1&display=swap");
+.dungeonworld {
+  font-family: "IM Fell DW Pica", serif; }
+  .dungeonworld .window-content {
+    background: #fff; }
+  .dungeonworld.sheet .sheet-header {
+    background: #2d3748;
+    color: #fff; }
+    .dungeonworld.sheet .sheet-header h1,
+    .dungeonworld.sheet .sheet-header input {
+      color: #fff;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      border: 0; }
+    .dungeonworld.sheet .sheet-header h1 {
+      -webkit-box-flex: 2;
+      -ms-flex: 2;
+      flex: 2; }
+  .dungeonworld.sheet .sheet-header__fields {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  .dungeonworld.sheet .cell--abilities .abilities-list {
+    display: grid;
+    grid-column: span 3 / span 3;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0; }
+  .dungeonworld.sheet .cell--abilities .ability {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 10px; }
+    .dungeonworld.sheet .cell--abilities .ability .cell__title {
+      -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+      flex: 100%;
+      background: #2d3748;
+      color: #fff;
+      padding: 5px;
+      border-radius: 0 50px 0 0; }
+    .dungeonworld.sheet .cell--abilities .ability .ability-value {
+      -webkit-box-flex: 32px;
+      -ms-flex: 32px;
+      flex: 32px;
+      -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+      flex-grow: 0; }
+    .dungeonworld.sheet .cell--abilities .ability .ability-mod {
+      position: absolute;
+      top: -4px;
+      right: 10px;
+      bottom: 0;
+      margin: auto;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      border: 2px solid #2d3748;
+      border-radius: 50px;
+      line-height: 38px;
+      font-size: 24px;
+      background: #fff;
+      color: #2d3748; }
+    .dungeonworld.sheet .cell--abilities .ability .ability-debility {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; }

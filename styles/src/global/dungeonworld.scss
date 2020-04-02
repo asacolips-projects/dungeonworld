@@ -1,0 +1,15 @@
+@import '../init';
+
+.dungeonworld {
+  font-family: $font-stack-base;
+
+  .window-content {
+    background: $c-white;
+  }
+
+  // Import components, scoped within the sheet.
+  &.sheet {
+    @import 'components/header';
+    @import 'components/abilities';
+  }
+}

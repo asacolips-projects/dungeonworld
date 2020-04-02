@@ -1,0 +1,52 @@
+.cell--abilities {
+  .abilities-list {
+    display: grid;
+    grid-column: span 3 / span 3;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0;
+  }
+
+  .ability {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 10px;
+
+    .cell__title {
+      flex: 100%;
+      background: $c-navy;
+      color: $c-white;
+      padding: $padding-sm;
+      border-radius: 0 50px 0 0;
+    }
+
+    .ability-value {
+      flex: 32px;
+      flex-grow: 0;
+    }
+
+    .ability-mod {
+      position: absolute;
+      top: -4px;
+      right: 10px;
+      bottom: 0;
+      margin: auto;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      border: 2px solid $c-navy;
+      border-radius: 50px;
+      line-height: 38px;
+      font-size: 24px;
+      background: $c-white;
+      color: $c-navy;
+    }
+
+    .ability-debility {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+  }
+}

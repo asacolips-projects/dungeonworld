@@ -86,7 +86,13 @@
   }
 },
 "Item": {
-  "types": ["equipment"],
+  "types": ["move", "equipment"],
+  "move": {
+    "name": "",
+    "description": "",
+    "requiresLevel": 0,
+    "requiresMove": ""
+  },
   "equipment": {
     "description": "",
     "quantity": 1,

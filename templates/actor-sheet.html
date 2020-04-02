@@ -2,12 +2,17 @@
 
     {{!-- Sheet Header --}}
     <header class="sheet-header">
-        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
-        <div class="header-fields">
+        <div class="sheet-header__fields">
             <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
             <input name="data.details.class" type="text" value="{{data.details.class}}" placeholder="Class"/>
-            <input name="data.attributes.level.value" type="text" value="{{data.attributes.level.value}}" placeholder="Level" data-dtype="Number"/>
-            <input name="data.attributes.xp.value" type="text" value="{{data.attributes.xp.value}}" placeholder="XP" data-dtype="Number"/>
+            <div class="flex-item flex-item--level">
+              <label for="data.atributes.level.value">{{ localize "DW.Level" }}</label>
+              <input name="data.attributes.level.value" type="text" value="{{data.attributes.level.value}}" placeholder="Level" data-dtype="Number"/>
+            </div>
+            <div class="flex-item flex-item--xp">
+              <label for="data.attributes.xp.value">{{ localize "DW.XP" }}</label>
+              <input name="data.attributes.xp.value" type="text" value="{{data.attributes.xp.value}}" placeholder="XP" data-dtype="Number"/>
+            </div>
         </div>
     </header>
 
@@ -15,6 +20,7 @@
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="main">Main</a>
         <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="moves">Moves</a>
         <a class="item" data-tab="equipment">Equipment</a>
     </nav>
 
@@ -23,14 +29,18 @@
 
         {{!-- Main Tab --}}
         <div class="tab main active" data-group="primary" data-tab="main">
-          <div class="cell cell--look">
-            <label class="cell__title">Look</label>
-            {{editor content=data.details.look target="data.details.look" button=true owner=owner editable=editable}}
-          </div>
 
-          <div class="cell cell--ac">
-            <label class="cell__title">Armor</label>
-            <input type="text" name="data.attributes.ac.value" value="{{data.attributes.ac.value}}" data-dtype="Number"/>
+          <div class="cell cell--abilities">
+            <ol class="abilities-list">
+            {{#each data.abilities as |ability key|}}
+                <li class="ability flexrow" data-ability="{{key}}">
+                    <label for="data.abilities.{{key}}.value" class="cell__title">{{ ability.label }}</label>
+                    <input class="ability-value" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="{{ability.dtype}}"/>
+                    <span class="ability-mod">{{ability.mod}}</span>
+                    <label class="ability-debility checkbox"><input type="checkbox" name="data.abilities.{{key}}.debility" {{checked ability.debility}}/>{{ ability.debilityLabel }}</label>
+                </li>
+            {{/each}}
+            </ol>
           </div>
 
           <div class="cell cell--hp">
@@ -40,9 +50,19 @@
             <input type="text" name="data.attributes.hp.max" value="{{data.attributes.hp.max}}" data-dtype="Number"/>
           </div>
 
+          <div class="cell cell--ac">
+            <label class="cell__title">Armor</label>
+            <input type="text" name="data.attributes.ac.value" value="{{data.attributes.ac.value}}" data-dtype="Number"/>
+          </div>
+
           <div class="cell cell--damage">
             <label class="cell__title">Damage</label>
             <input type="text" name="data.attributes.damage.value" value="{{data.attributes.damage.value}}" data-dtype="String"/>
+          </div>
+
+          <div class="cell cell--look">
+            <label class="cell__title">Look</label>
+            {{editor content=data.details.look target="data.details.look" button=true owner=owner editable=editable}}
           </div>
 
           <div class="cell cell--alignment">
@@ -51,29 +71,34 @@
             {{editor content=data.details.alignment.description target="data.details.alignment.description" button=true owner=owner editable=editable}}
           </div>
 
-          <div class="cell cell--abilities">
-            <ol class="abilities-list">
-            {{#each data.abilities as |ability key|}}
-                <li class="ability flexrow" data-ability="{{key}}">
-                    <label for="data.abilities.{{key}}.value" class="cell__title">{{ ability.label }}</label>
-                    <input class="ability-value" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="{{ability.dtype}}"/>
-                    <span class="ability-mod">{{ability.mod}}</span>
-                    <label class="ability-value checkbox"><input type="checkbox" name="data.abilities.{{key}}.debility" {{checked ability.debility}}/>{{ ability.debilityLabel }}</label>
-                </li>
-            {{/each}}
-            </ol>
-          </div>
         </div>
 
         {{!-- Biography Tab --}}
         <div class="tab biography" data-group="primary" data-tab="description">
+            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
             {{editor content=data.details.biography target="data.details.biography" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Moves Tab --}}
+        <div class="tab moves" data-group="primary" data-tab="moves">
+          <ol class="items-list">
+            {{#each actor.moves as |item id|}}
+                <li class="item flexrow" data-item-id="{{item._id}}">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                    <h4 class="item-name">{{item.name}}</h4>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+            {{/each}}
+            </ol>
         </div>
 
         {{!-- Owned Equipment Tab --}}
         <div class="tab equipment" data-group="primary" data-tab="equipment">
             <ol class="items-list">
-            {{#each actor.items as |item id|}}
+            {{#each actor.equipment as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}">
                     <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
                     <h4 class="item-name">{{item.name}}</h4>

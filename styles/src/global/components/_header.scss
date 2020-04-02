@@ -1,0 +1,22 @@
+.sheet-header {
+  background: $c-navy;
+  color: $c-white;
+
+  h1,
+  input {
+    color: $c-white;
+    flex: 1;
+    border: 0;
+  }
+
+  h1 {
+    flex: 2;
+  }
+}
+
+.sheet-header__fields {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}

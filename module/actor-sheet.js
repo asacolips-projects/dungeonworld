@@ -30,7 +30,43 @@ export class DwActorSheet extends ActorSheet {
       abl.label = CONFIG.DW.abilities[a];
       abl.debilityLabel = CONFIG.DW.debilities[a];
     }
+    // Prepare items.
+    this._prepareCharacterItems(data);
+
+    // Return data to the sheet
     return data;
+  }
+
+  /**
+   * Organize and classify Items for Character sheets.
+   *
+   * @param {Object} actorData The actor to prepare.
+   *
+   * @return {undefined}
+   */
+  _prepareCharacterItems(sheetData) {
+    const actorData = sheetData.actor;
+
+    // Initialize containers.
+    const moves = [];
+    const equipment = [];
+
+    // Iterate through items, allocating to containers
+    // let totalWeight = 0;
+    for (let i of sheetData.items) {
+      let item = i.data;
+      i.img = i.img || DEFAULT_TOKEN;
+      if (i.type === 'move') {
+        moves.push(i);
+      }
+      else if (i.type === 'equipment') {
+        equipment.push(i);
+      }
+    }
+
+    // Assign and return
+    actorData.moves = moves;
+    actorData.equipment = equipment;
   }
 
   /* -------------------------------------------- */

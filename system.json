@@ -8,7 +8,7 @@
   "templateVersion": 2,
   "author": "Asacolips",
   "esmodules": ["module/dungeonworld.js"],
-  "styles": ["styles/dungeonworld.css"],
+  "styles": ["styles/dist/dungeonworld.css"],
   "packs": [],
   "languages": [
     {
