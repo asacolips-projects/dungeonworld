@@ -55,6 +55,9 @@
       color: #fff;
       padding: 5px;
       border-radius: 0 50px 0 0; }
+    .dungeonworld.sheet .cell--abilities .ability .rollable:hover {
+      background: #5b7094;
+      cursor: pointer; }
     .dungeonworld.sheet .cell--abilities .ability .ability-value {
       -webkit-box-flex: 32px;
       -ms-flex: 32px;

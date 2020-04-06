@@ -102,6 +102,9 @@ export class DwActorSheet extends ActorSheet {
 
     // Add or Remove Attribute
     html.find(".attributes").on("click", ".attribute-control", this._onClickAttributeControl.bind(this));
+
+    // Rollables.
+    html.find('.rollable').on('click', this._onRollable.bind(this));
   }
 
   /* -------------------------------------------- */
@@ -133,6 +136,22 @@ export class DwActorSheet extends ActorSheet {
       const li = a.closest(".attribute");
       li.parentElement.removeChild(li);
       await this._onSubmit(event);
+    }
+  }
+
+  /**
+   * Listen for click events on rollables.
+   * @param {MouseEvent} event
+   */
+  async _onRollable(event) {
+    event.preventDefault();
+    const a = event.currentTarget;
+    const data = a.dataset;
+
+    if ($(a).hasClass('ability-rollable') && data.mod) {
+      let roll = new Roll(`2d6+${data.mod}`);
+      roll.roll();
+      roll.toMessage();
     }
   }
 

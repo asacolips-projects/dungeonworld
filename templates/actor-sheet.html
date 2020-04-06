@@ -34,9 +34,9 @@
             <ol class="abilities-list">
             {{#each data.abilities as |ability key|}}
                 <li class="ability flexrow" data-ability="{{key}}">
-                    <label for="data.abilities.{{key}}.value" class="cell__title">{{ ability.label }}</label>
+                    <label for="data.abilities.{{key}}.value" class="cell__title ability-rollable rollable" data-mod="{{ability.mod}}">{{ ability.label }}</label>
                     <input class="ability-value" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="{{ability.dtype}}"/>
-                    <span class="ability-mod">{{ability.mod}}</span>
+                    <span class="ability-mod">{{numberFormat ability.mod decimals=0 sign=true}}</span>
                     <label class="ability-debility checkbox"><input type="checkbox" name="data.abilities.{{key}}.debility" {{checked ability.debility}}/>{{ ability.debilityLabel }}</label>
                 </li>
             {{/each}}
@@ -57,7 +57,17 @@
 
           <div class="cell cell--damage">
             <label class="cell__title">Damage</label>
-            <input type="text" name="data.attributes.damage.value" value="{{data.attributes.damage.value}}" data-dtype="String"/>
+            {{!-- <input type="text" name="data.attributes.damage.value" value="{{data.attributes.damage.value}}" data-dtype="String"/> --}}
+            <select name="data.attributes.damage.value" data-dtype="String">
+              {{#select data.attributes.damage.value}}
+              <option value="">—</option>
+              <option value="d4">d4</option>
+              <option value="d6">d6</option>
+              <option value="d8">d8</option>
+              <option value="d10">d10</option>
+              <option value="d12">d12</option>
+              {{/select}}
+            </select>
           </div>
 
           <div class="cell cell--look">

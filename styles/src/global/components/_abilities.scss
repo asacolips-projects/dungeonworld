@@ -21,6 +21,11 @@
       border-radius: 0 50px 0 0;
     }
 
+    .rollable:hover {
+      background: $c-navy-up;
+      cursor: pointer;
+    }
+
     .ability-value {
       flex: 32px;
       flex-grow: 0;
