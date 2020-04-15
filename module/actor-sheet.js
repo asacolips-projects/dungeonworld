@@ -29,6 +29,10 @@ export class DwActorSheet extends ActorSheet {
       abl.mod = Math.floor((abl.value - 10) / 2);
       abl.label = CONFIG.DW.abilities[a];
       abl.debilityLabel = CONFIG.DW.debilities[a];
+      // Adjust mod based on debility.
+      if (abl.debility) {
+        abl.mod -= 1;
+      }
     }
     // Prepare items.
     this._prepareCharacterItems(data);
@@ -78,7 +82,7 @@ export class DwActorSheet extends ActorSheet {
     // Activate tabs
     let tabs = html.find('.tabs');
     let initial = this._sheetTab;
-    new Tabs(tabs, {
+    new TabsV2(tabs, {
       initial: initial,
       callback: clicked => this._sheetTab = clicked.data("tab")
     });
