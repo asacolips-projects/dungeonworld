@@ -4,7 +4,7 @@
     <header class="sheet-header">
         <div class="sheet-header__fields">
             <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
-            <input name="data.details.class" type="text" value="{{data.details.class}}" placeholder="Class"/>
+            <input class="charclass" name="data.details.class" type="text" value="{{data.details.class}}" placeholder="Class"/>
             <div class="flex-item flex-item--level">
               <label for="data.atributes.level.value">{{ localize "DW.Level" }}</label>
               <input name="data.attributes.level.value" type="text" value="{{data.attributes.level.value}}" placeholder="Level" data-dtype="Number"/>
@@ -15,6 +15,40 @@
             </div>
         </div>
     </header>
+
+    {{!-- Attributes --}}
+    <section class="sheet-attributes">
+
+      <div class="cell cell--damage">
+        <label class="cell__title">Damage</label>
+        {{!-- <input type="text" name="data.attributes.damage.value" value="{{data.attributes.damage.value}}" data-dtype="String"/> --}}
+        <select name="data.attributes.damage.value" data-dtype="String">
+          {{#select data.attributes.damage.value}}
+          <option value="">—</option>
+          <option value="d4">d4</option>
+          <option value="d6">d6</option>
+          <option value="d8">d8</option>
+          <option value="d10">d10</option>
+          <option value="d12">d12</option>
+          {{/select}}
+        </select>
+      </div>
+
+      <div class="cell cell--ac">
+        <label class="cell__title">Armor</label>
+        <input type="text" name="data.attributes.ac.value" value="{{data.attributes.ac.value}}" data-dtype="Number"/>
+      </div>
+
+      <div class="cell cell--hp">
+        <label for="data.attributes.hp.value" class="cell__title">HP</label>
+        <div class="cell__counter">
+          <input type="text" name="data.attributes.hp.value" value="{{data.attributes.hp.value}}" data-dtype="Number"/>
+          <span> / </span>
+          <input type="text" name="data.attributes.hp.max" value="{{data.attributes.hp.max}}" data-dtype="Number"/>
+        </div>
+      </div>
+
+    </section>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
@@ -41,33 +75,6 @@
                 </li>
             {{/each}}
             </ol>
-          </div>
-
-          <div class="cell cell--hp">
-            <label for="data.attributes.hp.value" class="cell__title">HP</label>
-            <input type="text" name="data.attributes.hp.value" value="{{data.attributes.hp.value}}" data-dtype="Number"/>
-            <span> / </span>
-            <input type="text" name="data.attributes.hp.max" value="{{data.attributes.hp.max}}" data-dtype="Number"/>
-          </div>
-
-          <div class="cell cell--ac">
-            <label class="cell__title">Armor</label>
-            <input type="text" name="data.attributes.ac.value" value="{{data.attributes.ac.value}}" data-dtype="Number"/>
-          </div>
-
-          <div class="cell cell--damage">
-            <label class="cell__title">Damage</label>
-            {{!-- <input type="text" name="data.attributes.damage.value" value="{{data.attributes.damage.value}}" data-dtype="String"/> --}}
-            <select name="data.attributes.damage.value" data-dtype="String">
-              {{#select data.attributes.damage.value}}
-              <option value="">—</option>
-              <option value="d4">d4</option>
-              <option value="d6">d6</option>
-              <option value="d8">d8</option>
-              <option value="d10">d10</option>
-              <option value="d12">d12</option>
-              {{/select}}
-            </select>
           </div>
 
           <div class="cell cell--look">

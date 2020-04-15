@@ -9,7 +9,12 @@
 
   // Import components, scoped within the sheet.
   &.sheet {
+    // Generic.
+    @import 'base/cell';
+    @import 'components/tabs';
+    // Specific.
     @import 'components/header';
+    @import 'components/attributes';
     @import 'components/abilities';
   }
 }

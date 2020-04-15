@@ -1,0 +1,25 @@
+.tabs {
+  border-bottom: 1px solid;
+
+  .item {
+    border: 1px solid;
+    background: #bcc8de;
+    border-radius: 4px 4px 0 0;
+    margin-bottom: -1px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 4px;
+
+    &:hover,
+    &:focus {
+      background: #dfe6f5;
+      text-shadow: none;
+    }
+
+    &.active {
+      background: $c-white;
+      border-bottom: 0;
+      text-shadow: none;
+    }
+  }
+}
