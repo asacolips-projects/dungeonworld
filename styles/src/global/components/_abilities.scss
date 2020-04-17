@@ -3,6 +3,8 @@
     display: grid;
     grid-column: span 3 / span 3;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0px 10px;
+    margin: 10px 0;
     padding: 0;
   }
 
@@ -11,7 +13,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     position: relative;
-    padding: 10px;
 
     .cell__title {
       flex: 100%;
@@ -33,8 +34,8 @@
 
     .ability-mod {
       position: absolute;
-      top: -4px;
-      right: 10px;
+      top: -16px;
+      right: 0;
       bottom: 0;
       margin: auto;
       width: 50px;
@@ -52,6 +53,12 @@
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
+      align-items: center;
+      margin: 0 8px;
+
+      input {
+        margin-right: 4px;
+      }
     }
   }
 }

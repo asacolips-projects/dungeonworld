@@ -3,6 +3,40 @@
 .dungeonworld {
   font-family: $font-stack-base;
 
+  input,
+  button,
+  select,
+  textarea {
+    font-family: $font-stack-base;
+    font-size: 14px;
+    border: 0;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 5px #38366378;
+      border: 0;
+      outline: 0;
+    }
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    &:hover,
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  input,
+  textarea {
+    border: 0;
+    margin: 5px 0;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
   .window-content {
     background: $c-white;
   }
@@ -10,11 +44,14 @@
   // Import components, scoped within the sheet.
   &.sheet {
     // Generic.
+    @import 'base/input';
+    @import 'base/sheet-wrapper';
     @import 'base/cell';
     @import 'components/tabs';
     // Specific.
     @import 'components/header';
     @import 'components/attributes';
     @import 'components/abilities';
+    @import 'components/biography';
   }
 }

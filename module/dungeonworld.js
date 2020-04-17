@@ -6,6 +6,7 @@
 
 // Import Modules
 import { DW } from "./config.js";
+import { ActorDw } from "./actor.js";
 import { DwItemSheet } from "./item-sheet.js";
 import { DwActorSheet } from "./actor-sheet.js";
 
@@ -13,7 +14,7 @@ import { DwActorSheet } from "./actor-sheet.js";
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
 
-Hooks.once("init", async function () {
+Hooks.once("init", async function() {
   console.log(`Initializing Dungeon World!`);
 
 	/**
@@ -26,6 +27,7 @@ Hooks.once("init", async function () {
   };
 
   CONFIG.DW = DW;
+  CONFIG.Actor.entityClass = ActorDw;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -41,7 +43,7 @@ Hooks.once("init", async function () {
 /**
  * This function runs after game data has been requested and loaded from the servers, so entities exist
  */
-Hooks.once("setup", function () {
+Hooks.once("setup", function() {
 
   // Localize CONFIG objects once up-front
   const toLocalize = [

@@ -4,4 +4,14 @@
   background: $c-navy;
   color: $c-white;
   padding: $padding-sm;
+  margin-bottom: 5px;
+}
+
+.cell--image {
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 0 10px 0;
+  }
 }

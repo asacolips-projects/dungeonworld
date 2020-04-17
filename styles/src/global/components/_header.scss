@@ -13,12 +13,62 @@
     flex: 2;
   }
 
+  input {
+    color: $c-white;
+    border-bottom: 2px solid $c-navy-up;
+    margin: 0 10px;
+    font-size: 24px;
+    height: 32px;
+    line-height: 32px;
+
+    &:hover,
+    &:focus {
+      background: $c-navy-up;
+      box-shadow: 0 0 8px $c-navy-up;
+    }
+  }
+
   .charclass {
     flex: 2;
   }
 
   .flex-item {
     flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    padding-right: 58px;
+    margin-right: 10px;
+    text-align: right;
+
+    label {
+      flex: 1;
+      font-size: 24px;
+    }
+
+    input {
+      color: $c-navy;
+      background: $c-white;
+      border: 0;
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      border-radius: 50px;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      text-align: center;
+      font-size: 24px;
+      line-height: 24px;
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 12px $c-navy-up;
+        border: 2px solid $c-navy-up;
+      }
+    }
   }
 }
 

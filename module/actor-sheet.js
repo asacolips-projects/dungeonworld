@@ -9,8 +9,8 @@ export class DwActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "actor"],
       template: "systems/dungeonworld/templates/actor-sheet.html",
-      width: 600,
-      height: 600,
+      width: 750,
+      height: 850,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "main" }]
     });
   }
@@ -25,15 +25,15 @@ export class DwActorSheet extends ActorSheet {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
     // Ability Scores
-    for (let [a, abl] of Object.entries(data.actor.data.abilities)) {
-      abl.mod = Math.floor((abl.value - 10) / 2);
-      abl.label = CONFIG.DW.abilities[a];
-      abl.debilityLabel = CONFIG.DW.debilities[a];
-      // Adjust mod based on debility.
-      if (abl.debility) {
-        abl.mod -= 1;
-      }
-    }
+    // for (let [a, abl] of Object.entries(data.actor.data.abilities)) {
+    //   abl.mod = Math.floor((abl.value - 10) / 2);
+    //   abl.label = CONFIG.DW.abilities[a];
+    //   abl.debilityLabel = CONFIG.DW.debilities[a];
+    //   // Adjust mod based on debility.
+    //   if (abl.debility) {
+    //     abl.mod -= 1;
+    //   }
+    // }
     // Prepare items.
     this._prepareCharacterItems(data);
 
@@ -79,36 +79,11 @@ export class DwActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
-    // Activate tabs
-    let tabs = html.find('.tabs');
-    let initial = this._sheetTab;
-    new TabsV2(tabs, {
-      initial: initial,
-      callback: clicked => this._sheetTab = clicked.data("tab")
-    });
-
-    // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return;
-
-    // Update Inventory Item
-    html.find('.item-edit').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
-      item.sheet.render(true);
-    });
-
-    // Delete Inventory Item
-    html.find('.item-delete').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteOwnedItem(li.data("itemId"));
-      li.slideUp(200, () => this.render(false));
-    });
-
-    // Add or Remove Attribute
-    html.find(".attributes").on("click", ".attribute-control", this._onClickAttributeControl.bind(this));
-
     // Rollables.
     html.find('.rollable').on('click', this._onRollable.bind(this));
+
+    // Toggle look.
+    html.find('.toggle--look').on('click', this._toggleLook.bind(this, html));
   }
 
   /* -------------------------------------------- */
@@ -154,8 +129,34 @@ export class DwActorSheet extends ActorSheet {
 
     if ($(a).hasClass('ability-rollable') && data.mod) {
       let roll = new Roll(`2d6+${data.mod}`);
+      let flavorTextt = `<strong>${data.label}</strong>`;
+      if (data.debility) {
+        flavorTextt += ` (${data.debility})`;
+      }
       roll.roll();
-      roll.toMessage();
+      roll.toMessage({ flavor: flavorTextt });
+    }
+  }
+
+  /**
+   * Listen for toggling the look column.
+   * @param {MouseEvent} event
+   */
+  _toggleLook(html, event) {
+    console.log(html);
+    console.log(event);
+    console.log(html.find('.toggle'));
+
+    let $look = html.find('.toggle--look');
+
+    html.find('.sheet-look').toggleClass('closed');
+    $look.toggleClass('closed');
+
+    if ($look.hasClass('closed')) {
+      $look.text('>>');
+    }
+    else {
+      $look.text('<<');
     }
   }
 

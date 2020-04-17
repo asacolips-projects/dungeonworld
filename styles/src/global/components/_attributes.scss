@@ -2,6 +2,8 @@
   display: grid;
   grid-column: span 3 / span 3;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0px 10px;
+  margin: 0 0 10px 0;
   padding: 0;
 
   .cell {
@@ -9,7 +11,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     position: relative;
-    padding: 10px;
 
     .cell__title {
       flex: 100%;
