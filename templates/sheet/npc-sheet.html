@@ -18,6 +18,45 @@
       </div>
     </header>
 
+    {{!-- Main --}}
+    <section class="sheet-main">
+      {{!-- Attributes --}}
+      <section class="sheet-attributes">
+
+        <div class="cell cell--damage">
+          <label class="cell__title">{{localize "DW.Damage"}}</label>
+          <input type="text" name="data.attributes.damage.value" value="{{data.attributes.damage.value}}" placeholder="e.g. 2d12+7" data-dtype="String"/>
+        </div>
+
+        <div class="cell cell--ac">
+          <label class="cell__title">{{localize "DW.Armor"}}</label>
+          <input type="text" name="data.attributes.ac.value" value="{{data.attributes.ac.value}}" data-dtype="Number"/>
+        </div>
+
+        <div class="cell cell--hp">
+          <label for="data.attributes.hp.value" class="cell__title">{{localize "DW.HP"}}</label>
+          <div class="cell__counter">
+            <input type="text" name="data.attributes.hp.value" value="{{data.attributes.hp.value}}" data-dtype="Number"/>
+            <span> / </span>
+            <input type="text" name="data.attributes.hp.max" value="{{data.attributes.hp.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+      </section>
+
+      {{!-- Sheet Body --}}
+      <section class="sheet-body">
+
+        {{!-- Main Tab --}}
+        <label class="cell__title">{{localize "DW.Description"}}</label>
+        {{!-- We're avoiding WYSIWYGs... for now... --}}
+        {{!-- {{editor content=data.details.biography target="data.details.biography" button=true owner=owner editable=editable}} --}}
+        <textarea class="biography" name="data.details.biography" rows="5" title="Hey there! Who are you!?"
+                data-dtype="String">{{#if data.details.biography}}{{data.details.biography}}{{/if}}</textarea>
+      </section>
+
+    </section>
+
   </div>
 
 </form>
