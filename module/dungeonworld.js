@@ -34,6 +34,16 @@ Hooks.once("init", async function() {
   Actors.registerSheet("dungeonworld", DwActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("dungeonworld", DwItemSheet, { makeDefault: true });
+
+  Handlebars.registerHelper('concat', function() {
+    var outStr = '';
+    for (var arg in arguments) {
+      if (typeof arguments[arg] != 'object') {
+        outStr += arguments[arg];
+      }
+    }
+    return outStr;
+  });
 });
 
 /* -------------------------------------------- */

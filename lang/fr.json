@@ -1,0 +1,48 @@
+{
+  "Dungeon World": "Dungeon World",
+  "DW.title": "Dungeon World",
+  "DW.description": "Dungeon World, maintenant disponible sur FVTT !",
+
+  "DW.AbilityStr": "Force",
+  "DW.AbilityDex": "Dextérité",
+  "DW.AbilityCon": "Constitution",
+  "DW.AbilityInt": "Intelligence",
+  "DW.AbilityWis": "Sagesse",
+  "DW.AbilityCha": "Charisme",
+
+  "DW.DebilityStr": "Faible",
+  "DW.DebilityDex": "Secoué",
+  "DW.DebilityCon": "Malade",
+  "DW.DebilityInt": "Étourdi",
+  "DW.DebilityWis": "Confus",
+  "DW.DebilityCha": "Marqué",
+
+  "DW.Level": "Niveau",
+  "DW.XP": "Expérience",
+  "DW.Damage": "Dégâts",
+  "DW.Armor": "Armure",
+  "DW.HP": "PV",
+
+  "DW.Look": "Apparence",
+  "DW.Alignment": "Alignement",
+  "DW.Race": "Race",
+
+  "DW.MoveCreate": "Créer Action",
+  "DW.AddBasicMove": "Créer Action de base",
+  "DW.AddStartingMove": "Créer Action de départ",
+  "DW.AddAdvancedMove": "Créer Action avancée",
+  "DW.AddMove": "Créer une action",
+
+  "DW.MovesBasic": "Actions de Base",
+  "DW.MovesStarting": "Actions de Départ",
+  "DW.MovesAdvanced": "Actions Avancées",
+  "DW.MovesOther": "Autres Actions",
+
+  "DW.Description": "Description",
+  "DW.Moves": "Actions",
+  "DW.Biography": "Biographie",
+  "DW.Equipment": "Equipement",
+
+  "DW.AddEquipment": "Ajouter équipement"
+
+}

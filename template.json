@@ -75,10 +75,13 @@
         "value": "",
         "description": ""
       },
-      "look": {},
-      "biography": {},
-      "class": {},
-      "race": {}
+      "look": "",
+      "biography": "",
+      "class": "",
+      "race": {
+        "value": "",
+        "description": ""
+      }
     }
   },
   "npc": {
@@ -86,7 +89,7 @@
   }
 },
 "Item": {
-  "types": ["move", "equipment"],
+  "types": ["move", "equipment", "spell"],
   "move": {
     "name": "",
     "description": "",
@@ -101,6 +104,13 @@
     "quantity": 1,
     "weight": 0,
     "attributes": {}
+  },
+  "spell": {
+    "name": "",
+    "description": "",
+    "spellLevel": 0,
+    "rollFormula": "",
+    "prepared": false
   }
 }
 }

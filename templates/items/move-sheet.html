@@ -2,14 +2,14 @@
   <header class="sheet-header flexrow">
       {{!-- <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/> --}}
       <div class="header-fields">
-          <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize "DW.Common.Name"}}"/></h1>
       </div>
   </header>
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-navigation sheet-tabs tabs" data-group="primary">
-      <a class="item" data-tab="description">Description</a>
-      <a class="item" data-tab="details">Details</a>
+    <a class="item" data-tab="description">{{localize "DW.Common.Description" }}</a>
+    <a class="item" data-tab="details">{{localize "DW.Common.Details" }}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -23,45 +23,45 @@
       {{!-- Details Tab --}}
       <div class="tab" data-group="primary" data-tab="details">
         <div class="resource">
-          <label>Roll</label>
+          <label>{{localize "DW.Roll"}}</label>
           <select name="data.rollType" data-dtype="String">
             {{#select data.rollType}}
             <option value="">—</option>
-            <option value="STR">STR</option>
-            <option value="DEX">DEX</option>
-            <option value="CON">CON</option>
-            <option value="INT">INT</option>
-            <option value="WIS">WIS</option>
-            <option value="CHA">CHA</option>
-            <option value="ASK">ASK</option>
-            <option value="BOND">BOND</option>
+            <option value="STR">{{localize "DW.STR"}}</option>
+            <option value="DEX">{{localize "DW.DEX"}}</option>
+            <option value="CON">{{localize "DW.CON"}}</option>
+            <option value="INT">{{localize "DW.INT"}}</option>
+            <option value="WIS">{{localize "DW.WIS"}}</option>
+            <option value="CHA">{{localize "DW.CHA"}}</option>
+            <option value="ASK">{{localize "DW.ASK"}}</option>
+            <option value="BOND">{{localize "DW.BOND"}}</option>
             {{/select}}
           </select>
         </div>
 
         <div class="resource">
-          <label>Modifier</label>
+          <label>{{localize "DW.Modifier"}}</label>
           <input type="text" name="data.rollMod" value="{{data.rollMod}}" data-dtype="Number"/>
         </div>
 
         <div class="resource">
-          <label>Requires Level</label>
+          <label>{{localize "DW.RequiresLevel"}}</label>
           <input type="text" name="data.requiresLevel" value="{{data.requiresLevel}}" data-dtype="Number"/>
         </div>
 
         <div class="resource">
-          <label>Requires Move</label>
+          <label>{{localize "DW.RequiresMove"}}</label>
           <input type="text" name="data.requiresMove" value="{{data.requiresMove}}" data-dtype="String"/>
         </div>
 
         <div class="resource">
-          <label>Move Type</label>
+          <label>{{localize "DW.MoveType"}}</label>
           <select name="data.moveType" data-dtype="String">
             {{#select data.moveType}}
             <option value="">—</option>
-            <option value="basic">Basic Move</option>
-            <option value="starting">Starting Move</option>
-            <option value="advanced">Advanced Move</option>
+            <option value="basic">{{localize "DW.MoveBasic"}}</option>
+            <option value="starting">{{localize "DW.MoveStarting"}}</option>
+            <option value="advanced">{{localize "DW.MoveAdvanced"}}</option>
             {{/select}}
           </select>
         </div>

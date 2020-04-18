@@ -10,6 +10,15 @@
   "DW.AbilityWis": "Wisdom",
   "DW.AbilityCha": "Charisma",
 
+  "DW.STR": "STR",
+  "DW.DEX": "DEX",
+  "DW.CON": "CON",
+  "DW.INT": "INT",
+  "DW.WIS": "WIS",
+  "DW.CHA": "CHA",
+  "DW.ASK": "ASK",
+  "DW.BOND": "BOND",
+
   "DW.DebilityStr": "Weak",
   "DW.DebilityDex": "Shaky",
   "DW.DebilityCon": "Sick",
@@ -26,6 +35,10 @@
   "DW.Look": "Look",
   "DW.Alignment": "Alignment",
   "DW.Race": "Race",
+  "DW.Bond": "Bond",
+
+  "DW.Dialog.Bond1": "Choose the bonus for the bond on this ",
+  "DW.Dialog.Bond2": " move.",
 
   "DW.MoveCreate": "Create Move",
   "DW.AddBasicMove": "Add a Basic move",
@@ -38,11 +51,45 @@
   "DW.MovesAdvanced": "Advanced Moves",
   "DW.MovesOther": "Other Moves",
 
+  "DW.MoveBasic": "Basic Move",
+  "DW.MoveStarting": "Starting Move",
+  "DW.MoveAdvanced": "Advanced Move",
+
   "DW.Description": "Description",
   "DW.Moves": "Moves",
   "DW.Biography": "Biography",
   "DW.Equipment": "Equipment",
+  "DW.Spells": "Spells",
 
-  "DW.AddEquipment": "Add equipment"
+  "DW.SpellLevel": "Spell Level",
+  "DW.Spells0": "Rotes",
+  "DW.Spells1": "1st Level Spells",
+  "DW.Spells2": "2nd Level Spells",
+  "DW.Spells3": "3rd Level Spells",
+  "DW.Spells4": "4th Level Spells",
+  "DW.Spells5": "5th Level Spells",
+  "DW.Spells6": "6th Level Spells",
+  "DW.Spells7": "7th Level Spells",
+  "DW.Spells8": "8th Level Spells",
+  "DW.Spells9": "9th Level Spells",
+
+  "DW.SpellPrepared": "Prepared",
+  "DW.SpellRollFormula": "Roll Formula",
+
+  "DW.AddEquipment": "Add equipment",
+  "DW.AddSpell": "Add spell",
+
+  "DW.Common.Description": "Description",
+  "DW.Common.Details": "Details",
+  "DW.Common.Name": "Name",
+
+  "DW.Roll": "Roll",
+  "DW.Modifier": "Modifier",
+  "DW.RequiresLevel": "Requires Level",
+  "DW.RequiresMove": "Requires Move",
+  "DW.MoveType": "Move Type",
+
+  "DW.Quantity": "Quantity",
+  "DW.Weight": "Weight"
 
 }

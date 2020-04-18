@@ -455,25 +455,29 @@
   .dungeonworld.sheet .cell--starting-moves .items-list,
   .dungeonworld.sheet .cell--advanced-moves .items-list,
   .dungeonworld.sheet .cell--other-moves .items-list,
-  .dungeonworld.sheet .cell--equipment .items-list {
+  .dungeonworld.sheet .cell--equipment .items-list,
+  .dungeonworld.sheet .cell--spells .items-list {
     padding: 0; }
     .dungeonworld.sheet .cell--basic-moves .items-list .item + .item,
     .dungeonworld.sheet .cell--starting-moves .items-list .item + .item,
     .dungeonworld.sheet .cell--advanced-moves .items-list .item + .item,
     .dungeonworld.sheet .cell--other-moves .items-list .item + .item,
-    .dungeonworld.sheet .cell--equipment .items-list .item + .item {
+    .dungeonworld.sheet .cell--equipment .items-list .item + .item,
+    .dungeonworld.sheet .cell--spells .items-list .item + .item {
       border-top: 1px solid #bcc8de; }
     .dungeonworld.sheet .cell--basic-moves .items-list .item,
     .dungeonworld.sheet .cell--starting-moves .items-list .item,
     .dungeonworld.sheet .cell--advanced-moves .items-list .item,
     .dungeonworld.sheet .cell--other-moves .items-list .item,
-    .dungeonworld.sheet .cell--equipment .items-list .item {
+    .dungeonworld.sheet .cell--equipment .items-list .item,
+    .dungeonworld.sheet .cell--spells .items-list .item {
       padding: 10px 0; }
   .dungeonworld.sheet .cell--basic-moves .item-name,
   .dungeonworld.sheet .cell--starting-moves .item-name,
   .dungeonworld.sheet .cell--advanced-moves .item-name,
   .dungeonworld.sheet .cell--other-moves .item-name,
-  .dungeonworld.sheet .cell--equipment .item-name {
+  .dungeonworld.sheet .cell--equipment .item-name,
+  .dungeonworld.sheet .cell--spells .item-name {
     font-size: 18px;
     font-weight: bold;
     -webkit-box-flex: 200px;
@@ -484,13 +488,15 @@
   .dungeonworld.sheet .cell--starting-moves .item-controls,
   .dungeonworld.sheet .cell--advanced-moves .item-controls,
   .dungeonworld.sheet .cell--other-moves .item-controls,
-  .dungeonworld.sheet .cell--equipment .item-controls {
+  .dungeonworld.sheet .cell--equipment .item-controls,
+  .dungeonworld.sheet .cell--spells .item-controls {
     text-align: right; }
   .dungeonworld.sheet .cell--basic-moves .item-description,
   .dungeonworld.sheet .cell--starting-moves .item-description,
   .dungeonworld.sheet .cell--advanced-moves .item-description,
   .dungeonworld.sheet .cell--other-moves .item-description,
-  .dungeonworld.sheet .cell--equipment .item-description {
+  .dungeonworld.sheet .cell--equipment .item-description,
+  .dungeonworld.sheet .cell--spells .item-description {
     -webkit-box-flex: 0;
     -ms-flex: none;
     flex: none;
@@ -503,7 +509,9 @@
   .dungeonworld.sheet .cell--other-moves .rollable:hover,
   .dungeonworld.sheet .cell--other-moves .rollable:focus,
   .dungeonworld.sheet .cell--equipment .rollable:hover,
-  .dungeonworld.sheet .cell--equipment .rollable:focus {
+  .dungeonworld.sheet .cell--equipment .rollable:focus,
+  .dungeonworld.sheet .cell--spells .rollable:hover,
+  .dungeonworld.sheet .cell--spells .rollable:focus {
     color: #5b7094;
     text-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
     cursor: pointer; }

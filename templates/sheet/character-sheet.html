@@ -106,6 +106,7 @@
         <nav class="sheet-tabs tabs" data-group="primary">
             <a class="item" data-tab="description">{{localize "DW.Description"}}</a>
             <a class="item" data-tab="moves">{{localize "DW.Moves"}}</a>
+            <a class="item" data-tab="spells">{{localize "DW.Spells"}}</a>
             <a class="item" data-tab="equipment">{{localize "DW.Equipment"}}</a>
         </nav>
 
@@ -196,6 +197,32 @@
                 </div>
 
               </section>
+            </div>
+
+            {{!-- Owned Spells Tab --}}
+            <div class="tab spells" data-group="primary" data-tab="spells">
+                <div class="cell cell--spells">
+                  <ol class="items-list">
+                  {{#each actor.spells as |spells spellLevel|}}
+                    <h2 class="cell__title">{{localize (concat "DW.Spells" spellLevel)}}</h2>
+                    <div class="item-controls">
+                      <button class="item-control item-create" title='{{localize "DW.Spells"}}' data-type="spell" data-level="{{spellLevel}}">
+                        <i class="fas fa-plus"></i> {{localize "DW.AddSpell"}}
+                      </button>
+                    </div>
+                    {{#each spells as |item id|}}
+                      <li class="item flexrow" data-item-id="{{item._id}}">
+                        {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
+                        <h4 class="item-name rollable spell-rollable" data-roll="{{item.data.rollFormula}}"><i class="fas fa-dice-d20"></i> {{item.name}}</h4>
+                        <div class="item-controls">
+                          <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                          <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </li>
+                    {{/each}}
+                  {{/each}}
+                  </ol>
+                </div>
             </div>
 
             {{!-- Owned Equipment Tab --}}

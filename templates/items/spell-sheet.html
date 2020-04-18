@@ -23,12 +23,18 @@
         {{!-- Details Tab --}}
         <div class="tab" data-group="primary" data-tab="details">
           <div class="resource">
-            <label>{{localize "DW.Quantity"}}</label>
-              <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
+            <label>{{localize "DW.SpellLevel"}}</label>
+              <input type="text" name="data.spellLevel" value="{{data.spellLevel}}" data-dtype="Number"/>
           </div>
+
           <div class="resource">
-            <label>{{localize "DW.Weight"}}</label>
-              <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
+            <label>{{localize "DW.SpellPrepared"}}</label>
+            <input type="checkbox" name="data.prepared" {{checked data.prepared}}/>
+          </div>
+
+          <div class="resource">
+            <label>{{localize "DW.SpellRollFormula"}}</label>
+              <input type="text" name="data.rollFormula" value="{{data.rollFormula}}" placeholder="e.g. 1d4+3" data-dtype="String"/>
           </div>
         </div>
     </section>

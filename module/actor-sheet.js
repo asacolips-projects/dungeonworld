@@ -54,6 +54,14 @@ export class DwActorSheet extends ActorSheet {
     const startingMoves = [];
     const advancedMoves = [];
     const equipment = [];
+    const spells = {
+      0: [],
+      1: [],
+      3: [],
+      5: [],
+      7: [],
+      9: []
+    };
 
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
@@ -81,6 +89,11 @@ export class DwActorSheet extends ActorSheet {
             break;
         }
       }
+      else if (i.type === 'spell') {
+        if (i.data.spellLevel != undefined) {
+          spells[i.data.spellLevel].push(i);
+        }
+      }
       // If this is equipment, we currently lump it together.
       else if (i.type === 'equipment') {
         equipment.push(i);
@@ -92,6 +105,9 @@ export class DwActorSheet extends ActorSheet {
     actorData.basicMoves = basicMoves;
     actorData.startingMoves = startingMoves;
     actorData.advancedMoves = advancedMoves;
+    // Spells
+    actorData.spells = spells;
+    // Equipment
     actorData.equipment = equipment;
   }
 
@@ -147,7 +163,7 @@ export class DwActorSheet extends ActorSheet {
     }
 
     // Handle rolls combing from moves.
-    if ($(a).hasClass('move-rollable') && data.roll) {
+    if ($(a).hasClass('move-rollable')) {
       formula = '2d6';
       templateData = {
         title: item.data.name,
@@ -216,6 +232,14 @@ export class DwActorSheet extends ActorSheet {
         this.rollMove(data.roll.toLowerCase(), actorData, data, templateData);
       }
     }
+    else if ($(a).hasClass('spell-rollable')) {
+      templateData = {
+        title: item.data.name,
+        trigger: null,
+        details: item.data.data.description
+      }
+      this.rollMove(data.roll, actorData, data, templateData);
+    }
 
 
 
@@ -226,33 +250,42 @@ export class DwActorSheet extends ActorSheet {
    * @param {Object} templateData
    */
   rollMove(roll, actorData, dataset, templateData, form = null) {
-    // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
-    let formula = '';
-    // Handle bond (user input).
-    if (roll == 'BOND') {
-      formula = form.bond.value ? `2d6+${form.bond.value}` : '2d6';
-      if (dataset.mod && dataset.mod != 0) {
-        formula += `+${dataset.mod}`;
-      }
-    }
-    // Handle ability scores (no input).
-    else if (roll.includes('2d6')) {
-      formula = roll;
-    }
-    // Handle moves.
-    else {
-      formula = `2d6+${actorData.abilities[roll].mod}`;
-      if (dataset.mod && dataset.mod != 0) {
-        formula += `+${dataset.mod}`;
-      }
-    }
     // Render the roll.
     let template = 'systems/dungeonworld/templates/chat/chat-move.html';
     renderTemplate(template, templateData).then(content => {
-      if (formula != null) {
-        let roll = new Roll(formula);
-        roll.roll();
-        roll.toMessage({ flavor: content });
+      if (roll) {
+        // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
+        let formula = '';
+        // Handle bond (user input).
+        if (roll == 'BOND') {
+          formula = form.bond.value ? `2d6+${form.bond.value}` : '2d6';
+          if (dataset.mod && dataset.mod != 0) {
+            formula += `+${dataset.mod}`;
+          }
+        }
+        // Handle ability scores (no input).
+        else if (roll.includes('d')) {
+          formula = roll;
+        }
+        // Handle moves.
+        else {
+          formula = `2d6+${actorData.abilities[roll].mod}`;
+          if (dataset.mod && dataset.mod != 0) {
+            formula += `+${dataset.mod}`;
+          }
+        }
+        if (formula != null) {
+          let roll = new Roll(formula);
+          roll.roll();
+          roll.toMessage({ flavor: content });
+        }
+      }
+      else {
+        ChatMessage.create({
+          user: game.user._id,
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          content: content
+        });
       }
     });
   }
@@ -289,6 +322,7 @@ export class DwActorSheet extends ActorSheet {
     const type = header.dataset.type;
     const data = duplicate(header.dataset);
     data.moveType = data.movetype;
+    data.spellLevel = data.level;
     const itemData = {
       name: `New ${type.capitalize()}`,
       type: type,
