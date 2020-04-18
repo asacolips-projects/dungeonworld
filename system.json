@@ -4,7 +4,7 @@
   "description": "The Dungeon World system for FoundryVTT!",
   "version": "0.1.0",
   "minimumCoreVersion": "0.5.2",
-  "compatibleCoreVersion": "0.5.3",
+  "compatibleCoreVersion": "0.5.5",
   "templateVersion": 2,
   "author": "Asacolips",
   "esmodules": ["module/dungeonworld.js"],
