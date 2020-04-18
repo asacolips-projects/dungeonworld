@@ -10,3 +10,5 @@ Compatible with FoundryVTT 0.3.x
 # Description
 
 Build campaigns in the Dungeon World RPG using Foundry VTT!
+
+![Screenshot of the player character sheet](https://i.imgur.com/pBDNyoh.png)
