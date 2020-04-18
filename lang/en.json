@@ -18,5 +18,31 @@
   "DW.DebilityCha": "Scarred",
 
   "DW.Level": "Level",
-  "DW.XP": "Experience"
+  "DW.XP": "Experience",
+  "DW.Damage": "Damage",
+  "DW.Armor": "Armor",
+  "DW.HP": "HP",
+
+  "DW.Look": "Look",
+  "DW.Alignment": "Alignment",
+  "DW.Race": "Race",
+
+  "DW.MoveCreate": "Create Move",
+  "DW.AddBasicMove": "Add a Basic move",
+  "DW.AddStartingMove": "Add a Starting move",
+  "DW.AddAdvancedMove": "Add an Advanced move",
+  "DW.AddMove": "Add a move",
+
+  "DW.MovesBasic": "Basic Moves",
+  "DW.MovesStarting": "Starting Moves",
+  "DW.MovesAdvanced": "Advanced Moves",
+  "DW.MovesOther": "Other Moves",
+
+  "DW.Description": "Description",
+  "DW.Moves": "Moves",
+  "DW.Biography": "Biography",
+  "DW.Equipment": "Equipment",
+
+  "DW.AddEquipment": "Add equipment"
+
 }

@@ -1,0 +1,76 @@
+.window-app {
+  background: $c-navy;
+
+  a,
+  &.filepicker .file-directory > li {
+    &:hover,
+    &:focus {
+      color: $c-navy-up;
+      text-shadow: 0 0 5px rgba($c-navy-up, 0.25);
+    }
+  }
+
+  .tabs {
+    .item.active {
+      color: $c-navy-up;
+      text-shadow: 0 0 5px rgba($c-navy-up, 0.25);
+    }
+  }
+
+  input,
+  button,
+  select,
+  textarea {
+    font-family: $font-stack-base;
+    font-size: 14px;
+    border: 0;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 5px #38366378;
+      border: 0;
+      outline: 0;
+    }
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    &:hover,
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  input,
+  textarea {
+    border: 0;
+    margin: 5px 0;
+  }
+
+  button {
+    font-family: $font-stack-base;
+    border: 0;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 5px rgba($c-navy-up, 0.25);
+      background-color: $c-navy-top;
+    }
+  }
+}
+
+.window-header {
+  color: $c-white;
+  font-family: $font-stack-secondary;
+
+  a {
+    &:hover,
+    &:focus {
+      color: $c-navy-top;
+    }
+  }
+}
+
+.window-content {
+  background: $c-white;
+}

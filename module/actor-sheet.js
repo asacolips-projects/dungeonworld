@@ -8,11 +8,18 @@ export class DwActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "actor"],
-      template: "systems/dungeonworld/templates/actor-sheet.html",
       width: 750,
-      height: 850,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "main" }]
+      height: 900,
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "moves" }]
     });
+  }
+
+  /* -------------------------------------------- */
+
+  /** @override */
+  get template() {
+    const path = "systems/dungeonworld/templates/sheet";
+    return `${path}/${this.actor.data.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
@@ -24,16 +31,6 @@ export class DwActorSheet extends ActorSheet {
     for (let attr of Object.values(data.data.attributes)) {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
-    // Ability Scores
-    // for (let [a, abl] of Object.entries(data.actor.data.abilities)) {
-    //   abl.mod = Math.floor((abl.value - 10) / 2);
-    //   abl.label = CONFIG.DW.abilities[a];
-    //   abl.debilityLabel = CONFIG.DW.debilities[a];
-    //   // Adjust mod based on debility.
-    //   if (abl.debility) {
-    //     abl.mod -= 1;
-    //   }
-    // }
     // Prepare items.
     this._prepareCharacterItems(data);
 
@@ -53,6 +50,9 @@ export class DwActorSheet extends ActorSheet {
 
     // Initialize containers.
     const moves = [];
+    const basicMoves = [];
+    const startingMoves = [];
+    const advancedMoves = [];
     const equipment = [];
 
     // Iterate through items, allocating to containers
@@ -60,9 +60,28 @@ export class DwActorSheet extends ActorSheet {
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
+      // If this is a move, sort into various arrays.
       if (i.type === 'move') {
-        moves.push(i);
+        switch (i.data.moveType) {
+          // TODO: Basic moves.
+          // case 'basic':
+          //   basicMoves.push(i);
+          //   break;
+
+          case 'starting':
+            startingMoves.push(i);
+            break;
+
+          case 'advanced':
+            advancedMoves.push(i);
+            break;
+
+          default:
+            moves.push(i);
+            break;
+        }
       }
+      // If this is equipment, we currently lump it together.
       else if (i.type === 'equipment') {
         equipment.push(i);
       }
@@ -70,6 +89,9 @@ export class DwActorSheet extends ActorSheet {
 
     // Assign and return
     actorData.moves = moves;
+    actorData.basicMoves = basicMoves;
+    actorData.startingMoves = startingMoves;
+    actorData.advancedMoves = advancedMoves;
     actorData.equipment = equipment;
   }
 
@@ -84,58 +106,155 @@ export class DwActorSheet extends ActorSheet {
 
     // Toggle look.
     html.find('.toggle--look').on('click', this._toggleLook.bind(this, html));
+
+    // Owned Item management
+    html.find('.item-create').click(this._onItemCreate.bind(this));
+    html.find('.item-edit').click(this._onItemEdit.bind(this));
+    html.find('.item-delete').click(this._onItemDelete.bind(this));
   }
 
   /* -------------------------------------------- */
-
-  /**
-   * Listen for click events on an attribute control to modify the composition of attributes in the sheet
-   * @param {MouseEvent} event    The originating left click event
-   * @private
-   */
-  async _onClickAttributeControl(event) {
-    event.preventDefault();
-    const a = event.currentTarget;
-    const action = a.dataset.action;
-    const attrs = this.object.data.data.attributes;
-    const form = this.form;
-
-    // Add new attribute
-    if (action === "create") {
-      const nk = Object.keys(attrs).length + 1;
-      let newKey = document.createElement("div");
-      newKey.innerHTML = `<input type="text" name="data.attributes.attr${nk}.key" value="attr${nk}"/>`;
-      newKey = newKey.children[0];
-      form.appendChild(newKey);
-      await this._onSubmit(event);
-    }
-
-    // Remove existing attribute
-    else if (action === "delete") {
-      const li = a.closest(".attribute");
-      li.parentElement.removeChild(li);
-      await this._onSubmit(event);
-    }
-  }
 
   /**
    * Listen for click events on rollables.
    * @param {MouseEvent} event
    */
   async _onRollable(event) {
+    // Initialize variables.
     event.preventDefault();
     const a = event.currentTarget;
     const data = a.dataset;
+    const actorData = this.actor.data.data;
+    const itemId = $(a).parents('.item').attr('data-item-id');
+    const item = this.actor.getOwnedItem(itemId);
+    let formula = null;
+    let flavorText = null;
+    let templateData = {};
 
+    // Handle rolls coming directly from the ability score.
     if ($(a).hasClass('ability-rollable') && data.mod) {
-      let roll = new Roll(`2d6+${data.mod}`);
-      let flavorTextt = `<strong>${data.label}</strong>`;
+      formula = `2d6+${data.mod}`;
+      flavorText = data.label;
       if (data.debility) {
-        flavorTextt += ` (${data.debility})`;
+        flavorText += ` (${data.debility})`;
       }
-      roll.roll();
-      roll.toMessage({ flavor: flavorTextt });
+
+      templateData = {
+        title: flavorText
+      };
+
+      this.rollMove(formula, actorData, data, templateData);
     }
+
+    // Handle rolls combing from moves.
+    if ($(a).hasClass('move-rollable') && data.roll) {
+      formula = '2d6';
+      templateData = {
+        title: item.data.name,
+        trigger: null,
+        details: item.data.data.description
+      };
+      // If this is an ASK roll, render a prompt first to determine which
+      // score to use.
+      if (data.roll == 'ASK') {
+        new Dialog({
+          title: `Choose an ability`,
+          content: `<p>Choose an ability for this <strong>${item.data.name}</strong> move.</p>`,
+          buttons: {
+            str: {
+              label: 'STR',
+              callback: () => this.rollMove('str', actorData, data, templateData)
+            },
+            dex: {
+              label: 'DEX',
+              callback: () => this.rollMove('dex', actorData, data, templateData)
+            },
+            con: {
+              label: 'CON',
+              callback: () => this.rollMove('con', actorData, data, templateData)
+            },
+            int: {
+              label: 'INT',
+              callback: () => this.rollMove('int', actorData, data, templateData)
+            },
+            wis: {
+              label: 'WIS',
+              callback: () => this.rollMove('wis', actorData, data, templateData)
+            },
+            cha: {
+              label: 'CHA',
+              callback: () => this.rollMove('cha', actorData, data, templateData)
+            }
+          }
+        }).render(true);
+      }
+      // If this is a BOND roll, render a different prompt to let the user
+      // enter their bond value.
+      else if (data.roll == 'BOND') {
+        let template = 'systems/dungeonworld/templates/chat/roll-dialog.html';
+        let dialogData = {
+          title: item.data.name,
+          bond: null
+        };
+        const html = await renderTemplate(template, dialogData);
+        return new Promise(resolve => {
+          new Dialog({
+            title: `Enter your bond`,
+            content: html,
+            buttons: {
+              submit: {
+                label: 'Roll',
+                callback: html => this.rollMove('BOND', actorData, data, templateData, html[0].children[0])
+              }
+            }
+          }).render(true);
+        })
+
+      }
+      // Otherwise, grab the data from the move and pass it along.
+      else {
+        this.rollMove(data.roll.toLowerCase(), actorData, data, templateData);
+      }
+    }
+
+
+
+  }
+
+  /**
+   * Roll a move and use the chat card template.
+   * @param {Object} templateData
+   */
+  rollMove(roll, actorData, dataset, templateData, form = null) {
+    // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
+    let formula = '';
+    // Handle bond (user input).
+    if (roll == 'BOND') {
+      formula = form.bond.value ? `2d6+${form.bond.value}` : '2d6';
+      if (dataset.mod && dataset.mod != 0) {
+        formula += `+${dataset.mod}`;
+      }
+    }
+    // Handle ability scores (no input).
+    else if (roll.includes('2d6')) {
+      formula = roll;
+    }
+    // Handle moves.
+    else {
+      formula = `2d6+${actorData.abilities[roll].mod}`;
+      if (dataset.mod && dataset.mod != 0) {
+        formula += `+${dataset.mod}`;
+      }
+    }
+    // Render the roll.
+    let template = 'systems/dungeonworld/templates/chat/chat-move.html';
+    renderTemplate(template, templateData).then(content => {
+      if (formula != null) {
+        let roll = new Roll(formula);
+        roll.roll();
+        roll.toMessage({ flavor: content });
+      }
+    });
   }
 
   /**
@@ -143,27 +262,76 @@ export class DwActorSheet extends ActorSheet {
    * @param {MouseEvent} event
    */
   _toggleLook(html, event) {
-    console.log(html);
-    console.log(event);
-    console.log(html.find('.toggle'));
-
-    let $look = html.find('.toggle--look');
-
+    // Add a class to the sidebar.
     html.find('.sheet-look').toggleClass('closed');
+
+    // Add a class to the toggle button.
+    let $look = html.find('.toggle--look');
     $look.toggleClass('closed');
 
     if ($look.hasClass('closed')) {
-      $look.text('>>');
+      $look.text('>');
     }
     else {
-      $look.text('<<');
+      $look.text('<');
     }
+  }
+
+  /* -------------------------------------------- */
+  /**
+   * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  _onItemCreate(event) {
+    event.preventDefault();
+    const header = event.currentTarget;
+    const type = header.dataset.type;
+    const data = duplicate(header.dataset);
+    data.moveType = data.movetype;
+    const itemData = {
+      name: `New ${type.capitalize()}`,
+      type: type,
+      data: data
+    };
+    delete itemData.data["type"];
+    return this.actor.createOwnedItem(itemData);
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Handle editing an existing Owned Item for the Actor
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  _onItemEdit(event) {
+    event.preventDefault();
+    const li = event.currentTarget.closest(".item");
+    const item = this.actor.getOwnedItem(li.dataset.itemId);
+    item.sheet.render(true);
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Handle deleting an existing Owned Item for the Actor
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  _onItemDelete(event) {
+    event.preventDefault();
+    const li = event.currentTarget.closest(".item");
+    this.actor.deleteOwnedItem(li.dataset.itemId);
   }
 
   /* -------------------------------------------- */
 
   /** @override */
   _updateObject(event, formData) {
+
+    // TODO: Determine if we still need this leftover code from the
+    // Simple Worldbuilding System.
 
     // Handle the free-form attributes list
     // const formAttrs = expandObject(formData).data.attributes || {};

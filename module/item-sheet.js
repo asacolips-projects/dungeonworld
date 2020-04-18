@@ -8,7 +8,6 @@ export class DwItemSheet extends ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "item"],
-      template: "systems/dungeonworld/templates/item-sheet.html",
       width: 520,
       height: 480,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
@@ -18,12 +17,18 @@ export class DwItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
+  get template() {
+    const path = "systems/dungeonworld/templates/items";
+    return `${path}/${this.item.data.type}-sheet.html`;
+  }
+
+  /* -------------------------------------------- */
+
+  /** @override */
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
-    for (let attr of Object.values(data.data.attributes)) {
-      attr.isCheckbox = attr.dtype === "Boolean";
-    }
+
     return data;
   }
 
@@ -85,26 +90,29 @@ export class DwItemSheet extends ItemSheet {
   /** @override */
   _updateObject(event, formData) {
 
-    // Handle the free-form attributes list
-    const formAttrs = expandObject(formData).data.attributes || {};
-    const attributes = Object.values(formAttrs).reduce((obj, v) => {
-      let k = v["key"].trim();
-      if (/[\s\.]/.test(k)) return ui.notifications.error("Attribute keys may not contain spaces or periods");
-      delete v["key"];
-      obj[k] = v;
-      return obj;
-    }, {});
+    // TODO: Determine if we still need this leftover code from the
+    // Simple Worldbuilding System.
 
-    // Remove attributes which are no longer used
-    for (let k of Object.keys(this.object.data.data.attributes)) {
-      if (!attributes.hasOwnProperty(k)) attributes[`-=${k}`] = null;
-    }
+    // // Handle the free-form attributes list
+    // const formAttrs = expandObject(formData).data.attributes || {};
+    // const attributes = Object.values(formAttrs).reduce((obj, v) => {
+    //   let k = v["key"].trim();
+    //   if (/[\s\.]/.test(k)) return ui.notifications.error("Attribute keys may not contain spaces or periods");
+    //   delete v["key"];
+    //   obj[k] = v;
+    //   return obj;
+    // }, {});
 
-    // Re-combine formData
-    formData = Object.entries(formData).filter(e => !e[0].startsWith("data.attributes")).reduce((obj, e) => {
-      obj[e[0]] = e[1];
-      return obj;
-    }, { _id: this.object._id, "data.attributes": attributes });
+    // // Remove attributes which are no longer used
+    // for (let k of Object.keys(this.object.data.data.attributes)) {
+    //   if (!attributes.hasOwnProperty(k)) attributes[`-=${k}`] = null;
+    // }
+
+    // // Re-combine formData
+    // formData = Object.entries(formData).filter(e => !e[0].startsWith("data.attributes")).reduce((obj, e) => {
+    //   obj[e[0]] = e[1];
+    //   return obj;
+    // }, { _id: this.object._id, "data.attributes": attributes });
 
     // Update the Item
     return this.object.update(formData);

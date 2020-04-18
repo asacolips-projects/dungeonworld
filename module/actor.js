@@ -46,6 +46,7 @@ export class ActorDw extends Actor {
       else {
         abl.mod = -3;
       }
+      // Add labels.
       abl.label = CONFIG.DW.abilities[a];
       abl.debilityLabel = CONFIG.DW.debilities[a];
       // Adjust mod based on debility.

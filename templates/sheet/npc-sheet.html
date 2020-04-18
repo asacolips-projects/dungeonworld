@@ -1,0 +1,23 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+  <div class="sheet-wrapper">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+      <div class="sheet-header__fields">
+        <input class="input--title" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+        <input class="input--title charclass" name="data.details.class" type="text" value="{{data.details.class}}" placeholder="Class"/>
+        <div class="flex-item flex-item--level">
+          <label for="data.atributes.level.value">{{ localize "DW.Level" }}</label>
+          <input name="data.attributes.level.value" type="text" value="{{data.attributes.level.value}}" placeholder="Level" data-dtype="Number"/>
+        </div>
+        <div class="flex-item flex-item--xp">
+          <label for="data.attributes.xp.value">{{ localize "DW.XP" }}</label>
+          <input name="data.attributes.xp.value" type="text" value="{{data.attributes.xp.value}}" placeholder="XP" data-dtype="Number"/>
+        </div>
+      </div>
+    </header>
+
+  </div>
+
+</form>

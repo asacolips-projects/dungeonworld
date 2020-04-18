@@ -1,0 +1,43 @@
+.cell--basic-moves,
+.cell--starting-moves,
+.cell--advanced-moves,
+.cell--other-moves,
+.cell--equipment {
+
+  .items-list {
+    padding: 0;
+
+    .item + .item {
+      border-top: 1px solid $c-navy-top;
+    }
+
+    .item {
+      padding: 10px 0;
+    }
+  }
+
+  .item-name {
+    font-size: 18px;
+    font-weight: bold;
+    flex: 200px 2;
+    margin: 0;
+  }
+
+  .item-controls {
+    text-align: right;
+  }
+
+  .item-description {
+    flex: none;
+    width: 100%;
+  }
+
+  .rollable {
+    &:hover,
+    &:focus {
+      color: $c-navy-up;
+      text-shadow: 0 0 5px rgba($c-navy-up, 0.25);
+      cursor: pointer;
+    }
+  }
+}

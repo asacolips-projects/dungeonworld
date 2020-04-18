@@ -12,6 +12,12 @@
     order: 0;
     margin-bottom: 10px;
     max-height: 80px;
+
+    input {
+      &::placeholder {
+        color: $c-navy-top;
+      }
+    }
   }
 
   .sheet-look {

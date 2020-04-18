@@ -1,0 +1,15 @@
+.item-form {
+  .sheet-header,
+  .sheet-navigation {
+    flex: 0 0 30px;
+  }
+
+  .sheet-header {
+    margin-bottom: 10px;
+  }
+
+  .tab,
+  .editor {
+    height: 100%;
+  }
+}

@@ -1,4 +1,13 @@
 .input--title {
-  font-weight: 700;
+  font-weight: bold;
   font-size: 18px;
+  font-family: $font-stack-secondary;
+}
+
+label,
+h2,
+h3,
+h4 {
+  font-family: $font-stack-secondary;
+  font-weight: bold;
 }
