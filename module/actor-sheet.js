@@ -264,7 +264,7 @@ export class DwActorSheet extends ActorSheet {
           }
         }
         // Handle ability scores (no input).
-        else if (roll.includes('d')) {
+        else if (roll.includes('d') && !roll.includes('dex')) {
           formula = roll;
         }
         // Handle moves.
