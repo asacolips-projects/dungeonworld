@@ -7,6 +7,7 @@
 // Import Modules
 import { DW } from "./config.js";
 import { ActorDw } from "./actor.js";
+import { ItemDw } from "./item.js";
 import { DwItemSheet } from "./item-sheet.js";
 import { DwActorSheet } from "./actor-sheet.js";
 
@@ -16,6 +17,12 @@ import { DwActorSheet } from "./actor-sheet.js";
 
 Hooks.once("init", async function() {
   console.log(`Initializing Dungeon World!`);
+
+  game.dungeonworld = {
+    ActorDw,
+    ItemDw,
+    rollItemMacro
+  };
 
 	/**
 	 * Set an initiative formula for the system
@@ -28,6 +35,7 @@ Hooks.once("init", async function() {
 
   CONFIG.DW = DW;
   CONFIG.Actor.entityClass = ActorDw;
+  CONFIG.Item.entityClass = ItemDw;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -44,6 +52,11 @@ Hooks.once("init", async function() {
     }
     return outStr;
   });
+});
+
+Hooks.once("ready", async function() {
+  // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
+  Hooks.on("hotbarDrop", (bar, data, slot) => createDwMacro(data, slot));
 });
 
 /* -------------------------------------------- */
@@ -68,3 +81,52 @@ Hooks.once("setup", function() {
 });
 
 /* -------------------------------------------- */
+/*  Hotbar Macros                               */
+/* -------------------------------------------- */
+
+/**
+ * Create a Macro from an Item drop.
+ * Get an existing item macro if one exists, otherwise create a new one.
+ * @param {Object} data     The dropped data
+ * @param {number} slot     The hotbar slot to use
+ * @returns {Promise}
+ */
+async function createDwMacro(data, slot) {
+  if (data.type !== "Item") return;
+  if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
+  const item = data.data;
+
+  // Create the macro command
+  const command = `game.dungeonworld.rollItemMacro("${item.name}");`;
+  let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
+  if (!macro) {
+    macro = await Macro.create({
+      name: item.name,
+      type: "script",
+      img: item.img,
+      command: command,
+      flags: { "dungeonworld.itemMacro": true }
+    });
+  }
+  game.user.assignHotbarMacro(macro, slot);
+  return false;
+}
+
+/**
+ * Create a Macro from an Item drop.
+ * Get an existing item macro if one exists, otherwise create a new one.
+ * @param {string} itemName
+ * @return {Promise}
+ */
+function rollItemMacro(itemName) {
+  const speaker = ChatMessage.getSpeaker();
+  let actor;
+  if (speaker.token) actor = game.actors.tokens[speaker.token];
+  if (!actor) actor = game.actors.get(speaker.actor);
+  const item = actor ? actor.items.find(i => i.name === itemName) : null;
+  if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
+
+  // Trigger the item roll
+  // if ( item.data.type === "spell" ) return actor.useSpell(item);
+  return item.roll();
+}

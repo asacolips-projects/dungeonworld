@@ -127,6 +127,15 @@ export class DwActorSheet extends ActorSheet {
     html.find('.item-create').click(this._onItemCreate.bind(this));
     html.find('.item-edit').click(this._onItemEdit.bind(this));
     html.find('.item-delete').click(this._onItemDelete.bind(this));
+
+    if (this.actor.owner) {
+      let handler = ev => this._onDragItemStart(ev);
+      html.find('li.item').each((i, li) => {
+        if (li.classList.contains("inventory-header")) return;
+        li.setAttribute("draggable", true);
+        li.addEventListener("dragstart", handler, false);
+      });
+    }
   }
 
   /* -------------------------------------------- */
@@ -161,88 +170,9 @@ export class DwActorSheet extends ActorSheet {
 
       this.rollMove(formula, actorData, data, templateData);
     }
-
-    // Handle rolls combing from moves.
-    if ($(a).hasClass('move-rollable')) {
-      formula = '2d6';
-      templateData = {
-        title: item.data.name,
-        trigger: null,
-        details: item.data.data.description
-      };
-      // If this is an ASK roll, render a prompt first to determine which
-      // score to use.
-      if (data.roll == 'ASK') {
-        new Dialog({
-          title: `Choose an ability`,
-          content: `<p>Choose an ability for this <strong>${item.data.name}</strong> move.</p>`,
-          buttons: {
-            str: {
-              label: 'STR',
-              callback: () => this.rollMove('str', actorData, data, templateData)
-            },
-            dex: {
-              label: 'DEX',
-              callback: () => this.rollMove('dex', actorData, data, templateData)
-            },
-            con: {
-              label: 'CON',
-              callback: () => this.rollMove('con', actorData, data, templateData)
-            },
-            int: {
-              label: 'INT',
-              callback: () => this.rollMove('int', actorData, data, templateData)
-            },
-            wis: {
-              label: 'WIS',
-              callback: () => this.rollMove('wis', actorData, data, templateData)
-            },
-            cha: {
-              label: 'CHA',
-              callback: () => this.rollMove('cha', actorData, data, templateData)
-            }
-          }
-        }).render(true);
-      }
-      // If this is a BOND roll, render a different prompt to let the user
-      // enter their bond value.
-      else if (data.roll == 'BOND') {
-        let template = 'systems/dungeonworld/templates/chat/roll-dialog.html';
-        let dialogData = {
-          title: item.data.name,
-          bond: null
-        };
-        const html = await renderTemplate(template, dialogData);
-        return new Promise(resolve => {
-          new Dialog({
-            title: `Enter your bond`,
-            content: html,
-            buttons: {
-              submit: {
-                label: 'Roll',
-                callback: html => this.rollMove('BOND', actorData, data, templateData, html[0].children[0])
-              }
-            }
-          }).render(true);
-        })
-
-      }
-      // Otherwise, grab the data from the move and pass it along.
-      else {
-        this.rollMove(data.roll.toLowerCase(), actorData, data, templateData);
-      }
+    else if (itemId != undefined) {
+      item.roll();
     }
-    else if ($(a).hasClass('spell-rollable')) {
-      templateData = {
-        title: item.data.name,
-        trigger: null,
-        details: item.data.data.description
-      }
-      this.rollMove(data.roll, actorData, data, templateData);
-    }
-
-
-
   }
 
   /**

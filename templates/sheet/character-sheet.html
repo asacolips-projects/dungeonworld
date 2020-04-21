@@ -139,7 +139,7 @@
                   </div>
                   <ol class="items-list">
                   {{#each actor.startingMoves as |item id|}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
+                    <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                       <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
                       <div class="item-controls">
@@ -161,7 +161,7 @@
                   </div>
                   <ol class="items-list">
                   {{#each actor.advancedMoves as |item id|}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
+                    <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                       <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
                       <div class="item-controls">
@@ -183,7 +183,7 @@
                   </div>
                   <ol class="items-list">
                   {{#each actor.moves as |item id|}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
+                    <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                       <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
                       <div class="item-controls">
@@ -211,7 +211,7 @@
                       </button>
                     </div>
                     {{#each spells as |item id|}}
-                      <li class="item flexrow" data-item-id="{{item._id}}">
+                      <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                         {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                         <h4 class="item-name rollable spell-rollable" data-roll="{{item.data.rollFormula}}"><i class="fas fa-dice-d20"></i> {{item.name}}</h4>
                         <div class="item-controls">
@@ -236,7 +236,7 @@
                   </div>
                   <ol class="items-list">
                   {{#each actor.equipment as |item id|}}
-                      <li class="item flexrow" data-item-id="{{item._id}}">
+                      <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                           {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                           <h4 class="item-name">{{item.name}}</h4>
                           <div class="item-controls">
