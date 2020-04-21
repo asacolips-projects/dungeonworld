@@ -2,14 +2,78 @@
   "name": "dungeonworld",
   "title": "Dungeon World",
   "description": "The Dungeon World system for FoundryVTT!",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "minimumCoreVersion": "0.5.2",
   "compatibleCoreVersion": "0.5.5",
   "templateVersion": 2,
   "author": "Asacolips",
   "esmodules": ["module/dungeonworld.js"],
   "styles": ["styles/dist/dungeonworld.css"],
-  "packs": [],
+  "packs": [
+    {
+      "name": "basic-moves",
+      "label": "Basic Moves",
+      "system": "dungeonworld",
+      "path": "./packs/basic-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "gm-movesprincipals",
+      "label": "GM Moves/Principals",
+      "system": "dungeonworld",
+      "path": "./packs/gm-movesprincipals.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rollable-tables",
+      "label": "Rollable Tables",
+      "system": "dungeonworld",
+      "path": "./packs/rollable-tables.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-barbarian-moves",
+      "label": "The Barbarian Moves",
+      "system": "dungeonworld",
+      "path": "./packs/the-barbarian-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-bard-moves",
+      "label": "The Bard Moves",
+      "system": "dungeonworld",
+      "path": "./packs/the-bard-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-cleric-moves",
+      "label": "The Cleric Moves",
+      "system": "dungeonworld",
+      "path": "./packs/the-cleric-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-druid-moves",
+      "label": "The Druid Moves",
+      "system": "dungeonworld",
+      "path": "./packs/the-druid-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-wizard-moves",
+      "label": "The Wizard Moves",
+      "system": "dungeonworld",
+      "path": "./packs/the-wizard-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-wizard-spells",
+      "label": "The Wizard Spells",
+      "system": "dungeonworld",
+      "path": "./packs/the-wizard-spells.db",
+      "entity": "Item"
+    }
+  ],
   "languages": [
     {
       "lang": "en",
