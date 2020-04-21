@@ -18,20 +18,6 @@
       "entity": "Item"
     },
     {
-      "name": "gm-movesprincipals",
-      "label": "GM Moves/Principals",
-      "system": "dungeonworld",
-      "path": "./packs/gm-movesprincipals.db",
-      "entity": "Item"
-    },
-    {
-      "name": "rollable-tables",
-      "label": "Rollable Tables",
-      "system": "dungeonworld",
-      "path": "./packs/rollable-tables.db",
-      "entity": "Item"
-    },
-    {
       "name": "the-barbarian-moves",
       "label": "The Barbarian Moves",
       "system": "dungeonworld",
@@ -53,10 +39,52 @@
       "entity": "Item"
     },
     {
+      "name": "the-cleric-spells",
+      "label": "The Cleric Spells",
+      "system": "dungeonworld",
+      "path": "./packs/the-cleric-spells.db",
+      "entity": "Item"
+    },
+    {
       "name": "the-druid-moves",
       "label": "The Druid Moves",
       "system": "dungeonworld",
       "path": "./packs/the-druid-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-fighter-moves",
+      "label": "The Fighter Moves",
+      "system": "dungeonworld",
+      "path": "./packs/the-fighter-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-immolator-moves",
+      "label": "The Immolator Moves",
+      "system": "dungeonworld",
+      "path": "./packs/the-immolator-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-paladin-moves",
+      "label": "The Paladin Moves",
+      "system": "dungeonworld",
+      "path": "./packs/the-paladin-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-ranger-moves",
+      "label": "The Ranger Moves",
+      "system": "dungeonworld",
+      "path": "./packs/the-ranger-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-thief-moves",
+      "label": "The Thief Moves",
+      "system": "dungeonworld",
+      "path": "./packs/the-thief-moves.db",
       "entity": "Item"
     },
     {
@@ -81,13 +109,18 @@
       "path": "lang/en.json"
     },
     {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    },
+    {
       "lang": "fr",
-      "name": "French",
+      "name": "Français",
       "path": "lang/fr.json"
     },
     {
       "lang": "de",
-      "name": "German",
+      "name": "Deutsche",
       "path": "lang/de.json"
     }
   ],

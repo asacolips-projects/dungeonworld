@@ -1,0 +1,95 @@
+{
+  "Dungeon World": "Dungeon World",
+  "DW.title": "Dungeon World",
+  "DW.description": "Juega a Dungeon World en FoundryVTT!",
+
+  "DW.AbilityStr": "Fuerza",
+  "DW.AbilityDex": "Destreza",
+  "DW.AbilityCon": "Constitución",
+  "DW.AbilityInt": "Inteligencia",
+  "DW.AbilityWis": "Sabiduría",
+  "DW.AbilityCha": "Carisma",
+
+  "DW.STR": "FUE",
+  "DW.DEX": "DES",
+  "DW.CON": "CON",
+  "DW.INT": "INT",
+  "DW.WIS": "SAB",
+  "DW.CHA": "CAR",
+  "DW.ASK": "PREGUNTAR",
+  "DW.BOND": "VÍNCULO",
+
+  "DW.DebilityStr": "Debilitado",
+  "DW.DebilityDex": "Tembloroso",
+  "DW.DebilityCon": "Enfermo",
+  "DW.DebilityInt": "Aturdido",
+  "DW.DebilityWis": "Confundido",
+  "DW.DebilityCha": "Marcado",
+
+  "DW.Level": "Nivel",
+  "DW.XP": "Experiencia",
+  "DW.Damage": "Daño",
+  "DW.Armor": "Armadura",
+  "DW.HP": "PG",
+
+  "DW.Look": "Apariencia",
+  "DW.Alignment": "Alineamiento",
+  "DW.Race": "Raza",
+  "DW.Bond": "Vínculos",
+
+  "DW.Dialog.Bond1": "Elige la bonificación para el vínculo en este ",
+  "DW.Dialog.Bond2": " movimiento.",
+
+  "DW.MoveCreate": "Crear un Movimiento",
+  "DW.AddBasicMove": "Añadir un Movimiento Básico",
+  "DW.AddStartingMove": "Añadir un Movimiento Inicial",
+  "DW.AddAdvancedMove": "Añadir un Movimiento Avanzado",
+  "DW.AddMove": "Añadir un Movimiento",
+
+  "DW.MovesBasic": "Movimientos Básicos",
+  "DW.MovesStarting": "Movimientos Iniciales",
+  "DW.MovesAdvanced": "Movimientos Avanzados",
+  "DW.MovesOther": "Otros Movimientos",
+
+  "DW.MoveBasic": "Movimiento Básicos",
+  "DW.MoveStarting": "Movimiento Inicial",
+  "DW.MoveAdvanced": "Movimiento Avanzado",
+
+  "DW.Description": "Descripción",
+  "DW.Moves": "Movimientos",
+  "DW.Biography": "Biografía",
+  "DW.Equipment": "Equipo",
+  "DW.Spells": "Conjuros",
+
+  "DW.SpellLevel": "Nivel del Conjuro",
+  "DW.Spells0": "Trucos",
+  "DW.Spells1": "Conjuros de Nivel 1",
+  "DW.Spells2": "Conjuros de Nivel 2",
+  "DW.Spells3": "Conjuros de Nivel 3",
+  "DW.Spells4": "Conjuros de Nivel 4",
+  "DW.Spells5": "Conjuros de Nivel 5",
+  "DW.Spells6": "Conjuros de Nivel 6",
+  "DW.Spells7": "Conjuros de Nivel 7",
+  "DW.Spells8": "Conjuros de Nivel 8",
+  "DW.Spells9": "Conjuros de Nivel 9",
+
+  "DW.SpellPrepared": "Preparado",
+  "DW.SpellRollFormula": "Fórmula de la Tirada",
+
+  "DW.AddEquipment": "Añadir Equipo",
+  "DW.AddSpell": "Añadir Conjuro",
+
+  "DW.Common.Description": "Descripción",
+  "DW.Common.Details": "Detalles",
+  "DW.Common.Name": "Nombre",
+
+  "DW.Roll": "Tirada",
+  "DW.Modifier": "Modifcador",
+  "DW.RequiresLevel": "Nivel Requerido",
+  "DW.RequiresMove": "Movimiento Requerido",
+  "DW.MoveType": "Tipo de Movimiento",
+
+  "DW.Quantity": "Cantidad",
+  "DW.Weight": "Peso"
+
+}
