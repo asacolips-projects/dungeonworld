@@ -48,9 +48,19 @@ export class DwItemSheet extends ItemSheet {
         tags = tags.concat(items);
       }
     }
+    // Reduce duplicates.
+    let tagNames = [];
+    for (let tag of tags) {
+      let tagName = tag.data.name.toLowerCase();
+      if (tagNames.includes(tagName) !== false) {
+        tags = tags.filter(item => item._id != tag._id);
+      }
+      else {
+        tagNames.push(tagName);
+      }
+    }
+    // Apply the final list to the data object.
     data.tagsAutocomplete = tags;
-    // TODO: Reduce duplicates.
-    // TODO: Create tags that don't already exist on focus out.
 
     return data;
   }
@@ -86,6 +96,8 @@ export class DwItemSheet extends ItemSheet {
       t[0].addClass("form-control");
       t[0].find('.tag-input').attr('list', 'tagslist');
     }
+
+    // TODO: Create tags that don't already exist on focus out.
   }
 
   /* -------------------------------------------- */
