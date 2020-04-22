@@ -1,0 +1,29 @@
+.tagging {
+  padding: 5px 10px 8px;
+
+  .tag {
+    background-color: $c-navy-up;
+    padding: 4px 22px 4px 6px;
+
+    .tag-i {
+      color: $c-white;
+
+      &:hover,
+      &:focus {
+        color: $c-navy;
+      }
+    }
+
+    > span {
+      display: none;
+    }
+
+  }
+
+  .tag-input {
+    &:hover,
+    &:focus {
+      box-shadow: 0 1px 0 $c-navy-up;
+    }
+  }
+}

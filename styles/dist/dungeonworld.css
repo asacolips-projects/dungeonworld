@@ -226,6 +226,20 @@
   .dungeonworld.sheet .item-form .tab,
   .dungeonworld.sheet .item-form .editor {
     height: 100%; }
+  .dungeonworld.sheet .tagging {
+    padding: 5px 10px 8px; }
+    .dungeonworld.sheet .tagging .tag {
+      background-color: #5b7094;
+      padding: 4px 22px 4px 6px; }
+      .dungeonworld.sheet .tagging .tag .tag-i {
+        color: #fff; }
+        .dungeonworld.sheet .tagging .tag .tag-i:hover, .dungeonworld.sheet .tagging .tag .tag-i:focus {
+          color: #2d3748; }
+      .dungeonworld.sheet .tagging .tag > span {
+        display: none; }
+    .dungeonworld.sheet .tagging .tag-input:hover, .dungeonworld.sheet .tagging .tag-input:focus {
+      -webkit-box-shadow: 0 1px 0 #5b7094;
+      box-shadow: 0 1px 0 #5b7094; }
   .dungeonworld.sheet .sheet-header {
     background: #2d3748;
     color: #fff; }
