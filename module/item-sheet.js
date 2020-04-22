@@ -94,7 +94,14 @@ export class DwItemSheet extends ItemSheet {
         'type-zone-class': 'tag-input'
       });
       t[0].addClass("form-control");
-      t[0].find('.tag-input').attr('list', 'tagslist');
+      t[0].find('.tag-input').each((index, element) => {
+        $(element).attr('list', 'tagslist').addClass('awesomplete');
+        // TODO: Get awesomplete working.
+        // new Awesomplete(element, {
+        //   list: document.querySelector("#tagslist"),
+        //   autoFirst: true
+        // })
+      });
     }
 
     // TODO: Create tags that don't already exist on focus out.

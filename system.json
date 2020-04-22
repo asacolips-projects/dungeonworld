@@ -10,12 +10,12 @@
   "esmodules": ["module/dungeonworld.js"],
   "styles": [
     "styles/lib/tag-basic-style.css",
-    "styles/lib/awesomeplete.base.css",
+    "styles/lib/awesomplete.css",
     "styles/dist/dungeonworld.css"
   ],
   "scripts": [
     "scripts/lib/tagging.min.js",
-    "scripts/lib/awesomeplete.min.js"
+    "scripts/lib/awesomplete.min.js"
   ],
   "packs": [
     {
