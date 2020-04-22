@@ -26,6 +26,7 @@
   "DW.Look": "Apparence",
   "DW.Alignment": "Alignement",
   "DW.Race": "Race",
+  "DW.Bond": "Lien",
 
   "DW.MoveCreate": "Créer Action",
   "DW.AddBasicMove": "Créer Action de base",
@@ -38,11 +39,44 @@
   "DW.MovesAdvanced": "Actions Avancées",
   "DW.MovesOther": "Autres Actions",
 
+  "DW.MoveBasic": "Action de base",
+  "DW.MoveStarting": "Action de départ",
+  "DW.MoveAdvanced": "Action avancée",
+
   "DW.Description": "Description",
   "DW.Moves": "Actions",
   "DW.Biography": "Biographie",
   "DW.Equipment": "Equipement",
+  "DW.Spells": "Sorts",
+  "DW.SpellLevel": "Niveau de sort",
+  "DW.Spells0": "Sort mineurs",
+  "DW.Spells1": "Sorts niv 1",
+  "DW.Spells2": "Sort niv 2",
+  "DW.Spells3": "Sort niv 3",
+  "DW.Spells4": "Sort niv 4",
+  "DW.Spells5": "Sort niv 5",
+  "DW.Spells6": "Sort niv 6",
+  "DW.Spells7": "Sort niv 7",
+  "DW.Spells8": "Sort niv 8",
+  "DW.Spells9": "Sort niv 9",
 
-  "DW.AddEquipment": "Ajouter équipement"
+  "DW.SpellPrepared": "Preparé",
+  "DW.SpellRollFormula": "lancer les dés de formule",
+
+  "DW.AddEquipment": "ajout d'équipement",
+  "DW.AddSpell": "ajout de sort",
+
+  "DW.Common.Description": "Description",
+  "DW.Common.Details": "Détails",
+  "DW.Common.Name": "Nom",
+
+  "DW.Roll": "lancer les dés",
+  "DW.Modifier": "Modificateur",
+  "DW.RequiresLevel": "Niveau requis",
+  "DW.RequiresMove": "Action requise",
+  "DW.MoveType": "Type d'action",
+
+  "DW.Quantity": "Quantité",
+  "DW.Weight": "Poid"
 
 }
