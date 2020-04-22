@@ -2,13 +2,21 @@
   "name": "dungeonworld",
   "title": "Dungeon World",
   "description": "The Dungeon World system for FoundryVTT!",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "minimumCoreVersion": "0.5.2",
   "compatibleCoreVersion": "0.5.5",
   "templateVersion": 2,
   "author": "Asacolips",
   "esmodules": ["module/dungeonworld.js"],
-  "styles": ["styles/dist/dungeonworld.css"],
+  "styles": [
+    "styles/lib/tag-basic-style.css",
+    "styles/lib/awesomeplete.base.css",
+    "styles/dist/dungeonworld.css"
+  ],
+  "scripts": [
+    "scripts/lib/tagging.min.js",
+    "scripts/lib/awesomeplete.min.js"
+  ],
   "packs": [
     {
       "name": "basic-moves",

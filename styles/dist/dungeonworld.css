@@ -77,6 +77,12 @@
 .vtt #chat-form textarea {
   background: #fff; }
 
+.vtt .directory-item .entity-name,
+.vtt .directory-item .entry-name {
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  padding-right: 10px; }
+
 .dungeonworld {
   font-family: "Roboto", serif; }
   .dungeonworld textarea {

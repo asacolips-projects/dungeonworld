@@ -90,6 +90,20 @@
   "DW.MoveType": "Move Type",
 
   "DW.Quantity": "Quantity",
-  "DW.Weight": "Weight"
+  "DW.Weight": "Weight",
+  "DW.Uses": "Uses",
+  "DW.MagicItem": "Magic Item",
+  "DW.ItemType": "Item Type",
+
+  "DW.Weapon": "Weapon",
+  "DW.DungeonGear": "Dungeon Gear",
+  "DW.Poison": "Poison",
+  "DW.Service": "Service",
+  "DW.Meal": "Meal",
+  "DW.Transport": "Transport",
+  "DW.LandBuildings": "Land and Buildings",
+  "DW.Bribe": "Bribe",
+  "DW.GiftsFinery": "Gifts and Finery",
+  "DW.Hoard": "Hoard"
 
 }

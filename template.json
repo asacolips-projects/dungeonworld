@@ -89,10 +89,15 @@
   }
 },
 "Item": {
-  "types": ["move", "equipment", "spell"],
+  "types": ["move", "equipment", "spell", "bond", "tag"],
+  "templates": {
+    "base": {
+      "name": "",
+      "description": ""
+    }
+  },
   "move": {
-    "name": "",
-    "description": "",
+    "templates": ["base"],
     "rollType": "",
     "rollMod": 0,
     "requiresLevel": 0,
@@ -100,17 +105,26 @@
     "moveType": null
   },
   "equipment": {
-    "description": "",
+    "templates": ["base"],
     "quantity": 1,
     "weight": 0,
+    "uses": 0,
+    "tags": [],
+    "magic": false,
+    "itemType": null,
     "attributes": {}
   },
   "spell": {
-    "name": "",
-    "description": "",
+    "templates": ["base"],
     "spellLevel": 0,
     "rollFormula": "",
     "prepared": false
+  },
+  "bond": {
+    "templates": ["base"]
+  },
+  "tag": {
+    "templates": ["base"]
   }
 }
 }

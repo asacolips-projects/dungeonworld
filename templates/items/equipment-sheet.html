@@ -24,11 +24,50 @@
         <div class="tab" data-group="primary" data-tab="details">
           <div class="resource">
             <label>{{localize "DW.Quantity"}}</label>
-              <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
+            <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
+          </div>
+          <div class="resource">
+            <label>{{localize "DW.Uses"}}</label>
+            <input type="text" name="data.uses" value="{{data.uses}}" data-dtype="Number"/>
           </div>
           <div class="resource">
             <label>{{localize "DW.Weight"}}</label>
-              <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
+            <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
+          </div>
+          <div class="resource">
+            <label>{{localize "DW.MagicItem"}}</label>
+            <input type="checkbox" name="data.magic" {{checked data.magic}}/>
+          </div>
+          <div class="resource">
+            <label>{{localize "DW.ItemType"}}</label>
+            <select name="data.itemType" data-dtype="String">
+              {{#select data.itemType}}
+              <option value="">—</option>
+              <option value="weapon">{{localize "DW.Weapon"}}</option>
+              <option value="armor">{{localize "DW.Armor"}}</option>
+              <option value="dungeongear">{{localize "DW.DungeonGear"}}</option>
+              <option value="poison">{{localize "DW.Poison"}}</option>
+              <option value="service">{{localize "DW.Service"}}</option>
+              <option value="meal">{{localize "DW.Meal"}}</option>
+              <option value="transport">{{localize "DW.Transport"}}</option>
+              <option value="landbuilding">{{localize "DW.LandBuildings"}}</option>
+              <option value="bribe">{{localize "DW.Bribe"}}</option>
+              <option value="giftsfinery">{{localize "DW.GiftsFinery"}}</option>
+              <option value="hoard">{{localize "DW.Hoard"}}</option>
+              {{/select}}
+            </select>
+          </div>
+
+          <div class="resource">
+            <label for="tag" class="control-label">Tag</label>
+            <input type="hidden" name="data.tagsString" value="{{ data.tagsString }}" />
+            <div data-tags-input-name="data.tags" id="tags">{{ data.tagsString }}</div>
+            <p class="help-block">Press Enter, Comma or Spacebar to create a new tag, Backspace or Delete to remove the last one.</p>
+            <datalist id="tagslist">
+              <option>messy</option>
+              <option>forceful</option>
+              <option>clumsy</option>
+            </datalist>
           </div>
         </div>
     </section>

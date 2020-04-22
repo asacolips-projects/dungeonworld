@@ -29,6 +29,17 @@ export class DwItemSheet extends ItemSheet {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
 
+    if (data.entity.type == 'equipment') {
+      if (data.data['tags[]'] != undefined) {
+        if (Array.isArray(data.data['tags[]'])) {
+          data.data.tagsString = data.data['tags[]'].join(', ');
+        }
+        else {
+          data.data.tagsString = data.data['tags[]'];
+        }
+      }
+    }
+
     return data;
   }
 
@@ -51,6 +62,18 @@ export class DwItemSheet extends ItemSheet {
 
     // Add or Remove Attribute
     html.find(".attributes").on("click", ".attribute-control", this._onClickAttributeControl.bind(this));
+
+    // Add tagging.
+    if ($('#tags').length > 0) {
+      var t = $("#tags").tagging({
+        'edit-on-delete': false,
+        'no-spacebar': true,
+        'no-duplicate-callback': function() { ui.notifications.error('Duplicate tags aren\'t allowed.') },
+        'type-zone-class': 'tag-input'
+      });
+      t[0].addClass("form-control");
+      t[0].find('.tag-input').attr('list', 'tagslist');
+    }
   }
 
   /* -------------------------------------------- */
