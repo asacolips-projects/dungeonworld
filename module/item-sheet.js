@@ -25,7 +25,7 @@ export class DwItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
 
@@ -39,6 +39,18 @@ export class DwItemSheet extends ItemSheet {
         }
       }
     }
+
+    // Build the tags list.
+    let tags = game.items.entities.filter(item => item.type == 'tag');
+    for (let c of game.packs) {
+      if (c.metadata.entity && c.metadata.entity == 'Item' && c.metadata.name == 'tags') {
+        let items = await c.getContent();
+        tags = tags.concat(items);
+      }
+    }
+    data.tagsAutocomplete = tags;
+    // TODO: Reduce duplicates.
+    // TODO: Create tags that don't already exist on focus out.
 
     return data;
   }

@@ -59,14 +59,14 @@
           </div>
 
           <div class="resource">
-            <label for="tag" class="control-label">Tag</label>
+            <label for="tag" class="control-label">Tags</label>
             <input type="hidden" name="data.tagsString" value="{{ data.tagsString }}" />
             <div data-tags-input-name="data.tags" id="tags">{{ data.tagsString }}</div>
-            <p class="help-block">Press Enter, Comma or Spacebar to create a new tag, Backspace or Delete to remove the last one.</p>
+            <p class="help-block">Press Enter or Comma to create a new tag, Backspace or Delete to remove the last one.</p>
             <datalist id="tagslist">
-              <option>messy</option>
-              <option>forceful</option>
-              <option>clumsy</option>
+            {{#each tagsAutocomplete as |tag key|}}
+              <option>{{toLowerCase tag.name}}</option>
+            {{/each}}
             </datalist>
           </div>
         </div>

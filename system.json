@@ -108,6 +108,13 @@
       "system": "dungeonworld",
       "path": "./packs/the-wizard-spells.db",
       "entity": "Item"
+    },
+    {
+      "name": "tags",
+      "label": "Tags",
+      "system": "dungeonworld",
+      "path": "./packs/tags.db",
+      "entity": "Item"
     }
   ],
   "languages": [
