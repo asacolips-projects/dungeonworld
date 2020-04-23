@@ -52,6 +52,10 @@ Hooks.once("init", async function() {
     }
     return outStr;
   });
+
+  Handlebars.registerHelper('toLowerCase', function(str) {
+    return str.toLowerCase();
+  });
 });
 
 Hooks.once("ready", async function() {

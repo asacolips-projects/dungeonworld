@@ -2,13 +2,23 @@
   "name": "dungeonworld",
   "title": "Dungeon World",
   "description": "The Dungeon World system for FoundryVTT!",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "minimumCoreVersion": "0.5.2",
   "compatibleCoreVersion": "0.5.5",
   "templateVersion": 2,
   "author": "Asacolips",
   "esmodules": ["module/dungeonworld.js"],
-  "styles": ["styles/dist/dungeonworld.css"],
+  "styles": [
+    "styles/lib/tag-basic-style.css",
+    "styles/lib/awesomplete.css",
+    "styles/lib/tagify.css",
+    "styles/dist/dungeonworld.css"
+  ],
+  "scripts": [
+    "scripts/lib/tagging.min.js",
+    "scripts/lib/tagify.min.js",
+    "scripts/lib/awesomplete.min.js"
+  ],
   "packs": [
     {
       "name": "basic-moves",
@@ -100,6 +110,13 @@
       "system": "dungeonworld",
       "path": "./packs/the-wizard-spells.db",
       "entity": "Item"
+    },
+    {
+      "name": "tags",
+      "label": "Tags",
+      "system": "dungeonworld",
+      "path": "./packs/tags.db",
+      "entity": "Item"
     }
   ],
   "languages": [
@@ -130,5 +147,5 @@
   "secondaryTokenAttribute": null,
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld",
   "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/raw/master/system.json",
-  "download": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/archive/master/dungeonworld-master.zip"
+  "download": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/archive/0.1.8/dungeonworld-master.zip"
 }
