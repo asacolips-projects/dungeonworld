@@ -38,9 +38,11 @@
   "DW.Race": "Race",
   "DW.Bond": "Bond",
   "DW.Bonds": "Bonds",
+  "DW.Tags": "Tags",
 
   "DW.AddBond": "Add bond",
   "DW.BondDefault": "_____ has a bond with me",
+  "DW.BondHelp": "________ bond text goes here.",
 
   "DW.Dialog.Bond1": "Choose the bonus for the bond on this ",
   "DW.Dialog.Bond2": " move.",
@@ -109,6 +111,8 @@
   "DW.LandBuildings": "Land and Buildings",
   "DW.Bribe": "Bribe",
   "DW.GiftsFinery": "Gifts and Finery",
-  "DW.Hoard": "Hoard"
+  "DW.Hoard": "Hoard",
+
+  "DW.TagsHelp": "(Use tab to autocomplete, commas to create new tags, and double click a tag to edit it)"
 
 }

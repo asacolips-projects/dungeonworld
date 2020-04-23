@@ -9,7 +9,7 @@ export class DwActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "actor"],
       width: 800,
-      height: 750,
+      height: 780,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "moves" }]
     });
   }

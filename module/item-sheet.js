@@ -10,7 +10,8 @@ export class DwItemSheet extends ItemSheet {
       classes: ["dungeonworld", "sheet", "item"],
       width: 520,
       height: 480,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "details" }]
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "details" }],
+      submitOnChange: false,
     });
   }
 
@@ -29,7 +30,9 @@ export class DwItemSheet extends ItemSheet {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
 
+    // Handle preprocessing for tagify data.
     if (data.entity.type == 'equipment') {
+      // If there are tags, convert it into a string.
       if (data.data.tags != undefined && data.data.tags != '') {
         let tagArray = [];
         try {
@@ -41,10 +44,12 @@ export class DwItemSheet extends ItemSheet {
           return item.value;
         }).join(', ');
       }
+      // Otherwise, set tags equal to the string.
       else {
-        data.data.tags = data.data.tagsString != undefined ? JSON.stringify([{ 'value': data.data.tagsString }]) : '';
+        data.data.tags = data.data.tagsString;
       }
     }
+
 
     return data;
   }
@@ -89,6 +94,19 @@ export class DwItemSheet extends ItemSheet {
       }
     }
 
+    // Sort the tagnames list.
+    tagNames.sort((a, b) => {
+      const aSort = a.toLowerCase();
+      const bSort = b.toLowerCase();
+      if (aSort < bSort) {
+        return -1;
+      }
+      if (aSort > bSort) {
+        return 1;
+      }
+      return 0;
+    });
+
     // Tagify!
     var $input = html.find('input[name="data.tags"]');
     if ($input.length > 0) {
@@ -102,13 +120,6 @@ export class DwItemSheet extends ItemSheet {
           enabled: 0,             // <- show suggestions on focus
           closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
         }
-      });
-
-      tagify.on('add', e => {
-        $('.tagify__dropdown').remove();
-        setTimeout(() => {
-          $(document).find('.tagify__input').focus();
-        }, 250);
       });
     }
 

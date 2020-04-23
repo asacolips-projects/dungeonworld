@@ -111,6 +111,7 @@
     "weight": 0,
     "uses": 0,
     "tags": [],
+    "tagsString": "",
     "magic": false,
     "itemType": null,
     "attributes": {}

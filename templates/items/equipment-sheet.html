@@ -23,8 +23,8 @@
         {{!-- Details Tab --}}
         <div class="tab" data-group="primary" data-tab="details">
           <div class="resource">
-            <label for="tag" class="control-label">Tags</label>
-            <div class="help-text"><p>(Use tab to autocomplete, or commas to create new tags)</p></div>
+            <label for="tag" class="control-label">{{localize "DW.Tags"}}</label>
+            <div class="help-text"><p>{{localize "DW.TagsHelp" }}</p></div>
             <input type="hidden" name="data.tagsString" value="{{ data.tagsString }}" />
             <input name='data.tags' class='some_class_name' placeholder='write some tags' value='{{ data.tags }}'/>
           </div>

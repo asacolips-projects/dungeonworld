@@ -147,5 +147,5 @@
   "secondaryTokenAttribute": null,
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld",
   "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/raw/master/system.json",
-  "download": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/archive/master/dungeonworld-master.zip"
+  "download": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/archive/0.1.8/dungeonworld-master.zip"
 }
