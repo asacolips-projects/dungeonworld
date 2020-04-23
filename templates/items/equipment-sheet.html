@@ -23,6 +23,12 @@
         {{!-- Details Tab --}}
         <div class="tab" data-group="primary" data-tab="details">
           <div class="resource">
+            <label for="tag" class="control-label">Tags</label>
+            <div class="help-text"><p>(Use tab to autocomplete, or commas to create new tags)</p></div>
+            <input type="hidden" name="data.tagsString" value="{{ data.tagsString }}" />
+            <input name='data.tags' class='some_class_name' placeholder='write some tags' value='{{ data.tags }}'/>
+          </div>
+          <div class="resource">
             <label>{{localize "DW.Quantity"}}</label>
             <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
           </div>
@@ -56,18 +62,6 @@
               <option value="hoard">{{localize "DW.Hoard"}}</option>
               {{/select}}
             </select>
-          </div>
-
-          <div class="resource">
-            <label for="tag" class="control-label">Tags</label>
-            <input type="hidden" name="data.tagsString" value="{{ data.tagsString }}" />
-            <div data-tags-input-name="data.tags" id="tags">{{ data.tagsString }}</div>
-            <p class="help-block">Press Enter or Comma to create a new tag, Backspace or Delete to remove the last one.</p>
-            <datalist id="tagslist">
-            {{#each tagsAutocomplete as |tag key|}}
-              <option>{{toLowerCase tag.name}}</option>
-            {{/each}}
-            </datalist>
           </div>
         </div>
     </section>

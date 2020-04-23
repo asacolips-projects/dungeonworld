@@ -76,6 +76,26 @@
 .vtt .window-content {
   background: #fff; }
 
+.vtt .tags-look .tagify__dropdown__item {
+  display: inline-block;
+  border-radius: 3px;
+  padding: .3em .5em;
+  border: 1px solid #CCC;
+  background: #F3F3F3;
+  margin: .2em;
+  font-size: .85em;
+  color: black;
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s; }
+
+.vtt .tags-look .tagify__dropdown__item--active {
+  color: black; }
+
+.vtt .tags-look .tagify__dropdown__item:hover {
+  background: lightyellow;
+  border-color: gold; }
+
 .vtt #chat-log .message {
   background: #fff;
   font-family: "Roboto", serif; }
@@ -286,6 +306,9 @@
     background-color: #5b7094; }
     .dungeonworld.sheet .awesomplete > ul::before {
       background-color: #5b7094; }
+  .dungeonworld.sheet .help-text {
+    color: #999;
+    font-size: 12px; }
   .dungeonworld.sheet .sheet-header {
     background: #2d3748;
     color: #fff; }

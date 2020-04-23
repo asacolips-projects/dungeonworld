@@ -30,15 +30,44 @@ export class DwItemSheet extends ItemSheet {
     data.dtypes = ["String", "Number", "Boolean"];
 
     if (data.entity.type == 'equipment') {
-      if (data.data['tags[]'] != undefined) {
-        if (Array.isArray(data.data['tags[]'])) {
-          data.data.tagsString = data.data['tags[]'].join(', ');
+      if (data.data.tags != undefined && data.data.tags != '') {
+        let tagArray = [];
+        try {
+          tagArray = JSON.parse(data.data.tags);
+        } catch (e) {
+          tagArray = [data.data.tags];
         }
-        else {
-          data.data.tagsString = data.data['tags[]'];
-        }
+        data.data.tagsString = tagArray.map((item) => {
+          return item.value;
+        }).join(', ');
+      }
+      else {
+        data.data.tags = data.data.tagsString != undefined ? JSON.stringify([{ 'value': data.data.tagsString }]) : '';
       }
     }
+
+    return data;
+  }
+
+  /* -------------------------------------------- */
+
+  /** @override */
+  async activateListeners(html) {
+    super.activateListeners(html);
+
+    // Activate tabs
+    let tabs = html.find('.tabs');
+    let initial = this._sheetTab;
+    new TabsV2(tabs, {
+      initial: initial,
+      callback: clicked => this._sheetTab = clicked.data("tab")
+    });
+
+    // Everything below here is only needed if the sheet is editable
+    if (!this.options.editable) return;
+
+    // Add or Remove Attribute
+    html.find(".attributes").on("click", ".attribute-control", this._onClickAttributeControl.bind(this));
 
     // Build the tags list.
     let tags = game.items.entities.filter(item => item.type == 'tag');
@@ -59,64 +88,27 @@ export class DwItemSheet extends ItemSheet {
         tagNames.push(tagName);
       }
     }
-    // Apply the final list to the data object.
-    data.tagsAutocomplete = tags;
 
-    return data;
-  }
-
-  /* -------------------------------------------- */
-
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-
-    // Activate tabs
-    let tabs = html.find('.tabs');
-    let initial = this._sheetTab;
-    new TabsV2(tabs, {
-      initial: initial,
-      callback: clicked => this._sheetTab = clicked.data("tab")
-    });
-
-    // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return;
-
-    // Add or Remove Attribute
-    html.find(".attributes").on("click", ".attribute-control", this._onClickAttributeControl.bind(this));
-
-    // Add tagging.
-    if ($('#tags').length > 0) {
-      var t = $("#tags").tagging({
-        'edit-on-delete': false,
-        'no-spacebar': true,
-        'no-duplicate-callback': function() { ui.notifications.error('Duplicate tags aren\'t allowed.') },
-        'type-zone-class': 'tag-input'
+    // Tagify!
+    var $input = html.find('input[name="data.tags"]');
+    if ($input.length > 0) {
+      // init Tagify script on the above inputs
+      var tagify = new Tagify($input[0], {
+        whitelist: tagNames,
+        maxTags: 'Infinity',
+        dropdown: {
+          maxItems: 20,           // <- mixumum allowed rendered suggestions
+          classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
+          enabled: 0,             // <- show suggestions on focus
+          closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
+        }
       });
-      t[0].addClass("form-control");
-      t[0].find('.tag-input').each((index, element) => {
-        $(element).addClass('awesomplete');
-        // Initialize awesomplete.
-        new Awesomplete(element, {
-          list: document.querySelector("#tagslist"),
-          autoFirst: true
-        })
-        // Handle tag selection from the list via the 'enter' key.
-        $(element).on('awesomplete-selectcomplete', (event) => {
-          // Remove the extra tag that gets created accidentally due to the
-          // keystroke being recognized by Tagging.
-          t[0].find('.tag').last().remove();
-          // Blur the input to trigger a tag creation with the new value.
-          $(element).trigger('blur');
-          // Refocus so that new tags can be entered.
-          $(element).focus();
-        });
-      });
-      // Handle tag placement in awesomplete.
-      t[0].on('add:after', (el, text, tagging) => {
-        // Move the tag out of awesomplete and into the tags container.
-        t[0].find('.awesomplete').before(t[0].find('.tag'));
-        t[0].find('.awesomplete .tag').remove();
+
+      tagify.on('add', e => {
+        $('.tagify__dropdown').remove();
+        setTimeout(() => {
+          $(document).find('.tagify__input').focus();
+        }, 250);
       });
     }
 
