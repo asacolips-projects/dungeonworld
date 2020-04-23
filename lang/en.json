@@ -31,11 +31,16 @@
   "DW.Damage": "Damage",
   "DW.Armor": "Armor",
   "DW.HP": "HP",
+  "DW.Misc": "e.g. d4+2",
 
   "DW.Look": "Look",
   "DW.Alignment": "Alignment",
   "DW.Race": "Race",
   "DW.Bond": "Bond",
+  "DW.Bonds": "Bonds",
+
+  "DW.AddBond": "Add bond",
+  "DW.BondDefault": "_____ has a bond with me",
 
   "DW.Dialog.Bond1": "Choose the bonus for the bond on this ",
   "DW.Dialog.Bond2": " move.",

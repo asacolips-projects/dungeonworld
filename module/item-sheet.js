@@ -10,7 +10,7 @@ export class DwItemSheet extends ItemSheet {
       classes: ["dungeonworld", "sheet", "item"],
       width: 520,
       height: 480,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "details" }]
     });
   }
 
@@ -95,16 +95,34 @@ export class DwItemSheet extends ItemSheet {
       });
       t[0].addClass("form-control");
       t[0].find('.tag-input').each((index, element) => {
-        $(element).attr('list', 'tagslist').addClass('awesomplete');
-        // TODO: Get awesomplete working.
-        // new Awesomplete(element, {
-        //   list: document.querySelector("#tagslist"),
-        //   autoFirst: true
-        // })
+        $(element).addClass('awesomplete');
+        // Initialize awesomplete.
+        new Awesomplete(element, {
+          list: document.querySelector("#tagslist"),
+          autoFirst: true
+        })
+        // Handle tag selection from the list via the 'enter' key.
+        $(element).on('awesomplete-selectcomplete', (event) => {
+          // Remove the extra tag that gets created accidentally due to the
+          // keystroke being recognized by Tagging.
+          t[0].find('.tag').last().remove();
+          // Blur the input to trigger a tag creation with the new value.
+          $(element).trigger('blur');
+          // Refocus so that new tags can be entered.
+          $(element).focus();
+        });
+      });
+      // Handle tag placement in awesomplete.
+      t[0].on('add:after', (el, text, tagging) => {
+        // Move the tag out of awesomplete and into the tags container.
+        t[0].find('.awesomplete').before(t[0].find('.tag'));
+        t[0].find('.awesomplete .tag').remove();
       });
     }
 
-    // TODO: Create tags that don't already exist on focus out.
+    // TODO: Create tags that don't already exist on focus out. This is a
+    // nice-to-have, but it's high risk due to how easy it will make it to
+    // create extra tags unintentionally.
   }
 
   /* -------------------------------------------- */

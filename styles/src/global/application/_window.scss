@@ -35,9 +35,12 @@
 
   input[type="radio"],
   input[type="checkbox"] {
+    transition: transform 0.25s ease-in-out;
+
     &:hover,
     &:focus {
       box-shadow: none;
+      transform: scale(1.8);
     }
   }
 
@@ -45,6 +48,10 @@
   textarea {
     border: 0;
     margin: 5px 0;
+
+    &::placeholder {
+      color: #bfbfbf;
+    }
   }
 
   button {

@@ -1,5 +1,9 @@
 .cell__title {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
   flex: 100%;
   background: $c-navy;
   color: $c-white;
@@ -7,6 +11,19 @@
   margin-bottom: 5px;
   font-weight: bold;
   font-family: $font-stack-secondary;
+
+  a,
+  button {
+    color: $c-white;
+  }
+
+  button {
+    &:hover,
+    &:focus {
+      background-color: $c-navy-up;
+      color: $c-white;
+    }
+  }
 }
 
 .cell--image {

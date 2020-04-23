@@ -15,7 +15,8 @@
           "min": 0
         },
         "damage": {
-          "value": "d6"
+          "value": "d6",
+          "misc": ""
         },
         "level": {
           "value": 1,

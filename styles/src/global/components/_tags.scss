@@ -27,3 +27,13 @@
     }
   }
 }
+
+.awesomplete {
+  > ul {
+    background-color: $c-navy-up;
+
+    &::before {
+      background-color: $c-navy-up;
+    }
+  }
+}
