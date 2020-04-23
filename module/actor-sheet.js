@@ -8,8 +8,8 @@ export class DwActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "actor"],
-      width: 750,
-      height: 900,
+      width: 800,
+      height: 780,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "moves" }]
     });
   }
@@ -54,6 +54,7 @@ export class DwActorSheet extends ActorSheet {
     const startingMoves = [];
     const advancedMoves = [];
     const equipment = [];
+    const bonds = [];
     const spells = {
       0: [],
       1: [],
@@ -98,6 +99,9 @@ export class DwActorSheet extends ActorSheet {
       else if (i.type === 'equipment') {
         equipment.push(i);
       }
+      else if (i.type === 'bond') {
+        bonds.push(i);
+      }
     }
 
     // Assign and return
@@ -109,6 +113,8 @@ export class DwActorSheet extends ActorSheet {
     actorData.spells = spells;
     // Equipment
     actorData.equipment = equipment;
+    // Bonds
+    actorData.bonds = bonds;
   }
 
   /* -------------------------------------------- */
@@ -164,6 +170,15 @@ export class DwActorSheet extends ActorSheet {
         flavorText += ` (${data.debility})`;
       }
 
+      templateData = {
+        title: flavorText
+      };
+
+      this.rollMove(formula, actorData, data, templateData);
+    }
+    else if ($(a).hasClass('damage-rollable') && data.roll) {
+      formula = data.roll;
+      flavorText = data.label;
       templateData = {
         title: flavorText
       };
@@ -253,8 +268,9 @@ export class DwActorSheet extends ActorSheet {
     const data = duplicate(header.dataset);
     data.moveType = data.movetype;
     data.spellLevel = data.level;
+    const name = type == 'bond' ? game.i18n.localize("DW.BondDefault") : `New ${type.capitalize()}`;
     const itemData = {
-      name: `New ${type.capitalize()}`,
+      name: name,
       type: type,
       data: data
     };

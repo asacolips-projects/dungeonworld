@@ -24,6 +24,10 @@ export class ActorDw extends Actor {
 
     // Ability Scores
     for (let [a, abl] of Object.entries(data.abilities)) {
+      // TODO: This is a possible formula, but would require limits on the
+      // upper and lower ends.
+      // abl.mod = Math.floor(abl.value * 0.4 - (abl.value < 11 ? 3.4 : 4.2));
+
       // Ability modifiers.
       if (abl.value >= 18) {
         abl.mod = 3;

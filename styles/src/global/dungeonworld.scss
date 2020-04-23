@@ -4,6 +4,7 @@
 .vtt {
   @import 'application/window';
   @import 'application/chat';
+  @import 'application/sidebar';
 }
 
 .dungeonworld {
@@ -26,10 +27,12 @@
     @import 'components/tabs';
     // Specific.
     @import 'components/item-form';
+    @import 'components/tags';
     @import 'components/header';
     @import 'components/attributes';
     @import 'components/abilities';
     @import 'components/biography';
     @import 'components/moves';
+    @import 'components/look';
   }
 }

@@ -18,6 +18,11 @@
       color: $c-white;
       padding: $padding-sm;
       height: 34px;
+
+      &.rollable:hover {
+        background: $c-navy-up;
+        cursor: pointer;
+      }
     }
   }
 
@@ -27,5 +32,27 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .cell--damage {
+    .damage-inputs {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    select {
+      flex: 1 1;
+    }
+
+    span {
+      padding: 0 4px;
+    }
+
+    input {
+      flex: 1 1;
+    }
   }
 }

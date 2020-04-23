@@ -28,15 +28,37 @@
       box-shadow: 0 0 5px #38366378;
       border: 0;
       outline: 0; }
-  .vtt .window-app input[type="radio"]:hover, .vtt .window-app input[type="radio"]:focus,
-  .vtt .window-app input[type="checkbox"]:hover,
-  .vtt .window-app input[type="checkbox"]:focus {
-    -webkit-box-shadow: none;
-    box-shadow: none; }
+  .vtt .window-app input[type="radio"],
+  .vtt .window-app input[type="checkbox"] {
+    -webkit-transition: -webkit-transform 0.25s ease-in-out;
+    transition: -webkit-transform 0.25s ease-in-out;
+    -o-transition: transform 0.25s ease-in-out;
+    transition: transform 0.25s ease-in-out;
+    transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out; }
+    .vtt .window-app input[type="radio"]:hover, .vtt .window-app input[type="radio"]:focus,
+    .vtt .window-app input[type="checkbox"]:hover,
+    .vtt .window-app input[type="checkbox"]:focus {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      -webkit-transform: scale(1.8);
+      -ms-transform: scale(1.8);
+      transform: scale(1.8); }
   .vtt .window-app input,
   .vtt .window-app textarea {
     border: 0;
     margin: 5px 0; }
+    .vtt .window-app input::-webkit-input-placeholder,
+    .vtt .window-app textarea::-webkit-input-placeholder {
+      color: #bfbfbf; }
+    .vtt .window-app input::-moz-placeholder,
+    .vtt .window-app textarea::-moz-placeholder {
+      color: #bfbfbf; }
+    .vtt .window-app input::-ms-input-placeholder,
+    .vtt .window-app textarea::-ms-input-placeholder {
+      color: #bfbfbf; }
+    .vtt .window-app input::placeholder,
+    .vtt .window-app textarea::placeholder {
+      color: #bfbfbf; }
   .vtt .window-app button {
     font-family: "Roboto", serif;
     border: 0; }
@@ -53,6 +75,26 @@
 
 .vtt .window-content {
   background: #fff; }
+
+.vtt .tags-look .tagify__dropdown__item {
+  display: inline-block;
+  border-radius: 3px;
+  padding: .3em .5em;
+  border: 1px solid #CCC;
+  background: #F3F3F3;
+  margin: .2em;
+  font-size: .85em;
+  color: black;
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s; }
+
+.vtt .tags-look .tagify__dropdown__item--active {
+  color: black; }
+
+.vtt .tags-look .tagify__dropdown__item:hover {
+  background: lightyellow;
+  border-color: gold; }
 
 .vtt #chat-log .message {
   background: #fff;
@@ -76,6 +118,12 @@
 
 .vtt #chat-form textarea {
   background: #fff; }
+
+.vtt .directory-item .entity-name,
+.vtt .directory-item .entry-name {
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  padding-right: 10px; }
 
 .dungeonworld {
   font-family: "Roboto", serif; }
@@ -180,7 +228,21 @@
     .dungeonworld.sheet .sheet-wrapper .sheet-body .sheet-tab {
       height: 100%; }
   .dungeonworld.sheet .cell__title {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     -webkit-box-flex: 100%;
     -ms-flex: 100%;
     flex: 100%;
@@ -190,6 +252,12 @@
     margin-bottom: 5px;
     font-weight: bold;
     font-family: "Martel", serif; }
+    .dungeonworld.sheet .cell__title a,
+    .dungeonworld.sheet .cell__title button {
+      color: #fff; }
+    .dungeonworld.sheet .cell__title button:hover, .dungeonworld.sheet .cell__title button:focus {
+      background-color: #5b7094;
+      color: #fff; }
   .dungeonworld.sheet .cell--image img {
     display: block;
     width: 100%;
@@ -220,6 +288,27 @@
   .dungeonworld.sheet .item-form .tab,
   .dungeonworld.sheet .item-form .editor {
     height: 100%; }
+  .dungeonworld.sheet .tagging {
+    padding: 5px 10px 8px; }
+    .dungeonworld.sheet .tagging .tag {
+      background-color: #5b7094;
+      padding: 4px 22px 4px 6px; }
+      .dungeonworld.sheet .tagging .tag .tag-i {
+        color: #fff; }
+        .dungeonworld.sheet .tagging .tag .tag-i:hover, .dungeonworld.sheet .tagging .tag .tag-i:focus {
+          color: #2d3748; }
+      .dungeonworld.sheet .tagging .tag > span {
+        display: none; }
+    .dungeonworld.sheet .tagging .tag-input:hover, .dungeonworld.sheet .tagging .tag-input:focus {
+      -webkit-box-shadow: 0 1px 0 #5b7094;
+      box-shadow: 0 1px 0 #5b7094; }
+  .dungeonworld.sheet .awesomplete > ul {
+    background-color: #5b7094; }
+    .dungeonworld.sheet .awesomplete > ul::before {
+      background-color: #5b7094; }
+  .dungeonworld.sheet .help-text {
+    color: #999;
+    font-size: 12px; }
   .dungeonworld.sheet .sheet-header {
     background: #2d3748;
     color: #fff; }
@@ -333,6 +422,9 @@
         color: #fff;
         padding: 5px;
         height: 34px; }
+        .dungeonworld.sheet .sheet-attributes .cell .cell__title.rollable:hover {
+          background: #5b7094;
+          cursor: pointer; }
     .dungeonworld.sheet .sheet-attributes .cell__counter {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -349,6 +441,32 @@
       -webkit-box-pack: justify;
       -ms-flex-pack: justify;
       justify-content: space-between; }
+    .dungeonworld.sheet .sheet-attributes .cell--damage .damage-inputs {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; }
+    .dungeonworld.sheet .sheet-attributes .cell--damage select {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+      flex: 1 1; }
+    .dungeonworld.sheet .sheet-attributes .cell--damage span {
+      padding: 0 4px; }
+    .dungeonworld.sheet .sheet-attributes .cell--damage input {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+      flex: 1 1; }
   .dungeonworld.sheet .cell--abilities {
     grid-column: span 3;
     background: rgba(91, 112, 148, 0.25);
@@ -515,3 +633,21 @@
     color: #5b7094;
     text-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
     cursor: pointer; }
+  .dungeonworld.sheet .cell--bonds .items-list {
+    padding: 0; }
+  .dungeonworld.sheet .cell--bonds .item {
+    margin-bottom: 4px; }
+  .dungeonworld.sheet .cell--bonds .flexrow {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap; }
+  .dungeonworld.sheet .cell--bonds .item-description {
+    -webkit-box-flex: 200px;
+    -ms-flex: 200px 1 1;
+    flex: 200px 1 1;
+    padding: 2px 4px;
+    background: rgba(0, 0, 0, 0.05); }
+    .dungeonworld.sheet .cell--bonds .item-description:hover, .dungeonworld.sheet .cell--bonds .item-description:focus {
+      -webkit-box-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
+      box-shadow: 0 0 5px rgba(91, 112, 148, 0.25); }
+  .dungeonworld.sheet .cell--bonds .item-delete {
+    padding-left: 8px; }

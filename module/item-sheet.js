@@ -10,7 +10,8 @@ export class DwItemSheet extends ItemSheet {
       classes: ["dungeonworld", "sheet", "item"],
       width: 520,
       height: 480,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "details" }],
+      submitOnChange: false,
     });
   }
 
@@ -25,9 +26,30 @@ export class DwItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
+
+    // Handle preprocessing for tagify data.
+    if (data.entity.type == 'equipment') {
+      // If there are tags, convert it into a string.
+      if (data.data.tags != undefined && data.data.tags != '') {
+        let tagArray = [];
+        try {
+          tagArray = JSON.parse(data.data.tags);
+        } catch (e) {
+          tagArray = [data.data.tags];
+        }
+        data.data.tagsString = tagArray.map((item) => {
+          return item.value;
+        }).join(', ');
+      }
+      // Otherwise, set tags equal to the string.
+      else {
+        data.data.tags = data.data.tagsString;
+      }
+    }
+
 
     return data;
   }
@@ -35,7 +57,7 @@ export class DwItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  activateListeners(html) {
+  async activateListeners(html) {
     super.activateListeners(html);
 
     // Activate tabs
@@ -51,6 +73,59 @@ export class DwItemSheet extends ItemSheet {
 
     // Add or Remove Attribute
     html.find(".attributes").on("click", ".attribute-control", this._onClickAttributeControl.bind(this));
+
+    // Build the tags list.
+    let tags = game.items.entities.filter(item => item.type == 'tag');
+    for (let c of game.packs) {
+      if (c.metadata.entity && c.metadata.entity == 'Item' && c.metadata.name == 'tags') {
+        let items = await c.getContent();
+        tags = tags.concat(items);
+      }
+    }
+    // Reduce duplicates.
+    let tagNames = [];
+    for (let tag of tags) {
+      let tagName = tag.data.name.toLowerCase();
+      if (tagNames.includes(tagName) !== false) {
+        tags = tags.filter(item => item._id != tag._id);
+      }
+      else {
+        tagNames.push(tagName);
+      }
+    }
+
+    // Sort the tagnames list.
+    tagNames.sort((a, b) => {
+      const aSort = a.toLowerCase();
+      const bSort = b.toLowerCase();
+      if (aSort < bSort) {
+        return -1;
+      }
+      if (aSort > bSort) {
+        return 1;
+      }
+      return 0;
+    });
+
+    // Tagify!
+    var $input = html.find('input[name="data.tags"]');
+    if ($input.length > 0) {
+      // init Tagify script on the above inputs
+      var tagify = new Tagify($input[0], {
+        whitelist: tagNames,
+        maxTags: 'Infinity',
+        dropdown: {
+          maxItems: 20,           // <- mixumum allowed rendered suggestions
+          classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
+          enabled: 0,             // <- show suggestions on focus
+          closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
+        }
+      });
+    }
+
+    // TODO: Create tags that don't already exist on focus out. This is a
+    // nice-to-have, but it's high risk due to how easy it will make it to
+    // create extra tags unintentionally.
   }
 
   /* -------------------------------------------- */
