@@ -9,19 +9,11 @@ var del = require('del');
 // Export our tasks.
 module.exports = {
 
-  // // Clean style guide files.
-  // styleguide: function() {
-  //   // You can use multiple globbing patterns as you would with `gulp.src`
-  //   return del([
-  //     './dist/style-guide/*'
-  //   ], {force: true});
-  // },
-
   // Clean CSS files.
   css: function() {
     return del([
       './css/*'
-    ], {force: true});
+    ], { force: true });
   },
 
   // // Clean JS files.
