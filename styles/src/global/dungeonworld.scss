@@ -36,3 +36,12 @@
     @import 'components/look';
   }
 }
+
+// Language overrides.
+.lang-de {
+  .ability {
+    .cell__title {
+      font-size: 12px;
+    }
+  }
+}

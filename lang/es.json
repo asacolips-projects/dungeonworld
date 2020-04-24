@@ -31,12 +31,19 @@
   "DW.Damage": "Daño",
   "DW.Armor": "Armadura",
   "DW.HP": "PG",
-
+  "DW.Misc": "p.ej. d4+2",
+  
   "DW.Look": "Apariencia",
   "DW.Alignment": "Alineamiento",
   "DW.Race": "Raza",
-  "DW.Bond": "Vínculos",
+  "DW.Bond": "Vínculo",
+  "DW.Bonds": "Vínculos",
+  "DW.Tags": "Etiquetas",
 
+  "DW.AddBond": "Añadir vínculo",
+  "DW.BondDefault": "_____ tiene un vínculo conmigo",
+  "DW.BondHelp": "________ el texto del vínculo va aquí.",
+  
   "DW.Dialog.Bond1": "Elige la bonificación para el vínculo en este ",
   "DW.Dialog.Bond2": " movimiento.",
 
@@ -90,6 +97,22 @@
   "DW.MoveType": "Tipo de Movimiento",
 
   "DW.Quantity": "Cantidad",
-  "DW.Weight": "Peso"
+  "DW.Weight": "Peso",
+  "DW.Uses": "Usos",
+  "DW.MagicItem": "Objeto Mágico",
+  "DW.ItemType": "Tipo de Objeto",
+
+  "DW.Weapon": "Arma",
+  "DW.DungeonGear": "Equipo General",
+  "DW.Poison": "Veneno",
+  "DW.Service": "Servicio",
+  "DW.Meal": "Comida",
+  "DW.Transport": "Transporte",
+  "DW.LandBuildings": "Tierras y Edificios",
+  "DW.Bribe": "Soborno",
+  "DW.GiftsFinery": "Regalos y Ropas Elegantes",
+  "DW.Hoard": "Tesoro",
+
+  "DW.TagsHelp": "(Utiliza el tabulador para autocompletar, comas para crear una nueva etiqueta, y doble clic en una etiqueta para editarla)"
 
 }

@@ -117,6 +117,48 @@
       "system": "dungeonworld",
       "path": "./packs/tags.db",
       "entity": "Item"
+    },
+    {
+      "name": "equipment-armor",
+      "label": "Equipment (Armor)",
+      "system": "dungeonworld",
+      "path": "./packs/equipment-armor.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-class",
+      "label": "Equipment (Class)",
+      "system": "dungeonworld",
+      "path": "./packs/equipment-class.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-gear",
+      "label": "Equipment (Gear)",
+      "system": "dungeonworld",
+      "path": "./packs/equipment-gear.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-magic",
+      "label": "Equipment (Magic)",
+      "system": "dungeonworld",
+      "path": "./packs/equipment-magic.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-poisons",
+      "label": "Equipment (Poisons)",
+      "system": "dungeonworld",
+      "path": "./packs/equipment-poisons.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-weapons",
+      "label": "Equipment (Weapons)",
+      "system": "dungeonworld",
+      "path": "./packs/equipment-weapons.db",
+      "entity": "Item"
     }
   ],
   "languages": [

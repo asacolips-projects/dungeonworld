@@ -651,3 +651,6 @@
       box-shadow: 0 0 5px rgba(91, 112, 148, 0.25); }
   .dungeonworld.sheet .cell--bonds .item-delete {
     padding-left: 8px; }
+
+.lang-de .ability .cell__title {
+  font-size: 12px; }

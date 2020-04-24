@@ -61,6 +61,11 @@ Hooks.once("init", async function() {
 Hooks.once("ready", async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createDwMacro(data, slot));
+
+  // Add a lang class to the body.
+  const lang = game.settings.get('core', 'language');
+  console.log(lang);
+  $('html').addClass(`lang-${lang}`);
 });
 
 /* -------------------------------------------- */
