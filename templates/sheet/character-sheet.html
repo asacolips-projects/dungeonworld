@@ -164,6 +164,7 @@
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                       <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
                       <div class="item-controls">
+                        <a class="item-control item-details-toggle" title="Edit Item"><i class="fas fa-caret-right"></i></a>
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                       </div>
@@ -186,6 +187,7 @@
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                       <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
                       <div class="item-controls">
+                        <a class="item-control item-details-toggle" title="Show Details"><i class="fas fa-caret-right"></i></a>
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                       </div>
@@ -207,7 +209,8 @@
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                       <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
-                      <div class="item-controls">
+                      <div class="item-controls">   
+                        <a class="item-control item-details-toggle" title="Edit Item"><i class="fas fa-caret-right"></i></a>
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                       </div>
@@ -275,4 +278,3 @@
 
   </div>
 </form>
-

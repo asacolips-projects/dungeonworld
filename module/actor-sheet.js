@@ -117,6 +117,22 @@ export class DwActorSheet extends ActorSheet {
     actorData.bonds = bonds;
   }
 
+  _showItemDetails(event) {
+    event.preventDefault();
+    const toggler = $(event.currentTarget);
+    const toggleIcon = toggler.find('i');
+    const item = toggler.parents('.item');
+    const description = item.find('.item-description');
+    
+    if(toggleIcon.hasClass('fa-caret-right')) {
+      toggleIcon.removeClass('fa-caret-right').addClass('fa-caret-down');
+      description.slideDown();
+    } else {
+      toggleIcon.removeClass('fa-caret-down').addClass('fa-caret-right');
+      description.slideUp();
+    }
+  }
+
   /* -------------------------------------------- */
 
   /** @override */
@@ -133,6 +149,9 @@ export class DwActorSheet extends ActorSheet {
     html.find('.item-create').click(this._onItemCreate.bind(this));
     html.find('.item-edit').click(this._onItemEdit.bind(this));
     html.find('.item-delete').click(this._onItemDelete.bind(this));
+
+    // Moves
+    html.find('.moves .item-details-toggle').click(this._showItemDetails.bind(this));
 
     if (this.actor.owner) {
       let handler = ev => this._onDragItemStart(ev);
