@@ -76,7 +76,7 @@
         <section class="sheet-attributes">
 
           <div class="cell cell--damage">
-            <label class="cell__title damage-rollable rollable" data-roll="{{data.attributes.damage.value}}{{#if data.attributes.damage.misc}}+{{data.attributes.damage.misc}}{{/if}}" data-label="{{localize "DW.Damage"}}">{{localize "DW.Damage"}}</label>
+            <label class="cell__title damage-rollable rollable" data-roll="{{data.attributes.damage.value}}{{#if data.attributes.damage.misc}}+{{data.attributes.damage.misc}}{{/if}}" data-label="{{localize "DW.Damage"}}"><i class="fas fa-dice-d20"></i> {{localize "DW.Damage"}}</label>
             {{!-- <input type="text" name="data.attributes.damage.value" value="{{data.attributes.damage.value}}" data-dtype="String"/> --}}
             <div class="damage-inputs">
               <select name="data.attributes.damage.value" data-dtype="String">
@@ -106,6 +106,20 @@
               <span> / </span>
               <input type="text" name="data.attributes.hp.max" value="{{data.attributes.hp.max}}" data-dtype="Number"/>
             </div>
+          </div>
+
+          <div class="cell cell--weight">
+            <label for="data.attributes.weight.value" class="cell__title">{{localize "DW.Weight"}}</label>
+            <div class="cell__counter">
+              <input type="text" name="data.attributes.weight.value" value="{{data.attributes.weight.value}}" data-dtype="Number"/>
+              <span> / </span>
+              <input type="text" name="data.attributes.weight.max" value="{{data.attributes.weight.max}}" data-dtype="Number"/>
+            </div>
+          </div>
+
+          <div class="cell cell--coin">
+            <label class="cell__title">{{localize "DW.Coin"}}</label>
+            <input type="text" name="data.attributes.coin.value" value="{{data.attributes.coin.value}}" data-dtype="Number"/>
           </div>
 
           <div class="cell cell--abilities">

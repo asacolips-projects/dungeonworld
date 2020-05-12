@@ -1,10 +1,30 @@
 .sheet-attributes {
   display: grid;
-  grid-column: span 3 / span 3;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-column: span 16;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
   gap: 0px 10px;
   margin: 0 0 10px 0;
   padding: 0;
+
+  .cell {
+    text-align: center;
+
+    > .cell__title {
+      justify-content: center;
+
+      .fas {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .cell--abilities {
+    text-align: left;
+
+    > .cell__title {
+      justify-content: flex-start;
+    }
+  }
 
   .cell {
     display: flex;
@@ -35,6 +55,8 @@
   }
 
   .cell--damage {
+    grid-column: span 4;
+
     .damage-inputs {
       display: flex;
       flex-direction: row;
@@ -54,5 +76,12 @@
     input {
       flex: 1 1;
     }
+  }
+
+  .cell--ac,
+  .cell--hp,
+  .cell--weight,
+  .cell--coin {
+    grid-column: span 3;
   }
 }
