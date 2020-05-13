@@ -4,28 +4,23 @@
 
     {{!-- Sheet Header --}}
     <header class="sheet-header">
+      <div class="cell cell--image">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+      </div>
       <div class="sheet-header__fields">
         <input class="input--title" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
-        <input class="input--title charclass" name="data.details.class" type="text" value="{{data.details.class}}" placeholder="Class"/>
-        <div class="flex-item flex-item--level">
-          <label for="data.atributes.level.value">{{ localize "DW.Level" }}</label>
-          <input name="data.attributes.level.value" type="text" value="{{data.attributes.level.value}}" placeholder="Level" data-dtype="Number"/>
-        </div>
-        <div class="flex-item flex-item--xp">
-          <label for="data.attributes.xp.value">{{ localize "DW.XP" }}</label>
-          <input name="data.attributes.xp.value" type="text" value="{{data.attributes.xp.value}}" placeholder="XP" data-dtype="Number"/>
-        </div>
       </div>
     </header>
 
     {{!-- Main --}}
     <section class="sheet-main">
       {{!-- Attributes --}}
-      <section class="sheet-attributes">
+      <section class="sheet-attributes sheet-attributes--npc">
 
         <div class="cell cell--damage">
-          <label class="cell__title">{{localize "DW.Damage"}}</label>
+          <label class="cell__title damage-rollable rollable" data-roll="{{data.attributes.damage.value}}" data-label="{{localize "DW.Damage"}}" data-flavor="{{data.attributes.damage.piercing}}"><i class="fas fa-dice-d20"></i> {{localize "DW.Damage"}}</label>
           <input type="text" name="data.attributes.damage.value" value="{{data.attributes.damage.value}}" placeholder="e.g. 2d12+7" data-dtype="String"/>
+          <input type="text" name="data.attributes.damage.piercing" value="{{data.attributes.damage.piercing}}" placeholder="e.g. 4 piercing" data-dtype="String"/>
         </div>
 
         <div class="cell cell--ac">
@@ -42,17 +37,29 @@
           </div>
         </div>
 
+        <div class="cell cell--tags">
+          <label for="tag" class="control-label">{{localize "DW.Tags"}}</label>
+          <div class="help-text"><p>{{localize "DW.TagsHelp" }}</p></div>
+          <input type="hidden" name="data.tagsString" value="{{ data.tagsString }}" />
+          <input name='data.tags' class='some_class_name' placeholder='write some tags' value='{{ data.tags }}'/>
+        </div>
+
       </section>
 
       {{!-- Sheet Body --}}
       <section class="sheet-body">
 
+        <div class="cell cell--special-qualities">
+          <label class="cell__title">{{localize "DW.SpecialQualities"}}</label>
+          <input type="text" name="data.attributes.specialQualities.value" value="{{data.attributes.specialQualities.value}}" data-dtype="String"/>
+        </div>
+
         {{!-- Main Tab --}}
         <label class="cell__title">{{localize "DW.Description"}}</label>
         {{!-- We're avoiding WYSIWYGs... for now... --}}
-        {{!-- {{editor content=data.details.biography target="data.details.biography" button=true owner=owner editable=editable}} --}}
-        <textarea class="biography" name="data.details.biography" rows="5" title="Hey there! Who are you!?"
-                data-dtype="String">{{#if data.details.biography}}{{data.details.biography}}{{/if}}</textarea>
+        {{editor content=data.details.biography target="data.details.biography" button=true owner=owner editable=editable}}
+        {{!-- <textarea class="biography" name="data.details.biography" rows="5" title="Hey there! Who are you!?"
+                data-dtype="String">{{#if data.details.biography}}{{data.details.biography}}{{/if}}</textarea> --}}
       </section>
 
     </section>

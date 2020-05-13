@@ -16,7 +16,8 @@
         },
         "damage": {
           "value": "d6",
-          "misc": ""
+          "misc": "",
+          "piercing": ""
         },
         "level": {
           "value": 1,
@@ -95,7 +96,9 @@
     }
   },
   "npc": {
-    "templates": ["base"]
+    "templates": ["base"],
+    "tags": [],
+    "tagsString": ""
   }
 },
 "Item": {

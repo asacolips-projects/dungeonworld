@@ -1,5 +1,8 @@
 @import '../init';
 
+// Base styles.
+@import 'base/grid';
+
 // Theme overrides.
 .vtt {
   @import 'application/window';
@@ -34,6 +37,7 @@
     @import 'components/biography';
     @import 'components/moves';
     @import 'components/look';
+    @import 'components/npc';
   }
 }
 

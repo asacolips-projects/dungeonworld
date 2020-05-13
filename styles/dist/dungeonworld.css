@@ -1,5 +1,79 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
+.grid,
+.grid-2col {
+  display: grid;
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0; }
+
+.grid-3col {
+  grid-column: span 3 / span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.grid-4col {
+  grid-column: span 4 / span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.grid-5col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+.grid-6col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+.grid-7col {
+  grid-column: span 7 / span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr)); }
+
+.grid-8col {
+  grid-column: span 8 / span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr)); }
+
+.grid-9col {
+  grid-column: span 9 / span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr)); }
+
+.grid-10col {
+  grid-column: span 10 / span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr)); }
+
+.grid-11col {
+  grid-column: span 11 / span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr)); }
+
+.grid-12col {
+  grid-column: span 12 / span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #999; }
+
+.flex-group-left {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  text-align: left; }
+
+.flex-group-right {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  text-align: right; }
+
 .vtt .window-app {
   background: #2d3748; }
   .vtt .window-app a:hover, .vtt .window-app a:focus,
@@ -630,6 +704,7 @@
   .dungeonworld.sheet .cell--other-moves .item-description,
   .dungeonworld.sheet .cell--equipment .item-description,
   .dungeonworld.sheet .cell--spells .item-description {
+    display: none;
     -webkit-box-flex: 0;
     -ms-flex: none;
     flex: none;
@@ -666,6 +741,55 @@
       box-shadow: 0 0 5px rgba(91, 112, 148, 0.25); }
   .dungeonworld.sheet .cell--bonds .item-delete {
     padding-left: 8px; }
+  .dungeonworld.sheet.npc .cell--image {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 80px;
+    flex: 0 0 80px;
+    width: auto;
+    height: auto;
+    background: rgba(255, 255, 255, 0.25); }
+    .dungeonworld.sheet.npc .cell--image img {
+      width: auto;
+      height: auto;
+      margin: 0 auto; }
+  .dungeonworld.sheet.npc .sheet-attributes {
+    display: grid;
+    grid-column: span 4;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0px 10px;
+    margin: 0 0 10px 0;
+    padding: 0; }
+    .dungeonworld.sheet.npc .sheet-attributes .cell--ac,
+    .dungeonworld.sheet.npc .sheet-attributes .cell--hp {
+      grid-column: span 1; }
+    .dungeonworld.sheet.npc .sheet-attributes .cell--tags {
+      grid-column: span 4; }
+    .dungeonworld.sheet.npc .sheet-attributes .cell--damage {
+      grid-column: span 2; }
+      .dungeonworld.sheet.npc .sheet-attributes .cell--damage input + input {
+        margin-left: 5px; }
+  .dungeonworld.sheet.npc .help-text {
+    margin-left: 5px; }
+  .dungeonworld.sheet.npc .tagify {
+    width: 100%;
+    text-align: left; }
+  .dungeonworld.sheet.npc .sheet-main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+    .dungeonworld.sheet.npc .sheet-main .sheet-body {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
+    .dungeonworld.sheet.npc .sheet-main .editor {
+      height: calc(100% - 34px - 73px);
+      background: rgba(0, 0, 0, 0.05);
+      padding: 4px;
+      border-radius: 4px; }
 
 .lang-de .ability .cell__title {
   font-size: 12px; }

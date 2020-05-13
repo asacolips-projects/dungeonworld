@@ -10,6 +10,7 @@ import { ActorDw } from "./actor.js";
 import { ItemDw } from "./item.js";
 import { DwItemSheet } from "./item-sheet.js";
 import { DwActorSheet } from "./actor-sheet.js";
+import { DwActorNpcSheet } from "./actor-npc-sheet.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -39,7 +40,14 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("dungeonworld", DwActorSheet, { makeDefault: true });
+  Actors.registerSheet("dungeonworld", DwActorSheet, {
+    types: ['character'],
+    makeDefault: true
+  });
+  Actors.registerSheet("dungeonworld", DwActorNpcSheet, {
+    types: ['npc'],
+    makeDefault: true
+  });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("dungeonworld", DwItemSheet, { makeDefault: true });
 
@@ -64,7 +72,6 @@ Hooks.once("ready", async function() {
 
   // Add a lang class to the body.
   const lang = game.settings.get('core', 'language');
-  console.log(lang);
   $('html').addClass(`lang-${lang}`);
 });
 
