@@ -84,4 +84,26 @@
   .cell--coin {
     grid-column: span 3;
   }
+
+  .encumbered {
+    .cell__title {
+      background: $c-orange;
+      color: $c-white;
+
+    }
+
+    input[name="data.attributes.weight.value"] {
+      color: $c-orange;
+    }
+  }
+
+  .overencumbered {
+    .cell__title {
+      background: $c-red;
+    }
+
+    input[name="data.attributes.weight.value"] {
+      color: $c-red;
+    }
+  }
 }

@@ -556,6 +556,15 @@
     .dungeonworld.sheet .sheet-attributes .cell--weight,
     .dungeonworld.sheet .sheet-attributes .cell--coin {
       grid-column: span 3; }
+    .dungeonworld.sheet .sheet-attributes .encumbered .cell__title {
+      background: #f78c01;
+      color: #fff; }
+    .dungeonworld.sheet .sheet-attributes .encumbered input[name="data.attributes.weight.value"] {
+      color: #f78c01; }
+    .dungeonworld.sheet .sheet-attributes .overencumbered .cell__title {
+      background: #ca0000; }
+    .dungeonworld.sheet .sheet-attributes .overencumbered input[name="data.attributes.weight.value"] {
+      color: #ca0000; }
   .dungeonworld.sheet .cell--abilities {
     grid-column: span 16;
     background: rgba(91, 112, 148, 0.25);

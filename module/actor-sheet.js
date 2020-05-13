@@ -181,6 +181,29 @@ export class DwActorSheet extends ActorSheet {
     // Moves
     html.find('.moves .item-details-toggle').click(this._showItemDetails.bind(this));
 
+    // Adjust weight.
+    let $weight = html.find('[name="data.attributes.weight.value"]');
+    let $weight_cell = html.find('.cell--weight');
+    if ($weight.length > 0) {
+      let weight = {
+        current: Number($weight.val()),
+        max: Number(html.find('[name="data.attributes.weight.max"]').val())
+      };
+      if (weight.current > weight.max) {
+        $weight_cell.addClass('encumbered');
+
+        if (weight.current > weight.max + 2) {
+          $weight_cell.addClass('overencumbered');
+        }
+        else {
+          $weight_cell.removeClass('overencumbered');
+        }
+      }
+      else {
+        $weight.removeClass('encumbered');
+      }
+    }
+
     if (this.actor.owner) {
       let handler = ev => this._onDragItemStart(ev);
       html.find('li.item').each((i, li) => {
