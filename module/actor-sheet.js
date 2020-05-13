@@ -8,7 +8,7 @@ export class DwActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "actor"],
-      width: 800,
+      width: 840,
       height: 780,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "moves" }]
     });
@@ -33,6 +33,7 @@ export class DwActorSheet extends ActorSheet {
     }
     // Prepare items.
     this._prepareCharacterItems(data);
+    this._prepareNpcItems(data);
 
     // Return data to the sheet
     return data;
@@ -117,6 +118,49 @@ export class DwActorSheet extends ActorSheet {
     actorData.bonds = bonds;
   }
 
+  /**
+   * Prepare tagging.
+   *
+   * @param {Object} actorData The actor to prepare.
+   */
+  _prepareNpcItems(data) {
+    // Handle preprocessing for tagify data.
+    if (data.entity.type == 'npc') {
+      // If there are tags, convert it into a string.
+      if (data.data.tags != undefined && data.data.tags != '') {
+        let tagArray = [];
+        try {
+          tagArray = JSON.parse(data.data.tags);
+        } catch (e) {
+          tagArray = [data.data.tags];
+        }
+        data.data.tagsString = tagArray.map((item) => {
+          return item.value;
+        }).join(', ');
+      }
+      // Otherwise, set tags equal to the string.
+      else {
+        data.data.tags = data.data.tagsString;
+      }
+    }
+  }
+
+  _showItemDetails(event) {
+    event.preventDefault();
+    const toggler = $(event.currentTarget);
+    const toggleIcon = toggler.find('i');
+    const item = toggler.parents('.item');
+    const description = item.find('.item-description');
+
+    if (toggleIcon.hasClass('fa-caret-right')) {
+      toggleIcon.removeClass('fa-caret-right').addClass('fa-caret-down');
+      description.slideDown();
+    } else {
+      toggleIcon.removeClass('fa-caret-down').addClass('fa-caret-right');
+      description.slideUp();
+    }
+  }
+
   /* -------------------------------------------- */
 
   /** @override */
@@ -134,6 +178,9 @@ export class DwActorSheet extends ActorSheet {
     html.find('.item-edit').click(this._onItemEdit.bind(this));
     html.find('.item-delete').click(this._onItemDelete.bind(this));
 
+    // Moves
+    html.find('.moves .item-details-toggle').click(this._showItemDetails.bind(this));
+
     if (this.actor.owner) {
       let handler = ev => this._onDragItemStart(ev);
       html.find('li.item').each((i, li) => {
@@ -141,6 +188,10 @@ export class DwActorSheet extends ActorSheet {
         li.setAttribute("draggable", true);
         li.addEventListener("dragstart", handler, false);
       });
+    }
+
+    if (this.actor.data.type == 'npc') {
+      this._activateTagging(html);
     }
   }
 
@@ -159,6 +210,7 @@ export class DwActorSheet extends ActorSheet {
     const itemId = $(a).parents('.item').attr('data-item-id');
     const item = this.actor.getOwnedItem(itemId);
     let formula = null;
+    let titleText = null;
     let flavorText = null;
     let templateData = {};
 
@@ -178,9 +230,11 @@ export class DwActorSheet extends ActorSheet {
     }
     else if ($(a).hasClass('damage-rollable') && data.roll) {
       formula = data.roll;
-      flavorText = data.label;
+      titleText = data.label;
+      flavorText = data.flavor;
       templateData = {
-        title: flavorText
+        title: titleText,
+        flavor: flavorText
       };
 
       this.rollMove(formula, actorData, data, templateData);
@@ -307,34 +361,54 @@ export class DwActorSheet extends ActorSheet {
 
   /* -------------------------------------------- */
 
-  /** @override */
-  _updateObject(event, formData) {
+  async _activateTagging(html) {
+    // Build the tags list.
+    let tags = game.items.entities.filter(item => item.type == 'tag');
+    for (let c of game.packs) {
+      if (c.metadata.entity && c.metadata.entity == 'Item' && c.metadata.name == 'tags') {
+        let items = await c.getContent();
+        tags = tags.concat(items);
+      }
+    }
+    // Reduce duplicates.
+    let tagNames = [];
+    for (let tag of tags) {
+      let tagName = tag.data.name.toLowerCase();
+      if (tagNames.includes(tagName) !== false) {
+        tags = tags.filter(item => item._id != tag._id);
+      }
+      else {
+        tagNames.push(tagName);
+      }
+    }
 
-    // TODO: Determine if we still need this leftover code from the
-    // Simple Worldbuilding System.
+    // Sort the tagnames list.
+    tagNames.sort((a, b) => {
+      const aSort = a.toLowerCase();
+      const bSort = b.toLowerCase();
+      if (aSort < bSort) {
+        return -1;
+      }
+      if (aSort > bSort) {
+        return 1;
+      }
+      return 0;
+    });
 
-    // Handle the free-form attributes list
-    // const formAttrs = expandObject(formData).data.attributes || {};
-    // const attributes = Object.values(formAttrs).reduce((obj, v) => {
-    //   let k = v["key"].trim();
-    //   if (/[\s\.]/.test(k)) return ui.notifications.error("Attribute keys may not contain spaces or periods");
-    //   delete v["key"];
-    //   obj[k] = v;
-    //   return obj;
-    // }, {});
-
-    // Remove attributes which are no longer used
-    // for (let k of Object.keys(this.object.data.data.attributes)) {
-    //   if (!attributes.hasOwnProperty(k)) attributes[`-=${k}`] = null;
-    // }
-
-    // Re-combine formData
-    // formData = Object.entries(formData).filter(e => !e[0].startsWith("data.attributes")).reduce((obj, e) => {
-    //   obj[e[0]] = e[1];
-    //   return obj;
-    // }, { _id: this.object._id, "data.attributes": attributes });
-
-    // Update the Actor
-    return this.object.update(formData);
+    // Tagify!
+    var $input = html.find('input[name="data.tags"]');
+    if ($input.length > 0) {
+      // init Tagify script on the above inputs
+      var tagify = new Tagify($input[0], {
+        whitelist: tagNames,
+        maxTags: 'Infinity',
+        dropdown: {
+          maxItems: 20,           // <- mixumum allowed rendered suggestions
+          classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
+          enabled: 0,             // <- show suggestions on focus
+          closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
+        }
+      });
+    }
   }
 }

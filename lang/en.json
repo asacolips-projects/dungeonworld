@@ -101,6 +101,7 @@
   "DW.Uses": "Uses",
   "DW.MagicItem": "Magic Item",
   "DW.ItemType": "Item Type",
+  "DW.Coin": "Coin",
 
   "DW.Weapon": "Weapon",
   "DW.DungeonGear": "Dungeon Gear",
@@ -113,6 +114,7 @@
   "DW.GiftsFinery": "Gifts and Finery",
   "DW.Hoard": "Hoard",
 
-  "DW.TagsHelp": "(Use tab to autocomplete, commas to create new tags, and double click a tag to edit it)"
+  "DW.TagsHelp": "(Use tab to autocomplete, commas to create new tags, and double click a tag to edit it)",
+  "DW.SpecialQualities": "Special Qualities"
 
 }

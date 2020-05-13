@@ -76,7 +76,7 @@
         <section class="sheet-attributes">
 
           <div class="cell cell--damage">
-            <label class="cell__title damage-rollable rollable" data-roll="{{data.attributes.damage.value}}{{#if data.attributes.damage.misc}}+{{data.attributes.damage.misc}}{{/if}}" data-label="{{localize "DW.Damage"}}">{{localize "DW.Damage"}}</label>
+            <label class="cell__title damage-rollable rollable" data-roll="{{data.attributes.damage.value}}{{#if data.attributes.damage.misc}}+{{data.attributes.damage.misc}}{{/if}}" data-label="{{localize "DW.Damage"}}"><i class="fas fa-dice-d20"></i> {{localize "DW.Damage"}}</label>
             {{!-- <input type="text" name="data.attributes.damage.value" value="{{data.attributes.damage.value}}" data-dtype="String"/> --}}
             <div class="damage-inputs">
               <select name="data.attributes.damage.value" data-dtype="String">
@@ -106,6 +106,20 @@
               <span> / </span>
               <input type="text" name="data.attributes.hp.max" value="{{data.attributes.hp.max}}" data-dtype="Number"/>
             </div>
+          </div>
+
+          <div class="cell cell--weight">
+            <label for="data.attributes.weight.value" class="cell__title">{{localize "DW.Weight"}}</label>
+            <div class="cell__counter">
+              <input type="text" name="data.attributes.weight.value" value="{{data.attributes.weight.value}}" data-dtype="Number"/>
+              <span> / </span>
+              <input type="text" name="data.attributes.weight.max" value="{{data.attributes.weight.max}}" data-dtype="Number"/>
+            </div>
+          </div>
+
+          <div class="cell cell--coin">
+            <label class="cell__title">{{localize "DW.Coin"}}</label>
+            <input type="text" name="data.attributes.coin.value" value="{{data.attributes.coin.value}}" data-dtype="Number"/>
           </div>
 
           <div class="cell cell--abilities">
@@ -164,6 +178,7 @@
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                       <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
                       <div class="item-controls">
+                        <a class="item-control item-details-toggle" title="Edit Item"><i class="fas fa-caret-right"></i></a>
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                       </div>
@@ -186,6 +201,7 @@
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                       <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
                       <div class="item-controls">
+                        <a class="item-control item-details-toggle" title="Show Details"><i class="fas fa-caret-right"></i></a>
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                       </div>
@@ -207,7 +223,8 @@
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                       <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
-                      <div class="item-controls">
+                      <div class="item-controls">   
+                        <a class="item-control item-details-toggle" title="Edit Item"><i class="fas fa-caret-right"></i></a>
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                       </div>
@@ -275,4 +292,3 @@
 
   </div>
 </form>
-
