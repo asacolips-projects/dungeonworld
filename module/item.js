@@ -140,7 +140,11 @@ export class ItemDw extends Item {
         if (formula != null) {
           let roll = new Roll(formula);
           roll.roll();
-          roll.toMessage({ flavor: content });
+          roll.toMessage({
+            user: game.user._id,
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            flavor: content
+          });
         }
       }
       else {
