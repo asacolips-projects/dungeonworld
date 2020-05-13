@@ -16,7 +16,8 @@
         },
         "damage": {
           "value": "d6",
-          "misc": ""
+          "misc": "",
+          "piercing": ""
         },
         "level": {
           "value": 1,
@@ -33,6 +34,15 @@
   "character": {
     "templates": ["base"],
     "biography": "",
+    "attributes": {
+      "weight": {
+        "value": 0,
+        "max": 1
+      },
+      "coin": {
+        "value": 0
+      }
+    },
     "abilities": {
       "str": {
         "value": 10,
@@ -86,7 +96,9 @@
     }
   },
   "npc": {
-    "templates": ["base"]
+    "templates": ["base"],
+    "tags": [],
+    "tagsString": ""
   }
 },
 "Item": {
