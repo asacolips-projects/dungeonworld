@@ -1,0 +1,24 @@
+&.dw-level-up {
+  ul {
+    padding-left: 10px;
+    margin: 0;
+  }
+
+  .level-up > ul > li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0;
+    margin: 10px 0;
+    border-bottom: 1px solid $c-light;
+    list-style-type: none;
+  }
+
+  .selection-control {
+    flex: 0 0 22px;
+  }
+
+  .selection-content {
+    flex: 1;
+  }
+}

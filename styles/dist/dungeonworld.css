@@ -111,6 +111,9 @@
     .vtt .window-app input[type="checkbox"]:focus {
       -webkit-box-shadow: none;
       box-shadow: none; }
+  .vtt .window-app input[type="radio"] {
+    width: 20px;
+    height: 20px; }
   .vtt .window-app input,
   .vtt .window-app textarea {
     border: 0;
@@ -134,6 +137,30 @@
       -webkit-box-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
       box-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
       background-color: #bcc8de; }
+  .vtt .window-app .dialog-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .vtt .window-app .dialog-button {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background: #2d3748;
+    color: #fff; }
+    .vtt .window-app .dialog-button:hover {
+      background: #5b7094; }
 
 .vtt .window-header {
   color: #fff;
@@ -204,6 +231,7 @@
     font-size: 18px;
     font-family: "Martel", serif; }
   .dungeonworld.sheet label,
+  .dungeonworld.sheet h1,
   .dungeonworld.sheet h2,
   .dungeonworld.sheet h3,
   .dungeonworld.sheet h4 {
@@ -451,6 +479,28 @@
           -webkit-box-shadow: 0 0 12px #5b7094;
           box-shadow: 0 0 12px #5b7094;
           border: 2px solid #5b7094; }
+      .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 44px;
+        flex: 0 0 44px;
+        height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding: 0; }
+        .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up a {
+          color: #fff; }
+          .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up a:hover {
+            text-shadow: 0 0 12px #5b7094; }
+        .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up .fas {
+          font-size: 32px;
+          text-align: center; }
   .dungeonworld.sheet .sheet-header__fields {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -799,6 +849,31 @@
       background: rgba(0, 0, 0, 0.05);
       padding: 4px;
       border-radius: 4px; }
+  .dungeonworld.sheet.dw-level-up ul {
+    padding-left: 10px;
+    margin: 0; }
+  .dungeonworld.sheet.dw-level-up .level-up > ul > li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    padding: 0;
+    margin: 10px 0;
+    border-bottom: 1px solid #edf2f7;
+    list-style-type: none; }
+  .dungeonworld.sheet.dw-level-up .selection-control {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 22px;
+    flex: 0 0 22px; }
+  .dungeonworld.sheet.dw-level-up .selection-content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
 
 .lang-de .ability .cell__title {
   font-size: 12px; }

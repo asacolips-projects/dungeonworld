@@ -145,22 +145,6 @@ export class DwActorSheet extends ActorSheet {
     }
   }
 
-  _showItemDetails(event) {
-    event.preventDefault();
-    const toggler = $(event.currentTarget);
-    const toggleIcon = toggler.find('i');
-    const item = toggler.parents('.item');
-    const description = item.find('.item-description');
-
-    if (toggleIcon.hasClass('fa-caret-right')) {
-      toggleIcon.removeClass('fa-caret-right').addClass('fa-caret-down');
-      description.slideDown();
-    } else {
-      toggleIcon.removeClass('fa-caret-down').addClass('fa-caret-right');
-      description.slideUp();
-    }
-  }
-
   /* -------------------------------------------- */
 
   /** @override */
@@ -181,6 +165,29 @@ export class DwActorSheet extends ActorSheet {
     // Moves
     html.find('.moves .item-details-toggle').click(this._showItemDetails.bind(this));
 
+    // Adjust weight.
+    this._adjustWeight(html);
+
+    // Character builder dialog.
+    html.find('.clickable-level-up').on('click', this._onLevelUp.bind(this));
+
+    if (this.actor.owner) {
+      let handler = ev => this._onDragItemStart(ev);
+      html.find('li.item').each((i, li) => {
+        if (li.classList.contains("inventory-header")) return;
+        li.setAttribute("draggable", true);
+        li.addEventListener("dragstart", handler, false);
+      });
+    }
+
+    if (this.actor.data.type == 'npc') {
+      this._activateTagging(html);
+    }
+  }
+
+  /* -------------------------------------------- */
+
+  _adjustWeight(html) {
     // Adjust weight.
     let $weight = html.find('[name="data.attributes.weight.value"]');
     let $weight_cell = html.find('.cell--weight');
@@ -203,22 +210,113 @@ export class DwActorSheet extends ActorSheet {
         $weight.removeClass('encumbered');
       }
     }
+  }
 
-    if (this.actor.owner) {
-      let handler = ev => this._onDragItemStart(ev);
-      html.find('li.item').each((i, li) => {
-        if (li.classList.contains("inventory-header")) return;
-        li.setAttribute("draggable", true);
-        li.addEventListener("dragstart", handler, false);
-      });
-    }
+  _showItemDetails(event) {
+    event.preventDefault();
+    const toggler = $(event.currentTarget);
+    const toggleIcon = toggler.find('i');
+    const item = toggler.parents('.item');
+    const description = item.find('.item-description');
 
-    if (this.actor.data.type == 'npc') {
-      this._activateTagging(html);
+    if (toggleIcon.hasClass('fa-caret-right')) {
+      toggleIcon.removeClass('fa-caret-right').addClass('fa-caret-down');
+      description.slideDown();
+    } else {
+      toggleIcon.removeClass('fa-caret-down').addClass('fa-caret-right');
+      description.slideUp();
     }
   }
 
-  /* -------------------------------------------- */
+  async _onLevelUp(event) {
+    event.preventDefault();
+
+    const actor = this.actor.data;
+    const actorData = this.actor.data.data;
+
+    // Initialize dialog options.
+    const dlg_options = {
+      width: 640,
+      height: 480,
+      classes: ['dw-level-up', 'dungeonworld', 'sheet'],
+      resizable: true
+    };
+
+    const char_class = 'the-fighter';
+    const char_level = actorData.attributes.level.value;
+    let pack = game.packs.get(`dungeonworld.${char_class}-moves`);
+    let compendium = await pack.getContent();
+
+    const races = {
+      dwarf: {
+        label: 'Dwarf',
+        description: 'When you share a drink with someone, you may parley with them using CON instead of CHA.'
+      },
+      elf: {
+        label: 'Elf',
+        description: 'Choose one weapon—you can always treat weapons of that type as if they had the precise tag. Weapon: ________'
+      },
+      halfling: {
+        label: 'Halfling',
+        description: 'When you Defy Danger and use your small size to your advantage, take +1.'
+      },
+      human: {
+        label: 'Human',
+        description: 'Once per battle you may reroll a single damage roll (yours or someone else’s).'
+      }
+    }
+
+    let moves = compendium.filter(m => {
+      return m.data.data.requiresLevel <= char_level;
+    });
+
+    moves.sort((a, b) => {
+      return a.data.data.requiresLevel - b.data.data.requiresLevel;
+    });
+
+    let content = '<section class="level-up cell">';
+
+    content += '<h1 class="cell__title">Choose a race</h1>';
+    content += '<ul>';
+    // Add races.
+    for (const [key, race] of Object.entries(races)) {
+      // console.log('key: ' + key);
+      // console.log(race);
+      content += `<li><div class="selection-control"><input type="radio" name="race-selection" data-race="${char_class}.${key}"></div><div class="selection-content"><h2>${race.label}</h2><p>${race.description}</p></div></li>`;
+    }
+    content += '</ul>';
+
+    // Add moves.
+    content += '<h1 class="cell__title">Choose moves</h1>';
+    content += '<ul>';
+    for (const move of moves) {
+      content += `<li><div class="selection-control"><input type="${move.data.data.requiresLevel < 2 ? 'checkbox' : 'radio'}" ${move.data.data.requiresLevel < 2 ? 'checked' : 'name="move-selection"'} data-item-id="${move.data._id}"/></div><div class="selection-content"><h2>${move.data.data.requriesLevel > 0 ? '(Lvl ' + move.data.data.requiresLevel + ') ' : ''}${move.data.name}</h2><div>${move.data.data.description}</div></li>`;
+    }
+    content += '</ul>';
+    content += '</section>';
+
+    // Build the content.
+
+    // Render the dialog.
+    let d = new Dialog({
+      title: 'Level Up',
+      content: content,
+      buttons: {
+        cancel: {
+          icon: '<i class="fas fa-times"></i>',
+          label: "Cancel",
+          callback: () => null
+        },
+        submit: {
+          icon: '<i class="fas fa-check"></i>',
+          label: "Submit",
+          callback: () => null
+          // callback: dlg => _onImportPower(dlg, this.actor)
+        }
+      }
+    }, dlg_options);
+    d.render(true);
+  }
 
   /**
    * Listen for click events on rollables.
