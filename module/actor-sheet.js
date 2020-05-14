@@ -266,8 +266,11 @@ export class DwActorSheet extends ActorSheet {
       }
     }
 
+    const actorMoves = this.actor.data.items.filter(i => i.type == 'move');
     let moves = compendium.filter(m => {
-      return m.data.data.requiresLevel <= char_level;
+      const available_level = m.data.data.requiresLevel <= char_level;
+      const not_taken = actorMoves.filter(i => i.name == m.data.name);
+      return available_level && not_taken.length < 1;
     });
 
     moves.sort((a, b) => {
