@@ -247,24 +247,29 @@ export class DwActorSheet extends ActorSheet {
     let pack = game.packs.get(`dungeonworld.${char_class}-moves`);
     let compendium = await pack.getContent();
 
-    const races = {
-      dwarf: {
-        label: 'Dwarf',
-        description: 'When you share a drink with someone, you may parley with them using CON instead of CHA.'
-      },
-      elf: {
-        label: 'Elf',
-        description: 'Choose one weapon—you can always treat weapons of that type as if they had the precise tag. Weapon: ________'
-      },
-      halfling: {
-        label: 'Halfling',
-        description: 'When you Defy Danger and use your small size to your advantage, take +1.'
-      },
-      human: {
-        label: 'Human',
-        description: 'Once per battle you may reroll a single damage roll (yours or someone else’s).'
-      }
-    }
+    // let races = {
+    //   dwarf: {
+    //     label: 'Dwarf',
+    //     description: 'When you share a drink with someone, you may parley with them using CON instead of CHA.'
+    //   },
+    //   elf: {
+    //     label: 'Elf',
+    //     description: 'Choose one weapon—you can always treat weapons of that type as if they had the precise tag. Weapon: ________'
+    //   },
+    //   halfling: {
+    //     label: 'Halfling',
+    //     description: 'When you Defy Danger and use your small size to your advantage, take +1.'
+    //   },
+    //   human: {
+    //     label: 'Human',
+    //     description: 'Once per battle you may reroll a single damage roll (yours or someone else’s).'
+    //   }
+    // }
+
+    let class_item = game.items.getName('The Fighter');
+    let blurb = class_item.data.data.description;
+    let races = class_item.data.data.races;
+    let alignments = class_item.data.data.alignments;
 
     const actorMoves = this.actor.data.items.filter(i => i.type == 'move');
     let moves = compendium.filter(m => {
@@ -279,13 +284,25 @@ export class DwActorSheet extends ActorSheet {
 
     let content = '<section class="level-up cell">';
 
+    content += `<div class="cell__description">${blurb}</div>`;
+
     content += '<h1 class="cell__title">Choose a race</h1>';
     content += '<ul>';
     // Add races.
     for (const [key, race] of Object.entries(races)) {
       // console.log('key: ' + key);
       // console.log(race);
-      content += `<li><div class="selection-control"><input type="radio" name="race-selection" data-race="${char_class}.${key}"></div><div class="selection-content"><h2>${race.label}</h2><p>${race.description}</p></div></li>`;
+      content += `<li><div class="selection-control"><input type="radio" name="race-selection" data-race="${char_class}.races.${key}"></div><div class="selection-content"><h2>${race.label}</h2><p>${race.description}</p></div></li>`;
+    }
+    content += '</ul>';
+
+    content += '<h1 class="cell__title">Choose an alignment</h1>';
+    content += '<ul>';
+    // Add races.
+    for (const [key, alignment] of Object.entries(alignments)) {
+      // console.log('key: ' + key);
+      // console.log(alignment);
+      content += `<li><div class="selection-control"><input type="radio" name="alignment-selection" data-alignment="${char_class}.alignments.${key}"></div><div class="selection-content"><h2>${alignment.label}</h2><p>${alignment.description}</p></div></li>`;
     }
     content += '</ul>';
 
@@ -313,12 +330,27 @@ export class DwActorSheet extends ActorSheet {
         submit: {
           icon: '<i class="fas fa-check"></i>',
           label: "Submit",
-          callback: () => null
+          callback: dlg => this._onLevelUpSave(dlg, this.actor)
           // callback: dlg => _onImportPower(dlg, this.actor)
         }
       }
     }, dlg_options);
     d.render(true);
+  }
+
+  /**
+   * Import moves.
+   */
+  async _onLevelUpSave(dlg, actor) {
+    let $selected = $(dlg[0]).find('input:checked');
+
+    if ($selected.length <= 0) {
+      return;
+    }
+
+    for (let input of $selected) {
+      console.log(input);
+    }
   }
 
   /**

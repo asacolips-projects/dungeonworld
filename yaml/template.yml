@@ -87,6 +87,7 @@ Item:
     - spell
     - bond
     - tag
+    - class
   templates:
     base:
       name: ''
@@ -122,3 +123,8 @@ Item:
   tag:
     templates:
       - base
+  class:
+    templates:
+      - base
+    races: []
+    alignments: []

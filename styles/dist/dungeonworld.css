@@ -875,6 +875,27 @@
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1; }
+  .dungeonworld.sheet.dw-level-up .cell__description {
+    font-style: italic;
+    font-family: "Martel", serif;
+    padding: 10px;
+    margin: 10px;
+    background: #edf2f7; }
+  .dungeonworld.sheet .class .items-list,
+  .dungeonworld.sheet .class .items-list .item {
+    padding: 0;
+    list-style-type: none; }
+  .dungeonworld.sheet .class .item + .item {
+    border-top: 1px solid #ccc; }
+  .dungeonworld.sheet .flexrow {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .dungeonworld.sheet .flexrow .class-control {
+      -webkit-box-flex: 0;
+      -ms-flex: 0;
+      flex: 0;
+      padding-left: 4px; }
 
 .lang-de .ability .cell__title {
   font-size: 12px; }

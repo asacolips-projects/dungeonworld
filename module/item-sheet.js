@@ -72,7 +72,7 @@ export class DwItemSheet extends ItemSheet {
     if (!this.options.editable) return;
 
     // Add or Remove Attribute
-    html.find(".attributes").on("click", ".attribute-control", this._onClickAttributeControl.bind(this));
+    html.find(".class-fields").on("click", ".class-control", this._onClickClassControl.bind(this));
 
     // Build the tags list.
     let tags = game.items.entities.filter(item => item.type == 'tag');
@@ -135,18 +135,33 @@ export class DwItemSheet extends ItemSheet {
    * @param {MouseEvent} event    The originating left click event
    * @private
    */
-  async _onClickAttributeControl(event) {
+  async _onClickClassControl(event) {
     event.preventDefault();
     const a = event.currentTarget;
     const action = a.dataset.action;
-    const attrs = this.object.data.data.attributes;
+    const field_type = a.dataset.type;
+    const field_values = this.object.data.data[field_type];
     const form = this.form;
 
-    // Add new attribute
+    let field_types = {
+      'races': 'race',
+      'alignments': 'alignment'
+    };
+
+    console.log(field_types);
+
+    // // Add new attribute
     if (action === "create") {
-      const nk = Object.keys(attrs).length + 1;
+      const nk = Object.keys(field_values).length + 1;
       let newKey = document.createElement("div");
-      newKey.innerHTML = `<input type="text" name="data.attributes.attr${nk}.key" value="attr${nk}"/>`;
+      newKey.innerHTML = `<li class="item ${field_types[field_type]}" data-index="${nk}">
+  <div class="flexrow">
+    <input type="text" class="input input--title" name="data.${field_type}.${nk}.label" value="" data-dtype="string"/>
+    <a class="class-control" data-action="delete" data-type="${field_type}"><i class="fas fa-trash"></i></a>
+  </div>
+  <textarea class="${field_types[field_type]}" name="data.${field_type}.${nk}.description" rows="5" title="What's your ${field_types[field_type]}?" data-dtype="String"></textarea>
+</li>`;
+      console.log(newKey.children[0]);
       newKey = newKey.children[0];
       form.appendChild(newKey);
       await this._onSubmit(event);
@@ -154,8 +169,13 @@ export class DwItemSheet extends ItemSheet {
 
     // Remove existing attribute
     else if (action === "delete") {
-      const li = a.closest(".attribute");
+      const li = a.closest(".item");
+      const nk = li.dataset.index;
       li.parentElement.removeChild(li);
+      let update = {};
+      update[`data.${field_type}.-=${nk}`] = null;
+      console.log(update);
+      await this.object.update(update);
       await this._onSubmit(event);
     }
   }

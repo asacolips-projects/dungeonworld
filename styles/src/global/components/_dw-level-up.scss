@@ -21,4 +21,12 @@
   .selection-content {
     flex: 1;
   }
+
+  .cell__description {
+    font-style: italic;
+    font-family: $font-stack-secondary;
+    padding: 10px;
+    margin: 10px;
+    background: $c-light;
+  }
 }
