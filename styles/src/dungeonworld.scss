@@ -1,0 +1,52 @@
+@import 'init';
+
+// Base styles.
+@import 'global/base/grid';
+
+// Theme overrides.
+.vtt {
+  @import 'global/application/window';
+  @import 'global/application/chat';
+  @import 'global/application/sidebar';
+}
+
+.dungeonworld {
+  font-family: $font-stack-base;
+
+  textarea {
+    resize: vertical;
+  }
+
+  .window-content {
+    background: $c-white;
+  }
+
+  // Import components, scoped within the sheet.
+  &.sheet {
+    // Generic.
+    @import 'global/base/input';
+    @import 'global/base/sheet-wrapper';
+    @import 'global/base/cell';
+    @import 'global/components/tabs';
+    // Specific.
+    @import 'global/components/item-form';
+    @import 'global/components/tags';
+    @import 'global/components/header';
+    @import 'global/components/attributes';
+    @import 'global/components/abilities';
+    @import 'global/components/biography';
+    @import 'global/components/moves';
+    @import 'global/components/look';
+    @import 'global/components/npc';
+    @import 'global/components/dw-level-up';
+  }
+}
+
+// Language overrides.
+.lang-de {
+  .ability {
+    .cell__title {
+      font-size: 12px;
+    }
+  }
+}

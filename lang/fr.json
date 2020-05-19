@@ -2,47 +2,39 @@
   "Dungeon World": "Dungeon World",
   "DW.title": "Dungeon World",
   "DW.description": "Dungeon World, maintenant disponible sur FVTT !",
-
   "DW.AbilityStr": "Force",
   "DW.AbilityDex": "Dextérité",
   "DW.AbilityCon": "Constitution",
   "DW.AbilityInt": "Intelligence",
   "DW.AbilityWis": "Sagesse",
   "DW.AbilityCha": "Charisme",
-
   "DW.DebilityStr": "Faible",
   "DW.DebilityDex": "Secoué",
   "DW.DebilityCon": "Malade",
   "DW.DebilityInt": "Étourdi",
   "DW.DebilityWis": "Confus",
   "DW.DebilityCha": "Marqué",
-
   "DW.Level": "Niveau",
   "DW.XP": "Expérience",
   "DW.Damage": "Dégâts",
   "DW.Armor": "Armure",
   "DW.HP": "PV",
-
   "DW.Look": "Apparence",
   "DW.Alignment": "Alignement",
   "DW.Race": "Race",
   "DW.Bond": "Lien",
-
   "DW.MoveCreate": "Créer Action",
   "DW.AddBasicMove": "Créer Action de base",
   "DW.AddStartingMove": "Créer Action de départ",
   "DW.AddAdvancedMove": "Créer Action avancée",
   "DW.AddMove": "Créer une action",
-
   "DW.MovesBasic": "Actions de Base",
   "DW.MovesStarting": "Actions de Départ",
   "DW.MovesAdvanced": "Actions Avancées",
   "DW.MovesOther": "Autres Actions",
-
   "DW.MoveBasic": "Action de base",
   "DW.MoveStarting": "Action de départ",
   "DW.MoveAdvanced": "Action avancée",
-
   "DW.Description": "Description",
   "DW.Moves": "Actions",
   "DW.Biography": "Biographie",
@@ -59,24 +51,18 @@
   "DW.Spells7": "Sort niv 7",
   "DW.Spells8": "Sort niv 8",
   "DW.Spells9": "Sort niv 9",
-
   "DW.SpellPrepared": "Preparé",
   "DW.SpellRollFormula": "lancer les dés de formule",
-
   "DW.AddEquipment": "ajout d'équipement",
   "DW.AddSpell": "ajout de sort",
-
   "DW.Common.Description": "Description",
   "DW.Common.Details": "Détails",
   "DW.Common.Name": "Nom",
-
   "DW.Roll": "lancer les dés",
   "DW.Modifier": "Modificateur",
   "DW.RequiresLevel": "Niveau requis",
   "DW.RequiresMove": "Action requise",
   "DW.MoveType": "Type d'action",
-
   "DW.Quantity": "Quantité",
   "DW.Weight": "Poid"
-
 }

@@ -118,14 +118,13 @@
   .vtt .window-app textarea {
     border: 0;
     margin: 5px 0; }
-    .vtt .window-app input::-webkit-input-placeholder,
-    .vtt .window-app textarea::-webkit-input-placeholder {
+    .vtt .window-app input::-webkit-input-placeholder, .vtt .window-app textarea::-webkit-input-placeholder {
       color: #bfbfbf; }
-    .vtt .window-app input::-moz-placeholder,
-    .vtt .window-app textarea::-moz-placeholder {
+    .vtt .window-app input::-moz-placeholder, .vtt .window-app textarea::-moz-placeholder {
       color: #bfbfbf; }
-    .vtt .window-app input::-ms-input-placeholder,
-    .vtt .window-app textarea::-ms-input-placeholder {
+    .vtt .window-app input:-ms-input-placeholder, .vtt .window-app textarea:-ms-input-placeholder {
+      color: #bfbfbf; }
+    .vtt .window-app input::-ms-input-placeholder, .vtt .window-app textarea::-ms-input-placeholder {
       color: #bfbfbf; }
     .vtt .window-app input::placeholder,
     .vtt .window-app textarea::placeholder {
@@ -264,6 +263,8 @@
       .dungeonworld.sheet .sheet-wrapper .sheet-header input::-webkit-input-placeholder {
         color: #bcc8de; }
       .dungeonworld.sheet .sheet-wrapper .sheet-header input::-moz-placeholder {
+        color: #bcc8de; }
+      .dungeonworld.sheet .sheet-wrapper .sheet-header input:-ms-input-placeholder {
         color: #bcc8de; }
       .dungeonworld.sheet .sheet-wrapper .sheet-header input::-ms-input-placeholder {
         color: #bcc8de; }
