@@ -1,7 +1,7 @@
 name: dungeonworld
 title: Dungeon World
 description: The Dungeon World system for FoundryVTT!
-version: 0.1.16
+version: 0.1.17
 minimumCoreVersion: 0.5.2
 compatibleCoreVersion: 0.5.7
 templateVersion: 2
@@ -118,6 +118,34 @@ packs:
     system: dungeonworld
     path: "./packs/equipment-weapons.db"
     entity: Item
+  - label: Rollable Tables
+    entity: RollTable
+    name: rollable-tables
+    path: packs/rollable-tables.db
+    system: dungeonworld
+    package: world
+    absPath: "./packs/rollable-tables.db"
+  - label: GM Moves/Principals
+    entity: JournalEntry
+    name: gm-movesprincipals
+    path: packs/gm-movesprincipals.db
+    system: dungeonworld
+    package: world
+    absPath: "./packs/gm-movesprincipals.db"
+  - label: Charts
+    entity: JournalEntry
+    name: charts
+    path: packs/charts.db
+    system: dungeonworld
+    package: world
+    absPath: "./packs/charts.db"
+  - label: Monsters
+    entity: Actor
+    name: monsters
+    path: packs/monsters.db
+    system: dungeonworld
+    package: world
+    absPath: "./packs/monsters.db"
 languages:
   - lang: en
     name: English
@@ -137,4 +165,4 @@ primaryTokenAttribute: attributes.hp
 secondaryTokenAttribute:
 url: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld
 manifest: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/raw/master/system.json
-download: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/archive/0.1.16/dungeonworld-master.zip
+download: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/archive/0.1.17/dungeonworld-master.zip
