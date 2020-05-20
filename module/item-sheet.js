@@ -68,12 +68,23 @@ export class DwItemSheet extends ItemSheet {
       callback: clicked => this._sheetTab = clicked.data("tab")
     });
 
+    this._tagify(html, this.options.editable);
+
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
     // Add or Remove Attribute
     html.find(".class-fields").on("click", ".class-control", this._onClickClassControl.bind(this));
 
+    // TODO: Create tags that don't already exist on focus out. This is a
+    // nice-to-have, but it's high risk due to how easy it will make it to
+    // create extra tags unintentionally.
+  }
+
+  /**
+   * Add tagging widget.
+   */
+  async _tagify(html, editable) {
     // Build the tags list.
     let tags = game.items.entities.filter(item => item.type == 'tag');
     for (let c of game.packs) {
@@ -110,6 +121,10 @@ export class DwItemSheet extends ItemSheet {
     // Tagify!
     var $input = html.find('input[name="data.tags"]');
     if ($input.length > 0) {
+      if (!editable) {
+        $input.attr('readonly', true);
+      }
+
       // init Tagify script on the above inputs
       var tagify = new Tagify($input[0], {
         whitelist: tagNames,
@@ -122,10 +137,6 @@ export class DwItemSheet extends ItemSheet {
         }
       });
     }
-
-    // TODO: Create tags that don't already exist on focus out. This is a
-    // nice-to-have, but it's high risk due to how easy it will make it to
-    // create extra tags unintentionally.
   }
 
   /* -------------------------------------------- */
