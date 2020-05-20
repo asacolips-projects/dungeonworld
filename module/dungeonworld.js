@@ -6,11 +6,12 @@
 
 // Import Modules
 import { DW } from "./config.js";
-import { ActorDw } from "./actor.js";
-import { ItemDw } from "./item.js";
-import { DwItemSheet } from "./item-sheet.js";
-import { DwActorSheet } from "./actor-sheet.js";
-import { DwActorNpcSheet } from "./actor-npc-sheet.js";
+import { ActorDw } from "./actor/actor.js";
+import { ItemDw } from "./item/item.js";
+import { DwItemSheet } from "./item/item-sheet.js";
+import { DwActorSheet } from "./actor/actor-sheet.js";
+import { DwActorNpcSheet } from "./actor/actor-npc-sheet.js";
+import { DwClassItemSheet } from "./item/class-item-sheet.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -49,7 +50,11 @@ Hooks.once("init", async function() {
     makeDefault: true
   });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("dungeonworld", DwItemSheet, { makeDefault: true });
+  Items.registerSheet("dungeonworld", DwItemSheet, { makeDefault: false });
+  Items.registerSheet("dungeonworld", DwClassItemSheet, {
+    types: ['class'],
+    makeDefault: true
+  });
 
   Handlebars.registerHelper('concat', function() {
     var outStr = '';

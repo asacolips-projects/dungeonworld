@@ -10,6 +10,7 @@
     <nav class="sheet-navigation sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">{{localize "DW.Common.Description" }}</a>
         <a class="item" data-tab="details">{{localize "DW.Common.Details" }}</a>
+        <a class="item" data-tab="equipment">{{localize "DW.Equipment"}}</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -22,7 +23,7 @@
 
         {{!-- Details Tab --}}
         <div class="tab" data-group="primary" data-tab="details">
-          <div class="class-fields">
+          <div class="class-fields grid grid-2col">
             {{!-- Races --}}
             <div class="cell resource">
               <div class="cell__title">
@@ -60,6 +61,10 @@
               </ul>
             </div>
           </div>
+        </div>
+
+        <div class="tab" data-group="primary" data-tab="equipment">
+          <p>coming soon</p>
         </div>
     </section>
 </form>
