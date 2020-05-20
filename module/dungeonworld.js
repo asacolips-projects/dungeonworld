@@ -64,6 +64,16 @@ Hooks.once("init", async function() {
   Handlebars.registerHelper('toLowerCase', function(str) {
     return str.toLowerCase();
   });
+
+  Handlebars.registerHelper('dwTags', function(tagsInput) {
+    const tags = JSON.parse(tagsInput);
+    let output = '<div class="tags">';
+    for (let tag of tags) {
+      output += `<div class="tag">${tag.value}</div>`;
+    }
+    output += '</div>';
+    return output;
+  });
 });
 
 Hooks.once("ready", async function() {

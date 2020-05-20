@@ -1,3 +1,25 @@
+// Character sheet tag display.
+.tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tag {
+  padding: 3px 6px;
+  background: $c-light;
+  color: $c-navy;
+  margin: 5px 0;
+  border-radius: 4px;
+  text-transform: capitalize;
+
+  + .tag {
+    margin-left: 5px;
+  }
+}
+
+// Tagging widget.
 .tagging {
   padding: 5px 10px 8px;
 

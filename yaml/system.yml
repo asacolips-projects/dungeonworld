@@ -9,14 +9,14 @@ author: Asacolips, Vasid
 esmodules:
   - module/dungeonworld.js
 styles:
-  - styles/lib/tag-basic-style.css
-  - styles/lib/awesomplete.css
+  # - styles/lib/tag-basic-style.css
+  # - styles/lib/awesomplete.css
   - styles/lib/tagify.css
   - styles/dist/dungeonworld.css
 scripts:
-  - scripts/lib/tagging.min.js
+  # - scripts/lib/tagging.min.js
   - scripts/lib/tagify.min.js
-  - scripts/lib/awesomplete.min.js
+  # - scripts/lib/awesomplete.min.js
 packs:
   - name: basic-moves
     label: Basic Moves

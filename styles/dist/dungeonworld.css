@@ -385,6 +385,29 @@
   .dungeonworld.sheet .item-form .tab,
   .dungeonworld.sheet .item-form .editor {
     height: 100%; }
+  .dungeonworld.sheet .tags {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+  .dungeonworld.sheet .tag {
+    padding: 3px 6px;
+    background: #edf2f7;
+    color: #2d3748;
+    margin: 5px 0;
+    border-radius: 4px;
+    text-transform: capitalize; }
+    .dungeonworld.sheet .tag + .tag {
+      margin-left: 5px; }
   .dungeonworld.sheet .tagging {
     padding: 5px 10px 8px; }
     .dungeonworld.sheet .tagging .tag {
@@ -769,6 +792,40 @@
     -ms-flex: none;
     flex: none;
     width: 100%; }
+  .dungeonworld.sheet .cell--basic-moves .item-meta,
+  .dungeonworld.sheet .cell--starting-moves .item-meta,
+  .dungeonworld.sheet .cell--advanced-moves .item-meta,
+  .dungeonworld.sheet .cell--other-moves .item-meta,
+  .dungeonworld.sheet .cell--equipment .item-meta,
+  .dungeonworld.sheet .cell--spells .item-meta {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-flex: 100px;
+    -ms-flex: 100px;
+    flex: 100px; }
+    .dungeonworld.sheet .cell--basic-moves .item-meta > span,
+    .dungeonworld.sheet .cell--starting-moves .item-meta > span,
+    .dungeonworld.sheet .cell--advanced-moves .item-meta > span,
+    .dungeonworld.sheet .cell--other-moves .item-meta > span,
+    .dungeonworld.sheet .cell--equipment .item-meta > span,
+    .dungeonworld.sheet .cell--spells .item-meta > span {
+      margin: 0;
+      padding: 0 4px; }
+      .dungeonworld.sheet .cell--basic-moves .item-meta > span + span,
+      .dungeonworld.sheet .cell--starting-moves .item-meta > span + span,
+      .dungeonworld.sheet .cell--advanced-moves .item-meta > span + span,
+      .dungeonworld.sheet .cell--other-moves .item-meta > span + span,
+      .dungeonworld.sheet .cell--equipment .item-meta > span + span,
+      .dungeonworld.sheet .cell--spells .item-meta > span + span {
+        border-left: 2px solid #ddd; }
   .dungeonworld.sheet .cell--basic-moves .rollable:hover, .dungeonworld.sheet .cell--basic-moves .rollable:focus,
   .dungeonworld.sheet .cell--starting-moves .rollable:hover,
   .dungeonworld.sheet .cell--starting-moves .rollable:focus,

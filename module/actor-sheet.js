@@ -163,7 +163,7 @@ export class DwActorSheet extends ActorSheet {
     html.find('.item-delete').click(this._onItemDelete.bind(this));
 
     // Moves
-    html.find('.moves .item-details-toggle').click(this._showItemDetails.bind(this));
+    html.find('.item-details-toggle').click(this._showItemDetails.bind(this));
 
     // Adjust weight.
     this._adjustWeight(html);
@@ -221,11 +221,10 @@ export class DwActorSheet extends ActorSheet {
 
     if (toggleIcon.hasClass('fa-caret-right')) {
       toggleIcon.removeClass('fa-caret-right').addClass('fa-caret-down');
-      description.slideDown();
     } else {
       toggleIcon.removeClass('fa-caret-down').addClass('fa-caret-right');
-      description.slideUp();
     }
+    description.slideToggle();
   }
 
   async _onLevelUp(event) {

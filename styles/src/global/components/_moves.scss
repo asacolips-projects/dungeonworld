@@ -34,6 +34,22 @@
     width: 100%;
   }
 
+  .item-meta {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex: 100px;
+
+    > span {
+      margin: 0;
+      padding: 0 4px;
+
+      + span {
+        border-left: 2px solid #ddd;
+      }
+    }
+  }
+
   .rollable {
     &:hover,
     &:focus {
