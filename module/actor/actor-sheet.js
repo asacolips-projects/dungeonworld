@@ -1,3 +1,5 @@
+import { DwClassList } from "../config.js";
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -25,7 +27,7 @@ export class DwActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
     for (let attr of Object.values(data.data.attributes)) {
@@ -34,6 +36,8 @@ export class DwActorSheet extends ActorSheet {
     // Prepare items.
     this._prepareCharacterItems(data);
     this._prepareNpcItems(data);
+    // Add classlist.
+    data.data.classlist = await DwClassList.getClasses();
 
     // Return data to the sheet
     return data;
@@ -240,6 +244,13 @@ export class DwActorSheet extends ActorSheet {
       classes: ['dw-level-up', 'dungeonworld', 'sheet'],
       resizable: true
     };
+
+    const char_class_name = actorData.details.class;
+    const class_list = await DwClassList.getClasses();
+
+    if (!class_list.includes(char_class_name)) {
+      return;
+    }
 
     const char_class = 'the-fighter';
     const char_level = actorData.attributes.level.value;

@@ -23,6 +23,11 @@
         {{!-- Details Tab --}}
         <div class="tab" data-group="primary" data-tab="details">
           <div class="resource">
+            <label>{{localize "DW.Class"}}</label>
+            <input type="text" name="data.class" value="{{data.class}}" data-dtype="String"/>
+          </div>
+
+          <div class="resource">
             <label>{{localize "DW.SpellLevel"}}</label>
               <input type="text" name="data.spellLevel" value="{{data.spellLevel}}" data-dtype="Number"/>
           </div>

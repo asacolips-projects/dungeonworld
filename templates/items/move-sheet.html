@@ -45,6 +45,20 @@
         </div>
 
         <div class="resource">
+          <label>{{localize "DW.Class"}}</label>
+          {{!-- <input type="text" name="data.class" value="{{data.class}}" data-dtype="String"/> --}}
+          {{log data}}
+          <select name="data.class">
+            {{#select data.class}}
+              <option value="">—</option>
+              {{#each data.classlist as |class id|}}
+              <option value="{{class}}">{{class}}</option>
+              {{/each}}
+            {{/select}}
+          </select>
+        </div>
+
+        <div class="resource">
           <label>{{localize "DW.RequiresLevel"}}</label>
           <input type="text" name="data.requiresLevel" value="{{data.requiresLevel}}" data-dtype="Number"/>
         </div>

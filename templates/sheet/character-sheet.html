@@ -6,7 +6,12 @@
       <header class="sheet-header">
           <div class="sheet-header__fields">
               <input class="input--title" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
-              <input class="input--title charclass" name="data.details.class" type="text" value="{{data.details.class}}" placeholder="Class"/>
+              <input class="input--title charclass" name="data.details.class" type="text" value="{{data.details.class}}" placeholder="Class" list="classlist"/>
+              <datalist id="classlist">
+                {{#each data.classlist as |class id|}}
+                <option value="{{class}}" />
+                {{/each}}
+              </datalist>
               <div class="flex-item flex-item--level">
                 <label for="data.atributes.level.value">{{ localize "DW.Level" }}</label>
                 <input name="data.attributes.level.value" type="text" value="{{data.attributes.level.value}}" placeholder="Level" data-dtype="Number"/>
@@ -15,9 +20,11 @@
                 <label for="data.attributes.xp.value">{{ localize "DW.XP" }}</label>
                 <input name="data.attributes.xp.value" type="text" value="{{data.attributes.xp.value}}" placeholder="XP" data-dtype="Number"/>
               </div>
-              <div class="flex-item flex-item--level-up">
-                <a class="clickable-level-up"><i class="fas fa-user-plus"></i></a>
-              </div>
+              {{#includes data.classlist data.details.class}}
+                <div class="flex-item flex-item--level-up">
+                  <a class="clickable-level-up"><i class="fas fa-user-plus"></i></a>
+                </div>
+              {{/includes}}
           </div>
       </header>
 
@@ -255,11 +262,18 @@
                       <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                         {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                         <h4 class="item-name rollable spell-rollable" data-roll="{{item.data.rollFormula}}"><i class="fas fa-dice-d20"></i> {{item.name}}</h4>
+                        <div class="item-meta tags">
+                          {{#if item.data.prepared }}<span class="tag">Prepared</span>{{/if}}
+                        </div>
                         <div class="item-controls">
+                          <a class="item-control item-details-toggle" title="Show Details"><i class="fas fa-caret-right"></i></a>
                           <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                           <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         </div>
-                    </li>
+                        <div class="item-description">
+                          <div class="description">{{{item.data.description}}}</div>
+                        </div>
+                      </li>
                     {{/each}}
                   {{/each}}
                   </ol>
@@ -281,10 +295,10 @@
                           {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                           <h4 class="item-name">{{item.name}}</h4>
 
-                          <div class="item-meta">
-                            {{#if item.data.uses }}<span>Uses: {{item.data.uses}}</span>{{/if}}
-                            {{#if item.data.quantity }}<span>Qty: {{item.data.quantity}}</span>{{/if}}
-                            {{#if item.data.weight }}<span>Wt: {{item.data.weight}}</span>{{/if}}
+                          <div class="item-meta tags">
+                            {{#if item.data.uses }}<span class="tag">Uses: {{item.data.uses}}</span>{{/if}}
+                            {{#if item.data.quantity }}<span class="tag">Qty: {{item.data.quantity}}</span>{{/if}}
+                            {{#if item.data.weight }}<span class="tag">Wt: {{item.data.weight}}</span>{{/if}}
                           </div>
                           <div class="item-controls">
                               <a class="item-control item-details-toggle" title="Show Details"><i class="fas fa-caret-right"></i></a>

@@ -6,12 +6,15 @@
 
 // Import Modules
 import { DW } from "./config.js";
+import { DwClassList } from "./config.js";
 import { ActorDw } from "./actor/actor.js";
 import { ItemDw } from "./item/item.js";
 import { DwItemSheet } from "./item/item-sheet.js";
 import { DwActorSheet } from "./actor/actor-sheet.js";
 import { DwActorNpcSheet } from "./actor/actor-npc-sheet.js";
 import { DwClassItemSheet } from "./item/class-item-sheet.js";
+import { DwRegisterHelpers } from "./handlebars.js";
+import { DwUtility } from "./utility.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -23,7 +26,8 @@ Hooks.once("init", async function() {
   game.dungeonworld = {
     ActorDw,
     ItemDw,
-    rollItemMacro
+    rollItemMacro,
+    DwUtility,
   };
 
 	/**
@@ -56,34 +60,15 @@ Hooks.once("init", async function() {
     makeDefault: true
   });
 
-  Handlebars.registerHelper('concat', function() {
-    var outStr = '';
-    for (var arg in arguments) {
-      if (typeof arguments[arg] != 'object') {
-        outStr += arguments[arg];
-      }
-    }
-    return outStr;
-  });
-
-  Handlebars.registerHelper('toLowerCase', function(str) {
-    return str.toLowerCase();
-  });
-
-  Handlebars.registerHelper('dwTags', function(tagsInput) {
-    const tags = JSON.parse(tagsInput);
-    let output = '<div class="tags">';
-    for (let tag of tags) {
-      output += `<div class="tag">${tag.value}</div>`;
-    }
-    output += '</div>';
-    return output;
-  });
+  DwRegisterHelpers.init();
 });
 
 Hooks.once("ready", async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createDwMacro(data, slot));
+
+  DW.classlist = await DwClassList.getClasses();
+  CONFIG.DW = DW;
 
   // Add a lang class to the body.
   const lang = game.settings.get('core', 'language');

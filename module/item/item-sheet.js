@@ -1,3 +1,5 @@
+import { DwClassList } from "../config.js";
+
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
@@ -29,6 +31,8 @@ export class DwItemSheet extends ItemSheet {
   async getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
+    // Add classlist.
+    data.data.classlist = await DwClassList.getClasses();
 
     // Handle preprocessing for tagify data.
     if (data.entity.type == 'equipment') {

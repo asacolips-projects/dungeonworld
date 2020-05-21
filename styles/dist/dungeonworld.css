@@ -817,15 +817,14 @@
     .dungeonworld.sheet .cell--other-moves .item-meta > span,
     .dungeonworld.sheet .cell--equipment .item-meta > span,
     .dungeonworld.sheet .cell--spells .item-meta > span {
-      margin: 0;
-      padding: 0 4px; }
+      margin: 0; }
       .dungeonworld.sheet .cell--basic-moves .item-meta > span + span,
       .dungeonworld.sheet .cell--starting-moves .item-meta > span + span,
       .dungeonworld.sheet .cell--advanced-moves .item-meta > span + span,
       .dungeonworld.sheet .cell--other-moves .item-meta > span + span,
       .dungeonworld.sheet .cell--equipment .item-meta > span + span,
       .dungeonworld.sheet .cell--spells .item-meta > span + span {
-        border-left: 2px solid #ddd; }
+        margin-left: 4px; }
   .dungeonworld.sheet .cell--basic-moves .rollable:hover, .dungeonworld.sheet .cell--basic-moves .rollable:focus,
   .dungeonworld.sheet .cell--starting-moves .rollable:hover,
   .dungeonworld.sheet .cell--starting-moves .rollable:focus,

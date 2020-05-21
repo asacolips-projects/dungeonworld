@@ -42,10 +42,9 @@
 
     > span {
       margin: 0;
-      padding: 0 4px;
 
       + span {
-        border-left: 2px solid #ddd;
+        margin-left: 4px;
       }
     }
   }
