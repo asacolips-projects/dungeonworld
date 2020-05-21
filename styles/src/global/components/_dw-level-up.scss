@@ -4,13 +4,16 @@
     margin: 0;
   }
 
-  .level-up > ul > li {
+  .selection-list {
+    gap: 20px 10px;
+    margin-bottom: 20px;
+  }
+
+  .selection-list > li {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     padding: 0;
-    margin: 10px 0;
-    border-bottom: 1px solid $c-light;
     list-style-type: none;
   }
 

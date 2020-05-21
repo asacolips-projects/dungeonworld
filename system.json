@@ -19,6 +19,13 @@
   ],
   "packs": [
     {
+      "name": "classes",
+      "label": "Classes",
+      "system": "dungeonworld",
+      "path": "./packs/classes.db",
+      "entity": "Item"
+    },
+    {
       "name": "basic-moves",
       "label": "Basic Moves",
       "system": "dungeonworld",

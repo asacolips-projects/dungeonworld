@@ -1,4 +1,5 @@
 import { DwClassList } from "../config.js";
+import { DwUtility } from "../utility.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -239,48 +240,51 @@ export class DwActorSheet extends ActorSheet {
 
     // Initialize dialog options.
     const dlg_options = {
-      width: 640,
-      height: 480,
+      width: 920,
+      height: 640,
       classes: ['dw-level-up', 'dungeonworld', 'sheet'],
       resizable: true
     };
 
     const char_class_name = actorData.details.class;
     const class_list = await DwClassList.getClasses();
+    const class_list_items = await DwClassList.getClasses(false);
 
     if (!class_list.includes(char_class_name)) {
       return;
     }
 
-    const char_class = 'the-fighter';
+    const char_class = DwUtility.cleanClass(char_class_name);
     const char_level = actorData.attributes.level.value;
     let pack = game.packs.get(`dungeonworld.${char_class}-moves`);
     let compendium = await pack.getContent();
 
-    // let races = {
-    //   dwarf: {
-    //     label: 'Dwarf',
-    //     description: 'When you share a drink with someone, you may parley with them using CON instead of CHA.'
-    //   },
-    //   elf: {
-    //     label: 'Elf',
-    //     description: 'Choose one weapon—you can always treat weapons of that type as if they had the precise tag. Weapon: ________'
-    //   },
-    //   halfling: {
-    //     label: 'Halfling',
-    //     description: 'When you Defy Danger and use your small size to your advantage, take +1.'
-    //   },
-    //   human: {
-    //     label: 'Human',
-    //     description: 'Once per battle you may reroll a single damage roll (yours or someone else’s).'
-    //   }
-    // }
-
-    let class_item = game.items.getName('The Fighter');
+    let class_item = class_list_items.filter(i => i.data.name == char_class_name)[0];
     let blurb = class_item.data.data.description;
     let races = class_item.data.data.races;
     let alignments = class_item.data.data.alignments;
 
+    // Fix objects.
+    if (typeof races == 'object') {
+      races = Object.entries(races).map(r => {
+        return {
+          key: r[0],
+          label: r[1]['label'],
+          description: r[1]['description']
+        };
+      });
+    }
+    if (typeof alignments == 'object') {
+      alignments = Object.entries(alignments).map(a => {
+        return {
+          key: a[0],
+          label: a[1]['label'],
+          description: a[1]['description']
+        };
+      });
+    }
+
+    // Get the available moves.
     const actorMoves = this.actor.data.items.filter(i => i.type == 'move');
     let moves = compendium.filter(m => {
       const available_level = m.data.data.requiresLevel <= char_level;
@@ -292,45 +296,36 @@ export class DwActorSheet extends ActorSheet {
       return a.data.data.requiresLevel - b.data.data.requiresLevel;
     });
 
-    let content = '<section class="level-up cell">';
+    let starting_moves = moves.filter(m => {
+      return m.data.data.requiresLevel < 2;
+    });
 
-    content += `<div class="cell__description">${blurb}</div>`;
+    let advanced_moves_2 = moves.filter(m => {
+      return m.data.data.requiresLevel >= 2 && m.data.data.requiresLevel < 6;
+    });
 
-    content += '<h1 class="cell__title">Choose a race</h1>';
-    content += '<ul>';
-    // Add races.
-    for (const [key, race] of Object.entries(races)) {
-      // console.log('key: ' + key);
-      // console.log(race);
-      content += `<li><div class="selection-control"><input type="radio" name="race-selection" data-race="${char_class}.races.${key}"></div><div class="selection-content"><h2>${race.label}</h2><p>${race.description}</p></div></li>`;
-    }
-    content += '</ul>';
-
-    content += '<h1 class="cell__title">Choose an alignment</h1>';
-    content += '<ul>';
-    // Add races.
-    for (const [key, alignment] of Object.entries(alignments)) {
-      // console.log('key: ' + key);
-      // console.log(alignment);
-      content += `<li><div class="selection-control"><input type="radio" name="alignment-selection" data-alignment="${char_class}.alignments.${key}"></div><div class="selection-content"><h2>${alignment.label}</h2><p>${alignment.description}</p></div></li>`;
-    }
-    content += '</ul>';
-
-    // Add moves.
-    content += '<h1 class="cell__title">Choose moves</h1>';
-    content += '<ul>';
-    for (const move of moves) {
-      content += `<li><div class="selection-control"><input type="${move.data.data.requiresLevel < 2 ? 'checkbox' : 'radio'}" ${move.data.data.requiresLevel < 2 ? 'checked' : 'name="move-selection"'} data-item-id="${move.data._id}"/></div><div class="selection-content"><h2>${move.data.data.requriesLevel > 0 ? '(Lvl ' + move.data.data.requiresLevel + ') ' : ''}${move.data.name}</h2><div>${move.data.data.description}</div></li>`;
-    }
-    content += '</ul>';
-    content += '</section>';
+    let advanced_moves_6 = moves.filter(m => {
+      return m.data.data.requiresLevel >= 6;
+    });
 
     // Build the content.
+    const template = 'systems/dungeonworld/templates/dialog/level-up.html';
+    const templateData = {
+      char_class: char_class,
+      char_class_name: char_class_name,
+      blurb: blurb.length > 0 ? blurb : null,
+      races: races.length > 0 ? races : null,
+      alignments: alignments.length > 0 ? alignments : null,
+      starting_moves: starting_moves.length > 0 ? starting_moves : null,
+      advanced_moves_2: advanced_moves_2.length > 0 ? advanced_moves_2 : null,
+      advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null
+    };
+    const html = await renderTemplate(template, templateData);
 
     // Render the dialog.
     let d = new Dialog({
       title: 'Level Up',
-      content: content,
+      content: html,
       buttons: {
         cancel: {
           icon: '<i class="fas fa-times"></i>',

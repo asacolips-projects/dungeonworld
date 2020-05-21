@@ -909,7 +909,10 @@
   .dungeonworld.sheet.dw-level-up ul {
     padding-left: 10px;
     margin: 0; }
-  .dungeonworld.sheet.dw-level-up .level-up > ul > li {
+  .dungeonworld.sheet.dw-level-up .selection-list {
+    gap: 20px 10px;
+    margin-bottom: 20px; }
+  .dungeonworld.sheet.dw-level-up .selection-list > li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -920,8 +923,6 @@
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
     padding: 0;
-    margin: 10px 0;
-    border-bottom: 1px solid #edf2f7;
     list-style-type: none; }
   .dungeonworld.sheet.dw-level-up .selection-control {
     -webkit-box-flex: 0;
