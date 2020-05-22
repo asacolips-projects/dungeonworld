@@ -74,6 +74,12 @@
   justify-content: flex-end;
   text-align: right; }
 
+#chat-popups .message-header.flexrow {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
 .vtt .window-app {
   background: #2d3748; }
   .vtt .window-app a:hover, .vtt .window-app a:focus,
