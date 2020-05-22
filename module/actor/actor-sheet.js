@@ -403,7 +403,6 @@ export class DwActorSheet extends ActorSheet {
     let race = null;
     let alignment = null;
     for (let input of $selected) {
-      console.log(input.dataset);
       if (input.dataset.itemId) {
         move_ids.push(input.dataset.itemId);
       }
@@ -417,14 +416,8 @@ export class DwActorSheet extends ActorSheet {
 
     let moves = itemData.moves.filter(m => move_ids.includes(m.data._id));
     let new_moves = moves.map(m => {
-      return {
-        name: m.data.name,
-        type: m.data.type,
-        data: m.data.data
-      }
+      return duplicate(m);
     });
-
-    console.log(new_moves);
 
     const data = {};
     if (race) {
@@ -441,8 +434,9 @@ export class DwActorSheet extends ActorSheet {
     }
 
     actor.update({ data: data });
-    actor.createOwnedItem(new_moves);
+    await actor.createEmbeddedEntity('OwnedItem', new_moves);
     actor.setFlag('dungeonworld', 'levelup', false);
+    actor.render(true);
     // this._render(true);
   }
 

@@ -99,18 +99,50 @@ Hooks.once("setup", function() {
 /* -------------------------------------------- */
 /*  Actor Updates                               */
 /* -------------------------------------------- */
-Hooks.on('createActor', (actor, options, id) => {
-  console.log(actor);
+Hooks.on('createActor', async (actor, options, id) => {
+  // Allow the character to levelup up when their level changes.
   if (actor.data.type == 'character') {
     actor.setFlag('dungeonworld', 'levelup', true);
+
+    // Get the item moves as the priority.
+    let moves = game.items.entities.filter(i => i.type == 'move' && i.data.data.moveType == 'basic');
+    let pack = game.packs.get(`dungeonworld.basic-moves`);
+    let compendium = await pack.getContent();
+    const actorMoves = actor.data.items.filter(i => i.type == 'move');
+    // Get the compendium moves next.
+    let moves_compendium = compendium.filter(m => {
+      const notTaken = actorMoves.filter(i => i.name == m.data.name);
+      return notTaken.length < 1;
+    });
+    // Append compendium moves to the item moves.
+    let moves_list = moves.map(m => {
+      return m.data.name;
+    })
+    for (let move of moves_compendium) {
+      if (!moves_list.includes(move.data.name)) {
+        moves.push(move);
+      }
+    }
+
+    // Sort the moves and build our groups.
+    moves.sort((a, b) => {
+      return a.data.data.requiresLevel - b.data.data.requiresLevel;
+    });
+
+    // Add to the actor.
+    const movesToAdd = moves.map(m => duplicate(m));
+    await actor.createEmbeddedEntity('OwnedItem', movesToAdd);
+    await actor.update({ 'data.details.look': 'Eyes:\r\nHair:\r\nBody:\r\nSkin:\r\nClothes:' });
   }
 });
 
 Hooks.on('preUpdateActor', (actor, data, options, id) => {
   if (actor.data.type == 'character') {
+    // Allow the character to levelup up when their level changes.
     if (data.data && data.data.attributes && data.data.attributes.level) {
-      console.log('You\'re ready to level up!');
-      actor.setFlag('dungeonworld', 'levelup', true);
+      if (data.data.attributes.level.value > actor.data.data.attributes.level.value) {
+        actor.setFlag('dungeonworld', 'levelup', true);
+      }
     }
   }
 });
