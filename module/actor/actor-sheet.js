@@ -39,6 +39,7 @@ export class DwActorSheet extends ActorSheet {
     this._prepareNpcItems(data);
     // Add classlist.
     data.data.classlist = await DwClassList.getClasses();
+    data.data.levelup = this.actor.getFlag('dungeonworld', 'levelup') == true && data.data.classlist.includes(data.data.details.class);
 
     // Return data to the sheet
     return data;
@@ -261,27 +262,35 @@ export class DwActorSheet extends ActorSheet {
 
     let class_item = class_list_items.filter(i => i.data.name == char_class_name)[0];
     let blurb = class_item.data.data.description;
-    let races = class_item.data.data.races;
-    let alignments = class_item.data.data.alignments;
 
-    // Fix objects.
-    if (typeof races == 'object') {
-      races = Object.entries(races).map(r => {
-        return {
-          key: r[0],
-          label: r[1]['label'],
-          description: r[1]['description']
-        };
-      });
+    // Get races.
+    let races = [];
+    if (!this.actor.data.data.details.race.value || !this.actor.data.data.details.race.description) {
+      races = class_item.data.data.races;
+      if (typeof races == 'object') {
+        races = Object.entries(races).map(r => {
+          return {
+            key: r[0],
+            label: r[1]['label'],
+            description: r[1]['description']
+          };
+        });
+      }
     }
-    if (typeof alignments == 'object') {
-      alignments = Object.entries(alignments).map(a => {
-        return {
-          key: a[0],
-          label: a[1]['label'],
-          description: a[1]['description']
-        };
-      });
+
+    // Get alignments.
+    let alignments = [];
+    if (!this.actor.data.data.details.alignment.value || !this.actor.data.data.details.alignment.description) {
+      alignments = class_item.data.data.alignments;
+      if (typeof alignments == 'object') {
+        alignments = Object.entries(alignments).map(a => {
+          return {
+            key: a[0],
+            label: a[1]['label'],
+            description: a[1]['description']
+          };
+        });
+      }
     }
 
     // Retrieve the actor's current moves so that we can hide them.
@@ -311,20 +320,24 @@ export class DwActorSheet extends ActorSheet {
       return a.data.data.requiresLevel - b.data.data.requiresLevel;
     });
 
-    let starting_moves = moves.filter(m => {
-      return m.data.data.requiresLevel < 2;
-    });
+    let starting_moves = [];
+    let starting_move_groups = [];
+    if (this.actor.data.data.attributes.level.value < 2) {
+      starting_moves = moves.filter(m => {
+        return m.data.data.requiresLevel < 2;
+      });
 
-    let starting_move_groups = starting_moves.reduce((groups, move) => {
-      // Assign the undefined group to all Z's so that it's last.
-      let group = move.data.data.moveGroup ? move.data.data.moveGroup : 'ZZZZZZZ';
-      if (!groups[group]) {
-        groups[group] = [];
-      }
+      starting_move_groups = starting_moves.reduce((groups, move) => {
+        // Assign the undefined group to all Z's so that it's last.
+        let group = move.data.data.moveGroup ? move.data.data.moveGroup : 'ZZZZZZZ';
+        if (!groups[group]) {
+          groups[group] = [];
+        }
 
-      groups[group].push(move);
-      return groups;
-    }, {});
+        groups[group].push(move);
+        return groups;
+      }, {});
+    }
 
     let advanced_moves_2 = moves.filter(m => {
       return m.data.data.requiresLevel >= 2 && m.data.data.requiresLevel < 6;
@@ -349,6 +362,12 @@ export class DwActorSheet extends ActorSheet {
     };
     const html = await renderTemplate(template, templateData);
 
+    const itemData = {
+      moves: moves,
+      races: races,
+      alignments: alignments
+    };
+
     // Render the dialog.
     let d = new Dialog({
       title: 'Level Up',
@@ -362,7 +381,7 @@ export class DwActorSheet extends ActorSheet {
         submit: {
           icon: '<i class="fas fa-check"></i>',
           label: "Submit",
-          callback: dlg => this._onLevelUpSave(dlg, this.actor)
+          callback: dlg => this._onLevelUpSave(dlg, this.actor, itemData, this)
           // callback: dlg => _onImportPower(dlg, this.actor)
         }
       }
@@ -373,16 +392,58 @@ export class DwActorSheet extends ActorSheet {
   /**
    * Import moves.
    */
-  async _onLevelUpSave(dlg, actor) {
+  async _onLevelUpSave(dlg, actor, itemData) {
     let $selected = $(dlg[0]).find('input:checked');
 
     if ($selected.length <= 0) {
       return;
     }
 
+    let move_ids = [];
+    let race = null;
+    let alignment = null;
     for (let input of $selected) {
-      console.log(input);
+      console.log(input.dataset);
+      if (input.dataset.itemId) {
+        move_ids.push(input.dataset.itemId);
+      }
+      else if (input.dataset.race) {
+        race = itemData.races[input.dataset.race];
+      }
+      else if (input.dataset.alignment) {
+        alignment = itemData.alignments[input.dataset.alignment];
+      }
     }
+
+    let moves = itemData.moves.filter(m => move_ids.includes(m.data._id));
+    let new_moves = moves.map(m => {
+      return {
+        name: m.data.name,
+        type: m.data.type,
+        data: m.data.data
+      }
+    });
+
+    console.log(new_moves);
+
+    const data = {};
+    if (race) {
+      data['details.race'] = {
+        value: race.label,
+        description: race.description
+      };
+    }
+    if (alignment) {
+      data['details.alignment'] = {
+        value: alignment.label,
+        description: alignment.description
+      }
+    }
+
+    actor.update({ data: data });
+    actor.createOwnedItem(new_moves);
+    actor.setFlag('dungeonworld', 'levelup', false);
+    // this._render(true);
   }
 
   /**

@@ -12,12 +12,12 @@
 
       {{#if races}}
         <section class="cell cell--races">
-          <h1 class="cell__title">Choose a race</h1>
+          <h1 class="cell__title">{{localize "DW.ChooseRace"}}</h1>
           <ul class="selection-list">
             {{#each races as |race key|}}
               <li>
                 <div class="selection-control">
-                  <input type="radio" name="race-selection" data-race="{{../char_class}}.races.{{race.key}}">
+                  <input type="radio" name="race-selection" data-race="{{key}}">
                 </div>
                 <div class="selection-content">
                   <h2>{{race.label}}</h2>
@@ -31,12 +31,12 @@
 
       {{#if alignments}}
         <section class="cell cell--alignments">
-          <h1 class="cell__title">Choose an alignment</h1>
+          <h1 class="cell__title">{{localize "DW.ChooseAlignment"}}</h1>
           <ul class="selection-list">
             {{#each alignments as |alignment key|}}
               <li>
                 <div class="selection-control">
-                  <input type="radio" name="alignment-selection" data-alignment="{{../char_class}}.alignments.{{alignment.key}}">
+                  <input type="radio" name="alignment-selection" data-alignment="{{key}}">
                 </div>
                 <div class="selection-content">
                   <h2>{{alignment.label}}</h2>
@@ -53,20 +53,21 @@
 
     {{#if starting_moves}}
       <section class="cell cell--starting_moves">
-        <h1 class="cell__title">Choose starting moves</h1>
+        <h1 class="cell__title">{{localize "DW.ChooseStartingMoves"}}</h1>
         <ul class="selection-list">
           {{!-- Loop through each group of starting moves. --}}
           {{#each starting_move_groups as |moves group|}}
             {{!-- If a movegroup is defined, that means this should be an OR choice. --}}
             {{#if moves.0.data.data.moveGroup}}
-              <h2 class="cell__subtitle">Choose one of these to start with:</h2>
+              <h2 class="cell__subtitle">{{localize "DW.ChooseStartingAll"}}</h2>
             {{!-- Otherwise, everything is valid. --}}
             {{else}}
-              <h2 class="cell__subtitle">You also start with all of these:</h2>
+              <h2 class="cell__subtitle">{{localize "DW.ChooseStartingAll"}}</h2>
             {{/if}}
             {{!-- Create the grid and loop through moves within the groups. --}}
             <div class="grid grid-2col">
               {{#each moves as |move key|}}
+                {{log move}}
                 <li>
                   <div class="selection-control">
                     {{!-- Moves in a group should be in a radio. --}}
@@ -92,9 +93,9 @@
 
     {{#ifor advanced_moves_2 advanced_moves_6}}
       <section class="cell cell--advanced_moves">
-        <h1 class="cell__title">Choose advanced moves</h1>
+        <h1 class="cell__title">{{localize "DW.ChooseAdvancedMoves"}}</h1>
         {{#if advanced_moves_2}}
-          <h2 class="cell__subtitle">When you gain a level from 2-5, choose from these moves.</h2>
+          <h2 class="cell__subtitle">{{localize "DW.ChooseAdvanced2"}}</h2>
           <ul class="selection-list grid grid-2col">
             {{#each advanced_moves_2 as |move key|}}
               <li>
@@ -111,7 +112,7 @@
         {{/if}}
 
         {{#if advanced_moves_6}}
-          <h2 class="cell__subtitle">When you gain a level from 6-10, choose from these moves or the level 2-5 moves.</h2>
+          <h2 class="cell__subtitle">{{localize "DW.ChooseAdvanced6"}}</h2>
           <ul class="selection-list grid grid-2col">
             {{#each advanced_moves_6 as |move key|}}
               <li>

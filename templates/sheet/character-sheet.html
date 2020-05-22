@@ -20,11 +20,11 @@
                 <label for="data.attributes.xp.value">{{ localize "DW.XP" }}</label>
                 <input name="data.attributes.xp.value" type="text" value="{{data.attributes.xp.value}}" placeholder="XP" data-dtype="Number"/>
               </div>
-              {{#includes data.classlist data.details.class}}
+              {{#if data.levelup}}
                 <div class="flex-item flex-item--level-up">
                   <a class="clickable-level-up"><i class="fas fa-user-plus"></i></a>
                 </div>
-              {{/includes}}
+              {{/if}}
           </div>
       </header>
 

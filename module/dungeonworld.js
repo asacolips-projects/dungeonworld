@@ -97,6 +97,25 @@ Hooks.once("setup", function() {
 });
 
 /* -------------------------------------------- */
+/*  Actor Updates                               */
+/* -------------------------------------------- */
+Hooks.on('createActor', (actor, options, id) => {
+  console.log(actor);
+  if (actor.data.type == 'character') {
+    actor.setFlag('dungeonworld', 'levelup', true);
+  }
+});
+
+Hooks.on('preUpdateActor', (actor, data, options, id) => {
+  if (actor.data.type == 'character') {
+    if (data.data && data.data.attributes && data.data.attributes.level) {
+      console.log('You\'re ready to level up!');
+      actor.setFlag('dungeonworld', 'levelup', true);
+    }
+  }
+});
+
+/* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
 
