@@ -25,11 +25,15 @@ export class DwRegisterHelpers {
     });
 
     Handlebars.registerHelper('includes', function(haystack, needle, options) {
-      console.log(haystack);
-      console.log(needle);
       if (haystack.includes(needle)) {
         return options.fn(this);
       }
     });
+
+    Handlebars.registerHelper('ifor', function(arg1, arg2, options) {
+      if (arg1 || arg2) {
+        return options.fn(this);
+      }
+    })
   }
 }

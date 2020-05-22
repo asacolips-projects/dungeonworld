@@ -1,4 +1,5 @@
-.cell__title {
+.cell__title,
+.cell__subtitle {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -24,6 +25,10 @@
       color: $c-white;
     }
   }
+}
+
+.cell__subtitle {
+  background: $c-navy-up;
 }
 
 .cell--image {

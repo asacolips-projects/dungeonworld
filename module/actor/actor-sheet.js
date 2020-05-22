@@ -284,14 +284,29 @@ export class DwActorSheet extends ActorSheet {
       });
     }
 
-    // Get the available moves.
+    // Retrieve the actor's current moves so that we can hide them.
     const actorMoves = this.actor.data.items.filter(i => i.type == 'move');
-    let moves = compendium.filter(m => {
+
+    // Get the item moves as the priority.
+    let moves = game.items.entities.filter(i => i.type == 'move' && i.data.data.class == char_class_name);
+    // Get the compendium moves next.
+    let moves_compendium = compendium.filter(m => {
       const available_level = m.data.data.requiresLevel <= char_level;
       const not_taken = actorMoves.filter(i => i.name == m.data.name);
       return available_level && not_taken.length < 1;
     });
 
+    // Append compendium moves to the item moves.
+    let moves_list = moves.map(m => {
+      return m.data.name;
+    })
+    for (let move of moves_compendium) {
+      if (!moves_list.includes(move.data.name)) {
+        moves.push(move);
+      }
+    }
+
+    // Sort the moves and build our groups.
     moves.sort((a, b) => {
       return a.data.data.requiresLevel - b.data.data.requiresLevel;
     });
@@ -299,6 +314,17 @@ export class DwActorSheet extends ActorSheet {
     let starting_moves = moves.filter(m => {
       return m.data.data.requiresLevel < 2;
     });
+
+    let starting_move_groups = starting_moves.reduce((groups, move) => {
+      // Assign the undefined group to all Z's so that it's last.
+      let group = move.data.data.moveGroup ? move.data.data.moveGroup : 'ZZZZZZZ';
+      if (!groups[group]) {
+        groups[group] = [];
+      }
+
+      groups[group].push(move);
+      return groups;
+    }, {});
 
     let advanced_moves_2 = moves.filter(m => {
       return m.data.data.requiresLevel >= 2 && m.data.data.requiresLevel < 6;
@@ -317,6 +343,7 @@ export class DwActorSheet extends ActorSheet {
       races: races.length > 0 ? races : null,
       alignments: alignments.length > 0 ? alignments : null,
       starting_moves: starting_moves.length > 0 ? starting_moves : null,
+      starting_move_groups: starting_move_groups,
       advanced_moves_2: advanced_moves_2.length > 0 ? advanced_moves_2 : null,
       advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null
     };

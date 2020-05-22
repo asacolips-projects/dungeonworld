@@ -50,29 +50,51 @@
 
     </div>
 
+
     {{#if starting_moves}}
       <section class="cell cell--starting_moves">
         <h1 class="cell__title">Choose starting moves</h1>
-        <ul class="selection-list grid grid-2col">
-          {{#each starting_moves as |move key|}}
-            <li>
-              <div class="selection-control">
-                <input type="checkbox" checked data-item-id="{{move.data._id}}">
-              </div>
-              <div class="selection-content">
-                <h2>{{move.data.name}}</h2>
-                <div>{{{move.data.data.description}}}</div>
-              </div>
-            </li>
+        <ul class="selection-list">
+          {{!-- Loop through each group of starting moves. --}}
+          {{#each starting_move_groups as |moves group|}}
+            {{!-- If a movegroup is defined, that means this should be an OR choice. --}}
+            {{#if moves.0.data.data.moveGroup}}
+              <h2 class="cell__subtitle">Choose one of these to start with:</h2>
+            {{!-- Otherwise, everything is valid. --}}
+            {{else}}
+              <h2 class="cell__subtitle">You also start with all of these:</h2>
+            {{/if}}
+            {{!-- Create the grid and loop through moves within the groups. --}}
+            <div class="grid grid-2col">
+              {{#each moves as |move key|}}
+                <li>
+                  <div class="selection-control">
+                    {{!-- Moves in a group should be in a radio. --}}
+                    {{#if move.data.data.moveGroup}}
+                      <input type="radio" name="{{move.data.data.moveGroup}}" data-item-id="{{move.data._id}}">
+                    {{!-- Other moves should be checkboxes that the user is forced to take. --}}
+                    {{else}}
+                      <input type="checkbox" checked data-item-id="{{move.data._id}}" disabled="disabled">
+                    {{/if}}
+                  </div>
+                  {{!-- Finally, show the description. --}}
+                  <div class="selection-content">
+                    <h2>{{move.data.name}}</h2>
+                    <div>{{{move.data.data.description}}}</div>
+                  </div>
+                </li>
+              {{/each}}
+            </div>
           {{/each}}
         </ul>
       </section>
     {{/if}}
 
+    {{#ifor advanced_moves_2 advanced_moves_6}}
       <section class="cell cell--advanced_moves">
         <h1 class="cell__title">Choose advanced moves</h1>
         {{#if advanced_moves_2}}
-          <h2>When you gain a level from 2-5, choose from these moves.</h2>
+          <h2 class="cell__subtitle">When you gain a level from 2-5, choose from these moves.</h2>
           <ul class="selection-list grid grid-2col">
             {{#each advanced_moves_2 as |move key|}}
               <li>
@@ -89,7 +111,7 @@
         {{/if}}
 
         {{#if advanced_moves_6}}
-          <h2>When you gain a level from 6-10, choose from these moves or the level 2-5 moves.</h2>
+          <h2 class="cell__subtitle">When you gain a level from 6-10, choose from these moves or the level 2-5 moves.</h2>
           <ul class="selection-list grid grid-2col">
             {{#each advanced_moves_6 as |move key|}}
               <li>
@@ -105,6 +127,7 @@
           </ul>
         {{/if}}
       </section>
+    {{/ifor}}
 
   </div>
 </form>

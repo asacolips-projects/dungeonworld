@@ -127,16 +127,19 @@
       "templates": [
         "base"
       ],
+      "class": "",
       "rollType": "",
       "rollMod": 0,
       "requiresLevel": 0,
       "requiresMove": "",
-      "moveType": null
+      "moveType": null,
+      "moveGroup": ""
     },
     "equipment": {
       "templates": [
         "base"
       ],
+      "class": "",
       "quantity": 1,
       "weight": 0,
       "uses": 0,

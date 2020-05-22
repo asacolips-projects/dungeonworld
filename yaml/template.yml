@@ -95,14 +95,17 @@ Item:
   move:
     templates:
       - base
+    class: ''
     rollType: ''
     rollMod: 0
     requiresLevel: 0
     requiresMove: ''
     moveType:
+    moveGroup: ''
   equipment:
     templates:
       - base
+    class: ''
     quantity: 1
     weight: 0
     uses: 0

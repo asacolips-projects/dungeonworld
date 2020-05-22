@@ -1,6 +1,6 @@
 &.dw-level-up {
   ul {
-    padding-left: 10px;
+    padding: 0;
     margin: 0;
   }
 
@@ -9,11 +9,11 @@
     margin-bottom: 20px;
   }
 
-  .selection-list > li {
+  .selection-list li {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    padding: 0;
+    padding: 0 0 0 10px;
     list-style-type: none;
   }
 
