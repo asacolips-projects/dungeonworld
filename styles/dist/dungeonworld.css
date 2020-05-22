@@ -265,7 +265,8 @@
       -ms-flex-order: 0;
       order: 0;
       margin-bottom: 10px;
-      max-height: 80px; }
+      max-height: 80px;
+      min-height: 50px; }
       .dungeonworld.sheet .sheet-wrapper .sheet-header input::-webkit-input-placeholder {
         color: #bcc8de; }
       .dungeonworld.sheet .sheet-wrapper .sheet-header input::-moz-placeholder {
@@ -276,6 +277,11 @@
         color: #bcc8de; }
       .dungeonworld.sheet .sheet-wrapper .sheet-header input::placeholder {
         color: #bcc8de; }
+    .dungeonworld.sheet .sheet-wrapper .sheet-notifications {
+      width: 101%; }
+      .dungeonworld.sheet .sheet-wrapper .sheet-notifications .error,
+      .dungeonworld.sheet .sheet-wrapper .sheet-notifications .warning {
+        margin-bottom: 10px; }
     .dungeonworld.sheet .sheet-wrapper .sheet-look {
       -webkit-box-flex: 33%;
       -ms-flex: 33% 1 1;
@@ -366,6 +372,34 @@
     .dungeonworld.sheet .cell__subtitle button:focus {
       background-color: #5b7094;
       color: #fff; }
+    .dungeonworld.sheet .cell__title.error, .dungeonworld.sheet .cell__title.warning,
+    .dungeonworld.sheet .cell__subtitle.error,
+    .dungeonworld.sheet .cell__subtitle.warning {
+      background: #d68888;
+      font-size: 16px;
+      font-family: "Roboto", serif;
+      font-weight: normal;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      display: block;
+      text-align: center; }
+      .dungeonworld.sheet .cell__title.error::before, .dungeonworld.sheet .cell__title.warning::before,
+      .dungeonworld.sheet .cell__subtitle.error::before,
+      .dungeonworld.sheet .cell__subtitle.warning::before {
+        content: '\f057';
+        display: inline-block;
+        font-family: "Font Awesome 5 Free";
+        margin-right: 5px; }
+    .dungeonworld.sheet .cell__title.warning,
+    .dungeonworld.sheet .cell__subtitle.warning {
+      background: #e6ad54; }
+      .dungeonworld.sheet .cell__title.warning::before,
+      .dungeonworld.sheet .cell__subtitle.warning::before {
+        content: '\f071';
+        display: inline-block;
+        font-family: "Font Awesome 5 Free";
+        margin-right: 5px; }
   .dungeonworld.sheet .cell__subtitle {
     background: #5b7094; }
   .dungeonworld.sheet .cell--image img {

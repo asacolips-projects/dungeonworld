@@ -39,7 +39,21 @@ export class DwActorSheet extends ActorSheet {
     this._prepareNpcItems(data);
     // Add classlist.
     data.data.classlist = await DwClassList.getClasses();
-    data.data.levelup = this.actor.getFlag('dungeonworld', 'levelup') == true && data.data.classlist.includes(data.data.details.class);
+
+    // Set a warning for tokens.
+    data.data.isToken = this.actor.token != null;
+    if (!data.data.isToken) {
+      // Add levelup choice.
+      let levelup = this.actor.getFlag('dungeonworld', 'levelup');
+      if (typeof levelup == 'undefined') {
+        this.actor.setFlag('dungeonworld', 'levelup', true);
+        levelup = true;
+      }
+      data.data.levelup = levelup && data.data.classlist.includes(data.data.details.class);
+    }
+    else {
+      data.data.levelup = false;
+    }
 
     // Return data to the sheet
     return data;
@@ -414,7 +428,10 @@ export class DwActorSheet extends ActorSheet {
       }
     }
 
+    // Add selected moves.
     let moves = itemData.moves.filter(m => move_ids.includes(m.data._id));
+
+    // Prepare moves for saving.
     let new_moves = moves.map(m => {
       return duplicate(m);
     });

@@ -121,12 +121,21 @@ Hooks.on('createActor', async (actor, options, id) => {
     for (let move of moves_compendium) {
       if (!moves_list.includes(move.data.name)) {
         moves.push(move);
+        moves_list.push(move.data.name);
       }
     }
 
     // Sort the moves and build our groups.
     moves.sort((a, b) => {
-      return a.data.data.requiresLevel - b.data.data.requiresLevel;
+      const aSort = a.data.name.toLowerCase();
+      const bSort = b.data.name.toLowerCase();
+      if (aSort < bSort) {
+        return -1;
+      }
+      if (aSort > bSort) {
+        return 1;
+      }
+      return 0;
     });
 
     // Add to the actor.

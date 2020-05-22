@@ -25,6 +25,35 @@
       color: $c-white;
     }
   }
+
+  &.error,
+  &.warning {
+    background: #d68888;
+    font-size: 16px;
+    font-family: $font-stack-base;
+    font-weight: normal;
+    justify-content: center;
+    display: block;
+    text-align: center;
+
+    &::before {
+      content: '\f057';
+      display: inline-block;
+      font-family: "Font Awesome 5 Free";
+      margin-right: 5px;
+    }
+  }
+
+  &.warning {
+    background: #e6ad54;
+
+    &::before {
+      content: '\f071';
+      display: inline-block;
+      font-family: "Font Awesome 5 Free";
+      margin-right: 5px;
+    }
+  }
 }
 
 .cell__subtitle {
