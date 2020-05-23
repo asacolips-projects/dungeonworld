@@ -41,6 +41,11 @@
       display: inline-block;
       font-family: "Font Awesome 5 Free";
       margin-right: 5px;
+      font-weight: 900;
+    }
+
+    &.small-text {
+      font-size: 13px;
     }
   }
 
@@ -48,10 +53,7 @@
     background: #e6ad54;
 
     &::before {
-      content: '\f071';
-      display: inline-block;
-      font-family: "Font Awesome 5 Free";
-      margin-right: 5px;
+      content: "\f071";
     }
   }
 }

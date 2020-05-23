@@ -390,16 +390,18 @@
         content: '\f057';
         display: inline-block;
         font-family: "Font Awesome 5 Free";
-        margin-right: 5px; }
+        margin-right: 5px;
+        font-weight: 900; }
+      .dungeonworld.sheet .cell__title.error.small-text, .dungeonworld.sheet .cell__title.warning.small-text,
+      .dungeonworld.sheet .cell__subtitle.error.small-text,
+      .dungeonworld.sheet .cell__subtitle.warning.small-text {
+        font-size: 13px; }
     .dungeonworld.sheet .cell__title.warning,
     .dungeonworld.sheet .cell__subtitle.warning {
       background: #e6ad54; }
       .dungeonworld.sheet .cell__title.warning::before,
       .dungeonworld.sheet .cell__subtitle.warning::before {
-        content: '\f071';
-        display: inline-block;
-        font-family: "Font Awesome 5 Free";
-        margin-right: 5px; }
+        content: "\f071"; }
   .dungeonworld.sheet .cell__subtitle {
     background: #5b7094; }
   .dungeonworld.sheet .cell--image img {
@@ -445,14 +447,16 @@
     align-items: center;
     -webkit-box-pack: start;
     -ms-flex-pack: start;
-    justify-content: flex-start; }
+    justify-content: flex-start;
+    list-style-type: none; }
   .dungeonworld.sheet .tag {
     padding: 3px 6px;
     background: #edf2f7;
     color: #2d3748;
     margin: 5px 0;
     border-radius: 4px;
-    text-transform: capitalize; }
+    text-transform: capitalize;
+    list-style-type: none; }
     .dungeonworld.sheet .tag + .tag {
       margin-left: 5px; }
   .dungeonworld.sheet .tagging {
@@ -991,6 +995,21 @@
     list-style-type: none; }
   .dungeonworld.sheet .class .item + .item {
     border-top: 1px solid #ccc; }
+  .dungeonworld.sheet .class .drop-area {
+    padding: 20px;
+    border: 5px dashed rgba(0, 0, 0, 0.25);
+    text-align: center; }
+  .dungeonworld.sheet .class .drop-hover {
+    position: relative; }
+    .dungeonworld.sheet .class .drop-hover::before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.15); }
   .dungeonworld.sheet .flexrow {
     -webkit-box-align: center;
     -ms-flex-align: center;

@@ -181,6 +181,12 @@
             <div class="tab moves active" data-group="primary" data-tab="moves">
               <section class="sheet-tab">
 
+                <section class="sheet-notifications">
+                  {{#if data.isToken}}
+                  <div class="cell__title warning small-text">Moves cannot be rearranged while this token is not linked to an actor.</div>
+                  {{/if}}
+                </section>
+
                 <div class="cell cell--starting-moves">
                   <h2 class="cell__title">{{localize "DW.MovesStarting"}}</h2>
                   <div class="item-controls">
@@ -256,6 +262,12 @@
             {{!-- Owned Spells Tab --}}
             <div class="tab spells" data-group="primary" data-tab="spells">
                 <div class="cell cell--spells">
+                  <section class="sheet-notifications" style="margin-top:10px;">
+                    {{#if data.isToken}}
+                    <div class="cell__title warning small-text">Spells cannot be rearranged while this token is not linked to an actor.</div>
+                    {{/if}}
+                  </section>
+
                   <ol class="items-list">
                   {{#each actor.spells as |spells spellLevel|}}
                     <h2 class="cell__title">{{localize (concat "DW.Spells" spellLevel)}}</h2>
@@ -289,6 +301,12 @@
             {{!-- Owned Equipment Tab --}}
             <div class="tab equipment" data-group="primary" data-tab="equipment">
                 <div class="cell cell--equipment">
+                  <section class="sheet-notifications" style="margin-top:10px;">
+                    {{#if data.isToken}}
+                    <div class="cell__title warning small-text">Equipment cannot be rearranged while this token is not linked to an actor.</div>
+                    {{/if}}
+                  </section>
+
                   <h2 class="cell__title">{{localize "DW.Equipment"}}</h2>
                   <div class="item-controls">
                     <button class="item-control item-create" title='{{localize "DW.Equipment"}}' data-type="equipment">

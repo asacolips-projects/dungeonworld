@@ -85,6 +85,8 @@ export class DwActorSheet extends ActorSheet {
       9: []
     };
 
+    console.log(sheetData.items);
+
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     for (let i of sheetData.items) {

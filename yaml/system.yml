@@ -1,7 +1,7 @@
 name: dungeonworld
 title: Dungeon World
 description: The Dungeon World system for FoundryVTT!
-version: 0.2.0
+version: 0.2.1
 minimumCoreVersion: 0.5.2
 compatibleCoreVersion: 0.6.0
 templateVersion: 2

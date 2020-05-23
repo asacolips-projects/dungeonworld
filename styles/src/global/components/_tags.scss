@@ -4,6 +4,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  list-style-type: none;
 }
 
 .tag {
@@ -13,6 +14,7 @@
   margin: 5px 0;
   border-radius: 4px;
   text-transform: capitalize;
+  list-style-type: none;
 
   + .tag {
     margin-left: 5px;

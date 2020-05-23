@@ -35,5 +35,11 @@ export class DwRegisterHelpers {
         return options.fn(this);
       }
     })
+
+    Handlebars.registerHelper('renderItemField', function(entity_id, property) {
+      console.log(entity_id);
+      let obj = game.items.get(`${entity_id}`);
+      return property.split('.').reduce((o, i) => o[i], obj);
+    });
   }
 }

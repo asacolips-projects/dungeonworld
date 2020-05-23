@@ -64,7 +64,29 @@
         </div>
 
         <div class="tab" data-group="primary" data-tab="equipment">
-          <p>coming soon</p>
+          <div class="cell resource">
+            <div class="cell__title">
+              <label>Starting items</label>
+            </div>
+            <div class="item-container drop-area" data-group="starting">
+              {{#if data.equipment.starting }}
+                <ul class="tags">
+                {{#each data.equipment.starting as |item key|}}
+                  <li class="tag" data-item-id="{{item}}">{{renderItemField item 'data.name'}}</li>
+                {{/each}}
+                </ul>
+              {{else}}
+              <span>Drop items here</span>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="cell resource">
+            <div class="cell__title">
+              <label>Choose one, all are weight 0 for you</label>
+            </div>
+            <div class="item-container drop-area" data-group="choice-1">Drop items here</div>
+          </div>
         </div>
     </section>
 </form>
