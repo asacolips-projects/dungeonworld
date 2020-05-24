@@ -1,0 +1,133 @@
+<form>
+  <div class="level-up">
+
+    <header class="cell cell--description">
+      <h1 class="cell__title">{{char_class_name}}</h1>
+      {{#if blurb}}
+        <div class="cell__description">{{{blurb}}}</div>
+      {{/if}}
+    </header>
+
+    <div class="grid grid-2col">
+
+      {{#if races}}
+        <section class="cell cell--races">
+          <h1 class="cell__title">{{localize "DW.ChooseRace"}}</h1>
+          <ul class="selection-list">
+            {{#each races as |race key|}}
+              <li>
+                <div class="selection-control">
+                  <input type="radio" name="race-selection" data-race="{{key}}">
+                </div>
+                <div class="selection-content">
+                  <h2>{{race.label}}</h2>
+                  <p>{{race.description}}</p>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        </section>
+      {{/if}}
+
+      {{#if alignments}}
+        <section class="cell cell--alignments">
+          <h1 class="cell__title">{{localize "DW.ChooseAlignment"}}</h1>
+          <ul class="selection-list">
+            {{#each alignments as |alignment key|}}
+              <li>
+                <div class="selection-control">
+                  <input type="radio" name="alignment-selection" data-alignment="{{key}}">
+                </div>
+                <div class="selection-content">
+                  <h2>{{alignment.label}}</h2>
+                  <p>{{alignment.description}}</p>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        </section>
+      {{/if}}
+
+    </div>
+
+
+    {{#if starting_moves}}
+      <section class="cell cell--starting_moves">
+        <h1 class="cell__title">{{localize "DW.ChooseStartingMoves"}}</h1>
+        <ul class="selection-list">
+          {{!-- Loop through each group of starting moves. --}}
+          {{#each starting_move_groups as |moves group|}}
+            {{!-- If a movegroup is defined, that means this should be an OR choice. --}}
+            {{#if moves.0.data.data.moveGroup}}
+              <h2 class="cell__subtitle">{{localize "DW.ChooseStartingAll"}}</h2>
+            {{!-- Otherwise, everything is valid. --}}
+            {{else}}
+              <h2 class="cell__subtitle">{{localize "DW.ChooseStartingAll"}}</h2>
+            {{/if}}
+            {{!-- Create the grid and loop through moves within the groups. --}}
+            <div class="grid grid-2col">
+              {{#each moves as |move key|}}
+                <li>
+                  <div class="selection-control">
+                    {{!-- Moves in a group should be in a radio. --}}
+                    {{#if move.data.data.moveGroup}}
+                      <input type="radio" name="{{move.data.data.moveGroup}}" data-item-id="{{move.data._id}}">
+                    {{!-- Other moves should be checkboxes that the user is forced to take. --}}
+                    {{else}}
+                      <input type="checkbox" checked data-item-id="{{move.data._id}}" disabled="disabled">
+                    {{/if}}
+                  </div>
+                  {{!-- Finally, show the description. --}}
+                  <div class="selection-content">
+                    <h2>{{move.data.name}}</h2>
+                    <div>{{{move.data.data.description}}}</div>
+                  </div>
+                </li>
+              {{/each}}
+            </div>
+          {{/each}}
+        </ul>
+      </section>
+    {{/if}}
+
+    {{#ifor advanced_moves_2 advanced_moves_6}}
+      <section class="cell cell--advanced_moves">
+        <h1 class="cell__title">{{localize "DW.ChooseAdvancedMoves"}}</h1>
+        {{#if advanced_moves_2}}
+          <h2 class="cell__subtitle">{{localize "DW.ChooseAdvanced2"}}</h2>
+          <ul class="selection-list grid grid-2col">
+            {{#each advanced_moves_2 as |move key|}}
+              <li>
+                <div class="selection-control">
+                  <input type="radio" name="move-selection" data-item-id="{{move.data._id}}">
+                </div>
+                <div class="selection-content">
+                  <h2>{{move.data.name}}</h2>
+                  <div>{{{move.data.data.description}}}</div>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+
+        {{#if advanced_moves_6}}
+          <h2 class="cell__subtitle">{{localize "DW.ChooseAdvanced6"}}</h2>
+          <ul class="selection-list grid grid-2col">
+            {{#each advanced_moves_6 as |move key|}}
+              <li>
+                <div class="selection-control">
+                  <input type="radio" name="move-selection" data-item-id="{{move.data._id}}">
+                </div>
+                <div class="selection-content">
+                  <h2>{{move.data.name}}</h2>
+                  <div>{{{move.data.data.description}}}</div>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+      </section>
+    {{/ifor}}
+
+  </div>
+</form>

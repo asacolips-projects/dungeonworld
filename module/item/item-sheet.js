@@ -77,6 +77,8 @@ export class DwItemSheet extends ItemSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
+    this.html = html;
+
     // Add or Remove Attribute
     html.find(".class-fields").on("click", ".class-control", this._onClickClassControl.bind(this));
 
@@ -155,7 +157,6 @@ export class DwItemSheet extends ItemSheet {
     const a = event.currentTarget;
     const action = a.dataset.action;
     const field_type = a.dataset.type;
-    const field_values = this.object.data.data[field_type];
     const form = this.form;
 
     let field_types = {
@@ -163,35 +164,70 @@ export class DwItemSheet extends ItemSheet {
       'alignments': 'alignment'
     };
 
-    console.log(field_types);
-
     // // Add new attribute
     if (action === "create") {
-      const nk = Object.keys(field_values).length + 1;
-      let newKey = document.createElement("div");
-      newKey.innerHTML = `<li class="item ${field_types[field_type]}" data-index="${nk}">
-  <div class="flexrow">
-    <input type="text" class="input input--title" name="data.${field_type}.${nk}.label" value="" data-dtype="string"/>
-    <a class="class-control" data-action="delete" data-type="${field_type}"><i class="fas fa-trash"></i></a>
-  </div>
-  <textarea class="${field_types[field_type]}" name="data.${field_type}.${nk}.description" rows="5" title="What's your ${field_types[field_type]}?" data-dtype="String"></textarea>
-</li>`;
-      console.log(newKey.children[0]);
-      newKey = newKey.children[0];
-      form.appendChild(newKey);
-      await this._onSubmit(event);
+      if (Object.keys(field_types).includes(field_type)) {
+        const field_values = this.object.data.data[field_type];
+        const nk = Object.keys(field_values).length + 1;
+        let newKey = document.createElement("div");
+        newKey.innerHTML = `<li class="item ${field_types[field_type]}" data-index="${nk}">
+    <div class="flexrow">
+      <input type="text" class="input input--title" name="data.${field_type}.${nk}.label" value="" data-dtype="string"/>
+      <a class="class-control" data-action="delete" data-type="${field_type}"><i class="fas fa-trash"></i></a>
+    </div>
+    <textarea class="${field_types[field_type]}" name="data.${field_type}.${nk}.description" rows="5" title="What's your ${field_types[field_type]}?" data-dtype="String"></textarea>
+  </li>`;
+        newKey = newKey.children[0];
+        form.appendChild(newKey);
+        await this._onSubmit(event);
+      }
+      else if (field_type == 'equipment-groups') {
+        const field_values = this.object.data.data.equipment;
+        const nk = Object.keys(field_values).length + 1;
+        let template = '/systems/dungeonworld/templates/items/_class-sheet--equipment-group.html';
+        let templateData = {
+          group: nk
+        };
+        let newKey = document.createElement('div');
+        newKey.innerHTML = await renderTemplate(template, templateData);
+        newKey = newKey.children[0];
+
+        let update = duplicate(this.object.data);
+        update.data.equipment[nk] = {
+          label: '',
+          mode: 'radio',
+          items: [],
+          objects: []
+        };
+
+        await this.object.update(update);
+
+        form.appendChild(newKey);
+        await this._onSubmit(event);
+      }
     }
 
     // Remove existing attribute
     else if (action === "delete") {
-      const li = a.closest(".item");
-      const nk = li.dataset.index;
-      li.parentElement.removeChild(li);
-      let update = {};
-      update[`data.${field_type}.-=${nk}`] = null;
-      console.log(update);
-      await this.object.update(update);
-      await this._onSubmit(event);
+      const field_type = a.dataset.type;
+      if (field_type == 'equipment-groups') {
+        let elem = a.closest('.equipment-group');
+        const nk = elem.dataset.index;
+        elem.parentElement.removeChild(elem);
+        let update = {};
+        update[`data.equipment.-=${nk}`] = null;
+        await this.object.update(update);
+        await this._onSubmit(event);
+      }
+      else {
+        const li = a.closest(".item");
+        const nk = li.dataset.index;
+        li.parentElement.removeChild(li);
+        let update = {};
+        update[`data.${field_type}.-=${nk}`] = null;
+        await this.object.update(update);
+        await this._onSubmit(event);
+      }
     }
   }
 

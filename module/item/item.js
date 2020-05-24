@@ -1,3 +1,5 @@
+import { DwUtility } from "../utility.js";
+
 export class ItemDw extends Item {
   /**
    * Augment the basic Item data model with additional dynamic data.
@@ -9,6 +11,39 @@ export class ItemDw extends Item {
     const itemData = this.data;
     const actorData = this.actor ? this.actor.data : {};
     const data = itemData.data;
+
+    // if (DwUtility.isEmpty(itemData.data.equipment)) {
+    //   console.log(itemData.data.equipment);
+    //   itemData.data.equipment = [];
+    // }
+
+    // Clean up broken groups.
+    if (itemData.type == 'class') {
+      if (itemData.data.equipment) {
+        for (let [group_key, group] of Object.entries(itemData.data.equipment)) {
+          if (DwUtility.isEmpty(group['items'])) {
+            group['items'] = [];
+            group['objects'] = [];
+          }
+        }
+      }
+    }
+  }
+
+  async _getClassData(force_reload = false) {
+    let obj = null;
+    let itemData = this.data;
+
+    let items = await DwUtility.getEquipment(force_reload);
+    let equipment = [];
+
+    if (itemData.data.equipment) {
+      for (let [group, group_items] of Object.entries(itemData.data.equipment)) {
+        equipment[group] = items.filter(i => group_items['items'].includes(i.data._id));
+      }
+    }
+
+    return equipment;
   }
 
   /**

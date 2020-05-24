@@ -29,6 +29,41 @@
       background: rgba(0,0,0,0.15);
     }
   }
+
+  .equipment-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cell__title {
+    flex: 0 0 48px;
+
+    input[type="text"] {
+      color: $c-white;
+      font-family: $font-stack-secondary;
+    }
+
+    label {
+      flex: 1;
+    }
+
+    select {
+      color: $c-white;
+      background: $c-navy-up;
+      margin-right: 30px;
+    }
+  }
+
+  .item-container {
+    flex: 2;
+  }
+
+  .resource--equipment-help {
+    .class-controls {
+      flex: 0 0 200px;
+      margin-left: 10px;
+    }
+  }
 }
 
 .flexrow {

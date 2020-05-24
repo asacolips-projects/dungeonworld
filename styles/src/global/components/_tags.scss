@@ -5,20 +5,18 @@
   align-items: center;
   justify-content: flex-start;
   list-style-type: none;
+  flex-wrap: wrap;
 }
 
 .tag {
-  padding: 3px 6px;
+  position: relative;
+  padding: 3px 25px 3px 6px;
   background: $c-light;
   color: $c-navy;
-  margin: 5px 0;
+  margin: 5px 5px 0 0;
   border-radius: 4px;
   text-transform: capitalize;
   list-style-type: none;
-
-  + .tag {
-    margin-left: 5px;
-  }
 }
 
 // Tagging widget.
@@ -41,7 +39,6 @@
     > span {
       display: none;
     }
-
   }
 
   .tag-input {
@@ -49,6 +46,32 @@
     &:focus {
       box-shadow: 0 1px 0 $c-navy-up;
     }
+  }
+}
+
+.remove-tag {
+  position: absolute;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition: all ease-in-out 0.25s;
+  border-radius: 50px;
+
+  &:hover {
+    color: #fff;
+    background: #c77777;
+  }
+
+  &::before {
+    display: block;
+    content: "\00D7";
   }
 }
 

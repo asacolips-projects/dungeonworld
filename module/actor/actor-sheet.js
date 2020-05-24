@@ -377,12 +377,15 @@ export class DwActorSheet extends ActorSheet {
       advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null
     };
     const html = await renderTemplate(template, templateData);
+    console.log(templateData);
 
     const itemData = {
       moves: moves,
       races: races,
       alignments: alignments
     };
+
+    console.log(html);
 
     // Render the dialog.
     let d = new Dialog({

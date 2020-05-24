@@ -10,4 +10,31 @@ export class DwUtility {
     string = string.replace(/[\s\-]+/g, "-");
     return string;
   };
+
+  static isEmpty(arg) {
+    return [null, false, undefined, 0, ''].includes(arg);
+  }
+
+  static async getEquipment(update = false) {
+    if (typeof game.items == 'undefined') {
+      return false;
+    }
+
+    // Cache results.
+    if (game.dungeonworld.equipment && !update) {
+      return game.dungeonworld.equipment;
+    }
+
+    // Load new results.
+    let items = game.items.filter(i => i.type == 'equipment');
+    for (let pack of game.packs) {
+      if (pack.metadata.name.includes('equipment')) {
+        items = items.concat(await pack.getContent());
+      }
+    }
+
+    game.dungeonworld.equipment = items;
+
+    return items;
+  }
 }
