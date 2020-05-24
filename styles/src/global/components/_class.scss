@@ -56,6 +56,10 @@
 
   .item-container {
     flex: 2;
+
+    .tag {
+      padding: 3px 25px 3px 6px;
+    }
   }
 
   .resource--equipment-help {

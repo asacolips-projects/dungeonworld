@@ -453,7 +453,7 @@
     flex-wrap: wrap; }
   .dungeonworld.sheet .tag {
     position: relative;
-    padding: 3px 25px 3px 6px;
+    padding: 3px 6px 3px 6px;
     background: #edf2f7;
     color: #2d3748;
     margin: 5px 5px 0 0;
@@ -1018,6 +1018,13 @@
     padding: 10px;
     margin: 10px;
     background: #edf2f7; }
+  .dungeonworld.sheet.dw-level-up h1,
+  .dungeonworld.sheet.dw-level-up h2 {
+    font-size: 18px; }
+  .dungeonworld.sheet.dw-level-up h3 {
+    font-size: 16px; }
+  .dungeonworld.sheet.dw-level-up h4 {
+    font-size: 14px; }
   .dungeonworld.sheet .class .items-list,
   .dungeonworld.sheet .class .items-list .item {
     padding: 0;
@@ -1066,6 +1073,8 @@
     -webkit-box-flex: 2;
     -ms-flex: 2;
     flex: 2; }
+    .dungeonworld.sheet .class .item-container .tag {
+      padding: 3px 25px 3px 6px; }
   .dungeonworld.sheet .class .resource--equipment-help .class-controls {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 200px;

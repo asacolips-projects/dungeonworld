@@ -37,4 +37,8 @@ export class DwUtility {
 
     return items;
   }
+
+  static levelUpListeners(html) {
+    console.log(html.find('.cell--ability-scores select'));
+  }
 }

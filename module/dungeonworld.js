@@ -157,6 +157,44 @@ Hooks.on('preUpdateActor', (actor, data, options, id) => {
 });
 
 /* -------------------------------------------- */
+/*  Level Up Listeners                          */
+/* -------------------------------------------- */
+Hooks.on('renderDialog', (dialog, html, options) => {
+  // If this is the levelup dialog, we need to add listeners to it.
+  if (dialog.data.id && dialog.data.id == 'level-up') {
+    // If an ability score is chosen, we need to update the available options.
+    html.find('.cell--ability-scores select').on('change', () => {
+      // Build the list of selected score values.
+      let scores = [];
+      html.find('.cell--ability-scores select').each((index, item) => {
+        let $self = $(item);
+        if ($self.val()) {
+          scores.push($self.val());
+        }
+      });
+      // Loop over the list again, disabling invalid options.
+      html.find('.cell--ability-scores select').each((index, item) => {
+        let $self = $(item);
+        // Loop over the options in the select.
+        $self.find('option').each((opt_index, opt_item) => {
+          let $opt = $(opt_item);
+          let val = $opt.attr('value');
+          if (val) {
+            if (scores.includes(val) && $self.val() != val) {
+              $opt.attr('disabled', true);
+            }
+            else {
+              $opt.attr('disabled', false);
+            }
+          }
+        });
+      });
+    })
+  }
+  // console.log(html.find('.cell--ability-scores'));
+});
+
+/* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
 

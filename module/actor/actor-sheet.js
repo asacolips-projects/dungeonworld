@@ -255,14 +255,6 @@ export class DwActorSheet extends ActorSheet {
     const actor = this.actor.data;
     const actorData = this.actor.data.data;
 
-    // Initialize dialog options.
-    const dlg_options = {
-      width: 920,
-      height: 640,
-      classes: ['dw-level-up', 'dungeonworld', 'sheet'],
-      resizable: true
-    };
-
     const char_class_name = actorData.details.class;
     const class_list = await DwClassList.getClasses();
     const class_list_items = await DwClassList.getClasses(false);
@@ -308,6 +300,24 @@ export class DwActorSheet extends ActorSheet {
         });
       }
     }
+
+    // Get equipment.
+    let equipment = null;
+    let equipment_list = [];
+    if (char_level < 2) {
+      if (typeof class_item.data.data.equipment == 'object') {
+        let equipmentObjects = await class_item._getEquipmentObjects();
+        for (let [group, group_items] of Object.entries(equipmentObjects)) {
+          class_item.data.data.equipment[group]['objects'] = group_items;
+          equipment_list = equipment_list.concat(group_items);
+        }
+        equipment = duplicate(class_item.data.data.equipment);
+      }
+    }
+
+    // Get ability scores.
+    let ability_scores = [16, 15, 13, 12, 9, 8];
+    let ability_labels = duplicate(CONFIG.DW.abilities);
 
     // Retrieve the actor's current moves so that we can hide them.
     const actorMoves = this.actor.data.items.filter(i => i.type == 'move');
@@ -371,26 +381,36 @@ export class DwActorSheet extends ActorSheet {
       blurb: blurb.length > 0 ? blurb : null,
       races: races.length > 0 ? races : null,
       alignments: alignments.length > 0 ? alignments : null,
+      equipment: equipment ? equipment : null,
+      ability_scores: char_level < 2 ? ability_scores : null,
+      ability_labels: char_level < 2 ? ability_labels : null,
       starting_moves: starting_moves.length > 0 ? starting_moves : null,
       starting_move_groups: starting_move_groups,
       advanced_moves_2: advanced_moves_2.length > 0 ? advanced_moves_2 : null,
       advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null
     };
     const html = await renderTemplate(template, templateData);
-    console.log(templateData);
 
     const itemData = {
       moves: moves,
       races: races,
-      alignments: alignments
+      alignments: alignments,
+      equipment: equipment_list,
     };
 
-    console.log(html);
+    // Initialize dialog options.
+    const dlg_options = {
+      width: 920,
+      height: 640,
+      classes: ['dw-level-up', 'dungeonworld', 'sheet'],
+      resizable: true
+    };
 
     // Render the dialog.
     let d = new Dialog({
       title: 'Level Up',
       content: html,
+      id: 'level-up',
       buttons: {
         cancel: {
           icon: '<i class="fas fa-times"></i>',
@@ -412,18 +432,27 @@ export class DwActorSheet extends ActorSheet {
    * Import moves.
    */
   async _onLevelUpSave(dlg, actor, itemData) {
-    let $selected = $(dlg[0]).find('input:checked');
+    let $selected = $(dlg[0]).find('input:checked,select');
 
     if ($selected.length <= 0) {
       return;
     }
 
     let move_ids = [];
+    let equipment_ids = [];
+    let abilities = [];
     let race = null;
     let alignment = null;
     for (let input of $selected) {
+      console.log(input.dataset);
       if (input.dataset.itemId) {
-        move_ids.push(input.dataset.itemId);
+        if (input.dataset.type == 'move') {
+          move_ids.push(input.dataset.itemId);
+        }
+        else if (input.dataset.type == 'equipment') {
+          equipment_ids.push(input.dataset.itemId);
+          console.log(itemData.equipment);
+        }
       }
       else if (input.dataset.race) {
         race = itemData.races[input.dataset.race];
@@ -431,7 +460,15 @@ export class DwActorSheet extends ActorSheet {
       else if (input.dataset.alignment) {
         alignment = itemData.alignments[input.dataset.alignment];
       }
+      else if (input.dataset.ability) {
+        let val = $(input).val();
+        let abl = input.dataset.ability;
+        if (val) {
+          abilities[`abilities.${val}.value`] = abl;
+        }
+      }
     }
+    console.log(abilities);
 
     // Add selected moves.
     let moves = itemData.moves.filter(m => move_ids.includes(m.data._id));
@@ -440,6 +477,12 @@ export class DwActorSheet extends ActorSheet {
     let new_moves = moves.map(m => {
       return duplicate(m);
     });
+
+    // Add selected equipment.
+    let equipment = itemData.equipment.filter(e => equipment_ids.includes(e.data._id));
+    let new_equipment = equipment.map(e => {
+      return duplicate(e);
+    })
 
     const data = {};
     if (race) {
@@ -454,9 +497,15 @@ export class DwActorSheet extends ActorSheet {
         description: alignment.description
       }
     }
+    if (abilities != []) {
+      for (let [key, update] of Object.entries(abilities)) {
+        data[key] = update;
+      }
+    }
 
     actor.update({ data: data });
     await actor.createEmbeddedEntity('OwnedItem', new_moves);
+    await actor.createEmbeddedEntity('OwnedItem', new_equipment);
     actor.setFlag('dungeonworld', 'levelup', false);
     actor.render(true);
     // this._render(true);

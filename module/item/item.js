@@ -30,7 +30,7 @@ export class ItemDw extends Item {
     }
   }
 
-  async _getClassData(force_reload = false) {
+  async _getEquipmentObjects(force_reload = false) {
     let obj = null;
     let itemData = this.data;
 

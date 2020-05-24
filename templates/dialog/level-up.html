@@ -8,11 +8,11 @@
       {{/if}}
     </header>
 
-    <div class="grid grid-2col">
+    <div class="grid grid-3col">
 
       {{#if races}}
         <section class="cell cell--races">
-          <h1 class="cell__title">{{localize "DW.ChooseRace"}}</h1>
+          <h2 class="cell__title">{{localize "DW.ChooseRace"}}</h2>
           <ul class="selection-list">
             {{#each races as |race key|}}
               <li>
@@ -48,8 +48,57 @@
         </section>
       {{/if}}
 
+      {{#if ability_scores}}
+        <section class="cell cell--ability-scores">
+          <h1 class="cell__title">{{localize "DW.ChooseAbilityScores"}}</h1>
+          <ul class="selection-list">
+            {{#each ability_scores as |ability_score key|}}
+              <li>
+                <div class="selection-control">
+                  <h3 class="ability-score">{{ability_score}}</h3>
+                </div>
+                <div class="selection-content">
+                  <select name="ability_score.{{ability_score}}" value="" data-ability={{ability_score}}>
+                    <option value="">—</option>
+                    {{#each ../ability_labels as |ability_long ability_short|}}
+                      <option value="{{ability_short}}">{{ability_long}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        </section>
+      {{/if}}
+
     </div>
 
+    {{#if equipment}}
+      <div class="grid grid-3col">
+        {{#each equipment as |equipmentGroup groupId|}}
+          <section class="cell cell--equipment">
+            <div class="cell__title">{{equipmentGroup.label}}</div>
+            <ul class="selection-list">
+              {{#each equipmentGroup.objects as |item key|}}
+                {{log item}}
+                <li>
+                  <div class="selection-control">
+                    {{#ifEquals equipmentGroup.mode "radio"}}
+                      <input type="radio" name="equipment.{{groupId}}" data-item-id="{{item._id}}" data-type="equipment">
+                    {{else}}
+                      <input type="checkbox" name="equipment.{{groupId}}.{{key}}" data-item-id="{{item._id}}" data-type="equipment">
+                    {{/ifEquals}}
+                  </div>
+                  <div class="selection-content">
+                    <h4>{{item.name}}</h4>
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          </section>
+        {{/each}}
+      </div>
+    {{/if}}
 
     {{#if starting_moves}}
       <section class="cell cell--starting_moves">
@@ -71,10 +120,10 @@
                   <div class="selection-control">
                     {{!-- Moves in a group should be in a radio. --}}
                     {{#if move.data.data.moveGroup}}
-                      <input type="radio" name="{{move.data.data.moveGroup}}" data-item-id="{{move.data._id}}">
+                      <input type="radio" name="{{move.data.data.moveGroup}}" data-item-id="{{move.data._id}}" data-type="move">
                     {{!-- Other moves should be checkboxes that the user is forced to take. --}}
                     {{else}}
-                      <input type="checkbox" checked data-item-id="{{move.data._id}}" disabled="disabled">
+                      <input type="checkbox" checked data-item-id="{{move.data._id}}" data-type="move" disabled="disabled">
                     {{/if}}
                   </div>
                   {{!-- Finally, show the description. --}}
@@ -99,7 +148,7 @@
             {{#each advanced_moves_2 as |move key|}}
               <li>
                 <div class="selection-control">
-                  <input type="radio" name="move-selection" data-item-id="{{move.data._id}}">
+                  <input type="radio" name="move-selection" data-item-id="{{move.data._id}}" data-type="move">
                 </div>
                 <div class="selection-content">
                   <h2>{{move.data.name}}</h2>
@@ -116,7 +165,7 @@
             {{#each advanced_moves_6 as |move key|}}
               <li>
                 <div class="selection-control">
-                  <input type="radio" name="move-selection" data-item-id="{{move.data._id}}">
+                  <input type="radio" name="move-selection" data-item-id="{{move.data._id}}" data-type="move">
                 </div>
                 <div class="selection-content">
                   <h2>{{move.data.name}}</h2>

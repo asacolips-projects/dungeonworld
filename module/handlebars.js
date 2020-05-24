@@ -30,6 +30,10 @@ export class DwRegisterHelpers {
       }
     });
 
+    Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+      return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+    });
+
     Handlebars.registerHelper('ifor', function(arg1, arg2, options) {
       if (arg1 || arg2) {
         return options.fn(this);

@@ -236,29 +236,74 @@ export class DwItemSheet extends ItemSheet {
   /** @override */
   _updateObject(event, formData) {
 
-    // TODO: Determine if we still need this leftover code from the
-    // Simple Worldbuilding System.
+    // Exit early for other item types.
+    if (this.object.type != 'class') {
+      return this.object.update(formData);
+    }
 
-    // // Handle the free-form attributes list
-    // const formAttrs = expandObject(formData).data.attributes || {};
-    // const attributes = Object.values(formAttrs).reduce((obj, v) => {
-    //   let k = v["key"].trim();
-    //   if (/[\s\.]/.test(k)) return ui.notifications.error("Attribute keys may not contain spaces or periods");
-    //   delete v["key"];
-    //   obj[k] = v;
-    //   return obj;
-    // }, {});
+    // Handle the freeform lists on classes.
+    const formObj = expandObject(formData);
 
-    // // Remove attributes which are no longer used
-    // for (let k of Object.keys(this.object.data.data.attributes)) {
-    //   if (!attributes.hasOwnProperty(k)) attributes[`-=${k}`] = null;
-    // }
+    // Re-index the equipment.
+    let i = 0;
+    let deletedKeys = [];
+    if (typeof formObj.data.equipment == 'object') {
+      for (let [k, v] of Object.entries(formObj.data.equipment)) {
+        if (i != k) {
+          v.items = duplicate(this.object.data.data.equipment[k].items);
+          formObj.data.equipment[i] = v;
+          delete formObj.data.equipment[k];
+          deletedKeys.push(`equipment.${k}`);
+        }
+        i++;
+      }
+    }
 
-    // // Re-combine formData
-    // formData = Object.entries(formData).filter(e => !e[0].startsWith("data.attributes")).reduce((obj, e) => {
-    //   obj[e[0]] = e[1];
-    //   return obj;
-    // }, { _id: this.object._id, "data.attributes": attributes });
+    // Re-index the races.
+    i = 0;
+    if (typeof formObj.data.races == 'object') {
+      for (let [k, v] of Object.entries(formObj.data.races)) {
+        if (i != k) {
+          formObj.data.races[i] = v;
+          delete formObj.data.races[k];
+          deletedKeys.push(`races.${k}`);
+        }
+        i++;
+      }
+    }
+
+    // Re-index the alignments.
+    i = 0;
+    if (typeof formObj.data.equipment == 'object') {
+      for (let [k, v] of Object.entries(formObj.data.alignments)) {
+        if (i != k) {
+          formObj.data.alignments[i] = v;
+          delete formObj.data.alignments[k];
+          deletedKeys.push(`alignments.${k}`);
+        }
+        i++;
+      }
+    }
+
+    // Remove deleted keys.
+    for (let k of deletedKeys) {
+      const keys = k.split('.');
+      if (formObj.data[keys[0]][keys[1]] == undefined) {
+        formObj.data[keys[0]][`-=${keys[1]}`] = null;
+      }
+    }
+
+    // Re-combine formData
+    formData = Object.entries(formData).filter(e => !e[0].match(/data\.(equipment|alignments|races)/g)).reduce((obj, e) => {
+      obj[e[0]] = e[1];
+      return obj;
+    }, {
+      _id: this.object._id,
+      "data.equipment": formObj.data.equipment,
+      "data.races": formObj.data.races,
+      "data.alignments": formObj.data.alignments
+    });
+
 
     // Update the Item
     return this.object.update(formData);
