@@ -81,10 +81,8 @@ export class DwClassItemSheet extends DwItemSheet {
     }
 
     let group = $dropTarget.data('group');
+    this._createEquipment(data.id, group);
 
-    if (group) {
-      this._createEquipment(data.id, group);
-    }
     $dropTarget.removeClass('drop-hover');
 
     return false;
