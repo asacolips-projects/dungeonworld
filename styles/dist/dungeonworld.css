@@ -1080,7 +1080,7 @@
     -ms-flex: 0 0 200px;
     flex: 0 0 200px;
     margin-left: 10px; }
-  .dungeonworld.sheet .class .resource--settings {
+  .dungeonworld.sheet .class .resource-wrapper {
     border: 2px solid #edf2f7;
     padding: 10px; }
   .dungeonworld.sheet .flexrow {

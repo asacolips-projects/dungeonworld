@@ -62,18 +62,20 @@
         </div>
         {{!-- Other fields. --}}
         <div class="cell resource resource--settings">
-          <div class="cell__title">
-            <label>{{localize "DW.ClassSettings"}}</label>
-          </div>
-          <div class="resource">
-            <label>{{localize "DW.ClassBaseHp"}}</label>
-            <div class="help-text">{{localize "DW.ClassBaseHpHelp"}}</div>
-            <input type="text" name="data.hp" value="{{data.hp}}">
-          </div>
-          <div class="resource">
-            <label>{{localize "DW.ClassBaseLoad"}}</label>
-            <div class="help-text">{{localize "DW.ClassBaseLoadHelp"}}</div>
-            <input type="text" name="data.load" value="{{data.load}}">
+          <div class="resource-wrapper">
+            <div class="cell__title">
+              <label>{{localize "DW.ClassSettings"}}</label>
+            </div>
+            <div class="resource">
+              <label>{{localize "DW.ClassBaseHp"}}</label>
+              <div class="help-text">{{localize "DW.ClassBaseHpHelp"}}</div>
+              <input type="text" name="data.hp" value="{{data.hp}}">
+            </div>
+            <div class="resource">
+              <label>{{localize "DW.ClassBaseLoad"}}</label>
+              <div class="help-text">{{localize "DW.ClassBaseLoadHelp"}}</div>
+              <input type="text" name="data.load" value="{{data.load}}">
+            </div>
           </div>
         </div>
       </div>
@@ -116,7 +118,7 @@
                   {{/each}}
                   </ul>
                 {{else}}
-                <span>Drop items here</span>
+                <span>{{localize "DW.ClassEquipmentDropText"}}</span>
                 {{/if}}
               </div>
             </div>

@@ -16,9 +16,11 @@ export class ItemDw extends Item {
     if (itemData.type == 'class') {
       if (itemData.data.equipment) {
         for (let [group_key, group] of Object.entries(itemData.data.equipment)) {
-          if (DwUtility.isEmpty(group['items'])) {
-            group['items'] = [];
-            group['objects'] = [];
+          if (group) {
+            if (DwUtility.isEmpty(group['items'])) {
+              group['items'] = [];
+              group['objects'] = [];
+            }
           }
         }
       }
@@ -34,7 +36,9 @@ export class ItemDw extends Item {
 
     if (itemData.data.equipment) {
       for (let [group, group_items] of Object.entries(itemData.data.equipment)) {
-        equipment[group] = items.filter(i => group_items['items'].includes(i.data._id));
+        if (group_items) {
+          equipment[group] = items.filter(i => group_items['items'].includes(i.data._id));
+        }
       }
     }
 

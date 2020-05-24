@@ -1,15 +1,15 @@
 <div class="cell resource equipment-group" data-index="{{group}}">
   <div class="cell__title">
-    <input type="text" name="data.equipment.{{group}}.label" placeholder="Choose one, all are are weight 0 for you" value="">
+    <input type="text" name="data.equipment.{{group}}.label" placeholder="{{localize "DW.ClassEquipmentGroupPlaceholder"}}" value="">
     <select name="data.equipment.{{group}}.mode">
-      <option value="radio">Choose One</option>
-      <option value="checkbox">Choose All</option>
+      <option value="radio">{{localize "DW.ChooseOne"}}</option>
+      <option value="checkbox">{{localize "DW.ChooseAny"}}</option>
     </select>
     <div class="class-controls">
       <a class="class-control" data-action="delete" data-dtype="equipment-groups" data-index="{{group}}"><i class="fas fa-trash"></i></a>
     </div>
   </div>
   <div class="item-container drop-area" data-group="{{group}}">
-    <span>Drop items here</span>
+    <span>{{localize "DW.ClassEquipmentDropText"}}</span>
   </div>
 </div>

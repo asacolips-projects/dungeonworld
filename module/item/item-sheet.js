@@ -274,7 +274,7 @@ export class DwItemSheet extends ItemSheet {
 
     // Re-index the alignments.
     i = 0;
-    if (typeof formObj.data.equipment == 'object') {
+    if (typeof formObj.data.alignments == 'object') {
       for (let [k, v] of Object.entries(formObj.data.alignments)) {
         if (i != k) {
           formObj.data.alignments[i] = v;
