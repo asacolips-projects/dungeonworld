@@ -102,6 +102,16 @@
   "DW.Hoard": "Hoard",
   "DW.TagsHelp": "(Use tab to autocomplete, commas to create new tags, and double click a tag to edit it)",
   "DW.SpecialQualities": "Special Qualities",
+  "DW.ClassSettings": "Class settings",
+  "DW.ClassBaseHp": "Base HP",
+  "DW.ClassBaseHpHelp": "Constitution will automatically be added to this number.",
+  "DW.ClassBaseLoad": "Base max load",
+  "DW.ClassBaseLoadHelp": "STR will automatically be added to this number.",
+  "DW.ClassAddEquipmentGroup": "Add new equipment group",
+  "DW.ClassEquipmentGroupHelp": "You can define groups of equipment choices for this class below. Each group can have any number of equipment items dropped inside of it, and it can have its choice mode set to either choose one of the items or choose all.",
+  "DW.ClassEquipmentGroupPlaceholder": "Choose one, all are are weight 0 for you",
+  "DW.ChooseOne": "Choose one",
+  "DW.ChooseAny": "Choose any",
   "DW.ChooseRace": "Choose a race",
   "DW.ChooseAlignment": "Choose an alignment",
   "DW.ChooseAbilityScores": "Choose ability scores",
@@ -110,5 +120,7 @@
   "DW.ChooseStartingAll": "You also start with all of these:",
   "DW.ChooseAdvancedMoves": "Choose advanced moves",
   "DW.ChooseAdvanced2": "When you gain a level from 2-5, choose from these moves.",
-  "DW.ChooseAdvanced6": "When you gain a level from 6-10, choose from these moves or the level 2-5 moves."
+  "DW.ChooseAdvanced6": "When you gain a level from 6-10, choose from these moves or the level 2-5 moves.",
+  "DW.Cancel": "Cancel",
+  "DW.Confirm": "Confirm"
 }

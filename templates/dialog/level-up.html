@@ -80,7 +80,6 @@
             <div class="cell__title">{{equipmentGroup.label}}</div>
             <ul class="selection-list">
               {{#each equipmentGroup.objects as |item key|}}
-                {{log item}}
                 <li>
                   <div class="selection-control">
                     {{#ifEquals equipmentGroup.mode "radio"}}
@@ -108,7 +107,7 @@
           {{#each starting_move_groups as |moves group|}}
             {{!-- If a movegroup is defined, that means this should be an OR choice. --}}
             {{#if moves.0.data.data.moveGroup}}
-              <h2 class="cell__subtitle">{{localize "DW.ChooseStartingAll"}}</h2>
+              <h2 class="cell__subtitle">{{localize "DW.ChooseStartingOne"}}</h2>
             {{!-- Otherwise, everything is valid. --}}
             {{else}}
               <h2 class="cell__subtitle">{{localize "DW.ChooseStartingAll"}}</h2>

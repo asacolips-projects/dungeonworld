@@ -46,8 +46,6 @@
 
         <div class="resource">
           <label>{{localize "DW.Class"}}</label>
-          {{!-- <input type="text" name="data.class" value="{{data.class}}" data-dtype="String"/> --}}
-          {{log data}}
           <select name="data.class">
             {{#select data.class}}
               <option value="">—</option>
@@ -83,7 +81,7 @@
         <div class="resource">
           <label>{{localize "DW.MoveGroup"}}</label>
           <input type="text" name="data.moveGroup" value="{{data.moveGroup}}" placeholder="ex: barbarian-armor" data-dtype="String"/>
-          <span class="help-text">Multiple moves with the same move-group will be either/or selections when creating a new character using the character builder.</span>
+          <span class="help-text">{{localize "DW.MoveGroupHelp"}}</span>
         </div>
 
       </div>

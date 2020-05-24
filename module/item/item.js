@@ -12,11 +12,6 @@ export class ItemDw extends Item {
     const actorData = this.actor ? this.actor.data : {};
     const data = itemData.data;
 
-    // if (DwUtility.isEmpty(itemData.data.equipment)) {
-    //   console.log(itemData.data.equipment);
-    //   itemData.data.equipment = [];
-    // }
-
     // Clean up broken groups.
     if (itemData.type == 'class') {
       if (itemData.data.equipment) {

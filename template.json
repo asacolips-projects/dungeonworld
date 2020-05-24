@@ -173,7 +173,9 @@
       ],
       "races": [],
       "alignments": [],
-      "equipment": []
+      "equipment": [],
+      "hp": 10,
+      "load": 6
     }
   }
 }

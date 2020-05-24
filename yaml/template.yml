@@ -132,3 +132,5 @@ Item:
     races: []
     alignments: []
     equipment: []
+    hp: 10
+    load: 6

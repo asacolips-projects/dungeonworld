@@ -38,7 +38,31 @@ export class DwUtility {
     return items;
   }
 
-  static levelUpListeners(html) {
-    console.log(html.find('.cell--ability-scores select'));
+  static getAbilityMod(abilityScore) {
+    let abilityMod = 0;
+
+    if (abilityScore >= 18) {
+      abilityMod = 3;
+    }
+    else if (abilityScore > 15) {
+      abilityMod = 2;
+    }
+    else if (abilityScore > 12) {
+      abilityMod = 1;
+    }
+    else if (abilityScore > 8) {
+      abilityMod = 0;
+    }
+    else if (abilityScore > 5) {
+      abilityMod = -1;
+    }
+    else if (abilityScore > 3) {
+      abilityMod = -2;
+    }
+    else {
+      abilityMod = -3;
+    }
+
+    return abilityMod;
   }
 }

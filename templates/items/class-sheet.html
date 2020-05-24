@@ -23,7 +23,7 @@
 
     {{!-- Details Tab --}}
     <div class="tab" data-group="primary" data-tab="details">
-      <div class="class-fields grid grid-2col">
+      <div class="class-fields grid grid-3col">
         {{!-- Races --}}
         <div class="cell resource">
           <div class="cell__title">
@@ -60,6 +60,22 @@
           {{/each}}
           </ul>
         </div>
+        {{!-- Other fields. --}}
+        <div class="cell resource resource--settings">
+          <div class="cell__title">
+            <label>{{localize "DW.ClassSettings"}}</label>
+          </div>
+          <div class="resource">
+            <label>{{localize "DW.ClassBaseHp"}}</label>
+            <div class="help-text">{{localize "DW.ClassBaseHpHelp"}}</div>
+            <input type="text" name="data.hp" value="{{data.hp}}">
+          </div>
+          <div class="resource">
+            <label>{{localize "DW.ClassBaseLoad"}}</label>
+            <div class="help-text">{{localize "DW.ClassBaseLoadHelp"}}</div>
+            <input type="text" name="data.load" value="{{data.load}}">
+          </div>
+        </div>
       </div>
     </div>
 
@@ -69,10 +85,10 @@
 
         <div class="cell resource resource--equipment-help flexrow">
           <div>
-            <p>You can define groups of equipment choices for this class below. Each group can have any number of equipment items dropped inside of it, and it can have its choice mode set to either choose one of the items or choose all.</p>
+            <p>{{localize "DW.ClassEquipmentGroupHelp"}}</p>
           </div>
           <div class="class-controls">
-            <button class="class-control" data-action="create" data-type="equipment-groups"><i class="fas fa-plus"></i> Add new equipment group</button>
+            <button class="class-control" data-action="create" data-type="equipment-groups"><i class="fas fa-plus"></i> {{localize "DW.ClassAddEquipmentGroup"}}</button>
           </div>
         </div>
 
@@ -81,11 +97,11 @@
           {{#each data.equipment as |equipmentGroup groupId|}}
             <div class="cell resource equipment-group" data-index="{{groupId}}">
               <div class="cell__title">
-                <input type="text" name="data.equipment.{{groupId}}.label" placeholder="Choose one, all are are weight 0 for you" value="{{equipmentGroup.label}}">
+                <input type="text" name="data.equipment.{{groupId}}.label" placeholder="{{localize "DW.ClassEquipmentGroupPlaceholder"}}" value="{{equipmentGroup.label}}">
                 <select name="data.equipment.{{groupId}}.mode">
                   {{#select equipmentGroup.mode}}
-                  <option value="radio">Choose One</option>
-                  <option value="checkbox">Choose All</option>
+                  <option value="radio">{{localize "DW.ChooseOne"}}</option>
+                  <option value="checkbox">{{localize "DW.ChooseAny"}}</option>
                   {{/select}}
                 </select>
                 <div class="class-controls">
@@ -93,7 +109,6 @@
                 </div>
               </div>
               <div class="item-container drop-area" data-group="{{groupId}}">
-                {{log equipmentGroup}}
                 {{#if equipmentGroup.objects }}
                   <ul class="tags">
                   {{#each equipmentGroup.objects as |item key|}}

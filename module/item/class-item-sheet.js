@@ -29,7 +29,6 @@ export class DwClassItemSheet extends DwItemSheet {
   async getData() {
     const data = await super.getData();
     let equipmentObjects = await this.item._getEquipmentObjects();
-    console.log(equipmentObjects);
     for (let [group, group_items] of Object.entries(equipmentObjects)) {
       data.data.equipment[group]['objects'] = group_items;
     }
@@ -129,7 +128,6 @@ export class DwClassItemSheet extends DwItemSheet {
       existing_items.push(equipmentId);
       itemData.data.equipment[groupId]['items'] = existing_items;
       // Update the entity.
-      console.log(itemData);
       await this.item.update(itemData, { diff: false });
       this.render(true);
     }

@@ -85,8 +85,6 @@ export class DwActorSheet extends ActorSheet {
       9: []
     };
 
-    console.log(sheetData.items);
-
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     for (let i of sheetData.items) {
@@ -396,6 +394,7 @@ export class DwActorSheet extends ActorSheet {
       races: races,
       alignments: alignments,
       equipment: equipment_list,
+      class_item: class_item,
     };
 
     // Initialize dialog options.
@@ -414,12 +413,12 @@ export class DwActorSheet extends ActorSheet {
       buttons: {
         cancel: {
           icon: '<i class="fas fa-times"></i>',
-          label: "Cancel",
+          label: game.i18n.localize("DW.Cancel"),
           callback: () => null
         },
         submit: {
           icon: '<i class="fas fa-check"></i>',
-          label: "Submit",
+          label: game.i18n.localize("DW.Confirm"),
           callback: dlg => this._onLevelUpSave(dlg, this.actor, itemData, this)
           // callback: dlg => _onImportPower(dlg, this.actor)
         }
@@ -444,14 +443,12 @@ export class DwActorSheet extends ActorSheet {
     let race = null;
     let alignment = null;
     for (let input of $selected) {
-      console.log(input.dataset);
       if (input.dataset.itemId) {
         if (input.dataset.type == 'move') {
           move_ids.push(input.dataset.itemId);
         }
         else if (input.dataset.type == 'equipment') {
           equipment_ids.push(input.dataset.itemId);
-          console.log(itemData.equipment);
         }
       }
       else if (input.dataset.race) {
@@ -468,7 +465,6 @@ export class DwActorSheet extends ActorSheet {
         }
       }
     }
-    console.log(abilities);
 
     // Add selected moves.
     let moves = itemData.moves.filter(m => move_ids.includes(m.data._id));
@@ -503,12 +499,32 @@ export class DwActorSheet extends ActorSheet {
       }
     }
 
+    // Adjust level.
+    data['attributes.xp.value'] = 0;
+
+    // Adjust hp.
+    if (itemData.class_item.data.data.hp) {
+      let constitution = actor.data.data.abilities.con.value;
+      if (data['abilities.con.value']) {
+        constitution = data['abilities.con.value'];
+      }
+      data['attributes.hp.max'] = Number(itemData.class_item.data.data.hp) + Number(constitution);
+    }
+
+    // Adjust load.
+    if (itemData.class_item.data.data.load) {
+      let strength = actor.data.data.abilities.str.value;
+      if (data['abilities.str.value']) {
+        strength = data['abilities.str.value'];
+      }
+      data['attributes.weight.max'] = Number(itemData.class_item.data.data.load) + Number(DwUtility.getAbilityMod(strength));
+    }
+
     actor.update({ data: data });
     await actor.createEmbeddedEntity('OwnedItem', new_moves);
     await actor.createEmbeddedEntity('OwnedItem', new_equipment);
     actor.setFlag('dungeonworld', 'levelup', false);
     actor.render(true);
-    // this._render(true);
   }
 
   /**
