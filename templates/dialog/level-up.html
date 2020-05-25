@@ -52,18 +52,20 @@
         <section class="cell cell--ability-scores">
           <h1 class="cell__title">{{localize "DW.ChooseAbilityScores"}}</h1>
           <ul class="selection-list">
-            {{#each ability_scores as |ability_score key|}}
+            {{#each ability_labels as |ability_long ability_short|}}
+            {{!-- {{#each ability_scores as |ability_score key|}} --}}
               <li>
                 <div class="selection-control">
-                  <h3 class="ability-score">{{ability_score}}</h3>
-                </div>
-                <div class="selection-content">
-                  <select name="ability_score.{{ability_score}}" value="" data-ability={{ability_score}}>
+                  <select name="ability_score.{{ability_short}}" value="" data-ability={{ability_short}}>
                     <option value="">—</option>
-                    {{#each ../ability_labels as |ability_long ability_short|}}
-                      <option value="{{ability_short}}">{{ability_long}}</option>
+                    {{!-- {{#each ../ability_labels as |ability_long ability_short|}} --}}
+                    {{#each ../ability_scores as |ability_score key|}}
+                      <option value="{{ability_score}}">{{ability_score}}</option>
                     {{/each}}
                   </select>
+                </div>
+                <div class="selection-content">
+                  <h3 class="ability-score">{{ability_long}}</h3>
                 </div>
               </li>
             {{/each}}
@@ -176,6 +178,35 @@
         {{/if}}
       </section>
     {{/ifor}}
+
+
+    {{#if cast_spells}}
+    {{log spells}}
+    <section class="cell cell--spells">
+      <h1 class="cell__title">{{localize "DW.ChooseSpells"}}</h1>
+      {{#each spells as |spellsByCaster casterKey|}}
+        {{#if spellsByCaster.description }}
+          <div class="cell__description">{{{spellsByCaster.description}}}</div>
+        {{/if}}
+        {{#each spellsByCaster.spells as |spellsByLevel spellLevel|}}
+          <h2 class="cell__subtitle">{{localize (concat "DW.Spells" spellLevel)}}</h2>
+          <ul class="selection-list grid grid-2col">
+            {{#each spellsByLevel as |spell key|}}
+              <li>
+                <div class="selection-control">
+                  <input type="checkbox" {{#ifEquals spellLevel 0}}checked disabled="disabled"{{/ifEquals}} data-item-id="{{spell.data._id}}" data-type="spell">
+                </div>
+                <div class="selection-content">
+                  <h2>{{spell.data.name}}</h2>
+                  <div>{{{spell.data.data.description}}}</div>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        {{/each}}
+      {{/each}}
+    </section>
+    {{/if}}
 
   </div>
 </form>

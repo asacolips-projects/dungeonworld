@@ -24,7 +24,14 @@
         <div class="tab" data-group="primary" data-tab="details">
           <div class="resource">
             <label>{{localize "DW.Class"}}</label>
-            <input type="text" name="data.class" value="{{data.class}}" data-dtype="String"/>
+            <select name="data.class">
+              {{#select data.class}}
+                <option value="">—</option>
+                {{#each data.classlist as |class id|}}
+                <option value="{{class}}">{{class}}</option>
+                {{/each}}
+              {{/select}}
+            </select>
           </div>
 
           <div class="resource">

@@ -49,6 +49,20 @@
     }
   }
 
+  .item-details-toggle {
+    display: inline-block;
+    width: 32px;
+    height: 16px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: $c-light;
+
+    &:hover {
+      color: $c-black;
+      background-color: $c-navy-top;
+    }
+  }
+
   .rollable {
     &:hover,
     &:focus {

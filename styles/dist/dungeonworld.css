@@ -905,6 +905,26 @@
       .dungeonworld.sheet .cell--equipment .item-meta > span + span,
       .dungeonworld.sheet .cell--spells .item-meta > span + span {
         margin-left: 4px; }
+  .dungeonworld.sheet .cell--basic-moves .item-details-toggle,
+  .dungeonworld.sheet .cell--starting-moves .item-details-toggle,
+  .dungeonworld.sheet .cell--advanced-moves .item-details-toggle,
+  .dungeonworld.sheet .cell--other-moves .item-details-toggle,
+  .dungeonworld.sheet .cell--equipment .item-details-toggle,
+  .dungeonworld.sheet .cell--spells .item-details-toggle {
+    display: inline-block;
+    width: 32px;
+    height: 16px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #edf2f7; }
+    .dungeonworld.sheet .cell--basic-moves .item-details-toggle:hover,
+    .dungeonworld.sheet .cell--starting-moves .item-details-toggle:hover,
+    .dungeonworld.sheet .cell--advanced-moves .item-details-toggle:hover,
+    .dungeonworld.sheet .cell--other-moves .item-details-toggle:hover,
+    .dungeonworld.sheet .cell--equipment .item-details-toggle:hover,
+    .dungeonworld.sheet .cell--spells .item-details-toggle:hover {
+      color: #000;
+      background-color: #bcc8de; }
   .dungeonworld.sheet .cell--basic-moves .rollable:hover, .dungeonworld.sheet .cell--basic-moves .rollable:focus,
   .dungeonworld.sheet .cell--starting-moves .rollable:hover,
   .dungeonworld.sheet .cell--starting-moves .rollable:focus,
@@ -1018,6 +1038,9 @@
     padding: 10px;
     margin: 10px;
     background: #edf2f7; }
+    .dungeonworld.sheet.dw-level-up .cell__description ul,
+    .dungeonworld.sheet.dw-level-up .cell__description ol {
+      margin-left: 30px; }
   .dungeonworld.sheet.dw-level-up h1,
   .dungeonworld.sheet.dw-level-up h2 {
     font-size: 18px; }

@@ -371,6 +371,91 @@ export class DwActorSheet extends ActorSheet {
       return m.data.data.requiresLevel >= 6;
     });
 
+    // Determine if spells can be cast.
+    let cast_spells = [];
+    let spells = null;
+    if (char_class == 'the-wizard') {
+      cast_spells.push('wizard');
+    }
+    else if (char_class == 'the-cleric') {
+      cast_spells.push('cleric');
+    }
+
+    if (cast_spells.length > 0) {
+      // Retrieve the actor's current moves so that we can hide them.
+      const actorSpells = this.actor.data.items.filter(i => i.type == 'spell');
+      let caster_level = char_level;
+      let spell_preparation_type = null;
+      spells = [];
+      for (let caster_class of cast_spells) {
+        // Get the item spells as the priority.
+        let spells_items = game.items.entities.filter(i => i.type == 'spell' && i.data.data.class == caster_class);
+        let spells_pack = game.packs.get(`dungeonworld.${char_class}-spells`);
+        let spells_compendium = await spells_pack.getContent();
+        // Get the compendium spells next.
+        let spells_compendium_items = spells_compendium.filter(s => {
+          const available_level = s.data.data.spellLevel <= caster_level;
+          const not_taken = actorSpells.filter(i => i.name == s.data.name);
+          return available_level && not_taken.length < 1;
+        });
+
+        // Append compendium spells to the item spells.
+        let spells_list = spells.map(s => {
+          return s.data.name;
+        })
+        // Add to the array, and also add to a sorted by level array.
+        for (let spell of spells_compendium_items) {
+          if (!spells_list.includes(spell.data.name)) {
+            spells_items.push(spell);
+          }
+        }
+
+        // Sort the spells and build our groups.
+        spells_items.sort((a, b) => {
+          return a.data.data.spellLevel - b.data.data.spellLevel;
+        });
+
+        let spell_groups = spells_items.reduce((groups, spell) => {
+          // Default to rotes.
+          let group = spell.data.data.spellLevel ? spell.data.data.spellLevel : 0;
+          if (!groups[group]) {
+            groups[group] = [];
+          }
+
+          groups[group].push(spell);
+          return groups;
+        }, {});
+
+        // Get the description for how to prepare spells for this class.
+        if (caster_class == 'wizard') {
+          let move = moves.filter(m => m.name == 'Spellbook');
+          if (!move) {
+            move = actorMoves.filter(m => m.name == 'Spellbook');
+          }
+          if (move && move[0].data.data.description) {
+            spell_preparation_type = move[0].data.data.description;
+          }
+        }
+        else if (caster_class == 'cleric') {
+          let move = moves.filter(m => m.name == 'Commune');
+          if (move && move.length > 0) {
+            spell_preparation_type = move[0].data.data.description;
+          }
+          else {
+            move = actorMoves.filter(m => m.name == 'Commune');
+            if (move && move.length > 0) {
+              spell_preparation_type = move[0].data.description;
+            }
+          }
+        }
+
+        spells.push({
+          description: spell_preparation_type,
+          spells: spell_groups
+        });
+      }
+    }
+
     // Build the content.
     const template = 'systems/dungeonworld/templates/dialog/level-up.html';
     const templateData = {
@@ -385,7 +470,9 @@ export class DwActorSheet extends ActorSheet {
       starting_moves: starting_moves.length > 0 ? starting_moves : null,
       starting_move_groups: starting_move_groups,
       advanced_moves_2: advanced_moves_2.length > 0 ? advanced_moves_2 : null,
-      advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null
+      advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null,
+      cast_spells: cast_spells.length > 0 ? true : false,
+      spells: spells ? spells : null,
     };
     const html = await renderTemplate(template, templateData);
 
@@ -395,6 +482,7 @@ export class DwActorSheet extends ActorSheet {
       alignments: alignments,
       equipment: equipment_list,
       class_item: class_item,
+      spells: spells,
     };
 
     // Initialize dialog options.
@@ -439,6 +527,7 @@ export class DwActorSheet extends ActorSheet {
 
     let move_ids = [];
     let equipment_ids = [];
+    let spell_ids = [];
     let abilities = [];
     let race = null;
     let alignment = null;
@@ -450,6 +539,9 @@ export class DwActorSheet extends ActorSheet {
         else if (input.dataset.type == 'equipment') {
           equipment_ids.push(input.dataset.itemId);
         }
+        else if (input.dataset.type == 'spell') {
+          spell_ids.push(input.dataset.itemId);
+        }
       }
       else if (input.dataset.race) {
         race = itemData.races[input.dataset.race];
@@ -458,27 +550,50 @@ export class DwActorSheet extends ActorSheet {
         alignment = itemData.alignments[input.dataset.alignment];
       }
       else if (input.dataset.ability) {
-        let val = $(input).val();
-        let abl = input.dataset.ability;
-        if (val) {
+        let abl = $(input).val();
+        let val = input.dataset.ability;
+        if (abl) {
           abilities[`abilities.${val}.value`] = abl;
         }
       }
     }
 
     // Add selected moves.
-    let moves = itemData.moves.filter(m => move_ids.includes(m.data._id));
+    let new_moves = null;
+    if (move_ids) {
+      let moves = itemData.moves.filter(m => move_ids.includes(m.data._id));
 
-    // Prepare moves for saving.
-    let new_moves = moves.map(m => {
-      return duplicate(m);
-    });
+      // Prepare moves for saving.
+      new_moves = moves.map(m => {
+        return duplicate(m);
+      });
+    }
 
     // Add selected equipment.
-    let equipment = itemData.equipment.filter(e => equipment_ids.includes(e.data._id));
-    let new_equipment = equipment.map(e => {
-      return duplicate(e);
-    })
+    let new_equipment = null;
+    if (equipment_ids) {
+      let equipment = itemData.equipment.filter(e => equipment_ids.includes(e.data._id));
+      new_equipment = equipment.map(e => {
+        return duplicate(e);
+      });
+    }
+
+    // Add selected spell.
+    let new_spells = null;
+    if (spell_ids) {
+      let spells = [];
+      // Loop over casting classes.
+      for (let [key, obj] of Object.entries(itemData.spells)) {
+        // Loop over spells by level.
+        for (let [spellLevel, spellsByLevel] of Object.entries(obj.spells)) {
+          spells = spells.concat(spellsByLevel.filter(s => spell_ids.includes(s.data._id)));
+        }
+      }
+      // Append to the update array.
+      new_spells = spells.map(s => {
+        return duplicate(s);
+      });
+    }
 
     const data = {};
     if (race) {
@@ -521,8 +636,15 @@ export class DwActorSheet extends ActorSheet {
     }
 
     actor.update({ data: data });
-    await actor.createEmbeddedEntity('OwnedItem', new_moves);
-    await actor.createEmbeddedEntity('OwnedItem', new_equipment);
+    if (new_moves) {
+      await actor.createEmbeddedEntity('OwnedItem', new_moves);
+    }
+    if (new_equipment) {
+      await actor.createEmbeddedEntity('OwnedItem', new_equipment);
+    }
+    if (new_spells) {
+      await actor.createEmbeddedEntity('OwnedItem', new_spells);
+    }
     actor.setFlag('dungeonworld', 'levelup', false);
     actor.render(true);
   }
