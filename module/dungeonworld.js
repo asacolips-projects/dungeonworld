@@ -75,6 +75,19 @@ Hooks.once("ready", async function() {
   $('html').addClass(`lang-${lang}`);
 });
 
+Hooks.on('renderChatMessage', (data, html, options) => {
+  // Determine visibility.
+  let chatData = data.data;
+  const whisper = chatData.whisper || [];
+  const isBlind = whisper.length && chatData.blind;
+  const isVisible = (whisper.length) ? game.user.isGM || whisper.includes(game.user._id) || (!isBlind) : true;
+  if (!isVisible) {
+    html.find('.dice-formula').text('???');
+    html.find('.dice-total').text('?');
+    html.find('.dice-tooltip').remove();
+  }
+});
+
 /* -------------------------------------------- */
 /*  Foundry VTT Setup                           */
 /* -------------------------------------------- */
