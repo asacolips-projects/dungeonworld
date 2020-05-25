@@ -209,6 +209,17 @@
   font-family: "Martel", serif;
   font-weight: bold; }
 
+.vtt #chat-log h1,
+.vtt #chat-log h2,
+.vtt #chat-log h3,
+.vtt #chat-log h4,
+.vtt #chat-log h5 {
+  font-family: "Martel", serif;
+  font-weight: bold; }
+
+.vtt #chat-log .row {
+  font-size: 13px; }
+
 .vtt #chat-log .dice-roll .dice-formula {
   cursor: pointer; }
   .vtt #chat-log .dice-roll .dice-formula:hover, .vtt #chat-log .dice-roll .dice-formula:focus {
