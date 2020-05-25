@@ -850,9 +850,9 @@
   .dungeonworld.sheet .cell--spells .item-name {
     font-size: 18px;
     font-weight: bold;
-    -webkit-box-flex: 200px;
-    -ms-flex: 200px 2;
-    flex: 200px 2;
+    -webkit-box-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
     margin: 0; }
   .dungeonworld.sheet .cell--basic-moves .item-controls,
   .dungeonworld.sheet .cell--starting-moves .item-controls,
@@ -860,7 +860,10 @@
   .dungeonworld.sheet .cell--other-moves .item-controls,
   .dungeonworld.sheet .cell--equipment .item-controls,
   .dungeonworld.sheet .cell--spells .item-controls {
-    text-align: right; }
+    text-align: right;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 75px;
+    flex: 0 0 75px; }
   .dungeonworld.sheet .cell--basic-moves .item-description,
   .dungeonworld.sheet .cell--starting-moves .item-description,
   .dungeonworld.sheet .cell--advanced-moves .item-description,

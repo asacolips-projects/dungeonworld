@@ -429,11 +429,14 @@ export class DwActorSheet extends ActorSheet {
         // Get the description for how to prepare spells for this class.
         if (caster_class == 'wizard') {
           let move = moves.filter(m => m.name == 'Spellbook');
-          if (!move) {
-            move = actorMoves.filter(m => m.name == 'Spellbook');
-          }
-          if (move && move[0].data.data.description) {
+          if (move && move.length > 0) {
             spell_preparation_type = move[0].data.data.description;
+          }
+          else {
+            move = actorMoves.filter(m => m.name == 'Spellbook');
+            if (move && move.length > 0) {
+              spell_preparation_type = move[0].data.description;
+            }
           }
         }
         else if (caster_class == 'cleric') {
@@ -560,7 +563,7 @@ export class DwActorSheet extends ActorSheet {
 
     // Add selected moves.
     let new_moves = null;
-    if (move_ids) {
+    if (move_ids.length > 0) {
       let moves = itemData.moves.filter(m => move_ids.includes(m.data._id));
 
       // Prepare moves for saving.
@@ -571,7 +574,7 @@ export class DwActorSheet extends ActorSheet {
 
     // Add selected equipment.
     let new_equipment = null;
-    if (equipment_ids) {
+    if (equipment_ids.length > 0) {
       let equipment = itemData.equipment.filter(e => equipment_ids.includes(e.data._id));
       new_equipment = equipment.map(e => {
         return duplicate(e);
@@ -580,19 +583,21 @@ export class DwActorSheet extends ActorSheet {
 
     // Add selected spell.
     let new_spells = null;
-    if (spell_ids) {
+    if (spell_ids.length > 0) {
       let spells = [];
-      // Loop over casting classes.
-      for (let [key, obj] of Object.entries(itemData.spells)) {
-        // Loop over spells by level.
-        for (let [spellLevel, spellsByLevel] of Object.entries(obj.spells)) {
-          spells = spells.concat(spellsByLevel.filter(s => spell_ids.includes(s.data._id)));
+      if (typeof itemData.spells == 'object') {
+        // Loop over casting classes.
+        for (let [key, obj] of Object.entries(itemData.spells)) {
+          // Loop over spells by level.
+          for (let [spellLevel, spellsByLevel] of Object.entries(obj.spells)) {
+            spells = spells.concat(spellsByLevel.filter(s => spell_ids.includes(s.data._id)));
+          }
         }
+        // Append to the update array.
+        new_spells = spells.map(s => {
+          return duplicate(s);
+        });
       }
-      // Append to the update array.
-      new_spells = spells.map(s => {
-        return duplicate(s);
-      });
     }
 
     const data = {};

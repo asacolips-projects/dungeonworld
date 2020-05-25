@@ -20,12 +20,13 @@
   .item-name {
     font-size: 18px;
     font-weight: bold;
-    flex: 200px 2;
+    flex: 2;
     margin: 0;
   }
 
   .item-controls {
     text-align: right;
+    flex: 0 0 75px;
   }
 
   .item-description {

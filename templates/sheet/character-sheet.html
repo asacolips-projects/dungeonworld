@@ -320,9 +320,9 @@
                           <h4 class="item-name">{{item.name}}</h4>
 
                           <div class="item-meta tags">
-                            {{#if item.data.uses }}<span class="tag">Uses: {{item.data.uses}}</span>{{/if}}
-                            {{#if item.data.quantity }}<span class="tag">Qty: {{item.data.quantity}}</span>{{/if}}
-                            {{#if item.data.weight }}<span class="tag">Wt: {{item.data.weight}}</span>{{/if}}
+                            {{#if item.data.uses }}<span class="tag">{{localize "DW.Uses"}}: {{item.data.uses}}</span>{{/if}}
+                            {{#if item.data.quantity }}<span class="tag">{{localize "DW.Qty"}}: {{item.data.quantity}}</span>{{/if}}
+                            {{#if item.data.weight }}<span class="tag">{{localize "DW.Wt"}}: {{item.data.weight}}</span>{{/if}}
                           </div>
                           <div class="item-controls">
                               <a class="item-control item-details-toggle" title="Show Details"><i class="fas fa-caret-right"></i></a>
