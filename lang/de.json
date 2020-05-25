@@ -2,14 +2,12 @@
   "Dungeon World": "Dungeon World",
   "DW.title": "Dungeon World",
   "DW.description": "Spiele Dungeon World in FoundryVTT!",
-
   "DW.AbilityStr": "Stärke",
   "DW.AbilityDex": "Geschicklichkeit",
   "DW.AbilityCon": "Konstitution",
   "DW.AbilityInt": "Intelligenz",
   "DW.AbilityWis": "Weisheit",
   "DW.AbilityCha": "Charisma",
-
   "DW.STR": "ST",
   "DW.DEX": "GE",
   "DW.CON": "KO",
@@ -18,49 +16,40 @@
   "DW.CHA": "CH",
   "DW.ASK": "ASK",
   "DW.BOND": "BAND",
-
   "DW.DebilityStr": "Schwach",
   "DW.DebilityDex": "Wackelig",
   "DW.DebilityCon": "Kränklich",
   "DW.DebilityInt": "Benommen",
   "DW.DebilityWis": "Verwirrt",
   "DW.DebilityCha": "Entstellt",
-
   "DW.Level": "Stufe",
   "DW.XP": "Erfahrung",
   "DW.Damage": "Schaden",
   "DW.Armor": "Rüstung",
   "DW.HP": "TP",
-
   "DW.Look": "Aussehen",
   "DW.Alignment": "Gesinnung",
   "DW.Race": "Rasse",
   "DW.Bond": "Band",
-
   "DW.Dialog.Bond1": "Wähle den Bouns für dieses Band für den ",
   "DW.Dialog.Bond2": " Spielzug.",
-
   "DW.MoveCreate": "Spielzug erstellen",
   "DW.AddBasicMove": "Grundspielzug hinzufügen",
   "DW.AddStartingMove": "Spielzug zu Beginn hinzufügen",
   "DW.AddAdvancedMove": "Spielzug für Fortgeschrittene hinzufügen",
   "DW.AddMove": "Spielzug hinzufügen",
-
   "DW.MovesBasic": "Grundspielzug",
   "DW.MovesStarting": "Spielzug zu Beginn",
   "DW.MovesAdvanced": "Spielzug für Fortgeschrittene",
   "DW.MovesOther": "Sonderspielzüge",
-
   "DW.MoveBasic": "Grundspielzug",
   "DW.MoveStarting": "Spielzug zu Beginn",
   "DW.MoveAdvanced": "Spielzug für Forgeschrittene",
-
   "DW.Description": "Beschreibung",
   "DW.Moves": "Spielzüge",
   "DW.Biography": "Lebenslauf",
   "DW.Equipment": "Ausrüstung",
   "DW.Spells": "Zauber",
-
   "DW.SpellLevel": "Zaubergrad",
   "DW.Spells0": "Zaubertricks",
   "DW.Spells1": "Zauber des 1. Grades",
@@ -72,24 +61,18 @@
   "DW.Spells7": "Zauber des 7. Grades",
   "DW.Spells8": "Zauber des 8. Grades",
   "DW.Spells9": "Zauber des 9. Grades",
-
   "DW.SpellPrepared": "Vorbereitet",
   "DW.SpellRollFormula": "Roll Formula",
-
   "DW.AddEquipment": "Ausrüstung hinzufügen",
   "DW.AddSpell": "Zauber hinzufügen",
-
   "DW.Common.Description": "Beschreibung",
   "DW.Common.Details": "Details",
   "DW.Common.Name": "Name",
-
   "DW.Roll": "Wurf",
   "DW.Modifier": "Modifikator",
   "DW.RequiresLevel": "Benötigte Stufe",
   "DW.RequiresMove": "Benötigter Spielzug",
   "DW.MoveType": "Spielzugart",
-
   "DW.Quantity": "Quantität",
   "DW.Weight": "Gewicht"
-
 }

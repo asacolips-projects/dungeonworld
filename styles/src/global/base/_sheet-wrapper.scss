@@ -12,11 +12,21 @@
     order: 0;
     margin-bottom: 10px;
     max-height: 80px;
+    min-height: 50px;
 
     input {
       &::placeholder {
         color: $c-navy-top;
       }
+    }
+  }
+
+  .sheet-notifications {
+    width: 101%;
+
+    .error,
+    .warning {
+      margin-bottom: 10px;
     }
   }
 

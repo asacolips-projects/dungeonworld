@@ -1,3 +1,5 @@
+import { DwUtility } from "../utility.js";
+
 export class ItemDw extends Item {
   /**
    * Augment the basic Item data model with additional dynamic data.
@@ -9,6 +11,38 @@ export class ItemDw extends Item {
     const itemData = this.data;
     const actorData = this.actor ? this.actor.data : {};
     const data = itemData.data;
+
+    // Clean up broken groups.
+    if (itemData.type == 'class') {
+      if (itemData.data.equipment) {
+        for (let [group_key, group] of Object.entries(itemData.data.equipment)) {
+          if (group) {
+            if (DwUtility.isEmpty(group['items'])) {
+              group['items'] = [];
+              group['objects'] = [];
+            }
+          }
+        }
+      }
+    }
+  }
+
+  async _getEquipmentObjects(force_reload = false) {
+    let obj = null;
+    let itemData = this.data;
+
+    let items = await DwUtility.getEquipment(force_reload);
+    let equipment = [];
+
+    if (itemData.data.equipment) {
+      for (let [group, group_items] of Object.entries(itemData.data.equipment)) {
+        if (group_items) {
+          equipment[group] = items.filter(i => group_items['items'].includes(i.data._id));
+        }
+      }
+    }
+
+    return equipment;
   }
 
   /**
@@ -115,45 +149,58 @@ export class ItemDw extends Item {
   rollMove(roll, actorData, dataset, templateData, form = null) {
     // Render the roll.
     let template = 'systems/dungeonworld/templates/chat/chat-move.html';
-    renderTemplate(template, templateData).then(content => {
-      if (roll) {
-        // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
-        let formula = '';
-        // Handle bond (user input).
-        if (roll == 'BOND') {
-          formula = form.bond.value ? `2d6+${form.bond.value}` : '2d6';
-          if (dataset.mod && dataset.mod != 0) {
-            formula += `+${dataset.mod}`;
-          }
-        }
-        // Handle ability scores (no input).
-        else if (roll.includes('d') && !roll.includes('dex')) {
-          formula = roll;
-        }
-        // Handle moves.
-        else {
-          formula = `2d6+${actorData.abilities[roll].mod}`;
-          if (dataset.mod && dataset.mod != 0) {
-            formula += `+${dataset.mod}`;
-          }
-        }
-        if (formula != null) {
-          let roll = new Roll(formula);
-          roll.roll();
-          roll.toMessage({
-            user: game.user._id,
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-            flavor: content
-          });
+    // GM rolls.
+    let chatData = {
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      sound: CONFIG.sounds.dice
+    };
+    let rollMode = game.settings.get("core", "rollMode");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
+    if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
+    if (rollMode === "blindroll") chatData["blind"] = true;
+    // Handle dice rolls.
+    if (roll) {
+      // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
+      let formula = '';
+      // Handle bond (user input).
+      if (roll == 'BOND') {
+        formula = form.bond.value ? `2d6+${form.bond.value}` : '2d6';
+        if (dataset.mod && dataset.mod != 0) {
+          formula += `+${dataset.mod}`;
         }
       }
+      // Handle ability scores (no input).
+      else if (roll.includes('d') && !roll.includes('dex')) {
+        formula = roll;
+      }
+      // Handle moves.
       else {
-        ChatMessage.create({
-          user: game.user._id,
-          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-          content: content
+        formula = `2d6+${actorData.abilities[roll].mod}`;
+        if (dataset.mod && dataset.mod != 0) {
+          formula += `+${dataset.mod}`;
+        }
+      }
+      if (formula != null) {
+        // Do the roll.
+        let roll = new Roll(formula);
+        roll.roll();
+        // Render it.
+        roll.render().then(r => {
+          templateData.roll = r;
+          chatData.roll = JSON.stringify(r);
+          renderTemplate(template, templateData).then(content => {
+            chatData.content = content;
+            ChatMessage.create(chatData);
+          });
         });
       }
-    });
+    }
+    else {
+      renderTemplate(template, templateData).then(content => {
+        chatData.content = content;
+        ChatMessage.create(chatData);
+      });
+    }
   }
 }

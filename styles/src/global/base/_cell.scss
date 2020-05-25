@@ -1,4 +1,5 @@
-.cell__title {
+.cell__title,
+.cell__subtitle {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -24,6 +25,41 @@
       color: $c-white;
     }
   }
+
+  &.error,
+  &.warning {
+    background: #d68888;
+    font-size: 16px;
+    font-family: $font-stack-base;
+    font-weight: normal;
+    justify-content: center;
+    display: block;
+    text-align: center;
+
+    &::before {
+      content: '\f057';
+      display: inline-block;
+      font-family: "Font Awesome 5 Free";
+      margin-right: 5px;
+      font-weight: 900;
+    }
+
+    &.small-text {
+      font-size: 13px;
+    }
+  }
+
+  &.warning {
+    background: #e6ad54;
+
+    &::before {
+      content: "\f071";
+    }
+  }
+}
+
+.cell__subtitle {
+  background: $c-navy-up;
 }
 
 .cell--image {

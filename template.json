@@ -1,144 +1,181 @@
 {
-"Actor": {
-  "types": ["character", "npc"],
-  "templates": {
-    "base": {
-      "attributes": {
-        "hp": {
-          "value": 10,
-          "min": 0,
-          "max": 10
-        },
-        "ac": {
-          "value": 0,
-          "base": 0,
-          "min": 0
-        },
-        "damage": {
-          "value": "d6",
-          "misc": "",
-          "piercing": ""
-        },
-        "level": {
-          "value": 1,
-          "min": 0,
-          "max": 10
-        },
-        "xp": {
-          "value": 0,
-          "min": 0
+  "Actor": {
+    "types": [
+      "character",
+      "npc"
+    ],
+    "templates": {
+      "base": {
+        "attributes": {
+          "hp": {
+            "value": 10,
+            "min": 0,
+            "max": 10
+          },
+          "ac": {
+            "value": 0,
+            "base": 0,
+            "min": 0
+          },
+          "damage": {
+            "value": "d6",
+            "misc": "",
+            "piercing": ""
+          },
+          "level": {
+            "value": 1,
+            "min": 0,
+            "max": 10
+          },
+          "xp": {
+            "value": 0,
+            "min": 0
+          }
         }
       }
-    }
-  },
-  "character": {
-    "templates": ["base"],
-    "biography": "",
-    "attributes": {
-      "weight": {
-        "value": 0,
-        "max": 1
-      },
-      "coin": {
-        "value": 0
-      }
     },
-    "abilities": {
-      "str": {
-        "value": 10,
-        "min": 3,
-        "mod": 0,
-        "debility": false
-      },
-      "dex": {
-        "value": 10,
-        "min": 3,
-        "mod": 0,
-        "debility": false
-      },
-      "con": {
-        "value": 10,
-        "min": 3,
-        "mod": 0,
-        "debility": false
-      },
-      "int": {
-        "value": 10,
-        "min": 3,
-        "mod": 0,
-        "debility": false
-      },
-      "wis": {
-        "value": 10,
-        "min": 3,
-        "mod": 0,
-        "debility": false
-      },
-      "cha": {
-        "value": 10,
-        "min": 3,
-        "mod": 0,
-        "debility": false
-      }
-    },
-    "details": {
-      "alignment": {
-        "value": "",
-        "description": ""
-      },
-      "look": "",
+    "character": {
+      "templates": [
+        "base"
+      ],
       "biography": "",
-      "class": "",
-      "race": {
-        "value": "",
+      "attributes": {
+        "weight": {
+          "value": 0,
+          "max": 1
+        },
+        "coin": {
+          "value": 0
+        }
+      },
+      "abilities": {
+        "str": {
+          "value": 10,
+          "min": 3,
+          "mod": 0,
+          "debility": false
+        },
+        "dex": {
+          "value": 10,
+          "min": 3,
+          "mod": 0,
+          "debility": false
+        },
+        "con": {
+          "value": 10,
+          "min": 3,
+          "mod": 0,
+          "debility": false
+        },
+        "int": {
+          "value": 10,
+          "min": 3,
+          "mod": 0,
+          "debility": false
+        },
+        "wis": {
+          "value": 10,
+          "min": 3,
+          "mod": 0,
+          "debility": false
+        },
+        "cha": {
+          "value": 10,
+          "min": 3,
+          "mod": 0,
+          "debility": false
+        }
+      },
+      "details": {
+        "alignment": {
+          "value": "",
+          "description": ""
+        },
+        "look": "",
+        "biography": "",
+        "class": "",
+        "race": {
+          "value": "",
+          "description": ""
+        }
+      }
+    },
+    "npc": {
+      "templates": [
+        "base"
+      ],
+      "tags": [],
+      "tagsString": ""
+    }
+  },
+  "Item": {
+    "types": [
+      "move",
+      "equipment",
+      "spell",
+      "bond",
+      "tag",
+      "class"
+    ],
+    "templates": {
+      "base": {
+        "name": "",
         "description": ""
       }
+    },
+    "move": {
+      "templates": [
+        "base"
+      ],
+      "class": "",
+      "rollType": "",
+      "rollMod": 0,
+      "requiresLevel": 0,
+      "requiresMove": "",
+      "moveType": null,
+      "moveGroup": ""
+    },
+    "equipment": {
+      "templates": [
+        "base"
+      ],
+      "class": "",
+      "quantity": 1,
+      "weight": 0,
+      "uses": 0,
+      "tags": [],
+      "tagsString": "",
+      "magic": false,
+      "itemType": null,
+      "attributes": {}
+    },
+    "spell": {
+      "templates": [
+        "base"
+      ],
+      "spellLevel": 0,
+      "rollFormula": "",
+      "prepared": false
+    },
+    "bond": {
+      "templates": [
+        "base"
+      ]
+    },
+    "tag": {
+      "templates": [
+        "base"
+      ]
+    },
+    "class": {
+      "templates": [
+        "base"
+      ],
+      "races": [],
+      "alignments": [],
+      "equipment": [],
+      "hp": 10,
+      "load": 6
     }
-  },
-  "npc": {
-    "templates": ["base"],
-    "tags": [],
-    "tagsString": ""
   }
-},
-"Item": {
-  "types": ["move", "equipment", "spell", "bond", "tag"],
-  "templates": {
-    "base": {
-      "name": "",
-      "description": ""
-    }
-  },
-  "move": {
-    "templates": ["base"],
-    "rollType": "",
-    "rollMod": 0,
-    "requiresLevel": 0,
-    "requiresMove": "",
-    "moveType": null
-  },
-  "equipment": {
-    "templates": ["base"],
-    "quantity": 1,
-    "weight": 0,
-    "uses": 0,
-    "tags": [],
-    "tagsString": "",
-    "magic": false,
-    "itemType": null,
-    "attributes": {}
-  },
-  "spell": {
-    "templates": ["base"],
-    "spellLevel": 0,
-    "rollFormula": "",
-    "prepared": false
-  },
-  "bond": {
-    "templates": ["base"]
-  },
-  "tag": {
-    "templates": ["base"]
-  }
-}
 }

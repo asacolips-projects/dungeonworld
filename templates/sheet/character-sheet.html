@@ -6,7 +6,12 @@
       <header class="sheet-header">
           <div class="sheet-header__fields">
               <input class="input--title" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
-              <input class="input--title charclass" name="data.details.class" type="text" value="{{data.details.class}}" placeholder="Class"/>
+              <input class="input--title charclass" name="data.details.class" type="text" value="{{data.details.class}}" placeholder="Class" list="classlist"/>
+              <datalist id="classlist">
+                {{#each data.classlist as |class id|}}
+                <option value="{{class}}" />
+                {{/each}}
+              </datalist>
               <div class="flex-item flex-item--level">
                 <label for="data.atributes.level.value">{{ localize "DW.Level" }}</label>
                 <input name="data.attributes.level.value" type="text" value="{{data.attributes.level.value}}" placeholder="Level" data-dtype="Number"/>
@@ -15,8 +20,19 @@
                 <label for="data.attributes.xp.value">{{ localize "DW.XP" }}</label>
                 <input name="data.attributes.xp.value" type="text" value="{{data.attributes.xp.value}}" placeholder="XP" data-dtype="Number"/>
               </div>
+              {{#if data.levelup}}
+                <div class="flex-item flex-item--level-up">
+                  <a class="clickable-level-up"><i class="fas fa-user-plus"></i></a>
+                </div>
+              {{/if}}
           </div>
       </header>
+
+      <section class="sheet-notifications">
+        {{#if data.isToken}}
+        <div class="cell__title error">Warning! This character sheet is <strong>not linked to an actor</strong> and cannot use the character builder!</div>
+        {{/if}}
+      </section>
 
       {{!-- Sidebar --}}
       <section class="sheet-look">
@@ -165,6 +181,12 @@
             <div class="tab moves active" data-group="primary" data-tab="moves">
               <section class="sheet-tab">
 
+                <section class="sheet-notifications">
+                  {{#if data.isToken}}
+                  <div class="cell__title warning small-text">Moves cannot be rearranged while this token is not linked to an actor.</div>
+                  {{/if}}
+                </section>
+
                 <div class="cell cell--starting-moves">
                   <h2 class="cell__title">{{localize "DW.MovesStarting"}}</h2>
                   <div class="item-controls">
@@ -223,7 +245,7 @@
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                       <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
-                      <div class="item-controls">   
+                      <div class="item-controls">
                         <a class="item-control item-details-toggle" title="Edit Item"><i class="fas fa-caret-right"></i></a>
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -240,6 +262,12 @@
             {{!-- Owned Spells Tab --}}
             <div class="tab spells" data-group="primary" data-tab="spells">
                 <div class="cell cell--spells">
+                  <section class="sheet-notifications" style="margin-top:10px;">
+                    {{#if data.isToken}}
+                    <div class="cell__title warning small-text">Spells cannot be rearranged while this token is not linked to an actor.</div>
+                    {{/if}}
+                  </section>
+
                   <ol class="items-list">
                   {{#each actor.spells as |spells spellLevel|}}
                     <h2 class="cell__title">{{localize (concat "DW.Spells" spellLevel)}}</h2>
@@ -252,11 +280,18 @@
                       <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                         {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                         <h4 class="item-name rollable spell-rollable" data-roll="{{item.data.rollFormula}}"><i class="fas fa-dice-d20"></i> {{item.name}}</h4>
+                        <div class="item-meta tags">
+                          {{#if item.data.prepared }}<span class="tag">Prepared</span>{{/if}}
+                        </div>
                         <div class="item-controls">
+                          <a class="item-control item-details-toggle" title="Show Details"><i class="fas fa-caret-right"></i></a>
                           <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                           <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         </div>
-                    </li>
+                        <div class="item-description">
+                          <div class="description">{{{item.data.description}}}</div>
+                        </div>
+                      </li>
                     {{/each}}
                   {{/each}}
                   </ol>
@@ -266,6 +301,12 @@
             {{!-- Owned Equipment Tab --}}
             <div class="tab equipment" data-group="primary" data-tab="equipment">
                 <div class="cell cell--equipment">
+                  <section class="sheet-notifications" style="margin-top:10px;">
+                    {{#if data.isToken}}
+                    <div class="cell__title warning small-text">Equipment cannot be rearranged while this token is not linked to an actor.</div>
+                    {{/if}}
+                  </section>
+
                   <h2 class="cell__title">{{localize "DW.Equipment"}}</h2>
                   <div class="item-controls">
                     <button class="item-control item-create" title='{{localize "DW.Equipment"}}' data-type="equipment">
@@ -277,9 +318,20 @@
                       <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                           {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                           <h4 class="item-name">{{item.name}}</h4>
+
+                          <div class="item-meta tags">
+                            {{#if item.data.uses }}<span class="tag">{{localize "DW.Uses"}}: {{item.data.uses}}</span>{{/if}}
+                            {{#if item.data.quantity }}<span class="tag">{{localize "DW.Qty"}}: {{item.data.quantity}}</span>{{/if}}
+                            {{#if item.data.weight }}<span class="tag">{{localize "DW.Wt"}}: {{item.data.weight}}</span>{{/if}}
+                          </div>
                           <div class="item-controls">
+                              <a class="item-control item-details-toggle" title="Show Details"><i class="fas fa-caret-right"></i></a>
                               <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                               <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                          </div>
+                          <div class="item-description">
+                            {{#if item.data.tags}}{{{dwTags item.data.tags}}}{{/if}}
+                            <div class="description">{{{item.data.description}}}</div>
                           </div>
                       </li>
                   {{/each}}
