@@ -20,18 +20,48 @@
   .item-name {
     font-size: 18px;
     font-weight: bold;
-    flex: 200px 2;
+    flex: 2;
     margin: 0;
   }
 
   .item-controls {
     text-align: right;
+    flex: 0 0 75px;
   }
 
   .item-description {
     display: none;
     flex: none;
     width: 100%;
+  }
+
+  .item-meta {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex: 100px;
+
+    > span {
+      margin: 0;
+
+      + span {
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .item-details-toggle {
+    display: inline-block;
+    width: 32px;
+    height: 16px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: $c-light;
+
+    &:hover {
+      color: $c-black;
+      background-color: $c-navy-top;
+    }
   }
 
   .rollable {

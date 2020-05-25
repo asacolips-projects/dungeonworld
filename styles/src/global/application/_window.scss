@@ -44,6 +44,11 @@
     }
   }
 
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
+  }
+
   input,
   textarea {
     border: 0;
@@ -62,6 +67,24 @@
     &:focus {
       box-shadow: 0 0 5px rgba($c-navy-up, 0.25);
       background-color: $c-navy-top;
+    }
+  }
+
+  .dialog-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+
+  .dialog-button {
+    flex: 1;
+    background: $c-navy;
+    color: $c-white;
+
+    &:hover {
+      background: $c-navy-up;
     }
   }
 }

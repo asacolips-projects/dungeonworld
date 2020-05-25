@@ -45,13 +45,15 @@
         </div>
 
         <div class="resource">
-          <label>{{localize "DW.RequiresLevel"}}</label>
-          <input type="text" name="data.requiresLevel" value="{{data.requiresLevel}}" data-dtype="Number"/>
-        </div>
-
-        <div class="resource">
-          <label>{{localize "DW.RequiresMove"}}</label>
-          <input type="text" name="data.requiresMove" value="{{data.requiresMove}}" data-dtype="String"/>
+          <label>{{localize "DW.Class"}}</label>
+          <select name="data.class">
+            {{#select data.class}}
+              <option value="">—</option>
+              {{#each data.classlist as |class id|}}
+              <option value="{{class}}">{{class}}</option>
+              {{/each}}
+            {{/select}}
+          </select>
         </div>
 
         <div class="resource">
@@ -65,11 +67,23 @@
             {{/select}}
           </select>
         </div>
-        {{!-- rollType
-        rollMod
-        requiresLevel
-        requiresMove
-        moveType --}}
+
+        <div class="resource">
+          <label>{{localize "DW.RequiresLevel"}}</label>
+          <input type="text" name="data.requiresLevel" value="{{data.requiresLevel}}" data-dtype="Number"/>
+        </div>
+
+        <div class="resource">
+          <label>{{localize "DW.RequiresMove"}}</label>
+          <input type="text" name="data.requiresMove" value="{{data.requiresMove}}" data-dtype="String"/>
+        </div>
+
+        <div class="resource">
+          <label>{{localize "DW.MoveGroup"}}</label>
+          <input type="text" name="data.moveGroup" value="{{data.moveGroup}}" placeholder="ex: barbarian-armor" data-dtype="String"/>
+          <span class="help-text">{{localize "DW.MoveGroupHelp"}}</span>
+        </div>
+
       </div>
   </section>
 </form>

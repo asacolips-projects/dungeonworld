@@ -17,6 +17,19 @@
     font-weight: bold;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: $font-stack-secondary;
+    font-weight: bold;
+  }
+
+  .row {
+    font-size: 13px;
+  }
+
   .dice-roll {
     .dice-formula {
       cursor: pointer;
