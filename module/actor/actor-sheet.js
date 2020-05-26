@@ -39,7 +39,7 @@ export class DwActorSheet extends ActorSheet {
     this._prepareNpcItems(data);
 
     // Add classlist.
-    if (data.type == 'character') {
+    if (this.actor.data.type == 'character') {
       data.data.classlist = await DwClassList.getClasses();
 
       // Set a warning for tokens.
