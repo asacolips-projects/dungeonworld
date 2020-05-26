@@ -37,22 +37,25 @@ export class DwActorSheet extends ActorSheet {
     // Prepare items.
     this._prepareCharacterItems(data);
     this._prepareNpcItems(data);
-    // Add classlist.
-    data.data.classlist = await DwClassList.getClasses();
 
-    // Set a warning for tokens.
-    data.data.isToken = this.actor.token != null;
-    if (!data.data.isToken) {
-      // Add levelup choice.
-      let levelup = this.actor.getFlag('dungeonworld', 'levelup');
-      if (typeof levelup == 'undefined') {
-        this.actor.setFlag('dungeonworld', 'levelup', true);
-        levelup = true;
+    // Add classlist.
+    if (data.type == 'character') {
+      data.data.classlist = await DwClassList.getClasses();
+
+      // Set a warning for tokens.
+      data.data.isToken = this.actor.token != null;
+      if (!data.data.isToken) {
+        // Add levelup choice.
+        let levelup = this.actor.getFlag('dungeonworld', 'levelup');
+        if (typeof levelup == 'undefined') {
+          this.actor.setFlag('dungeonworld', 'levelup', true);
+          levelup = true;
+        }
+        data.data.levelup = levelup && data.data.classlist.includes(data.data.details.class);
       }
-      data.data.levelup = levelup && data.data.classlist.includes(data.data.details.class);
-    }
-    else {
-      data.data.levelup = false;
+      else {
+        data.data.levelup = false;
+      }
     }
 
     // Return data to the sheet

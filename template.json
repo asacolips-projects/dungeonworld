@@ -31,6 +31,9 @@
             "value": 0,
             "min": 0
           }
+        },
+        "details": {
+          "biography": ""
         }
       }
     },
@@ -38,7 +41,6 @@
       "templates": [
         "base"
       ],
-      "biography": "",
       "attributes": {
         "weight": {
           "value": 0,
@@ -92,7 +94,6 @@
           "description": ""
         },
         "look": "",
-        "biography": "",
         "class": "",
         "race": {
           "value": "",

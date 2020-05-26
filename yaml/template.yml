@@ -24,10 +24,11 @@ Actor:
         xp:
           value: 0
           min: 0
+      details:
+        biography: ''
   character:
     templates:
       - base
-    biography: ''
     attributes:
       weight:
         value: 0
@@ -70,7 +71,6 @@ Actor:
         value: ''
         description: ''
       look: ''
-      biography: ''
       class: ''
       race:
         value: ''
