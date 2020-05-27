@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Metamorphous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 .grid,
 .grid-2col {
   display: grid;
@@ -94,7 +94,7 @@
   .vtt .window-app button,
   .vtt .window-app select,
   .vtt .window-app textarea {
-    font-family: "Roboto", serif;
+    font-family: "Alegreya", serif;
     font-size: 14px;
     border: 0; }
     .vtt .window-app input:hover, .vtt .window-app input:focus,
@@ -136,7 +136,7 @@
     .vtt .window-app textarea::placeholder {
       color: #bfbfbf; }
   .vtt .window-app button {
-    font-family: "Roboto", serif;
+    font-family: "Alegreya", serif;
     border: 0; }
     .vtt .window-app button:hover, .vtt .window-app button:focus {
       -webkit-box-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
@@ -169,7 +169,7 @@
 
 .vtt .window-header {
   color: #fff;
-  font-family: "Martel", serif; }
+  font-family: "Metamorphous", serif; }
   .vtt .window-header a:hover, .vtt .window-header a:focus {
     color: #bcc8de; }
 
@@ -198,7 +198,7 @@
 
 .vtt #chat-log .message {
   background: #fff;
-  font-family: "Roboto", serif; }
+  font-family: "Alegreya", serif; }
   .vtt #chat-log .message.whisper {
     background: #e0ecff; }
 
@@ -206,7 +206,7 @@
   font-size: 12px; }
 
 .vtt #chat-log .cell__title {
-  font-family: "Martel", serif;
+  font-family: "Metamorphous", serif;
   font-weight: bold; }
 
 .vtt #chat-log h1,
@@ -214,7 +214,7 @@
 .vtt #chat-log h3,
 .vtt #chat-log h4,
 .vtt #chat-log h5 {
-  font-family: "Martel", serif;
+  font-family: "Metamorphous", serif;
   font-weight: bold; }
 
 .vtt #chat-log .row {
@@ -237,7 +237,7 @@
   padding-right: 10px; }
 
 .dungeonworld {
-  font-family: "Roboto", serif; }
+  font-family: "Alegreya", serif; }
   .dungeonworld textarea {
     resize: vertical; }
   .dungeonworld .window-content {
@@ -245,13 +245,13 @@
   .dungeonworld.sheet .input--title {
     font-weight: bold;
     font-size: 18px;
-    font-family: "Martel", serif; }
+    font-family: "Metamorphous", serif; }
   .dungeonworld.sheet label,
   .dungeonworld.sheet h1,
   .dungeonworld.sheet h2,
   .dungeonworld.sheet h3,
   .dungeonworld.sheet h4 {
-    font-family: "Martel", serif;
+    font-family: "Metamorphous", serif;
     font-weight: bold; }
   .dungeonworld.sheet .sheet-wrapper {
     display: -webkit-box;
@@ -372,7 +372,7 @@
     padding: 5px;
     margin-bottom: 5px;
     font-weight: bold;
-    font-family: "Martel", serif; }
+    font-family: "Metamorphous", serif; }
     .dungeonworld.sheet .cell__title a,
     .dungeonworld.sheet .cell__title button,
     .dungeonworld.sheet .cell__subtitle a,
@@ -388,7 +388,7 @@
     .dungeonworld.sheet .cell__subtitle.warning {
       background: #d68888;
       font-size: 16px;
-      font-family: "Roboto", serif;
+      font-family: "Alegreya", serif;
       font-weight: normal;
       -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1048,7 +1048,7 @@
     flex: 1; }
   .dungeonworld.sheet.dw-level-up .cell__description {
     font-style: italic;
-    font-family: "Martel", serif;
+    font-family: "Metamorphous", serif;
     padding: 10px;
     margin: 10px;
     background: #edf2f7; }
@@ -1097,7 +1097,7 @@
     flex: 0 0 48px; }
     .dungeonworld.sheet .class .cell__title input[type="text"] {
       color: #fff;
-      font-family: "Martel", serif; }
+      font-family: "Metamorphous", serif; }
     .dungeonworld.sheet .class .cell__title label {
       -webkit-box-flex: 1;
       -ms-flex: 1;
