@@ -47,6 +47,23 @@ export class DwActorSheet extends ActorSheet {
       if (!data.data.isToken) {
         // Add levelup choice.
         let levelup = (Number(data.data.attributes.xp.value) >= Number(data.data.attributes.level.value) + 7) && Number(data.data.attributes.level.value) < 10;
+
+        // Handle the first level (special case).
+        if (data.data.attributes.level.value == 1) {
+          let hasStarting = false;
+          for (let i = 0; i < data.items.length; i++) {
+            if (data.items[i].type == 'move' && data.items[i].data.moveType == 'starting') {
+              hasStarting = true;
+              break;
+            }
+          };
+
+          if (!hasStarting) {
+            levelup = true;
+          }
+        }
+
+        // Set the template variable.
         data.data.levelup = levelup && data.data.classlist.includes(data.data.details.class);
 
         // Calculate xp bar length.
@@ -62,8 +79,6 @@ export class DwActorSheet extends ActorSheet {
           circumference: circumference,
           offset: offset,
         };
-        console.log(data.data.xpSvg);
-        console.log(percent);
       }
       else {
         data.data.levelup = false;
@@ -285,8 +300,14 @@ export class DwActorSheet extends ActorSheet {
       return;
     }
 
-    const char_class = DwUtility.cleanClass(char_class_name);
-    const char_level = actorData.attributes.level.value;
+    let char_class = DwUtility.cleanClass(char_class_name);
+    let char_level = Number(actorData.attributes.level.value);
+
+    // Handle level 1 > 2.
+    if (actorData.attributes.xp.value != 0) {
+      char_level = char_level + 1;
+    }
+
     let pack = game.packs.get(`dungeonworld.${char_class}-moves`);
     let compendium = await pack.getContent();
 
@@ -326,7 +347,7 @@ export class DwActorSheet extends ActorSheet {
     // Get equipment.
     let equipment = null;
     let equipment_list = [];
-    if (char_level < 2) {
+    if (actorData.attributes.xp.value == 0) {
       if (typeof class_item.data.data.equipment == 'object') {
         let equipmentObjects = await class_item._getEquipmentObjects();
         for (let [group, group_items] of Object.entries(equipmentObjects)) {
@@ -370,7 +391,7 @@ export class DwActorSheet extends ActorSheet {
 
     let starting_moves = [];
     let starting_move_groups = [];
-    if (this.actor.data.data.attributes.level.value < 2) {
+    if (char_level < 2) {
       starting_moves = moves.filter(m => {
         return m.data.data.requiresLevel < 2;
       });
@@ -492,8 +513,8 @@ export class DwActorSheet extends ActorSheet {
       races: races.length > 0 ? races : null,
       alignments: alignments.length > 0 ? alignments : null,
       equipment: equipment ? equipment : null,
-      ability_scores: char_level < 2 ? ability_scores : null,
-      ability_labels: char_level < 2 ? ability_labels : null,
+      ability_scores: actorData.attributes.xp.value == 0 ? ability_scores : null,
+      ability_labels: actorData.attributes.xp.value == 0 ? ability_labels : null,
       starting_moves: starting_moves.length > 0 ? starting_moves : null,
       starting_move_groups: starting_move_groups,
       advanced_moves_2: advanced_moves_2.length > 0 ? advanced_moves_2 : null,
@@ -644,9 +665,11 @@ export class DwActorSheet extends ActorSheet {
     }
 
     // Adjust level.
-    let xp = Number(actor.data.data.attributes.xp.value) - Number(actor.data.data.attributes.level.value) - 7;
-    data['attributes.xp.value'] = xp > -1 ? xp : 0;
-    data['attributes.level.value'] = Number(actor.data.data.attributes.level.value) + 1;
+    if (Number(actor.data.data.attributes.xp.value) > 0) {
+      let xp = Number(actor.data.data.attributes.xp.value) - Number(actor.data.data.attributes.level.value) - 7;
+      data['attributes.xp.value'] = xp > -1 ? xp : 0;
+      data['attributes.level.value'] = Number(actor.data.data.attributes.level.value) + 1;
+    }
 
     // Adjust hp.
     if (itemData.class_item.data.data.hp) {
@@ -655,6 +678,7 @@ export class DwActorSheet extends ActorSheet {
         constitution = data['abilities.con.value'];
       }
       data['attributes.hp.max'] = Number(itemData.class_item.data.data.hp) + Number(constitution);
+      data['attributes.hp.value'] = data['attributes.hp.max'];
     }
 
     // Adjust load.
@@ -695,10 +719,8 @@ export class DwActorSheet extends ActorSheet {
     if (item) {
       let $self = $(a);
       $self.toggleClass('unprepared');
-      console.log(item);
 
       let updatedItem = duplicate(item);
-      console.log(updatedItem);
       updatedItem.data.prepared = !updatedItem.data.prepared;
 
       this.actor.updateOwnedItem(updatedItem);
