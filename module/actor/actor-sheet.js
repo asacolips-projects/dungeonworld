@@ -751,7 +751,6 @@ export class DwActorSheet extends ActorSheet {
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
     if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
     if (rollMode === "blindroll") chatData["blind"] = true;
-    console.log(roll);
     // Handle dice rolls.
     if (roll) {
       // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
