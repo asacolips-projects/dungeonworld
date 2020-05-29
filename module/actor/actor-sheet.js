@@ -716,8 +716,7 @@ export class DwActorSheet extends ActorSheet {
     // GM rolls.
     let chatData = {
       user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      sound: CONFIG.sounds.dice
+      speaker: ChatMessage.getSpeaker({ actor: this.actor })
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
@@ -755,7 +754,13 @@ export class DwActorSheet extends ActorSheet {
           chatData.roll = JSON.stringify(r);
           renderTemplate(template, templateData).then(content => {
             chatData.content = content;
-            ChatMessage.create(chatData);
+            if (game.dice3d) {
+              game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+            }
+            else {
+              chatData.sound = CONFIG.sounds.dice;
+              ChatMessage.create(chatData);
+            }
           });
         });
       }

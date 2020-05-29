@@ -4,6 +4,10 @@
 @import 'global/base/grid';
 @import 'global/base/overrides';
 
+:root {
+  --svg-fill: #ccc;
+}
+
 // Theme overrides.
 .vtt {
   @import 'global/application/window';
@@ -20,6 +24,40 @@
 
   .window-content {
     background: $c-white;
+  }
+
+  &.actor {
+    .window-content {
+      position: relative;
+      background: $c-white;
+      background-image:
+        linear-gradient(#dedede, #dedede),
+        url('../../assets/heath-alseike-vector-edge.svg');
+      background-repeat: no-repeat;
+      background-size:
+        100% 264px,
+        100%;
+      background-position:
+        0 0,
+        0 264px;
+      background-attachment: local;
+
+      form {
+        position: relative;
+        z-index: 1;
+      }
+
+      &::before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 264px;
+        background: #dedede;
+      }
+    }
   }
 
   // Import components, scoped within the sheet.

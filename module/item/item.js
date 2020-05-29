@@ -152,15 +152,15 @@ export class ItemDw extends Item {
     // GM rolls.
     let chatData = {
       user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      sound: CONFIG.sounds.dice
+      speaker: ChatMessage.getSpeaker({ actor: this.actor })
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
     if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
     if (rollMode === "blindroll") chatData["blind"] = true;
+    console.log(roll);
     // Handle dice rolls.
-    if (roll) {
+    if (!DwUtility.isEmpty(roll)) {
       // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
       let formula = '';
       // Handle bond (user input).
@@ -191,7 +191,13 @@ export class ItemDw extends Item {
           chatData.roll = JSON.stringify(r);
           renderTemplate(template, templateData).then(content => {
             chatData.content = content;
-            ChatMessage.create(chatData);
+            if (game.dice3d) {
+              game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+            }
+            else {
+              chatData.sound = CONFIG.sounds.dice;
+              ChatMessage.create(chatData);
+            }
           });
         });
       }

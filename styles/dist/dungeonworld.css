@@ -113,6 +113,9 @@
   -ms-flex-direction: column;
   flex-direction: column; }
 
+:root {
+  --svg-fill: #ccc; }
+
 .vtt .window-app {
   background: #2d3748; }
   .vtt .window-app a:hover, .vtt .window-app a:focus,
@@ -275,6 +278,28 @@
     resize: vertical; }
   .dungeonworld .window-content {
     background: #fff; }
+  .dungeonworld.actor .window-content {
+    position: relative;
+    background: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#dedede), to(#dedede)), url("../../assets/heath-alseike-vector-edge.svg");
+    background-image: -o-linear-gradient(#dedede, #dedede), url("../../assets/heath-alseike-vector-edge.svg");
+    background-image: linear-gradient(#dedede, #dedede), url("../../assets/heath-alseike-vector-edge.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 264px, 100%;
+    background-position: 0 0, 0 264px;
+    background-attachment: local; }
+    .dungeonworld.actor .window-content form {
+      position: relative;
+      z-index: 1; }
+    .dungeonworld.actor .window-content::before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 264px;
+      background: #dedede; }
   .dungeonworld.sheet .input--title {
     font-weight: bold;
     font-size: 18px;
@@ -283,7 +308,8 @@
   .dungeonworld.sheet h1,
   .dungeonworld.sheet h2 {
     font-family: "Metamorphous", serif;
-    font-weight: bold; }
+    font-weight: bold;
+    border-color: inherit; }
   .dungeonworld.sheet h3,
   .dungeonworld.sheet h4,
   .dungeonworld.sheet h5,
@@ -413,7 +439,7 @@
     .dungeonworld.sheet .cell__title button,
     .dungeonworld.sheet .cell__subtitle a,
     .dungeonworld.sheet .cell__subtitle button {
-      color: #fff; }
+      color: #000; }
     .dungeonworld.sheet .cell__title button:hover, .dungeonworld.sheet .cell__title button:focus,
     .dungeonworld.sheet .cell__subtitle button:hover,
     .dungeonworld.sheet .cell__subtitle button:focus {
@@ -465,12 +491,14 @@
       margin: 0 5px -1px;
       padding: 4px; }
       .dungeonworld.sheet .tabs .item:hover, .dungeonworld.sheet .tabs .item:focus {
-        background: #dfe6f5;
+        background: #edf2f7;
         text-shadow: none; }
       .dungeonworld.sheet .tabs .item.active {
         background: #fff;
+        color: #000;
         border-bottom: 0;
-        text-shadow: none; }
+        text-shadow: none;
+        font-weight: bold; }
   .dungeonworld.sheet .item-form .sheet-header,
   .dungeonworld.sheet .item-form .sheet-navigation {
     -webkit-box-flex: 0;
@@ -680,6 +708,33 @@
         justify-content: center; }
         .dungeonworld.sheet .sheet-attributes .cell > .cell__title .fas {
           margin-right: 5px; }
+          .dungeonworld.sheet .sheet-attributes .cell > .cell__title .fas.attribute-icon {
+            margin-right: 0; }
+    .dungeonworld.sheet .sheet-attributes select,
+    .dungeonworld.sheet .sheet-attributes input,
+    .dungeonworld.sheet .sheet-attributes textarea {
+      background: #fff; }
+    .dungeonworld.sheet .sheet-attributes .cell__title {
+      position: relative; }
+      .dungeonworld.sheet .sheet-attributes .cell__title .attribute-icon {
+        position: absolute;
+        top: 0;
+        right: 2px;
+        bottom: 0;
+        text-align: center;
+        margin: 0;
+        font-size: 30px;
+        z-index: 0;
+        opacity: 0.25;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center; }
     .dungeonworld.sheet .sheet-attributes .cell--abilities {
       text-align: left; }
       .dungeonworld.sheet .sheet-attributes .cell--abilities > .cell__title {
@@ -768,7 +823,6 @@
       color: #ca0000; }
   .dungeonworld.sheet .cell--abilities {
     grid-column: span 16;
-    background: rgba(91, 112, 148, 0.25);
     padding: 0 10px; }
     .dungeonworld.sheet .cell--abilities .abilities-list {
       display: grid;
@@ -1059,6 +1113,14 @@
     color: #5b7094;
     text-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
     cursor: pointer; }
+  .dungeonworld.sheet .sheet-look .cell__title {
+    font-size: 14px;
+    margin: 20px 0 0;
+    border-bottom: 1px solid; }
+  .dungeonworld.sheet .sheet-look .cell--image {
+    cursor: pointer; }
+    .dungeonworld.sheet .sheet-look .cell--image img {
+      border: 0; }
   .dungeonworld.sheet .cell--bonds .items-list {
     padding: 0; }
   .dungeonworld.sheet .cell--bonds .item {
