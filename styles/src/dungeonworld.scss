@@ -4,9 +4,8 @@
 @import 'global/base/grid';
 @import 'global/base/overrides';
 
-:root {
-  --svg-fill: #ccc;
-}
+// Tags.
+@import 'global/base/tags';
 
 // Theme overrides.
 .vtt {
@@ -69,7 +68,7 @@
     @import 'global/components/tabs';
     // Specific.
     @import 'global/components/item-form';
-    @import 'global/components/tags';
+    // @import 'global/components/tags';
     @import 'global/components/header';
     @import 'global/components/attributes';
     @import 'global/components/abilities';

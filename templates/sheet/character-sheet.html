@@ -127,7 +127,7 @@
           <div class="cell cell--weight">
             <label for="data.attributes.weight.value" class="cell__title">{{localize "DW.Weight"}}<i class="fas fa-weight-hanging attribute-icon"></i></label>
             <div class="cell__counter">
-              <input type="text" name="data.attributes.weight.value" value="{{data.attributes.weight.value}}" data-dtype="Number"/>
+              <input class="disabled" type="text" name="data.attributes.weight.value" value="{{data.attributes.weight.value}}" data-dtype="Number" readonly/>
               <span> / </span>
               <input type="text" name="data.attributes.weight.max" value="{{data.attributes.weight.max}}" data-dtype="Number"/>
             </div>
@@ -273,12 +273,14 @@
 
                   <ol class="items-list">
                   {{#each actor.spells as |spells spellLevel|}}
-                    <h2 class="cell__title">{{localize (concat "DW.Spells" spellLevel)}}</h2>
-                    <div class="item-controls">
+                    <h2 class="cell__title">
+                      <label>{{localize (concat "DW.Spells" spellLevel)}}</label>
+                      <div class="item-controls">
                       <button class="item-control item-create" title='{{localize "DW.Spells"}}' data-type="spell" data-level="{{spellLevel}}">
-                        <i class="fas fa-plus"></i> {{localize "DW.AddSpell"}}
+                        <i class="fas fa-plus"></i>
                       </button>
                     </div>
+                    </h2>
                     {{#each spells as |item id|}}
                       <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                         {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
@@ -315,17 +317,19 @@
                     {{/if}}
                   </section>
 
-                  <h2 class="cell__title">{{localize "DW.Equipment"}}</h2>
-                  <div class="item-controls">
-                    <button class="item-control item-create" title='{{localize "DW.Equipment"}}' data-type="equipment">
-                      <i class="fas fa-plus"></i> {{localize "DW.AddEquipment"}}
-                    </button>
-                  </div>
+                  <h2 class="cell__title">
+                    <label>{{localize "DW.Equipment"}}</label>
+                    <div class="item-controls">
+                      <button class="item-control item-create" title='{{localize "DW.Equipment"}}' data-type="equipment">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </h2>
                   <ol class="items-list">
                   {{#each actor.equipment as |item id|}}
                       <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                           {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
-                          <h4 class="item-name">{{item.name}}</h4>
+                          <h4 class="item-name"><span class="rollable item-rollable" data-roll=""><i class="fas fa-comment-alt"></i></span><span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span></h4>
 
                           <div class="item-meta tags">
                             {{#if item.data.uses }}<span class="tag">{{localize "DW.Uses"}}: {{item.data.uses}}</span>{{/if}}
@@ -333,7 +337,6 @@
                             {{#if item.data.weight }}<span class="tag">{{localize "DW.Wt"}}: {{item.data.weight}}</span>{{/if}}
                           </div>
                           <div class="item-controls">
-                              <a class="item-control item-details-toggle" title="Show Details"><i class="fas fa-caret-right"></i></a>
                               <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                               <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                           </div>

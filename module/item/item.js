@@ -140,6 +140,16 @@ export class ItemDw extends Item {
       data.roll = item.data.rollFormula;
       this.rollMove(data.roll, actorData, data, templateData);
     }
+    else if (item.type == 'equipment') {
+      templateData = {
+        title: item.name,
+        trigger: null,
+        details: item.data.description,
+        tags: item.data.tags
+      }
+      data.roll = null;
+      this.rollMove(data.roll, actorData, data, templateData);
+    }
   }
 
   /**

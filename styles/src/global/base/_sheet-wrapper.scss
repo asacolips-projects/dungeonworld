@@ -60,6 +60,15 @@
     .toggle--look {
       flex: 20px 1 1;
       margin: 0 10px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background: #bbb;
+
+      &:hover,
+      &:focus {
+        background: #aaa;
+      }
 
       &.closed {
         margin-left: 0;

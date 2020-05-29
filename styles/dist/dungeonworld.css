@@ -113,8 +113,86 @@
   -ms-flex-direction: column;
   flex-direction: column; }
 
-:root {
-  --svg-fill: #ccc; }
+.tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  list-style-type: none;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.tag {
+  position: relative;
+  padding: 3px 6px 3px 6px;
+  background: #edf2f7;
+  color: #2d3748;
+  margin: 5px 5px 0 0;
+  border-radius: 4px;
+  text-transform: capitalize;
+  list-style-type: none; }
+
+.tagging {
+  padding: 5px 10px 8px; }
+  .tagging .tag {
+    background-color: #5b7094;
+    padding: 4px 22px 4px 6px; }
+    .tagging .tag .tag-i {
+      color: #fff; }
+      .tagging .tag .tag-i:hover, .tagging .tag .tag-i:focus {
+        color: #2d3748; }
+    .tagging .tag > span {
+      display: none; }
+  .tagging .tag-input:hover, .tagging .tag-input:focus {
+    -webkit-box-shadow: 0 1px 0 #5b7094;
+    box-shadow: 0 1px 0 #5b7094; }
+
+.remove-tag {
+  position: absolute;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: transparent;
+  -webkit-transition: all ease-in-out 0.25s;
+  -o-transition: all ease-in-out 0.25s;
+  transition: all ease-in-out 0.25s;
+  border-radius: 50px; }
+  .remove-tag:hover {
+    color: #fff;
+    background: #c77777; }
+  .remove-tag::before {
+    display: block;
+    content: "\00D7"; }
+
+.awesomplete > ul {
+  background-color: #5b7094; }
+  .awesomplete > ul::before {
+    background-color: #5b7094; }
+
+.help-text {
+  color: #999;
+  font-size: 12px; }
 
 .vtt .window-app {
   background: #2d3748; }
@@ -171,6 +249,9 @@
     .vtt .window-app input::placeholder,
     .vtt .window-app textarea::placeholder {
       color: #bfbfbf; }
+    .vtt .window-app input.disabled,
+    .vtt .window-app textarea.disabled {
+      opacity: 0.5; }
   .vtt .window-app button {
     font-family: "Alegreya", serif;
     border: 0; }
@@ -396,7 +477,19 @@
         -webkit-box-flex: 20px;
         -ms-flex: 20px 1 1;
         flex: 20px 1 1;
-        margin: 0 10px; }
+        margin: 0 10px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        background: #bbb; }
+        .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look:hover, .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look:focus {
+          background: #aaa; }
         .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look.closed {
           margin-left: 0; }
     .dungeonworld.sheet .sheet-wrapper .sheet-main {
@@ -509,81 +602,6 @@
   .dungeonworld.sheet .item-form .tab,
   .dungeonworld.sheet .item-form .editor {
     height: 100%; }
-  .dungeonworld.sheet .tags {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    list-style-type: none;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap; }
-  .dungeonworld.sheet .tag {
-    position: relative;
-    padding: 3px 6px 3px 6px;
-    background: #edf2f7;
-    color: #2d3748;
-    margin: 5px 5px 0 0;
-    border-radius: 4px;
-    text-transform: capitalize;
-    list-style-type: none; }
-  .dungeonworld.sheet .tagging {
-    padding: 5px 10px 8px; }
-    .dungeonworld.sheet .tagging .tag {
-      background-color: #5b7094;
-      padding: 4px 22px 4px 6px; }
-      .dungeonworld.sheet .tagging .tag .tag-i {
-        color: #fff; }
-        .dungeonworld.sheet .tagging .tag .tag-i:hover, .dungeonworld.sheet .tagging .tag .tag-i:focus {
-          color: #2d3748; }
-      .dungeonworld.sheet .tagging .tag > span {
-        display: none; }
-    .dungeonworld.sheet .tagging .tag-input:hover, .dungeonworld.sheet .tagging .tag-input:focus {
-      -webkit-box-shadow: 0 1px 0 #5b7094;
-      box-shadow: 0 1px 0 #5b7094; }
-  .dungeonworld.sheet .remove-tag {
-    position: absolute;
-    right: 5px;
-    width: 15px;
-    height: 15px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    background: transparent;
-    -webkit-transition: all ease-in-out 0.25s;
-    -o-transition: all ease-in-out 0.25s;
-    transition: all ease-in-out 0.25s;
-    border-radius: 50px; }
-    .dungeonworld.sheet .remove-tag:hover {
-      color: #fff;
-      background: #c77777; }
-    .dungeonworld.sheet .remove-tag::before {
-      display: block;
-      content: "\00D7"; }
-  .dungeonworld.sheet .awesomplete > ul {
-    background-color: #5b7094; }
-    .dungeonworld.sheet .awesomplete > ul::before {
-      background-color: #5b7094; }
-  .dungeonworld.sheet .help-text {
-    color: #999;
-    font-size: 12px; }
   .dungeonworld.sheet .sheet-header {
     background: #2d3748;
     color: #fff; }
@@ -977,8 +995,8 @@
   .dungeonworld.sheet .cell--spells .item-controls {
     text-align: right;
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 75px;
-    flex: 0 0 75px; }
+    -ms-flex: 0 0 40px;
+    flex: 0 0 40px; }
   .dungeonworld.sheet .cell--basic-moves .item-description,
   .dungeonworld.sheet .cell--starting-moves .item-description,
   .dungeonworld.sheet .cell--advanced-moves .item-description,

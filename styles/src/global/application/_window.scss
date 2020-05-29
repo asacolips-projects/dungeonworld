@@ -57,6 +57,10 @@
     &::placeholder {
       color: #bfbfbf;
     }
+
+    &.disabled {
+      opacity: 0.5;
+    }
   }
 
   button {
