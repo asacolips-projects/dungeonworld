@@ -66,11 +66,21 @@
   button {
     font-family: $font-stack-base;
     border: 0;
+    background: $c-light;
 
     &:hover,
     &:focus {
       box-shadow: 0 0 5px rgba($c-navy-up, 0.25);
       background-color: $c-navy-top;
+    }
+  }
+
+  .window-header {
+    .window-title {
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
@@ -129,4 +139,19 @@
 .tags-look .tagify__dropdown__item:hover{
   background: lightyellow;
   border-color: gold;
+}
+
+.sidebar-tab {
+  .directory-header {
+    .header-search {
+      input {
+        background-color: $c-light;
+        color: $c-navy;
+
+        &::placeholder {
+          color: $c-navy-up;
+        }
+      }
+    }
+  }
 }

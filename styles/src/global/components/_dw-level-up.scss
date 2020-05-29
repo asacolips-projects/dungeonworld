@@ -26,8 +26,9 @@
   }
 
   .cell__description {
-    font-style: italic;
-    font-family: $font-stack-secondary;
+    // font-style: italic;
+    // font-family: $font-stack-secondary;
+    font-size: 18px;
     padding: 10px;
     margin: 10px;
     background: $c-light;

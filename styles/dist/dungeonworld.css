@@ -254,11 +254,18 @@
       opacity: 0.5; }
   .vtt .window-app button {
     font-family: "Alegreya", serif;
-    border: 0; }
+    border: 0;
+    background: #edf2f7; }
     .vtt .window-app button:hover, .vtt .window-app button:focus {
       -webkit-box-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
       box-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
       background-color: #bcc8de; }
+  .vtt .window-app .window-header .window-title {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis; }
   .vtt .window-app .dialog-buttons {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -313,6 +320,20 @@
   background: lightyellow;
   border-color: gold; }
 
+.vtt .sidebar-tab .directory-header .header-search input {
+  background-color: #edf2f7;
+  color: #2d3748; }
+  .vtt .sidebar-tab .directory-header .header-search input::-webkit-input-placeholder {
+    color: #5b7094; }
+  .vtt .sidebar-tab .directory-header .header-search input::-moz-placeholder {
+    color: #5b7094; }
+  .vtt .sidebar-tab .directory-header .header-search input:-ms-input-placeholder {
+    color: #5b7094; }
+  .vtt .sidebar-tab .directory-header .header-search input::-ms-input-placeholder {
+    color: #5b7094; }
+  .vtt .sidebar-tab .directory-header .header-search input::placeholder {
+    color: #5b7094; }
+
 .vtt #chat-log .message {
   background: #fff;
   font-family: "Alegreya", serif; }
@@ -324,7 +345,8 @@
 
 .vtt #chat-log .cell__title {
   font-family: "Metamorphous", serif;
-  font-weight: bold; }
+  font-weight: bold;
+  font-size: 16px; }
 
 .vtt #chat-log h1,
 .vtt #chat-log h2,
@@ -372,15 +394,9 @@
     .dungeonworld.actor .window-content form {
       position: relative;
       z-index: 1; }
-    .dungeonworld.actor .window-content::before {
-      display: block;
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 264px;
-      background: #dedede; }
+  .dungeonworld.actor.npc .window-content {
+    background-size: 100% 230px, 100%;
+    background-position: 0 0, 0 230px; }
   .dungeonworld.sheet .input--title {
     font-weight: bold;
     font-size: 18px;
@@ -568,8 +584,14 @@
       .dungeonworld.sheet .cell__title.warning::before,
       .dungeonworld.sheet .cell__subtitle.warning::before {
         content: "\f071"; }
+  .dungeonworld.sheet .resource .cell__title {
+    background: #2d3748;
+    color: #fff; }
+    .dungeonworld.sheet .resource .cell__title a {
+      color: #fff; }
   .dungeonworld.sheet .cell__subtitle {
-    background: #5b7094; }
+    background: #5b7094;
+    color: #fff; }
   .dungeonworld.sheet .cell--image img {
     display: block;
     width: 100%;
@@ -676,6 +698,16 @@
           -webkit-box-shadow: 0 0 12px #5b7094;
           box-shadow: 0 0 12px #5b7094;
           border: 2px solid #5b7094; }
+      .dungeonworld.sheet .sheet-header .flex-item.flex-item--xp {
+        position: relative; }
+        .dungeonworld.sheet .sheet-header .flex-item.flex-item--xp input {
+          border: 2px solid #5b7094; }
+        .dungeonworld.sheet .sheet-header .flex-item.flex-item--xp .progress-ring {
+          position: absolute;
+          right: 0;
+          pointer-events: none; }
+          .dungeonworld.sheet .sheet-header .flex-item.flex-item--xp .progress-ring circle {
+            stroke: #41c179; }
       .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 44px;
@@ -693,6 +725,11 @@
         padding: 0; }
         .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up a {
           color: #fff; }
+          .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up a.disabled-level-up {
+            cursor: inherit;
+            pointer-events: none;
+            opacity: 0.25;
+            text-shadow: none !important; }
           .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up a:hover {
             text-shadow: 0 0 12px #5b7094; }
         .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up .fas {
@@ -1192,7 +1229,8 @@
     margin-left: 5px; }
   .dungeonworld.sheet.npc .tagify {
     width: 100%;
-    text-align: left; }
+    text-align: left;
+    background: #fff; }
   .dungeonworld.sheet.npc .sheet-main {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1237,8 +1275,7 @@
     -ms-flex: 1;
     flex: 1; }
   .dungeonworld.sheet.dw-level-up .cell__description {
-    font-style: italic;
-    font-family: "Metamorphous", serif;
+    font-size: 18px;
     padding: 10px;
     margin: 10px;
     background: #edf2f7; }

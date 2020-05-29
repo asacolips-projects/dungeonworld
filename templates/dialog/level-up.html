@@ -20,7 +20,7 @@
                   <input type="radio" name="race-selection" data-race="{{key}}">
                 </div>
                 <div class="selection-content">
-                  <h2>{{race.label}}</h2>
+                  <h3>{{race.label}}</h3>
                   <p>{{race.description}}</p>
                 </div>
               </li>
@@ -39,7 +39,7 @@
                   <input type="radio" name="alignment-selection" data-alignment="{{key}}">
                 </div>
                 <div class="selection-content">
-                  <h2>{{alignment.label}}</h2>
+                  <h3>{{alignment.label}}</h3>
                   <p>{{alignment.description}}</p>
                 </div>
               </li>
@@ -129,7 +129,7 @@
                   </div>
                   {{!-- Finally, show the description. --}}
                   <div class="selection-content">
-                    <h2>{{move.data.name}}</h2>
+                    <h3>{{move.data.name}}</h3>
                     <div>{{{move.data.data.description}}}</div>
                   </div>
                 </li>
@@ -152,7 +152,7 @@
                   <input type="radio" name="move-selection" data-item-id="{{move.data._id}}" data-type="move">
                 </div>
                 <div class="selection-content">
-                  <h2>{{move.data.name}}</h2>
+                  <h3>{{move.data.name}}</h3>
                   <div>{{{move.data.data.description}}}</div>
                 </div>
               </li>
@@ -169,7 +169,7 @@
                   <input type="radio" name="move-selection" data-item-id="{{move.data._id}}" data-type="move">
                 </div>
                 <div class="selection-content">
-                  <h2>{{move.data.name}}</h2>
+                  <h3>{{move.data.name}}</h3>
                   <div>{{{move.data.data.description}}}</div>
                 </div>
               </li>
@@ -197,7 +197,7 @@
                   <input type="checkbox" {{#ifEquals spellLevel 0}}checked disabled="disabled"{{/ifEquals}} data-item-id="{{spell.data._id}}" data-type="spell">
                 </div>
                 <div class="selection-content">
-                  <h2>{{spell.data.name}}</h2>
+                  <h3>{{spell.data.name}}</h3>
                   <div>{{{spell.data.data.description}}}</div>
                 </div>
               </li>

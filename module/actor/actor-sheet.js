@@ -46,12 +46,24 @@ export class DwActorSheet extends ActorSheet {
       data.data.isToken = this.actor.token != null;
       if (!data.data.isToken) {
         // Add levelup choice.
-        let levelup = this.actor.getFlag('dungeonworld', 'levelup');
-        if (typeof levelup == 'undefined') {
-          this.actor.setFlag('dungeonworld', 'levelup', true);
-          levelup = true;
-        }
+        let levelup = (Number(data.data.attributes.xp.value) >= Number(data.data.attributes.level.value) + 7) && Number(data.data.attributes.level.value) < 10;
         data.data.levelup = levelup && data.data.classlist.includes(data.data.details.class);
+
+        // Calculate xp bar length.
+        let currentXp = Number(data.data.attributes.xp.value);
+        let nextLevel = Number(data.data.attributes.level.value) + 7;
+        let radius = 16;
+        // let circumference = radius * 2 * Math.PI;
+        let circumference = 100;
+        let percent = currentXp / nextLevel;
+        let offset = circumference - (percent * circumference);
+        data.data.xpSvg = {
+          radius: radius,
+          circumference: circumference,
+          offset: offset,
+        };
+        console.log(data.data.xpSvg);
+        console.log(percent);
       }
       else {
         data.data.levelup = false;
@@ -257,6 +269,10 @@ export class DwActorSheet extends ActorSheet {
 
   async _onLevelUp(event) {
     event.preventDefault();
+
+    if ($(event.currentTarget).hasClass('disabled-level-up')) {
+      return;
+    }
 
     const actor = this.actor.data;
     const actorData = this.actor.data.data;
@@ -628,7 +644,9 @@ export class DwActorSheet extends ActorSheet {
     }
 
     // Adjust level.
-    data['attributes.xp.value'] = 0;
+    let xp = Number(actor.data.data.attributes.xp.value) - Number(actor.data.data.attributes.level.value) - 7;
+    data['attributes.xp.value'] = xp > -1 ? xp : 0;
+    data['attributes.level.value'] = Number(actor.data.data.attributes.level.value) + 1;
 
     // Adjust hp.
     if (itemData.class_item.data.data.hp) {
