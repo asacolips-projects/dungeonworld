@@ -775,12 +775,11 @@ export class DwActorSheet extends ActorSheet {
       }
       if (formula != null) {
         // Do the roll.
-        let roll = new Roll(formula);
+        let roll = new Roll(`${formula}`);
         roll.roll();
         // Render it.
         roll.render().then(r => {
-          templateData.roll = r;
-          chatData.roll = JSON.stringify(r);
+          templateData.rollDw = r;
           renderTemplate(template, templateData).then(content => {
             chatData.content = content;
             if (game.dice3d) {
