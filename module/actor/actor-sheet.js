@@ -55,7 +55,7 @@ export class DwActorSheet extends ActorSheet {
         let radius = 16;
         // let circumference = radius * 2 * Math.PI;
         let circumference = 100;
-        let percent = currentXp / nextLevel;
+        let percent = currentXp < nextLevel ? currentXp / nextLevel : 1;
         let offset = circumference - (percent * circumference);
         data.data.xpSvg = {
           radius: radius,
@@ -666,7 +666,6 @@ export class DwActorSheet extends ActorSheet {
       data['attributes.weight.max'] = Number(itemData.class_item.data.data.load) + Number(DwUtility.getAbilityMod(strength));
     }
 
-    actor.update({ data: data });
     if (new_moves) {
       await actor.createEmbeddedEntity('OwnedItem', new_moves);
     }
@@ -676,8 +675,9 @@ export class DwActorSheet extends ActorSheet {
     if (new_spells) {
       await actor.createEmbeddedEntity('OwnedItem', new_spells);
     }
-    actor.setFlag('dungeonworld', 'levelup', false);
-    actor.render(true);
+    await actor.update({ data: data });
+    await actor.setFlag('dungeonworld', 'levelup', false);
+    // actor.render(true);
   }
 
   /**
