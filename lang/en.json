@@ -126,5 +126,7 @@
   "DW.ChooseAdvanced6": "When you gain a level from 6-10, choose from these moves or the level 2-5 moves.",
   "DW.ChooseSpells": "Choose spells",
   "DW.Cancel": "Cancel",
-  "DW.Confirm": "Confirm"
+  "DW.Confirm": "Confirm",
+  "DW.Prepared": "Prepared",
+  "DW.Unprepared": "Unprepared"
 }

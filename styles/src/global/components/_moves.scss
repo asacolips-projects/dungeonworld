@@ -26,6 +26,8 @@
     .rollable {
       display: inline-block;
       transition: all ease-in-out 0.25s;
+      min-width: 40px;
+      text-align: center;
 
       &:hover {
         transform: scale(1.2);
@@ -114,5 +116,11 @@
       text-shadow: 0 0 5px rgba($c-navy-up, 0.25);
       cursor: pointer;
     }
+  }
+}
+
+.cell--spells {
+  .unprepared {
+    background-color: $c-pink;
   }
 }

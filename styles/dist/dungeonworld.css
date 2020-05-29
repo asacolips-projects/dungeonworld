@@ -823,7 +823,7 @@
       color: #ca0000; }
   .dungeonworld.sheet .cell--abilities {
     grid-column: span 16;
-    padding: 0 10px; }
+    padding: 0; }
     .dungeonworld.sheet .cell--abilities .abilities-list {
       display: grid;
       grid-column: span 3 / span 3;
@@ -957,7 +957,9 @@
       display: inline-block;
       -webkit-transition: all ease-in-out 0.25s;
       -o-transition: all ease-in-out 0.25s;
-      transition: all ease-in-out 0.25s; }
+      transition: all ease-in-out 0.25s;
+      min-width: 40px;
+      text-align: center; }
       .dungeonworld.sheet .cell--basic-moves .item-name .rollable:hover,
       .dungeonworld.sheet .cell--starting-moves .item-name .rollable:hover,
       .dungeonworld.sheet .cell--advanced-moves .item-name .rollable:hover,
@@ -1113,6 +1115,8 @@
     color: #5b7094;
     text-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
     cursor: pointer; }
+  .dungeonworld.sheet .cell--spells .unprepared {
+    background-color: #ffe9e9; }
   .dungeonworld.sheet .sheet-look .cell__title {
     font-size: 14px;
     margin: 20px 0 0;

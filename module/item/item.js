@@ -171,7 +171,7 @@ export class ItemDw extends Item {
         }
       }
       // Handle ability scores (no input).
-      else if (roll.includes('d') && !roll.includes('dex')) {
+      else if (roll.match(/(\d*)d\d+/g)) {
         formula = roll;
       }
       // Handle moves.
@@ -183,8 +183,8 @@ export class ItemDw extends Item {
       }
       if (formula != null) {
         // Do the roll.
-        let roll = new Roll(formula);
-        roll.roll();
+        let roll = new Roll(`${formula}`);
+        // roll.roll();
         // Render it.
         roll.render().then(r => {
           templateData.roll = r;

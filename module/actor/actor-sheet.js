@@ -188,6 +188,9 @@ export class DwActorSheet extends ActorSheet {
     // Moves
     html.find('.item-label').click(this._showItemDetails.bind(this));
 
+    // Spells.
+    html.find('.prepared').click(this._onPrepareSpell.bind(this));
+
     // Adjust weight.
     this._adjustWeight(html);
 
@@ -660,6 +663,32 @@ export class DwActorSheet extends ActorSheet {
   }
 
   /**
+   * Listen for click events on spells.
+   * @param {MouseEvent} event
+   */
+  async _onPrepareSpell(event) {
+    event.preventDefault();
+    const a = event.currentTarget;
+    const data = a.dataset;
+    const actorData = this.actor.data.data;
+    const itemId = $(a).parents('.item').attr('data-item-id');
+    const item = this.actor.getOwnedItem(itemId);
+
+    if (item) {
+      let $self = $(a);
+      $self.toggleClass('unprepared');
+      console.log(item);
+
+      let updatedItem = duplicate(item);
+      console.log(updatedItem);
+      updatedItem.data.prepared = !updatedItem.data.prepared;
+
+      this.actor.updateOwnedItem(updatedItem);
+      this.render();
+    }
+  }
+
+  /**
    * Listen for click events on rollables.
    * @param {MouseEvent} event
    */
@@ -722,6 +751,7 @@ export class DwActorSheet extends ActorSheet {
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
     if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
     if (rollMode === "blindroll") chatData["blind"] = true;
+    console.log(roll);
     // Handle dice rolls.
     if (roll) {
       // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
@@ -734,7 +764,7 @@ export class DwActorSheet extends ActorSheet {
         }
       }
       // Handle ability scores (no input).
-      else if (roll.includes('d') && !roll.includes('dex')) {
+      else if (roll.match(/(\d*)d\d+/g)) {
         formula = roll;
       }
       // Handle moves.
