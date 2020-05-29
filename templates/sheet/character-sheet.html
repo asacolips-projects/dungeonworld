@@ -188,19 +188,20 @@
                 </section>
 
                 <div class="cell cell--starting-moves">
-                  <h2 class="cell__title">{{localize "DW.MovesStarting"}}</h2>
-                  <div class="item-controls">
-                    <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="starting">
-                      <i class="fas fa-plus"></i> {{localize "DW.AddStartingMove"}}
-                    </button>
-                  </div>
+                  <h2 class="cell__title">
+                    <label>{{localize "DW.MovesStarting"}}</label>
+                    <div class="item-controls">
+                      <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="starting">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </h2>
                   <ol class="items-list">
                   {{#each actor.startingMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
-                      <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
+                      <h4 class="item-name"><span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i></span> <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span></h4>
                       <div class="item-controls">
-                        <a class="item-control item-details-toggle" title="Edit Item"><i class="fas fa-caret-right"></i></a>
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                       </div>
@@ -211,19 +212,20 @@
                 </div>
 
                 <div class="cell cell--advanced-moves">
-                  <h2 class="cell__title">{{localize "DW.MovesAdvanced"}}</h2>
-                  <div class="item-controls">
-                    <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="advanced">
-                      <i class="fas fa-plus"></i> {{localize "DW.AddAdvancedMove"}}
-                    </button>
-                  </div>
+                  <h2 class="cell__title">
+                    <label>{{localize "DW.MovesAdvanced"}}</label>
+                    <div class="item-controls">
+                      <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="advanced">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </h2>
                   <ol class="items-list">
                   {{#each actor.advancedMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
-                      <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
+                      <h4 class="item-name"><span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i></span> <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span></h4>
                       <div class="item-controls">
-                        <a class="item-control item-details-toggle" title="Show Details"><i class="fas fa-caret-right"></i></a>
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                       </div>
@@ -234,19 +236,20 @@
                 </div>
 
                 <div class="cell cell--other-moves">
-                  <h2 class="cell__title">{{localize "DW.MovesOther"}}</h2>
-                  <div class="item-controls">
-                    <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move">
-                      <i class="fas fa-plus"></i> {{localize "DW.AddMove"}}
-                    </button>
-                  </div>
+                  <h2 class="cell__title">
+                    <label>{{localize "DW.MovesOther"}}</label>
+                    <div class="item-controls">
+                      <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </h2>
                   <ol class="items-list">
                   {{#each actor.moves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
-                      <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
+                      <h4 class="item-name"><span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i></span> <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span></h4>
                       <div class="item-controls">
-                        <a class="item-control item-details-toggle" title="Edit Item"><i class="fas fa-caret-right"></i></a>
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                       </div>
