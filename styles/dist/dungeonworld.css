@@ -1,5 +1,38 @@
-@import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Metamorphous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@-webkit-keyframes jiggle {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  25% {
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg); }
+  50% {
+    -webkit-transform: rotate(20deg);
+    transform: rotate(20deg); }
+  75% {
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg); }
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); } }
+@keyframes jiggle {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  25% {
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg); }
+  50% {
+    -webkit-transform: rotate(20deg);
+    transform: rotate(20deg); }
+  75% {
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg); }
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); } }
+
 .grid,
 .grid-2col {
   display: grid;
@@ -80,6 +113,87 @@
   -ms-flex-direction: column;
   flex-direction: column; }
 
+.tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  list-style-type: none;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.tag {
+  position: relative;
+  padding: 3px 6px 3px 6px;
+  background: #edf2f7;
+  color: #2d3748;
+  margin: 5px 5px 0 0;
+  border-radius: 4px;
+  text-transform: capitalize;
+  list-style-type: none; }
+
+.tagging {
+  padding: 5px 10px 8px; }
+  .tagging .tag {
+    background-color: #5b7094;
+    padding: 4px 22px 4px 6px; }
+    .tagging .tag .tag-i {
+      color: #fff; }
+      .tagging .tag .tag-i:hover, .tagging .tag .tag-i:focus {
+        color: #2d3748; }
+    .tagging .tag > span {
+      display: none; }
+  .tagging .tag-input:hover, .tagging .tag-input:focus {
+    -webkit-box-shadow: 0 1px 0 #5b7094;
+    box-shadow: 0 1px 0 #5b7094; }
+
+.remove-tag {
+  position: absolute;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: transparent;
+  -webkit-transition: all ease-in-out 0.25s;
+  -o-transition: all ease-in-out 0.25s;
+  transition: all ease-in-out 0.25s;
+  border-radius: 50px; }
+  .remove-tag:hover {
+    color: #fff;
+    background: #c77777; }
+  .remove-tag::before {
+    display: block;
+    content: "\00D7"; }
+
+.awesomplete > ul {
+  background-color: #5b7094; }
+  .awesomplete > ul::before {
+    background-color: #5b7094; }
+
+.help-text {
+  color: #999;
+  font-size: 12px; }
+
 .vtt .window-app {
   background: #2d3748; }
   .vtt .window-app a:hover, .vtt .window-app a:focus,
@@ -94,7 +208,7 @@
   .vtt .window-app button,
   .vtt .window-app select,
   .vtt .window-app textarea {
-    font-family: "Roboto", serif;
+    font-family: "Alegreya", serif;
     font-size: 14px;
     border: 0; }
     .vtt .window-app input:hover, .vtt .window-app input:focus,
@@ -135,13 +249,23 @@
     .vtt .window-app input::placeholder,
     .vtt .window-app textarea::placeholder {
       color: #bfbfbf; }
+    .vtt .window-app input.disabled,
+    .vtt .window-app textarea.disabled {
+      opacity: 0.5; }
   .vtt .window-app button {
-    font-family: "Roboto", serif;
-    border: 0; }
+    font-family: "Alegreya", serif;
+    border: 0;
+    background: #edf2f7; }
     .vtt .window-app button:hover, .vtt .window-app button:focus {
       -webkit-box-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
       box-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
       background-color: #bcc8de; }
+  .vtt .window-app .window-header .window-title {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis; }
   .vtt .window-app .dialog-buttons {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -169,7 +293,7 @@
 
 .vtt .window-header {
   color: #fff;
-  font-family: "Martel", serif; }
+  font-family: "Metamorphous", serif; }
   .vtt .window-header a:hover, .vtt .window-header a:focus {
     color: #bcc8de; }
 
@@ -196,9 +320,23 @@
   background: lightyellow;
   border-color: gold; }
 
+.vtt .sidebar-tab .directory-header .header-search input {
+  background-color: #edf2f7;
+  color: #2d3748; }
+  .vtt .sidebar-tab .directory-header .header-search input::-webkit-input-placeholder {
+    color: #5b7094; }
+  .vtt .sidebar-tab .directory-header .header-search input::-moz-placeholder {
+    color: #5b7094; }
+  .vtt .sidebar-tab .directory-header .header-search input:-ms-input-placeholder {
+    color: #5b7094; }
+  .vtt .sidebar-tab .directory-header .header-search input::-ms-input-placeholder {
+    color: #5b7094; }
+  .vtt .sidebar-tab .directory-header .header-search input::placeholder {
+    color: #5b7094; }
+
 .vtt #chat-log .message {
   background: #fff;
-  font-family: "Roboto", serif; }
+  font-family: "Alegreya", serif; }
   .vtt #chat-log .message.whisper {
     background: #e0ecff; }
 
@@ -206,15 +344,16 @@
   font-size: 12px; }
 
 .vtt #chat-log .cell__title {
-  font-family: "Martel", serif;
-  font-weight: bold; }
+  font-family: "Metamorphous", serif;
+  font-weight: bold;
+  font-size: 16px; }
 
 .vtt #chat-log h1,
 .vtt #chat-log h2,
 .vtt #chat-log h3,
 .vtt #chat-log h4,
 .vtt #chat-log h5 {
-  font-family: "Martel", serif;
+  font-family: "Metamorphous", serif;
   font-weight: bold; }
 
 .vtt #chat-log .row {
@@ -237,21 +376,42 @@
   padding-right: 10px; }
 
 .dungeonworld {
-  font-family: "Roboto", serif; }
+  font-family: "Alegreya", serif; }
   .dungeonworld textarea {
     resize: vertical; }
   .dungeonworld .window-content {
     background: #fff; }
+  .dungeonworld.actor .window-content {
+    position: relative;
+    background: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#dedede), to(#dedede)), url("../../assets/heath-alseike-vector-edge.svg");
+    background-image: -o-linear-gradient(#dedede, #dedede), url("../../assets/heath-alseike-vector-edge.svg");
+    background-image: linear-gradient(#dedede, #dedede), url("../../assets/heath-alseike-vector-edge.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 264px, 100%;
+    background-position: 0 0, 0 264px;
+    background-attachment: local; }
+    .dungeonworld.actor .window-content form {
+      position: relative;
+      z-index: 1; }
+  .dungeonworld.actor.npc .window-content {
+    background-size: 100% 230px, 100%;
+    background-position: 0 0, 0 230px; }
   .dungeonworld.sheet .input--title {
     font-weight: bold;
     font-size: 18px;
-    font-family: "Martel", serif; }
+    font-family: "Metamorphous", serif; }
   .dungeonworld.sheet label,
   .dungeonworld.sheet h1,
-  .dungeonworld.sheet h2,
+  .dungeonworld.sheet h2 {
+    font-family: "Metamorphous", serif;
+    font-weight: bold;
+    border-color: inherit; }
   .dungeonworld.sheet h3,
-  .dungeonworld.sheet h4 {
-    font-family: "Martel", serif;
+  .dungeonworld.sheet h4,
+  .dungeonworld.sheet h5,
+  .dungeonworld.sheet h6 {
+    font-family: "Alegreya", serif;
     font-weight: bold; }
   .dungeonworld.sheet .sheet-wrapper {
     display: -webkit-box;
@@ -333,9 +493,36 @@
         -webkit-box-flex: 20px;
         -ms-flex: 20px 1 1;
         flex: 20px 1 1;
-        margin: 0 10px; }
+        margin: 0 10px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        background: transparent;
+        -webkit-transition: all ease-in-out 0.25s;
+        -o-transition: all ease-in-out 0.25s;
+        transition: all ease-in-out 0.25s;
+        height: 225px; }
+        .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look:hover {
+          background: #bbb; }
+        .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look:focus {
+          -webkit-box-shadow: none;
+          box-shadow: none; }
         .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look.closed {
           margin-left: 0; }
+        .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look .fas {
+          -webkit-transition: all ease-in-out 0.25s;
+          -o-transition: all ease-in-out 0.25s;
+          transition: all ease-in-out 0.25s; }
+        .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look.closed .fas {
+          -webkit-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          transform: rotate(180deg); }
     .dungeonworld.sheet .sheet-wrapper .sheet-main {
       -webkit-box-flex: 66%;
       -ms-flex: 66% 1 1;
@@ -367,17 +554,16 @@
     -webkit-box-flex: 100%;
     -ms-flex: 100%;
     flex: 100%;
-    background: #2d3748;
-    color: #fff;
+    color: #2d3748;
     padding: 5px;
     margin-bottom: 5px;
     font-weight: bold;
-    font-family: "Martel", serif; }
+    font-family: "Metamorphous", serif; }
     .dungeonworld.sheet .cell__title a,
     .dungeonworld.sheet .cell__title button,
     .dungeonworld.sheet .cell__subtitle a,
     .dungeonworld.sheet .cell__subtitle button {
-      color: #fff; }
+      color: #000; }
     .dungeonworld.sheet .cell__title button:hover, .dungeonworld.sheet .cell__title button:focus,
     .dungeonworld.sheet .cell__subtitle button:hover,
     .dungeonworld.sheet .cell__subtitle button:focus {
@@ -388,7 +574,7 @@
     .dungeonworld.sheet .cell__subtitle.warning {
       background: #d68888;
       font-size: 16px;
-      font-family: "Roboto", serif;
+      font-family: "Alegreya", serif;
       font-weight: normal;
       -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -413,8 +599,14 @@
       .dungeonworld.sheet .cell__title.warning::before,
       .dungeonworld.sheet .cell__subtitle.warning::before {
         content: "\f071"; }
+  .dungeonworld.sheet .resource .cell__title {
+    background: #2d3748;
+    color: #fff; }
+    .dungeonworld.sheet .resource .cell__title a {
+      color: #fff; }
   .dungeonworld.sheet .cell__subtitle {
-    background: #5b7094; }
+    background: #5b7094;
+    color: #fff; }
   .dungeonworld.sheet .cell--image img {
     display: block;
     width: 100%;
@@ -429,12 +621,14 @@
       margin: 0 5px -1px;
       padding: 4px; }
       .dungeonworld.sheet .tabs .item:hover, .dungeonworld.sheet .tabs .item:focus {
-        background: #dfe6f5;
+        background: #edf2f7;
         text-shadow: none; }
       .dungeonworld.sheet .tabs .item.active {
         background: #fff;
+        color: #000;
         border-bottom: 0;
-        text-shadow: none; }
+        text-shadow: none;
+        font-weight: bold; }
   .dungeonworld.sheet .item-form .sheet-header,
   .dungeonworld.sheet .item-form .sheet-navigation {
     -webkit-box-flex: 0;
@@ -445,81 +639,6 @@
   .dungeonworld.sheet .item-form .tab,
   .dungeonworld.sheet .item-form .editor {
     height: 100%; }
-  .dungeonworld.sheet .tags {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    list-style-type: none;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap; }
-  .dungeonworld.sheet .tag {
-    position: relative;
-    padding: 3px 6px 3px 6px;
-    background: #edf2f7;
-    color: #2d3748;
-    margin: 5px 5px 0 0;
-    border-radius: 4px;
-    text-transform: capitalize;
-    list-style-type: none; }
-  .dungeonworld.sheet .tagging {
-    padding: 5px 10px 8px; }
-    .dungeonworld.sheet .tagging .tag {
-      background-color: #5b7094;
-      padding: 4px 22px 4px 6px; }
-      .dungeonworld.sheet .tagging .tag .tag-i {
-        color: #fff; }
-        .dungeonworld.sheet .tagging .tag .tag-i:hover, .dungeonworld.sheet .tagging .tag .tag-i:focus {
-          color: #2d3748; }
-      .dungeonworld.sheet .tagging .tag > span {
-        display: none; }
-    .dungeonworld.sheet .tagging .tag-input:hover, .dungeonworld.sheet .tagging .tag-input:focus {
-      -webkit-box-shadow: 0 1px 0 #5b7094;
-      box-shadow: 0 1px 0 #5b7094; }
-  .dungeonworld.sheet .remove-tag {
-    position: absolute;
-    right: 5px;
-    width: 15px;
-    height: 15px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    background: transparent;
-    -webkit-transition: all ease-in-out 0.25s;
-    -o-transition: all ease-in-out 0.25s;
-    transition: all ease-in-out 0.25s;
-    border-radius: 50px; }
-    .dungeonworld.sheet .remove-tag:hover {
-      color: #fff;
-      background: #c77777; }
-    .dungeonworld.sheet .remove-tag::before {
-      display: block;
-      content: "\00D7"; }
-  .dungeonworld.sheet .awesomplete > ul {
-    background-color: #5b7094; }
-    .dungeonworld.sheet .awesomplete > ul::before {
-      background-color: #5b7094; }
-  .dungeonworld.sheet .help-text {
-    color: #999;
-    font-size: 12px; }
   .dungeonworld.sheet .sheet-header {
     background: #2d3748;
     color: #fff; }
@@ -594,6 +713,16 @@
           -webkit-box-shadow: 0 0 12px #5b7094;
           box-shadow: 0 0 12px #5b7094;
           border: 2px solid #5b7094; }
+      .dungeonworld.sheet .sheet-header .flex-item.flex-item--xp {
+        position: relative; }
+        .dungeonworld.sheet .sheet-header .flex-item.flex-item--xp input {
+          border: 2px solid #5b7094; }
+        .dungeonworld.sheet .sheet-header .flex-item.flex-item--xp .progress-ring {
+          position: absolute;
+          right: 0;
+          pointer-events: none; }
+          .dungeonworld.sheet .sheet-header .flex-item.flex-item--xp .progress-ring circle {
+            stroke: #41c179; }
       .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 44px;
@@ -611,6 +740,11 @@
         padding: 0; }
         .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up a {
           color: #fff; }
+          .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up a.disabled-level-up {
+            cursor: inherit;
+            pointer-events: none;
+            opacity: 0.25;
+            text-shadow: none !important; }
           .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up a:hover {
             text-shadow: 0 0 12px #5b7094; }
         .dungeonworld.sheet .sheet-header .flex-item.flex-item--level-up .fas {
@@ -644,6 +778,33 @@
         justify-content: center; }
         .dungeonworld.sheet .sheet-attributes .cell > .cell__title .fas {
           margin-right: 5px; }
+          .dungeonworld.sheet .sheet-attributes .cell > .cell__title .fas.attribute-icon {
+            margin-right: 0; }
+    .dungeonworld.sheet .sheet-attributes select,
+    .dungeonworld.sheet .sheet-attributes input,
+    .dungeonworld.sheet .sheet-attributes textarea {
+      background: #fff; }
+    .dungeonworld.sheet .sheet-attributes .cell__title {
+      position: relative; }
+      .dungeonworld.sheet .sheet-attributes .cell__title .attribute-icon {
+        position: absolute;
+        top: 0;
+        right: 2px;
+        bottom: 0;
+        text-align: center;
+        margin: 0;
+        font-size: 30px;
+        z-index: 0;
+        opacity: 0.25;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center; }
     .dungeonworld.sheet .sheet-attributes .cell--abilities {
       text-align: left; }
       .dungeonworld.sheet .sheet-attributes .cell--abilities > .cell__title {
@@ -732,8 +893,7 @@
       color: #ca0000; }
   .dungeonworld.sheet .cell--abilities {
     grid-column: span 16;
-    background: rgba(91, 112, 148, 0.25);
-    padding: 0 10px; }
+    padding: 0; }
     .dungeonworld.sheet .cell--abilities .abilities-list {
       display: grid;
       grid-column: span 3 / span 3;
@@ -839,13 +999,6 @@
   .dungeonworld.sheet .cell--equipment .items-list,
   .dungeonworld.sheet .cell--spells .items-list {
     padding: 0; }
-    .dungeonworld.sheet .cell--basic-moves .items-list .item + .item,
-    .dungeonworld.sheet .cell--starting-moves .items-list .item + .item,
-    .dungeonworld.sheet .cell--advanced-moves .items-list .item + .item,
-    .dungeonworld.sheet .cell--other-moves .items-list .item + .item,
-    .dungeonworld.sheet .cell--equipment .items-list .item + .item,
-    .dungeonworld.sheet .cell--spells .items-list .item + .item {
-      border-top: 1px solid #bcc8de; }
     .dungeonworld.sheet .cell--basic-moves .items-list .item,
     .dungeonworld.sheet .cell--starting-moves .items-list .item,
     .dungeonworld.sheet .cell--advanced-moves .items-list .item,
@@ -865,6 +1018,27 @@
     -ms-flex: 2;
     flex: 2;
     margin: 0; }
+    .dungeonworld.sheet .cell--basic-moves .item-name .rollable,
+    .dungeonworld.sheet .cell--starting-moves .item-name .rollable,
+    .dungeonworld.sheet .cell--advanced-moves .item-name .rollable,
+    .dungeonworld.sheet .cell--other-moves .item-name .rollable,
+    .dungeonworld.sheet .cell--equipment .item-name .rollable,
+    .dungeonworld.sheet .cell--spells .item-name .rollable {
+      display: inline-block;
+      -webkit-transition: all ease-in-out 0.25s;
+      -o-transition: all ease-in-out 0.25s;
+      transition: all ease-in-out 0.25s;
+      min-width: 40px;
+      text-align: center; }
+      .dungeonworld.sheet .cell--basic-moves .item-name .rollable:hover,
+      .dungeonworld.sheet .cell--starting-moves .item-name .rollable:hover,
+      .dungeonworld.sheet .cell--advanced-moves .item-name .rollable:hover,
+      .dungeonworld.sheet .cell--other-moves .item-name .rollable:hover,
+      .dungeonworld.sheet .cell--equipment .item-name .rollable:hover,
+      .dungeonworld.sheet .cell--spells .item-name .rollable:hover {
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2); }
   .dungeonworld.sheet .cell--basic-moves .item-controls,
   .dungeonworld.sheet .cell--starting-moves .item-controls,
   .dungeonworld.sheet .cell--advanced-moves .item-controls,
@@ -873,8 +1047,8 @@
   .dungeonworld.sheet .cell--spells .item-controls {
     text-align: right;
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 75px;
-    flex: 0 0 75px; }
+    -ms-flex: 0 0 40px;
+    flex: 0 0 40px; }
   .dungeonworld.sheet .cell--basic-moves .item-description,
   .dungeonworld.sheet .cell--starting-moves .item-description,
   .dungeonworld.sheet .cell--advanced-moves .item-description,
@@ -919,6 +1093,70 @@
       .dungeonworld.sheet .cell--equipment .item-meta > span + span,
       .dungeonworld.sheet .cell--spells .item-meta > span + span {
         margin-left: 4px; }
+  .dungeonworld.sheet .cell--basic-moves .item-label,
+  .dungeonworld.sheet .cell--starting-moves .item-label,
+  .dungeonworld.sheet .cell--advanced-moves .item-label,
+  .dungeonworld.sheet .cell--other-moves .item-label,
+  .dungeonworld.sheet .cell--equipment .item-label,
+  .dungeonworld.sheet .cell--spells .item-label {
+    border-left: 2px solid;
+    padding-left: 4px; }
+    .dungeonworld.sheet .cell--basic-moves .item-label::after,
+    .dungeonworld.sheet .cell--starting-moves .item-label::after,
+    .dungeonworld.sheet .cell--advanced-moves .item-label::after,
+    .dungeonworld.sheet .cell--other-moves .item-label::after,
+    .dungeonworld.sheet .cell--equipment .item-label::after,
+    .dungeonworld.sheet .cell--spells .item-label::after {
+      display: block;
+      content: '';
+      width: 0;
+      height: 0;
+      margin-top: 2px;
+      border-bottom: 2px solid;
+      -webkit-transition: all ease-in-out 0.25s;
+      -o-transition: all ease-in-out 0.25s;
+      transition: all ease-in-out 0.25s; }
+    .dungeonworld.sheet .cell--basic-moves .item-label:hover::after,
+    .dungeonworld.sheet .cell--starting-moves .item-label:hover::after,
+    .dungeonworld.sheet .cell--advanced-moves .item-label:hover::after,
+    .dungeonworld.sheet .cell--other-moves .item-label:hover::after,
+    .dungeonworld.sheet .cell--equipment .item-label:hover::after,
+    .dungeonworld.sheet .cell--spells .item-label:hover::after {
+      width: 100%; }
+    .dungeonworld.sheet .cell--basic-moves .item-label:hover .item-details-toggle,
+    .dungeonworld.sheet .cell--starting-moves .item-label:hover .item-details-toggle,
+    .dungeonworld.sheet .cell--advanced-moves .item-label:hover .item-details-toggle,
+    .dungeonworld.sheet .cell--other-moves .item-label:hover .item-details-toggle,
+    .dungeonworld.sheet .cell--equipment .item-label:hover .item-details-toggle,
+    .dungeonworld.sheet .cell--spells .item-label:hover .item-details-toggle {
+      -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      transform: scale(1.2); }
+    .dungeonworld.sheet .cell--basic-moves .item-label .fas,
+    .dungeonworld.sheet .cell--starting-moves .item-label .fas,
+    .dungeonworld.sheet .cell--advanced-moves .item-label .fas,
+    .dungeonworld.sheet .cell--other-moves .item-label .fas,
+    .dungeonworld.sheet .cell--equipment .item-label .fas,
+    .dungeonworld.sheet .cell--spells .item-label .fas {
+      -webkit-transition: all ease-in-out 0.25s;
+      -o-transition: all ease-in-out 0.25s;
+      transition: all ease-in-out 0.25s; }
+    .dungeonworld.sheet .cell--basic-moves .item-label.open::after,
+    .dungeonworld.sheet .cell--starting-moves .item-label.open::after,
+    .dungeonworld.sheet .cell--advanced-moves .item-label.open::after,
+    .dungeonworld.sheet .cell--other-moves .item-label.open::after,
+    .dungeonworld.sheet .cell--equipment .item-label.open::after,
+    .dungeonworld.sheet .cell--spells .item-label.open::after {
+      width: 100%; }
+    .dungeonworld.sheet .cell--basic-moves .item-label.open .fas,
+    .dungeonworld.sheet .cell--starting-moves .item-label.open .fas,
+    .dungeonworld.sheet .cell--advanced-moves .item-label.open .fas,
+    .dungeonworld.sheet .cell--other-moves .item-label.open .fas,
+    .dungeonworld.sheet .cell--equipment .item-label.open .fas,
+    .dungeonworld.sheet .cell--spells .item-label.open .fas {
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
   .dungeonworld.sheet .cell--basic-moves .item-details-toggle,
   .dungeonworld.sheet .cell--starting-moves .item-details-toggle,
   .dungeonworld.sheet .cell--advanced-moves .item-details-toggle,
@@ -926,19 +1164,13 @@
   .dungeonworld.sheet .cell--equipment .item-details-toggle,
   .dungeonworld.sheet .cell--spells .item-details-toggle {
     display: inline-block;
-    width: 32px;
+    width: 24px;
     height: 16px;
     text-align: center;
     border-radius: 5px;
-    background-color: #edf2f7; }
-    .dungeonworld.sheet .cell--basic-moves .item-details-toggle:hover,
-    .dungeonworld.sheet .cell--starting-moves .item-details-toggle:hover,
-    .dungeonworld.sheet .cell--advanced-moves .item-details-toggle:hover,
-    .dungeonworld.sheet .cell--other-moves .item-details-toggle:hover,
-    .dungeonworld.sheet .cell--equipment .item-details-toggle:hover,
-    .dungeonworld.sheet .cell--spells .item-details-toggle:hover {
-      color: #000;
-      background-color: #bcc8de; }
+    -webkit-transition: all ease-in-out 0.25s;
+    -o-transition: all ease-in-out 0.25s;
+    transition: all ease-in-out 0.25s; }
   .dungeonworld.sheet .cell--basic-moves .rollable:hover, .dungeonworld.sheet .cell--basic-moves .rollable:focus,
   .dungeonworld.sheet .cell--starting-moves .rollable:hover,
   .dungeonworld.sheet .cell--starting-moves .rollable:focus,
@@ -953,6 +1185,16 @@
     color: #5b7094;
     text-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
     cursor: pointer; }
+  .dungeonworld.sheet .cell--spells .unprepared {
+    background-color: #ffe9e9; }
+  .dungeonworld.sheet .sheet-look .cell__title {
+    font-size: 14px;
+    margin: 20px 0 0;
+    border-bottom: 1px solid; }
+  .dungeonworld.sheet .sheet-look .cell--image {
+    cursor: pointer; }
+    .dungeonworld.sheet .sheet-look .cell--image img {
+      border: 0; }
   .dungeonworld.sheet .cell--bonds .items-list {
     padding: 0; }
   .dungeonworld.sheet .cell--bonds .item {
@@ -1002,7 +1244,8 @@
     margin-left: 5px; }
   .dungeonworld.sheet.npc .tagify {
     width: 100%;
-    text-align: left; }
+    text-align: left;
+    background: #fff; }
   .dungeonworld.sheet.npc .sheet-main {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1046,9 +1289,10 @@
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1; }
+  .dungeonworld.sheet.dw-level-up select {
+    margin-right: 10px; }
   .dungeonworld.sheet.dw-level-up .cell__description {
-    font-style: italic;
-    font-family: "Martel", serif;
+    font-size: 18px;
     padding: 10px;
     margin: 10px;
     background: #edf2f7; }
@@ -1062,6 +1306,18 @@
     font-size: 16px; }
   .dungeonworld.sheet.dw-level-up h4 {
     font-size: 14px; }
+  .dungeonworld.sheet.dw-level-up .flexrow.center .cell__title {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .dungeonworld.sheet.dw-level-up .flexrow.center .selection-list {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    margin: 20px 0; }
+  .dungeonworld.sheet.dw-level-up .flexrow .selection-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
   .dungeonworld.sheet .class .items-list,
   .dungeonworld.sheet .class .items-list .item {
     padding: 0;
@@ -1097,7 +1353,7 @@
     flex: 0 0 48px; }
     .dungeonworld.sheet .class .cell__title input[type="text"] {
       color: #fff;
-      font-family: "Martel", serif; }
+      font-family: "Metamorphous", serif; }
     .dungeonworld.sheet .class .cell__title label {
       -webkit-box-flex: 1;
       -ms-flex: 1;

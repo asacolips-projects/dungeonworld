@@ -40,5 +40,21 @@ export class ActorDw extends Actor {
         abl.mod -= 1;
       }
     }
+
+    // Calculate weight.
+    let weight = 0;
+    let items = actorData.items;
+    if (items) {
+      let equipment = items.filter(i => i.type == 'equipment');
+      equipment.forEach(i => {
+        let itemQuantity = Number(i.data.quantity);
+        let itemWeight = Number(i.data.weight);
+        if (itemWeight > 0) {
+          weight = weight + (itemQuantity * itemWeight);
+        }
+      });
+    }
+    // Update the value.
+    data.attributes.weight.value = weight;
   }
 }

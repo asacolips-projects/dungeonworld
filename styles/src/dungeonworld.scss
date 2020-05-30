@@ -4,6 +4,9 @@
 @import 'global/base/grid';
 @import 'global/base/overrides';
 
+// Tags.
+@import 'global/base/tags';
+
 // Theme overrides.
 .vtt {
   @import 'global/application/window';
@@ -22,6 +25,40 @@
     background: $c-white;
   }
 
+  &.actor {
+    .window-content {
+      position: relative;
+      background: $c-white;
+      background-image:
+        linear-gradient(#dedede, #dedede),
+        url('../../assets/heath-alseike-vector-edge.svg');
+      background-repeat: no-repeat;
+      background-size:
+        100% 264px,
+        100%;
+      background-position:
+        0 0,
+        0 264px;
+      background-attachment: local;
+
+      form {
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    &.npc {
+      .window-content {
+        background-size:
+          100% 230px,
+          100%;
+        background-position:
+          0 0,
+          0 230px;
+      }
+    }
+  }
+
   // Import components, scoped within the sheet.
   &.sheet {
     // Generic.
@@ -31,7 +68,7 @@
     @import 'global/components/tabs';
     // Specific.
     @import 'global/components/item-form';
-    @import 'global/components/tags';
+    // @import 'global/components/tags';
     @import 'global/components/header';
     @import 'global/components/attributes';
     @import 'global/components/abilities';

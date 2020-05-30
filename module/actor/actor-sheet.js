@@ -46,12 +46,39 @@ export class DwActorSheet extends ActorSheet {
       data.data.isToken = this.actor.token != null;
       if (!data.data.isToken) {
         // Add levelup choice.
-        let levelup = this.actor.getFlag('dungeonworld', 'levelup');
-        if (typeof levelup == 'undefined') {
-          this.actor.setFlag('dungeonworld', 'levelup', true);
-          levelup = true;
+        let levelup = (Number(data.data.attributes.xp.value) >= Number(data.data.attributes.level.value) + 7) && Number(data.data.attributes.level.value) < 10;
+
+        // Handle the first level (special case).
+        if (Number(data.data.attributes.level.value) === 1) {
+          let hasStarting = false;
+          for (let i = 0; i < data.items.length; i++) {
+            if (data.items[i].type == 'move' && data.items[i].data.moveType == 'starting') {
+              hasStarting = true;
+              break;
+            }
+          };
+
+          if (!hasStarting) {
+            levelup = true;
+          }
         }
+
+        // Set the template variable.
         data.data.levelup = levelup && data.data.classlist.includes(data.data.details.class);
+
+        // Calculate xp bar length.
+        let currentXp = Number(data.data.attributes.xp.value);
+        let nextLevel = Number(data.data.attributes.level.value) + 7;
+        let radius = 16;
+        // let circumference = radius * 2 * Math.PI;
+        let circumference = 100;
+        let percent = currentXp < nextLevel ? currentXp / nextLevel : 1;
+        let offset = circumference - (percent * circumference);
+        data.data.xpSvg = {
+          radius: radius,
+          circumference: circumference,
+          offset: offset,
+        };
       }
       else {
         data.data.levelup = false;
@@ -186,7 +213,10 @@ export class DwActorSheet extends ActorSheet {
     html.find('.item-delete').click(this._onItemDelete.bind(this));
 
     // Moves
-    html.find('.item-details-toggle').click(this._showItemDetails.bind(this));
+    html.find('.item-label').click(this._showItemDetails.bind(this));
+
+    // Spells.
+    html.find('.prepared').click(this._onPrepareSpell.bind(this));
 
     // Adjust weight.
     this._adjustWeight(html);
@@ -242,16 +272,22 @@ export class DwActorSheet extends ActorSheet {
     const item = toggler.parents('.item');
     const description = item.find('.item-description');
 
-    if (toggleIcon.hasClass('fa-caret-right')) {
-      toggleIcon.removeClass('fa-caret-right').addClass('fa-caret-down');
-    } else {
-      toggleIcon.removeClass('fa-caret-down').addClass('fa-caret-right');
-    }
+    toggler.toggleClass('open');
+
+    // if (toggleIcon.hasClass('fa-caret-right')) {
+    //   toggleIcon.removeClass('fa-caret-right').addClass('fa-caret-down');
+    // } else {
+    //   toggleIcon.removeClass('fa-caret-down').addClass('fa-caret-right');
+    // }
     description.slideToggle();
   }
 
   async _onLevelUp(event) {
     event.preventDefault();
+
+    if ($(event.currentTarget).hasClass('disabled-level-up')) {
+      return;
+    }
 
     const actor = this.actor.data;
     const actorData = this.actor.data.data;
@@ -264,8 +300,14 @@ export class DwActorSheet extends ActorSheet {
       return;
     }
 
-    const char_class = DwUtility.cleanClass(char_class_name);
-    const char_level = actorData.attributes.level.value;
+    let char_class = DwUtility.cleanClass(char_class_name);
+    let char_level = Number(actorData.attributes.level.value);
+
+    // Handle level 1 > 2.
+    if (actorData.attributes.xp.value != 0) {
+      char_level = char_level + 1;
+    }
+
     let pack = game.packs.get(`dungeonworld.${char_class}-moves`);
     let compendium = await pack.getContent();
 
@@ -305,7 +347,7 @@ export class DwActorSheet extends ActorSheet {
     // Get equipment.
     let equipment = null;
     let equipment_list = [];
-    if (char_level < 2) {
+    if (actorData.attributes.xp.value == 0) {
       if (typeof class_item.data.data.equipment == 'object') {
         let equipmentObjects = await class_item._getEquipmentObjects();
         for (let [group, group_items] of Object.entries(equipmentObjects)) {
@@ -318,7 +360,13 @@ export class DwActorSheet extends ActorSheet {
 
     // Get ability scores.
     let ability_scores = [16, 15, 13, 12, 9, 8];
-    let ability_labels = duplicate(CONFIG.DW.abilities);
+    let ability_labels = Object.entries(CONFIG.DW.abilities).map(a => {
+      return {
+        short: a[0],
+        long: a[1],
+        disabled: Number(this.actor.data.data.abilities[a[0]].value) > 17
+      }
+    });
 
     // Retrieve the actor's current moves so that we can hide them.
     const actorMoves = this.actor.data.items.filter(i => i.type == 'move');
@@ -349,7 +397,7 @@ export class DwActorSheet extends ActorSheet {
 
     let starting_moves = [];
     let starting_move_groups = [];
-    if (this.actor.data.data.attributes.level.value < 2) {
+    if (char_level < 2) {
       starting_moves = moves.filter(m => {
         return m.data.data.requiresLevel < 2;
       });
@@ -471,8 +519,8 @@ export class DwActorSheet extends ActorSheet {
       races: races.length > 0 ? races : null,
       alignments: alignments.length > 0 ? alignments : null,
       equipment: equipment ? equipment : null,
-      ability_scores: char_level < 2 ? ability_scores : null,
-      ability_labels: char_level < 2 ? ability_labels : null,
+      ability_scores: actorData.attributes.xp.value == 0 ? ability_scores : null,
+      ability_labels: ability_labels ? ability_labels : null,
       starting_moves: starting_moves.length > 0 ? starting_moves : null,
       starting_move_groups: starting_move_groups,
       advanced_moves_2: advanced_moves_2.length > 0 ? advanced_moves_2 : null,
@@ -556,11 +604,15 @@ export class DwActorSheet extends ActorSheet {
         alignment = itemData.alignments[input.dataset.alignment];
       }
       else if (input.dataset.ability) {
-        let abl = $(input).val();
-        let val = input.dataset.ability;
-        if (abl) {
-          abilities[`abilities.${val}.value`] = abl;
+        let val = $(input).val();
+        let abl = input.dataset.ability;
+        if (val) {
+          abilities[`abilities.${abl}.value`] = val;
         }
+      }
+      else if (input.dataset.type == 'ability-increase') {
+        let abl = $(input).val();
+        abilities[`abilities.${abl}.value`] = Number(actor.data.data.abilities[abl].value) + 1;
       }
     }
 
@@ -623,7 +675,11 @@ export class DwActorSheet extends ActorSheet {
     }
 
     // Adjust level.
-    data['attributes.xp.value'] = 0;
+    if (Number(actor.data.data.attributes.xp.value) > 0) {
+      let xp = Number(actor.data.data.attributes.xp.value) - Number(actor.data.data.attributes.level.value) - 7;
+      data['attributes.xp.value'] = xp > -1 ? xp : 0;
+      data['attributes.level.value'] = Number(actor.data.data.attributes.level.value) + 1;
+    }
 
     // Adjust hp.
     if (itemData.class_item.data.data.hp) {
@@ -632,6 +688,7 @@ export class DwActorSheet extends ActorSheet {
         constitution = data['abilities.con.value'];
       }
       data['attributes.hp.max'] = Number(itemData.class_item.data.data.hp) + Number(constitution);
+      data['attributes.hp.value'] = data['attributes.hp.max'];
     }
 
     // Adjust load.
@@ -643,7 +700,6 @@ export class DwActorSheet extends ActorSheet {
       data['attributes.weight.max'] = Number(itemData.class_item.data.data.load) + Number(DwUtility.getAbilityMod(strength));
     }
 
-    actor.update({ data: data });
     if (new_moves) {
       await actor.createEmbeddedEntity('OwnedItem', new_moves);
     }
@@ -653,8 +709,33 @@ export class DwActorSheet extends ActorSheet {
     if (new_spells) {
       await actor.createEmbeddedEntity('OwnedItem', new_spells);
     }
-    actor.setFlag('dungeonworld', 'levelup', false);
-    actor.render(true);
+    await actor.update({ data: data });
+    await actor.setFlag('dungeonworld', 'levelup', false);
+    // actor.render(true);
+  }
+
+  /**
+   * Listen for click events on spells.
+   * @param {MouseEvent} event
+   */
+  async _onPrepareSpell(event) {
+    event.preventDefault();
+    const a = event.currentTarget;
+    const data = a.dataset;
+    const actorData = this.actor.data.data;
+    const itemId = $(a).parents('.item').attr('data-item-id');
+    const item = this.actor.getOwnedItem(itemId);
+
+    if (item) {
+      let $self = $(a);
+      $self.toggleClass('unprepared');
+
+      let updatedItem = duplicate(item);
+      updatedItem.data.prepared = !updatedItem.data.prepared;
+
+      this.actor.updateOwnedItem(updatedItem);
+      this.render();
+    }
   }
 
   /**
@@ -714,8 +795,7 @@ export class DwActorSheet extends ActorSheet {
     // GM rolls.
     let chatData = {
       user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      sound: CONFIG.sounds.dice
+      speaker: ChatMessage.getSpeaker({ actor: this.actor })
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
@@ -752,7 +832,13 @@ export class DwActorSheet extends ActorSheet {
           templateData.rollDw = r;
           renderTemplate(template, templateData).then(content => {
             chatData.content = content;
-            ChatMessage.create(chatData);
+            if (game.dice3d) {
+              game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+            }
+            else {
+              chatData.sound = CONFIG.sounds.dice;
+              ChatMessage.create(chatData);
+            }
           });
         });
       }
@@ -776,13 +862,6 @@ export class DwActorSheet extends ActorSheet {
     // Add a class to the toggle button.
     let $look = html.find('.toggle--look');
     $look.toggleClass('closed');
-
-    if ($look.hasClass('closed')) {
-      $look.text('>');
-    }
-    else {
-      $look.text('<');
-    }
   }
 
   /* -------------------------------------------- */
