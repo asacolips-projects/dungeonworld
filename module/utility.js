@@ -29,7 +29,9 @@ export class DwUtility {
     let items = game.items.filter(i => i.type == 'equipment');
     for (let pack of game.packs) {
       if (pack.metadata.name.includes('equipment')) {
-        items = items.concat(await pack.getContent());
+        if (pack) {
+          items = items.concat(await pack.getContent());
+        }
       }
     }
 

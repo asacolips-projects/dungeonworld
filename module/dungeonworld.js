@@ -120,7 +120,7 @@ Hooks.on('createActor', async (actor, options, id) => {
     // Get the item moves as the priority.
     let moves = game.items.entities.filter(i => i.type == 'move' && i.data.data.moveType == 'basic');
     let pack = game.packs.get(`dungeonworld.basic-moves`);
-    let compendium = await pack.getContent();
+    let compendium = pack ? await pack.getContent() : [];
     const actorMoves = actor.data.items.filter(i => i.type == 'move');
     // Get the compendium moves next.
     let moves_compendium = compendium.filter(m => {

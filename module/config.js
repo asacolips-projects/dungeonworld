@@ -26,7 +26,7 @@ export class DwClassList {
     // Next, retrieve compendium classes and merge them in.
     for (let c of game.packs) {
       if (c.metadata.entity && c.metadata.entity == 'Item' && c.metadata.name == 'classes') {
-        let items = await c.getContent();
+        let items = c ? await c.getContent() : [];
         classes = classes.concat(items);
       }
     }

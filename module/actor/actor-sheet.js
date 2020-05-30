@@ -42,6 +42,12 @@ export class DwActorSheet extends ActorSheet {
     if (this.actor.data.type == 'character') {
       data.data.classlist = await DwClassList.getClasses();
 
+      let xpSvg = {
+        radius: 16,
+        circumference: 100,
+        offset: 100,
+      };
+
       // Set a warning for tokens.
       data.data.isToken = this.actor.token != null;
       if (!data.data.isToken) {
@@ -74,7 +80,7 @@ export class DwActorSheet extends ActorSheet {
         let circumference = 100;
         let percent = currentXp < nextLevel ? currentXp / nextLevel : 1;
         let offset = circumference - (percent * circumference);
-        data.data.xpSvg = {
+        xpSvg = {
           radius: radius,
           circumference: circumference,
           offset: offset,
@@ -83,6 +89,8 @@ export class DwActorSheet extends ActorSheet {
       else {
         data.data.levelup = false;
       }
+
+      data.data.xpSvg = xpSvg;
     }
 
     // Return data to the sheet
@@ -309,7 +317,7 @@ export class DwActorSheet extends ActorSheet {
     }
 
     let pack = game.packs.get(`dungeonworld.${char_class}-moves`);
-    let compendium = await pack.getContent();
+    let compendium = pack ? await pack.getContent() : [];
 
     let class_item = class_list_items.filter(i => i.data.name == char_class_name)[0];
     let blurb = class_item.data.data.description;
@@ -442,7 +450,7 @@ export class DwActorSheet extends ActorSheet {
         // Get the item spells as the priority.
         let spells_items = game.items.entities.filter(i => i.type == 'spell' && i.data.data.class == caster_class);
         let spells_pack = game.packs.get(`dungeonworld.${char_class}-spells`);
-        let spells_compendium = await spells_pack.getContent();
+        let spells_compendium = spells_pack ? await spells_pack.getContent() : [];
         // Get the compendium spells next.
         let spells_compendium_items = spells_compendium.filter(s => {
           const available_level = s.data.data.spellLevel <= caster_level;
@@ -921,7 +929,7 @@ export class DwActorSheet extends ActorSheet {
     let tags = game.items.entities.filter(item => item.type == 'tag');
     for (let c of game.packs) {
       if (c.metadata.entity && c.metadata.entity == 'Item' && c.metadata.name == 'tags') {
-        let items = await c.getContent();
+        let items = c ? await c.getContent() : [];
         tags = tags.concat(items);
       }
     }

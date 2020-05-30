@@ -95,7 +95,7 @@ export class DwItemSheet extends ItemSheet {
     let tags = game.items.entities.filter(item => item.type == 'tag');
     for (let c of game.packs) {
       if (c.metadata.entity && c.metadata.entity == 'Item' && c.metadata.name == 'tags') {
-        let items = await c.getContent();
+        let items = c ? await c.getContent() : [];
         tags = tags.concat(items);
       }
     }
