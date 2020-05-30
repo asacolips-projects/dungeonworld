@@ -11,4 +11,11 @@ Compatible with FoundryVTT 0.3.x
 
 Build campaigns in the Dungeon World RPG using Foundry VTT!
 
-![Screenshot of the player character sheet](https://i.imgur.com/pBDNyoh.png)
+## Character Sheet
+![character sheet](https://mattsmithin.nyc3.digitaloceanspaces.com/assets/dw-0.3.0.png)
+
+## Character Builder
+![character builder](https://mattsmithin.nyc3.digitaloceanspaces.com/assets/dw-0.3.0-character-builder.png)
+
+## Level Up
+![level up](https://mattsmithin.nyc3.digitaloceanspaces.com/assets/dw-0.3.0-level-up.png)
