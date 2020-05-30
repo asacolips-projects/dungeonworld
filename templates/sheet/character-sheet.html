@@ -19,12 +19,24 @@
               <div class="flex-item flex-item--xp">
                 <label for="data.attributes.xp.value">{{ localize "DW.XP" }}</label>
                 <input name="data.attributes.xp.value" type="text" value="{{data.attributes.xp.value}}" placeholder="XP" data-dtype="Number"/>
+                {{log data.attributes.xp}}
+                <svg class="progress-ring" viewBox="0 0 36 36" width="36" height="36">
+                  <circle
+                    class="progress-ring__circle"
+                    stroke-width="4"
+                    stroke-dasharray="{{data.xpSvg.circumference}}"
+                    stroke-dashoffset="{{data.xpSvg.offset}}"
+                    stroke="red"
+                    fill="transparent"
+                    r="{{data.xpSvg.radius}}"
+                    cx="18"
+                    cy="18"
+                  />
+                </svg>
               </div>
-              {{#if data.levelup}}
-                <div class="flex-item flex-item--level-up">
-                  <a class="clickable-level-up"><i class="fas fa-user-plus"></i></a>
-                </div>
-              {{/if}}
+              <div class="flex-item flex-item--level-up">
+                <a class="{{#if data.levelup}}clickable-level-up{{else}}disabled-level-up{{/if}}"><i class="fas fa-user-plus"></i></a>
+              </div>
           </div>
       </header>
 
@@ -83,7 +95,7 @@
           </div>
         </div>
 
-        <button class="toggle toggle--look"><</button>
+        <button class="toggle toggle--look"><i class="fas fa-chevron-left"></i></button>
       </section>
 
       {{!-- Main --}}
@@ -111,12 +123,12 @@
           </div>
 
           <div class="cell cell--ac">
-            <label class="cell__title">{{localize "DW.Armor"}}</label>
+            <label class="cell__title">{{localize "DW.Armor"}}<i class="fas fa-shield-alt attribute-icon"></i></label>
             <input type="text" name="data.attributes.ac.value" value="{{data.attributes.ac.value}}" data-dtype="Number"/>
           </div>
 
           <div class="cell cell--hp">
-            <label for="data.attributes.hp.value" class="cell__title">{{localize "DW.HP"}}</label>
+            <label for="data.attributes.hp.value" class="cell__title">{{localize "DW.HP"}}<i class="fas fa-heart attribute-icon"></i></label>
             <div class="cell__counter">
               <input type="text" name="data.attributes.hp.value" value="{{data.attributes.hp.value}}" data-dtype="Number"/>
               <span> / </span>
@@ -125,16 +137,16 @@
           </div>
 
           <div class="cell cell--weight">
-            <label for="data.attributes.weight.value" class="cell__title">{{localize "DW.Weight"}}</label>
+            <label for="data.attributes.weight.value" class="cell__title">{{localize "DW.Weight"}}<i class="fas fa-weight-hanging attribute-icon"></i></label>
             <div class="cell__counter">
-              <input type="text" name="data.attributes.weight.value" value="{{data.attributes.weight.value}}" data-dtype="Number"/>
+              <input class="disabled" type="text" name="data.attributes.weight.value" value="{{data.attributes.weight.value}}" data-dtype="Number" readonly/>
               <span> / </span>
               <input type="text" name="data.attributes.weight.max" value="{{data.attributes.weight.max}}" data-dtype="Number"/>
             </div>
           </div>
 
           <div class="cell cell--coin">
-            <label class="cell__title">{{localize "DW.Coin"}}</label>
+            <label class="cell__title">{{localize "DW.Coin"}}<i class="fas fa-coins attribute-icon"></i></label>
             <input type="text" name="data.attributes.coin.value" value="{{data.attributes.coin.value}}" data-dtype="Number"/>
           </div>
 
@@ -188,19 +200,20 @@
                 </section>
 
                 <div class="cell cell--starting-moves">
-                  <h2 class="cell__title">{{localize "DW.MovesStarting"}}</h2>
-                  <div class="item-controls">
-                    <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="starting">
-                      <i class="fas fa-plus"></i> {{localize "DW.AddStartingMove"}}
-                    </button>
-                  </div>
+                  <h2 class="cell__title">
+                    <label>{{localize "DW.MovesStarting"}}</label>
+                    <div class="item-controls">
+                      <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="starting">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </h2>
                   <ol class="items-list">
                   {{#each actor.startingMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
-                      <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
+                      <h4 class="item-name"><span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">{{#if item.data.rollType}}<i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>{{else}}<i class="fas fa-book"></i>{{/if}}</span> <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span></h4>
                       <div class="item-controls">
-                        <a class="item-control item-details-toggle" title="Edit Item"><i class="fas fa-caret-right"></i></a>
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                       </div>
@@ -211,19 +224,20 @@
                 </div>
 
                 <div class="cell cell--advanced-moves">
-                  <h2 class="cell__title">{{localize "DW.MovesAdvanced"}}</h2>
-                  <div class="item-controls">
-                    <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="advanced">
-                      <i class="fas fa-plus"></i> {{localize "DW.AddAdvancedMove"}}
-                    </button>
-                  </div>
+                  <h2 class="cell__title">
+                    <label>{{localize "DW.MovesAdvanced"}}</label>
+                    <div class="item-controls">
+                      <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="advanced">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </h2>
                   <ol class="items-list">
                   {{#each actor.advancedMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
-                      <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
+                      <h4 class="item-name"><span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">{{#if item.data.rollType}}<i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>{{else}}<i class="fas fa-book"></i>{{/if}}</span> <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span></h4>
                       <div class="item-controls">
-                        <a class="item-control item-details-toggle" title="Show Details"><i class="fas fa-caret-right"></i></a>
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                       </div>
@@ -234,19 +248,20 @@
                 </div>
 
                 <div class="cell cell--other-moves">
-                  <h2 class="cell__title">{{localize "DW.MovesOther"}}</h2>
-                  <div class="item-controls">
-                    <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move">
-                      <i class="fas fa-plus"></i> {{localize "DW.AddMove"}}
-                    </button>
-                  </div>
+                  <h2 class="cell__title">
+                    <label>{{localize "DW.MovesOther"}}</label>
+                    <div class="item-controls">
+                      <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </h2>
                   <ol class="items-list">
                   {{#each actor.moves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
-                      <h4 class="item-name rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}"><i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i> {{item.name}}</h4>
+                      <h4 class="item-name"><span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">{{#if item.data.rollType}}<i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>{{else}}<i class="fas fa-book"></i>{{/if}}</span> <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span></h4>
                       <div class="item-controls">
-                        <a class="item-control item-details-toggle" title="Edit Item"><i class="fas fa-caret-right"></i></a>
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                       </div>
@@ -270,21 +285,28 @@
 
                   <ol class="items-list">
                   {{#each actor.spells as |spells spellLevel|}}
-                    <h2 class="cell__title">{{localize (concat "DW.Spells" spellLevel)}}</h2>
-                    <div class="item-controls">
+                    <h2 class="cell__title">
+                      <label>{{localize (concat "DW.Spells" spellLevel)}}</label>
+                      <div class="item-controls">
                       <button class="item-control item-create" title='{{localize "DW.Spells"}}' data-type="spell" data-level="{{spellLevel}}">
-                        <i class="fas fa-plus"></i> {{localize "DW.AddSpell"}}
+                        <i class="fas fa-plus"></i>
                       </button>
                     </div>
+                    </h2>
                     {{#each spells as |item id|}}
                       <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                         {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
-                        <h4 class="item-name rollable spell-rollable" data-roll="{{item.data.rollFormula}}"><i class="fas fa-dice-d20"></i> {{item.name}}</h4>
+                        {{!-- <h4 class="item-name rollable spell-rollable" data-roll="{{item.data.rollFormula}}"><i class="fas fa-dice-d20"></i> {{item.name}}</h4> --}}
+                        <h4 class="item-name"><span class="rollable spell-rollable" data-roll="{{item.data.rollFormula}}">{{#if item.data.rollFormula}}<i class="fas fa-dice-d20"></i>{{else}}<i class="fas fa-book"></i>{{/if}}</span> <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span></h4>
                         <div class="item-meta tags">
-                          {{#if item.data.prepared }}<span class="tag">Prepared</span>{{/if}}
+                          {{#if item.data.prepared}}
+                            <a class="tag prepared">{{localize "DW.Prepared"}}</a>
+                          {{else}}
+                            <a class="tag prepared unprepared">{{localize "DW.Unprepared"}}</a>
+                          {{/if}}
                         </div>
                         <div class="item-controls">
-                          <a class="item-control item-details-toggle" title="Show Details"><i class="fas fa-caret-right"></i></a>
+                          {{!-- <a class="item-control item-details-toggle" title="Show Details"><i class="fas fa-caret-right"></i></a> --}}
                           <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                           <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         </div>
@@ -307,17 +329,19 @@
                     {{/if}}
                   </section>
 
-                  <h2 class="cell__title">{{localize "DW.Equipment"}}</h2>
-                  <div class="item-controls">
-                    <button class="item-control item-create" title='{{localize "DW.Equipment"}}' data-type="equipment">
-                      <i class="fas fa-plus"></i> {{localize "DW.AddEquipment"}}
-                    </button>
-                  </div>
+                  <h2 class="cell__title">
+                    <label>{{localize "DW.Equipment"}}</label>
+                    <div class="item-controls">
+                      <button class="item-control item-create" title='{{localize "DW.Equipment"}}' data-type="equipment">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </h2>
                   <ol class="items-list">
                   {{#each actor.equipment as |item id|}}
                       <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                           {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
-                          <h4 class="item-name">{{item.name}}</h4>
+                          <h4 class="item-name"><span class="rollable item-rollable" data-roll=""><i class="fas fa-comment-alt"></i></span><span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span></h4>
 
                           <div class="item-meta tags">
                             {{#if item.data.uses }}<span class="tag">{{localize "DW.Uses"}}: {{item.data.uses}}</span>{{/if}}
@@ -325,7 +349,6 @@
                             {{#if item.data.weight }}<span class="tag">{{localize "DW.Wt"}}: {{item.data.weight}}</span>{{/if}}
                           </div>
                           <div class="item-controls">
-                              <a class="item-control item-details-toggle" title="Show Details"><i class="fas fa-caret-right"></i></a>
                               <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                               <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                           </div>

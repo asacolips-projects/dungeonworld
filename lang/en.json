@@ -118,6 +118,7 @@
   "DW.ChooseRace": "Choose a race",
   "DW.ChooseAlignment": "Choose an alignment",
   "DW.ChooseAbilityScores": "Choose ability scores",
+  "DW.ChooseAbilityScoresIncrease": "Choose an ability score to increase by 1.",
   "DW.ChooseStartingMoves": "Choose starting moves",
   "DW.ChooseStartingOne": "Choose one of these to start with:",
   "DW.ChooseStartingAll": "You also start with all of these:",
@@ -126,5 +127,7 @@
   "DW.ChooseAdvanced6": "When you gain a level from 6-10, choose from these moves or the level 2-5 moves.",
   "DW.ChooseSpells": "Choose spells",
   "DW.Cancel": "Cancel",
-  "DW.Confirm": "Confirm"
+  "DW.Confirm": "Confirm",
+  "DW.Prepared": "Prepared",
+  "DW.Unprepared": "Unprepared"
 }

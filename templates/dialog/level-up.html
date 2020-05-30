@@ -20,7 +20,7 @@
                   <input type="radio" name="race-selection" data-race="{{key}}">
                 </div>
                 <div class="selection-content">
-                  <h2>{{race.label}}</h2>
+                  <h3>{{race.label}}</h3>
                   <p>{{race.description}}</p>
                 </div>
               </li>
@@ -31,7 +31,7 @@
 
       {{#if alignments}}
         <section class="cell cell--alignments">
-          <h1 class="cell__title">{{localize "DW.ChooseAlignment"}}</h1>
+          <h2 class="cell__title">{{localize "DW.ChooseAlignment"}}</h2>
           <ul class="selection-list">
             {{#each alignments as |alignment key|}}
               <li>
@@ -39,7 +39,7 @@
                   <input type="radio" name="alignment-selection" data-alignment="{{key}}">
                 </div>
                 <div class="selection-content">
-                  <h2>{{alignment.label}}</h2>
+                  <h3>{{alignment.label}}</h3>
                   <p>{{alignment.description}}</p>
                 </div>
               </li>
@@ -50,13 +50,13 @@
 
       {{#if ability_scores}}
         <section class="cell cell--ability-scores">
-          <h1 class="cell__title">{{localize "DW.ChooseAbilityScores"}}</h1>
+          <h2 class="cell__title">{{localize "DW.ChooseAbilityScores"}}</h2>
           <ul class="selection-list">
-            {{#each ability_labels as |ability_long ability_short|}}
+            {{#each ability_labels as |ability ability_key|}}
             {{!-- {{#each ability_scores as |ability_score key|}} --}}
               <li>
                 <div class="selection-control">
-                  <select name="ability_score.{{ability_short}}" value="" data-ability={{ability_short}}>
+                  <select name="ability_score.{{ability.short}}" value="" data-ability={{ability.short}}>
                     <option value="">—</option>
                     {{!-- {{#each ../ability_labels as |ability_long ability_short|}} --}}
                     {{#each ../ability_scores as |ability_score key|}}
@@ -65,7 +65,7 @@
                   </select>
                 </div>
                 <div class="selection-content">
-                  <h3 class="ability-score">{{ability_long}}</h3>
+                  <h3 class="ability-score">{{ability.long}}</h3>
                 </div>
               </li>
             {{/each}}
@@ -75,11 +75,33 @@
 
     </div>
 
+    {{#if ability_scores}}
+      {{!-- Hack to make a not condition. --}}
+    {{else}}
+      <div class="flexrow center">
+        <section class="cell cell--ability-scores">
+          <h2 class="cell__title">{{localize "DW.ChooseAbilityScoresIncrease"}}</h2>
+          <ul class="selection-list">
+            {{#each ability_labels as |ability ability_key|}}
+              <li>
+                <div class="selection-control">
+                  <input type="radio" name="ability_score.increase" value="{{ability.short}}" data-type="ability-increase" {{#if ability.disabled}}disabled="disabled" readonly{{/if}}>
+                </div>
+                <div class="selection-content">
+                  <h3 class="ability-score">{{ability.long}}</h3>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        </section>
+      </div>
+    {{/if}}
+
     {{#if equipment}}
       <div class="grid grid-3col">
         {{#each equipment as |equipmentGroup groupId|}}
           <section class="cell cell--equipment">
-            <div class="cell__title">{{equipmentGroup.label}}</div>
+            <h2 class="cell__title">{{equipmentGroup.label}}</h2>
             <ul class="selection-list">
               {{#each equipmentGroup.objects as |item key|}}
                 <li>
@@ -129,7 +151,7 @@
                   </div>
                   {{!-- Finally, show the description. --}}
                   <div class="selection-content">
-                    <h2>{{move.data.name}}</h2>
+                    <h3>{{move.data.name}}</h3>
                     <div>{{{move.data.data.description}}}</div>
                   </div>
                 </li>
@@ -152,7 +174,7 @@
                   <input type="radio" name="move-selection" data-item-id="{{move.data._id}}" data-type="move">
                 </div>
                 <div class="selection-content">
-                  <h2>{{move.data.name}}</h2>
+                  <h3>{{move.data.name}}</h3>
                   <div>{{{move.data.data.description}}}</div>
                 </div>
               </li>
@@ -169,7 +191,7 @@
                   <input type="radio" name="move-selection" data-item-id="{{move.data._id}}" data-type="move">
                 </div>
                 <div class="selection-content">
-                  <h2>{{move.data.name}}</h2>
+                  <h3>{{move.data.name}}</h3>
                   <div>{{{move.data.data.description}}}</div>
                 </div>
               </li>
@@ -197,7 +219,7 @@
                   <input type="checkbox" {{#ifEquals spellLevel 0}}checked disabled="disabled"{{/ifEquals}} data-item-id="{{spell.data._id}}" data-type="spell">
                 </div>
                 <div class="selection-content">
-                  <h2>{{spell.data.name}}</h2>
+                  <h3>{{spell.data.name}}</h3>
                   <div>{{{spell.data.data.description}}}</div>
                 </div>
               </li>

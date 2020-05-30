@@ -71,6 +71,24 @@
       }
     }
 
+    &.flex-item--xp {
+      position: relative;
+
+      input {
+        border: 2px solid $c-navy-up;
+      }
+
+      .progress-ring {
+        position: absolute;
+        right: 0;
+        pointer-events: none;
+
+        circle {
+          stroke: $c-green;
+        }
+      }
+    }
+
     &.flex-item--level-up {
       flex: 0 0 44px;
       height: 100%;
@@ -81,6 +99,13 @@
 
       a {
         color: $c-white;
+
+        &.disabled-level-up {
+          cursor: inherit;
+          pointer-events: none;
+          opacity: 0.25;
+          text-shadow: none !important;
+        }
 
         &:hover {
           text-shadow: 0 0 12px $c-navy-up;

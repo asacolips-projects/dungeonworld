@@ -6,8 +6,8 @@
   align-items: center;
   justify-content: space-between;
   flex: 100%;
-  background: $c-navy;
-  color: $c-white;
+  color: $c-navy;
+  // color: $c-white;
   padding: $padding-sm;
   margin-bottom: 5px;
   font-weight: bold;
@@ -15,7 +15,7 @@
 
   a,
   button {
-    color: $c-white;
+    color: $c-black;
   }
 
   button {
@@ -58,8 +58,20 @@
   }
 }
 
+.resource {
+  .cell__title {
+    background: $c-navy;
+    color: $c-white;
+
+    a {
+      color: $c-white;
+    }
+  }
+}
+
 .cell__subtitle {
   background: $c-navy-up;
+  color: $c-white;
 }
 
 .cell--image {

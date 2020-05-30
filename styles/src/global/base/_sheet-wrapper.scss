@@ -60,9 +60,33 @@
     .toggle--look {
       flex: 20px 1 1;
       margin: 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      transition: all ease-in-out 0.25s;
+      height: 225px;
+
+      &:hover {
+        background: #bbb;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
 
       &.closed {
         margin-left: 0;
+      }
+
+      .fas {
+        transition: all ease-in-out 0.25s;
+      }
+
+      &.closed {
+        .fas {
+          transform: rotate(180deg);
+        }
       }
     }
   }
