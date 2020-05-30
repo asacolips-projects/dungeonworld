@@ -389,14 +389,14 @@
     background-image: linear-gradient(#dedede, #dedede), url("../../assets/heath-alseike-vector-edge.svg");
     background-repeat: no-repeat;
     background-size: 100% 264px, 100%;
-    background-position: 0 0, 0 264px;
+    background-position: 0 0, 0 262px;
     background-attachment: local; }
     .dungeonworld.actor .window-content form {
       position: relative;
       z-index: 1; }
   .dungeonworld.actor.npc .window-content {
     background-size: 100% 230px, 100%;
-    background-position: 0 0, 0 230px; }
+    background-position: 0 0, 0 228px; }
   .dungeonworld.sheet .input--title {
     font-weight: bold;
     font-size: 18px;
