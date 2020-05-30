@@ -497,17 +497,32 @@
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -webkit-box-align: start;
-        -ms-flex-align: start;
-        align-items: flex-start;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
-        background: #bbb; }
-        .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look:hover, .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look:focus {
-          background: #aaa; }
+        background: transparent;
+        -webkit-transition: all ease-in-out 0.25s;
+        -o-transition: all ease-in-out 0.25s;
+        transition: all ease-in-out 0.25s;
+        height: 225px; }
+        .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look:hover {
+          background: #bbb; }
+        .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look:focus {
+          -webkit-box-shadow: none;
+          box-shadow: none; }
         .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look.closed {
           margin-left: 0; }
+        .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look .fas {
+          -webkit-transition: all ease-in-out 0.25s;
+          -o-transition: all ease-in-out 0.25s;
+          transition: all ease-in-out 0.25s; }
+        .dungeonworld.sheet .sheet-wrapper .sheet-look .toggle--look.closed .fas {
+          -webkit-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          transform: rotate(180deg); }
     .dungeonworld.sheet .sheet-wrapper .sheet-main {
       -webkit-box-flex: 66%;
       -ms-flex: 66% 1 1;
@@ -1274,6 +1289,8 @@
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1; }
+  .dungeonworld.sheet.dw-level-up select {
+    margin-right: 10px; }
   .dungeonworld.sheet.dw-level-up .cell__description {
     font-size: 18px;
     padding: 10px;
@@ -1289,6 +1306,18 @@
     font-size: 16px; }
   .dungeonworld.sheet.dw-level-up h4 {
     font-size: 14px; }
+  .dungeonworld.sheet.dw-level-up .flexrow.center .cell__title {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .dungeonworld.sheet.dw-level-up .flexrow.center .selection-list {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    margin: 20px 0; }
+  .dungeonworld.sheet.dw-level-up .flexrow .selection-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
   .dungeonworld.sheet .class .items-list,
   .dungeonworld.sheet .class .items-list .item {
     padding: 0;

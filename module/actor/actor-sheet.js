@@ -49,7 +49,7 @@ export class DwActorSheet extends ActorSheet {
         let levelup = (Number(data.data.attributes.xp.value) >= Number(data.data.attributes.level.value) + 7) && Number(data.data.attributes.level.value) < 10;
 
         // Handle the first level (special case).
-        if (data.data.attributes.level.value == 1) {
+        if (Number(data.data.attributes.level.value) === 1) {
           let hasStarting = false;
           for (let i = 0; i < data.items.length; i++) {
             if (data.items[i].type == 'move' && data.items[i].data.moveType == 'starting') {
@@ -360,7 +360,13 @@ export class DwActorSheet extends ActorSheet {
 
     // Get ability scores.
     let ability_scores = [16, 15, 13, 12, 9, 8];
-    let ability_labels = duplicate(CONFIG.DW.abilities);
+    let ability_labels = Object.entries(CONFIG.DW.abilities).map(a => {
+      return {
+        short: a[0],
+        long: a[1],
+        disabled: Number(this.actor.data.data.abilities[a[0]].value) > 17
+      }
+    });
 
     // Retrieve the actor's current moves so that we can hide them.
     const actorMoves = this.actor.data.items.filter(i => i.type == 'move');
@@ -514,7 +520,7 @@ export class DwActorSheet extends ActorSheet {
       alignments: alignments.length > 0 ? alignments : null,
       equipment: equipment ? equipment : null,
       ability_scores: actorData.attributes.xp.value == 0 ? ability_scores : null,
-      ability_labels: actorData.attributes.xp.value == 0 ? ability_labels : null,
+      ability_labels: ability_labels ? ability_labels : null,
       starting_moves: starting_moves.length > 0 ? starting_moves : null,
       starting_move_groups: starting_move_groups,
       advanced_moves_2: advanced_moves_2.length > 0 ? advanced_moves_2 : null,
@@ -598,11 +604,15 @@ export class DwActorSheet extends ActorSheet {
         alignment = itemData.alignments[input.dataset.alignment];
       }
       else if (input.dataset.ability) {
-        let abl = $(input).val();
-        let val = input.dataset.ability;
-        if (abl) {
-          abilities[`abilities.${val}.value`] = abl;
+        let val = $(input).val();
+        let abl = input.dataset.ability;
+        if (val) {
+          abilities[`abilities.${abl}.value`] = val;
         }
+      }
+      else if (input.dataset.type == 'ability-increase') {
+        let abl = $(input).val();
+        abilities[`abilities.${abl}.value`] = Number(actor.data.data.abilities[abl].value) + 1;
       }
     }
 
@@ -852,13 +862,6 @@ export class DwActorSheet extends ActorSheet {
     // Add a class to the toggle button.
     let $look = html.find('.toggle--look');
     $look.toggleClass('closed');
-
-    if ($look.hasClass('closed')) {
-      $look.text('>');
-    }
-    else {
-      $look.text('<');
-    }
   }
 
   /* -------------------------------------------- */
