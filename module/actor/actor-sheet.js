@@ -439,6 +439,9 @@ export class DwActorSheet extends ActorSheet {
     else if (char_class == 'the-cleric') {
       cast_spells.push('cleric');
     }
+    else {
+      cast_spells.push(char_class);
+    }
 
     if (cast_spells.length > 0) {
       // Retrieve the actor's current moves so that we can hide them.
@@ -448,7 +451,13 @@ export class DwActorSheet extends ActorSheet {
       spells = [];
       for (let caster_class of cast_spells) {
         // Get the item spells as the priority.
-        let spells_items = game.items.entities.filter(i => i.type == 'spell' && i.data.data.class == caster_class);
+        let spells_items = game.items.entities.filter(i => {
+          // Return true for custom spell items that have a class.
+          return i.type == 'spell'
+            && i.data.data.class
+            // Check if this spell has either `classname` or `the classname` as its class.
+            && [caster_class, `the ${caster_class}`].includes(i.data.data.class.toLowerCase());
+        });
         let spells_pack = game.packs.get(`dungeonworld.${char_class}-spells`);
         let spells_compendium = spells_pack ? await spells_pack.getContent() : [];
         // Get the compendium spells next.
