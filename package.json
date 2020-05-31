@@ -6,7 +6,8 @@
     "build": "gulp yaml & gulp css",
     "compile": "gulp css",
     "watch": "gulp",
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "yaml": "gulp yaml"
   },
   "browserslist": [
     "last 3 versions"
