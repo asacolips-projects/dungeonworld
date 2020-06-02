@@ -384,6 +384,7 @@ export class DwActorSheet extends ActorSheet {
     // Get the compendium moves next.
     let moves_compendium = compendium.filter(m => {
       const available_level = m.data.data.requiresLevel <= char_level;
+      // TODO: Babele: `const not_taken = actorMoves.filter(i => i.name == m.data.name || i.name === m.data.originalName);`
       const not_taken = actorMoves.filter(i => i.name == m.data.name);
       return available_level && not_taken.length < 1;
     });
