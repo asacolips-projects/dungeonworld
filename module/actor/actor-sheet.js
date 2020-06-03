@@ -300,13 +300,10 @@ export class DwActorSheet extends ActorSheet {
     const actor = this.actor.data;
     const actorData = this.actor.data.data;
 
-    const char_class_name = actorData.details.class;
-    const class_list = await DwClassList.getClasses();
-    const class_list_items = await DwClassList.getClasses(false);
-
-    if (!class_list.includes(char_class_name)) {
-      return;
-    }
+    let char_class_name = actorData.details.class;
+    let orig_class_name = char_class_name;
+    let class_list = await DwClassList.getClasses();
+    let class_list_items = await DwClassList.getClasses(false);
 
     let char_class = DwUtility.cleanClass(char_class_name);
     let char_level = Number(actorData.attributes.level.value);
@@ -316,11 +313,27 @@ export class DwActorSheet extends ActorSheet {
       char_level = char_level + 1;
     }
 
-    let pack = game.packs.get(`dungeonworld.${char_class}-moves`);
+    // Get the original class name if this was a translation.
+    if (game.babele) {
+      let babele_classes = game.babele.translations.find(p => p.collection == 'dungeonworld.classes');
+      let babele_pack = babele_classes.entries.find(p => p.name == char_class_name);
+      if (babele_pack) {
+        char_class_name = babele_pack.id;
+        char_class = DwUtility.cleanClass(babele_pack.id);
+      }
+    }
+
+    if (!class_list.includes(orig_class_name) && !class_list.includes(char_class_name)) {
+      return;
+    }
+
+    let pack_id = `dungeonworld.${char_class}-moves`;
+    let pack = game.packs.get(pack_id);
+
     let compendium = pack ? await pack.getContent() : [];
 
-    let class_item = class_list_items.filter(i => i.data.name == char_class_name)[0];
-    let blurb = class_item.data.data.description;
+    let class_item = class_list_items.find(i => i.data.name == orig_class_name);
+    let blurb = class_item ? class_item.data.data.description : null;
 
     // Get races.
     let races = [];
@@ -532,7 +545,7 @@ export class DwActorSheet extends ActorSheet {
     const template = 'systems/dungeonworld/templates/dialog/level-up.html';
     const templateData = {
       char_class: char_class,
-      char_class_name: char_class_name,
+      char_class_name: orig_class_name,
       blurb: blurb.length > 0 ? blurb : null,
       races: races.length > 0 ? races : null,
       alignments: alignments.length > 0 ? alignments : null,
