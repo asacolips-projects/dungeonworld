@@ -3,10 +3,10 @@ export class CombatSidebarDw {
     // CONFIG.debug.hooks = true;
 
     // TODO: Replace this hack that triggers an extra render.
-    Hooks.on('renderSidebar', (app, html, options) => {
+    Hooks.on('ready', () => {
       setTimeout(() => {
         ui.combat.render();
-      }, 250);
+      }, 500);
     });
 
     Hooks.on('renderSidebarTab', (app, html, options) => {
@@ -33,8 +33,6 @@ export class CombatSidebarDw {
         console.log(templateData);
 
         renderTemplate(template, templateData).then(c => {
-          console.log(c);
-          console.log(newHtml);
           newHtml.find('#combat-tracker').remove();
           newHtml.find('#combat-round').after(c);
           newHtml.css('height', null);
