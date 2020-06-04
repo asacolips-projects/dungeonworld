@@ -1,0 +1,34 @@
+.sidebar-tab {
+  .directory-item--group {
+    background: $c-navy-up;
+    padding: 4px 10px;
+    text-transform: uppercase;
+  }
+
+  .directory-list {
+    .directory-item {
+      .ct-item--img {
+        flex: 0 0 32px;
+
+        img {
+          width: 50px;
+          height: auto;
+          margin: auto;
+        }
+      }
+    }
+  }
+
+  .ct-item--name {
+    flex: 1;
+  }
+
+  .ct-item--hp,
+  .ct-item--armor {
+    flex: 0 0 32px;
+  }
+
+  .directory-item--labels {
+    font-size: 12px;
+  }
+}

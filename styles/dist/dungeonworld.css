@@ -375,6 +375,34 @@
   text-overflow: ellipsis;
   padding-right: 10px; }
 
+.vtt .sidebar-tab .directory-item--group {
+  background: #5b7094;
+  padding: 4px 10px;
+  text-transform: uppercase; }
+
+.vtt .sidebar-tab .directory-list .directory-item .ct-item--img {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 32px;
+  flex: 0 0 32px; }
+  .vtt .sidebar-tab .directory-list .directory-item .ct-item--img img {
+    width: 50px;
+    height: auto;
+    margin: auto; }
+
+.vtt .sidebar-tab .ct-item--name {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+
+.vtt .sidebar-tab .ct-item--hp,
+.vtt .sidebar-tab .ct-item--armor {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 32px;
+  flex: 0 0 32px; }
+
+.vtt .sidebar-tab .directory-item--labels {
+  font-size: 12px; }
+
 .dungeonworld {
   font-family: "Alegreya", serif; }
   .dungeonworld textarea {

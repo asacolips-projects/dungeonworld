@@ -15,6 +15,7 @@ import { DwActorNpcSheet } from "./actor/actor-npc-sheet.js";
 import { DwClassItemSheet } from "./item/class-item-sheet.js";
 import { DwRegisterHelpers } from "./handlebars.js";
 import { DwUtility } from "./utility.js";
+import { CombatSidebarDw } from "./combat/combat.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -38,6 +39,9 @@ Hooks.once("init", async function() {
     formula: "1d20",
     decimals: 2
   };
+
+  // TODO: Extend the combat class.
+  // CONFIG.Combat.entityClass = CombatDw;
 
   CONFIG.DW = DW;
   CONFIG.Actor.entityClass = ActorDw;
@@ -73,6 +77,9 @@ Hooks.once("ready", async function() {
   // Add a lang class to the body.
   const lang = game.settings.get('core', 'language');
   $('html').addClass(`lang-${lang}`);
+
+  let combatDw = new CombatSidebarDw();
+  combatDw.startup();
 });
 
 Hooks.on('renderChatMessage', (data, html, options) => {
