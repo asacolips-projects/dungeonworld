@@ -3,10 +3,8 @@ export class CombatSidebarDw {
     CONFIG.debug.hooks = true;
 
     // TODO: Replace this hack that triggers an extra render.
-    Hooks.on('renderSidebar', () => {
-      setTimeout(() => {
-        ui.combat.render();
-      }, 250);
+    Hooks.on('renderSidebar', (app, html, options) => {
+      ui.combat.render();
     });
 
     Hooks.on('renderCombatTracker', async (app, html, options) => {

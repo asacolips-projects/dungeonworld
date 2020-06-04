@@ -65,6 +65,9 @@ Hooks.once("init", async function() {
   });
 
   DwRegisterHelpers.init();
+
+  let combatDw = new CombatSidebarDw();
+  combatDw.startup();
 });
 
 Hooks.once("ready", async function() {
@@ -77,9 +80,6 @@ Hooks.once("ready", async function() {
   // Add a lang class to the body.
   const lang = game.settings.get('core', 'language');
   $('html').addClass(`lang-${lang}`);
-
-  let combatDw = new CombatSidebarDw();
-  combatDw.startup();
 });
 
 Hooks.on('renderChatMessage', (data, html, options) => {
