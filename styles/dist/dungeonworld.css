@@ -55,8 +55,8 @@
   grid-template-columns: repeat(5, minmax(0, 1fr)); }
 
 .grid-6col {
-  grid-column: span 5 / span 5;
-  grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  grid-column: span 6 / span 6;
+  grid-template-columns: repeat(6, minmax(0, 1fr)); }
 
 .grid-7col {
   grid-column: span 7 / span 7;
@@ -389,6 +389,23 @@
     height: auto;
     margin: auto; }
 
+.vtt .sidebar-tab .directory-list--dw {
+  padding: 0; }
+  .vtt .sidebar-tab .directory-list--dw .directory-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    line-height: 1; }
+  .vtt .sidebar-tab .directory-list--dw .ct-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center; }
+
 .vtt .sidebar-tab .ct-item--name {
   -webkit-box-flex: 1;
   -ms-flex: 1;
@@ -401,7 +418,16 @@
   flex: 0 0 32px; }
 
 .vtt .sidebar-tab .directory-item--labels {
-  font-size: 12px; }
+  font-size: 12px;
+  background: rgba(91, 112, 148, 0.25);
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+  padding: 4px 0; }
+
+.vtt #combat-popout {
+  width: 600px !important;
+  height: auto !important; }
 
 .dungeonworld {
   font-family: "Alegreya", serif; }

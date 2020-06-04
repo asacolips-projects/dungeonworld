@@ -1,15 +1,15 @@
 export class CombatSidebarDw {
   startup() {
-    // CONFIG.debug.hooks = true;
+    CONFIG.debug.hooks = true;
 
     // TODO: Replace this hack that triggers an extra render.
     Hooks.on('ready', () => {
       setTimeout(() => {
         ui.combat.render();
-      }, 500);
+      }, 750);
     });
 
-    Hooks.on('renderSidebarTab', (app, html, options) => {
+    Hooks.on('renderSidebarTab', async (app, html, options) => {
       if (app.tabName != 'combat') {
         return;
       }
@@ -20,8 +20,6 @@ export class CombatSidebarDw {
         newHtml = html;
       }
 
-      console.log('test');
-
       if (game.combat) {
         let combatants = game.combat.data ? game.combat.data.combatants : [];
 
@@ -30,16 +28,10 @@ export class CombatSidebarDw {
           combatants: this.getCombatantsData()
         };
 
-        console.log(templateData);
-
-        renderTemplate(template, templateData).then(c => {
-          newHtml.find('#combat-tracker').remove();
-          newHtml.find('#combat-round').after(c);
-          newHtml.css('height', null);
-        });
+        let content = await renderTemplate(template, templateData)
+        newHtml.find('#combat-tracker').remove();
+        newHtml.find('#combat-round').after(content);
       }
-
-      // newHtml.html(content);
     });
   }
 

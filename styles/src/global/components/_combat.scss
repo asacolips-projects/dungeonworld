@@ -19,6 +19,22 @@
     }
   }
 
+  .directory-list--dw {
+    padding: 0;
+
+    .directory-item {
+      border-bottom: 1px solid rgba($c-black, 0.25);
+      line-height: 1;
+    }
+
+    .ct-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
   .ct-item--name {
     flex: 1;
   }
@@ -30,5 +46,15 @@
 
   .directory-item--labels {
     font-size: 12px;
+    background: rgba($c-navy-up, 0.25);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+    padding: 4px 0;
   }
+}
+
+#combat-popout {
+  width: 600px !important;
+  height: auto !important;
 }
