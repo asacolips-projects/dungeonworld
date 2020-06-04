@@ -3,13 +3,14 @@ export class CombatSidebarDw {
     CONFIG.debug.hooks = true;
 
     // TODO: Replace this hack that triggers an extra render.
-    Hooks.on('ready', () => {
+    Hooks.on('renderSidebar', () => {
       setTimeout(() => {
         ui.combat.render();
-      }, 750);
+      }, 250);
     });
 
-    Hooks.on('renderSidebarTab', async (app, html, options) => {
+    Hooks.on('renderCombatTracker', async (app, html, options) => {
+      console.log(app.tabName);
       if (app.tabName != 'combat') {
         return;
       }
@@ -51,8 +52,6 @@ export class CombatSidebarDw {
     }, {});
 
     return combatants;
-
-    // let characters = combatants.filter(c => c.actor.data.type == 'character');
   }
 }
 
