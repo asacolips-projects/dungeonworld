@@ -83,9 +83,6 @@ export class CombatSidebarDw {
       }
 
       let displayBarsMode = Object.entries(CONST.TOKEN_DISPLAY_MODES).find(i => i[1] == combatant.token.displayBars)[0];
-      // let displayBarsMode = CONST.TOKEN_DISPLAY_MODES[combatant.token.displayBars];
-      console.log(displayBarsMode);
-      console.log(combatant);
 
       let displayHealth = group == 'character' ? true : false;
       if (displayBarsMode.includes("OWNER")) {
