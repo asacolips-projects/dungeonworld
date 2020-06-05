@@ -14,7 +14,12 @@
     <ol class="directory-list--dw {{group}}">
       {{#each combatantGroup as |c index|}}
         <li class="directory-item actor-elem grid {{#ifEquals group "character"}}grid-6col{{else}}grid-5col{{/ifEquals}}" data-actor-id="{{c.actor.data._id}}" data-token-id="{{c.tokenId}}" data-combatant-id="{{c._id}}">
-          <div class="ct-item ct-item--img"><img src="{{c.img}}" alt="Thumbnail image for {{c.name}}"></div>
+          <div class="ct-item ct-item--img">
+            <div class="image-wrapper">
+              <img src="{{c.img}}" alt="Thumbnail image for {{c.name}}">
+              {{#if c.displayHealth}}{{{progressCircle c.healthSvg}}}{{/if}}
+            </div>
+          </div>
           <div class="ct-item ct-item--name"><span>{{c.name}}</span></div>
           <div class="ct-item ct-item--hp">{{#if c.displayHealth}}{{c.actor.data.data.attributes.hp.value}}{{else}}???{{/if}}</div>
           <div class="ct-item ct-item--ac">{{#if c.displayHealth}}{{c.actor.data.data.attributes.ac.value}}{{else}}???{{/if}}</div>

@@ -27,10 +27,9 @@
   .directory-list {
     .directory-item {
       .ct-item--img {
-        flex: 0 0 32px;
 
         img {
-          width: 50px;
+          width: 100%;
           height: auto;
           margin: auto;
         }
@@ -113,6 +112,57 @@
     flex: 0 0 32px;
   }
 
+  .ct-item--img {
+
+    .image-wrapper {
+      position: relative;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .progress-ring {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: inset 0 0 3px 5px rgba(0,0,0,0.65);
+      border-radius: 50%;
+    }
+
+    .progress-ring--100,
+    .progress-ring--90 {
+      circle {
+        stroke: $c-green;
+      }
+    }
+
+    .progress-ring--80,
+    .progress-ring--70 {
+      circle {
+        stroke: $c-yellow;
+      }
+    }
+
+    .progress-ring--60,
+    .progress-ring--50,
+    .progress-ring--40 {
+      circle {
+        stroke: $c-orange;
+      }
+    }
+
+    .progress-ring--30,
+    .progress-ring--20,
+    .progress-ring--10,
+    .progress-ring--0 {
+      circle {
+        stroke: $c-red;
+      }
+    }
+  }
+
   .actor-elem {
     .ct-item--moves {
       font-family: $font-stack-secondary;
@@ -149,6 +199,17 @@
 #combat-popout {
   width: 600px !important;
   height: auto !important;
+
+  .ct-item--img {
+    .image-wrapper {
+      width: 62px;
+      height: 62px;
+    }
+
+    .progress-ring {
+      box-shadow: inset 0 0 5px 9px rgba(0,0,0,0.65);
+    }
+  }
 }
 
 #combat {

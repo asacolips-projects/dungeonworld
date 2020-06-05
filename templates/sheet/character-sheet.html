@@ -19,19 +19,7 @@
               <div class="flex-item flex-item--xp">
                 <label for="data.attributes.xp.value">{{ localize "DW.XP" }}</label>
                 <input name="data.attributes.xp.value" type="text" value="{{data.attributes.xp.value}}" placeholder="XP" data-dtype="Number"/>
-                <svg class="progress-ring" viewBox="0 0 36 36" width="36" height="36">
-                  <circle
-                    class="progress-ring__circle"
-                    stroke-width="4"
-                    stroke-dasharray="{{data.xpSvg.circumference}}"
-                    stroke-dashoffset="{{data.xpSvg.offset}}"
-                    stroke="red"
-                    fill="transparent"
-                    r="{{data.xpSvg.radius}}"
-                    cx="18"
-                    cy="18"
-                  />
-                </svg>
+                {{{progressCircle data.xpSvg}}}
               </div>
               <div class="flex-item flex-item--level-up">
                 <a class="{{#if data.levelup}}clickable-level-up{{else}}disabled-level-up{{/if}}"><i class="fas fa-user-plus"></i></a>

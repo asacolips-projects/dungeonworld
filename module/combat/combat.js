@@ -1,3 +1,5 @@
+import { DwUtility } from "../utility.js";
+
 export class CombatSidebarDw {
   startup() {
     CONFIG.debug.hooks = true;
@@ -96,6 +98,12 @@ export class CombatSidebarDw {
       }
 
       combatant.displayHealth = displayHealth;
+
+      combatant.healthSvg = DwUtility.getProgressCircle({
+        current: combatant.actor.data.data.attributes.hp.value,
+        max: combatant.actor.data.data.attributes.hp.max,
+        radius: 16
+      });
 
       groups[group].push(combatant);
       return groups;

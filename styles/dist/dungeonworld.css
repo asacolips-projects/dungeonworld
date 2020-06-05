@@ -392,14 +392,10 @@
     justify-content: center; }
     .vtt .sidebar-tab .directory-item--group.npc {
       background: #9a3f3f; }
-  .vtt .sidebar-tab .directory-list .directory-item .ct-item--img {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 32px;
-    flex: 0 0 32px; }
-    .vtt .sidebar-tab .directory-list .directory-item .ct-item--img img {
-      width: 50px;
-      height: auto;
-      margin: auto; }
+  .vtt .sidebar-tab .directory-list .directory-item .ct-item--img img {
+    width: 100%;
+    height: auto;
+    margin: auto; }
   .vtt .sidebar-tab .directory-list--dw {
     padding: 0; }
     .vtt .sidebar-tab .directory-list--dw .directory-item {
@@ -459,6 +455,35 @@
     -webkit-box-flex: 0;
     -ms-flex: 0 0 32px;
     flex: 0 0 32px; }
+  .vtt .sidebar-tab .ct-item--img .image-wrapper {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; }
+  .vtt .sidebar-tab .ct-item--img .progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-box-shadow: inset 0 0 3px 5px rgba(0, 0, 0, 0.65);
+    box-shadow: inset 0 0 3px 5px rgba(0, 0, 0, 0.65);
+    border-radius: 50%; }
+  .vtt .sidebar-tab .ct-item--img .progress-ring--100 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--90 circle {
+    stroke: #41c179; }
+  .vtt .sidebar-tab .ct-item--img .progress-ring--80 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--70 circle {
+    stroke: #f7d601; }
+  .vtt .sidebar-tab .ct-item--img .progress-ring--60 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--50 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--40 circle {
+    stroke: #f78c01; }
+  .vtt .sidebar-tab .ct-item--img .progress-ring--30 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--20 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--10 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--0 circle {
+    stroke: #ca0000; }
   .vtt .sidebar-tab .actor-elem .ct-item--moves {
     font-family: "Metamorphous", serif;
     font-size: 14px; }
@@ -483,6 +508,12 @@
 .vtt #combat-popout {
   width: 600px !important;
   height: auto !important; }
+  .vtt #combat-popout .ct-item--img .image-wrapper {
+    width: 62px;
+    height: 62px; }
+  .vtt #combat-popout .ct-item--img .progress-ring {
+    -webkit-box-shadow: inset 0 0 5px 9px rgba(0, 0, 0, 0.65);
+    box-shadow: inset 0 0 5px 9px rgba(0, 0, 0, 0.65); }
 
 .vtt #combat #combat-tracker {
   background: rgba(0, 0, 0, 0.25); }
