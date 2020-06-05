@@ -221,12 +221,18 @@ export class ItemDw extends Item {
     if (game.combat && game.combat.combatants) {
       let combatant = game.combat.combatants.find(c => c.actor.data._id == this.actor._id);
       if (combatant) {
-        console.log(combatant);
         let moveCount = combatant.flags.dungeonworld ? combatant.flags.dungeonworld.moveCount : 0;
         moveCount = moveCount ? Number(moveCount) + 1 : 1;
-        await game.combat.updateCombatant({ _id: combatant._id, 'flags.dungeonworld.moveCount': moveCount });
-        // combatant.setFlag('dungeonworld', 'moveCount', moveCount);
-        ui.combat.render();
+        // Emit a socket for the GM client.
+        if (!game.user.isGM) {
+          game.socket.emit('system.dungeonworld', {
+            combatantUpdate: { _id: combatant._id, 'flags.dungeonworld.moveCount': moveCount }
+          });
+        }
+        else {
+          await game.combat.updateCombatant({ _id: combatant._id, 'flags.dungeonworld.moveCount': moveCount });
+          ui.combat.render();
+        }
       }
     }
   }

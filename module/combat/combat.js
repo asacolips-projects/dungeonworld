@@ -12,7 +12,7 @@ export class CombatSidebarDw {
           let combatant = game.combat.combatants.find(c => c._id == combatant_id);
           let actor = combatant.actor ? combatant.actor : null;
           if (actor) {
-            actor.roll(event, actor);
+            actor._onRoll(event, actor);
           }
         }
       });
@@ -24,6 +24,17 @@ export class CombatSidebarDw {
 
     Hooks.on('updateToken', (scene, token, data, options, id) => {
       ui.combat.render();
+    });
+
+    game.socket.on('system.dungeonworld', (data) => {
+      if (!game.user.isGM) {
+        return;
+      }
+
+      if (data.combatantUpdate) {
+        game.combat.updateCombatant(data.combatantUpdate);
+        ui.combat.render();
+      }
     });
 
     // TODO: Replace this hack that triggers an extra render.
@@ -68,6 +79,23 @@ export class CombatSidebarDw {
       if (!groups[group]) {
         groups[group] = [];
       }
+
+      let displayBarsMode = Object.entries(CONST.TOKEN_DISPLAY_MODES).find(i => i[1] == combatant.token.displayBars)[0];
+      // let displayBarsMode = CONST.TOKEN_DISPLAY_MODES[combatant.token.displayBars];
+      console.log(displayBarsMode);
+      console.log(combatant);
+
+      let displayHealth = group == 'character' ? true : false;
+      if (displayBarsMode.includes("OWNER")) {
+        if (combatant.owner || game.user.isGM) {
+          displayHealth = true;
+        }
+      }
+      else if (displayBarsMode != "NONE") {
+        displayHealth = true;
+      }
+
+      combatant.displayHealth = displayHealth;
 
       groups[group].push(combatant);
       return groups;

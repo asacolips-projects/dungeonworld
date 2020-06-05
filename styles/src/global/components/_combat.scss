@@ -113,6 +113,13 @@
     flex: 0 0 32px;
   }
 
+  .actor-elem {
+    .ct-item--moves {
+      font-family: $font-stack-secondary;
+      font-size: 14px;
+    }
+  }
+
   .directory-item--labels {
     font-size: 12px;
     background: rgba($c-navy-up, 0.25);

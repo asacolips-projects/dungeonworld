@@ -228,6 +228,8 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "attributes.hp",
   "secondaryTokenAttribute": null,
+  "initiative": "1d20",
+  "socket": true,
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld",
   "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/raw/master/system.json",
   "download": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/archive/0.3.6/dungeonworld-master.zip"

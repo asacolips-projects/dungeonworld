@@ -13,12 +13,11 @@
     </li>
     <ol class="directory-list--dw {{group}}">
       {{#each combatantGroup as |c index|}}
-        {{log c}}
         <li class="directory-item actor-elem grid {{#ifEquals group "character"}}grid-6col{{else}}grid-5col{{/ifEquals}}" data-actor-id="{{c.actor.data._id}}" data-token-id="{{c.tokenId}}" data-combatant-id="{{c._id}}">
           <div class="ct-item ct-item--img"><img src="{{c.img}}" alt="Thumbnail image for {{c.name}}"></div>
           <div class="ct-item ct-item--name"><span>{{c.name}}</span></div>
-          <div class="ct-item ct-item--hp">{{c.actor.data.data.attributes.hp.value}}</div>
-          <div class="ct-item ct-item--ac">{{c.actor.data.data.attributes.ac.value}}</div>
+          <div class="ct-item ct-item--hp">{{#if c.displayHealth}}{{c.actor.data.data.attributes.hp.value}}{{else}}???{{/if}}</div>
+          <div class="ct-item ct-item--ac">{{#if c.displayHealth}}{{c.actor.data.data.attributes.ac.value}}{{else}}???{{/if}}</div>
           <div class="ct-item ct-item--damage"><button class="dw-rollable damage-rollable" data-roll="{{c.actor.data.data.attributes.damage.value}}" data-label="{{localize "DW.DamageRoll"}}" title="{{c.actor.data.data.attributes.damage.value}}">{{c.actor.data.data.attributes.damage.value}}</button></div>
           {{#ifEquals group "character"}}
           <div class="ct-item ct-item--moves">{{#if c.flags.dungeonworld}}{{c.flags.dungeonworld.moveCount}}{{/if}}</div>

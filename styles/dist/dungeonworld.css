@@ -459,6 +459,9 @@
     -webkit-box-flex: 0;
     -ms-flex: 0 0 32px;
     flex: 0 0 32px; }
+  .vtt .sidebar-tab .actor-elem .ct-item--moves {
+    font-family: "Metamorphous", serif;
+    font-size: 14px; }
   .vtt .sidebar-tab .directory-item--labels {
     font-size: 12px;
     background: rgba(91, 112, 148, 0.25);

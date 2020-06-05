@@ -62,7 +62,7 @@ export class ActorDw extends Actor {
    * Listen for click events on rollables.
    * @param {MouseEvent} event
    */
-  async roll(event, actor = null) {
+  async _onRoll(event, actor = null) {
     actor = !actor ? this.actor : actor;
 
     // Initialize variables.

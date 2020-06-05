@@ -31,15 +31,6 @@ Hooks.once("init", async function() {
     DwUtility,
   };
 
-	/**
-	 * Set an initiative formula for the system
-	 * @type {String}
-	 */
-  CONFIG.Combat.initiative = {
-    formula: "1d20",
-    decimals: 2
-  };
-
   // TODO: Extend the combat class.
   // CONFIG.Combat.entityClass = CombatDw;
 
