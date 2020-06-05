@@ -129,5 +129,6 @@
   "DW.Cancel": "Cancel",
   "DW.Confirm": "Confirm",
   "DW.Prepared": "Prepared",
-  "DW.Unprepared": "Unprepared"
+  "DW.Unprepared": "Unprepared",
+  "DW.DamageRoll": "Deal Damage"
 }

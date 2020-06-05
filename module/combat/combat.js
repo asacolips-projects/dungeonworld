@@ -2,6 +2,30 @@ export class CombatSidebarDw {
   startup() {
     CONFIG.debug.hooks = true;
 
+    Hooks.on('ready', () => {
+      // Damage rolls from the combat tracker.
+      $('body').on('click', '.dw-rollable', (event) => {
+        let $self = $(event.currentTarget);
+        let $actorElem = $self.parents('.actor-elem');
+        let combatant_id = $actorElem.length > 0 ? $actorElem.attr('data-combatant-id') : null;
+        if (combatant_id) {
+          let combatant = game.combat.combatants.find(c => c._id == combatant_id);
+          let actor = combatant.actor ? combatant.actor : null;
+          if (actor) {
+            actor.roll(event, actor);
+          }
+        }
+      });
+    });
+
+    Hooks.on('updateActor', (actor, data, options, id) => {
+      ui.combat.render();
+    });
+
+    Hooks.on('updateToken', (scene, token, data, options, id) => {
+      ui.combat.render();
+    });
+
     // TODO: Replace this hack that triggers an extra render.
     Hooks.on('renderSidebar', (app, html, options) => {
       ui.combat.render();
