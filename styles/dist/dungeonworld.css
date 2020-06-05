@@ -375,26 +375,43 @@
   text-overflow: ellipsis;
   padding-right: 10px; }
 
-.vtt .sidebar-tab .directory-item--group {
-  background: #5b7094;
-  padding: 4px 10px;
-  text-transform: uppercase; }
-
-.vtt .sidebar-tab .directory-list .directory-item .ct-item--img {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 32px;
-  flex: 0 0 32px; }
-  .vtt .sidebar-tab .directory-list .directory-item .ct-item--img img {
-    width: 50px;
-    height: auto;
-    margin: auto; }
-
-.vtt .sidebar-tab .directory-list--dw {
-  padding: 0; }
-  .vtt .sidebar-tab .directory-list--dw .directory-item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-    line-height: 1; }
-  .vtt .sidebar-tab .directory-list--dw .ct-item {
+.vtt .sidebar-tab {
+  font-family: "Alegreya", serif; }
+  .vtt .sidebar-tab #combat-round h3 {
+    font-family: "Metamorphous", serif; }
+  .vtt .sidebar-tab .directory-item--group,
+  .vtt .sidebar-tab .combat-control[data-control="endCombat"],
+  .vtt .sidebar-tab .combat-control[data-control="startCombat"] {
+    font-family: "Metamorphous", serif; }
+  .vtt .sidebar-tab .directory-item--group {
+    background: #5b7094;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .vtt .sidebar-tab .directory-item--group.npc {
+      background: #9a3f3f; }
+  .vtt .sidebar-tab .directory-list .directory-item .ct-item--img {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 32px;
+    flex: 0 0 32px; }
+    .vtt .sidebar-tab .directory-list .directory-item .ct-item--img img {
+      width: 50px;
+      height: auto;
+      margin: auto; }
+  .vtt .sidebar-tab .directory-list--dw {
+    padding: 0; }
+    .vtt .sidebar-tab .directory-list--dw .directory-item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+      line-height: 1; }
+      .vtt .sidebar-tab .directory-list--dw .directory-item.grid-6col {
+        grid-template-columns: 11.111% 26.388% 7.638% 15.625% 21.305% 14.236%;
+        gap: 0.671%; }
+      .vtt .sidebar-tab .directory-list--dw .directory-item.grid-5col {
+        grid-template-columns: 11.111% 30.388% 7.638% 15.625% 32.305%;
+        gap: 0.671%; }
+  .vtt .sidebar-tab .ct-item {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -405,29 +422,67 @@
     -ms-flex-pack: center;
     justify-content: center;
     text-align: center; }
+    .vtt .sidebar-tab .ct-item > span,
+    .vtt .sidebar-tab .ct-item > button {
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis; }
+    .vtt .sidebar-tab .ct-item button {
+      background: #5b7094;
+      color: #fff;
+      font-family: "Alegreya", serif;
+      border: 0; }
+      .vtt .sidebar-tab .ct-item button:hover {
+        text-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background: #7e94bd; }
+  .vtt .sidebar-tab .npc .ct-item button {
+    background: #9a3f3f; }
+    .vtt .sidebar-tab .npc .ct-item button:hover {
+      background: #bf5454; }
+  .vtt .sidebar-tab .ct-item--name {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+    .vtt .sidebar-tab .ct-item--name, .vtt .sidebar-tab .ct-item--name > * {
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis; }
+  .vtt .sidebar-tab .ct-item--hp,
+  .vtt .sidebar-tab .ct-item--armor {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 32px;
+    flex: 0 0 32px; }
+  .vtt .sidebar-tab .directory-item--labels {
+    font-size: 12px;
+    background: rgba(91, 112, 148, 0.25);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+    padding: 4px 0; }
+    .vtt .sidebar-tab .directory-item--labels.npc {
+      background: rgba(154, 63, 63, 0.25); }
 
-.vtt .sidebar-tab .ct-item--name {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1; }
-
-.vtt .sidebar-tab .ct-item--hp,
-.vtt .sidebar-tab .ct-item--armor {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 32px;
-  flex: 0 0 32px; }
-
-.vtt .sidebar-tab .directory-item--labels {
-  font-size: 12px;
-  background: rgba(91, 112, 148, 0.25);
-  text-transform: uppercase;
-  font-weight: bold;
-  margin: 0;
-  padding: 4px 0; }
+.vtt .combat-control[data-control="resetAll"],
+.vtt .combat-settings[data-control="trackerSettings"],
+.vtt .combat-control[data-control="rollNPC"],
+.vtt .combat-control[data-control="rollAll"],
+.vtt .combat-control[data-control="previousTurn"],
+.vtt .combat-control[data-control="nextTurn"] {
+  display: none; }
 
 .vtt #combat-popout {
   width: 600px !important;
   height: auto !important; }
+
+.vtt #combat #combat-tracker {
+  background: rgba(0, 0, 0, 0.25); }
 
 .dungeonworld {
   font-family: "Alegreya", serif; }

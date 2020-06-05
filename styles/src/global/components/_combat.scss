@@ -1,8 +1,27 @@
 .sidebar-tab {
+  font-family: $font-stack-base;
+
+  #combat-round {
+    h3 {
+      font-family: $font-stack-secondary;
+    }
+  }
+
+  .directory-item--group,
+  .combat-control[data-control="endCombat"],
+  .combat-control[data-control="startCombat"] {
+    font-family: $font-stack-secondary;
+  }
+
   .directory-item--group {
     background: $c-navy-up;
     padding: 4px 10px;
     text-transform: uppercase;
+    justify-content: center;
+
+    &.npc {
+      background: $c-blood;
+    }
   }
 
   .directory-list {
@@ -25,18 +44,68 @@
     .directory-item {
       border-bottom: 1px solid rgba($c-black, 0.25);
       line-height: 1;
+
+      &.grid-6col {
+        // grid-template-columns: 32px 76px 22px 45px 70px 41px;
+        grid-template-columns: 11.111% 26.388% 7.638% 15.625% 21.305% 14.236%;
+        gap: 0.671%;
+      }
+
+      &.grid-5col {
+        // grid-template-columns: 32px 90px 22px 45px 100px;
+        grid-template-columns: 11.111% 30.388% 7.638% 15.625% 32.305%;
+        gap: 0.671%;
+      }
+    }
+  }
+
+  .ct-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    > span,
+    > button {
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
+    button {
+      background: $c-navy-up;
+      color: $c-white;
+      font-family: $font-stack-base;
+      border: 0;
+
+      &:hover {
+        text-shadow: none;
+        box-shadow: none;
+        background: $c-navy-hover;
+      }
+    }
+  }
+
+  .npc {
     .ct-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      button {
+        background: $c-blood;
+
+        &:hover {
+          background: $c-blood-hover;
+        }
+      }
     }
   }
 
   .ct-item--name {
     flex: 1;
+    &, & > * {
+      justify-content: flex-start;
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
   .ct-item--hp,
@@ -51,10 +120,32 @@
     font-weight: bold;
     margin: 0;
     padding: 4px 0;
+
+    &.npc {
+      background: rgba($c-blood, 0.25);
+    }
   }
+
 }
 
+// Hide unused controls.
+.combat-control[data-control="resetAll"],
+.combat-settings[data-control="trackerSettings"],
+.combat-control[data-control="rollNPC"],
+.combat-control[data-control="rollAll"],
+.combat-control[data-control="previousTurn"],
+.combat-control[data-control="nextTurn"] {
+  display: none;
+}
+
+// Resize the popout.
 #combat-popout {
   width: 600px !important;
   height: auto !important;
+}
+
+#combat {
+  #combat-tracker {
+    background: rgba($c-black, 0.25);
+  }
 }

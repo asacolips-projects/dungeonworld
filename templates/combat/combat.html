@@ -1,7 +1,7 @@
 <ol id="combat-tracker" class="directory-list directory-list--dw">
   {{#each combatants as |combatantGroup group|}}
-    <li class="directory-item flexrow directory-item--group">{{group}}</li>
-    <li class="directory-item grid {{#ifEquals group "character"}}grid-6col{{else}}grid-5col{{/ifEquals}} directory-item--labels">
+    <li class="directory-item flexrow directory-item--group {{group}}">{{group}}</li>
+    <li class="directory-item grid {{#ifEquals group "character"}}grid-6col{{else}}grid-5col{{/ifEquals}} directory-item--labels {{group}}">
       <div class="ct-item ct-item--img"></div>
       <div class="ct-item ct-item--name">Name</div>
       <div class="ct-item ct-item--hp">HP</div>
@@ -11,15 +11,15 @@
       <div class="ct-item ct-item--moves"># Moves</div>
       {{/ifEquals}}
     </li>
-    <ol class="directory-list--dw">
+    <ol class="directory-list--dw {{group}}">
       {{#each combatantGroup as |c index|}}
         {{log c}}
         <li class="directory-item grid {{#ifEquals group "character"}}grid-6col{{else}}grid-5col{{/ifEquals}}" data-actor-id="{{c.actor.data._id}}" data-token-id="{{c.tokenId}}" data-combatant-id="{{c._id}}">
           <div class="ct-item ct-item--img"><img src="{{c.img}}" alt="Thumbnail image for {{c.name}}"></div>
-          <div class="ct-item ct-item--name">{{c.name}}</div>
+          <div class="ct-item ct-item--name"><span>{{c.name}}</span></div>
           <div class="ct-item ct-item--hp">{{c.actor.data.data.attributes.hp.value}}</div>
           <div class="ct-item ct-item--ac">{{c.actor.data.data.attributes.ac.value}}</div>
-          <div class="ct-item ct-item--damage"><button>{{c.actor.data.data.attributes.damage.value}}</button></div>
+          <div class="ct-item ct-item--damage"><button title="{{c.actor.data.data.attributes.damage.value}}">{{c.actor.data.data.attributes.damage.value}}</button></div>
           {{#ifEquals group "character"}}
           <div class="ct-item ct-item--moves">{{#if c.flags.dungeonworld}}{{c.flags.dungeonworld.moveCount}}{{/if}}</div>
           {{/ifEquals}}
