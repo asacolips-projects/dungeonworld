@@ -386,7 +386,6 @@
   .vtt .sidebar-tab .directory-item--group {
     background: #5b7094;
     padding: 4px 10px;
-    text-transform: uppercase;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center; }
@@ -400,13 +399,34 @@
     padding: 0; }
     .vtt .sidebar-tab .directory-list--dw .directory-item {
       border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-      line-height: 1; }
+      line-height: 1;
+      -webkit-transition: all ease-in-out 0.25s;
+      -o-transition: all ease-in-out 0.25s;
+      transition: all ease-in-out 0.25s;
+      position: relative; }
+      .vtt .sidebar-tab .directory-list--dw .directory-item::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 5px;
+        width: 0px;
+        background: rgba(255, 255, 255, 0.75);
+        -webkit-transition: all ease-in-out 0.25s;
+        -o-transition: all ease-in-out 0.25s;
+        transition: all ease-in-out 0.25s;
+        pointer-events: none; }
       .vtt .sidebar-tab .directory-list--dw .directory-item.grid-6col {
         grid-template-columns: 11.111% 26.388% 7.638% 15.625% 21.305% 14.236%;
         gap: 0.671%; }
       .vtt .sidebar-tab .directory-list--dw .directory-item.grid-5col {
         grid-template-columns: 11.111% 30.388% 7.638% 15.625% 32.305%;
         gap: 0.671%; }
+    .vtt .sidebar-tab .directory-list--dw .drop-hover::after {
+      width: 100%; }
   .vtt .sidebar-tab .ct-item {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -433,6 +453,14 @@
         -webkit-box-shadow: none;
         box-shadow: none;
         background: #7e94bd; }
+    .vtt .sidebar-tab .ct-item input[type="text"] {
+      width: auto;
+      height: auto;
+      line-height: 1;
+      min-width: 0;
+      color: #fff;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.25); }
   .vtt .sidebar-tab .npc .ct-item button {
     background: #9a3f3f; }
     .vtt .sidebar-tab .npc .ct-item button:hover {

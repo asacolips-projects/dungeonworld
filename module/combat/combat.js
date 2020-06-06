@@ -2,7 +2,7 @@ import { DwUtility } from "../utility.js";
 
 export class CombatSidebarDw {
   startup() {
-    CONFIG.debug.hooks = true;
+    // CONFIG.debug.hooks = true;
 
     Hooks.on('ready', () => {
       // Damage rolls from the combat tracker.
@@ -20,6 +20,7 @@ export class CombatSidebarDw {
       });
     });
 
+    // Re-render combat when actors are modified.
     Hooks.on('updateActor', (actor, data, options, id) => {
       ui.combat.render();
     });
@@ -28,6 +29,8 @@ export class CombatSidebarDw {
       ui.combat.render();
     });
 
+    // Update the move counter if a player made a move. Requires a GM account
+    // to be logged in currently for the socket to work.
     game.socket.on('system.dungeonworld', (data) => {
       if (!game.user.isGM) {
         return;
@@ -39,13 +42,30 @@ export class CombatSidebarDw {
       }
     });
 
+    // Pre-roll initiative for new combatants.
+    Hooks.on('preCreateCombatant', (combat, combatant, options, id) => {
+      if (!combatant.initiative) {
+        let highestInit = 0;
+        let token = canvas.tokens.get(combatant.tokenId);
+        let actorType = token.actor ? token.actor.data.type : 'character';
+
+        let group = combat.combatants.filter(c => c.actor.data.type == actorType).forEach(c => {
+          let init = Number(c.initiative);
+          if (init >= highestInit) {
+            highestInit = init + 10;
+          }
+        });
+
+        combatant.initiative = highestInit;
+      }
+    });
+
     // TODO: Replace this hack that triggers an extra render.
     Hooks.on('renderSidebar', (app, html, options) => {
       ui.combat.render();
     });
 
     Hooks.on('renderCombatTracker', async (app, html, options) => {
-      console.log(app.tabName);
       if (app.tabName != 'combat') {
         return;
       }
@@ -67,14 +87,123 @@ export class CombatSidebarDw {
         let content = await renderTemplate(template, templateData)
         newHtml.find('#combat-tracker').remove();
         newHtml.find('#combat-round').after(content);
+
+        // HP update handler.
+        newHtml.find('.ct-item input').change(event => {
+          console.log('change');
+        });
+
+        // Drag handler for the combat tracker.
+        if (game.user.isGM) {
+          newHtml.find('.directory-item.actor-elem')
+            .attr('draggable', true).addClass('draggable')
+            // Initiate the drag event.
+            .on('dragstart', (event) => {
+              let dragData = event.currentTarget.dataset;
+              event.originalEvent.dataTransfer.setData('text/plain', JSON.stringify(dragData));
+
+              // Store the combatant type for reference.
+              let newCombatant = game.combat.combatants.find(c => c._id == dragData.combatantId);
+              event.originalEvent.dataTransfer.setData(`newtype--${dragData.actorType}`, '');
+            })
+            // Add a class on hover, if the actor types match.
+            .on('dragover', (event) => {
+              let $self = $(event.originalEvent.target);
+              let $dropTarget = $self.parents('.directory-item');
+
+              if ($dropTarget.hasClass('drop-hover')) {
+                return;
+              }
+
+              if (!$dropTarget.data('combatant-id')) {
+                return;
+              }
+
+              let oldType = $dropTarget.data('actor-type');
+              let newType = null;
+
+              if (!oldType) {
+                return;
+              }
+
+              newType = event.originalEvent.dataTransfer.types.find(t => t.includes('newtype'));
+              newType = newType ? newType.split('--')[1] : null;
+
+
+              if (newType == oldType) {
+                $dropTarget.addClass('drop-hover');
+              }
+              else {
+                return false;
+              }
+
+              return false;
+            })
+            // Remove the class on drag leave.
+            .on('dragleave', (event) => {
+              let $self = $(event.originalEvent.target);
+              let $dropTarget = $self.parents('.directory-item');
+              $dropTarget.removeClass('drop-hover');
+              return false;
+            })
+            // Update initiative on drop.
+            .on('drop', async (event) => {
+              // Retrieve a default encounter if none was provided
+              const view = game.scenes.viewed;
+              const combats = view ? game.combats.entities.filter(c => c.data.scene === view._id) : [];
+              let combat = combats.length ? combats.find(c => c.data.active) || combats[0] : null;
+
+              let $self = $(event.originalEvent.target);
+              let $dropTarget = $self.parents('.directory-item');
+              $dropTarget.removeClass('drop-hover');
+              // Get data.
+              let data;
+              try {
+                data = JSON.parse(event.originalEvent.dataTransfer.getData('text/plain'));
+                // if (data.type !== "Item") return;
+              } catch (err) {
+                return false;
+              }
+
+              let newCombatant = combat.combatants.find(c => c._id == data.combatantId);
+
+              let combatants = this.getCombatantsData(false);
+              let originalCombatant = combatants[newCombatant.actor.data.type].find(c => {
+                return c._id == $dropTarget.data('combatant-id');
+              });
+
+              let oldInit = originalCombatant ? originalCombatant.initiative : null;
+
+              if (oldInit !== null) {
+                let updatedCombatant = combatants[newCombatant.actor.data.type].find(c => c._id == newCombatant._id);
+                updatedCombatant.initiative = Number(oldInit) + 1;
+
+                let updatedInit = 0;
+                let updates = combatants[newCombatant.actor.data.type].sort((a, b) => a.initiative - b.initiative).map(c => {
+                  let result = {
+                    _id: c._id,
+                    initiative: updatedInit
+                  };
+                  updatedInit = updatedInit + 10;
+                  return result;
+                });
+
+                if (updates) {
+                  await combat.updateCombatant(updates);
+                }
+              }
+            }); // end of newHtml.find('.directory-item.actor-elem')
+        }
       }
     });
   }
 
-  getCombatantsData() {
+  getCombatantsData(updateInitiative = false) {
     if (!game.combat || !game.combat.data) {
       return [];
     }
+
+    let currentInitiative = 0;
 
     let combatants = game.combat.data.combatants.reduce((groups, combatant) => {
       let group = combatant.actor.data.type;
@@ -85,13 +214,24 @@ export class CombatSidebarDw {
       let displayBarsMode = Object.entries(CONST.TOKEN_DISPLAY_MODES).find(i => i[1] == combatant.token.displayBars)[0];
 
       let displayHealth = group == 'character' ? true : false;
-      if (displayBarsMode.includes("OWNER")) {
-        if (combatant.owner || game.user.isGM) {
+
+      if (group != 'character') {
+        if (displayBarsMode.includes("OWNER")) {
+          if (combatant.owner || game.user.isGM) {
+            displayHealth = true;
+          }
+        }
+        else if (displayBarsMode != "NONE") {
           displayHealth = true;
         }
-      }
-      else if (displayBarsMode != "NONE") {
-        displayHealth = true;
+        else {
+          displayHealth = game.user.isGM ? true : false;
+        }
+
+        if (updateInitiative) {
+          combatant.initiative = currentInitiative;
+          currentInitiative = currentInitiative + 10;
+        }
       }
 
       combatant.displayHealth = displayHealth;
@@ -106,153 +246,12 @@ export class CombatSidebarDw {
       return groups;
     }, {});
 
+    for (let [groupKey, group] of Object.entries(combatants)) {
+      combatants[groupKey].sort((a, b) => {
+        return Number(a.initiative) - Number(b.initiative)
+      });
+    }
+
     return combatants;
   }
 }
-
-// export class PopcornViewer extends Application {
-//   super(options) {
-//     //console.log("Super called");
-//   }
-
-//   activateListeners(html) {
-//     super.activateListeners(html);
-//     const myButton = html.find("button[name='act']");
-//     myButton.on("click", event => this._onClickButton(event, html));
-//   }
-
-//   static async _onClickButton(event, html) {
-//     //console.log("Event target id "+event.target.id);
-
-//     const tokenId = event.target.id;
-//     const token = canvas.tokens.get(tokenId);
-
-//     await token.setFlag("world", "popcornHasActed", true);
-//     await ChatMessage.create({
-//       content: `${token.name} has taken their action for the exchange.`,
-//       speaker:
-//       {
-//         alias: "Game: "
-//       }
-//     });
-//     game.socket.emit("module.Popcorn", { "HasActed": true });
-//     this.render(false);
-//   }
-
-//   static prepareButtons(hudButtons) {
-//     let hud = hudButtons.find(val => { return val.name == "token"; })
-
-//     if (hud) {
-//       hud.tools.push({
-//         name: "PopcornInitiative",
-//         title: "Pop-out popcorn initiative tracker",
-//         icon: "fas fa-bolt",
-//         onClick: () => {
-//           const delay = 200;
-
-//           let opt = Dialog.defaultOptions;
-//           opt.resizable = true;
-//           opt.title = "Popcorn Initiative Tracker";
-//           opt.width = 400;
-//           opt.height = 500;
-//           opt.minimizable = true;
-
-//           var viewer;
-//           viewer = new PopcornViewer(opt);
-//           viewer.render(true);
-
-//           Hooks.on('renderCombatTracker', () => {
-//             setTimeout(function() { viewer.render(false); }, delay);
-//           })
-
-//           game.socket.on("module.Popcorn", data => viewer.render(false))
-//         },
-//         button: true
-//       });
-//     }
-//   }
-
-//   getData() {
-//     let content = { content: `${this.preparePopcorn()}` }
-//     return content;
-//   }
-
-//   preparePopcorn() {
-//     //console.log("PreparePopcorn called");
-//     //Get a list of the active combatants
-//     if (game.combat != null) {
-//       var combatants = game.combat.combatants;
-//       var tokens = canvas.tokens.placeables;
-//       var tokenId;
-//       var viewer = viewer;
-
-//       let table = `<h1>Exchange ${game.combat.round}</h1><table border="1" cellspacing="0" cellpadding="4">`;
-
-//       //Create a header row
-//       let rows;
-//       if (game.user.isGM) {
-//         rows = [`<tr><td style="background: black; color: white;"></td><td style="background: black; color: white;">Character</td><td style="background: black; color: white;">Act Now?</td>`];
-//       } else {
-//         rows = [`<tr><td style="background: black; color: white;"></td><td style="background: black; color: white;">Character</td>`];
-//       }
-//       //Create a row for each combatant with the correct flag
-//       for (var i = 0; i < combatants.length; i++) {
-//         if (combatants[i].token != undefined) {
-//           tokenId = combatants[i].token._id;//This is the representative of a token in the combatants list.
-//         }
-//         //Now to find the token in the placeables layer that corresponds to this token.
-
-//         let foundToken = undefined;
-
-//         if (tokenId != undefined) {
-//           foundToken = tokens.find(val => { return val.id == tokenId; })
-//         }
-
-//         let hasActed = true;
-
-//         if (foundToken != undefined) {
-//           //There is no token for this actor in the conflict; it probably means the token has been deleted from the scene. We need to ignore this actor. Easiest way to do that is to leave hasActed as true.
-//           hasActed = foundToken.getFlag("world", "popcornHasActed");
-//         }
-
-//         if (game.user.isGM) {
-//           if (hasActed == undefined || hasActed == false) {
-//             rows.push(`<tr><td width="70"><img src="${foundToken.actor.img}" width="50" height="50"></img>
-//                 </td><td>${foundToken.name}</td>
-//                 <td><button type="button" id="${tokenId}" name="act" onclick=''>Act</button></td></tr>`);
-//           }
-//         } else {
-//           if (hasActed == undefined || hasActed == false) {
-//             rows.push(`<tr><td width="70"><img src="${foundToken.actor.img}" width="50" height="50"></img></td><td>${foundToken.name}</td>`)
-//           }
-//         }
-//       }
-//       let myContents = `${table}`;
-//       rows.forEach(element => myContents += element)
-//       myContents += "</table>"
-//       if (game.user.isGM) {
-//         myContents += `<button type ="button" onclick='
-//             let actors = canvas.tokens.placeables;
-//             actors.forEach(actor =>{actor.setFlag("world","popcornHasActed",false)});
-//             game.combat.nextRound();
-//             ChatMessage.create({content: "Starting a new exchange.", speaker : { alias : "Game: "}})
-//             '>Next Exchange</button><p>`
-//         myContents += `<button type ="button" onclick='
-//             let actors = canvas.tokens.placeables;
-//             actors.forEach(actor =>{actor.setFlag("world","popcornHasActed",false)});
-//             game.combat.endCombat();
-//             ChatMessage.create({content: "Ending the conflict.", speaker : { alias : "Game: "}})
-//             '>End this conflict</button>`
-//       }
-//       return myContents;
-//     } else { return "<h1>No Conflicts Detected!</h1>" }
-//   }
-
-//   // This function prepares the contents of the popcorn initiative viewer
-//   // Display the current exchange number
-//   // Display the actor icon of each combatant for which popcornHasActed is false or undefined.
-//   // Display the name of each combatant for which popcornHasActed is false or undefined.
-//   // Display a button that says 'act now'
-//   // At the end of the display of buttons etc. display a button that says 'next exchange'.
-
-// }

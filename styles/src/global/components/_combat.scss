@@ -16,7 +16,6 @@
   .directory-item--group {
     background: $c-navy-up;
     padding: 4px 10px;
-    text-transform: uppercase;
     justify-content: center;
 
     &.npc {
@@ -43,6 +42,23 @@
     .directory-item {
       border-bottom: 1px solid rgba($c-black, 0.25);
       line-height: 1;
+      transition: all ease-in-out 0.25s;
+      position: relative;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 5px;
+        width: 0px;
+        background: rgba($c-white, 0.75);
+        transition: all ease-in-out 0.25s;
+        pointer-events: none;
+      }
 
       &.grid-6col {
         // grid-template-columns: 32px 76px 22px 45px 70px 41px;
@@ -54,6 +70,12 @@
         // grid-template-columns: 32px 90px 22px 45px 100px;
         grid-template-columns: 11.111% 30.388% 7.638% 15.625% 32.305%;
         gap: 0.671%;
+      }
+    }
+
+    .drop-hover {
+      &::after {
+        width: 100%;
       }
     }
   }
@@ -81,6 +103,16 @@
         box-shadow: none;
         background: $c-navy-hover;
       }
+    }
+
+    input[type="text"] {
+      width: auto;
+      height: auto;
+      line-height: 1;
+      min-width: 0;
+      color: $c-white;
+      text-align: center;
+      border: 1px solid rgba($c-white, 0.25);
     }
   }
 

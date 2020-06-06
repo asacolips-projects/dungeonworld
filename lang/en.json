@@ -130,5 +130,9 @@
   "DW.Confirm": "Confirm",
   "DW.Prepared": "Prepared",
   "DW.Unprepared": "Unprepared",
-  "DW.DamageRoll": "Deal Damage"
+  "DW.DamageRoll": "Deal Damage",
+  "DW.character": "Character",
+  "DW.characters": "Characters",
+  "DW.npc": "NPC",
+  "DW.npcs": "NPCs"
 }
