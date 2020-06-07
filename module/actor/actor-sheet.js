@@ -75,16 +75,7 @@ export class DwActorSheet extends ActorSheet {
         // Calculate xp bar length.
         let currentXp = Number(data.data.attributes.xp.value);
         let nextLevel = Number(data.data.attributes.level.value) + 7;
-        let radius = 16;
-        // let circumference = radius * 2 * Math.PI;
-        let circumference = 100;
-        let percent = currentXp < nextLevel ? currentXp / nextLevel : 1;
-        let offset = circumference - (percent * circumference);
-        xpSvg = {
-          radius: radius,
-          circumference: circumference,
-          offset: offset,
-        };
+        xpSvg = DwUtility.getProgressCircle({ current: currentXp, max: nextLevel, radius: 16 });
       }
       else {
         data.data.levelup = false;

@@ -15,6 +15,7 @@ import { DwActorNpcSheet } from "./actor/actor-npc-sheet.js";
 import { DwClassItemSheet } from "./item/class-item-sheet.js";
 import { DwRegisterHelpers } from "./handlebars.js";
 import { DwUtility } from "./utility.js";
+import { CombatSidebarDw } from "./combat/combat.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -30,14 +31,8 @@ Hooks.once("init", async function() {
     DwUtility,
   };
 
-	/**
-	 * Set an initiative formula for the system
-	 * @type {String}
-	 */
-  CONFIG.Combat.initiative = {
-    formula: "1d20",
-    decimals: 2
-  };
+  // TODO: Extend the combat class.
+  // CONFIG.Combat.entityClass = CombatDw;
 
   CONFIG.DW = DW;
   CONFIG.Actor.entityClass = ActorDw;
@@ -61,6 +56,9 @@ Hooks.once("init", async function() {
   });
 
   DwRegisterHelpers.init();
+
+  let combatDw = new CombatSidebarDw();
+  combatDw.startup();
 });
 
 Hooks.once("ready", async function() {
@@ -154,7 +152,7 @@ Hooks.on('createActor', async (actor, options, id) => {
     // Add to the actor.
     const movesToAdd = moves.map(m => duplicate(m));
     await actor.createEmbeddedEntity('OwnedItem', movesToAdd);
-    await actor.update({ 'data.details.look': 'Eyes:\r\nHair:\r\nBody:\r\nSkin:\r\nClothes:' });
+    await actor.update({ 'data.details.look': game.i18n.localize("DW.DefaultLook") });
   }
 });
 
