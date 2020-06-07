@@ -24,6 +24,7 @@ DW.DebilityCha: Entstellt
 DW.Level: Stufe
 DW.XP: Erfahrung
 DW.Damage: Schaden
+DW.Dmg: Sch
 DW.Armor: Rüstung
 DW.HP: TP
 DW.Misc: z.B. d4+2
@@ -125,7 +126,13 @@ DW.ChooseAdvancedMoves: Wähle Spielzüge für Forgeschrittene
 DW.ChooseAdvanced2: 'Wenn du eine Stufe von 2–5 erreichst, wähle aus den folgenden Spielzügen:'
 DW.ChooseAdvanced6: 'Wenn du eine Stufe von 6–10 erreichst, wähle einen Spielzug aus der folgenden Liste oder der Liste der Stufen 2–5:'
 DW.ChooseSpells: Wähle Zauber
+DW.DefaultLook: "Augen:\r\nHaar:\r\nKörper:\r\nHaut:\r\nKleidung:"
 DW.Cancel: Abbruch
 DW.Confirm: Bestätigung
 DW.Prepared: Vorbereitet
 DW.Unprepared: Nicht vorbereitet
+DW.DamageRoll: Schaden verursachen
+DW.character: Charakter
+DW.characters: Charaktäre
+DW.npc: NSC
+DW.npcs: NSCs
