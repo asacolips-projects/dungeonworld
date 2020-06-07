@@ -152,7 +152,7 @@ Hooks.on('createActor', async (actor, options, id) => {
     // Add to the actor.
     const movesToAdd = moves.map(m => duplicate(m));
     await actor.createEmbeddedEntity('OwnedItem', movesToAdd);
-    await actor.update({ 'data.details.look': 'Eyes:\r\nHair:\r\nBody:\r\nSkin:\r\nClothes:' });
+    await actor.update({ 'data.details.look': game.i18n.localize("DW.DefaultLook") });
   }
 });
 

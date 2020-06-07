@@ -68,14 +68,12 @@
 
       &.grid-6col {
         // grid-template-columns: 32px 76px 22px 45px 70px 41px;
-        // grid-template-columns: 11.111% 26.388% 13.638% 13.625% 17.305% 14.236%;
         grid-template-columns: 11% 32% 14% 12% 17% 14%;
         gap: 0%;
       }
 
       &.grid-5col {
         // grid-template-columns: 32px 90px 22px 45px 100px;
-        // grid-template-columns: 11.111% 31.388% 13.638% 12.625% 30.305%;
         grid-template-columns: 11% 33% 14% 12% 30%;
         gap: 0%;
       }
@@ -169,6 +167,7 @@
       width: 32px;
       height: 32px;
       border-radius: 50%;
+      overflow: hidden;
     }
 
     .progress-ring {

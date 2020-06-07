@@ -69,7 +69,7 @@ export class DwUtility {
   }
 
   static getProgressCircle({ current = 100, max = 100, radius = 16 }) {
-    let circumference = radius * 6.25;
+    let circumference = radius * 2 * Math.PI;
     let percent = current < max ? current / max : 1;
     let percentNumber = percent * 100;
     let offset = circumference - (percent * circumference);
