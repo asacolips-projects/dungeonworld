@@ -162,7 +162,7 @@ languages:
     name: Français
     path: lang/fr.json
   - lang: de
-    name: Deutsche
+    name: Deutsch
     path: lang/de.json
 gridDistance: 5
 gridUnits: ft
