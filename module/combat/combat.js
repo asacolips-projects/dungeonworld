@@ -91,6 +91,51 @@ export class CombatSidebarDw {
         // HP update handler.
         newHtml.find('.ct-item input').change(event => {
           console.log('change');
+          event.preventDefault();
+
+          const dataset = event.currentTarget.dataset;
+          let $input = $(event.currentTarget);
+          let $actorRow = $input.parents('.directory-item.actor-elem');
+
+          console.log($actorRow);
+
+          if (!$actorRow.length > 0) {
+            return;
+          }
+
+          const combatant = game.combat.combatants.find(c => c._id == $actorRow.data('combatant-id'));
+
+          console.log(combatant);
+          if (!combatant) {
+            return;
+          }
+
+          const actor = combatant.actor;
+
+          // Check for bad numbers.
+          let value = $input.val();
+          if (dataset.dtype == 'Number') {
+            value = Number(value);
+            if (Number.isNaN(value)) {
+              $input.val(actor.data.data.attributes.hp.value);
+              return false;
+            }
+          }
+
+          let updateData = {};
+          let operation = $input.val().match(/^\+|\-/g);
+          if (operation) {
+            updateData[$input.attr('name')] = Number(actor.data.data.attributes.hp.value) + value;
+          }
+          else {
+            updateData[$input.attr('name')] = value;
+          }
+
+          console.log(actor);
+          console.log(updateData);
+          actor.update(updateData);
+
+          return;
         });
 
         // Drag handler for the combat tracker.
@@ -206,43 +251,50 @@ export class CombatSidebarDw {
     let currentInitiative = 0;
 
     let combatants = game.combat.data.combatants.reduce((groups, combatant) => {
-      let group = combatant.actor.data.type;
-      if (!groups[group]) {
-        groups[group] = [];
-      }
+      // Append valid actors to the appropriate group.
+      if (combatant.actor) {
+        let group = combatant.actor.data.type;
+        if (!groups[group]) {
+          groups[group] = [];
+        }
 
-      let displayBarsMode = Object.entries(CONST.TOKEN_DISPLAY_MODES).find(i => i[1] == combatant.token.displayBars)[0];
+        let displayBarsMode = Object.entries(CONST.TOKEN_DISPLAY_MODES).find(i => i[1] == combatant.token.displayBars)[0];
 
-      let displayHealth = group == 'character' ? true : false;
+        let displayHealth = group == 'character' ? true : false;
 
-      if (group != 'character') {
-        if (displayBarsMode.includes("OWNER")) {
-          if (combatant.owner || game.user.isGM) {
+        if (group != 'character') {
+          if (displayBarsMode.includes("OWNER")) {
+            if (combatant.owner || game.user.isGM) {
+              displayHealth = true;
+            }
+          }
+          else if (displayBarsMode != "NONE") {
             displayHealth = true;
           }
-        }
-        else if (displayBarsMode != "NONE") {
-          displayHealth = true;
-        }
-        else {
-          displayHealth = game.user.isGM ? true : false;
+          else {
+            displayHealth = game.user.isGM ? true : false;
+          }
+
+          if (updateInitiative) {
+            combatant.initiative = currentInitiative;
+            currentInitiative = currentInitiative + 10;
+          }
         }
 
-        if (updateInitiative) {
-          combatant.initiative = currentInitiative;
-          currentInitiative = currentInitiative + 10;
-        }
+        combatant.displayHealth = displayHealth;
+
+        combatant.healthSvg = DwUtility.getProgressCircle({
+          current: combatant.actor.data.data.attributes.hp.value,
+          max: combatant.actor.data.data.attributes.hp.max,
+          radius: 16
+        });
+
+        groups[group].push(combatant);
       }
-
-      combatant.displayHealth = displayHealth;
-
-      combatant.healthSvg = DwUtility.getProgressCircle({
-        current: combatant.actor.data.data.attributes.hp.value,
-        max: combatant.actor.data.data.attributes.hp.max,
-        radius: 16
-      });
-
-      groups[group].push(combatant);
+      // Remove deleted actors from the combat.
+      else {
+        game.combat.deleteCombatant(combatant._id);
+      }
       return groups;
     }, {});
 
