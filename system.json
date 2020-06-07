@@ -4,7 +4,7 @@
   "description": "The Dungeon World system for FoundryVTT!",
   "version": "0.4.0",
   "minimumCoreVersion": "0.5.2",
-  "compatibleCoreVersion": "0.6.1",
+  "compatibleCoreVersion": "0.6.2",
   "templateVersion": 2,
   "author": "Asacolips, Vasid",
   "esmodules": [
