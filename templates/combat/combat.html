@@ -1,6 +1,11 @@
 <ol id="combat-tracker" class="directory-list directory-list--dw">
   {{#each combatants as |combatantGroup group|}}
-    <li class="directory-item flexrow directory-item--group {{group}}">{{localize (concat "DW." group "s")}}</li>
+    <li class="directory-item flexrow directory-item--group {{group}}">
+      <div class="ct-label ct-label--name">{{localize (concat "DW." group "s")}}</div>
+      {{#ifEquals group "character"}}
+      <div class="ct-label ct-label--moves">{{../moveTotal}}</div>
+      {{/ifEquals}}
+    </li>
     <li class="directory-item grid {{#ifEquals group "character"}}grid-6col{{else}}grid-5col{{/ifEquals}} directory-item--labels {{group}}">
       <div class="ct-item ct-item--img"></div>
       <div class="ct-item ct-item--name">Name</div>
@@ -8,12 +13,12 @@
       <div class="ct-item ct-item--ac">Armor</div>
       <div class="ct-item ct-item--damage">Dmg</div>
       {{#ifEquals group "character"}}
-      <div class="ct-item ct-item--moves"># Moves</div>
+      <div class="ct-item ct-item--moves">Moves</div>
       {{/ifEquals}}
     </li>
     <ol class="directory-list--dw {{group}}">
       {{#each combatantGroup as |c index|}}
-        <li class="directory-item actor-elem grid {{#ifEquals group "character"}}grid-6col{{else}}grid-5col{{/ifEquals}}" data-actor-id="{{c.actor.data._id}}" data-token-id="{{c.tokenId}}" data-combatant-id="{{c._id}}" data-actor-type="{{c.actor.data.type}}">
+        <li class="directory-item actor-elem {{#if c.token.hidden}}hidden{{/if}} grid {{#ifEquals group "character"}}grid-6col{{else}}grid-5col{{/ifEquals}}" data-actor-id="{{c.actor.data._id}}" data-token-id="{{c.tokenId}}" data-combatant-id="{{c._id}}" data-actor-type="{{c.actor.data.type}}">
           <div class="ct-item ct-item--img">
             <div class="image-wrapper">
               <img src="{{c.img}}" alt="Thumbnail image for {{c.name}}">
@@ -21,7 +26,15 @@
             </div>
           </div>
           <div class="ct-item ct-item--name"><span>{{c.name}}</span></div>
-          <div class="ct-item ct-item--hp">{{#if c.displayHealth}}<input type="text" name="data.attributes.hp.value" value="{{c.actor.data.data.attributes.hp.value}}" data-dtype="Number">{{else}}???{{/if}}</div>
+          <div class="ct-item ct-item--hp">
+            {{#if c.displayHealth}}
+              {{#if c.editable}}
+                <input type="text" name="data.attributes.hp.value" value="{{c.actor.data.data.attributes.hp.value}}" data-dtype="Number">
+              {{else}}
+                <span>{{c.actor.data.data.attributes.hp.value}}</span>
+              {{/if}}
+            {{else}}???{{/if}}
+          </div>
           <div class="ct-item ct-item--ac">{{#if c.displayHealth}}{{c.actor.data.data.attributes.ac.value}}{{else}}???{{/if}}</div>
           <div class="ct-item ct-item--damage"><button class="dw-rollable damage-rollable" data-roll="{{c.actor.data.data.attributes.damage.value}}" data-label="{{localize "DW.DamageRoll"}}" title="{{c.actor.data.data.attributes.damage.value}}">{{c.actor.data.data.attributes.damage.value}}</button></div>
           {{#ifEquals group "character"}}

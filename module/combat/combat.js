@@ -77,11 +77,19 @@ export class CombatSidebarDw {
       }
 
       if (game.combat) {
-        let combatants = game.combat.data ? game.combat.data.combatants : [];
+        let combatants = this.getCombatantsData();
+        let moveTotal = 0;
+
+        if (combatants.character) {
+          combatants.character.forEach(c => {
+            moveTotal = c.flags.dungeonworld ? moveTotal + Number(c.flags.dungeonworld.moveCount) : moveTotal;
+          });
+        }
 
         let template = 'systems/dungeonworld/templates/combat/combat.html';
         let templateData = {
-          combatants: this.getCombatantsData()
+          combatants: combatants,
+          moveTotal: moveTotal
         };
 
         let content = await renderTemplate(template, templateData)
@@ -282,6 +290,7 @@ export class CombatSidebarDw {
         }
 
         combatant.displayHealth = displayHealth;
+        combatant.editable = combatant.owner || game.user.isGM;
 
         combatant.healthSvg = DwUtility.getProgressCircle({
           current: combatant.actor.data.data.attributes.hp.value,
@@ -289,7 +298,9 @@ export class CombatSidebarDw {
           radius: 16
         });
 
-        groups[group].push(combatant);
+        if (game.user.isGM || combatant.owner || !combatant.token.hidden) {
+          groups[group].push(combatant);
+        }
       }
       // Remove deleted actors from the combat.
       else {

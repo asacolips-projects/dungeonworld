@@ -403,7 +403,9 @@
       -webkit-transition: all ease-in-out 0.25s;
       -o-transition: all ease-in-out 0.25s;
       transition: all ease-in-out 0.25s;
-      position: relative; }
+      position: relative;
+      padding-left: 5px;
+      padding-right: 5px; }
       .vtt .sidebar-tab .directory-list--dw .directory-item::after {
         content: '';
         display: block;
@@ -419,14 +421,22 @@
         -o-transition: all ease-in-out 0.25s;
         transition: all ease-in-out 0.25s;
         pointer-events: none; }
+      .vtt .sidebar-tab .directory-list--dw .directory-item.hidden {
+        opacity: 0.5; }
       .vtt .sidebar-tab .directory-list--dw .directory-item.grid-6col {
-        grid-template-columns: 11.111% 26.388% 7.638% 15.625% 21.305% 14.236%;
-        gap: 0.671%; }
+        grid-template-columns: 11% 32% 14% 12% 17% 14%;
+        gap: 0%; }
       .vtt .sidebar-tab .directory-list--dw .directory-item.grid-5col {
-        grid-template-columns: 11.111% 30.388% 7.638% 15.625% 32.305%;
-        gap: 0.671%; }
+        grid-template-columns: 11% 33% 14% 12% 30%;
+        gap: 0%; }
     .vtt .sidebar-tab .directory-list--dw .drop-hover::after {
       width: 100%; }
+  .vtt .sidebar-tab .ct-label {
+    text-align: center; }
+  .vtt .sidebar-tab .ct-label--moves {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 14%;
+    flex: 0 0 14%; }
   .vtt .sidebar-tab .ct-item {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -468,7 +478,8 @@
   .vtt .sidebar-tab .ct-item--name {
     -webkit-box-flex: 1;
     -ms-flex: 1;
-    flex: 1; }
+    flex: 1;
+    padding: 0 4px; }
     .vtt .sidebar-tab .ct-item--name, .vtt .sidebar-tab .ct-item--name > * {
       -webkit-box-pack: start;
       -ms-flex-pack: start;
