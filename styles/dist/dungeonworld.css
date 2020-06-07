@@ -55,8 +55,8 @@
   grid-template-columns: repeat(5, minmax(0, 1fr)); }
 
 .grid-6col {
-  grid-column: span 5 / span 5;
-  grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  grid-column: span 6 / span 6;
+  grid-template-columns: repeat(6, minmax(0, 1fr)); }
 
 .grid-7col {
   grid-column: span 7 / span 7;
@@ -374,6 +374,189 @@
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   padding-right: 10px; }
+
+.vtt .sidebar-tab {
+  font-family: "Alegreya", serif; }
+  .vtt .sidebar-tab #combat-round h3 {
+    font-family: "Metamorphous", serif; }
+  .vtt .sidebar-tab .directory-item--group,
+  .vtt .sidebar-tab .combat-control[data-control="endCombat"],
+  .vtt .sidebar-tab .combat-control[data-control="startCombat"] {
+    font-family: "Metamorphous", serif; }
+  .vtt .sidebar-tab .directory-item--group {
+    background: #5b7094;
+    padding: 4px 10px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .vtt .sidebar-tab .directory-item--group.npc {
+      background: #9a3f3f; }
+  .vtt .sidebar-tab .directory-list .directory-item .ct-item--img img {
+    width: 100%;
+    height: auto;
+    margin: auto; }
+  .vtt .sidebar-tab .directory-list--dw {
+    padding: 0; }
+    .vtt .sidebar-tab .directory-list--dw .directory-item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+      line-height: 1;
+      -webkit-transition: all ease-in-out 0.25s;
+      -o-transition: all ease-in-out 0.25s;
+      transition: all ease-in-out 0.25s;
+      position: relative;
+      padding-left: 5px;
+      padding-right: 5px; }
+      .vtt .sidebar-tab .directory-list--dw .directory-item::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 5px;
+        width: 0px;
+        background: rgba(255, 255, 255, 0.75);
+        -webkit-transition: all ease-in-out 0.25s;
+        -o-transition: all ease-in-out 0.25s;
+        transition: all ease-in-out 0.25s;
+        pointer-events: none; }
+      .vtt .sidebar-tab .directory-list--dw .directory-item.hidden {
+        opacity: 0.5; }
+      .vtt .sidebar-tab .directory-list--dw .directory-item.grid-6col {
+        grid-template-columns: 11% 32% 14% 12% 17% 14%;
+        gap: 0%; }
+      .vtt .sidebar-tab .directory-list--dw .directory-item.grid-5col {
+        grid-template-columns: 11% 33% 14% 12% 30%;
+        gap: 0%; }
+    .vtt .sidebar-tab .directory-list--dw .drop-hover::after {
+      width: 100%; }
+  .vtt .sidebar-tab .ct-label {
+    text-align: center; }
+  .vtt .sidebar-tab .ct-label--moves {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 14%;
+    flex: 0 0 14%; }
+  .vtt .sidebar-tab .ct-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center; }
+    .vtt .sidebar-tab .ct-item > span,
+    .vtt .sidebar-tab .ct-item > button {
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis; }
+    .vtt .sidebar-tab .ct-item button {
+      background: #5b7094;
+      color: #fff;
+      font-family: "Alegreya", serif;
+      border: 0; }
+      .vtt .sidebar-tab .ct-item button:hover {
+        text-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background: #7e94bd; }
+    .vtt .sidebar-tab .ct-item input[type="text"] {
+      width: auto;
+      height: auto;
+      line-height: 1;
+      min-width: 0;
+      color: #fff;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.25); }
+  .vtt .sidebar-tab .npc .ct-item button {
+    background: #9a3f3f; }
+    .vtt .sidebar-tab .npc .ct-item button:hover {
+      background: #bf5454; }
+  .vtt .sidebar-tab .ct-item--name {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 0 4px; }
+    .vtt .sidebar-tab .ct-item--name, .vtt .sidebar-tab .ct-item--name > * {
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis; }
+  .vtt .sidebar-tab .ct-item--hp,
+  .vtt .sidebar-tab .ct-item--armor {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 32px;
+    flex: 0 0 32px; }
+  .vtt .sidebar-tab .ct-item--img .image-wrapper {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden; }
+  .vtt .sidebar-tab .ct-item--img .progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-box-shadow: inset 0 0 3px 5px rgba(0, 0, 0, 0.65);
+    box-shadow: inset 0 0 3px 5px rgba(0, 0, 0, 0.65);
+    border-radius: 50%; }
+  .vtt .sidebar-tab .ct-item--img .progress-ring--100 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--90 circle {
+    stroke: #41c179; }
+  .vtt .sidebar-tab .ct-item--img .progress-ring--80 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--70 circle {
+    stroke: #f7d601; }
+  .vtt .sidebar-tab .ct-item--img .progress-ring--60 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--50 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--40 circle {
+    stroke: #f78c01; }
+  .vtt .sidebar-tab .ct-item--img .progress-ring--30 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--20 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--10 circle,
+  .vtt .sidebar-tab .ct-item--img .progress-ring--0 circle {
+    stroke: #ca0000; }
+  .vtt .sidebar-tab .actor-elem .ct-item--moves {
+    font-family: "Metamorphous", serif;
+    font-size: 14px; }
+  .vtt .sidebar-tab .directory-item--labels {
+    font-size: 12px;
+    background: rgba(91, 112, 148, 0.25);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+    padding: 4px 0; }
+    .vtt .sidebar-tab .directory-item--labels.npc {
+      background: rgba(154, 63, 63, 0.25); }
+
+.vtt .combat-control[data-control="resetAll"],
+.vtt .combat-settings[data-control="trackerSettings"],
+.vtt .combat-control[data-control="rollNPC"],
+.vtt .combat-control[data-control="rollAll"],
+.vtt .combat-control[data-control="previousTurn"],
+.vtt .combat-control[data-control="nextTurn"] {
+  display: none; }
+
+.vtt #combat-popout {
+  width: 600px !important;
+  height: auto !important; }
+  .vtt #combat-popout .ct-item--img .image-wrapper {
+    width: 62px;
+    height: 62px; }
+  .vtt #combat-popout .ct-item--img .progress-ring {
+    -webkit-box-shadow: inset 0 0 5px 9px rgba(0, 0, 0, 0.65);
+    box-shadow: inset 0 0 5px 9px rgba(0, 0, 0, 0.65); }
+
+.vtt #combat #combat-tracker {
+  background: rgba(0, 0, 0, 0.25); }
 
 .dungeonworld {
   font-family: "Alegreya", serif; }
