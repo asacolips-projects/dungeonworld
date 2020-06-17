@@ -161,7 +161,7 @@ export class ActorDw extends Actor {
           renderTemplate(template, templateData).then(content => {
             chatData.content = content;
             if (game.dice3d) {
-              game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+              game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
             }
             else {
               chatData.sound = CONFIG.sounds.dice;

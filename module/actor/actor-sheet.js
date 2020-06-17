@@ -307,10 +307,12 @@ export class DwActorSheet extends ActorSheet {
     // Get the original class name if this was a translation.
     if (game.babele) {
       let babele_classes = game.babele.translations.find(p => p.collection == 'dungeonworld.classes');
-      let babele_pack = babele_classes.entries.find(p => p.name == char_class_name);
-      if (babele_pack) {
-        char_class_name = babele_pack.id;
-        char_class = DwUtility.cleanClass(babele_pack.id);
+      if (babele_classes) {
+        let babele_pack = babele_classes.entries.find(p => p.name == char_class_name);
+        if (babele_pack) {
+          char_class_name = babele_pack.id;
+          char_class = DwUtility.cleanClass(babele_pack.id);
+        }
       }
     }
 
@@ -855,7 +857,7 @@ export class DwActorSheet extends ActorSheet {
           renderTemplate(template, templateData).then(content => {
             chatData.content = content;
             if (game.dice3d) {
-              game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+              game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
             }
             else {
               chatData.sound = CONFIG.sounds.dice;
