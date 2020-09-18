@@ -1,7 +1,7 @@
 name: dungeonworld
 title: Dungeon World
 description: The Dungeon World system for FoundryVTT!
-version: 0.4.3
+version: 0.4.4
 minimumCoreVersion: 0.5.2
 compatibleCoreVersion: 0.7.0
 templateVersion: 2
@@ -9,14 +9,10 @@ author: Asacolips, Vasid
 esmodules:
   - module/dungeonworld.js
 styles:
-  # - styles/lib/tag-basic-style.css
-  # - styles/lib/awesomplete.css
   - styles/lib/tagify.css
   - styles/dist/dungeonworld.css
 scripts:
-  # - scripts/lib/tagging.min.js
   - scripts/lib/tagify.min.js
-  # - scripts/lib/awesomplete.min.js
 packs:
   - name: classes
     label: Classes
@@ -144,13 +140,69 @@ packs:
     system: dungeonworld
     package: world
     absPath: "./packs/charts.db"
-  - label: Monsters
+  - label: Monsters - 01 Cavern Dwellers
     entity: Actor
-    name: monsters
-    path: packs/monsters.db
+    name: monsters-01-cavern-dwellers
+    path: packs/monsters-01-cavern-dwellers.db
     system: dungeonworld
     package: world
-    absPath: "./packs/monsters.db"
+    absPath: "./packs/monsters-01-cavern-dwellers.db"
+  - label: Monsters - 02 Swamp Denizens
+    entity: Actor
+    name: monsters-02-swamp-denizens
+    path: packs/monsters-02-swamp-denizens.db
+    system: dungeonworld
+    package: world
+    absPath: "./packs/monsters-02-swamp-denizens.db"
+  - label: Monsters - 03 Undead Legions
+    entity: Actor
+    name: monsters-03-undead-legions
+    path: packs/monsters-03-undead-legions.db
+    system: dungeonworld
+    package: world
+    absPath: "./packs/monsters-03-undead-legions.db"
+  - label: Monsters - 04 Dark Woods
+    entity: Actor
+    name: monsters-04-dark-woods
+    path: packs/monsters-04-dark-woods.db
+    system: dungeonworld
+    package: world
+    absPath: "./packs/monsters-04-dark-woods.db"
+  - label: Monsters - 05 Ravenous Hordes
+    entity: Actor
+    name: monsters-05-ravenous-hordes
+    path: packs/monsters-05-ravenous-hordes.db
+    system: dungeonworld
+    package: world
+    absPath: "./packs/monsters-05-ravenous-hordes.db"
+  - label: Monsters - 06 Twisted Experiments
+    entity: Actor
+    name: monsters-06-twisted-experiments
+    path: packs/monsters-06-twisted-experiments.db
+    system: dungeonworld
+    package: world
+    absPath: "./packs/monsters-06-twisted-experiments.db"
+  - label: Monsters - 07 Lower Depths
+    entity: Actor
+    name: monsters-07-lower-depths
+    path: packs/monsters-07-lower-depths.db
+    system: dungeonworld
+    package: world
+    absPath: "./packs/monsters-07-lower-depths.db"
+  - label: Monsters - 08 Planar Powers
+    entity: Actor
+    name: monsters-08-planar-powers
+    path: packs/monsters-08-planar-powers.db
+    system: dungeonworld
+    package: world
+    absPath: "./packs/monsters-08-planar-powers.db"
+  - label: Monsters - 09 Folk of the Realm
+    entity: Actor
+    name: monsters-09-folk-of-the-realm
+    path: packs/monsters-09-folk-of-the-realm.db
+    system: dungeonworld
+    package: world
+    absPath: "./packs/monsters-09-folk-of-the-realm.db"
 languages:
   - lang: en
     name: English
@@ -172,4 +224,4 @@ initiative: 1d20
 socket: true
 url: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld
 manifest: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/raw/master/system.json
-download: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/archive/0.4.3/dungeonworld-master.zip
+download: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/archive/0.4.4/dungeonworld-master.zip
