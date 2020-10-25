@@ -282,12 +282,15 @@
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between; }
+  .vtt .window-app .dialog-buttons .dialog-button,
   .vtt .window-app .dialog-button {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
     background: #2d3748;
-    color: #fff; }
+    color: #fff;
+    border: 0; }
+    .vtt .window-app .dialog-buttons .dialog-button:hover,
     .vtt .window-app .dialog-button:hover {
       background: #5b7094; }
 

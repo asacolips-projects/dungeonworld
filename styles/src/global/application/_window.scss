@@ -92,10 +92,12 @@
     justify-content: space-between;
   }
 
+  .dialog-buttons .dialog-button,
   .dialog-button {
     flex: 1;
     background: $c-navy;
     color: $c-white;
+    border: 0;
 
     &:hover {
       background: $c-navy-up;
