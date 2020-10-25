@@ -16,6 +16,7 @@ import { DwClassItemSheet } from "./item/class-item-sheet.js";
 import { DwRegisterHelpers } from "./handlebars.js";
 import { DwUtility } from "./utility.js";
 import { CombatSidebarDw } from "./combat/combat.js";
+import { MigrateDw } from "./migrate/migrate.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -29,6 +30,7 @@ Hooks.once("init", async function() {
     ItemDw,
     rollItemMacro,
     DwUtility,
+    MigrateDw,
   };
 
   // TODO: Extend the combat class.
@@ -59,6 +61,17 @@ Hooks.once("init", async function() {
 
   let combatDw = new CombatSidebarDw();
   combatDw.startup();
+
+  /**
+   * Track the system version upon which point a migration was last applied
+   */
+  game.settings.register("dungeonworld", "systemMigrationVersion", {
+    name: "System Migration Version",
+    scope: "world",
+    config: false,
+    type: Number,
+    default: 0
+  });
 });
 
 Hooks.once("ready", async function() {
@@ -71,6 +84,9 @@ Hooks.once("ready", async function() {
   // Add a lang class to the body.
   const lang = game.settings.get('core', 'language');
   $('html').addClass(`lang-${lang}`);
+
+  // Run migrations.
+  MigrateDw.runMigration();
 });
 
 Hooks.on('renderChatMessage', (data, html, options) => {

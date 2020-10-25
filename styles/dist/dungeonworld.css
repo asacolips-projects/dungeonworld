@@ -796,13 +796,15 @@
     height: auto;
     margin: 0 0 10px 0; }
   .dungeonworld.sheet .tabs {
-    border-bottom: 1px solid; }
+    border-bottom: 1px solid;
+    border-top: 0; }
     .dungeonworld.sheet .tabs .item {
       border: 1px solid;
       background: #bcc8de;
       border-radius: 4px 4px 0 0;
       margin: 0 5px -1px;
-      padding: 4px; }
+      padding: 4px;
+      line-height: 1.4; }
       .dungeonworld.sheet .tabs .item:hover, .dungeonworld.sheet .tabs .item:focus {
         background: #edf2f7;
         text-shadow: none; }
@@ -816,7 +818,8 @@
   .dungeonworld.sheet .item-form .sheet-navigation {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 30px;
-    flex: 0 0 30px; }
+    flex: 0 0 30px;
+    border-top: 0; }
   .dungeonworld.sheet .item-form .sheet-header {
     margin-bottom: 10px; }
   .dungeonworld.sheet .item-form .tab,
@@ -1178,6 +1181,7 @@
   .dungeonworld.sheet .cell--basic-moves .items-list,
   .dungeonworld.sheet .cell--starting-moves .items-list,
   .dungeonworld.sheet .cell--advanced-moves .items-list,
+  .dungeonworld.sheet .cell--special-moves .items-list,
   .dungeonworld.sheet .cell--other-moves .items-list,
   .dungeonworld.sheet .cell--equipment .items-list,
   .dungeonworld.sheet .cell--spells .items-list {
@@ -1185,6 +1189,7 @@
     .dungeonworld.sheet .cell--basic-moves .items-list .item,
     .dungeonworld.sheet .cell--starting-moves .items-list .item,
     .dungeonworld.sheet .cell--advanced-moves .items-list .item,
+    .dungeonworld.sheet .cell--special-moves .items-list .item,
     .dungeonworld.sheet .cell--other-moves .items-list .item,
     .dungeonworld.sheet .cell--equipment .items-list .item,
     .dungeonworld.sheet .cell--spells .items-list .item {
@@ -1192,6 +1197,7 @@
   .dungeonworld.sheet .cell--basic-moves .item-name,
   .dungeonworld.sheet .cell--starting-moves .item-name,
   .dungeonworld.sheet .cell--advanced-moves .item-name,
+  .dungeonworld.sheet .cell--special-moves .item-name,
   .dungeonworld.sheet .cell--other-moves .item-name,
   .dungeonworld.sheet .cell--equipment .item-name,
   .dungeonworld.sheet .cell--spells .item-name {
@@ -1204,6 +1210,7 @@
     .dungeonworld.sheet .cell--basic-moves .item-name .rollable,
     .dungeonworld.sheet .cell--starting-moves .item-name .rollable,
     .dungeonworld.sheet .cell--advanced-moves .item-name .rollable,
+    .dungeonworld.sheet .cell--special-moves .item-name .rollable,
     .dungeonworld.sheet .cell--other-moves .item-name .rollable,
     .dungeonworld.sheet .cell--equipment .item-name .rollable,
     .dungeonworld.sheet .cell--spells .item-name .rollable {
@@ -1216,6 +1223,7 @@
       .dungeonworld.sheet .cell--basic-moves .item-name .rollable:hover,
       .dungeonworld.sheet .cell--starting-moves .item-name .rollable:hover,
       .dungeonworld.sheet .cell--advanced-moves .item-name .rollable:hover,
+      .dungeonworld.sheet .cell--special-moves .item-name .rollable:hover,
       .dungeonworld.sheet .cell--other-moves .item-name .rollable:hover,
       .dungeonworld.sheet .cell--equipment .item-name .rollable:hover,
       .dungeonworld.sheet .cell--spells .item-name .rollable:hover {
@@ -1225,6 +1233,7 @@
   .dungeonworld.sheet .cell--basic-moves .item-controls,
   .dungeonworld.sheet .cell--starting-moves .item-controls,
   .dungeonworld.sheet .cell--advanced-moves .item-controls,
+  .dungeonworld.sheet .cell--special-moves .item-controls,
   .dungeonworld.sheet .cell--other-moves .item-controls,
   .dungeonworld.sheet .cell--equipment .item-controls,
   .dungeonworld.sheet .cell--spells .item-controls {
@@ -1235,6 +1244,7 @@
   .dungeonworld.sheet .cell--basic-moves .item-description,
   .dungeonworld.sheet .cell--starting-moves .item-description,
   .dungeonworld.sheet .cell--advanced-moves .item-description,
+  .dungeonworld.sheet .cell--special-moves .item-description,
   .dungeonworld.sheet .cell--other-moves .item-description,
   .dungeonworld.sheet .cell--equipment .item-description,
   .dungeonworld.sheet .cell--spells .item-description {
@@ -1246,6 +1256,7 @@
   .dungeonworld.sheet .cell--basic-moves .item-meta,
   .dungeonworld.sheet .cell--starting-moves .item-meta,
   .dungeonworld.sheet .cell--advanced-moves .item-meta,
+  .dungeonworld.sheet .cell--special-moves .item-meta,
   .dungeonworld.sheet .cell--other-moves .item-meta,
   .dungeonworld.sheet .cell--equipment .item-meta,
   .dungeonworld.sheet .cell--spells .item-meta {
@@ -1265,6 +1276,7 @@
     .dungeonworld.sheet .cell--basic-moves .item-meta > span,
     .dungeonworld.sheet .cell--starting-moves .item-meta > span,
     .dungeonworld.sheet .cell--advanced-moves .item-meta > span,
+    .dungeonworld.sheet .cell--special-moves .item-meta > span,
     .dungeonworld.sheet .cell--other-moves .item-meta > span,
     .dungeonworld.sheet .cell--equipment .item-meta > span,
     .dungeonworld.sheet .cell--spells .item-meta > span {
@@ -1272,6 +1284,7 @@
       .dungeonworld.sheet .cell--basic-moves .item-meta > span + span,
       .dungeonworld.sheet .cell--starting-moves .item-meta > span + span,
       .dungeonworld.sheet .cell--advanced-moves .item-meta > span + span,
+      .dungeonworld.sheet .cell--special-moves .item-meta > span + span,
       .dungeonworld.sheet .cell--other-moves .item-meta > span + span,
       .dungeonworld.sheet .cell--equipment .item-meta > span + span,
       .dungeonworld.sheet .cell--spells .item-meta > span + span {
@@ -1279,6 +1292,7 @@
   .dungeonworld.sheet .cell--basic-moves .item-label,
   .dungeonworld.sheet .cell--starting-moves .item-label,
   .dungeonworld.sheet .cell--advanced-moves .item-label,
+  .dungeonworld.sheet .cell--special-moves .item-label,
   .dungeonworld.sheet .cell--other-moves .item-label,
   .dungeonworld.sheet .cell--equipment .item-label,
   .dungeonworld.sheet .cell--spells .item-label {
@@ -1287,6 +1301,7 @@
     .dungeonworld.sheet .cell--basic-moves .item-label::after,
     .dungeonworld.sheet .cell--starting-moves .item-label::after,
     .dungeonworld.sheet .cell--advanced-moves .item-label::after,
+    .dungeonworld.sheet .cell--special-moves .item-label::after,
     .dungeonworld.sheet .cell--other-moves .item-label::after,
     .dungeonworld.sheet .cell--equipment .item-label::after,
     .dungeonworld.sheet .cell--spells .item-label::after {
@@ -1302,6 +1317,7 @@
     .dungeonworld.sheet .cell--basic-moves .item-label:hover::after,
     .dungeonworld.sheet .cell--starting-moves .item-label:hover::after,
     .dungeonworld.sheet .cell--advanced-moves .item-label:hover::after,
+    .dungeonworld.sheet .cell--special-moves .item-label:hover::after,
     .dungeonworld.sheet .cell--other-moves .item-label:hover::after,
     .dungeonworld.sheet .cell--equipment .item-label:hover::after,
     .dungeonworld.sheet .cell--spells .item-label:hover::after {
@@ -1309,6 +1325,7 @@
     .dungeonworld.sheet .cell--basic-moves .item-label:hover .item-details-toggle,
     .dungeonworld.sheet .cell--starting-moves .item-label:hover .item-details-toggle,
     .dungeonworld.sheet .cell--advanced-moves .item-label:hover .item-details-toggle,
+    .dungeonworld.sheet .cell--special-moves .item-label:hover .item-details-toggle,
     .dungeonworld.sheet .cell--other-moves .item-label:hover .item-details-toggle,
     .dungeonworld.sheet .cell--equipment .item-label:hover .item-details-toggle,
     .dungeonworld.sheet .cell--spells .item-label:hover .item-details-toggle {
@@ -1318,6 +1335,7 @@
     .dungeonworld.sheet .cell--basic-moves .item-label .fas,
     .dungeonworld.sheet .cell--starting-moves .item-label .fas,
     .dungeonworld.sheet .cell--advanced-moves .item-label .fas,
+    .dungeonworld.sheet .cell--special-moves .item-label .fas,
     .dungeonworld.sheet .cell--other-moves .item-label .fas,
     .dungeonworld.sheet .cell--equipment .item-label .fas,
     .dungeonworld.sheet .cell--spells .item-label .fas {
@@ -1327,6 +1345,7 @@
     .dungeonworld.sheet .cell--basic-moves .item-label.open::after,
     .dungeonworld.sheet .cell--starting-moves .item-label.open::after,
     .dungeonworld.sheet .cell--advanced-moves .item-label.open::after,
+    .dungeonworld.sheet .cell--special-moves .item-label.open::after,
     .dungeonworld.sheet .cell--other-moves .item-label.open::after,
     .dungeonworld.sheet .cell--equipment .item-label.open::after,
     .dungeonworld.sheet .cell--spells .item-label.open::after {
@@ -1334,6 +1353,7 @@
     .dungeonworld.sheet .cell--basic-moves .item-label.open .fas,
     .dungeonworld.sheet .cell--starting-moves .item-label.open .fas,
     .dungeonworld.sheet .cell--advanced-moves .item-label.open .fas,
+    .dungeonworld.sheet .cell--special-moves .item-label.open .fas,
     .dungeonworld.sheet .cell--other-moves .item-label.open .fas,
     .dungeonworld.sheet .cell--equipment .item-label.open .fas,
     .dungeonworld.sheet .cell--spells .item-label.open .fas {
@@ -1343,6 +1363,7 @@
   .dungeonworld.sheet .cell--basic-moves .item-details-toggle,
   .dungeonworld.sheet .cell--starting-moves .item-details-toggle,
   .dungeonworld.sheet .cell--advanced-moves .item-details-toggle,
+  .dungeonworld.sheet .cell--special-moves .item-details-toggle,
   .dungeonworld.sheet .cell--other-moves .item-details-toggle,
   .dungeonworld.sheet .cell--equipment .item-details-toggle,
   .dungeonworld.sheet .cell--spells .item-details-toggle {
@@ -1359,6 +1380,8 @@
   .dungeonworld.sheet .cell--starting-moves .rollable:focus,
   .dungeonworld.sheet .cell--advanced-moves .rollable:hover,
   .dungeonworld.sheet .cell--advanced-moves .rollable:focus,
+  .dungeonworld.sheet .cell--special-moves .rollable:hover,
+  .dungeonworld.sheet .cell--special-moves .rollable:focus,
   .dungeonworld.sheet .cell--other-moves .rollable:hover,
   .dungeonworld.sheet .cell--other-moves .rollable:focus,
   .dungeonworld.sheet .cell--equipment .rollable:hover,

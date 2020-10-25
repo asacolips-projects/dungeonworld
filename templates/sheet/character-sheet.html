@@ -186,6 +186,30 @@
                   {{/if}}
                 </section>
 
+                <div class="cell cell--basic-moves">
+                  <h2 class="cell__title">
+                    <label>{{localize "DW.MovesBasic"}}</label>
+                    <div class="item-controls">
+                      <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="basic">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </h2>
+                  <ol class="items-list">
+                  {{#each actor.basicMoves as |item id|}}
+                    <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
+                      {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
+                      <h4 class="item-name"><span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">{{#if item.data.rollType}}<i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>{{else}}<i class="fas fa-book"></i>{{/if}}</span> <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span></h4>
+                      <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                      </div>
+                      <div class="item-description">{{{item.data.description}}}</div>
+                    </li>
+                  {{/each}}
+                  </ol>
+                </div>
+
                 <div class="cell cell--starting-moves">
                   <h2 class="cell__title">
                     <label>{{localize "DW.MovesStarting"}}</label>
@@ -221,6 +245,31 @@
                   </h2>
                   <ol class="items-list">
                   {{#each actor.advancedMoves as |item id|}}
+                    <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
+                      {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
+                      <h4 class="item-name"><span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">{{#if item.data.rollType}}<i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>{{else}}<i class="fas fa-book"></i>{{/if}}</span> <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span></h4>
+                      <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                      </div>
+                      <div class="item-description">{{{item.data.description}}}</div>
+                    </li>
+                  {{/each}}
+                  </ol>
+                </div>
+
+                <div class="cell cell--special-moves">
+                  <h2 class="cell__title">
+                    <label>{{localize "DW.MovesSpecial"}}</label>
+                    <div class="item-controls">
+                      <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="special">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </h2>
+                  <ol class="items-list">
+                    {{log actor}}
+                  {{#each actor.specialMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{!-- <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/> --}}
                       <h4 class="item-name"><span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">{{#if item.data.rollType}}<i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>{{else}}<i class="fas fa-book"></i>{{/if}}</span> <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span></h4>

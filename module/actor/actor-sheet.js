@@ -103,6 +103,7 @@ export class DwActorSheet extends ActorSheet {
     const basicMoves = [];
     const startingMoves = [];
     const advancedMoves = [];
+    const specialMoves = [];
     const equipment = [];
     const bonds = [];
     const spells = {
@@ -122,10 +123,9 @@ export class DwActorSheet extends ActorSheet {
       // If this is a move, sort into various arrays.
       if (i.type === 'move') {
         switch (i.data.moveType) {
-          // TODO: Basic moves.
-          // case 'basic':
-          //   basicMoves.push(i);
-          //   break;
+          case 'basic':
+            basicMoves.push(i);
+            break;
 
           case 'starting':
             startingMoves.push(i);
@@ -133,6 +133,10 @@ export class DwActorSheet extends ActorSheet {
 
           case 'advanced':
             advancedMoves.push(i);
+            break;
+
+          case 'special':
+            specialMoves.push(i);
             break;
 
           default:
@@ -159,6 +163,7 @@ export class DwActorSheet extends ActorSheet {
     actorData.basicMoves = basicMoves;
     actorData.startingMoves = startingMoves;
     actorData.advancedMoves = advancedMoves;
+    actorData.specialMoves = specialMoves;
     // Spells
     actorData.spells = spells;
     // Equipment

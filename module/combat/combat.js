@@ -32,7 +32,9 @@ export class CombatSidebarDw {
     });
 
     Hooks.on('updateToken', (scene, token, data, options, id) => {
-      ui.combat.render();
+      if (data.actorData) {
+        ui.combat.render();
+      }
     });
 
     // Update the move counter if a player made a move. Requires a GM account
