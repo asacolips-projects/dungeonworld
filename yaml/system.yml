@@ -224,4 +224,4 @@ initiative: 1d20
 socket: true
 url: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld
 manifest: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/raw/master/system.json
-download: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/archive/release/0.5.0/dungeonworld-master.zip
+download: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/archive/0.5.0/dungeonworld-master.zip
