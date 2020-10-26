@@ -76,6 +76,20 @@
               <div class="help-text">{{localize "DW.ClassBaseLoadHelp"}}</div>
               <input type="text" name="data.load" value="{{data.load}}" data-dtype="Number">
             </div>
+            <div class="resource">
+              <label>{{localize "DW.ClassDamage"}}</label>
+              <div class="help-text">{{localize "DW.ClassDamageHelp"}}</div>
+              <select name="data.damage" data-dtype="String">
+                {{#select data.damage}}
+                <option value="">—</option>
+                <option value="d4">d4</option>
+                <option value="d6">d6</option>
+                <option value="d8">d8</option>
+                <option value="d10">d10</option>
+                <option value="d12">d12</option>
+                {{/select}}
+              </select>
+            </div>
           </div>
         </div>
       </div>

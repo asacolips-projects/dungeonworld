@@ -729,6 +729,11 @@ export class DwActorSheet extends ActorSheet {
       data['attributes.weight.max'] = Number(itemData.class_item.data.data.load) + Number(DwUtility.getAbilityMod(strength));
     }
 
+    // Adjust damage die.
+    if (itemData.class_item.data.data.damage) {
+      data['attributes.damage.value'] = itemData.class_item.data.data.damage;
+    }
+
     if (new_moves) {
       await actor.createEmbeddedEntity('OwnedItem', new_moves);
     }

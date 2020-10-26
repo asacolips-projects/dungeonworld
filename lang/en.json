@@ -112,6 +112,8 @@
   "DW.ClassBaseHpHelp": "Constitution will automatically be added to this number.",
   "DW.ClassBaseLoad": "Base max load",
   "DW.ClassBaseLoadHelp": "STR will automatically be added to this number.",
+  "DW.ClassDamage": "Damage Die",
+  "DW.ClassDamageHelp": "Damage die used for class damage.",
   "DW.ClassAddEquipmentGroup": "Add new equipment group",
   "DW.ClassEquipmentGroupHelp": "You can define groups of equipment choices for this class below. Each group can have any number of equipment items dropped inside of it, and it can have its choice mode set to either choose one of the items or choose all.",
   "DW.ClassEquipmentGroupPlaceholder": "Choose one, all are are weight 0 for you",
