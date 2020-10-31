@@ -140,5 +140,8 @@
   "DW.character": "Character",
   "DW.characters": "Characters",
   "DW.npc": "NPC",
-  "DW.npcs": "NPCs"
+  "DW.npcs": "NPCs",
+  "DW.Forward": "Forward",
+  "DW.Ongoing": "Ongoing",
+  "DW.Hold": "Hold"
 }

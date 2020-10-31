@@ -222,6 +222,9 @@ export class DwActorSheet extends ActorSheet {
     // Spells.
     html.find('.prepared').click(this._onPrepareSpell.bind(this));
 
+    // Resources.
+    html.find('.resource-control').click(this._onResouceControl.bind(this));
+
     // Adjust weight.
     this._adjustWeight(html);
 
@@ -269,6 +272,35 @@ export class DwActorSheet extends ActorSheet {
     }
   }
 
+  _onResouceControl(event) {
+    event.preventDefault();
+    const control = $(event.currentTarget);
+    const action = control.data('action');
+    const attr = control.data('attr');
+    // If there's an action and target attribute, update it.
+    if (action && attr) {
+      // Initialize data structure.
+      let data = {};
+      let changed = false;
+      // Retrieve the existin value.
+      data[attr] = Number(getProperty(this.actor.data.data, attr));
+      // Decrease the value.
+      if (action == 'decrease') {
+        data[attr] -= 1;
+        changed = true;
+      }
+      // Increase the value.
+      else if (action == 'increase') {
+        data[attr] += 1;
+        changed = true;
+      }
+      // If there are changes, apply to the actor.
+      if (changed) {
+        this.actor.update({ data: data });
+      }
+    }
+  }
+
   _showItemDetails(event) {
     event.preventDefault();
     const toggler = $(event.currentTarget);
@@ -277,12 +309,6 @@ export class DwActorSheet extends ActorSheet {
     const description = item.find('.item-description');
 
     toggler.toggleClass('open');
-
-    // if (toggleIcon.hasClass('fa-caret-right')) {
-    //   toggleIcon.removeClass('fa-caret-right').addClass('fa-caret-down');
-    // } else {
-    //   toggleIcon.removeClass('fa-caret-down').addClass('fa-caret-right');
-    // }
     description.slideToggle();
   }
 

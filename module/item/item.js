@@ -119,7 +119,9 @@ export class ItemDw extends Item {
             buttons: {
               submit: {
                 label: 'Roll',
-                callback: html => this.rollMove('BOND', actorData, data, templateData, html[0].children[0])
+                callback: html => {
+                  this.rollMove('BOND', actorData, data, templateData, html[0].querySelector("form"))
+                }
               }
             }
           }).render(true);
@@ -174,7 +176,7 @@ export class ItemDw extends Item {
       let formula = '';
       // Handle bond (user input).
       if (roll == 'BOND') {
-        formula = form.bond.value ? `2d6+${form.bond.value}` : '2d6';
+        formula = form.bond?.value ? `2d6+${form.bond.value}` : '2d6';
         if (dataset.mod && dataset.mod != 0) {
           formula += `+${dataset.mod}`;
         }

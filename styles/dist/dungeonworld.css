@@ -952,30 +952,40 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center; }
-  .dungeonworld.sheet .sheet-attributes {
+  .dungeonworld.sheet .sheet-attributes,
+  .dungeonworld.sheet .sheet-resources {
     display: grid;
     grid-column: span 16;
     grid-template-columns: repeat(16, minmax(0, 1fr));
     gap: 0px 10px;
     margin: 0 0 10px 0;
     padding: 0; }
-    .dungeonworld.sheet .sheet-attributes .cell {
+    .dungeonworld.sheet .sheet-attributes .cell,
+    .dungeonworld.sheet .sheet-resources .cell {
       text-align: center; }
-      .dungeonworld.sheet .sheet-attributes .cell > .cell__title {
+      .dungeonworld.sheet .sheet-attributes .cell > .cell__title,
+      .dungeonworld.sheet .sheet-resources .cell > .cell__title {
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center; }
-        .dungeonworld.sheet .sheet-attributes .cell > .cell__title .fas {
+        .dungeonworld.sheet .sheet-attributes .cell > .cell__title .fas,
+        .dungeonworld.sheet .sheet-resources .cell > .cell__title .fas {
           margin-right: 5px; }
-          .dungeonworld.sheet .sheet-attributes .cell > .cell__title .fas.attribute-icon {
+          .dungeonworld.sheet .sheet-attributes .cell > .cell__title .fas.attribute-icon,
+          .dungeonworld.sheet .sheet-resources .cell > .cell__title .fas.attribute-icon {
             margin-right: 0; }
     .dungeonworld.sheet .sheet-attributes select,
     .dungeonworld.sheet .sheet-attributes input,
-    .dungeonworld.sheet .sheet-attributes textarea {
+    .dungeonworld.sheet .sheet-attributes textarea,
+    .dungeonworld.sheet .sheet-resources select,
+    .dungeonworld.sheet .sheet-resources input,
+    .dungeonworld.sheet .sheet-resources textarea {
       background: #fff; }
-    .dungeonworld.sheet .sheet-attributes .cell__title {
+    .dungeonworld.sheet .sheet-attributes .cell__title,
+    .dungeonworld.sheet .sheet-resources .cell__title {
       position: relative; }
-      .dungeonworld.sheet .sheet-attributes .cell__title .attribute-icon {
+      .dungeonworld.sheet .sheet-attributes .cell__title .attribute-icon,
+      .dungeonworld.sheet .sheet-resources .cell__title .attribute-icon {
         position: absolute;
         top: 0;
         right: 2px;
@@ -994,13 +1004,16 @@
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center; }
-    .dungeonworld.sheet .sheet-attributes .cell--abilities {
+    .dungeonworld.sheet .sheet-attributes .cell--abilities,
+    .dungeonworld.sheet .sheet-resources .cell--abilities {
       text-align: left; }
-      .dungeonworld.sheet .sheet-attributes .cell--abilities > .cell__title {
+      .dungeonworld.sheet .sheet-attributes .cell--abilities > .cell__title,
+      .dungeonworld.sheet .sheet-resources .cell--abilities > .cell__title {
         -webkit-box-pack: start;
         -ms-flex-pack: start;
         justify-content: flex-start; }
-    .dungeonworld.sheet .sheet-attributes .cell {
+    .dungeonworld.sheet .sheet-attributes .cell,
+    .dungeonworld.sheet .sheet-resources .cell {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -1011,7 +1024,8 @@
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
       position: relative; }
-      .dungeonworld.sheet .sheet-attributes .cell .cell__title {
+      .dungeonworld.sheet .sheet-attributes .cell .cell__title,
+      .dungeonworld.sheet .sheet-resources .cell .cell__title {
         -webkit-box-flex: 100%;
         -ms-flex: 100%;
         flex: 100%;
@@ -1019,10 +1033,12 @@
         color: #fff;
         padding: 5px;
         height: 34px; }
-        .dungeonworld.sheet .sheet-attributes .cell .cell__title.rollable:hover {
+        .dungeonworld.sheet .sheet-attributes .cell .cell__title.rollable:hover,
+        .dungeonworld.sheet .sheet-resources .cell .cell__title.rollable:hover {
           background: #5b7094;
           cursor: pointer; }
-    .dungeonworld.sheet .sheet-attributes .cell__counter {
+    .dungeonworld.sheet .sheet-attributes .cell__counter,
+    .dungeonworld.sheet .sheet-resources .cell__counter {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -1038,9 +1054,11 @@
       -webkit-box-pack: justify;
       -ms-flex-pack: justify;
       justify-content: space-between; }
-    .dungeonworld.sheet .sheet-attributes .cell--damage {
+    .dungeonworld.sheet .sheet-attributes .cell--damage,
+    .dungeonworld.sheet .sheet-resources .cell--damage {
       grid-column: span 4; }
-      .dungeonworld.sheet .sheet-attributes .cell--damage .damage-inputs {
+      .dungeonworld.sheet .sheet-attributes .cell--damage .damage-inputs,
+      .dungeonworld.sheet .sheet-resources .cell--damage .damage-inputs {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -1056,29 +1074,108 @@
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between; }
-      .dungeonworld.sheet .sheet-attributes .cell--damage select {
+      .dungeonworld.sheet .sheet-attributes .cell--damage select,
+      .dungeonworld.sheet .sheet-resources .cell--damage select {
         -webkit-box-flex: 1;
         -ms-flex: 1 1;
         flex: 1 1; }
-      .dungeonworld.sheet .sheet-attributes .cell--damage span {
+      .dungeonworld.sheet .sheet-attributes .cell--damage span,
+      .dungeonworld.sheet .sheet-resources .cell--damage span {
         padding: 0 4px; }
-      .dungeonworld.sheet .sheet-attributes .cell--damage input {
+      .dungeonworld.sheet .sheet-attributes .cell--damage input,
+      .dungeonworld.sheet .sheet-resources .cell--damage input {
         -webkit-box-flex: 1;
         -ms-flex: 1 1;
         flex: 1 1; }
     .dungeonworld.sheet .sheet-attributes .cell--ac,
     .dungeonworld.sheet .sheet-attributes .cell--hp,
     .dungeonworld.sheet .sheet-attributes .cell--weight,
-    .dungeonworld.sheet .sheet-attributes .cell--coin {
+    .dungeonworld.sheet .sheet-attributes .cell--coin,
+    .dungeonworld.sheet .sheet-resources .cell--ac,
+    .dungeonworld.sheet .sheet-resources .cell--hp,
+    .dungeonworld.sheet .sheet-resources .cell--weight,
+    .dungeonworld.sheet .sheet-resources .cell--coin {
       grid-column: span 3; }
-    .dungeonworld.sheet .sheet-attributes .encumbered .cell__title {
+    .dungeonworld.sheet .sheet-attributes .cell--ongoing,
+    .dungeonworld.sheet .sheet-attributes .cell--forward,
+    .dungeonworld.sheet .sheet-attributes .cell--hold,
+    .dungeonworld.sheet .sheet-attributes .cell--resource1,
+    .dungeonworld.sheet .sheet-resources .cell--ongoing,
+    .dungeonworld.sheet .sheet-resources .cell--forward,
+    .dungeonworld.sheet .sheet-resources .cell--hold,
+    .dungeonworld.sheet .sheet-resources .cell--resource1 {
+      grid-column: span 4; }
+      .dungeonworld.sheet .sheet-attributes .cell--ongoing input,
+      .dungeonworld.sheet .sheet-attributes .cell--forward input,
+      .dungeonworld.sheet .sheet-attributes .cell--hold input,
+      .dungeonworld.sheet .sheet-attributes .cell--resource1 input,
+      .dungeonworld.sheet .sheet-resources .cell--ongoing input,
+      .dungeonworld.sheet .sheet-resources .cell--forward input,
+      .dungeonworld.sheet .sheet-resources .cell--hold input,
+      .dungeonworld.sheet .sheet-resources .cell--resource1 input {
+        background-color: rgba(0, 0, 0, 0.05);
+        margin: 0; }
+      .dungeonworld.sheet .sheet-attributes .cell--ongoing .cell__wrapper,
+      .dungeonworld.sheet .sheet-attributes .cell--forward .cell__wrapper,
+      .dungeonworld.sheet .sheet-attributes .cell--hold .cell__wrapper,
+      .dungeonworld.sheet .sheet-attributes .cell--resource1 .cell__wrapper,
+      .dungeonworld.sheet .sheet-resources .cell--ongoing .cell__wrapper,
+      .dungeonworld.sheet .sheet-resources .cell--forward .cell__wrapper,
+      .dungeonworld.sheet .sheet-resources .cell--hold .cell__wrapper,
+      .dungeonworld.sheet .sheet-resources .cell--resource1 .cell__wrapper {
+        position: relative; }
+      .dungeonworld.sheet .sheet-attributes .cell--ongoing .resource-control,
+      .dungeonworld.sheet .sheet-attributes .cell--forward .resource-control,
+      .dungeonworld.sheet .sheet-attributes .cell--hold .resource-control,
+      .dungeonworld.sheet .sheet-attributes .cell--resource1 .resource-control,
+      .dungeonworld.sheet .sheet-resources .cell--ongoing .resource-control,
+      .dungeonworld.sheet .sheet-resources .cell--forward .resource-control,
+      .dungeonworld.sheet .sheet-resources .cell--hold .resource-control,
+      .dungeonworld.sheet .sheet-resources .cell--resource1 .resource-control {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        line-height: 1;
+        text-align: center;
+        margin: auto;
+        border: 1px solid #bcc8de; }
+      .dungeonworld.sheet .sheet-attributes .cell--ongoing .resource-decrease,
+      .dungeonworld.sheet .sheet-attributes .cell--forward .resource-decrease,
+      .dungeonworld.sheet .sheet-attributes .cell--hold .resource-decrease,
+      .dungeonworld.sheet .sheet-attributes .cell--resource1 .resource-decrease,
+      .dungeonworld.sheet .sheet-resources .cell--ongoing .resource-decrease,
+      .dungeonworld.sheet .sheet-resources .cell--forward .resource-decrease,
+      .dungeonworld.sheet .sheet-resources .cell--hold .resource-decrease,
+      .dungeonworld.sheet .sheet-resources .cell--resource1 .resource-decrease {
+        left: 5px; }
+      .dungeonworld.sheet .sheet-attributes .cell--ongoing .resource-increase,
+      .dungeonworld.sheet .sheet-attributes .cell--forward .resource-increase,
+      .dungeonworld.sheet .sheet-attributes .cell--hold .resource-increase,
+      .dungeonworld.sheet .sheet-attributes .cell--resource1 .resource-increase,
+      .dungeonworld.sheet .sheet-resources .cell--ongoing .resource-increase,
+      .dungeonworld.sheet .sheet-resources .cell--forward .resource-increase,
+      .dungeonworld.sheet .sheet-resources .cell--hold .resource-increase,
+      .dungeonworld.sheet .sheet-resources .cell--resource1 .resource-increase {
+        right: 5px; }
+    .dungeonworld.sheet .sheet-attributes .cell--resource1 .cell__title input,
+    .dungeonworld.sheet .sheet-resources .cell--resource1 .cell__title input {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #fff; }
+    .dungeonworld.sheet .sheet-attributes .encumbered .cell__title,
+    .dungeonworld.sheet .sheet-resources .encumbered .cell__title {
       background: #f78c01;
       color: #fff; }
-    .dungeonworld.sheet .sheet-attributes .encumbered input[name="data.attributes.weight.value"] {
+    .dungeonworld.sheet .sheet-attributes .encumbered input[name="data.attributes.weight.value"],
+    .dungeonworld.sheet .sheet-resources .encumbered input[name="data.attributes.weight.value"] {
       color: #f78c01; }
-    .dungeonworld.sheet .sheet-attributes .overencumbered .cell__title {
+    .dungeonworld.sheet .sheet-attributes .overencumbered .cell__title,
+    .dungeonworld.sheet .sheet-resources .overencumbered .cell__title {
       background: #ca0000; }
-    .dungeonworld.sheet .sheet-attributes .overencumbered input[name="data.attributes.weight.value"] {
+    .dungeonworld.sheet .sheet-attributes .overencumbered input[name="data.attributes.weight.value"],
+    .dungeonworld.sheet .sheet-resources .overencumbered input[name="data.attributes.weight.value"] {
       color: #ca0000; }
   .dungeonworld.sheet .cell--abilities {
     grid-column: span 16;
