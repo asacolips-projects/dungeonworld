@@ -48,6 +48,20 @@
         },
         "coin": {
           "value": 0
+        },
+        "forward": {
+          "value": 0
+        },
+        "hold": {
+          "value": 0
+        },
+        "ongoing": {
+          "value": 0
+        },
+        "resource1": {
+          "label": "Custom Resource",
+          "value": 0,
+          "max": 0
         }
       },
       "abilities": {

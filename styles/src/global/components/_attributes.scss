@@ -1,4 +1,5 @@
-.sheet-attributes {
+.sheet-attributes,
+.sheet-resources {
   display: grid;
   grid-column: span 16;
   grid-template-columns: repeat(16, minmax(0, 1fr));
@@ -112,6 +113,50 @@
   .cell--weight,
   .cell--coin {
     grid-column: span 3;
+  }
+
+  .cell--ongoing,
+  .cell--forward,
+  .cell--hold,
+  .cell--resource1 {
+    grid-column: span 4;
+
+    input {
+      background-color: $ct-gray;
+      margin: 0;
+    }
+
+    .cell__wrapper {
+      position: relative;
+    }
+
+    .resource-control {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      line-height: 1;
+      text-align: center;
+      margin: auto;
+      border: 1px solid #bcc8de;
+    }
+
+    .resource-decrease {
+      left: 5px;
+    }
+
+    .resource-increase {
+      right: 5px;
+    }
+  }
+
+  .cell--resource1 {
+    .cell__title input {
+      background-color: $ct-white;
+      color: $c-white;
+    }
   }
 
   .encumbered {
