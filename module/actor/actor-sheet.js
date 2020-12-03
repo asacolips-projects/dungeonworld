@@ -790,10 +790,9 @@ export class DwActorSheet extends ActorSheet {
       let $self = $(a);
       $self.toggleClass('unprepared');
 
-      let updatedItem = duplicate(item);
-      updatedItem.data.prepared = !updatedItem.data.prepared;
+      let update = { _id: item._id, "data.prepared": !item.data.data.prepared };
+      await this.actor.updateEmbeddedEntity("OwnedItem", update);
 
-      this.actor.updateOwnedItem(updatedItem);
       this.render();
     }
   }
