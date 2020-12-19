@@ -153,7 +153,7 @@ export class ActorDw extends Actor {
       }
       if (formula != null) {
         // Do the roll.
-        let roll = new Roll(`${formula}`);
+        let roll = new Roll(`${formula}`, actor.getRollData());
         roll.roll();
         // Render it.
         roll.render().then(r => {

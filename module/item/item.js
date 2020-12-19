@@ -194,7 +194,7 @@ export class ItemDw extends Item {
       }
       if (formula != null) {
         // Do the roll.
-        let roll = new Roll(`${formula}`);
+        let roll = new Roll(`${formula}`, this.actor.getRollData());
         roll.roll();
         // Render it.
         roll.render().then(r => {
