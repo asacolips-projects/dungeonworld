@@ -72,6 +72,8 @@ Hooks.once("init", async function() {
     type: Number,
     default: 0
   });
+
+  DwUtility.replaceRollData();
 });
 
 Hooks.once("ready", async function() {
