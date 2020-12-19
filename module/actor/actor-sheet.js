@@ -232,7 +232,15 @@ export class DwActorSheet extends ActorSheet {
     html.find('.clickable-level-up').on('click', this._onLevelUp.bind(this));
 
     if (this.actor.owner) {
-      let handler = ev => this._onDragItemStart(ev);
+      /* Item Dragging */
+      // Core handlers from foundry.js
+      var handler;
+      if (!isNewerVersion(game.data.version, "0.7")) {
+        handler = ev => this._onDragItemStart(ev);
+      }
+      else {
+        handler = ev => this._onDragStart(ev);
+      }
       html.find('li.item').each((i, li) => {
         if (li.classList.contains("inventory-header")) return;
         li.setAttribute("draggable", true);
