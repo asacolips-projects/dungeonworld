@@ -342,6 +342,16 @@
   font-family: "Alegreya", serif; }
   .vtt #chat-log .message.whisper {
     background: #e0ecff; }
+  .vtt #chat-log .message .result {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold; }
+  .vtt #chat-log .message .failure {
+    color: #b31a1a; }
+  .vtt #chat-log .message .partial {
+    color: #000; }
+  .vtt #chat-log .message .success {
+    color: #1a6dc3; }
 
 .vtt #chat-log .message-sender {
   font-size: 12px; }
@@ -1360,10 +1370,19 @@
   .dungeonworld.sheet .cell--other-moves .item-icon,
   .dungeonworld.sheet .cell--equipment .item-icon,
   .dungeonworld.sheet .cell--spells .item-icon {
-    flex: none;
-    vertical-align:middle;
-    padding: 0px 1px 3px 2px;
-    border:0; }
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    vertical-align: top;
+    border: 0;
+    height: 24px;
+    width: 24px;
+    padding: 0;
+    margin: 0 2px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.5); }
   .dungeonworld.sheet .cell--basic-moves .item-meta,
   .dungeonworld.sheet .cell--starting-moves .item-meta,
   .dungeonworld.sheet .cell--advanced-moves .item-meta,

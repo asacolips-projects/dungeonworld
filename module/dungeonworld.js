@@ -73,6 +73,16 @@ Hooks.once("init", async function() {
     default: 0
   });
 
+  // Configurable system settings.
+  game.settings.register("dungeonworld", "itemIcons", {
+    name: game.i18n.localize("DW.Settings.itemIcons.name"),
+    hint: game.i18n.localize("DW.Settings.itemIcons.hint"),
+    scope: 'client',
+    config: true,
+    type: Boolean,
+    default: true
+  });
+
   DwUtility.replaceRollData();
 });
 
