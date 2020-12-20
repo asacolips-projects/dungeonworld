@@ -719,6 +719,17 @@
     -ms-flex: none;
     flex: none;
     width: 100%; }
+  .dungeonworld.sheet .cell--basic-moves .item-icon,
+  .dungeonworld.sheet .cell--starting-moves .item-icon,
+  .dungeonworld.sheet .cell--advanced-moves .item-icon,
+  .dungeonworld.sheet .cell--special-moves .item-icon,
+  .dungeonworld.sheet .cell--other-moves .item-icon,
+  .dungeonworld.sheet .cell--equipment .item-icon,
+  .dungeonworld.sheet .cell--spells .item-icon {
+    flex: none;
+    vertical-align:middle;
+    padding: 0px 1px 3px 2px;
+    border:0; }
   .dungeonworld.sheet .cell--basic-moves .rollable:hover, .dungeonworld.sheet .cell--basic-moves .rollable:focus,
   .dungeonworld.sheet .cell--starting-moves .rollable:hover,
   .dungeonworld.sheet .cell--starting-moves .rollable:focus,

@@ -47,6 +47,19 @@
     width: 100%;
   }
 
+  .item-icon {
+    flex: 1;
+    vertical-align: top;
+    border: 0;
+    height: 24px;
+    width: 24px;
+    padding: 0;
+    margin: 0 2px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.35);
+    background-color: rgba(0,0,0,0.5);
+  }
+
   .item-meta {
     display: flex;
     flex-direction: row;

@@ -84,6 +84,9 @@ export class DwActorSheet extends ActorSheet {
       data.data.xpSvg = xpSvg;
     }
 
+    // Add item icon setting.
+    data.data.itemIcons = game.settings.get('dungeonworld', 'itemIcons');
+
     // Return data to the sheet
     return data;
   }
@@ -894,6 +897,18 @@ export class DwActorSheet extends ActorSheet {
         // Do the roll.
         let roll = new Roll(`${formula}`);
         roll.roll();
+        // Add success notification.
+        if (formula.includes('2d6')) {
+          if (roll.total < 7) {
+            templateData.result = 'failure';
+          }
+          else if (roll.total > 6 && roll.total < 10) {
+            templateData.result = 'partial';
+          }
+          else {
+            templateData.result = 'success';
+          }
+        }
         // Render it.
         roll.render().then(r => {
           templateData.rollDw = r;

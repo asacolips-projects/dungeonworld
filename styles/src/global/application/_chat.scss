@@ -6,6 +6,24 @@
     &.whisper {
       background: #e0ecff;
     }
+
+    .result {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .failure {
+      color: $c-failure;
+    }
+
+    .partial {
+      color: $c-partial;
+    }
+
+    .success {
+      color: $c-success;
+    }
   }
 
   .message-sender {

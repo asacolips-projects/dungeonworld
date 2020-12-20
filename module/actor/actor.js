@@ -155,6 +155,18 @@ export class ActorDw extends Actor {
         // Do the roll.
         let roll = new Roll(`${formula}`, actor.getRollData());
         roll.roll();
+        // Add success notification.
+        if (formula.includes('2d6')) {
+          if (roll.total < 7) {
+            templateData.result = 'failure';
+          }
+          else if (roll.total > 6 && roll.total < 10) {
+            templateData.result = 'partial';
+          }
+          else {
+            templateData.result = 'success';
+          }
+        }
         // Render it.
         roll.render().then(r => {
           templateData.rollDw = r;
