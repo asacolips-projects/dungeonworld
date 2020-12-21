@@ -24,6 +24,188 @@ export class CombatSidebarDw {
           }
         }
       });
+
+      // HP change in the combat tracker.
+      $('body').on('change', '.ct-item input', (event) => {
+        event.preventDefault();
+
+        // Get the incput and actor element.
+        const dataset = event.currentTarget.dataset;
+        let $input = $(event.currentTarget);
+        let $actorRow = $input.parents('.directory-item.actor-elem');
+
+        // If there isn't an actor element, don't proceed.
+        if (!$actorRow.length > 0) {
+          return;
+        }
+
+        // Retrieve the combatant for this actor, or exit if not valid.
+        const combatant = game.combat.combatants.find(c => c._id == $actorRow.data('combatant-id'));
+        if (!combatant) {
+          return;
+        }
+
+        const actor = combatant.actor;
+
+        // Check for bad numbers, otherwise convert into a Number type.
+        let value = $input.val();
+        if (dataset.dtype == 'Number') {
+          value = Number(value);
+          if (Number.isNaN(value)) {
+            $input.val(actor.data.data.attributes.hp.value);
+            return false;
+          }
+        }
+
+        // Prepare update data for the actor.
+        let updateData = {};
+        // If this started with a "+" or "-", handle it as a relative change.
+        let operation = $input.val().match(/^\+|\-/g);
+        if (operation) {
+          updateData[$input.attr('name')] = Number(actor.data.data.attributes.hp.value) + value;
+        }
+        // Otherwise, set it absolutely.
+        else {
+          updateData[$input.attr('name')] = value;
+        }
+
+        // Update the actor.
+        actor.update(updateData);
+        return;
+      });
+
+      // Add drag events.
+      if (game.user.isGM) {
+        $('body')
+          // Initiate the drag event.
+          .on('dragstart', '#combat .directory-item.actor-elem', (event) => {
+            // Set the drag data for later usage.
+            let dragData = event.currentTarget.dataset;
+            event.originalEvent.dataTransfer.setData('text/plain', JSON.stringify(dragData));
+
+            // Store the combatant type for reference. We have to do this
+            // because dragover doesn't have access to the drag data, so we
+            // store it as a new type entry that can be split later.
+            let newCombatant = game.combat.combatants.find(c => c._id == dragData.combatantId);
+            event.originalEvent.dataTransfer.setData(`newtype--${dragData.actorType}`, '');
+          })
+          // Add a class on hover, if the actor types match.
+          .on('dragover', '#combat .directory-item.actor-elem', (event) => {
+            // Get the drop target.
+            let $self = $(event.originalEvent.target);
+            let $dropTarget = $self.parents('.directory-item');
+
+            // Exit early if we don't need to make any changes.
+            if ($dropTarget.hasClass('drop-hover')) {
+              return;
+            }
+
+            if (!$dropTarget.data('combatant-id')) {
+              return;
+            }
+
+            // Retrieve the actor type for the drop target, exit early if
+            // it doesn't exist.
+            let oldType = $dropTarget.data('actor-type');
+            let newType = null;
+
+            if (!oldType) {
+              return;
+            }
+
+            // Retrieve the actor type for the actor being dragged.
+            newType = event.originalEvent.dataTransfer.types.find(t => t.includes('newtype'));
+            newType = newType ? newType.split('--')[1] : null;
+
+            // If the type matches, add a css class to let the user know this
+            // is a valid drop target.
+            if (newType == oldType) {
+              $dropTarget.addClass('drop-hover');
+            }
+            // Otherwise, we should exit.
+            else {
+              return false;
+            }
+
+            return false;
+          })
+          // Remove the class on drag leave.
+          .on('dragleave', '#combat .directory-item.actor-elem', (event) => {
+            // Get the drop target and remove any hover classes on it when
+            // the mouse leaves it.
+            let $self = $(event.originalEvent.target);
+            let $dropTarget = $self.parents('.directory-item');
+            $dropTarget.removeClass('drop-hover');
+            return false;
+          })
+          // Update initiative on drop.
+          .on('drop', '#combat .directory-item.actor-elem', async (event) => {
+            // Retrieve the default encounter.
+            let combat = game.combat;
+
+            // TODO: This is how foundry.js retrieves the combat in certain
+            // scenarios, so I'm leaving it here as a comment in case this
+            // needs to be refactored.
+            // ---------------------------------------------------------------
+            // const view = game.scenes.viewed;
+            // const combats = view ? game.combats.entities.filter(c => c.data.scene === view._id) : [];
+            // let combat = combats.length ? combats.find(c => c.data.active) || combats[0] : null;
+
+            // Retreive the drop target, remove any hover classes.
+            let $self = $(event.originalEvent.target);
+            let $dropTarget = $self.parents('.directory-item');
+            $dropTarget.removeClass('drop-hover');
+
+            // Attempt to retrieve and parse the data transfer from the drag.
+            let data;
+            try {
+              data = JSON.parse(event.originalEvent.dataTransfer.getData('text/plain'));
+              // if (data.type !== "Item") return;
+            } catch (err) {
+              return false;
+            }
+
+            // Retrieve the combatant being dropped.
+            let newCombatant = combat.combatants.find(c => c._id == data.combatantId);
+
+            // Retrieve the combatants grouped by type.
+            let combatants = this.getCombatantsData(false);
+            // Retrieve the combatant being dropped onto.
+            let originalCombatant = combatants[newCombatant.actor.data.type].find(c => {
+              return c._id == $dropTarget.data('combatant-id');
+            });
+
+            // Set the initiative equal to the drop target's initiative.
+            let oldInit = originalCombatant ? originalCombatant.initiative : null;
+
+            // If the initiative was valid, we need to update the initiative
+            // for every combatant to reset their numbers.
+            if (oldInit !== null) {
+              // Set the initiative of the actor being draged to the drop
+              // target's +1. This will later be adjusted increments of 10.
+              let updatedCombatant = combatants[newCombatant.actor.data.type].find(c => c._id == newCombatant._id);
+              updatedCombatant.initiative = Number(oldInit) + 1;
+
+              // Loop through all combatants in initiative order, and assign
+              // a new initiative in increments of 10. The "updates" variable
+              // will be an array of objects iwth _id and initiative keys.
+              let updatedInit = 0;
+              let updates = combatants[newCombatant.actor.data.type].sort((a, b) => a.initiative - b.initiative).map(c => {
+                let result = {
+                  _id: c._id,
+                  initiative: updatedInit
+                };
+                updatedInit = updatedInit + 10;
+                return result;
+              });
+
+              // If there are updates, update the combatants at once.
+              if (updates) {
+                await combat.updateCombatant(updates);
+              }
+            }
+          });
+      }
     });
 
     // Re-render combat when actors are modified.
@@ -76,9 +258,9 @@ export class CombatSidebarDw {
     });
 
     // TODO: Replace this hack that triggers an extra render.
-    Hooks.on('renderSidebar', (app, html, options) => {
-      ui.combat.render();
-    });
+    // Hooks.on('renderSidebar', (app, html, options) => {
+    //   ui.combat.render();
+    // });
 
     // When the combat tracker is rendered, we need to completely replace
     // its HTML with a custom version.
@@ -115,188 +297,9 @@ export class CombatSidebarDw {
         newHtml.find('#combat-tracker').remove();
         newHtml.find('#combat-round').after(content);
 
-        // Add an event listener for input fields. This is currently only
-        // used for updating HP on actors.
-        newHtml.find('.ct-item input').change(event => {
-          event.preventDefault();
-
-          // Get the incput and actor element.
-          const dataset = event.currentTarget.dataset;
-          let $input = $(event.currentTarget);
-          let $actorRow = $input.parents('.directory-item.actor-elem');
-
-          // If there isn't an actor element, don't proceed.
-          if (!$actorRow.length > 0) {
-            return;
-          }
-
-          // Retrieve the combatant for this actor, or exit if not valid.
-          const combatant = game.combat.combatants.find(c => c._id == $actorRow.data('combatant-id'));
-          if (!combatant) {
-            return;
-          }
-
-          const actor = combatant.actor;
-
-          // Check for bad numbers, otherwise convert into a Number type.
-          let value = $input.val();
-          if (dataset.dtype == 'Number') {
-            value = Number(value);
-            if (Number.isNaN(value)) {
-              $input.val(actor.data.data.attributes.hp.value);
-              return false;
-            }
-          }
-
-          // Prepare update data for the actor.
-          let updateData = {};
-          // If this started with a "+" or "-", handle it as a relative change.
-          let operation = $input.val().match(/^\+|\-/g);
-          if (operation) {
-            updateData[$input.attr('name')] = Number(actor.data.data.attributes.hp.value) + value;
-          }
-          // Otherwise, set it absolutely.
-          else {
-            updateData[$input.attr('name')] = value;
-          }
-
-          // Update the actor.
-          actor.update(updateData);
-          return;
-        });
-
         // Drag handler for the combat tracker.
         if (game.user.isGM) {
-          newHtml.find('.directory-item.actor-elem')
-            .attr('draggable', true).addClass('draggable')
-            // Initiate the drag event.
-            .on('dragstart', (event) => {
-              // Set the drag data for later usage.
-              let dragData = event.currentTarget.dataset;
-              event.originalEvent.dataTransfer.setData('text/plain', JSON.stringify(dragData));
-
-              // Store the combatant type for reference. We have to do this
-              // because dragover doesn't have access to the drag data, so we
-              // store it as a new type entry that can be split later.
-              let newCombatant = game.combat.combatants.find(c => c._id == dragData.combatantId);
-              event.originalEvent.dataTransfer.setData(`newtype--${dragData.actorType}`, '');
-            })
-            // Add a class on hover, if the actor types match.
-            .on('dragover', (event) => {
-              // Get the drop target.
-              let $self = $(event.originalEvent.target);
-              let $dropTarget = $self.parents('.directory-item');
-
-              // Exit early if we don't need to make any changes.
-              if ($dropTarget.hasClass('drop-hover')) {
-                return;
-              }
-
-              if (!$dropTarget.data('combatant-id')) {
-                return;
-              }
-
-              // Retrieve the actor type for the drop target, exit early if
-              // it doesn't exist.
-              let oldType = $dropTarget.data('actor-type');
-              let newType = null;
-
-              if (!oldType) {
-                return;
-              }
-
-              // Retrieve the actor type for the actor being dragged.
-              newType = event.originalEvent.dataTransfer.types.find(t => t.includes('newtype'));
-              newType = newType ? newType.split('--')[1] : null;
-
-              // If the type matches, add a css class to let the user know this
-              // is a valid drop target.
-              if (newType == oldType) {
-                $dropTarget.addClass('drop-hover');
-              }
-              // Otherwise, we should exit.
-              else {
-                return false;
-              }
-
-              return false;
-            })
-            // Remove the class on drag leave.
-            .on('dragleave', (event) => {
-              // Get the drop target and remove any hover classes on it when
-              // the mouse leaves it.
-              let $self = $(event.originalEvent.target);
-              let $dropTarget = $self.parents('.directory-item');
-              $dropTarget.removeClass('drop-hover');
-              return false;
-            })
-            // Update initiative on drop.
-            .on('drop', async (event) => {
-              // Retrieve the default encounter.
-              let combat = game.combat;
-
-              // TODO: This is how foundry.js retrieves the combat in certain
-              // scenarios, so I'm leaving it here as a comment in case this
-              // needs to be refactored.
-              // ---------------------------------------------------------------
-              // const view = game.scenes.viewed;
-              // const combats = view ? game.combats.entities.filter(c => c.data.scene === view._id) : [];
-              // let combat = combats.length ? combats.find(c => c.data.active) || combats[0] : null;
-
-              // Retreive the drop target, remove any hover classes.
-              let $self = $(event.originalEvent.target);
-              let $dropTarget = $self.parents('.directory-item');
-              $dropTarget.removeClass('drop-hover');
-
-              // Attempt to retrieve and parse the data transfer from the drag.
-              let data;
-              try {
-                data = JSON.parse(event.originalEvent.dataTransfer.getData('text/plain'));
-                // if (data.type !== "Item") return;
-              } catch (err) {
-                return false;
-              }
-
-              // Retrieve the combatant being dropped.
-              let newCombatant = combat.combatants.find(c => c._id == data.combatantId);
-
-              // Retrieve the combatants grouped by type.
-              let combatants = this.getCombatantsData(false);
-              // Retrieve the combatant being dropped onto.
-              let originalCombatant = combatants[newCombatant.actor.data.type].find(c => {
-                return c._id == $dropTarget.data('combatant-id');
-              });
-
-              // Set the initiative equal to the drop target's initiative.
-              let oldInit = originalCombatant ? originalCombatant.initiative : null;
-
-              // If the initiative was valid, we need to update the initiative
-              // for every combatant to reset their numbers.
-              if (oldInit !== null) {
-                // Set the initiative of the actor being draged to the drop
-                // target's +1. This will later be adjusted increments of 10.
-                let updatedCombatant = combatants[newCombatant.actor.data.type].find(c => c._id == newCombatant._id);
-                updatedCombatant.initiative = Number(oldInit) + 1;
-
-                // Loop through all combatants in initiative order, and assign
-                // a new initiative in increments of 10. The "updates" variable
-                // will be an array of objects iwth _id and initiative keys.
-                let updatedInit = 0;
-                let updates = combatants[newCombatant.actor.data.type].sort((a, b) => a.initiative - b.initiative).map(c => {
-                  let result = {
-                    _id: c._id,
-                    initiative: updatedInit
-                  };
-                  updatedInit = updatedInit + 10;
-                  return result;
-                });
-
-                // If there are updates, update the combatants at once.
-                if (updates) {
-                  await combat.updateCombatant(updates);
-                }
-              }
-            }); // end of newHtml.find('.directory-item.actor-elem')
+          newHtml.find('.directory-item.actor-elem').attr('draggable', true).addClass('draggable');
         }
       }
     });
