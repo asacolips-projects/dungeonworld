@@ -428,13 +428,22 @@ export class DwActorSheet extends ActorSheet {
     const actorMoves = this.actor.data.items.filter(i => i.type == 'move');
 
     // Get the item moves as the priority.
-    let moves = game.items.entities.filter(i => i.type == 'move' && i.data.data.class == char_class_name);
+    let moves = game.items.entities.filter(m => {
+      if (m.type == 'move' && m.data.data.class == char_class_name) {
+        const available_level = m.data.data.requiresLevel <= char_level;
+        const not_taken = actorMoves.filter(i => i.name == m.data.name);
+        const has_requirements = m.data.data.requiresMove ? actorMoves.filter(i => i.name == m.data.data.requiresMove).length > 0 : true;
+        return available_level && not_taken.length < 1 && has_requirements;
+      }
+      return false;
+    });
     // Get the compendium moves next.
     let moves_compendium = compendium.filter(m => {
       const available_level = m.data.data.requiresLevel <= char_level;
       // TODO: Babele: `const not_taken = actorMoves.filter(i => i.name == m.data.name || i.name === m.data.originalName);`
       const not_taken = actorMoves.filter(i => i.name == m.data.name);
-      return available_level && not_taken.length < 1;
+      const has_requirements = m.data.data.requiresMove ? actorMoves.filter(i => i.name == m.data.data.requiresMove).length > 0 : true;
+      return available_level && not_taken.length < 1 && has_requirements;
     });
 
     // Append compendium moves to the item moves.
