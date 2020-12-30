@@ -98,25 +98,27 @@ export class DwClassItemSheet extends DwItemSheet {
   }
 
   async _deleteEquipment(equipmentId, groupId) {
-    let itemData = duplicate(this.item.data);
+    let originalData = duplicate(this.item.data);
+    let itemData = {};
 
     // Filter items.
-    let newItems = itemData.data.equipment[groupId]['items'].filter(i => i != equipmentId);
-    itemData.data.equipment[groupId]['items'] = newItems;
+    let newItems = originalData.data.equipment[groupId]['items'].filter(i => i != equipmentId);
+    itemData[`data.equipment.${groupId}.items`] = newItems;
 
     // Update the entity.
-    await this.item.update(itemData, { diff: false });
+    await this.item.update(itemData);
     this.render(true);
   }
 
   async _createEquipment(equipmentId, groupId) {
-    let itemData = duplicate(this.item.data);
+    let originalData = duplicate(this.item.data);
+    let itemData = {};
 
     // Filter items.
     let existing_items = [];
 
-    if (!DwUtility.isEmpty(itemData.data.equipment[groupId]['items'])) {
-      existing_items = itemData.data.equipment[groupId]['items'];
+    if (!DwUtility.isEmpty(originalData.data.equipment[groupId]['items'])) {
+      existing_items = originalData.data.equipment[groupId]['items'];
     }
     else {
       existing_items = [];
@@ -124,9 +126,9 @@ export class DwClassItemSheet extends DwItemSheet {
     // Append our item.
     if (!existing_items.includes(equipmentId)) {
       existing_items.push(equipmentId);
-      itemData.data.equipment[groupId]['items'] = existing_items;
+      itemData[`data.equipment.${groupId}.items`] = existing_items;
       // Update the entity.
-      await this.item.update(itemData, { diff: false });
+      await this.item.update(itemData);
       this.render(true);
     }
 

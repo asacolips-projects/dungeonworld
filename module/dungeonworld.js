@@ -184,6 +184,13 @@ Hooks.on('createActor', async (actor, options, id) => {
   }
 });
 
+// Update the item list on new item creation.
+Hooks.on('createItem', async (item, options, id) => {
+  if (item.data.type == 'equipment') {
+    DwUtility.getEquipment(true);
+  }
+})
+
 Hooks.on('preUpdateActor', (actor, data, options, id) => {
   if (actor.data.type == 'character') {
     // Allow the character to levelup up when their level changes.
