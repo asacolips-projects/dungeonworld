@@ -13,8 +13,8 @@ const argv = yargs
     .option('jobname', {
       'type': 'string',
       description: 'specifies the job name (CI_JOB_NAME)'
-  })
-    .option('version', {
+    })
+    .option('tag', {
       type: 'string',
       description: 'The git tag used for this version (CI_COMMIT_TAG)'
     })
@@ -37,18 +37,22 @@ if (argv.branch == 'beta' && argv.versionpre) {
     system.version = `beta${argv.versionpre}-${system.version.replace(/beta\d*-/g, '')}`;
   }
 }
-else if (argv.version) {
-  system.version = argv.version;
+else if (argv.tag) {
+  system.version = argv.tag;
 }
 
 // Remove unused key.
 delete system.nextVersion;
 
+// Set the artifact path.
+let artifactVersion = argv.tag ? argv.tag : argv.branch;
+
 // Update URLs.
 system.url = `https://gitlab.com/${argv.gitlabpath}`;
 system.manifest = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${argv.branch}/raw/system.json?job=${argv.jobname}`;
-system.download = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${argv.branch}/raw/dungeonworld.zip?job=${argv.jobname}`;
+system.download = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${artifactVersion}/raw/dungeonworld.zip?job=${argv.jobname}`;
 
 fs.writeFileSync('./dist/system.json', JSON.stringify(system, null, 2));
 console.log(`Build: ${system.version}`);
 console.log(`Manifest: ${system.manifest}`);
+console.log(`Download: ${system.download}`);
