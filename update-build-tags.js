@@ -21,19 +21,20 @@ const argv = yargs
     .demandOption(['branch', 'gitlabpath'])
     .argv;
 
-const systemRaw = fs.readFileSync('system.json');
+const systemRaw = fs.readFileSync('./dist/system.json');
 let system = JSON.parse(systemRaw);
 
 // Calculate the version.
-if (version == 'BETA' && versionpre) {
+if (argv.branch == 'beta' && argv.versionpre) {
   system.version = `beta${argv.versionpre}-${system.version}`;
 }
-else if (version) {
-  system.version = version;
+else if (argv.version) {
+  system.version = argv.version;
 }
 
 system.url = `https://gitlab.com/${argv.gitlabpath}`;
 system.manifest = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${argv.branch}/raw/system.json?job=build`;
 system.download = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${argv.branch}/raw/dungeonworld.zip?job=build`;
 
-fs.writeFileSync('system.json', JSON.stringify(system, null, 2));
+fs.writeFileSync('./dist/system.json', JSON.stringify(system, null, 2));
+console.log(system.manifest);
