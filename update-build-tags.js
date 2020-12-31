@@ -50,4 +50,5 @@ system.manifest = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${argv
 system.download = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${argv.branch}/raw/dungeonworld.zip?job=${argv.jobname}`;
 
 fs.writeFileSync('./dist/system.json', JSON.stringify(system, null, 2));
-console.log({version: system.version, manifest: system.manifest});
+console.log(`Build: ${system.version}`);
+console.log(`Manifest: ${system.manifest}`);
