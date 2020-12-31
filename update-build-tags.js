@@ -29,7 +29,6 @@ const systemRaw = fs.readFileSync('./dist/system.json');
 let system = JSON.parse(systemRaw);
 
 // Calculate the version.
-console.log(argv);
 if (argv.branch == 'beta' && argv.versionpre) {
   if (system.nextVersion) {
     system.version = `beta${argv.versionpre}-${system.nextVersion}`;
