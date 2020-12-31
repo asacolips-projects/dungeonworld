@@ -20,7 +20,7 @@ const argv = yargs
     })
     .option('versionpre', {
       type: 'string',
-      description: 'specifies the timestamp as a prefix on beta builds (CI_COMMIT_TIMESTAMP)'
+      description: 'specifies the timestamp as a prefix on beta builds (CI_PIPELINE_IID)'
     })
     .demandOption(['branch', 'gitlabpath', 'jobname'])
     .argv;
