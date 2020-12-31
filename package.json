@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "CSS compiler for the Dungeon World system",
   "scripts": {
-    "build": "gulp yaml & gulp css",
+    "build": "gulp build",
     "compile": "gulp css",
     "watch": "gulp",
     "gulp": "gulp",
@@ -16,11 +16,15 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "del": "^6.0.0",
+    "fs": "0.0.1-security",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-yaml": "^2.0.4"
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-webp": "^4.0.1",
+    "gulp-yaml": "^2.0.4",
+    "yargs": "^16.2.0"
   }
 }
