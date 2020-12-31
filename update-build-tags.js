@@ -29,7 +29,7 @@ const systemRaw = fs.readFileSync('./dist/system.json');
 let system = JSON.parse(systemRaw);
 
 // Calculate the version.
-if (argv.branch == 'beta' && argv.versionpre) {
+if (argv.branch && argv.branch == 'beta' && argv.versionpre) {
   if (system.nextVersion) {
     system.version = `beta${argv.versionpre}-${system.nextVersion}`;
   }
@@ -45,11 +45,12 @@ else if (argv.tag) {
 delete system.nextVersion;
 
 // Set the artifact path.
+let artifactBranch = argv.branch ? argv.branch : 'master';
 let artifactVersion = argv.tag ? argv.tag : argv.branch;
 
 // Update URLs.
 system.url = `https://gitlab.com/${argv.gitlabpath}`;
-system.manifest = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${argv.branch}/raw/system.json?job=${argv.jobname}`;
+system.manifest = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${artifactBranch}/raw/system.json?job=${argv.jobname}`;
 system.download = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${artifactVersion}/raw/dungeonworld.zip?job=${argv.jobname}`;
 
 fs.writeFileSync('./dist/system.json', JSON.stringify(system, null, 2));
