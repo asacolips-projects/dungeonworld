@@ -71,7 +71,11 @@ function copyFiles() {
   return gulp.src(SYSTEM_COPY, {base: 'src'})
     .pipe(gulp.dest('./dist'))
 }
-const copyTask = gulp.series(copyFiles);
+function copyManifest() {
+  return gulp.src('./dist/system.json')
+    .pipe(gulp.dest('./'))
+}
+const copyTask = gulp.series(copyFiles, copyManifest);
 
 /* ----------------------------------------- */
 /*  Convert images
@@ -92,10 +96,10 @@ const imageTask = gulp.series(compileImages);
 /* ----------------------------------------- */
 
 function watchUpdates() {
-  gulp.watch(SYSTEM_COPY, copyFiles);
+  gulp.watch(SYSTEM_YAML, yamlTask);
   gulp.watch(SYSTEM_IMAGES, compileImages);
   gulp.watch(SYSTEM_SCSS, cssTask);
-  gulp.watch(SYSTEM_YAML, yamlTask);
+  gulp.watch(SYSTEM_COPY, copyTask);
 }
 
 /* ----------------------------------------- */
@@ -104,18 +108,20 @@ function watchUpdates() {
 
 exports.default = gulp.series(
   deleteFiles,
-  copyFiles,
+  compileYaml,
   compileImages,
   compileScss,
-  compileYaml,
+  copyFiles,
+  copyManifest,
   watchUpdates
 );
 exports.build = gulp.series(
   deleteFiles,
-  copyFiles,
+  compileYaml,
   compileImages,
   compileScss,
-  compileYaml
+  copyFiles,
+  copyManifest
 );
 
 
