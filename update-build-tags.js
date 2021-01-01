@@ -30,19 +30,16 @@ let system = JSON.parse(systemRaw);
 
 // Calculate the version.
 if (argv.branch && argv.branch == 'beta' && argv.versionpre) {
-  if (system.nextVersion) {
-    system.version = `beta${argv.versionpre}-${system.nextVersion}`;
-  }
-  else {
-    system.version = `beta${argv.versionpre}-${system.version.replace(/beta\d*-/g, '')}`;
-  }
+  let newVersionSplit = system.version.split('.');
+  // Set the beta version.
+  newVersionSplit[1]++;
+  newVersionSplit[2] = 0;
+  let newVersion = newVersionSplit.join('.');
+  system.version = `beta${argv.versionpre ? argv.versionpre + '-' : ''}${newVersion}`;
 }
 else if (argv.tag) {
   system.version = argv.tag;
 }
-
-// Remove unused key.
-delete system.nextVersion;
 
 // Set the artifact path.
 let artifactBranch = argv.branch ? argv.branch : 'master';

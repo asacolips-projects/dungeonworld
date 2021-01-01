@@ -1,10 +1,14 @@
 const gulp = require('gulp');
 const prefix = require('gulp-autoprefixer');
-const sourcemaps = require('gulp-sourcemaps');
 const del = require('del');
 const sass = require('gulp-sass');
 const yaml = require('gulp-yaml');
 const webp = require('gulp-webp');
+const git = require('gulp-git');
+const tagVersion = require('gulp-tag-version');
+const jsYaml = require('js-yaml');
+const fs = require('fs');
+const replace = require('gulp-replace');
 
 /* ----------------------------------------- */
 /*  Compile Sass
@@ -91,6 +95,77 @@ function compileImages() {
 };
 const imageTask = gulp.series(compileImages);
 
+function getTagVersion() {
+  try {
+    // Load the manifest and determine the version.
+    const doc = jsYaml.safeLoad(fs.readFileSync('./src/yaml/system.yml', 'utf8'));
+    return doc.version;
+  } catch (e) {
+    console.log(e);
+    // Output the original file as a fail safe.
+    return false;
+  }
+}
+
+/**
+ * Bumping version number and tagging the repository with it.
+ * Please read http://semver.org/
+ *
+ * You can use the commands
+ *
+ *     gulp patch     # makes v0.1.0 → v0.1.1
+ *     gulp feature   # makes v0.1.1 → v0.2.0
+ *     gulp release   # makes v0.2.1 → v1.0.0
+ *
+ * To bump the version numbers accordingly after you did a patch,
+ * introduced a feature or made a backwards-incompatible release.
+ */
+function inc(importance) {
+  let version = getTagVersion();
+  if (version) {
+    let oldVersion = version;
+    let newVersionSplit = version.split('.');
+    switch (importance) {
+      case 'patch':
+        newVersionSplit[2]++;
+        break;
+
+      case 'minor':
+        newVersionSplit[1]++;
+        break;
+
+      case 'major':
+        newVersionSplit[0]++;
+        break;
+
+      default:
+        break;
+    }
+    let newVersion = newVersionSplit.join('.');
+    // Output the version to the file.
+    return gulp.src(['./src/yaml/system.yml'])
+      // String replacements.
+      .pipe(replace(oldVersion, newVersion))
+      .pipe(replace('jobs/artifacts/master', `jobs/artifacts/${newVersion}`))
+      // Overwrite system.yml.
+      .pipe(gulp.dest('./src/yaml'))
+  } else {
+    return gulp.src(['./src/yaml/system.yml']);
+  }
+}
+
+function commitTag() {
+  let version = getTagVersion();
+  if (version) {
+    return gulp.src(['./system.json'])
+      .pipe(git.commit(`Release ${version}`))
+      .pipe(tagVersion({ prefix: '' }));
+  }
+  else {
+    return gulp.src(['./system.json']);
+  }
+}
+
 /* ----------------------------------------- */
 /*  Watch Updates
 /* ----------------------------------------- */
@@ -106,7 +181,7 @@ function watchUpdates() {
 /*  Export Tasks
 /* ----------------------------------------- */
 
-exports.default = gulp.series(
+const defaultTask = gulp.series(
   deleteFiles,
   compileYaml,
   compileImages,
@@ -115,7 +190,7 @@ exports.default = gulp.series(
   copyManifest,
   watchUpdates
 );
-exports.build = gulp.series(
+const buildTask = gulp.series(
   deleteFiles,
   compileYaml,
   compileImages,
@@ -124,8 +199,18 @@ exports.build = gulp.series(
   copyManifest
 );
 
+exports.default = defaultTask;
+exports.build = buildTask;
 
 exports.copy = copyTask;
 exports.images = imageTask;
 exports.css = cssTask;
 exports.yaml = yamlTask;
+
+// Git release commands.
+patch = function() { return inc('patch') };
+major = function() { return inc('major') };
+minor = function() { return inc('minor') };
+exports.patch = gulp.series(patch, buildTask, commitTag);
+exports.minor = gulp.series(minor, buildTask, commitTag);
+exports.major = gulp.series(major, buildTask, commitTag);
