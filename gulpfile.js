@@ -11,7 +11,7 @@ const fs = require('fs');
 const replace = require('gulp-replace');
 
 /* ----------------------------------------- */
-/*  Compile Sass
+/* Compile Sass
 /* ----------------------------------------- */
 
 // Small error handler helper function.
@@ -39,7 +39,7 @@ function compileScss() {
 const cssTask = gulp.series(compileScss);
 
 /* ----------------------------------------- */
-/*  Compile YAML
+/* Compile YAML
 /* ----------------------------------------- */
 const SYSTEM_YAML = ['src/yaml/**/*.yml', 'src/yaml/**/*.yaml'];
 function compileYaml() {
@@ -82,7 +82,7 @@ function copyManifest() {
 const copyTask = gulp.series(copyFiles, copyManifest);
 
 /* ----------------------------------------- */
-/*  Convert images
+/* Convert images
 /* ----------------------------------------- */
 const SYSTEM_IMAGES = [
   'src/assets/**/*.{png,jpeg,jpg}',
@@ -95,6 +95,9 @@ function compileImages() {
 };
 const imageTask = gulp.series(compileImages);
 
+/* ----------------------------------------- */
+/* Retrieve current version from system.yml
+/* ----------------------------------------- */
 function getTagVersion() {
   try {
     // Load the manifest and determine the version.
@@ -107,19 +110,9 @@ function getTagVersion() {
   }
 }
 
-/**
- * Bumping version number and tagging the repository with it.
- * Please read http://semver.org/
- *
- * You can use the commands
- *
- *     gulp patch     # makes v0.1.0 → v0.1.1
- *     gulp feature   # makes v0.1.1 → v0.2.0
- *     gulp release   # makes v0.2.1 → v1.0.0
- *
- * To bump the version numbers accordingly after you did a patch,
- * introduced a feature or made a backwards-incompatible release.
- */
+/* ----------------------------------------- */
+/* Increment version in system.yml
+/* ----------------------------------------- */
 function inc(importance) {
   let version = getTagVersion();
   if (version) {
@@ -154,6 +147,9 @@ function inc(importance) {
   }
 }
 
+/* ----------------------------------------- */
+/* Commit changes and make a new git tag.
+/* ----------------------------------------- */
 function commitTag() {
   let version = getTagVersion();
   if (version) {
@@ -167,7 +163,7 @@ function commitTag() {
 }
 
 /* ----------------------------------------- */
-/*  Watch Updates
+/* Watch Updates
 /* ----------------------------------------- */
 
 function watchUpdates() {
@@ -178,7 +174,7 @@ function watchUpdates() {
 }
 
 /* ----------------------------------------- */
-/*  Export Tasks
+/* Export Tasks
 /* ----------------------------------------- */
 
 const defaultTask = gulp.series(
@@ -207,7 +203,19 @@ exports.images = imageTask;
 exports.css = cssTask;
 exports.yaml = yamlTask;
 
-// Git release commands.
+/**
+ * Bumping version number and tagging the repository with it.
+ * Please read http://semver.org/
+ *
+ * You can use the commands
+ *
+ *     gulp patch     # makes v0.1.0 → v0.1.1
+ *     gulp feature   # makes v0.1.1 → v0.2.0
+ *     gulp release   # makes v0.2.1 → v1.0.0
+ *
+ * To bump the version numbers accordingly after you did a patch,
+ * introduced a feature or made a backwards-incompatible release.
+ */
 patch = function() { return inc('patch') };
 major = function() { return inc('major') };
 minor = function() { return inc('minor') };
