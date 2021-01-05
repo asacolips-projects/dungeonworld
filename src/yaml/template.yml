@@ -37,10 +37,12 @@ Actor:
         value: 0
       forward:
         value: 0
+        apply: false
       hold:
         value: 0
       ongoing:
         value: 0
+        apply: false
       resource1:
         label: Custom Resource
         value: 0

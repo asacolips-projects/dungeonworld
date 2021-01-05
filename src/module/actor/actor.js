@@ -152,6 +152,16 @@ export class ActorDw extends Actor {
         }
       }
       if (formula != null) {
+        const forward = actorData.attributes.forward;
+        if (forward && forward.apply && forward.value != 0) {
+          formula += (forward.value > 0 ? "+" : "") + forward.value.toString();
+        }
+
+        const ongoing = actorData.attributes.ongoing;
+        if (ongoing && ongoing.apply && ongoing.value != 0) {
+          formula += (ongoing.value > 0 ? "+" : "") + ongoing.value.toString();
+        }
+
         // Do the roll.
         let roll = new Roll(`${formula}`, actor.getRollData());
         roll.roll();

@@ -189,19 +189,29 @@
                 <section class="sheet-resources">
                   <div class="cell cell--forward">
                     <label class="cell__title">{{localize "DW.Forward"}}</label>
-                    <div class="cell__wrapper">
-                      <button class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.forward.value">-</button>
-                      <input type="number" name="data.attributes.forward.value" value="{{data.attributes.forward.value}}" data-dtype="Number"/>
-                      <button class="resource-control resource-increase" data-action="increase" data-attr="attributes.forward.value">+</button>
+                    <div class="cell__counter">
+                      <div class="cell__wrapper">
+                        <button class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.forward.value">-</button>
+                        <input type="number" name="data.attributes.forward.value" value="{{data.attributes.forward.value}}" data-dtype="Number"/>
+                        <button class="resource-control resource-increase" data-action="increase" data-attr="attributes.forward.value">+</button>
+                      </div>
+                      <div class="cell__wrapper attribute-apply">
+                        <input type="checkbox" name="data.attributes.forward.apply" {{checked data.attributes.forward.apply}}/>
+                      </div>
                     </div>
                   </div>
 
                   <div class="cell cell--ongoing">
                     <label class="cell__title">{{localize "DW.Ongoing"}}</label>
-                    <div class="cell__wrapper">
-                      <button class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.ongoing.value">-</button>
-                      <input type="number" name="data.attributes.ongoing.value" value="{{data.attributes.ongoing.value}}" data-dtype="Number"/>
-                      <button class="resource-control resource-increase" data-action="increase" data-attr="attributes.ongoing.value">+</button>
+                    <div class="cell__counter">
+                      <div class="cell__wrapper">
+                        <button class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.ongoing.value">-</button>
+                        <input type="number" name="data.attributes.ongoing.value" value="{{data.attributes.ongoing.value}}" data-dtype="Number"/>
+                        <button class="resource-control resource-increase" data-action="increase" data-attr="attributes.ongoing.value">+</button>
+                      </div>
+                      <div class="cell__wrapper attribute-apply">
+                        <input type="checkbox" name="data.attributes.ongoing.apply" {{checked data.attributes.ongoing.apply}}/>
+                      </div>
                     </div>
                   </div>
 
