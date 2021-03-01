@@ -64,7 +64,7 @@
             <div class="cell__title">
               <label>{{localize "DW.Bonds"}}</label>
               <div class="item-controls">
-                <button class="item-control item-create" title='{{localize "DW.AddBond"}}' data-type="bond">
+                <button  type="button" class="item-control item-create" title='{{localize "DW.AddBond"}}' data-type="bond">
                   <i class="fas fa-plus"></i> <span class="visually-hidden">{{localize "DW.AddBond"}}</span>
                 </button>
               </div>
@@ -82,7 +82,7 @@
           </div>
         </div>
 
-        <button class="toggle toggle--look"><i class="fas fa-chevron-left"></i></button>
+        <button  type="button" class="toggle toggle--look"><i class="fas fa-chevron-left"></i></button>
       </section>
 
       {{!-- Main --}}
@@ -190,27 +190,27 @@
                   <div class="cell cell--forward">
                     <label class="cell__title">{{localize "DW.Forward"}}</label>
                     <div class="cell__wrapper">
-                      <button class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.forward.value">-</button>
+                      <button  type="button" class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.forward.value">-</button>
                       <input type="number" name="data.attributes.forward.value" value="{{data.attributes.forward.value}}" data-dtype="Number"/>
-                      <button class="resource-control resource-increase" data-action="increase" data-attr="attributes.forward.value">+</button>
+                      <button  type="button" class="resource-control resource-increase" data-action="increase" data-attr="attributes.forward.value">+</button>
                     </div>
                   </div>
 
                   <div class="cell cell--ongoing">
                     <label class="cell__title">{{localize "DW.Ongoing"}}</label>
                     <div class="cell__wrapper">
-                      <button class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.ongoing.value">-</button>
+                      <button  type="button" class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.ongoing.value">-</button>
                       <input type="number" name="data.attributes.ongoing.value" value="{{data.attributes.ongoing.value}}" data-dtype="Number"/>
-                      <button class="resource-control resource-increase" data-action="increase" data-attr="attributes.ongoing.value">+</button>
+                      <button  type="button" class="resource-control resource-increase" data-action="increase" data-attr="attributes.ongoing.value">+</button>
                     </div>
                   </div>
 
                   <div class="cell cell--hold">
                     <label class="cell__title">{{localize "DW.Hold"}}</label>
                     <div class="cell__wrapper">
-                      <button class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.hold.value">-</button>
+                      <button  type="button" class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.hold.value">-</button>
                       <input type="number" name="data.attributes.hold.value" value="{{data.attributes.hold.value}}" data-dtype="Number"/>
-                      <button class="resource-control resource-increase" data-action="increase" data-attr="attributes.hold.value">+</button>
+                      <button  type="button" class="resource-control resource-increase" data-action="increase" data-attr="attributes.hold.value">+</button>
                     </div>
                   </div>
 
@@ -218,15 +218,15 @@
                     <label class="cell__title"><input type="text" name="data.attributes.resource1.label" value="{{data.attributes.resource1.label}}" data-dtype="String"/></label>
                     <div class="cell__counter">
                       <div class="cell__wrapper">
-                        <button class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.resource1.value">-</button>
+                        <button  type="button" class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.resource1.value">-</button>
                         <input type="number" name="data.attributes.resource1.value" value="{{data.attributes.resource1.value}}" data-dtype="Number"/>
-                        <button class="resource-control resource-increase" data-action="increase" data-attr="attributes.resource1.value">+</button>
+                        <button  type="button" class="resource-control resource-increase" data-action="increase" data-attr="attributes.resource1.value">+</button>
                       </div>
                       <span> / </span>
                       <div class="cell__wrapper">
-                        <button class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.resource1.max">-</button>
+                        <button  type="button" class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.resource1.max">-</button>
                         <input type="number" name="data.attributes.resource1.max" value="{{data.attributes.resource1.max}}" data-dtype="Number"/>
-                        <button class="resource-control resource-increase" data-action="increase" data-attr="attributes.resource1.max">+</button>
+                        <button  type="button" class="resource-control resource-increase" data-action="increase" data-attr="attributes.resource1.max">+</button>
                       </div>
                     </div>
                   </div>
@@ -236,7 +236,7 @@
                   <h2 class="cell__title">
                     <label>{{localize "DW.MovesBasic"}}</label>
                     <div class="item-controls">
-                      <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="basic">
+                      <button  type="button" class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="basic">
                         <i class="fas fa-plus"></i>
                       </button>
                     </div>
@@ -269,7 +269,7 @@
                   <h2 class="cell__title">
                     <label>{{localize "DW.MovesStarting"}}</label>
                     <div class="item-controls">
-                      <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="starting">
+                      <button  type="button" class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="starting">
                         <i class="fas fa-plus"></i>
                       </button>
                     </div>
@@ -302,7 +302,7 @@
                   <h2 class="cell__title">
                     <label>{{localize "DW.MovesAdvanced"}}</label>
                     <div class="item-controls">
-                      <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="advanced">
+                      <button  type="button" class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="advanced">
                         <i class="fas fa-plus"></i>
                       </button>
                     </div>
@@ -335,7 +335,7 @@
                   <h2 class="cell__title">
                     <label>{{localize "DW.MovesSpecial"}}</label>
                     <div class="item-controls">
-                      <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="special">
+                      <button  type="button" class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move" data-moveType="special">
                         <i class="fas fa-plus"></i>
                       </button>
                     </div>
@@ -368,7 +368,7 @@
                   <h2 class="cell__title">
                     <label>{{localize "DW.MovesOther"}}</label>
                     <div class="item-controls">
-                      <button class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move">
+                      <button  type="button" class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="move">
                         <i class="fas fa-plus"></i>
                       </button>
                     </div>
@@ -414,7 +414,7 @@
                     <h2 class="cell__title">
                       <label>{{localize (concat "DW.Spells" spellLevel)}}</label>
                       <div class="item-controls">
-                      <button class="item-control item-create" title='{{localize "DW.Spells"}}' data-type="spell" data-level="{{spellLevel}}">
+                      <button  type="button" class="item-control item-create" title='{{localize "DW.Spells"}}' data-type="spell" data-level="{{spellLevel}}">
                         <i class="fas fa-plus"></i>
                       </button>
                     </div>
@@ -467,7 +467,7 @@
                   <h2 class="cell__title">
                     <label>{{localize "DW.Equipment"}}</label>
                     <div class="item-controls">
-                      <button class="item-control item-create" title='{{localize "DW.Equipment"}}' data-type="equipment">
+                      <button  type="button" class="item-control item-create" title='{{localize "DW.Equipment"}}' data-type="equipment">
                         <i class="fas fa-plus"></i>
                       </button>
                     </div>
