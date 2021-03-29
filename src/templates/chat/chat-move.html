@@ -1,10 +1,22 @@
 <section class="dw-chat-card">
   <div class="cell cell--chat">
-    <h2 class="cell__title">{{title}}</h2>
+    <div class="chat-title row flexrow">
+      {{#if image}}<img class="item-icon" src="{{image}}" alt="{{title}}"/>{{/if}}
+      <h2 class="cell__title">{{title}}</h2>
+    </div>
     {{#if flavor}}<div class="row"><em>{{flavor}}</em></div>{{/if}}
     {{#if trigger}}<div class="row"><strong>Trigger:</strong> {{trigger}}</div>{{/if}}
     {{#if details}}<div class="row">{{{details}}}</div>{{/if}}
-    {{#if result}}<div class="result {{result}}">{{localize (concat "DW." . result)}}</div>{{/if}}
+    {{!-- Result type label. --}}
+    {{#if resultLabel}}
+      <div class="row result{{#if result}} {{result}}{{/if}}">
+        <div class="result-label">{{resultLabel}}</div>
+        {{#if resultDetails}}
+          <div class="result-details">{{{resultDetails}}}</div>
+        {{/if}}
+      </div>
+    {{/if}}
+    {{!-- Roll results, color coded to match the result type label. --}}
     {{#if rollDw}}<div class="roll{{#if result}} {{result}}{{/if}}">{{{rollDw}}}</div>{{/if}}
     {{#if tags}}
       <hr>

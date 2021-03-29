@@ -1,5 +1,6 @@
 import { DwClassList } from "../config.js";
 import { DwUtility } from "../utility.js";
+import { DwRolls } from "../rolls.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -834,19 +835,28 @@ export class DwActorSheet extends ActorSheet {
     let flavorText = null;
     let templateData = {};
 
+    let dice = DwUtility.getRollFormula('2d6');
+
     // Handle rolls coming directly from the ability score.
     if ($(a).hasClass('ability-rollable') && data.mod) {
-      formula = `2d6+${data.mod}`;
       flavorText = data.label;
       if (data.debility) {
         flavorText += ` (${data.debility})`;
       }
 
+      let forward = Number(actorData.attributes.forward.value) ?? 0;
+      let ongoing = Number(actorData.attributes.ongoing.value) ?? 0;
+
+      formula = `2d6+${data.mod}`;
+      if (forward) formula = `${formula}+${forward}`;
+      if (ongoing) formula = `${formula}+${ongoing}`;
+
       templateData = {
         title: flavorText
       };
 
-      this.rollMove(formula, actorData, data, templateData);
+      // this.rollMove(formula, actorData, data, templateData);
+      DwRolls.rollMove({actor: this.actor, data: null, formula: formula, templateData: templateData});
     }
     else if ($(a).hasClass('damage-rollable') && data.roll) {
       formula = data.roll;
@@ -864,83 +874,83 @@ export class DwActorSheet extends ActorSheet {
     }
   }
 
-  /**
-   * Roll a move and use the chat card template.
-   * @param {Object} templateData
-   */
-  rollMove(roll, actorData, dataset, templateData, form = null) {
-    // Render the roll.
-    let template = 'systems/dungeonworld/templates/chat/chat-move.html';
-    // GM rolls.
-    let chatData = {
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor })
-    };
-    let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
-    if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
-    if (rollMode === "blindroll") chatData["blind"] = true;
-    // Handle dice rolls.
-    if (roll) {
-      // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
-      let formula = '';
-      // Handle bond (user input).
-      if (roll == 'BOND') {
-        formula = form.bond.value ? `2d6+${form.bond.value}` : '2d6';
-        if (dataset.mod && dataset.mod != 0) {
-          formula += `+${dataset.mod}`;
-        }
-      }
-      // Handle ability scores (no input).
-      else if (roll.match(/(\d*)d\d+/g)) {
-        formula = roll;
-      }
-      // Handle moves.
-      else {
-        formula = `2d6+${actorData.abilities[roll].mod}`;
-        if (dataset.mod && dataset.mod != 0) {
-          formula += `+${dataset.mod}`;
-        }
-      }
-      if (formula != null) {
-        // Do the roll.
-        let roll = new Roll(`${formula}`);
-        roll.roll();
-        // Add success notification.
-        if (formula.includes('2d6')) {
-          if (roll.total < 7) {
-            templateData.result = 'failure';
-          }
-          else if (roll.total > 6 && roll.total < 10) {
-            templateData.result = 'partial';
-          }
-          else {
-            templateData.result = 'success';
-          }
-        }
-        // Render it.
-        roll.render().then(r => {
-          templateData.rollDw = r;
-          renderTemplate(template, templateData).then(content => {
-            chatData.content = content;
-            if (game.dice3d) {
-              game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-            }
-            else {
-              chatData.sound = CONFIG.sounds.dice;
-              ChatMessage.create(chatData);
-            }
-          });
-        });
-      }
-    }
-    else {
-      renderTemplate(template, templateData).then(content => {
-        chatData.content = content;
-        ChatMessage.create(chatData);
-      });
-    }
-  }
+  // /**
+  //  * Roll a move and use the chat card template.
+  //  * @param {Object} templateData
+  //  */
+  // rollMove(roll, actorData, dataset, templateData, form = null) {
+  //   // Render the roll.
+  //   let template = 'systems/dungeonworld/templates/chat/chat-move.html';
+  //   // GM rolls.
+  //   let chatData = {
+  //     user: game.user._id,
+  //     speaker: ChatMessage.getSpeaker({ actor: this.actor })
+  //   };
+  //   let rollMode = game.settings.get("core", "rollMode");
+  //   if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
+  //   if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
+  //   if (rollMode === "blindroll") chatData["blind"] = true;
+  //   // Handle dice rolls.
+  //   if (roll) {
+  //     // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
+  //     let formula = '';
+  //     // Handle bond (user input).
+  //     if (roll == 'BOND') {
+  //       formula = form.bond.value ? `2d6+${form.bond.value}` : '2d6';
+  //       if (dataset.mod && dataset.mod != 0) {
+  //         formula += `+${dataset.mod}`;
+  //       }
+  //     }
+  //     // Handle ability scores (no input).
+  //     else if (roll.match(/(\d*)d\d+/g)) {
+  //       formula = roll;
+  //     }
+  //     // Handle moves.
+  //     else {
+  //       formula = `2d6+${actorData.abilities[roll].mod}`;
+  //       if (dataset.mod && dataset.mod != 0) {
+  //         formula += `+${dataset.mod}`;
+  //       }
+  //     }
+  //     if (formula != null) {
+  //       // Do the roll.
+  //       let roll = new Roll(`${formula}`);
+  //       roll.roll();
+  //       // Add success notification.
+  //       if (formula.includes('2d6')) {
+  //         if (roll.total < 7) {
+  //           templateData.result = 'failure';
+  //         }
+  //         else if (roll.total > 6 && roll.total < 10) {
+  //           templateData.result = 'partial';
+  //         }
+  //         else {
+  //           templateData.result = 'success';
+  //         }
+  //       }
+  //       // Render it.
+  //       roll.render().then(r => {
+  //         templateData.rollDw = r;
+  //         renderTemplate(template, templateData).then(content => {
+  //           chatData.content = content;
+  //           if (game.dice3d) {
+  //             game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+  //           }
+  //           else {
+  //             chatData.sound = CONFIG.sounds.dice;
+  //             ChatMessage.create(chatData);
+  //           }
+  //         });
+  //       });
+  //     }
+  //   }
+  //   else {
+  //     renderTemplate(template, templateData).then(content => {
+  //       chatData.content = content;
+  //       ChatMessage.create(chatData);
+  //     });
+  //   }
+  // }
 
   /**
    * Listen for toggling the look column.

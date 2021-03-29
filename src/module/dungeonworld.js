@@ -99,6 +99,11 @@ Hooks.once("ready", async function() {
 
   // Run migrations.
   MigrateDw.runMigration();
+
+  // Update config.
+  for (let [k,v] of Object.entries(CONFIG.DW.rollResults)) {
+    CONFIG.DW.rollResults[k].label = game.i18n.localize(v.label);
+  }
 });
 
 Hooks.on('renderChatMessage', (data, html, options) => {

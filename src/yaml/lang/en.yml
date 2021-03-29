@@ -148,3 +148,7 @@ DW.partial: "Partial Success"
 DW.success: "Success"
 DW.Settings.itemIcons.name: "Enable Item Icons"
 DW.Settings.itemIcons.hint: "Enable visual icons for moves, spells, and equipment in character sheets (requires browser reload)."
+DW.Dialog.askTitle: 'Choose a stat'
+DW.Dialog.askContent: 'Choose a stat for this <strong>{name}</strong> move.'
+DW.Dialog.bondTitle: 'Enter your modifier'
+DW.Dialog.bondContent: 'Enter a bonus for the bond or modifier for this <strong>{name}</strong> move.'
