@@ -12,9 +12,9 @@ export class DwRolls {
     return defaultFormula;
   }
 
-  getModifiers() {
-    let forward = Number(this.actor.data.data.attributes.forward.value) ?? 0;
-    let ongoing = Number(this.actor.data.data.attributes.ongoing.value) ?? 0;
+  static getModifiers(actor) {
+    let forward = Number(actor.data.data.attributes.forward.value) ?? 0;
+    let ongoing = Number(actor.data.data.attributes.ongoing.value) ?? 0;
     return `+${forward}+${ongoing}`;
   }
 
@@ -145,6 +145,8 @@ export class DwRolls {
     // Render the roll.
     let template = 'systems/dungeonworld/templates/chat/chat-move.html';
     let dice = DwUtility.getRollFormula('2d6');
+    let forwardUsed = false;
+    let xpGranted = false;
     // GM rolls.
     let chatData = {
       user: game.user._id,
@@ -186,12 +188,13 @@ export class DwRolls {
             formula += `+${dataset.value}`;
           }
         }
+        let modifiers = DwRolls.getModifiers(this.actor);
+        formula = `${formula}${modifiers}`;
+        forwardUsed = Number(this.actor.data.data.attributes.forward.value) != 0;
       }
       if (formula != null) {
         // Do the roll.
-        let forward = this.actor.data.data.attributes.forward.value ?? 0;
-        let ongoing = this.actor.data.data.attributes.ongoing.value ?? 0;
-        let roll = new Roll(`${formula}+${forward}+${ongoing}`, this.actor.getRollData());
+        let roll = new Roll(`${formula}`, this.actor.getRollData());
         roll.roll();
         let rollType = templateData.rollType ?? 'move';
         // Add success notification.
@@ -225,6 +228,11 @@ export class DwRolls {
                 break;
               }
             }
+          }
+
+          // Handle XP.
+          if (resultType == 'failure') {
+            xpGranted = true;
           }
 
           // Update the templateData.
@@ -278,9 +286,12 @@ export class DwRolls {
     }
 
     // Update forward.
-    let forward = this.actor.data.data.attributes.forward.value ?? 0;
-    if (forward !== 0) {
+    if (forwardUsed) {
       await this.actor.update({'data.attributes.forward.value': 0});
+    }
+
+    if (xpGranted && this.actor.data.type == 'character') {
+      await this.actor.update({'data.attributes.xp.value': Number(this.actor.data.data.attributes.xp.value) + 1});
     }
   }
 }
