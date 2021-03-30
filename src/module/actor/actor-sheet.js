@@ -848,7 +848,8 @@ export class DwActorSheet extends ActorSheet {
     let dice = DwUtility.getRollFormula('2d6');
 
     // Handle rolls coming directly from the ability score.
-    if ($(a).hasClass('ability-rollable') && data.mod) {
+    if ($(a).hasClass('ability-rollable') && data.roll) {
+      formula = data.roll;
       flavorText = data.label;
       if (data.debility) {
         flavorText += ` (${data.debility})`;
@@ -870,7 +871,7 @@ export class DwActorSheet extends ActorSheet {
         flavor: flavorText
       };
 
-      this.rollMove(formula, actorData, data, templateData);
+      DwRolls.rollMove({actor: this.actor, data: null, formula: formula, templateData: templateData});
     }
     else if (itemId != undefined) {
       item.roll();

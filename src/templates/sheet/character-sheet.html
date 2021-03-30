@@ -138,7 +138,7 @@
             <ol class="abilities-list">
             {{#each data.abilities as |ability key|}}
                 <li class="ability flexrow" data-ability="{{key}}">
-                    <label for="data.abilities.{{key}}.value" class="cell__title ability-rollable rollable" data-mod="{{ability.mod}}" data-label="{{ability.label}}">{{ ability.label }}</label>
+                    <label for="data.abilities.{{key}}.value" class="cell__title ability-rollable rollable" data-roll="{{key}}" data-label="{{ability.label}}">{{ ability.label }}</label>
                     <input class="ability-value" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="{{ability.dtype}}"/>
                     <span class="ability-mod">{{numberFormat ability.mod decimals=0 sign=true}}</span>
                     <label class="ability-debility checkbox"><input type="checkbox" name="data.abilities.{{key}}.debility" {{checked ability.debility}}/>{{ ability.debilityLabel }}</label>

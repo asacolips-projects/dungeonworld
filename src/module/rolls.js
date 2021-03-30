@@ -147,6 +147,7 @@ export class DwRolls {
     let dice = DwUtility.getRollFormula('2d6');
     let forwardUsed = false;
     let xpGranted = false;
+    let resultRangeNeeded = false;
     // GM rolls.
     let chatData = {
       user: game.user._id,
@@ -191,6 +192,7 @@ export class DwRolls {
         let modifiers = DwRolls.getModifiers(this.actor);
         formula = `${formula}${modifiers}`;
         forwardUsed = Number(this.actor.data.data.attributes.forward.value) != 0;
+        resultRangeNeeded = true;
       }
       if (formula != null) {
         // Do the roll.
@@ -198,7 +200,7 @@ export class DwRolls {
         roll.roll();
         let rollType = templateData.rollType ?? 'move';
         // Add success notification.
-        if (formula.includes(dice) && rollType == 'move') {
+        if (formula.includes(dice) && resultRangeNeeded && rollType == 'move') {
           // Retrieve the result ranges.
           let resultRanges = CONFIG.DW.rollResults;
           let resultType = null;
