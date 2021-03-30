@@ -65,7 +65,7 @@ const SYSTEM_COPY = [
   'src/assets/**/*',
   '!src/assets/**/*.{png,jpeg,jpg}',
   'src/module/**/*',
-  // 'src/packs/**/*',
+  'src/packs/**/*',
   'src/scripts/**/*',
   'src/styles/lib/**/*',
   'src/templates/**/*',

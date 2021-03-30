@@ -89,6 +89,15 @@
         }
       }
     }
+
+    .tox-tinymce {
+      button[title="Formats"],
+      button[title="Table"],
+      button[title="Horizontal line"],
+      button[title="Insert/edit link"] {
+        display: none;
+      }
+    }
   }
 
   .sheet-main {

@@ -12,6 +12,12 @@ export class DwRolls {
     return defaultFormula;
   }
 
+  getModifiers() {
+    let forward = Number(this.actor.data.data.attributes.forward.value) ?? 0;
+    let ongoing = Number(this.actor.data.data.attributes.ongoing.value) ?? 0;
+    return `+${forward}+${ongoing}`;
+  }
+
   static async rollMove(options = {}) {
     let dice = this.getRollFormula('2d6');
 
@@ -105,6 +111,17 @@ export class DwRolls {
           this.rollMoveExecute(data.roll, data, templateData);
         }
       }
+      // Handle spells.
+      else if (item.type == 'spell') {
+        templateData = {
+          image: item.img,
+          title: item.name,
+          trigger: null,
+          details: item.data.description
+        };
+        data.roll = item.data.rollFormula;
+        this.rollMoveExecute(data.roll, data, templateData);
+      }
       // Handle equipment.
       else if (item.type == 'equipment') {
         templateData = {
@@ -164,7 +181,7 @@ export class DwRolls {
         else {
           // Determine if the stat toggle is in effect.
           let toggleModifier = 0;
-          formula = `${dice}+${this.actorData.abilities[roll].value}${toggleModifier ? '+' + toggleModifier : ''}`;
+          formula = `${dice}+${this.actorData.abilities[roll].mod}${toggleModifier ? '+' + toggleModifier : ''}`;
           if (dataset.value && dataset.value != 0) {
             formula += `+${dataset.value}`;
           }
@@ -172,7 +189,9 @@ export class DwRolls {
       }
       if (formula != null) {
         // Do the roll.
-        let roll = new Roll(`${formula}`, this.actor.getRollData());
+        let forward = this.actor.data.data.attributes.forward.value ?? 0;
+        let ongoing = this.actor.data.data.attributes.ongoing.value ?? 0;
+        let roll = new Roll(`${formula}+${forward}+${ongoing}`, this.actor.getRollData());
         roll.roll();
         let rollType = templateData.rollType ?? 'move';
         // Add success notification.
@@ -256,6 +275,12 @@ export class DwRolls {
           ui.combat.render();
         }
       }
+    }
+
+    // Update forward.
+    let forward = this.actor.data.data.attributes.forward.value ?? 0;
+    if (forward !== 0) {
+      await this.actor.update({'data.attributes.forward.value': 0});
     }
   }
 }

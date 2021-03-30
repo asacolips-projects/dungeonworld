@@ -13,4 +13,20 @@
   .editor {
     height: 100%;
   }
+
+  .tab.active[data-tab="description"] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .editor,
+  .resource {
+    flex: 1;
+    min-height: 60px;
+  }
+
+  .resource {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
 }

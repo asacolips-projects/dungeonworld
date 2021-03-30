@@ -17,7 +17,19 @@
 
       {{!-- Description Tab --}}
       <div class="tab" data-group="primary" data-tab="description">
-          {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+          <div class="resource">
+            <label>{{localize "DW.Description"}}</label>
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+          </div>
+
+          {{#if data.moveResults}}
+            {{#each data.moveResults as |result key|}}
+              <div class="resource">
+                <label>{{localize (concat 'DW.' key)}}</label>
+                {{editor content=result.value target=result.key button=true owner=../owner editable=../editable}}
+              </div>
+            {{/each}}
+          {{/if}}
       </div>
 
       {{!-- Details Tab --}}

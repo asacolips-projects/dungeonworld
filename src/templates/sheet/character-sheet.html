@@ -34,7 +34,7 @@
       </section>
 
       {{!-- Sidebar --}}
-      <section class="sheet-look">
+      <section class="sheet-look{{#if actor.flags.dungeonworld.sheetDisplay.sidebarClosed}} closed{{/if}}">
         <div class="cell cell--aesthetics">
           <div class="cell cell--image">
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
@@ -42,22 +42,19 @@
 
           <div class="cell cell--look">
             <label class="cell__title">{{localize "DW.Look"}}</label>
-            <textarea class="alignment" name="data.details.look" rows="5" title="Hey there! Who are you!?"
-              data-dtype="String">{{#if data.details.look}}{{data.details.look}}{{/if}}</textarea>
+            {{editor content=data.details.look target="data.details.look" button=true owner=owner editable=editable}}
           </div>
 
           <div class="cell cell--alignment">
             <label class="cell__title">{{localize "DW.Alignment"}}</label>
             <input type="text" class="input input--title" name="data.details.alignment.value" value="{{data.details.alignment.value}}" data-dtype="String"/>
-            <textarea class="alignment" name="data.details.alignment.description" rows="5" title="What's your alignment?"
-              data-dtype="String">{{#if data.details.alignment.description}}{{data.details.alignment.description}}{{/if}}</textarea>
+            {{editor content=data.details.alignment.description target="data.details.alignment.description" button=true owner=owner editable=editable}}
           </div>
 
           <div class="cell cell--race">
             <label class="cell__title">{{localize "DW.Race"}}</label>
             <input type="text" class="input input--title" name="data.details.race.value" value="{{data.details.race.value}}" data-dtype="String"/>
-            <textarea class="race" name="data.details.race.description" rows="5" title="What's your race?"
-              data-dtype="String">{{#if data.details.race.description}}{{data.details.race.description}}{{/if}}</textarea>
+            {{editor content=data.details.race.description target="data.details.race.description" button=true owner=owner editable=editable}}
           </div>
 
           <div class="cell cell--bonds">
@@ -82,7 +79,7 @@
           </div>
         </div>
 
-        <button  type="button" class="toggle toggle--look"><i class="fas fa-chevron-left"></i></button>
+        <button  type="button" class="toggle toggle--look{{#if actor.flags.dungeonworld.sheetDisplay.sidebarClosed}} closed{{/if}}"><i class="fas fa-chevron-left"></i></button>
       </section>
 
       {{!-- Main --}}
@@ -168,10 +165,7 @@
               <div class="sheet-tab">
                 <div class="cell cell--bio">
                   <label class="cell__title">{{localize "DW.Biography"}}</label>
-                  {{!-- We're avoiding WYSIWYGs... for now... --}}
-                  {{!-- {{editor content=data.details.biography target="data.details.biography" button=true owner=owner editable=editable}} --}}
-                  <textarea class="biography" name="data.details.biography" rows="5" title="Hey there! Who are you!?"
-                          data-dtype="String">{{data.details.biography}}</textarea>
+                  {{editor content=data.details.biography target="data.details.biography" button=true owner=owner editable=editable}}
                 </div>
               </div>
             </div>
@@ -245,16 +239,23 @@
                   {{#each actor.basicMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       <h4 class="item-name">
-                        <span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">
-                          {{#if item.data.rollType}}
-                            <i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>
-                          {{else}}
-                            <i class="fas fa-book"></i>
-                          {{/if}}
-                        </span>
-                        {{#if ../data.itemIcons}}<img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>{{/if}}
+                        <div class="item-avatar">
+                          <span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">
+                            {{#if item.data.rollType}}
+                              <i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>
+                            {{else}}
+                              <i class="fas fa-book"></i>
+                            {{/if}}
+                          </span>
+                          <img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>
+                        </div>
                         <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span>
                       </h4>
+                      {{#if item.data.rollType}}
+                        <div class="item-meta tags">
+                          <span class="tag">{{getLabel ../../data.statSettings item.data.rollType}}</span>
+                        </div>
+                      {{/if}}
                       <div class="item-controls">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -278,16 +279,23 @@
                   {{#each actor.startingMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       <h4 class="item-name">
-                        <span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">
-                          {{#if item.data.rollType}}
-                            <i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>
-                          {{else}}
-                            <i class="fas fa-book"></i>
-                          {{/if}}
-                        </span>
-                        {{#if ../data.itemIcons}}<img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>{{/if}}
+                        <div class="item-avatar">
+                          <span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">
+                            {{#if item.data.rollType}}
+                              <i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>
+                            {{else}}
+                              <i class="fas fa-book"></i>
+                            {{/if}}
+                          </span>
+                          <img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>
+                        </div>
                         <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span>
                       </h4>
+                      {{#if item.data.rollType}}
+                        <div class="item-meta tags">
+                          <span class="tag">{{getLabel ../../data.statSettings item.data.rollType}}</span>
+                        </div>
+                      {{/if}}
                       <div class="item-controls">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -311,16 +319,23 @@
                   {{#each actor.advancedMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       <h4 class="item-name">
-                        <span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">
-                          {{#if item.data.rollType}}
-                            <i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>
-                          {{else}}
-                            <i class="fas fa-book"></i>
-                          {{/if}}
-                        </span>
-                        {{#if ../data.itemIcons}}<img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>{{/if}}
+                        <div class="item-avatar">
+                          <span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">
+                            {{#if item.data.rollType}}
+                              <i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>
+                            {{else}}
+                              <i class="fas fa-book"></i>
+                            {{/if}}
+                          </span>
+                          <img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>
+                        </div>
                         <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span>
                       </h4>
+                      {{#if item.data.rollType}}
+                        <div class="item-meta tags">
+                          <span class="tag">{{getLabel ../../data.statSettings item.data.rollType}}</span>
+                        </div>
+                      {{/if}}
                       <div class="item-controls">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -344,16 +359,23 @@
                   {{#each actor.specialMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       <h4 class="item-name">
-                        <span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">
-                          {{#if item.data.rollType}}
-                            <i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>
-                          {{else}}
-                            <i class="fas fa-book"></i>
-                          {{/if}}
-                        </span>
-                        {{#if ../data.itemIcons}}<img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>{{/if}}
+                        <div class="item-avatar">
+                          <span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">
+                            {{#if item.data.rollType}}
+                              <i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>
+                            {{else}}
+                              <i class="fas fa-book"></i>
+                            {{/if}}
+                          </span>
+                          <img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>
+                        </div>
                         <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span>
                       </h4>
+                      {{#if item.data.rollType}}
+                        <div class="item-meta tags">
+                          <span class="tag">{{getLabel ../../data.statSettings item.data.rollType}}</span>
+                        </div>
+                      {{/if}}
                       <div class="item-controls">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -377,16 +399,23 @@
                   {{#each actor.moves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       <h4 class="item-name">
-                        <span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">
-                          {{#if item.data.rollType}}
-                            <i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>
-                          {{else}}
-                            <i class="fas fa-book"></i>
-                          {{/if}}
-                        </span>
-                        {{#if ../data.itemIcons}}<img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>{{/if}}
+                        <div class="item-avatar">
+                          <span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">
+                            {{#if item.data.rollType}}
+                              <i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>
+                            {{else}}
+                              <i class="fas fa-book"></i>
+                            {{/if}}
+                          </span>
+                          <img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>
+                        </div>
                         <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span>
                       </h4>
+                      {{#if item.data.rollType}}
+                        <div class="item-meta tags">
+                          <span class="tag">{{getLabel ../../data.statSettings item.data.rollType}}</span>
+                        </div>
+                      {{/if}}
                       <div class="item-controls">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -423,14 +452,16 @@
                       <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                         {{!-- <h4 class="item-name rollable spell-rollable" data-roll="{{item.data.rollFormula}}"><i class="fas fa-dice-d20"></i> {{item.name}}</h4> --}}
                         <h4 class="item-name">
-                          <span class="rollable spell-rollable" data-roll="{{item.data.rollFormula}}">
-                            {{#if item.data.rollFormula}}
-                              <i class="fas fa-dice-d20"></i>
-                            {{else}}
-                              <i class="fas fa-book"></i>
-                            {{/if}}
-                          </span>
-                          {{#if ../../data.itemIcons}}<img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>{{/if}}
+                          <div class="item-avatar">
+                            <span class="rollable spell-rollable" data-roll="{{item.data.rollFormula}}">
+                              {{#if item.data.rollFormula}}
+                                <i class="fas fa-dice-d20"></i>
+                              {{else}}
+                                <i class="fas fa-book"></i>
+                              {{/if}}
+                            </span>
+                            <img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>
+                          </div>
                           <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span>
                         </h4>
                         <div class="item-meta tags">
@@ -476,8 +507,10 @@
                   {{#each actor.equipment as |item id|}}
                       <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                           <h4 class="item-name">
-                            <span class="rollable item-rollable" data-roll=""><i class="fas fa-book"></i></span>
-                            {{#if ../data.itemIcons}}<img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>{{/if}}
+                            <div class="item-avatar">
+                              <span class="rollable item-rollable" data-roll=""><i class="fas fa-book"></i></span>
+                              <img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>
+                            </div>
                             <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span>
                           </h4>
 

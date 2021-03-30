@@ -102,9 +102,24 @@ Item:
     base:
       name: ''
       description: ''
+    move:
+      requiresMove: ''
+      moveType: null
+      moveGroup: ''
+      moveResults:
+        failure:
+          key: data.moveResults.failure.value
+          value: ''
+        partial:
+          key: data.moveResults.partial.value
+          value: ''
+        success:
+          key: data.moveResults.success.value
+          value: ''
   move:
     templates:
       - base
+      - move
     class: ''
     rollType: ''
     rollMod: 0

@@ -85,6 +85,16 @@ export class DwActorSheet extends ActorSheet {
       data.data.xpSvg = xpSvg;
     }
 
+    // Stats.
+    data.data.statSettings = {
+      'str': 'DW.STR',
+      'dex': 'DW.DEX',
+      'con': 'DW.CON',
+      'int': 'DW.INT',
+      'wis': 'DW.WIS',
+      'cha': 'DW.CHA'
+    };
+
     // Add item icon setting.
     data.data.itemIcons = game.settings.get('dungeonworld', 'itemIcons');
 
@@ -844,13 +854,6 @@ export class DwActorSheet extends ActorSheet {
         flavorText += ` (${data.debility})`;
       }
 
-      let forward = Number(actorData.attributes.forward.value) ?? 0;
-      let ongoing = Number(actorData.attributes.ongoing.value) ?? 0;
-
-      formula = `2d6+${data.mod}`;
-      if (forward) formula = `${formula}+${forward}`;
-      if (ongoing) formula = `${formula}+${ongoing}`;
-
       templateData = {
         title: flavorText
       };
@@ -956,13 +959,17 @@ export class DwActorSheet extends ActorSheet {
    * Listen for toggling the look column.
    * @param {MouseEvent} event
    */
-  _toggleLook(html, event) {
+  async _toggleLook(html, event) {
     // Add a class to the sidebar.
     html.find('.sheet-look').toggleClass('closed');
 
     // Add a class to the toggle button.
     let $look = html.find('.toggle--look');
     $look.toggleClass('closed');
+
+    // Update flags.
+    let closed = $look.hasClass('closed');
+    await this.actor.update({'flags.dungeonworld.sheetDisplay.sidebarClosed': closed});
   }
 
   /* -------------------------------------------- */
