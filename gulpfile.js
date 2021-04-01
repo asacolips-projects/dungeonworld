@@ -78,7 +78,8 @@ function cleanPacks() {
  */
 function sanitizePack(pack) {
   let sanitizedPack = JSON.parse(JSON.stringify(pack));
-  delete sanitizedPack._id;
+  // Leave the IDs in for now, so that item links are persisted.
+  // delete sanitizedPack._id;
   sanitizedPack.permission = { default: 0 };
   return sanitizedPack;
 }
