@@ -120,7 +120,7 @@ Item:
     templates:
       - base
       - move
-    class: ''
+    class: null
     rollType: ''
     rollMod: 0
     requiresLevel: 0
@@ -130,14 +130,14 @@ Item:
   equipment:
     templates:
       - base
-    class: ''
+    class: null
     quantity: 1
     weight: 0
     uses: 0
     tags: []
     tagsString: ''
     magic: false
-    itemType:
+    itemType: null
     attributes: {}
   spell:
     templates:
@@ -145,6 +145,7 @@ Item:
     spellLevel: 0
     rollFormula: ''
     prepared: false
+    class: null
   bond:
     templates:
       - base
@@ -159,3 +160,4 @@ Item:
     equipment: {}
     hp: 10
     load: 6
+    damage: d6
