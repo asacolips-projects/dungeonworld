@@ -1,3 +1,4 @@
+_id: LMJUc76jS3hshl8t
 name: The Ranger
 permission:
   default: 0
@@ -64,7 +65,7 @@ data:
       objects: []
   hp: 8
   load: 11
+  damage: d8
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/yellow_34.webp
 effects: []
-_id: 6TiKkWvWdq8EO7xI

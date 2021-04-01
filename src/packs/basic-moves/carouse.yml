@@ -6,9 +6,9 @@ data:
   name: ''
   description: >-
     <p>When you <strong>return triumphant and throw a big party</strong>, spend
-    100 coin and roll + extra 100s of coin spent. On a 10+ choose 3. On a 7–9
-    choose 1. On a miss, you still choose one, but things get really out of
-    hand.</p> <ul> <li>You befriend a useful NPC</li> <li>You hear rumors of an
+    100 coin and roll + extra 100s of coin spent.</p>
+  choices: >-
+    <ul> <li>You befriend a useful NPC</li> <li>You hear rumors of an
     opportunity</li> <li>You gain useful information</li> <li>You are not
     entangled, ensorcelled, or tricked</li> </ul>
   class: ''
@@ -23,24 +23,16 @@ data:
       key: data.moveResults.failure.value
       value: >-
         <p>On a miss, you still choose one, but things get really out of
-        hand.</p> <ul> <li>You befriend a useful NPC</li> <li>You hear rumors of
-        an opportunity</li> <li>You gain useful information</li> <li>You are not
-        entangled, ensorcelled, or tricked</li> </ul>
+        hand.</p>
     partial:
       key: data.moveResults.partial.value
       value: >-
-        <p>On a 7–9 choose 1.</p> <ul> <li>You befriend a useful NPC</li>
-        <li>You hear rumors of an opportunity</li> <li>You gain useful
-        information</li> <li>You are not entangled, ensorcelled, or tricked</li>
-        </ul>
+        <p>On a 7–9 choose 1.</p>
     success:
       key: data.moveResults.success.value
       value: >-
-        <p>On a 10+ choose 3.</p> <ul> <li>You befriend a useful NPC</li>
-        <li>You hear rumors of an opportunity</li> <li>You gain useful
-        information</li> <li>You are not entangled, ensorcelled, or tricked</li>
-        </ul>
+        <p>On a 10+ choose 3.</p>
 flags: {}
 img: icons/containers/kitchenware/goblet-gold-red.webp
 effects: []
-_id: diVcBo7HtyerZeTT
+_id: 4MXFNOruSjX5knIl

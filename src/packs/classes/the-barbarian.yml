@@ -1,4 +1,4 @@
-_id: f7Y0z7MbwOfV81MQ
+_id: QrfDbO38eB7omBrO
 name: The Barbarian
 permission:
   default: 0
@@ -56,7 +56,7 @@ data:
         - ic5dH6aNzBgEuTjA
   hp: 8
   load: 8
-  damage: ''
+  damage: d10
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/yellow_27.webp
 effects: []

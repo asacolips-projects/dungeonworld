@@ -1,3 +1,4 @@
+_id: YIg0g4l5FLqwFo7H
 name: The Immolator
 permission:
   default: 0
@@ -77,7 +78,7 @@ data:
       objects: []
   hp: 4
   load: 9
+  damage: d8
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/yellow_09.webp
 effects: []
-_id: uOQuxf59ipxWoctQ

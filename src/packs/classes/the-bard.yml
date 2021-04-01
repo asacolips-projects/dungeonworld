@@ -1,3 +1,4 @@
+_id: hhsFvp9g8AQJFlm1
 name: The Bard
 permission:
   default: 0
@@ -81,7 +82,7 @@ data:
         - Faznfc01XOrNYIOn
   hp: 6
   load: 9
+  damage: d6
 flags: {}
 img: icons/tools/instruments/lute-gold-brown.webp
 effects: []
-_id: 0ySCRvqXzypGoyoW

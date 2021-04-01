@@ -59,7 +59,8 @@ export class DwRolls {
           title: item.name,
           trigger: null,
           details: item.data.description,
-          moveResults: item.data.moveResults
+          moveResults: item.data.moveResults,
+          choices: item.data.choices
         };
         data.roll = item.type == 'move' ? item.data.rollType.toLowerCase() : item.data.rollFormula;
         data.mod = item.type == 'move' ? item.data.rollMod : 0;

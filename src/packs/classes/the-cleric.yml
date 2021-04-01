@@ -1,3 +1,4 @@
+_id: rN7wK6CzyUIOX7nj
 name: The Cleric
 permission:
   default: 0
@@ -70,7 +71,7 @@ data:
         - CMhNmAwhLVZk9lfq
   hp: 8
   load: 10
+  damage: d6
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/light_06.webp
 effects: []
-_id: BlCF2NpSsWajZm7D

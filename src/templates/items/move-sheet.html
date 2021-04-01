@@ -30,6 +30,11 @@
               </div>
             {{/each}}
           {{/if}}
+
+          <div class="resource">
+            <label>{{localize "DW.Choices"}}</label>
+            {{editor content=data.choices target="data.choices" button=true owner=owner editable=editable}}
+          </div>
       </div>
 
       {{!-- Details Tab --}}

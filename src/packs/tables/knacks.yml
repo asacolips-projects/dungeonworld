@@ -1,3 +1,4 @@
+_id: 6WWswClacRU1P4rd
 name: Knacks
 permission:
   default: 0
@@ -1112,4 +1113,3 @@ results:
 formula: 1d100
 replacement: true
 displayRoll: true
-_id: GpdQeRfhAIo8iQ7y

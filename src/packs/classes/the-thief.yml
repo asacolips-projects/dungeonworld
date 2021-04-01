@@ -1,3 +1,4 @@
+_id: AvWAW7gj4kwlqeZv
 name: The Thief
 permission:
   default: 0
@@ -66,7 +67,7 @@ data:
         - CMhNmAwhLVZk9lfq
   hp: 6
   load: 9
+  damage: d8
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/gray_05.webp
 effects: []
-_id: 7pVxygcre62FoKIR

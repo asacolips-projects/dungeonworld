@@ -103,6 +103,7 @@ Item:
       name: ''
       description: ''
     move:
+      choices: ''
       requiresMove: ''
       moveType: null
       moveGroup: ''

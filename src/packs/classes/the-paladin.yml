@@ -1,3 +1,4 @@
+_id: 48dPpEjAPXbdFqbs
 name: The Paladin
 permission:
   default: 0
@@ -57,7 +58,7 @@ data:
         - CMhNmAwhLVZk9lfq
   hp: 10
   load: 12
+  damage: d10
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/light_05.webp
 effects: []
-_id: WclW9DGMEIFdVNRH

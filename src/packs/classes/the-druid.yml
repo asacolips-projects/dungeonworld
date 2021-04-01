@@ -1,3 +1,4 @@
+_id: 9YSGXFmudY88vP2l
 name: The Druid
 permission:
   default: 0
@@ -81,7 +82,7 @@ data:
       objects: []
   hp: 6
   load: 6
+  damage: d6
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/green_13.webp
 effects: []
-_id: hH9kiK0ixngMJnB1

@@ -1,3 +1,4 @@
+_id: O1tUwqH4vPx3QN1f
 name: The Fighter
 permission:
   default: 0
@@ -76,6 +77,7 @@ data:
       objects: []
   hp: 10
   load: 12
+  damage: d10
   alignment:
     label: ''
     description: ''
@@ -88,4 +90,3 @@ flags:
     sheetClass: dungeonworld.DwClassItemSheet
 img: systems/dungeonworld/assets/icons/skills/yellow_37.webp
 effects: []
-_id: KncIS64WkJf4Onao

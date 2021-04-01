@@ -17,17 +17,7 @@ data:
   requiresMove: ''
   moveType: special
   moveGroup: ''
-  moveResults:
-    failure:
-      key: data.moveResults.failure.value
-      value: ''
-    partial:
-      key: data.moveResults.partial.value
-      value: ''
-    success:
-      key: data.moveResults.success.value
-      value: ''
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/affliction_24.webp
 effects: []
-_id: sD6XJSx8kSyhC6Yt
+_id: qdxEBncoO9DzbQTt
