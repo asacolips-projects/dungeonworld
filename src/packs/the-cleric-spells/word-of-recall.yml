@@ -1,0 +1,18 @@
+name: Word of Recall
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Choose a word. The first time after casting this spell that you speak the
+    chosen word, you and any allies touching you when you cast the spell are
+    immediately returned to the exact spot where you cast the spell. You can
+    only maintain a single location; casting Word of Recall again before
+    speaking the word replaces the earlier spell.</p>
+  spellLevel: 7
+  rollFormula: ''
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/ice_15.webp
+effects: []

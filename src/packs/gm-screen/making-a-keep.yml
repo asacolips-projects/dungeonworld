@@ -1,0 +1,54 @@
+name: Making a Keep
+permission:
+  default: 0
+folder: pT118pRlosZeToCW
+sort: 1300000
+flags: {}
+content: >-
+  <h1>Making a Keep</h1>
+
+  <p>By default a keep is Poor, Shrinking, Guard, Need (Supplies), Trade
+  (someplace with supplies), Oath (your choice). If the keep is owed fealty by
+  at least one settlement choose one:</p>
+
+  <ul>
+
+  <li>The keep belongs to a noble family: +Prosperity, Power (Political)</li>
+
+  <li>The keep is run by a skilled commander: Personage (the commander),
+  +Defenses</li>
+
+  <li>The keep stands watch over a trade road: +Prosperity, Guild (trade)</li>
+
+  <li>The keep is used to train special troops: Arcane, -Population</li>
+
+  <li>The keep is surrounded by fertile land: remove Need (Supplies)</li>
+
+  <li>The keep stands on a border: +Defenses, Enmity (steading on the other side
+  of the border)</li>
+
+  </ul>
+
+  <p>&nbsp;</p>
+
+  <p>Choose one problem</p>
+
+  <ul>
+
+  <li>The keep is built on a naturally defensible position: Safe,
+  -Population</li>
+
+  <li>The keep was a conquest from another power: Enmity (steadings of that
+  power)</li>
+
+  <li>The keep is a safe haven for brigands: Lawless</li>
+
+  <li>The keep was built to defend from a specific threat: Blight (that
+  threat)</li>
+
+  <li>The keep has seen horrible bloody war: History (Battle), Blight (Restless
+  Spirits)</li>
+
+  <li>The keep is given the worst of the worst: Need (Skilled Recruits)</li>
+
+  </ul>

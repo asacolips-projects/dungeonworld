@@ -1,0 +1,22 @@
+name: Keg of Dwarven Stout
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>When you open a keg of dwarven stout and let everyone drink freely, take
+    +1 to your Carouse roll. If you drink a whole keg yourself, you are very,
+    very drunk.</p>
+  class: ''
+  quantity: 1
+  weight: 4
+  uses: 1
+  tags: ''
+  tagsString: ''
+  magic: false
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/containers/kitchenware/vase-004.webp
+effects: []

@@ -1,0 +1,86 @@
+name: Signature Weapon
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>This is your weapon. There are many like it, but this one is yours. Your
+    weapon is your best friend. It is your life. You master it as you master
+    your life. Your weapon, without you, is useless. Without your weapon, you
+    are useless. You must wield your weapon true.</p>
+
+    <h3>Choose a base description, all are 2 weight:</h3>
+
+    <ul>
+
+    <li>Sword</li>
+
+    <li>Axe</li>
+
+    <li>Hammer</li>
+
+    <li>Spear</li>
+
+    <li>Flail</li>
+
+    <li>Fists</li>
+
+    </ul>
+
+    <h3>Choose a range that best fits your weapon:</h3>
+
+    <ul>
+
+    <li>Hand</li>
+
+    <li>Reach</li>
+
+    <li>Close</li>
+
+    </ul>
+
+    <h3>Choose two enhancements:</h3>
+
+    <ul>
+
+    <li>Hooks and spikes. +1 damage, but +1 weight.</li>
+
+    <li>Sharp. +2 piercing.</li>
+
+    <li>Perfectly weighted. Add <em>precise</em>.</li>
+
+    <li>Serrated edges. +1 damage.</li>
+
+    <li>Glows in the presence of one type of creature, your choice.</li>
+
+    <li>Huge. Add <em>messy </em>and <em>forceful</em>.</li>
+
+    <li>Versatile. Choose an additional range.</li>
+
+    <li>Well-crafted. -1 weight.</li>
+
+    </ul>
+
+    <h3>Choose a look:</h3>
+
+    <ul>
+
+    <li>Ancient</li>
+
+    <li>Unblemished</li>
+
+    <li>Ornate</li>
+
+    <li>Blood-stained</li>
+
+    <li>Sinister</li>
+
+    </ul>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

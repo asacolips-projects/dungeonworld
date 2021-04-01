@@ -1,0 +1,16 @@
+name: Providence
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>You ignore the -1 penalty from up to two spells you maintain. If you
+    maintain more than two you take normal penalties.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Serenity
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

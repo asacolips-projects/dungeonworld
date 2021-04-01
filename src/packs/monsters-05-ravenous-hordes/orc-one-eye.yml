@@ -1,0 +1,81 @@
+name: Orc One-Eye
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 6
+      min: 0
+      max: 6
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d8+2
+      misc: ''
+      piercing: ignores armor
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: One eye
+  details:
+    biography: >-
+      <p>In the name of He of Riven Sight and by the First Sacrifice of
+      Elf-Flesh do we invoke the Old Powers. By the Second Sacrifice, I make my
+      claim to what is mine—the dark magic of Night. In His image, I walk the
+      path to Gor-sha-thak, the Iron Gallows! I call to the runes! I call to the
+      clouded sky! Take this mortal organ, eat of the flesh of our enemy and
+      give me what is mine!</p>
+
+      <p>Instinct: To hate</p>
+
+      <ol>
+
+      <li>Rend flesh with divine magic</li>
+
+      <li>Take an eye</li>
+
+      <li>Make a sacrifice and grow in power</li>
+
+      </ol>
+  tags: >-
+    [{"value":"group"},{"value":"divine"},{"value":"magical"},{"value":"intelligent"},{"value":"organized"},{"value":"close"},{"value":"reach"},{"value":"near"},{"value":"far"}]
+  tagsString: 'group, divine, magical, intelligent, organized, close, reach, near, far'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Orc One-Eye
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: TAI68pUjT1OklZDg
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

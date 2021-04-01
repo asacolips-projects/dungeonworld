@@ -1,0 +1,25 @@
+name: Ned’s Head
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>An old skull, missing its jaw and very much worse-for-wear. The skull
+    remembers the folly of its former owner—a man with more honor than sense.
+    Once per night, the owner of the skull can ask “Who has it in for me?” and
+    the skull will give up one name in a sad, lonely voice. If the owner of the
+    skull is ever killed, it disappears surreptitiously. No one knows where it
+    might turn up next.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/commodities/bones/skull-white-purple.webp
+effects: []

@@ -1,0 +1,28 @@
+name: Outstanding Warrants
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>return to a civilized place in which you’ve caused
+    trouble before</strong>, roll+Cha. On a hit, word has spread of your deeds
+    and everyone recognizes you. On a 7–9, that, and, the GM chooses a
+    complication:</p>
+
+    <p>• The local constabulary has a warrant out for your arrest</p>
+
+    <p>• Someone has put a price on your head</p>
+
+    <p>• Someone important to you has been put in a bad spot as a result of your
+    actions</p>
+  class: ''
+  rollType: CHA
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: special
+  moveGroup: ''
+flags: {}
+img: icons/sundries/survival/cuffs-shackles-steel.webp
+effects: []

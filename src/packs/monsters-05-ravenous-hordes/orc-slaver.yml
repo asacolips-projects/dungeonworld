@@ -1,0 +1,82 @@
+name: Orc Slaver
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 3
+      min: 0
+      max: 3
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>Red sails fly in the southern sea. Red sails and ships of bone, old
+      wood and iron. The warfleet of the horde. Orcs down that way have taken to
+      the sea, harassing island towns and stealing away with fishermen and their
+      kin. It’s said the custom is spreading north and the orcs learn the value
+      of free work. Taken to it like a sacred duty—especially if they can get
+      their hands on elves. Hard to think of a grimmer fate than to live out
+      your life on an orcish galley, back bent under the lash.</p>
+
+      <p>Instinct: To take</p>
+
+      <ul>
+
+      <li>Take a captive</li>
+
+      <li>Pin someone under a net</li>
+
+      <li>Drug them</li>
+
+      </ul>
+  tags: >-
+    [{"value":"horde"},{"value":"stealthy"},{"value":"intelligent"},{"value":"organized"},{"value":"close"},{"value":"reach"}]
+  tagsString: 'horde, stealthy, intelligent, organized, close, reach'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Orc Slaver
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 2bsIXjaXZuoQiiPt
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

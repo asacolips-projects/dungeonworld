@@ -1,0 +1,22 @@
+name: Captain Bligh’s Cornucopia
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>A brass naval horn, curled and ornate, carved with symbols of the gods of
+    Plenty. When blown, in addition to sound, the horn spills forth food. Enough
+    to feed a meal to everyone who hears its sound.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/commodities/bones/horn-curved-worn-brown.webp
+effects: []

@@ -1,0 +1,16 @@
+name: Anointed
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>Choose one spell in addition to the one you picked for Chosen One. You
+    are granted that spell as if it was one level lower.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Chosen One
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

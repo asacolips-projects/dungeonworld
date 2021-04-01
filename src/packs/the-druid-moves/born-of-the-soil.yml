@@ -1,0 +1,50 @@
+name: Born of the Soil
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>You learned your magic in a place whose spirits are strong and ancient
+    and they’ve marked you as one of their own. No matter where you go, they
+    live within you and allow you to take their shape. Choose one of the
+    following. It is the land to which you are attuned—when shapeshifting you
+    may take the shape of any animal who might live in your Land.</p>
+
+    <ul>
+
+    <li>The Great Forests</li>
+
+    <li>The Whispering Plains</li>
+
+    <li>The Vast Desert</li>
+
+    <li>The Stinking Mire</li>
+
+    <li>The River Delta</li>
+
+    <li>The Depths of the Earth</li>
+
+    <li>The Sapphire Islands</li>
+
+    <li>The Open Sea</li>
+
+    <li>The Towering Mountains</li>
+
+    <li>The Frozen North</li>
+
+    <li>The Blasted Wasteland</li>
+
+    </ul>
+
+    <p>Chose a tell—a physical attribute that marks you as born of the soil—that
+    reflects the spirit of your land. It may be an animal feature like antlers
+    or leopard’s spots or something more general: hair like leaves or eyes of
+    glittering crystal. Your tell remains no matter what shape you take.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

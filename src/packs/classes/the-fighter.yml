@@ -1,0 +1,90 @@
+name: The Fighter
+permission:
+  default: 0
+type: class
+data:
+  name: ''
+  description: >-
+    <p>It’s a thankless job—living day to day by your armor and the skill of
+    your arm. To dive heedlessly into danger. They won’t be playing golden horns
+    for the time you took that knife to the ribs for them in the bar in
+    Bucksberg. No flock of angels to sing of the time you dragged them, still
+    screaming, from the edge of the Pits of Madness, no.</p>
+
+    <p>Forget them.</p>
+
+    <p>You do this for the guts and the glory. The scream of battle and the hot,
+    hot blood of it. You are a beast of iron. Your friends may carry blades of
+    forged steel but, fighter, you are steel. While your traveling companions
+    might moan about their wounds over a campfire in the wilderness, you bear
+    your scars with pride.</p>
+
+    <p>You are the wall—let every danger smash itself to nothing on you. In the
+    end, you’ll be the last one standing.</p>
+  races:
+    '0':
+      label: Dwarf
+      description: >-
+        When you share a drink with someone, you may parley with them using CON
+        instead of CHA.
+    '1':
+      label: Elf
+      description: >-
+        Choose one weapon—you can always treat weapons of that type as if they
+        had the precise tag.
+    '2':
+      label: Halfling
+      description: 'When you defy danger and use your small size to your advantage, take +1.'
+    '3':
+      label: Human
+      description: >-
+        Once per battle you may reroll a single damage roll (yours or someone
+        else’s).
+  alignments:
+    '0':
+      label: Good
+      description: Defend those weaker than you.
+    '1':
+      label: Neutral
+      description: Defeat a worthy opponent.
+    '2':
+      label: Evil
+      description: Kill a defenseless or surrendered enemy.
+  equipment:
+    '0':
+      label: Starting gear
+      mode: checkbox
+      items:
+        - 6JcOoZ8CNqYxLgyQ
+        - OJIrFGgbVe3wXlnD
+    '1':
+      label: Choose your defenses
+      mode: radio
+      items:
+        - ic5dH6aNzBgEuTjA
+        - YwHV7WYzTPSAOorl
+        - oJ490334TfVi40Zj
+    '2':
+      label: Choose gear
+      mode: checkbox
+      items:
+        - CMhNmAwhLVZk9lfq
+        - FkfxRU6NiOzEzkIy
+        - 4rXRNHipSXLO6pnP
+        - 6JcOoZ8CNqYxLgyQ
+        - ZbQQw1Is1jIFCzaA
+      objects: []
+  hp: 10
+  load: 12
+  alignment:
+    label: ''
+    description: ''
+  undefined: {}
+  equipmentGroups:
+    starting:
+      mode: radio
+flags:
+  core:
+    sheetClass: dungeonworld.DwClassItemSheet
+img: systems/dungeonworld/assets/icons/skills/yellow_37.webp
+effects: []

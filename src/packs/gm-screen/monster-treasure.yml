@@ -1,0 +1,36 @@
+name: Monster Treasure
+permission:
+  default: 0
+folder: pT118pRlosZeToCW
+sort: 600000
+flags: {}
+content: >-
+  <h1>Monster Treasure</h1>
+
+  <p>Start with the monster&rsquo;s damage die, modified if the monster is:</p>
+
+  <ul>
+
+  <li><strong>Hoarder: </strong>roll damage die twice, take higher result</li>
+
+  <li><strong>Far from home: </strong>add at least one ration</li>
+
+  <li><strong>Magical: </strong>some strange item, possibly magical (usable by
+  anyone with similar tastes)</li>
+
+  <li><strong>Divine: </strong>a sign of a deity (or deities)</li>
+
+  <li><strong>Planar: </strong>something not of this earth Lord over others:
+  +1d4 to the roll</li>
+
+  <li><strong>Ancient and noteworthy: </strong>+1d4 to the roll</li>
+
+  </ul>
+
+  <p>&nbsp;</p>
+
+  <h2>Table</h2>
+
+  <p>@Compendium[dungeonworld.rollable-tables.Py2sjW7zwW8S7q15]{Treasure}</p>
+
+  <p>&nbsp;</p>

@@ -1,0 +1,14 @@
+name: Barkskin
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: <p>So long as your feet touch the ground you&nbsp;have +1 armor.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

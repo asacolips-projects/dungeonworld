@@ -1,0 +1,25 @@
+name: War Cry
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you<strong> enter the battle with a show of force</strong>, roll
+    +CHA. • On a 10+ both, • on a 7-9 one or the other.</p>
+
+    <ul>
+
+    <li>Your allies are rallied and take +1 forward.</li>
+
+    <li>Your enemies feel fear and act accordingly (avoiding you, hiding,
+    attacking with fear-driven abandon)</li>
+
+    </ul>
+  rollType: CHA
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

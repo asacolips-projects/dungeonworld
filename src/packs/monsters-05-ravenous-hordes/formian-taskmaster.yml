@@ -1,0 +1,82 @@
+name: Formian Taskmaster
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 6
+      min: 0
+      max: 6
+    ac:
+      value: 3
+      base: 0
+      min: 0
+    damage:
+      value: d8
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: 'Hive connection, Insectoid'
+  details:
+    biography: >-
+      <p>It takes two hands to rule an empire: one to wield the scepter and one
+      to crack the whip. These ant-folk are that whip. Lucky for them, with two
+      extra arms, that&rsquo;s a lot of whip to crack. They oversee the vast
+      swarms of worker drones that set to build the mighty caverns and ziggurats
+      that dot the places that formians can be found. One in a hundred, these
+      brutes stand two or three feet taller than their pale, near-mindless kin
+      and have a sharper, crueler wit to match. They&rsquo;ll often ignore the
+      soft races (as we&rsquo;re known) if we don&rsquo;t interfere in a
+      project, but get in the way of The Great Work and expect nothing less than
+      their full attention. You don&rsquo;t want their full attention.</p>
+
+      <p>Instinct: To command</p>
+
+      <ul>
+
+      <li>Order drones into battle</li>
+
+      <li>Set great numbers in motion</li>
+
+      </ul>
+  tags: '[{"value":"group"},{"value":"organized"},{"value":"intelligent"}]'
+  tagsString: 'group, organized, intelligent'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Formian Taskmaster
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: kHKkxaZVuZkh6gu0
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

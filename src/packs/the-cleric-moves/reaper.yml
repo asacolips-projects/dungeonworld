@@ -1,0 +1,16 @@
+name: Reaper
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you take time after a conflict to dedicate your victory to your
+    deity and deal with the dead, take +1 forward.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

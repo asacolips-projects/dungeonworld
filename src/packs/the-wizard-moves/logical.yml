@@ -1,0 +1,16 @@
+name: Logical
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you use strict deduction to analyse your surroundings, you can
+    <strong>Discern Realities </strong>with INT instead of WIS.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

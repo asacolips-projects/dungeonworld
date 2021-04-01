@@ -1,0 +1,82 @@
+name: Satyr
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 10
+      min: 0
+      max: 10
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: 2d8kl1
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Enchantment
+  details:
+    biography: >-
+      <p>One of only a very few creatures to be found in the old woods that
+      don’t outright want to maim, kill, or eat us. They dwell in glades pierced
+      by the sun, and dance on their funny goat-legs to enchanting music played
+      on pipes made of bone and silver. They smile easily and, so long as you
+      please them with jokes and sport, will treat our kind with friendliness.
+      They’ve a mean streak, though, so if you cross them, make haste elsewhere;
+      very few things hold a grudge like the stubborn satyr.</p>
+
+      <p>Instinct: To enjoy</p>
+
+      <ul>
+
+      <li>Pull others into revelry through magic</li>
+
+      <li>Force gifts upon them</li>
+
+      <li>Play jokes with illusions and tricks</li>
+
+      </ul>
+  tags: >-
+    [{"value":"group"},{"value":"devious"},{"value":"magical"},{"value":"hoarder"},{"value":"close"}]
+  tagsString: 'group, devious, magical, hoarder, close'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Satyr
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: ZYnjFDfIoMx2exqd
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

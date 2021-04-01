@@ -1,0 +1,82 @@
+name: Chaos Ooze
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 23
+      min: 0
+      max: 23
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d10
+      misc: ''
+      piercing: ignores armor
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: 'Ooze, Fragments of other planes embedded in it'
+  details:
+    biography: >-
+      <p>The barrier between Dungeon World and the elemental planes is not, as
+      you might hope, a wall of stone. It’s much more porous. Places where the
+      civil races do not often tread can sometimes, how to put this, spring a
+      leak. Like a dam come just a little loose. Bits and pieces of the chaos
+      spill out. Sometimes, they’ll congeal like an egg on a pan—that’s where we
+      get the material for many of the Guild’s magical trinkets. Useful, right?
+      Sometimes, though, it squirms and squishes around a bit and stays that
+      way, warping all it touches into some other, strange form. Chaos begets
+      chaos, and it grows.</p>
+
+      <p>Instinct: To change</p>
+
+      <ol>
+
+      <li>Cause a change in appearance or substance</li>
+
+      <li>Briefly bridge the planes</li>
+
+      </ol>
+  tags: >-
+    [{"value":"solitary"},{"value":"planar"},{"value":"terrifying"},{"value":"amorphous"},{"value":"close"}]
+  tagsString: 'solitary, planar, terrifying, amorphous, close'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Chaos Ooze
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: G46QorGB9BHfc795
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

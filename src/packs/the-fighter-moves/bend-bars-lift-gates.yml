@@ -1,0 +1,29 @@
+name: 'Bend Bars, Lift Gates'
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>use pure strength to destroy an inanimate
+    obstacle</strong>, roll+STR. • On a 10+,&nbsp;choose 3. • On a 7-9 choose
+    2.</p>
+
+    <ul>
+
+    <li>It doesn’t take a very long time</li>
+
+    <li>Nothing of value is damaged</li>
+
+    <li>It doesn’t make an inordinate amount of noise</li>
+
+    <li>You can fix the thing again without a lot of effort</li>
+
+    </ul>
+  rollType: STR
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

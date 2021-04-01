@@ -1,0 +1,22 @@
+name: Spear
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p><span style="color: #222222; font-family: Roboto, arial, sans-serif;
+    font-size: small; background-color: #ffffff;">A weapon with a long shaft and
+    a pointed metal tip.</span></p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: '[{"value":"reach"},{"value":"thrown"},{"value":"near"}]'
+  tagsString: 'reach, thrown, near'
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/polearms/spear-flared-wrapped.webp
+effects: []

@@ -1,0 +1,19 @@
+name: Knife
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>A tool with a cutting edge.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: '[{"value":"hand"}]'
+  tagsString: hand
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/daggers/knife-engraved-black.webp
+effects: []

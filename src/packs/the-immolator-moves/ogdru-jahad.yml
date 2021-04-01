@@ -1,0 +1,16 @@
+name: Ogdru Jahad
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>Gain the Wizard move Ritual. The GM will always tell you what you have to
+    sacrifice to gain the effect you desire.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

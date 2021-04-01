@@ -1,0 +1,21 @@
+name: Bandages
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>When you have a few minutes to bandage someone else’s wounds, heal them
+    of 4 damage and expend a use.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 3
+  tags: '[{"value":"slow"}]'
+  tagsString: slow
+  magic: false
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/commodities/cloth/cloth-bolt-gold.webp
+effects: []

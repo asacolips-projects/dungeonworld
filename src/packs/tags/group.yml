@@ -1,0 +1,10 @@
+name: Group
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: '<p>Usually seen in small numbers, 3–6 or so.</p>'
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []

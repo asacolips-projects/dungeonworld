@@ -1,0 +1,19 @@
+name: Thing-talker
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>You see the spirits in the sand, the sea and the stone. You may now apply
+    your spirit tongue, shapeshifting and studied essence to inanimate natural
+    objects (plants and rocks) or creatures made thereof, as well as animals.
+    Thing-talker forms can be exact copies or can be mobile vaguely
+    humanoid-shaped entities.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

@@ -1,0 +1,24 @@
+name: Immovable Rod
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>A funny metal rod with a button on it. Press the button and the rod just
+    sticks. It freezes in place—in midair, standing up or lying down. It can’t
+    be moved. Pull it, push it, try as hard as you like, the rod stays. Maybe it
+    can be destroyed, maybe it can’t. Push the button again and it’s free—take
+    it along with you. Might be useful to have such a stubborn thing along.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/weapons/staves/staff-ornate-purple.webp
+effects: []

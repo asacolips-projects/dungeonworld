@@ -1,0 +1,15 @@
+name: Heal
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Touch an ally and you may heal their damage a number of points up to your
+    maximum HP.</p>
+  spellLevel: 7
+  rollFormula: ''
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/blood_04.webp
+effects: []

@@ -1,0 +1,89 @@
+name: Salamander
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 7
+      min: 0
+      max: 7
+    ac:
+      value: 3
+      base: 0
+      min: 0
+    damage:
+      value: 2d6kh+3
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Burrowing
+  details:
+    biography: >-
+      <blockquote>
+
+      <p>The excavation uncovered what the reports called a basalt gate. Black
+      stone carved with molten runes. When they dug it up, the magi declared it
+      inert but further evidence indicates that was an incorrect claim. The
+      entire team went missing. When we arrived, the gate was glowing. Its light
+      filled the whole cavern. We could see from the entrance that the area had
+      become full of these creatures—like men with red and orange skin, tall as
+      an ogre but with a snake’s tail where their legs ought to be. They were
+      clothed, too—some had black glass armor. They spoke to each other in a
+      tongue that sounded like grease in a fire. I wanted to leave but the
+      sergeant wouldn’t listen. You’ve already read what happened next, sir. I
+      know I’m the only one that got back, but what I said is true. The gate is
+      open, now. This is just the beginning!</p>
+
+      </blockquote>
+
+      <p>Instinct: To consume in flame</p>
+
+      <ul>
+
+      <li>Summon elemental fire</li>
+
+      <li>Melt away deception</li>
+
+      </ul>
+  tags: >-
+    [{"value":"horde"},{"value":"large"},{"value":"intelligent"},{"value":"organized"},{"value":"planar"},{"value":"close"},{"value":"reach"},{"value":"near"}]
+  tagsString: 'horde, large, intelligent, organized, planar, close, reach, near'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Salamander
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: YGUGhp8ybw1kdvVX
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

@@ -1,0 +1,31 @@
+name: Burning Brand
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>conjure a weapon of pure flame</strong>, roll+CON. On a
+    10+ choose two of the following tags, on a 7-9 choose one. You may treat
+    your INT as your STR or DEX in regards to making attacks with this weapon.
+    The weapon always begins with the fiery, touch, dangerous, and 3 uses tags.
+    Each attack with the weapon consumes one use.</p>
+
+    <ul>
+
+    <li>hand</li>
+
+    <li>thrown, near</li>
+
+    <li>+1 damage</li>
+
+    <li>remove the dangerous tag</li>
+
+    </ul>
+  rollType: CON
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

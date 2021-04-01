@@ -1,0 +1,12 @@
+name: Organized
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>It has a group structure that aids it in survival. Defeating one may
+    cause the wrath of others. One may sound an alarm.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []

@@ -1,0 +1,55 @@
+name: Making a Village
+permission:
+  default: 0
+folder: pT118pRlosZeToCW
+sort: 1100000
+flags: {}
+content: >-
+  <h1>Making a Village</h1>
+
+  <p>By default a village is Poor, Steady, Militia, Resource (your choice) and
+  has an Oath to another steading of your choice. If the village is part of a
+  kingdom or empire choose one:</p>
+
+  <ul>
+
+  <li>The village is somewhere naturally defended: Safe, -Defenses</li>
+
+  <li>The village has abundant resources that sustain it: +Prosperity, Resource
+  (your choice), Enmity (your choice)</li>
+
+  <li>The village is under the protection of another steading: Oath (that
+  steading), +Defenses</li>
+
+  <li>The village is on a major road: Trade (your choice), +Prosperity</li>
+
+  <li>The village is built around a wizard&rsquo;s tower: Personage (the
+  wizard), Blight (arcane creatures)</li>
+
+  <li>The village was built on the site of religious significance: Divine,
+  History (your choice)</li>
+
+  </ul>
+
+  <p>&nbsp;</p>
+
+  <p>Choose one problem:</p>
+
+  <ul>
+
+  <li>The village is in arid or uncultivable land: Need (Food)</li>
+
+  <li>The village is dedicated to a deity: Religious (that deity), Enmity (a
+  settlement of another deity)</li>
+
+  <li>The village has recently fought a battle: -Population, -Prosperity if they
+  fought to the end, -Defenses if they lost.</li>
+
+  <li>The village has a monster problem: Blight (that monster), Need
+  (adventurers)</li>
+
+  <li>The village has absorbed another village: +Population, Lawless</li>
+
+  <li>The village is remote or unwelcoming: -Prosperity, Dwarven or Elven</li>
+
+  </ul>

@@ -1,0 +1,20 @@
+name: Cloudkill
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>A cloud of fog drifts into this realm from&nbsp;beyond the Black Gates of
+    Death, filling the&nbsp;immediate area. Whenever a creature in the&nbsp;area
+    takes damage it takes an additional, separate 1d6 damage which ignores
+    armor. This spell persists so long as you can see the affected area, or
+    until you dismiss it.</p>
+
+    <p>Additional damage roll: [[/roll 1d6]]</p>
+  spellLevel: 7
+  rollFormula: ''
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/fog-acid-3.webp
+effects: []

@@ -1,0 +1,19 @@
+name: It Goes To Eleven
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>unleash a crazed performance</strong> (a righteous lute
+    solo or mighy brass blast, maybe) choose a target who can hear you and
+    roll+CHA. • On a 10+ the target attacks their nearest ally in range. • On a
+    7-9 they attack their nearest ally, but you also draw their attention and
+    ire.</p>
+  rollType: CHA
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

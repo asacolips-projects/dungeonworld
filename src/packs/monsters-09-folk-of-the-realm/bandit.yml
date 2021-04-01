@@ -1,0 +1,79 @@
+name: Bandit
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 3
+      min: 0
+      max: 3
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>Desperation is the watchword of banditry. When times are tough, what
+      else is there to do but scavenge a weapon and take up with a clan of nasty
+      men and women? Highway robbery, poaching, scams and cons and murder most
+      foul but we’ve all got to eat so who can blame them? Then again, there’s
+      evil in the hearts of some and who’s to say that desperation isn’t a need
+      to sate one’s baser lusts? Anyway—it’s this or starve, sometimes.</p>
+
+      <p>Instinct: To rob</p>
+
+      <ul>
+
+      <li>Steal something</li>
+
+      <li>Demand tribute</li>
+
+      </ul>
+  tags: >-
+    [{"value":"horde"},{"value":"intelligent"},{"value":"organized"},{"value":"close"}]
+  tagsString: 'horde, intelligent, organized, close'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Bandit
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: citxDxF2JxVSCQCH
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

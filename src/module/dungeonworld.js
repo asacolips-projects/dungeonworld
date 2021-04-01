@@ -14,6 +14,7 @@ import { DwActorSheet } from "./actor/actor-sheet.js";
 import { DwActorNpcSheet } from "./actor/actor-npc-sheet.js";
 import { DwClassItemSheet } from "./item/class-item-sheet.js";
 import { DwRegisterHelpers } from "./handlebars.js";
+import { preloadHandlebarsTemplates } from "./templates.js";
 import { DwUtility } from "./utility.js";
 import { CombatSidebarDw } from "./combat/combat.js";
 import { MigrateDw } from "./migrate/migrate.js";
@@ -84,6 +85,9 @@ Hooks.once("init", async function() {
   });
 
   DwUtility.replaceRollData();
+
+  // Preload template partials.
+  preloadHandlebarsTemplates();
 });
 
 Hooks.once("ready", async function() {

@@ -1,0 +1,15 @@
+name: Cure Moderate Wounds
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>You staunch bleeding and set bones through magic. Heal an ally you touch
+    of 2d8 damage.</p>
+  spellLevel: 3
+  rollFormula: 2d8
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/heal-royal-2.webp
+effects: []

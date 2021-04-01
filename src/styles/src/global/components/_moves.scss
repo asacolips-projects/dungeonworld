@@ -169,6 +169,16 @@
     display: none;
     flex: none;
     width: 100%;
+
+    .result-label {
+      margin-right: 5px;
+
+      + p,
+      + div,
+      + span {
+        display: inline;
+      }
+    }
   }
 
   .item-avatar {

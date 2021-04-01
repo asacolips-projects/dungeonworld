@@ -1,0 +1,27 @@
+name: The Carcosan Spire
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>None know from whence this spear of twisted white coral comes. Those who
+    bear it too long find their minds full of alien dreams and begin to hear the
+    strange thoughts of the Others. None are impervious. Used against any
+    “natural” target (men, goblins, owlbears and the like) the Spire acts as a
+    mere mortal spear. Its true purpose is to do harm to those things whose
+    strange natures protect them against mundane weapons. Used thus, the Spire
+    can wound foes otherwise invulnerable to harm. The wielder will recognize
+    these twisted foes on sight—the Spire knows its own.</p>
+  class: ''
+  quantity: 1
+  weight: 3
+  uses: 0
+  tags: '[{"value":"reach"},{"value":"thrown"}]'
+  tagsString: 'reach, thrown'
+  magic: true
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/polearms/spear-hooked-double-jeweled.webp
+effects: []

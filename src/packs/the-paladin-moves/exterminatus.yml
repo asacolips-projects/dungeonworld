@@ -1,0 +1,21 @@
+name: Exterminatus
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you<strong> speak aloud your promise to defat an enemy</strong>, you
+    deal +2d4 damage against that enemy and -4 damage against anyone else. This
+    effect lasts until the enemy is defeated. If you fail to defeat the enemy or
+    give up the fight, you can admit your failure, but the effect continues
+    until you find a way to redeem yourself.</p>
+
+    <p>Additional damage roll: [[/roll 2d4]]</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

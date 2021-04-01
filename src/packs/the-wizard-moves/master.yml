@@ -1,0 +1,16 @@
+name: Master
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>Choose one spell in addition to the one you picked for Prodigy. You
+    prepare that spell as if it were one level lower.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Prodigy
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

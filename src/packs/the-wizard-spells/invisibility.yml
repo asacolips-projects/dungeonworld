@@ -1,0 +1,16 @@
+name: Invisibility
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Touch an ally: nobody can see them. They’re invisible! The spell persists
+    until the target attacks or you dismiss the effect. While the spell is
+    ongoing you can’t cast a spell. Ongoing.</p>
+  spellLevel: 1
+  rollFormula: ''
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/blue_35.webp
+effects: []

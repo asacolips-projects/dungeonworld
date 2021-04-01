@@ -1,0 +1,549 @@
+name: Services
+permission:
+  default: 0
+folder: pT118pRlosZeToCW
+sort: 300000
+flags: {}
+content: >-
+  <h2>Note</h2>
+
+  <p>&ldquo;-Charisma&rdquo; a little negotiation subtracts the haggler&rsquo;s
+  Charisma score (not modifier) from the price.</p>
+
+  <p>&nbsp;</p>
+
+  <h2>Services</h2>
+
+  <table style="height: 240px; width: 99.2%;" border="1">
+
+  <tbody>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 75.5802%;">A week&rsquo;s stay at a peasant
+  inn</td>
+
+  <td style="text-align: right; height: 16px; width: 23.8821%;">14-Charisma
+  coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 75.5802%;">A week&rsquo;s stay at a civilized
+  inn</td>
+
+  <td style="height: 16px; width: 23.8821%; text-align: right;">30-Charisma
+  coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 75.5802%;">A week&rsquo;s stay at the fanciest
+  inn in town</td>
+
+  <td style="height: 16px; width: 23.8821%; text-align: right;">43-Charisma
+  coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 75.5802%;">A week&rsquo;s unskilled mundane
+  labor</td>
+
+  <td style="height: 16px; width: 23.8821%; text-align: right;">10 coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 75.5802%;">A month&rsquo;s pay for enlistment
+  in an army</td>
+
+  <td style="height: 16px; width: 23.8821%; text-align: right;">30 coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 75.5802%;">A custom item from a
+  blacksmith</td>
+
+  <td style="height: 16px; width: 23.8821%; text-align: right;">Base Item + 50
+  coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 75.5802%;">A night&rsquo;s
+  &ldquo;companionship&rdquo;</td>
+
+  <td style="height: 16px; width: 23.8821%; text-align: right;">20-Charisma
+  coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 75.5802%; height: 16px;">An evening of song and dance</td>
+
+  <td style="width: 23.8821%; height: 16px; text-align: right;">18-Charisma
+  coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 75.5802%; height: 16px;">Escort for a day along a
+  bandit-infested road</td>
+
+  <td style="width: 23.8821%; height: 16px; text-align: right;">20 coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 75.5802%; height: 16px;">Escort for a day along a
+  monster-infested road</td>
+
+  <td style="width: 23.8821%; height: 16px; text-align: right;">54 coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 75.5802%; height: 16px;">A run-of-the-mill killing</td>
+
+  <td style="width: 23.8821%; height: 16px; text-align: right;">5 coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 75.5802%; height: 16px;">An assassination</td>
+
+  <td style="width: 23.8821%; height: 16px; text-align: right;">120 coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 75.5802%; height: 16px;">Healing from a chirurgeon</td>
+
+  <td style="width: 23.8821%; height: 16px; text-align: right;">5 coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 75.5802%; height: 16px;">A month&rsquo;s prayers for the
+  departed</td>
+
+  <td style="width: 23.8821%; height: 16px; text-align: right;">1 coin</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 75.5802%; height: 16px;">Repairs to a mundane item</td>
+
+  <td style="width: 23.8821%; height: 16px; text-align: right;">25% of the
+  item&rsquo;s cost</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <p>&nbsp;</p>
+
+  <h2>Meals</h2>
+
+  <table border="1">
+
+  <tbody>
+
+  <tr>
+
+  <td>A hearty meal for one 1 coin</td>
+
+  <td>&nbsp;</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A poor meal for a family 1 coin</td>
+
+  <td>&nbsp;</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A feast 15 coins per person</td>
+
+  <td>&nbsp;</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <h2><br />Transport</h2>
+
+  <table style="height: 176px; width: 99.2%;" border="1">
+
+  <tbody>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 71.2769%;">Cart and Donkey, sworn to carry
+  your burdens</td>
+
+  <td style="height: 16px; width: 28.1855%; text-align: right;">50 coins, load
+  20</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 71.2769%;">Horse</td>
+
+  <td style="height: 16px; width: 28.1855%; text-align: right;">75 coins, load
+  10</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 71.2769%;">Warhorse</td>
+
+  <td style="height: 16px; width: 28.1855%; text-align: right;">400 coins, load
+  12</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 71.2769%;">Wagon</td>
+
+  <td style="height: 16px; width: 28.1855%; text-align: right;">150 coins, load
+  40</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 71.2769%;">Barge</td>
+
+  <td style="height: 16px; width: 28.1855%; text-align: right;">50 coins, load
+  15</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 71.2769%;">River boat</td>
+
+  <td style="height: 16px; width: 28.1855%; text-align: right;">150 coins, load
+  20</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 71.2769%;">Merchant ship</td>
+
+  <td style="height: 16px; width: 28.1855%; text-align: right;">5,000 coins,
+  load 200</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 71.2769%;">War ship</td>
+
+  <td style="height: 16px; width: 28.1855%; text-align: right;">20,000 coins,
+  load 100</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 71.2769%;">Passage on a safe route</td>
+
+  <td style="height: 16px; width: 28.1855%; text-align: right;">1 coin</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 71.2769%;">Passage on a tough route</td>
+
+  <td style="height: 16px; width: 28.1855%; text-align: right;">10 coins</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="height: 16px; width: 71.2769%;">Passage on a dangerous route</td>
+
+  <td style="height: 16px; width: 28.1855%; text-align: right;">100 coins</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <p>&nbsp;</p>
+
+  <h2>Land and Buildings</h2>
+
+  <table border="1">
+
+  <tbody>
+
+  <tr>
+
+  <td>A hovel</td>
+
+  <td style="text-align: right;">20 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A cottage</td>
+
+  <td style="text-align: right;">500 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A house</td>
+
+  <td style="text-align: right;">2,500 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A mansion</td>
+
+  <td style="text-align: right;">50,000 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A keep</td>
+
+  <td style="text-align: right;">75,000 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A castle</td>
+
+  <td style="text-align: right;">250,000 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A grand castle</td>
+
+  <td style="text-align: right;">1,000,000 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A month&rsquo;s upkeep</td>
+
+  <td style="text-align: right;">1% of the cost</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <p>&nbsp;</p>
+
+  <h2><br />Bribes</h2>
+
+  <table border="1">
+
+  <tbody>
+
+  <tr>
+
+  <td>A peasant dowry</td>
+
+  <td style="text-align: right;">20-Charisma coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>&ldquo;Protection&rdquo; for a small business</td>
+
+  <td style="text-align: right;">100-Charisma coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A government bribe</td>
+
+  <td style="text-align: right;">50-Charisma coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A compelling bribe</td>
+
+  <td style="text-align: right;">80-Charisma coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>An offer you can&rsquo;t refuse</td>
+
+  <td style="text-align: right;">500-Charisma coins</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <h2><br />Gifts and Finery</h2>
+
+  <table border="1">
+
+  <tbody>
+
+  <tr>
+
+  <td>A peasant gift</td>
+
+  <td style="text-align: right;">1 coin</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A fine gift</td>
+
+  <td style="text-align: right;">55 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A noble gift</td>
+
+  <td style="text-align: right;">200 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A ring or cameo</td>
+
+  <td style="text-align: right;">75 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>Finery</td>
+
+  <td style="text-align: right;">105 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A fine tapestry</td>
+
+  <td style="text-align: right;">350+ coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A crown fit for a king</td>
+
+  <td style="text-align: right;">5,000 coins</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <h2><br />Hoards</h2>
+
+  <table border="1">
+
+  <tbody>
+
+  <tr>
+
+  <td>A goblin&rsquo;s stash</td>
+
+  <td style="text-align: right;">2 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A lizardman&rsquo;s trinkets</td>
+
+  <td style="text-align: right;">5 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A &ldquo;priceless&rdquo; sword</td>
+
+  <td style="text-align: right;">80 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>An orc warchief&rsquo;s tribute</td>
+
+  <td style="text-align: right;">250 coins</td>
+
+  </tr>
+
+  <tr>
+
+  <td>A dragon&rsquo;s mound of coins and gems</td>
+
+  <td style="text-align: right;">130,000 coins</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <p>&nbsp;</p>

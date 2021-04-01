@@ -1,0 +1,79 @@
+name: Hunter
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 6
+      min: 0
+      max: 6
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>The wilds are home to more than just beasts of horn and scale. There
+      are men and women out there, too—those who smell blood on the wind and
+      stalk the plains in the skins of their prey. Whether with a trusty longbow
+      bought on a rare trip into the city or with a knife of bone and sinew,
+      these folk have more in common with the things they track and eat than
+      with their own kind. Solemn, somber and quiet, they find a sort of peace
+      in the wild.</p>
+
+      <p>Instinct: To survive</p>
+
+      <ul>
+
+      <li>Bring back news from the wilds</li>
+
+      <li>Slay a beast</li>
+
+      </ul>
+  tags: '[{"value":"group"},{"value":"intelligent"},{"value":"near"},{"value":"far"}]'
+  tagsString: 'group, intelligent, near, far'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Hunter
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: Fo2pCcEajEQcGOOS
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

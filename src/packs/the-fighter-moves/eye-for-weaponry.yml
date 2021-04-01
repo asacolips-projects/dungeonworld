@@ -1,0 +1,16 @@
+name: Eye For Weaponry
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>look over an enemy’s weaponry</strong>, ask the GM how
+    much damage they do.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

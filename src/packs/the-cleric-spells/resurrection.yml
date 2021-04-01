@@ -1,0 +1,33 @@
+name: Resurrection
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Tell the GM you would like to resurrect a corpse whose soul has not yet
+    fully departed this world. Resurrection is always possible, but the GM will
+    give you one or more (possibly all) of these conditions to&nbsp;fulfill:</p>
+
+    <ul>
+
+    <li>It’s going to take days/weeks/months</li>
+
+    <li>You must get help from ____</li>
+
+    <li>It will require a lot of money</li>
+
+    <li>You must sacrifice ____ to do it</li>
+
+    </ul>
+
+    <p>The GM may, depending on the circumstances, allow you to resurrect the
+    corpse now, with the understanding that the&nbsp;conditions must be met
+    before it’s&nbsp;permanent, or require you to meet the conditions before the
+    corpse is resurrected.</p>
+  spellLevel: 3
+  rollFormula: ''
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/affliction_07.webp
+effects: []

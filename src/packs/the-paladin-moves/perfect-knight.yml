@@ -1,0 +1,14 @@
+name: Perfect Knight
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: <p>When you Quest you choose three boons instead of two.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

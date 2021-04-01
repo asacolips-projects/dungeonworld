@@ -1,0 +1,82 @@
+name: Rot Grub
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 3
+      min: 0
+      max: 3
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d6-2
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Burrow into flesh
+  details:
+    biography: >-
+      <p>They live in your skin. Or your organ meat. Or your eyeballs. They grow
+      there and then, in a bloody and horrific display, burrow their way out.
+      Disgusting.</p>
+
+      <p>Instinct: To infect</p>
+
+      <ul>
+
+      <li>Burrow under flesh</li>
+
+      <li>Lay eggs</li>
+
+      <li>Burst forth from an infected creature</li>
+
+      </ul>
+  tags: '[{"value":"hand"},{"value":"horde"},{"value":"tiny"}]'
+  tagsString: 'hand, horde, tiny'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Rot Grub
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  mirrorX: false
+  mirrorY: false
+  lockRotation: false
+  rotation: 0
+  vision: true
+  dimSight: 60
+  brightSight: 30
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightColor: ''
+  lightAlpha: 1
+  actorId: F0blBKsesnnNTJ4d
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 20
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: ''
+  randomImg: false
+items: []

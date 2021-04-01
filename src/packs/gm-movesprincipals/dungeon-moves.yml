@@ -1,0 +1,15 @@
+name: Dungeon Moves
+permission:
+  default: 0
+folder: ''
+flags: {}
+content: |-
+  <ul>
+  <li>Change the environment</li>
+  <li>Point to a looming threat</li>
+  <li>Introduce a new faction or type of creature</li>
+  <li>Use a threat from an existing faction or type of creature</li>
+  <li>Make them backtrack</li>
+  <li>Present riches at a price</li>
+  <li>Present a challenge to one of the characters</li>
+  </ul>

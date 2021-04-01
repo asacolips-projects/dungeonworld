@@ -1,0 +1,28 @@
+name: Commune
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you spend uninterrupted time (an hour or so) in <strong>quiet
+    contemplation</strong> with your deity, you:</p>
+
+    <ul>
+
+    <li>Lose any spells already granted to you</li>
+
+    <li>Are granted new spells of your choice whose total levels don’t exceed
+    your own level +1, and none of which is a higher level than your own
+    level</li>
+
+    <li>Prepare all of your rotes, which never count against your limi</li>
+
+    </ul>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

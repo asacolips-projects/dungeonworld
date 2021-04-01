@@ -1,0 +1,17 @@
+name: An Ear For Magic
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>hear an enemy cast a spell</strong> the GM will tell you
+    the name of the spell and its effects. Take +1 forward when acting on the
+    answers.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

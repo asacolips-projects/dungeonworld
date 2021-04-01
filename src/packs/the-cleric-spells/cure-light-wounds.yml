@@ -1,0 +1,15 @@
+name: Cure Light Wounds
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>At your touch wounds scab and bones cease to ache. Heal an ally you touch
+    of 1d8 damage.</p>
+  spellLevel: 1
+  rollFormula: 1d8
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/heal-royal-1.webp
+effects: []

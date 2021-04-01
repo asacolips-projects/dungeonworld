@@ -1,0 +1,19 @@
+name: Martyr
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>take damage</strong> and embrace the pain, you may take
+    +1d4 damage (ignoring armor). If you do, take +1 forward to cast a spell and
+    add your level to any damage done or healed by the spell.</p>
+
+    <p>Additional damage roll: [[/roll 1d4]]</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Penitent
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

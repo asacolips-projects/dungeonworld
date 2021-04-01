@@ -1,0 +1,81 @@
+name: Troll
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 20
+      min: 0
+      max: 20
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d10+3
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Regeneration
+  details:
+    biography: >-
+      <p>Tall. Real tall. Eight or nine feet when they’re young or weak. Covered
+      all over in warty, tough skin, too. Big teeth, stringy hair like swamp
+      moss and long, dirty nails. Some are green, some gray, some black. They’re
+      clannish and hateful of each other, not to mention all the rest of us.
+      Near impossible to kill, too, unless you’ve fire or acid to spare—cut a
+      limb off and watch. In a few days, you’ve got two trolls where you once
+      had one. A real serious problem, as you can imagine.</p>
+
+      <p>Instinct: To smash</p>
+
+      <ul>
+
+      <li>Undo the effects of an attack (unless caused by a weakness, your
+      call)</li>
+
+      <li>Hurl something or someone</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"large"},{"value":"close"},{"value":"reach"},{"value":"forceful"}]
+  tagsString: 'solitary, large, close, reach, forceful'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Troll
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: MrWXHar6CMAH9nQ7
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

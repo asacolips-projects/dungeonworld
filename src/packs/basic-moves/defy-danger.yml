@@ -1,0 +1,35 @@
+name: Defy Danger
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>act despite an imminent threat or suffer a
+    calamity</strong>, say how you deal with it and roll. If you do it...</p>
+
+    <p>• by powering through, +Str</p>
+
+    <p>• by getting out of the way or acting fast, +Dex</p>
+
+    <p>• by enduring, +Con</p>
+
+    <p>• with quick thinking, +Int</p>
+
+    <p>• through mental fortitude, +Wis</p>
+
+    <p>• sing charm and social grace, +Cha</p>
+
+    <p>On a 10+, you do what you set out to, the threat doesn’t come to bear. On
+    a 7–9, you stumble, hesitate, or flinch: the GM will offer you a worse
+    outcome, hard bargain, or ugly choice.</p>
+  class: ''
+  rollType: ASK
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: basic
+  moveGroup: ''
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/red_01.webp
+effects: []

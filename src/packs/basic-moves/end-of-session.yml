@@ -1,0 +1,32 @@
+name: End of Session
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>reach the end of a session</strong>, choose one your
+    bonds that you feel is resolved (completely explored, no longer relevant, or
+    otherwise). Ask the player of the character you have the bond with if they
+    agree. If they do, mark XP and write a new bond with whomever you wish. Once
+    bonds have been updated look at your alignment. If you fulfilled that
+    alignment at least once this session, mark XP. Then answer these three
+    questions as a group:</p>
+
+    <p>• Did we learn something new and important about the world?</p>
+
+    <p>• Did we overcome a notable monster or enemy?</p>
+
+    <p>• Did we loot a memorable treasure?</p>
+
+    <p>For each “yes” answer everyone marks XP.</p>
+  class: ''
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: special
+  moveGroup: ''
+flags: {}
+img: icons/sundries/documents/blueprint-recipe-alchemical.webp
+effects: []

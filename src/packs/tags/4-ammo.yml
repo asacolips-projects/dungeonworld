@@ -1,0 +1,13 @@
+name: 4 ammo
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>It counts as ammunition for appropriate ranged weapons. The number
+    indicated does not represent individual arrows or sling stones, but
+    represents what you have left on hand.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []

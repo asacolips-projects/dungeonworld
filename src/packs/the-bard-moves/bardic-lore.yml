@@ -1,0 +1,38 @@
+name: Bardic Lore
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>Choose an area of expertise:</p>
+
+    <ul>
+
+    <li>Spells and Magicks</li>
+
+    <li>The Dead and Undead</li>
+
+    <li>Grand Histories of the Known World</li>
+
+    <li>A Bestiary of Creatures Unusual</li>
+
+    <li>The Planar Spheres</li>
+
+    <li>Legends of Heroes Past</li>
+
+    <li>Gods and Their Servants</li>
+
+    </ul>
+
+    <p>When you <strong>first encounter an important creature, location, or
+    item</strong> (your call) covered by your bardic lore you can ask the GM any
+    one question about it; the GM will answer truthfully. The GM may then ask
+    you what tale, song, or legend you heard that information in.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

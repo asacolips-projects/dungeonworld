@@ -1,0 +1,14 @@
+name: Iron Hide
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: <p>You gain +1 armor.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

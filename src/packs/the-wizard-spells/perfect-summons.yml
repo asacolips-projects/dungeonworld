@@ -1,0 +1,17 @@
+name: Perfect Summons
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>You teleport a creature to your presence. Name a creature or give a short
+    description of a type of creature. If you named a creature, that creature
+    appears before you. If you described a type of creature, a creature of that
+    type appears before you.</p>
+  spellLevel: 9
+  rollFormula: ''
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/blue_26.webp
+effects: []

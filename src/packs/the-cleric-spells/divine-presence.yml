@@ -1,0 +1,17 @@
+name: Divine Presence
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Every creature must ask your leave to enter your presence, and you must
+    give permission aloud for them to enter. Any creature without your leave
+    takes an extra 1d10 damage whenever they take damage in your presence. While
+    this spell is ongoing you take -1 to cast a spell.</p>
+  spellLevel: 9
+  rollFormula: 1d10
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/protect-blue-3.webp
+effects: []

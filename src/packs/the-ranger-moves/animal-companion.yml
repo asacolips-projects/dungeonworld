@@ -1,0 +1,54 @@
+name: Animal Companion
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>You have a supernatural connection with a loyal animal. You can’t talk to
+    it per se but it always acts as you wish it to. Name your animal
+    companion:</p>
+
+    <h2>Name Here</h2>
+
+    <h3>Choose a species:</h3>
+
+    <p>Wolf, Cougar, Bear, Eagle, Dog, Hawk, Cat, Owl, Pigeon, Rat, Mule,
+    ________</p>
+
+    <h3>Choose a base:</h3>
+
+    <ul>
+
+    <li>Ferocity +2, Cunning +1, Instinct +1, 1 Armor</li>
+
+    <li>Ferocity +2, Cunning +2, Instinct +1, 0 Armor</li>
+
+    <li>Ferocity +1, Cunning +2, Instinct +1, 1 Armor</li>
+
+    <li>Ferocity +3, Cunning +1, Instinct +2, 1 Armor</li>
+
+    </ul>
+
+    <h3>Choose as many strengths as Ferocity:</h3>
+
+    <p>Fast, Burly, Huge, Calm, Adaptable, Tireless, Quick Reflexes, Camouflage,
+    Ferocious, Intimidating, Keen Senses, Stealthy, ____________________</p>
+
+    <h3>Your animal companion is trained to fight humanoids. Choose as many
+    additional trainings as its Cunning:</h3>
+
+    <p>Hunt, Search, Scout, Guard, Labor, Travel, Fight Monsters, Perform,
+    ___________</p>
+
+    <h3>Choose as many weaknesses as its Instinct:</h3>
+
+    <p>Flighty, Savage, Slow, Broken, Frightening, Forgetful, Stubborn, Lame,
+    _________</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

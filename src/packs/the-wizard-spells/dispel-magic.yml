@@ -1,0 +1,16 @@
+name: Dispel Magic
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Choose a spell or magic effect in your presence: this spell rips it
+    apart. Lesser spells are ended, powerful magic is just reduced or dampened
+    so long as you are nearby.</p>
+  spellLevel: 3
+  rollFormula: ''
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/air-burst-magenta-3.webp
+effects: []

@@ -1,0 +1,18 @@
+name: Extremely Cautious
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you use <strong>use Trap Expert</strong> you always get +1 hold,
+    even on a 6-. On a 12+ you get 3 hold and the next time you come near a trap
+    the GM will immediately tell you what it does, what triggers it, who set it,
+    and how you can use it to your advantage.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Cautious
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

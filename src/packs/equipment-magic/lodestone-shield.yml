@@ -1,0 +1,24 @@
+name: Lodestone Shield
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>What mixed-up dummy made this? Shields are meant to repel metal, not draw
+    it in! Emblazoned with a lion rampant, the Lodestone Shield has the power to
+    pull blades and arrows to it. When you defend against enemies using metal
+    weapons you can spend one hold, per target, to disarm them. Also, sometimes
+    you’ll find a handful of loose change stuck to it.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: '[{"value":"+1 armor"}]'
+  tagsString: +1 armor
+  magic: true
+  itemType: armor
+  attributes: {}
+flags: {}
+img: icons/equipment/shield/targe-steel-blue.webp
+effects: []

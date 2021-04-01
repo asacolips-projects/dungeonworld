@@ -1,0 +1,27 @@
+name: Polymorph
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Your touch reshapes a creature entirely, they stay in the form you craft
+    until you cast a spell. Describe the new shape you craft, including any stat
+    changes, significant adaptations, or major weaknesses. The GM will then tell
+    you one or more of these:</p>
+
+    <ul>
+
+    <li>The form will be unstable and temporary</li>
+
+    <li>The creature’s mind will be altered as well</li>
+
+    <li>The form has an unintended benefit or weakness</li>
+
+    </ul>
+  spellLevel: 5
+  rollFormula: ''
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/emerald_05.webp
+effects: []

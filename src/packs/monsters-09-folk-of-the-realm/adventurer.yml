@@ -1,0 +1,86 @@
+name: Adventurer
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 3
+      min: 0
+      max: 3
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Endless enthusiasm
+  details:
+    biography: >-
+      <blockquote>
+
+      <p>Scum of the earth, they are. A troupe of armored men and women come
+      sauntering into town, brandishing what, for all intents and purposes, is
+      enough magical and mundane power to level the whole place. Bringing with
+      them bags and bags of loot, still dripping blood from whatever poor sod
+      they had to kill to get it. An economical fiasco waiting to happen, if you
+      ask me. The whole system becomes completely uprooted. Dangerous,
+      unpredictable murder-hobos. Oh, wait, you’re an adventurer? I take it all
+      back.</p>
+
+      </blockquote>
+
+      <p>Instinct: To adventure or die trying</p>
+
+      <ul>
+
+      <li>Go on a fool’s errand</li>
+
+      <li>Act impulsively</li>
+
+      <li>Share tales of past exploits</li>
+
+      </ul>
+  tags: '[{"value":"horde"},{"value":"intelligent"},{"value":"close"}]'
+  tagsString: 'horde, intelligent, close'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Adventurer
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: LH6QNk2bQjtL6rBx
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

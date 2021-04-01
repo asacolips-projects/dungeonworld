@@ -1,0 +1,16 @@
+name: Camouflage
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>keep still in natural surroundings</strong>, enemies
+    never spot you until you make a movement.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

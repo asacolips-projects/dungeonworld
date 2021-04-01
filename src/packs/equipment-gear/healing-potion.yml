@@ -1,0 +1,21 @@
+name: Healing Potion
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>When you drink an entire healing potion; heal yourself for 10 damage or
+    remove a debility, your choice.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 1
+  tags: '[{"value":"50 coins"}]'
+  tagsString: 50 coins
+  magic: false
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/tools/laboratory/vials-blue-pink.webp
+effects: []

@@ -1,0 +1,81 @@
+name: Frogman
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 10
+      min: 0
+      max: 10
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Amphibious
+  details:
+    biography: >-
+      <p>Croak croak croak. Little warty munchkins. Some wizard or
+      godling&rsquo;s idea of a bad joke, these creatures are. They stand as
+      men, dress in scavenged cloth and hold court in their froggy villages.
+      They speak a rumbling pidgin form of the tongue of man and are constantly
+      at war with their neighbors. They&rsquo;re greedy and stupid but clever
+      enough when they need to defend themselves. Some say, too, their priests
+      have a remarkable skill at healing. Or maybe they&rsquo;re just really,
+      really hard to kill.</p>
+
+      <p>Instinct: To wage war</p>
+
+      <ul>
+
+      <li>Launch an amphibious assault</li>
+
+      <li>Heal at a prodigious rate</li>
+
+      </ul>
+  tags: >-
+    [{"value":"horde"},{"value":"small"},{"value":"intelligent"},{"value":"close"}]
+  tagsString: 'horde, small, intelligent, close'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Frogman
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: RYe7LUNurlTRBMUZ
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

@@ -1,0 +1,18 @@
+name: Zuko Style
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>bend a flame to your will</strong>, roll+WIS. On a 10+
+    it does as you command, taking the shape and movement you desire for as long
+    as it has fuel on which to burn. On a 7-9 the effect is short-lived, lasting
+    only a moment.</p>
+  rollType: WIS
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

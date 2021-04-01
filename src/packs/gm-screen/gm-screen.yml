@@ -1,0 +1,128 @@
+name: '!GM Screen'
+permission:
+  default: 0
+flags:
+  core:
+    sourceId: JournalEntry.aHuU4tSa5H0qab8R
+content: >-
+  <table style="height: 174px; float: left; width: 628px;" border="1">
+
+  <tbody>
+
+  <tr style="background-color: #0222b3; color: white;">
+
+  <td style="height: 17px; text-align: center; width: 300px;"><strong>Moves<br
+  /></strong></td>
+
+  <td style="height: 17px; text-align: center; width: 300px;"><strong>General<br
+  /></strong></td>
+
+  </tr>
+
+  <tr style="background-color: #d3d7eb; text-align: center;">
+
+  <td style="height: 17px; width: 300px;">
+
+  <p>@Compendium[dungeonworld.gm-screen.fBkIlfLf6h6ckN8E]{Basic Moves}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.NJskVsjftwoVFO7P]{Special Moves}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.IEnULh0mMz4IS3sG]{GM Moves}</p>
+
+  </td>
+
+  <td style="height: 17px; width: 300px;">
+
+  <p>@Compendium[dungeonworld.gm-screen.XRFdnUA7lcb2n9j4]{Damage}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.yn6Cw4MNKZMs4HdZ]{Debilities}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.x2835cS41B06aaXi]{How to GM}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.xfy3dXTZBZm6MISo]{Macros}</p>
+
+  </td>
+
+  </tr>
+
+  <tr style="background-color: #0222b3; color: white;">
+
+  <td style="height: 17px; text-align: center; width: 300px;"><strong>Tags<br
+  /></strong></td>
+
+  <td style="height: 17px; text-align: center; width: 300px;"><strong>Services
+  and Equipment<br /></strong></td>
+
+  </tr>
+
+  <tr style="background-color: #d3d7eb; text-align: center;">
+
+  <td style="height: 17px; width: 300px;">
+
+  <p>@Compendium[dungeonworld.gm-screen.POzXGIZUFUleOmI9]{Armor - Tags}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.diCdPzrb3GQPMN28]{General Equipment -
+  Tags}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.yy4gR4gBFc1kxi8N]{Monster - Tags}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.dF0ok9E3vWbSPZEj]{Steading - Tags}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.UZJY2ktVbkzqxAOu]{Weapon - Tags}</p>
+
+  </td>
+
+  <td style="height: 17px; width: 300px;">
+
+  <p>@Compendium[dungeonworld.gm-screen.sowNcgeXWJpRlnmC]{Equipment and
+  Gear}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.oAXB2hZrLhKO4Ixz]{Services}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.bbc3o6TrvOQdxaY6]{Monster Treasure}</p>
+
+  </td>
+
+  </tr>
+
+  <tr style="background-color: #0222b3; color: white;">
+
+  <td style="height: 17px; text-align: center; width:
+  300px;"><strong>Hirelings<br /></strong></td>
+
+  <td style="height: 17px; text-align: center; width:
+  300px;"><strong>Steadings<br /></strong></td>
+
+  </tr>
+
+  <tr style="background-color: #d3d7eb; text-align: center;">
+
+  <td style="height: 17px; width: 300px;">
+
+  <p>@Compendium[dungeonworld.gm-screen.80vmH76ZXnE7JvlK]{Hirelings Skills}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.AEoEBZ2nNh6fGknd]{Making a Hireling}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.O95u3NJZLys30rSQ]{Order Hirelings}</p>
+
+  </td>
+
+  <td style="height: 17px; width: 300px;">
+
+  <p>@Compendium[dungeonworld.gm-screen.dF0ok9E3vWbSPZEj]{Steading - Tags}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.EjTnTfYC6cdcSHHJ]{Making a Village}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.EGQfRCdjrjWgKt9e]{Making a Town}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.K0nNYx3B8QkVjSij]{Making a Keep}</p>
+
+  <p>@Compendium[dungeonworld.gm-screen.B0OT5UbbYD6QY6fX]{Making a City}</p>
+
+  </td>
+
+  </tr>
+
+  </tbody>
+
+  </table>

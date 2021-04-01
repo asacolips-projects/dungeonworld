@@ -1,0 +1,22 @@
+name: Common Scroll
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>A common scroll has a spell inscribed on it. The spell must be castable
+    by you or on your class’s spell list for you to be able to cast it. When you
+    cast a spell from a scroll, the spell takes effect, simple as that.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 1
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/sundries/scrolls/scroll-plain-tan-red.webp
+effects: []

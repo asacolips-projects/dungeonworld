@@ -1,0 +1,17 @@
+name: Envenom
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>You can apply even complex poisons with a pinprick. When you apply a
+    poison that’s not dangerous for you to use to your weapon it’s touch instead
+    of applied.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

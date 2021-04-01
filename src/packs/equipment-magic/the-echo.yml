@@ -1,0 +1,25 @@
+name: The Echo
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>A seemingly empty bottle. Once unstoppered, the whispers of another plane
+    resound once and fall silent. In the silence, the bearer learns in his soul
+    the coming of one great danger and how he can avoid it. At any point after
+    you use the Echo, you can ignore the results of any single die roll—yours or
+    another player’s—and roll again. Once opened, the Echo is released and gone
+    forever.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/containers/kitchenware/vase-006.webp
+effects: []

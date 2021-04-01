@@ -1,0 +1,18 @@
+name: Spellbook
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>You have mastered several spells and inscribed them in your spellbook.
+    You start out with three first level spells, as well as all your cantrips.
+    Whenever you gain a level, you inscribe a new spell of your level or lower.
+    Your spellbook is 1 weight.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

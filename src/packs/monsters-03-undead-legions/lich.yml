@@ -1,0 +1,91 @@
+name: Lich
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 16
+      min: 0
+      max: 16
+    ac:
+      value: 5
+      base: 0
+      min: 0
+    damage:
+      value: d10+3
+      misc: ''
+      piercing: ignores armor
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <blockquote>
+
+      <p>At the end, they give you a scroll and a jeweled medallion to
+      commemorate your achievements. Grand Master of Abjuration, I was called,
+      then. Old man. Weak and wizened and just a bit too senile for them—those
+      jealous halfwits. Barely apprentices, and they called themselves The New
+      Council. It makes me sick, or would, if I still could be. They told me it
+      was an honor and I would be remembered forever. It was like listening to
+      my own eulogy. Fitting, in a way, don’t you think? It took me another ten
+      years to learn the rituals and another four to collect the material and
+      you see before you the fruits of my labor. I endure. I live. I will see
+      the death of this age and the dawn of the next. It pains me to have to do
+      this, but, you see, you cannot be permitted to endanger my research. When
+      you meet Death, say hello for me, would you?</p>
+
+      </blockquote>
+
+      <p>Instinct: To un-live</p>
+
+      <ul>
+
+      <li>Cast a perfected spell of death or destruction</li>
+
+      <li>Set a ritual or great working into motion</li>
+
+      <li>Reveal a preparation or plan already completed</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"magical"},{"value":"intelligent"},{"value":"cautious"},{"value":"hoarder"},{"value":"construct"},{"value":"near"},{"value":"far"}]
+  tagsString: 'solitary, magical, intelligent, cautious, hoarder, construct, near, far'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Lich
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: YKFGbV53X5lAtG72
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

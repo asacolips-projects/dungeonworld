@@ -1,0 +1,21 @@
+name: Dwarven Hardtack
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>Dwarves say it tastes like home. Everyone else says it tastes like home,
+    if home is a hog farm, and on fire.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 7
+  tags: '[{"value":"ration"},{"value":"requires dwarf"}]'
+  tagsString: 'ration, requires dwarf'
+  magic: false
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/commodities/stone/rock-gift.webp
+effects: []

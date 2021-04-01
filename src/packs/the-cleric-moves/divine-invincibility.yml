@@ -1,0 +1,18 @@
+name: Divine Invincibility
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>Commune </strong>you gain 2 hold and lose any hold you
+    already had. Spend that hold when you or an ally takes damage to call on
+    your deity, who intervenes with an appropriate manifestation (a sudden gust
+    of wind, a lucky slip, a burst of light) and negates the damage.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Divine Intervention
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

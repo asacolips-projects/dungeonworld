@@ -1,0 +1,84 @@
+name: Formian Queen
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 24
+      min: 0
+      max: 24
+    ac:
+      value: 3
+      base: 0
+      min: 0
+    damage:
+      value: d10+5
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: 'Hive connection, Insectoid'
+  details:
+    biography: >-
+      <p>At the heart of every hive, no matter its size or kind, lives a queen.
+      As large as any giant, she sits protected by her guard, served by every
+      drone and taskmaster with her own, singular purpose: to spread her kind
+      and grow the hive. To birth the eggs. To nurture. We do not understand the
+      minds of these creatures but it is known they can communicate with their
+      children, somehow, over vast distances and that they begin to teach them
+      the ways of earth and stone and war while still pale and wriggling larvae,
+      without a word. To kill one is to set chaos on the hive; without their
+      queen, the rest turn on one another in a mad, blind rage.</p>
+
+      <p>Instinct: To spread formians</p>
+
+      <ul>
+
+      <li>Call every formian it spawned</li>
+
+      <li>Release a half-formed larval mutation</li>
+
+      <li>Organize and issue orders</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"huge"},{"value":"organized"},{"value":"intelligent"},{"value":"hoarder"},{"value":"reach"},{"value":"forceful"}]
+  tagsString: 'solitary, huge, organized, intelligent, hoarder, reach, forceful'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Formian Queen
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: Nf8QuwFkZbjyqslG
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

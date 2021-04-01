@@ -1,0 +1,27 @@
+name: Prepare Spells
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you spend uninterrupted time (an hour or so) in <strong>quiet
+    contemplation</strong> of your spellbook, you:</p>
+
+    <ul>
+
+    <li>Lose any spells you already prepared</li>
+
+    <li>Prepare new spells chosen from your spellbook whose total levels don’t
+    exceed your own level +1</li>
+
+    <li>Prepare your cantrips which never count against your limit</li>
+
+    </ul>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

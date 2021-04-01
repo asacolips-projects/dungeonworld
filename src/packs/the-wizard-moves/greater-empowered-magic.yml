@@ -1,0 +1,26 @@
+name: Greater Empowered Magic
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>cast a spell</strong>, on a 10-11 you have the option of
+    choosing from the 7-9 list. If you do, you may additionally choose one of
+    the following effects. On a 12+ you get to choose one of these effects for
+    free:</p>
+
+    <ul>
+
+    <li>The spell’s effects are maximized</li>
+
+    <li>The spell’s targets are doubled</li>
+
+    </ul>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Empowered Magic
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

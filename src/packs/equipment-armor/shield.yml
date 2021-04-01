@@ -1,0 +1,21 @@
+name: Shield
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>A piece of personal armour held in the hand, which may or may not be
+    strapped to the wrist or forearm.</p>
+  class: ''
+  quantity: 1
+  weight: 2
+  uses: 0
+  tags: '[{"value":"+1 armor"}]'
+  tagsString: +1 armor
+  magic: false
+  itemType: armor
+  attributes: {}
+flags: {}
+img: icons/equipment/shield/buckler-wooden-boss-brown.webp
+effects: []

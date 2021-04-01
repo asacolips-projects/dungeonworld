@@ -1,0 +1,35 @@
+name: The Burning Wheel
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>An ancient wooden wheel, as might appear on a war-wagon, banded with
+    steel. On a glance, it appears to be nothing special—many spokes are
+    shattered and the thing seems mundane. Under the scrutiny of magic or the
+    eyes of an expert, its true nature is revealed: the Burning Wheel is a gift
+    from the God of Fire and burns with his authority.</p>
+
+    <p>When you hold The Burning Wheel and speak a god’s name, roll+CON. ✴On a
+    7+, the god you name takes notice and grants you an audience. An audience
+    with a god is not without a price: on a 10+, you choose one of your stats
+    and reduce it to the next lowest modifier (for example, a 14 is +1, so it
+    would be reduced to 12, a +0). ✴On a 7–9, the GM chooses which stat to
+    reduce.</p>
+
+    <p>Once used, the Burning Wheel ignites and burns with brilliant light. It
+    does not confer any protection from those flames, nor does it provide any
+    bonus to swimming.</p>
+  class: ''
+  quantity: 1
+  weight: 2
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/commodities/wood/wood-wheel-brown.webp
+effects: []

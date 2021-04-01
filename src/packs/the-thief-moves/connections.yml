@@ -1,0 +1,18 @@
+name: Connections
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>put out word to the criminal underbelly about something
+    you want or need</strong>, roll+CHA. • On a 10+, someone has it, just for
+    you. • On a 7–9, you’ll have to settle for something close or it comes with
+    strings attached, your call.</p>
+  rollType: CHA
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

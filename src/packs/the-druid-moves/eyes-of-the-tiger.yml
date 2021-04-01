@@ -1,0 +1,18 @@
+name: Eyes of the Tiger
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>mark an animal</strong> (with mud, dirt, or blood) you
+    can see through that animal’s eyes as if they were your own, no matter what
+    distance separates you. Only one animal at a time may be marked in this
+    way.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

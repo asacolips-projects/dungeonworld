@@ -1,0 +1,87 @@
+name: Goblin
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 3
+      min: 0
+      max: 3
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>Nobody seems to know where these things came from. Elves say they’re
+      the dwarves’ fault—dredged up from a hidden place beneath the earth.
+      Dwarves say they’re bad elvish children, taken away at birth and raised in
+      the dark. The truth of the matter is that goblins have always been here
+      and they’ll be here once all the civilized races have fallen and gone
+      away. Goblins never die out. There’s just too damn many of them.</p>
+
+      <p>Instinct: To multiply</p>
+
+      <ul>
+
+      <li>Charge!</li>
+
+      <li>Call more goblins</li>
+
+      <li>Retreat and return with (many) more</li>
+
+      </ul>
+    class: ''
+  tags: >-
+    [{"value":"close"},{"value":"reach"},{"value":"horde"},{"value":"small"},{"value":"intelligent"},{"value":"organized"}]
+  tagsString: 'close, reach, horde, small, intelligent, organized'
+sort: 100001
+flags: {}
+img: systems/dungeonworld/tokens/enemies/Goblin_Small_Humanoid_01.webp
+token:
+  flags: {}
+  name: Goblin
+  displayName: 0
+  img: systems/dungeonworld/tokens/enemies/Goblin_Small_Humanoid_01.webp
+  tint: null
+  width: 1
+  height: 1
+  scale: 0.8
+  mirrorX: false
+  mirrorY: false
+  lockRotation: false
+  rotation: 0
+  vision: true
+  dimSight: 60
+  brightSight: 30
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightColor: ''
+  lightAlpha: 1
+  actorId: m1KTxMR6mthdHI2C
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 20
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: ''
+  randomImg: true
+items: []

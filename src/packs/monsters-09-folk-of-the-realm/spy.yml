@@ -1,0 +1,79 @@
+name: Spy
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: null
+      min: 0
+      max: null
+    ac:
+      value: null
+      base: 0
+      min: 0
+    damage:
+      value: ''
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>Beloved of kings but never truly trusted. Mysterious, secretive and
+      alluring, the life of a spy is, if you ask a commoner, full of romance and
+      intrigue. They’re a knife in the dark and a pair of watchful eyes. A spy
+      can be your best friend, your lover or that old man you see in the market
+      every day. One&nbsp;never knows. Hells, maybe you’re a spy—they say
+      there’s magic that can turn folks’ minds without them ever knowing it. How
+      can we trust you?</p>
+
+      <p>Instinct: To infiltrate</p>
+
+      <ul>
+
+      <li>Report the truth</li>
+
+      <li>Double cross</li>
+
+      </ul>
+  tags: ''
+  tagsString: ''
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Spy
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: DoiPRAVb5eScLnIV
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

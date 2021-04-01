@@ -1,0 +1,19 @@
+name: Rapier
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>A one-handed slender sharply pointed two-edged blade.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: '[{"value":"close"},{"value":"precise"}]'
+  tagsString: 'close, precise'
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/swords/greatsword-crossguard-silver.webp
+effects: []

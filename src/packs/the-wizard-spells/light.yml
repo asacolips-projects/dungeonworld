@@ -1,0 +1,17 @@
+name: Light
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>An item you touch glows with arcane light, about as bright as a torch. It
+    gives off no heat or sound and requires no fuel, but it is otherwise like a
+    mundane torch. You have complete control of the color of the flame. The
+    spell lasts as long as it is in your presence.</p>
+  spellLevel: 0
+  rollFormula: ''
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/light-sky-3.webp
+effects: []

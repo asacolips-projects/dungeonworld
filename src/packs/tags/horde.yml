@@ -1,0 +1,10 @@
+name: Horde
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: '<p>Where there’s one, there’s more. A lot more.</p>'
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []

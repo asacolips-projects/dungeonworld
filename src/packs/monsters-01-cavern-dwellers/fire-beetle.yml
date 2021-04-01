@@ -1,0 +1,86 @@
+name: Fire Beetle
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 3
+      min: 0
+      max: 3
+    ac:
+      value: 3
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ignores armor
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Full of flames
+  details:
+    biography: >-
+      <p>Scarabaeus pyractomena! What a delightful creature—see how its carapace
+      glitters in the light of our torches? Not too close now, they’re
+      temperamental, you see. The fire in their belly isn’t just metaphorical,
+      no. Watch as I goad the beast. Aha! A spout of flame! Unexpected, isn’t
+      it? One of these creatures alone, if it comes up from below, can be a
+      hellish nuisance to a farmstead or village. A whole swarm? There’s a
+      reason they call it a conflagration of fire beetles.</p>
+
+      <p>Instinct: To enflame</p>
+
+      <ul>
+
+      <li>Undermine the ground</li>
+
+      <li>Burst from the earth</li>
+
+      <li>Spray forth flames</li>
+
+      </ul>
+  tags: '[{"value":"near"},{"value":"horde"},{"value":"small"}]'
+  tagsString: 'near, horde, small'
+sort: 100001
+flags: {}
+img: systems/dungeonworld/tokens/enemies/Giant_Fire_Beetle_Small_Beast_01.webp
+token:
+  flags: {}
+  name: Fire Beetle
+  displayName: 0
+  img: systems/dungeonworld/tokens/enemies/Giant_Fire_Beetle_Small_Beast_01.webp
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  mirrorX: false
+  mirrorY: false
+  lockRotation: false
+  rotation: 0
+  vision: true
+  dimSight: 60
+  brightSight: 30
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightColor: ''
+  lightAlpha: 1
+  actorId: Fj3C8Xa5pJ65Z0fx
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 20
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: ''
+  randomImg: false
+items: []

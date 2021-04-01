@@ -1,0 +1,15 @@
+name: Divination
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Name a person, place, or thing you want to learn about. Your deity grants
+    you visions of the target, as clear as if you were there.</p>
+  spellLevel: 5
+  rollFormula: ''
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/evil-eye-red-3.webp
+effects: []

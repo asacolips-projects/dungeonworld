@@ -1,0 +1,80 @@
+name: Pegasus
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 10
+      min: 0
+      max: 10
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d8
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Wings
+  details:
+    biography: >-
+      <p>Don’t go thinking that every creature not natural-born is a horrible
+      abomination. Don’t imagine for a second that they’re all tentacles and
+      screaming and blood or whatever. Take this noble beast, for example.
+      Lovely thing, isn’t it? A fine white horse with the wings of a swan. Don’t
+      look like it ought to be able to fly, but it does. The elves work
+      miracles, in their own way. They breed true—that’s the purity of elf-magic
+      at work. Hatching from little crystal eggs and bonded with their riders
+      for life. There’s still some beauty in the world, mark my words.</p>
+
+      <p>Instinct: To carry aloft</p>
+
+      <ul>
+
+      <li>Carry a rider into the air</li>
+
+      <li>Give their rider an advantage</li>
+
+      </ul>
+  tags: '[{"value":"group"},{"value":"construct"},{"value":"close"}]'
+  tagsString: 'group, construct, close'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Pegasus
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: h1p5H4s2K4lofEF1
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

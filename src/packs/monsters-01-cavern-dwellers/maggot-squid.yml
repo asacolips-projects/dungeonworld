@@ -1,0 +1,80 @@
+name: Maggot-Squid
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 3
+      min: 0
+      max: 3
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: 'Amphibious, Paralyzing Tentacles'
+  details:
+    biography: >-
+      <p>The gods that made this thing were playing some sick joke on the
+      civilized folk of the world. The maggot-squid wields a face full of
+      horrible squirming tentacles that, if they touch you, feel like being
+      struck by lightning. They’ll paralyze you and chew you up slowly while
+      you’re helpless. Best to not let it get to that.</p>
+
+      <p>Instinct: To eat</p>
+
+      <ul>
+
+      <li>Paralyze with a touch</li>
+
+      </ul>
+  tags: '[{"value":"close"},{"value":"horde"},{"value":"small"}]'
+  tagsString: 'close, horde, small'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Maggot-Squid
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  mirrorX: false
+  mirrorY: false
+  lockRotation: false
+  rotation: 0
+  vision: true
+  dimSight: 60
+  brightSight: 30
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightColor: ''
+  lightAlpha: 1
+  actorId: hivJJ3iaEbgoj8Qf
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 20
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: ''
+  randomImg: false
+items: []

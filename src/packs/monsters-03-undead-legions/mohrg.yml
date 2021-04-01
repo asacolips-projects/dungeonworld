@@ -1,0 +1,83 @@
+name: Mohrg
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 10
+      min: 0
+      max: 10
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d8
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>You never get away with murder. Not really. You might evade the law,
+      might escape your own conscience in the end and die, fat and happy in a
+      mansion somewhere. When the gods themselves notice your misdeeds, though,
+      that’s where your luck runs out and a mohrg is born. The mohrg is a
+      skeleton—flesh and skin and hair all rotted away. All but their guts—their
+      twisted, knotted guts still spill from their bellies, magically preserved
+      and often wrapped, noose-like, about their necks. They do not think,
+      exactly, but they suffer. They kill and wreak havoc and their souls do not
+      rest. Such is the punishment, both on them for the crime and on all
+      mankind for daring to murder one another. The gods are just and they are
+      harsh.</p>
+
+      <p>Instinct: To wreak havoc</p>
+
+      <ul>
+
+      <li>Rage</li>
+
+      <li>Add to their collection of guts</li>
+
+      </ul>
+  tags: '[{"value":"group"},{"value":"close"}]'
+  tagsString: 'group, close'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Mohrg
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: UBhblg5hkqFBeKrV
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

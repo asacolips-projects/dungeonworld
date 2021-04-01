@@ -1,0 +1,17 @@
+name: Spirit Tongue
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>The grunts, barks, chirps, and calls of the creatures of the wild are as
+    language to you. You can understand any animal native to your land or akin
+    to one whose essence you have studied.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

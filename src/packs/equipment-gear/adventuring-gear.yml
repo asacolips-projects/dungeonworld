@@ -1,0 +1,23 @@
+name: Adventuring Gear
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>Adventuring gear is a collection of useful mundane items such as chalk,
+    poles,&nbsp; pikes, ropes, etc. When you rummage through your adventuring
+    gear for some useful mundane item, you find what you need and mark off a
+    use.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 5
+  tags: '[{"value":"20 coins"}]'
+  tagsString: 20 coins
+  magic: false
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/containers/bags/pack-engraved-leather-tan.webp
+effects: []

@@ -1,0 +1,85 @@
+name: Formian Drone
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 7
+      min: 0
+      max: 7
+    ac:
+      value: 4
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: 'Hive connection, Insectoid'
+  details:
+    biography: >-
+      <p>With good cause, they say that these creatures (like all insects,
+      really) are claimed by the powers of Law. They are order made flesh—a
+      perfectly stratified society in which every larva, hatchling and adult
+      knows its place in the great hive. The formian is some strange
+      intersection of men and ants. (Though there are winged tribes that look
+      like wasps out in the Western Desert, I’ve heard. And some with great
+      sawtooth arms like mantids in the forests of the east.) Tall, with a hard
+      shell and a harder mind, these particular formians are the bottom caste.
+      They work the hills and honeycombs with single-minded joy that can be
+      known only by such an alien mind.</p>
+
+      <p>Instinct: To follow orders</p>
+
+      <ul>
+
+      <li>Raise the alarm</li>
+
+      <li>Create value for the hive</li>
+
+      <li>Assimilate</li>
+
+      </ul>
+  tags: >-
+    [{"value":"horde"},{"value":"organized"},{"value":"cautious"},{"value":"close"}]
+  tagsString: 'horde, organized, cautious, close'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Formian Drone
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: fhItyrNUGMJWQEar
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

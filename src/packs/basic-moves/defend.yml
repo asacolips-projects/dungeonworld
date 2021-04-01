@@ -1,0 +1,30 @@
+name: Defend
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>stand in defense of a person, item, or location</strong>
+    under attack, roll+Con. On a 10+, hold 3. On a 7–9, hold 1. So long as you
+    stand in defense, when you or the thing you defend is attacked you may spend
+    hold, 1 for 1, to choose an option:</p>
+
+    <p>• Redirect an attack from the thing you defend to yourself</p>
+
+    <p>• Halve the attack’s effect or damage</p>
+
+    <p>• Open up the attacker to an ally giving that ally +1 forward against the
+    attacker</p>
+
+    <p>• Deal damage to the attacker equal to your level</p>
+  class: ''
+  rollType: CON
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: basic
+  moveGroup: ''
+flags: {}
+img: icons/equipment/shield/round-wooden-boss-steel-red.webp
+effects: []

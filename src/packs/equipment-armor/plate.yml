@@ -1,0 +1,19 @@
+name: Plate
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>Personal body armor made of metal plates.</p>
+  class: ''
+  quantity: 1
+  weight: 4
+  uses: 0
+  tags: '[{"value":"3 armor"},{"value":"worn"},{"value":"clumsy"}]'
+  tagsString: '3 armor, worn, clumsy'
+  magic: false
+  itemType: armor
+  attributes: {}
+flags: {}
+img: icons/equipment/chest/breastplate-metal-tan.webp
+effects: []

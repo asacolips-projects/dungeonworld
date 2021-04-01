@@ -1,0 +1,17 @@
+name: Cage
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>The target is held in a cage of magical force. Nothing can get in or out
+    of the cage. The cage remains until you cast another spell or dismiss it.
+    While the spell is ongoing, the caged creature can hear your thoughts and
+    you cannot leave sight of the cage.</p>
+  spellLevel: 5
+  rollFormula: ''
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/shielding-eerie-3.webp
+effects: []

@@ -1,0 +1,81 @@
+name: Spectre
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 12
+      min: 0
+      max: 12
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d10
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Insubstantial
+  details:
+    biography: >-
+      <p>For some folk, when they pass, Death himself cannot release their grip
+      on the places they love most. A priest whose devotion to the temple is
+      greater than that of his god. A banking guild official who cannot bear to
+      part with his vault. A drunk and his favorite tavern. All make excellent
+      spectres. They act not out of the usual hunger that drives the undead, but
+      jealousy. Jealousy that anyone else might come to love their home as much
+      as they do and drive them out. These places belong to them and these
+      invisible spirits will kill before they’ll let anyone send them to their
+      rest.</p>
+
+      <p>Instinct: To drive life from a place</p>
+
+      <ul>
+
+      <li>Turn their haunt against a creature</li>
+
+      <li>Bring the environment to life</li>
+
+      </ul>
+  tags: '[{"value":"solitary"},{"value":"hoarder"},{"value":"close"}]'
+  tagsString: 'solitary, hoarder, close'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Spectre
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: YIHPcFoGFxFaYrWl
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

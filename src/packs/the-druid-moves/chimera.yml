@@ -1,0 +1,19 @@
+name: Chimera
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>shapeshift</strong>, you may create a merged form of up
+    to three different shapes. You may be a bear with the wings of an eagle and
+    the head of a ram, for example. Each feature will grant you a different move
+    to make. Your chimera form follows the same rules as shapeshifter
+    otherwise.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

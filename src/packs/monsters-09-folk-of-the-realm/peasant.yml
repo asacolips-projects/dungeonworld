@@ -1,0 +1,78 @@
+name: Peasant
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: null
+      min: 0
+      max: null
+    ac:
+      value: null
+      base: 0
+      min: 0
+    damage:
+      value: ''
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>Covered in muck, downtrodden at the bottom of the great chain of being,
+      we all stand on the backs of those who grow our food on their farms. Some
+      peasants do better than others, but none will ever see a coin of gold in
+      their day. They’ll dream at night of how someday, somehow, they’ll fight a
+      dragon and save a princess. Don’t act like you weren’t one before you lost
+      what little sense you had, adventurer.</p>
+
+      <p>Instinct: To get by</p>
+
+      <ul>
+
+      <li>Plead for help</li>
+
+      <li>Offer a simple reward and gratitude</li>
+
+      </ul>
+  tags: ''
+  tagsString: ''
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Peasant
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 9ARuISRtwfdRJGrW
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

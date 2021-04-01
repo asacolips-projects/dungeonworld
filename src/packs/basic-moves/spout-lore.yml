@@ -1,0 +1,23 @@
+name: Spout Lore
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>consult your accumulated knowledge about
+    something,</strong> roll+Int. On a 10+ the GM will tell you something
+    interesting and useful about the subject relevant to your situation. On a
+    7–9 the GM will only tell you something interesting—it’s on you to make it
+    useful. The GM might ask you “How do you know this?” Tell them the truth,
+    now.</p>
+  class: ''
+  rollType: INT
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: basic
+  moveGroup: ''
+flags: {}
+img: icons/sundries/books/book-symbol-triangle-silver-blue.webp
+effects: []

@@ -1,0 +1,33 @@
+name: 'Argo-Thaan, Holy Avenger'
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>There are many swords in this world, but there is only one Argo-thaan. It
+    is a blade of gold, silver and light, revered as a holy relic by all orders
+    and religions for whom Good rings true. Its touch is a blessing and to many,
+    the sight of it brings tears of joy.</p>
+
+    <p>In the hands of a paladin, it strikes true and strong. A paladin wielding
+    it increases their damage die to d12 and has access to every paladin move.
+    As well, Argo-thaan can harm any creature of Evil, regardless of any
+    defenses it may have. No Evil creature may touch it without suffering agony.
+    In the hands of any non-paladin, it is merely a sword, heavier and more
+    cumbersome than most—it gains the awkward tag.</p>
+
+    <p>Argo-thaan, while not intelligent, will forever be drawn to a cause of
+    true Good, like iron to a magnet.</p>
+  class: ''
+  quantity: 1
+  weight: 2
+  uses: 0
+  tags: '[{"value":"close"}]'
+  tagsString: close
+  magic: true
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/swords/greatsword-crossguard-embossed-gold.webp
+effects: []

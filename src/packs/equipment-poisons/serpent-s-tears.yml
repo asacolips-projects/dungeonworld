@@ -1,0 +1,21 @@
+name: Serpent's Tears
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>Anyone dealing damage against the target rolls twice and takes the better
+    result.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 1
+  tags: '[{"value":"dangerous"},{"value":"touch"}]'
+  tagsString: 'dangerous, touch'
+  magic: false
+  itemType: poison
+  attributes: {}
+flags: {}
+img: icons/commodities/flowers/iris-blue.webp
+effects: []

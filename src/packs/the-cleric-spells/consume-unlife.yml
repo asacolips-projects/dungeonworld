@@ -1,0 +1,17 @@
+name: Consume Unlife
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>The mindless undead creature you touch is destroyed and you steal its
+    death energy to heal yourself or the next ally you touch. The amount of
+    damage healed is equal to the HP that the creature had remaining before you
+    destroyed it.</p>
+  spellLevel: 9
+  rollFormula: ''
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/yellow_19.webp
+effects: []

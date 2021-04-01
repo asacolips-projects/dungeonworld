@@ -1,0 +1,13 @@
+name: Cure Critical Wounds
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: <p>Heal an ally you touch of 3d8 damage.</p>
+  spellLevel: 5
+  rollFormula: 3d8
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/heal-royal-3.webp
+effects: []

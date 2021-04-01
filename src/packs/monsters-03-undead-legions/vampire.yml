@@ -1,0 +1,84 @@
+name: Vampire
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 10
+      min: 0
+      max: 10
+    ac:
+      value: 2
+      base: 0
+      min: 0
+    damage:
+      value: d8+5
+      misc: ''
+      piercing: 1 piercing
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: 'Changing form, ancient mind'
+  details:
+    biography: >-
+      <p>We fear them, because they call to us. So much like us, or how we hope
+      to be: beautiful, passionate, and powerful. They are drawn to us for what
+      they cannot be: warm, kind, and alive. These tormented souls can only
+      hope, at most, to pass their dreadful curse along. Every time they feed
+      they run the risk of passing along their torture to another and in each
+      one lives the twisted seed of its creator. Vampires beget vampires.
+      Suffering begets suffering. Do not be drawn in by their seduction or you
+      may be given their gift—a crown of shadows and the of chains eternal
+      undying grief.</p>
+
+      <p>Instinct: To manipulate</p>
+
+      <ul>
+
+      <li>Charm someone</li>
+
+      <li>Feed on their blood</li>
+
+      <li>Retreat to plan again</li>
+
+      </ul>
+  tags: >-
+    [{"value":"group"},{"value":"stealthy"},{"value":"organized"},{"value":"intelligent"},{"value":"close"},{"value":"forceful"}]
+  tagsString: 'group, stealthy, organized, intelligent, close, forceful'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Vampire
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 8ACIhSMqxfxOQ3hz
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

@@ -1,0 +1,14 @@
+name: Divine Protection
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: <p>You get +2 armor while on a Quest.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Holy Protection
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

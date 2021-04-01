@@ -1,0 +1,15 @@
+name: Darkness
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Choose an area you can see: it’s filled with supernatural darkness and
+    shadow. While this spell is ongoing you take -1 to cast a spell.</p>
+  spellLevel: 3
+  rollFormula: ''
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/emerald_09.webp
+effects: []

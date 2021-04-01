@@ -1,0 +1,16 @@
+name: Greater First Aid
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>Cure Moderate Wounds is a rote for you, and therefore doesn’t count
+    against your limit of granted spells.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: First Aid
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

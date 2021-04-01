@@ -1,0 +1,84 @@
+name: Devourer
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 16
+      min: 0
+      max: 16
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d10+3
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>Most folk know that the undead feed on flesh. The warmth, blood and
+      living tissue continue their unholy existence. This is true for most of
+      the mindless dead, animated by black sorcery. Not so the devourer. When a
+      particularly wicked person (often a manipulator of men, an apostate priest
+      or the like) dies in a gruesome way, the dark powers of Dungeon World
+      might bring them back to a kind of life. The devourer, however, does not
+      feed on the flesh of men or elves. The devourer eats souls. It kills with
+      a pleasure only the sentient can enjoy and in the moments of its victims’
+      expiry, draws breath like a drowning man and swallows a soul. What does it
+      mean to have your soul eaten by such a creature? None dare ask for fear of
+      finding out.</p>
+
+      <p>Instinct: To feast on souls</p>
+
+      <ul>
+
+      <li>Devour or trap dying soul</li>
+
+      <li>Bargain for a soul’s return</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"large"},{"value":"intelligent"},{"value":"hoarder"},{"value":"close"},{"value":"reach"},{"value":"forceful"}]
+  tagsString: 'solitary, large, intelligent, hoarder, close, reach, forceful'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Devourer
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: AwchnVcHyWysH5PY
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

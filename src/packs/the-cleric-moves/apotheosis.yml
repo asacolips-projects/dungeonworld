@@ -1,0 +1,19 @@
+name: Apotheosis
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>The first time you <strong>spend time in prayer</strong> as appropriate
+    to your god after taking this move, choose a feature associated with your
+    deity (rending claws, wings of sapphire feathers, an all-seeing third eye,
+    etc.). When you emerge from prayer, you permanently gain that physical
+    feature.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

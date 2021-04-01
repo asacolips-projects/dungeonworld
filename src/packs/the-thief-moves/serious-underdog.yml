@@ -1,0 +1,16 @@
+name: Serious Underdog
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>You have +1 armor. When you’re outnumbered, you have +2 armor
+    instead.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Underdog
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

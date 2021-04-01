@@ -1,0 +1,19 @@
+name: Ragged Bow
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>A heavily worn bow.</p>
+  class: ''
+  quantity: 1
+  weight: 2
+  uses: 0
+  tags: '[{"value":"near"}]'
+  tagsString: near
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/bows/shortbow-arrows-black.webp
+effects: []

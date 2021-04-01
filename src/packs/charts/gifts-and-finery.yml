@@ -1,0 +1,15 @@
+name: Gifts and Finery
+permission:
+  default: 0
+folder: ''
+flags: {}
+content: |-
+  <ul>
+  <li>A peasant gift&nbsp; 1 coin</li>
+  <li>A fine gift&nbsp; 55 coins</li>
+  <li>A noble gift&nbsp; 200 coins</li>
+  <li>A ring or cameo&nbsp; 75 coins</li>
+  <li>Finery&nbsp; 105 coins</li>
+  <li>A fine tapestry&nbsp; 350+ coins</li>
+  <li>A crown fit for a king&nbsp; 5,000 coins</li>
+  </ul>
