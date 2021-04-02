@@ -20,6 +20,7 @@ data:
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
+  class: 'The Druid'
   moveType: advanced
 flags: {}
 img: icons/svg/mystery-man.svg
