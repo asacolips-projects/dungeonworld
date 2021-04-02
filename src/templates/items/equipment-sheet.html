@@ -1,9 +1,12 @@
 <form class="{{cssClass}} item-form flexcol" autocomplete="off">
+  <div class="sheet-wrapper flexcol{{#if data.nightmode}} nightmode{{/if}}">
     <header class="sheet-header flexrow">
+      <div class="cell cell--image">
         <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-        <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize "DW.Common.Name"}}"/></h1>
-        </div>
+      </div>
+      <div class="header-fields">
+          <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize "DW.Common.Name"}}"/></h1>
+      </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
@@ -65,4 +68,5 @@
           </div>
         </div>
     </section>
+  </div>
 </form>

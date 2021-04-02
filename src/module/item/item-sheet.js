@@ -34,6 +34,9 @@ export class DwItemSheet extends ItemSheet {
     // Add classlist.
     data.data.classlist = await DwClassList.getClasses();
 
+    // Nightmode.
+    data.data.nightmode = game.settings.get('dungeonworld', 'nightmode') ?? false;
+
     // Handle preprocessing for tagify data.
     if (data.entity.type == 'equipment') {
       // If there are tags, convert it into a string.

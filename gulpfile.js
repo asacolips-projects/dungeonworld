@@ -314,7 +314,7 @@ function commitTag() {
 function watchUpdates() {
   gulp.watch(SYSTEM_YAML, yamlTask);
   gulp.watch(SYSTEM_IMAGES, compileImages);
-  gulp.watch(SYSTEM_SCSS, cssTask);
+  gulp.watch(SYSTEM_SCSS, gulp.series(compileScss, copyFiles));
   gulp.watch(SYSTEM_COPY, copyTask);
 }
 

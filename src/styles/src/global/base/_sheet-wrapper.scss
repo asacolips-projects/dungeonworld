@@ -6,6 +6,10 @@
   justify-content: space-between;
   height: 100%;
 
+  &.flexcol {
+    flex-direction: column;
+  }
+
   .sheet-header {
     // Use 101% to force a line break;
     width: 101%;

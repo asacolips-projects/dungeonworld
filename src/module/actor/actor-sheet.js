@@ -39,6 +39,9 @@ export class DwActorSheet extends ActorSheet {
     this._prepareCharacterItems(data);
     this._prepareNpcItems(data);
 
+    // Nightmode for character sheets.
+    data.data.nightmode = game.settings.get('dungeonworld', 'nightmode') ?? false;
+
     // Add classlist.
     if (this.actor.data.type == 'character') {
       data.data.classlist = await DwClassList.getClasses();

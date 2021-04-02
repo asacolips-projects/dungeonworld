@@ -84,6 +84,15 @@ Hooks.once("init", async function() {
     default: true
   });
 
+  game.settings.register("dungeonworld", "nightmode", {
+    name: game.i18n.localize("DW.Settings.nightmode.name"),
+    hint: game.i18n.localize("DW.Settings.nightmode.hint"),
+    scope: 'client',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
   DwUtility.replaceRollData();
 
   // Preload template partials.
