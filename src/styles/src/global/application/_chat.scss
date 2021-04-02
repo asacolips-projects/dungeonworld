@@ -35,7 +35,7 @@
     }
 
     .result {
-      padding: 0 0 10px;
+      padding: 0;
       margin: 25px 0;
       border: 2px solid;
       border-left: 0;
@@ -54,6 +54,11 @@
 
     .result-details {
       padding: 10px 10px 0;
+      margin-bottom: 10px;
+    }
+
+    .result-choices {
+      margin: 10px 0;
     }
 
     .failure {

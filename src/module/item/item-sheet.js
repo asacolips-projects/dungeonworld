@@ -60,6 +60,14 @@ export class DwItemSheet extends ItemSheet {
       }
     }
 
+    // Handle move results.
+    if (data.entity.type == 'move' || data.entity.type == 'npcMove') {
+      if (data.data.moveResults) {
+        for (let key of Object.keys(data.data.moveResults)) {
+          data.data.moveResults[key].key = `data.moveResults.${key}.value`;
+        }
+      }
+    }
 
     return data;
   }

@@ -109,13 +109,10 @@ Item:
       moveGroup: ''
       moveResults:
         failure:
-          key: data.moveResults.failure.value
           value: ''
         partial:
-          key: data.moveResults.partial.value
           value: ''
         success:
-          key: data.moveResults.success.value
           value: ''
   move:
     templates:
