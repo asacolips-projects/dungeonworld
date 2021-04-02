@@ -11,6 +11,7 @@ data:
   rollMod: 0
   requiresLevel: 6
   requiresMove: Serenity
+  class: 'The Cleric'
   moveType: advanced
 flags: {}
 img: icons/svg/mystery-man.svg
