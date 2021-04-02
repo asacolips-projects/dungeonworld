@@ -525,7 +525,7 @@ export class DwActorSheet extends ActorSheet {
           return i.type == 'spell'
             && i.data.data.class
             // Check if this spell has either `classname` or `the classname` as its class.
-            && [caster_class, `the ${caster_class}`].includes(i.data.data.class.toLowerCase());
+            && [caster_class, `the ${caster_class}`].includes(DwUtility.cleanClass(i.data.data.class));
         });
         let spells_pack = game.packs.get(`dungeonworld.${char_class}-spells`);
         let spells_compendium = spells_pack ? await spells_pack.getContent() : [];
@@ -545,6 +545,11 @@ export class DwActorSheet extends ActorSheet {
           if (!spells_list.includes(spell.data.name)) {
             spells_items.push(spell);
           }
+        }
+
+        // Skip this class if there were no spells in it.
+        if (spells_items.length < 1) {
+          continue;
         }
 
         // Sort the spells and build our groups.
@@ -611,8 +616,8 @@ export class DwActorSheet extends ActorSheet {
       starting_move_groups: starting_move_groups,
       advanced_moves_2: advanced_moves_2.length > 0 ? advanced_moves_2 : null,
       advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null,
-      cast_spells: cast_spells.length > 0 ? true : false,
-      spells: spells ? spells : null,
+      cast_spells: cast_spells.length > 0 && spells.length > 0 ? true : false,
+      spells: spells.length > 0 ? spells : null,
     };
     const html = await renderTemplate(template, templateData);
 

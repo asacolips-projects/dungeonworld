@@ -7,8 +7,8 @@
 
   // Define template paths to load
   const templatePaths = [
-    // Attribute list partial.
     "systems/dungeonworld/templates/parts/sheet-moves.html",
+    "systems/dungeonworld/templates/parts/sheet-level-up-move.html"
   ];
 
   // Load the template parts

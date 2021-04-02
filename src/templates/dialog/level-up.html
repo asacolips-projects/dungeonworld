@@ -139,22 +139,7 @@
             {{!-- Create the grid and loop through moves within the groups. --}}
             <div class="grid grid-2col">
               {{#each moves as |move key|}}
-                <li>
-                  <div class="selection-control">
-                    {{!-- Moves in a group should be in a radio. --}}
-                    {{#if move.data.data.moveGroup}}
-                      <input type="radio" name="{{move.data.data.moveGroup}}" data-item-id="{{move.data._id}}" data-type="move">
-                    {{!-- Other moves should be checkboxes that the user is forced to take. --}}
-                    {{else}}
-                      <input type="checkbox" checked data-item-id="{{move.data._id}}" data-type="move" disabled="disabled">
-                    {{/if}}
-                  </div>
-                  {{!-- Finally, show the description. --}}
-                  <div class="selection-content">
-                    <h3>{{move.data.name}}</h3>
-                    <div>{{{move.data.data.description}}}</div>
-                  </div>
-                </li>
+                {{> "systems/dungeonworld/templates/parts/sheet-level-up-move.html" move=move preselect=1}}
               {{/each}}
             </div>
           {{/each}}
@@ -169,15 +154,7 @@
           <h2 class="cell__subtitle">{{localize "DW.ChooseAdvanced2"}}</h2>
           <ul class="selection-list grid grid-2col">
             {{#each advanced_moves_2 as |move key|}}
-              <li>
-                <div class="selection-control">
-                  <input type="radio" name="move-selection" data-item-id="{{move.data._id}}" data-type="move">
-                </div>
-                <div class="selection-content">
-                  <h3>{{move.data.name}}</h3>
-                  <div>{{{move.data.data.description}}}</div>
-                </div>
-              </li>
+              {{> "systems/dungeonworld/templates/parts/sheet-level-up-move.html" move=move}}
             {{/each}}
           </ul>
         {{/if}}
@@ -186,15 +163,7 @@
           <h2 class="cell__subtitle">{{localize "DW.ChooseAdvanced6"}}</h2>
           <ul class="selection-list grid grid-2col">
             {{#each advanced_moves_6 as |move key|}}
-              <li>
-                <div class="selection-control">
-                  <input type="radio" name="move-selection" data-item-id="{{move.data._id}}" data-type="move">
-                </div>
-                <div class="selection-content">
-                  <h3>{{move.data.name}}</h3>
-                  <div>{{{move.data.data.description}}}</div>
-                </div>
-              </li>
+              {{> "systems/dungeonworld/templates/parts/sheet-level-up-move.html" move=move}}
             {{/each}}
           </ul>
         {{/if}}

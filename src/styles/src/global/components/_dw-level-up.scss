@@ -1,12 +1,18 @@
 &.dw-level-up {
+  .dialog-buttons {
+    padding-bottom: 10px;
+  }
+
   .selection-list {
     gap: 20px 10px;
     margin-bottom: 20px;
     padding: 0;
     margin: 0;
+    list-style-type: none;
   }
 
-  .selection-list > li {
+  .selection-list > li,
+  .selection-list .grid > li {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
