@@ -8,13 +8,19 @@ export class DwItemSheet extends ItemSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    let options = mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "item"],
       width: 520,
       height: 480,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "details" }],
       submitOnChange: false,
     });
+
+    if (game.settings.get('dungeonworld', 'nightmode')) {
+      options.classes.push('nightmode');
+    }
+
+    return options;
   }
 
   /* -------------------------------------------- */
@@ -33,9 +39,6 @@ export class DwItemSheet extends ItemSheet {
     data.dtypes = ["String", "Number", "Boolean"];
     // Add classlist.
     data.data.classlist = await DwClassList.getClasses();
-
-    // Nightmode.
-    data.data.nightmode = game.settings.get('dungeonworld', 'nightmode') ?? false;
 
     // Handle preprocessing for tagify data.
     if (data.entity.type == 'equipment') {

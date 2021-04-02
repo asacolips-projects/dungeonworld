@@ -4,8 +4,8 @@ $c-nightmode-light: #444;
 $c-blue: #65a3e1;
 $c-blue-dark: #344460;
 
-.sheet-wrapper {
-  &.nightmode {
+.window-app.nightmode {
+  .window-content {
     background: $c-nightmode;
     background-image:
       linear-gradient(#333, #333),
@@ -70,6 +70,23 @@ $c-blue-dark: #344460;
     .sheet-attributes {
       .cell__title {
         background: $c-blue-dark !important;
+
+        &.rollable {
+          &:hover {
+            background: $c-blue !important;
+          }
+        }
+      }
+    }
+
+    .level-up {
+      .cell__description {
+        background-color: rgba($c-black, 0.25);
+      }
+
+      .cell__subtitle {
+        color: $c-white !important;
+        background-color: $c-blue-dark;
       }
     }
 

@@ -10,12 +10,18 @@ export class DwActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    let options = mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "actor"],
       width: 840,
       height: 780,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "moves" }]
     });
+
+    if (game.settings.get('dungeonworld', 'nightmode')) {
+      options.classes.push('nightmode');
+    }
+
+    return options;
   }
 
   /* -------------------------------------------- */
@@ -38,9 +44,6 @@ export class DwActorSheet extends ActorSheet {
     // Prepare items.
     this._prepareCharacterItems(data);
     this._prepareNpcItems(data);
-
-    // Nightmode for character sheets.
-    data.data.nightmode = game.settings.get('dungeonworld', 'nightmode') ?? false;
 
     // Add classlist.
     if (this.actor.data.type == 'character') {
@@ -641,6 +644,10 @@ export class DwActorSheet extends ActorSheet {
       resizable: true
     };
 
+    if (game.settings.get('dungeonworld', 'nightmode')) {
+      dlg_options.classes.push('nightmode');
+    }
+
     // Render the dialog.
     let d = new Dialog({
       title: 'Level Up',
@@ -885,84 +892,6 @@ export class DwActorSheet extends ActorSheet {
       item.roll();
     }
   }
-
-  // /**
-  //  * Roll a move and use the chat card template.
-  //  * @param {Object} templateData
-  //  */
-  // rollMove(roll, actorData, dataset, templateData, form = null) {
-  //   // Render the roll.
-  //   let template = 'systems/dungeonworld/templates/chat/chat-move.html';
-  //   // GM rolls.
-  //   let chatData = {
-  //     user: game.user._id,
-  //     speaker: ChatMessage.getSpeaker({ actor: this.actor })
-  //   };
-  //   let rollMode = game.settings.get("core", "rollMode");
-  //   if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
-  //   if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
-  //   if (rollMode === "blindroll") chatData["blind"] = true;
-  //   // Handle dice rolls.
-  //   if (roll) {
-  //     // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
-  //     let formula = '';
-  //     // Handle bond (user input).
-  //     if (roll == 'BOND') {
-  //       formula = form.bond.value ? `2d6+${form.bond.value}` : '2d6';
-  //       if (dataset.mod && dataset.mod != 0) {
-  //         formula += `+${dataset.mod}`;
-  //       }
-  //     }
-  //     // Handle ability scores (no input).
-  //     else if (roll.match(/(\d*)d\d+/g)) {
-  //       formula = roll;
-  //     }
-  //     // Handle moves.
-  //     else {
-  //       formula = `2d6+${actorData.abilities[roll].mod}`;
-  //       if (dataset.mod && dataset.mod != 0) {
-  //         formula += `+${dataset.mod}`;
-  //       }
-  //     }
-  //     if (formula != null) {
-  //       // Do the roll.
-  //       let roll = new Roll(`${formula}`);
-  //       roll.roll();
-  //       // Add success notification.
-  //       if (formula.includes('2d6')) {
-  //         if (roll.total < 7) {
-  //           templateData.result = 'failure';
-  //         }
-  //         else if (roll.total > 6 && roll.total < 10) {
-  //           templateData.result = 'partial';
-  //         }
-  //         else {
-  //           templateData.result = 'success';
-  //         }
-  //       }
-  //       // Render it.
-  //       roll.render().then(r => {
-  //         templateData.rollDw = r;
-  //         renderTemplate(template, templateData).then(content => {
-  //           chatData.content = content;
-  //           if (game.dice3d) {
-  //             game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-  //           }
-  //           else {
-  //             chatData.sound = CONFIG.sounds.dice;
-  //             ChatMessage.create(chatData);
-  //           }
-  //         });
-  //       });
-  //     }
-  //   }
-  //   else {
-  //     renderTemplate(template, templateData).then(content => {
-  //       chatData.content = content;
-  //       ChatMessage.create(chatData);
-  //     });
-  //   }
-  // }
 
   /**
    * Listen for toggling the look column.
