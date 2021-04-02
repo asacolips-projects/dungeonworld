@@ -13,6 +13,7 @@ data:
   rollMod: 0
   requiresLevel: 6
   requiresMove: ''
+  class: 'The Wizard'
   moveType: advanced
 flags: {}
 img: icons/svg/mystery-man.svg
