@@ -12,6 +12,7 @@ data:
     once freed.</p>
   spellLevel: 9
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: icons/commodities/gems/gem-rough-round-pink.webp

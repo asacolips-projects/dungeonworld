@@ -11,6 +11,7 @@ data:
     one Alert active at a time.</p>
   spellLevel: 9
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/evil-eye-eerie-3.webp

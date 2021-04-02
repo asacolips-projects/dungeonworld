@@ -10,6 +10,7 @@ data:
     bound to answer any one question you ask to the best of its ability.</p>
   spellLevel: 1
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/link-spirit-3.webp

@@ -14,6 +14,7 @@ data:
     <p>Additional damage roll: [[/roll 1d6]]</p>
   spellLevel: 7
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/fog-acid-3.webp

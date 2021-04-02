@@ -10,6 +10,7 @@ data:
     Ongoing.</p>
   spellLevel: 1
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/heal-sky-1.webp

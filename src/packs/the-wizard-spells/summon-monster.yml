@@ -29,6 +29,7 @@ data:
     While the spell is ongoing you take -1 to cast a spell.</p>
   spellLevel: 5
   rollFormula: 1d6
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: icons/commodities/claws/claw-lizard-white-black.webp

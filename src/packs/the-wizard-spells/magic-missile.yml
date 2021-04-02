@@ -9,6 +9,7 @@ data:
     one target.</p>
   spellLevel: 1
   rollFormula: 2d4
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/needles-sky-1.webp

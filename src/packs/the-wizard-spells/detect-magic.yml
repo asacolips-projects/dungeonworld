@@ -9,6 +9,7 @@ data:
     here is magical.</p>
   spellLevel: 1
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/runes-magenta-3.webp

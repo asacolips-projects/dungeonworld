@@ -10,6 +10,7 @@ data:
     ongoing you can’t cast a spell. Ongoing.</p>
   spellLevel: 1
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/blue_35.webp

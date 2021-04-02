@@ -13,6 +13,7 @@ data:
     dispelled, dropping any items it carried.</p>
   spellLevel: 0
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/yellow_25.webp

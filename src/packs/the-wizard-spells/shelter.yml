@@ -10,6 +10,7 @@ data:
     The structure endures until you leave it or you end the spell.</p>
   spellLevel: 9
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: icons/environment/settlement/wizard-castle.webp

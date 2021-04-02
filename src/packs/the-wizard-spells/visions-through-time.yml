@@ -13,6 +13,7 @@ data:
     Sorry.</p>
   spellLevel: 3
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/shadow_12.webp

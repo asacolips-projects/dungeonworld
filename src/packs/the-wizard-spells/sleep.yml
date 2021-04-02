@@ -10,6 +10,7 @@ data:
     pain.</p>
   spellLevel: 3
   rollFormula: 1d4
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/light_01.webp

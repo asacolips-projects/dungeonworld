@@ -14,6 +14,7 @@ data:
     one.</p>
   spellLevel: 7
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/runes-blue-3.webp

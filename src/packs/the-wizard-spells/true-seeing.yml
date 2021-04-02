@@ -10,6 +10,7 @@ data:
     a spell.</p>
   spellLevel: 7
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: icons/commodities/biological/eye-lizard-orange.webp

@@ -24,6 +24,7 @@ data:
     lose 1 hold. While the spell is ongoing you cannot cast a spell.</p>
   spellLevel: 7
   rollFormula: 1d4
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/wind-grasp-magenta-3.webp

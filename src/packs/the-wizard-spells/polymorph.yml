@@ -21,6 +21,7 @@ data:
     </ul>
   spellLevel: 5
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/emerald_05.webp

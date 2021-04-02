@@ -13,6 +13,7 @@ data:
     won’t fool anyone, but they might entertain them.</p>
   spellLevel: 0
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/air-burst-jade-1.webp

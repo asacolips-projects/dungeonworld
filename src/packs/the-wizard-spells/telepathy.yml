@@ -10,6 +10,7 @@ data:
     telepathic bond at a time. Ongoing.</p>
   spellLevel: 1
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/link-spirit-2.webp

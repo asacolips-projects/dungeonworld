@@ -9,6 +9,7 @@ data:
     nearby, inflicting 2d6 damage which ignores armor.</p>
   spellLevel: 3
   rollFormula: 2d6
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/fireball-red-3.webp

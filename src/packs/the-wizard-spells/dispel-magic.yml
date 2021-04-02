@@ -10,6 +10,7 @@ data:
     so long as you are nearby.</p>
   spellLevel: 3
   rollFormula: ''
+  class: 'The Wizard'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/air-burst-magenta-3.webp
