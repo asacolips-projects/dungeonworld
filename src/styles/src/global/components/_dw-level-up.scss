@@ -1,15 +1,12 @@
 &.dw-level-up {
-  ul {
+  .selection-list {
+    gap: 20px 10px;
+    margin-bottom: 20px;
     padding: 0;
     margin: 0;
   }
 
-  .selection-list {
-    gap: 20px 10px;
-    margin-bottom: 20px;
-  }
-
-  .selection-list li {
+  .selection-list > li {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -37,8 +34,7 @@
     margin: 10px;
     background: $c-light;
 
-    ul,
-    ol {
+    .selection-list {
       margin-left: 30px;
     }
   }

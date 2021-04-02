@@ -153,7 +153,7 @@ Hooks.on('createActor', async (actor, options, id) => {
     actor.setFlag('dungeonworld', 'levelup', true);
 
     // Get the item moves as the priority.
-    let moves = game.items.entities.filter(i => i.type == 'move' && i.data.data.moveType == 'basic');
+    let moves = game.items.entities.filter(i => i.type == 'move' && (i.data.data.moveType == 'basic' || i.data.data.moveType == 'special'));
     let pack = game.packs.get(`dungeonworld.basic-moves`);
     let compendium = pack ? await pack.getContent() : [];
     const actorMoves = actor.data.items.filter(i => i.type == 'move');

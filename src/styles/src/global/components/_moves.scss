@@ -179,6 +179,16 @@
         display: inline;
       }
     }
+
+    .result--choices {
+      margin-top: 5px;
+
+      ul,
+      ol,
+      p {
+        margin-top: 0;
+      }
+    }
   }
 
   .item-avatar {
