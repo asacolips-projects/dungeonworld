@@ -12,6 +12,7 @@ data:
     speaking the word replaces the earlier spell.</p>
   spellLevel: 7
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/ice_15.webp

@@ -12,6 +12,7 @@ data:
     spell is ongoing you take -1 to cast a spell.</p>
   spellLevel: 7
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: icons/commodities/biological/hand-clawed-tan.webp

@@ -10,6 +10,7 @@ data:
     the target takes damage from any source.</p>
   spellLevel: 3
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/wind-grasp-air-3.webp

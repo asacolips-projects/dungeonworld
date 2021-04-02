@@ -12,6 +12,7 @@ data:
     freed.</p>
   spellLevel: 5
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/yellow_40.webp

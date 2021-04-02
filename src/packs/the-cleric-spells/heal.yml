@@ -9,6 +9,7 @@ data:
     maximum HP.</p>
   spellLevel: 7
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/blood_04.webp

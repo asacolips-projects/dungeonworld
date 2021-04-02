@@ -11,6 +11,7 @@ data:
     this spell is severely limited.</p>
   spellLevel: 0
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/light_06.webp

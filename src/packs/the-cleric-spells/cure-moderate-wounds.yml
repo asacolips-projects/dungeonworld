@@ -9,6 +9,7 @@ data:
     of 2d8 damage.</p>
   spellLevel: 3
   rollFormula: 2d8
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/heal-royal-2.webp

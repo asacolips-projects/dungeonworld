@@ -7,6 +7,7 @@ data:
   description: <p>Heal an ally you touch of 3d8 damage.</p>
   spellLevel: 5
   rollFormula: 3d8
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/heal-royal-3.webp

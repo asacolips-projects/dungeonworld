@@ -27,6 +27,7 @@ data:
     corpse is resurrected.</p>
   spellLevel: 3
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/affliction_07.webp

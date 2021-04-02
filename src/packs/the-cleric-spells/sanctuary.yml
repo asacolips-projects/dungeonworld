@@ -12,6 +12,7 @@ data:
     +1d4 HP.</p>
   spellLevel: 1
   rollFormula: 1d4
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/protect-magenta-3.webp

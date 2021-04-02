@@ -27,6 +27,7 @@ data:
     cast a spell.</p>
   spellLevel: 3
   rollFormula: 1d4
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/affliction_17.webp

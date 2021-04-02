@@ -10,6 +10,7 @@ data:
     it gained in death.</p>
   spellLevel: 1
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/red_28.webp

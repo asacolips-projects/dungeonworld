@@ -10,6 +10,7 @@ data:
     information, you take +1 forward.</p>
   spellLevel: 5
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/evil-eye-red-3.webp

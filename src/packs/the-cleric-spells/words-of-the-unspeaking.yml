@@ -9,6 +9,7 @@ data:
     object you touch answers three questions you pose, as best it can.</p>
   spellLevel: 5
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/blood_12.webp

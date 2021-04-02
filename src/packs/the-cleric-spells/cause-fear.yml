@@ -12,6 +12,7 @@ data:
     (magical constructs, undead, automatons, and the like).</p>
   spellLevel: 1
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/blood_13.webp

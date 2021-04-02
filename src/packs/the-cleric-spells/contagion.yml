@@ -10,6 +10,7 @@ data:
     -1 to cast a spell.</p>
   spellLevel: 5
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/blood_09.webp

@@ -10,6 +10,7 @@ data:
     will tell you what here is of that alignment.</p>
   spellLevel: 1
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/evil-eye-eerie-3.webp

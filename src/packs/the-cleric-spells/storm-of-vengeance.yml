@@ -10,6 +10,7 @@ data:
     other weather you can imagine: ask and it shall come.</p>
   spellLevel: 9
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/wind-magenta-3.webp

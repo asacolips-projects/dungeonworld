@@ -9,6 +9,7 @@ data:
     you visions of the target, as clear as if you were there.</p>
   spellLevel: 5
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/evil-eye-red-3.webp

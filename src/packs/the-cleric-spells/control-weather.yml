@@ -10,6 +10,7 @@ data:
     days.</p>
   spellLevel: 7
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: icons/environment/wilderness/island.webp

@@ -11,6 +11,7 @@ data:
     <p>Self damage roll: [[/roll 1d6]]</p>
   spellLevel: 7
   rollFormula: 2d8
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/light_08.webp

@@ -10,6 +10,7 @@ data:
     ongoing you take -1 to cast a spell.</p>
   spellLevel: 1
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/light_10.webp

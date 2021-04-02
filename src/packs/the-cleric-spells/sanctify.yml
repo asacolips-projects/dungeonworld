@@ -10,6 +10,7 @@ data:
     affected substance is purified of any mundane spoilage.</p>
   spellLevel: 0
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/green_32.webp

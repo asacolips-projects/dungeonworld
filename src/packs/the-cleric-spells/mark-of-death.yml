@@ -10,6 +10,7 @@ data:
     them.</p>
   spellLevel: 7
   rollFormula: ''
+  class: 'The Cleric'
   prepared: false
 flags: {}
 img: systems/dungeonworld/assets/icons/spells/runes-royal-1.webp
