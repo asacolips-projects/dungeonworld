@@ -74,4 +74,24 @@
       display: flex;
     }
   }
+
+  .result-label {
+    margin-right: 5px;
+
+    + p,
+    + div,
+    + span {
+      display: inline;
+    }
+  }
+
+  .result--choices {
+    margin-top: 5px;
+
+    ul,
+    ol,
+    p {
+      margin-top: 0;
+    }
+  }
 }
