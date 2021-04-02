@@ -26,6 +26,7 @@ data:
   rollMod: 0
   requiresLevel: 6
   requiresMove: Brewer
+  class: 'The Thief'
   moveType: advanced
 flags: {}
 img: icons/svg/mystery-man.svg
