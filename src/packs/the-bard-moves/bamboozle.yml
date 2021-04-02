@@ -11,6 +11,7 @@ data:
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
+  class: 'The Bard'
   moveType: advanced
 flags: {}
 img: icons/svg/mystery-man.svg
