@@ -12,6 +12,7 @@ data:
   rollMod: 0
   requiresLevel: 6
   requiresMove: Divine Favor
+  class: 'The Paladin'
   moveType: advanced
 flags: {}
 img: icons/svg/mystery-man.svg
