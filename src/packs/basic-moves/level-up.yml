@@ -12,6 +12,7 @@ data:
     spellbook. Choose one of your stats and increase it by 1 (this may change
     your modifier). Note that changing your Constitution increases your maximum
     and current HP. Ability scores can’t go higher than 18.</p>
+  choices: ''
   class: ''
   rollType: ''
   rollMod: 0
@@ -19,6 +20,13 @@ data:
   requiresMove: ''
   moveType: special
   moveGroup: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/yellow_13.webp
 effects: []

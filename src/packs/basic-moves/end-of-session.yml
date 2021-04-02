@@ -12,13 +12,9 @@ data:
     bonds have been updated look at your alignment. If you fulfilled that
     alignment at least once this session, mark XP. Then answer these three
     questions as a group:</p>
-
-    <p>• Did we learn something new and important about the world?</p>
-
-    <p>• Did we overcome a notable monster or enemy?</p>
-
-    <p>• Did we loot a memorable treasure?</p>
-
+    <ul><li>Did we learn something new and important about the world?</li>
+    <li>Did we overcome a notable monster or enemy?</li>
+    <li>Did we loot a memorable treasure?</li></ul>
     <p>For each “yes” answer everyone marks XP.</p>
   class: ''
   rollType: ''
@@ -27,6 +23,13 @@ data:
   requiresMove: ''
   moveType: special
   moveGroup: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
 flags: {}
 img: icons/sundries/documents/blueprint-recipe-alchemical.webp
 effects: []

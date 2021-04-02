@@ -20,16 +20,13 @@ data:
   moveGroup: ''
   moveResults:
     failure:
-      key: data.moveResults.failure.value
       value: >-
         <p>On a miss, you still choose one, but things get really out of
         hand.</p>
     partial:
-      key: data.moveResults.partial.value
       value: >-
         <p>On a 7–9 choose 1.</p>
     success:
-      key: data.moveResults.success.value
       value: >-
         <p>On a 10+ choose 3.</p>
 flags: {}

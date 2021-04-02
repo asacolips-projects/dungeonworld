@@ -6,11 +6,8 @@ data:
   name: ''
   description: >-
     <p>When you <strong>consult your accumulated knowledge about
-    something,</strong> roll+Int. On a 10+ the GM will tell you something
-    interesting and useful about the subject relevant to your situation. On a
-    7–9 the GM will only tell you something interesting—it’s on you to make it
-    useful. The GM might ask you “How do you know this?” Tell them the truth,
-    now.</p>
+    something,</strong> roll+Int.</p>
+  choices: ''
   class: ''
   rollType: INT
   rollMod: 0
@@ -18,6 +15,18 @@ data:
   requiresMove: ''
   moveType: basic
   moveGroup: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>The GM will only tell you something interesting—it’s on you to make it
+        useful. The GM might ask you “How do you know this?” Tell them the truth,
+        now.</p>
+    success:
+      value: >-
+        <p>The GM will tell you something interesting and useful about the
+        subject relevant to your situation.</p>
 flags: {}
 img: icons/sundries/books/book-symbol-triangle-silver-blue.webp
 effects: []

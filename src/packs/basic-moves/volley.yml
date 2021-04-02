@@ -6,15 +6,8 @@ data:
   name: ''
   description: >-
     <p>When you<strong> take aim and shoot at an enemy at range</strong>,
-    roll+Dex. On a 10+ you have a clear shot—deal your damage. On a 7–9, choose
-    one (whichever you choose you deal your damage):</p>
-
-    <p>• You have to move to get the shot placing you in danger of the GM’s
-    choice</p>
-
-    <p>• You have to take what you can get: -1d6 damage</p>
-
-    <p>• You have to take several shots, reducing your ammo by one.</p>
+    roll+Dex.</p>
+  choices: ''
   class: ''
   rollType: DEX
   rollMod: 0
@@ -22,6 +15,19 @@ data:
   requiresMove: ''
   moveType: basic
   moveGroup: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>Choose one (whichever you choose you deal your damage):</p>
+        <ul><li>You have to move to get the shot placing you in danger of the GM’s
+        choice</li>
+        <li>You have to take what you can get: -1d6 damage</li>
+        <li>You have to take several shots, reducing your ammo by one.</li></ul>
+    success:
+      value: >-
+        <p>You have a clear shot—deal your damage.</p>
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/yellow_34.webp
 effects: []

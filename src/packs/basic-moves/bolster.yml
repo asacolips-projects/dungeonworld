@@ -8,7 +8,7 @@ data:
     <p>When you<strong> spend your leisure time in study, meditation, or hard
     practice, you gain preparation</strong>. If you prepare for a week or two, 1
     preparation. If you prepare for a month or longer, 3 preparation. When your
-    preparation pays off spend 1 preparation&nbsp;for +1 to any roll. You can
+    preparation pays off spend 1 preparation for +1 to any roll. You can
     only spend onepreparation per roll.</p>
   class: ''
   rollType: ''
@@ -19,13 +19,10 @@ data:
   moveGroup: ''
   moveResults:
     failure:
-      key: data.moveResults.failure.value
       value: ''
     partial:
-      key: data.moveResults.partial.value
       value: ''
     success:
-      key: data.moveResults.success.value
       value: ''
 flags: {}
 img: systems/dungeonworld/assets/icons/skills/affliction_24.webp

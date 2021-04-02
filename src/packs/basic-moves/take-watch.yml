@@ -6,11 +6,8 @@ data:
   name: ''
   description: >-
     <p>When you’re <strong>on watch and something approaches the camp</strong>,
-    roll+Wis. On a 10+ you’re able to wake the camp and prepare a response, the
-    camp takes +1 forward. On a 7–9 you react just a moment too late; the camp
-    is awake but hasn’t had time to prepare. You have weapons and armor but
-    little else. On a miss whatever lurks outside the campfire’s light has the
-    drop on you.</p>
+    roll+Wis.</p>
+  choices: ''
   class: ''
   rollType: WIS
   rollMod: 0
@@ -18,6 +15,18 @@ data:
   requiresMove: ''
   moveType: special
   moveGroup: ''
+  moveResults:
+    failure:
+      value: >-
+        <p>Whatever lurks outside the campfire’s light has the drop on you.</p>
+    partial:
+      value: >-
+        <p>You react just a moment too late; the camp is awake but hasn’t
+        had time to prepare. You have weapons and armor but little else.</p>
+    success:
+      value: >-
+        <p>You’re able to wake the camp and prepare a response, the
+        camp takes +1 forward.</p>
 flags: {}
 img: icons/tools/navigation/spyglass-telescope-brass.webp
 effects: []

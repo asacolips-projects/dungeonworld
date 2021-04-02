@@ -6,18 +6,15 @@ data:
   name: ''
   description: >-
     <p>When you <strong>stand in defense of a person, item, or location</strong>
-    under attack, roll+Con. On a 10+, hold 3. On a 7–9, hold 1. So long as you
-    stand in defense, when you or the thing you defend is attacked you may spend
+    under attack, roll+Con.</p>
+  choices: >-
+    <p>So long as you stand in defense, when you or the thing you defend is attacked you may spend
     hold, 1 for 1, to choose an option:</p>
-
-    <p>• Redirect an attack from the thing you defend to yourself</p>
-
-    <p>• Halve the attack’s effect or damage</p>
-
-    <p>• Open up the attacker to an ally giving that ally +1 forward against the
-    attacker</p>
-
-    <p>• Deal damage to the attacker equal to your level</p>
+    <ul><li>Redirect an attack from the thing you defend to yourself</li>
+    <li>Halve the attack’s effect or damage</li>
+    <li>Open up the attacker to an ally giving that ally +1 forward against the
+    attacker</li>
+    <li>Deal damage to the attacker equal to your level</li></ul>
   class: ''
   rollType: CON
   rollMod: 0
@@ -25,6 +22,15 @@ data:
   requiresMove: ''
   moveType: basic
   moveGroup: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>Hold 1</p>
+    success:
+      value: >-
+        <p>Hold 3</p>
 flags: {}
 img: icons/equipment/shield/round-wooden-boss-steel-red.webp
 effects: []
