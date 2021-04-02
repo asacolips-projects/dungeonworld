@@ -12,6 +12,7 @@ data:
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
+  class: 'The Barbarian'
   moveType: advanced
 flags: {}
 img: icons/svg/mystery-man.svg
