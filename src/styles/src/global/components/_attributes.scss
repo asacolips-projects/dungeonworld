@@ -109,10 +109,80 @@
   }
 
   .cell--ac,
-  .cell--hp,
-  .cell--weight,
+  .cell--weight {
+    grid-column: span 3;
+  }
+
+  .hp--max {
+    width: 65%;
+  }
+
+  .cell--hp {
+    grid-column: span 3;
+
+    input {
+      background-color: $c-white;
+      margin: 0;
+    }
+
+    .cell__wrapper {
+      position: relative;
+    }
+
+    .resource-control {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      line-height: 1;
+      text-align: center;
+      margin: auto;
+      border: 1px solid #bcc8de;
+    }
+
+    .resource-decrease {
+      left: 2.5px;
+    }
+
+    .resource-increase {
+      right: 2.5px;
+    }
+  }
+
   .cell--coin {
     grid-column: span 3;
+
+    input {
+      background-color: $c-white;
+      margin: 0;
+    }
+
+    .cell__wrapper {
+      position: relative;
+    }
+
+    .resource-control {
+      position: absolute;
+      top: -4px;
+      bottom: 0;
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      line-height: 1;
+      text-align: center;
+      margin: auto;
+      border: 1px solid #bcc8de;
+    }
+
+    .resource-decrease {
+      left: 5px;
+    }
+
+    .resource-increase {
+      right: 5px;
+    }
   }
 
   .cell--ongoing,
@@ -163,7 +233,6 @@
     .cell__title {
       background: $c-orange;
       color: $c-white;
-
     }
 
     input[name="data.attributes.weight.value"] {
