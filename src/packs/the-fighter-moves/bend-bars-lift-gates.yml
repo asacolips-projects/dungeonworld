@@ -7,19 +7,13 @@ data:
   name: ''
   description: >-
     <p>When you <strong>use pure strength to destroy an inanimate
-    obstacle</strong>, roll+STR. • On a 10+,&nbsp;choose 3. • On a 7-9 choose
-    2.</p>
-
+    obstacle</strong>, roll+STR.</p>
+  choices: >-
     <ul>
-
     <li>It doesn’t take a very long time</li>
-
     <li>Nothing of value is damaged</li>
-
     <li>It doesn’t make an inordinate amount of noise</li>
-
     <li>You can fix the thing again without a lot of effort</li>
-
     </ul>
   rollType: STR
   rollMod: 0
@@ -27,5 +21,14 @@ data:
   requiresMove: ''
   class: 'The Fighter'
   moveType: starting
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>Choose 2.</p>
+    success:
+      value: >-
+        <p>Choose 3.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
