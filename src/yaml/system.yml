@@ -208,11 +208,6 @@ packs:
     system: dungeonworld
     path: "./packs/gm-screen.db"
     entity: JournalEntry
-  - name: macros
-    label: Macros
-    system: dungeonworld
-    path: "./packs/macros.db"
-    entity: Macro
   - name: tables
     label: Tables
     system: dungeonworld

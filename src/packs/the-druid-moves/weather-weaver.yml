@@ -1,0 +1,19 @@
+_id: lNDGBo5VwlwQ8VSe
+name: Weather Weaver
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you<strong> are under open skies when the sun rises</strong> the GM
+    will ask you what the weather will be that day. Tell them whatever you like,
+    it comes to pass.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  class: 'The Druid'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

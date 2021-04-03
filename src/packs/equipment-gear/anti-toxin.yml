@@ -1,0 +1,22 @@
+name: Anti-Toxin
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>When you drink this antitoxin you're cured of one poison affecting
+    you.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 1
+  tags: '[{"value":"10 coins"}]'
+  tagsString: 10 coins
+  magic: false
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/tools/laboratory/vial-orange.webp
+effects: []
+_id: 4rXRNHipSXLO6pnP

@@ -1,0 +1,18 @@
+name: This Killing Fire
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>Add the following tags to your options for Burning Brand: messy,
+    forceful, reach, near, far.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Immolator'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: CbgaM47AMrKEjPHl

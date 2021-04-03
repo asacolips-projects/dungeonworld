@@ -1,0 +1,85 @@
+_id: ynA5BrqaGiFTXlhw
+name: Inevitable
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 21
+      min: 0
+      max: 21
+    ac:
+      value: 5
+      base: 0
+      min: 0
+    damage:
+      value: d10+1
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Made of Order
+  details:
+    biography: >-
+      <p>All things come to an end. Reality bleeds from the cut of entropy’s
+      knife. At the edge of time itself stand the Inevitable. Massive, powerful
+      and seemingly carved from star-stuff themselves, the inevitable intervene
+      only where magic or calamity have undone the skein of fate. Where the
+      arrogant and powerful boil the substance of destiny away and seek to
+      undermine the very laws of reality, the inevitable arrive to guide things
+      back to the proper order. Unshakable, seemingly immune to mortal harm and
+      utterly enigmatic, it is said that the inevitable are all that will remain
+      when time’s long thread has run out.</p>
+
+      <p>Instinct: To preserve order</p>
+
+      <ul>
+
+      <li>End a spell or effect</li>
+
+      <li>Give a glimpse of destiny</li>
+
+      <li>Enforce a law of nature or man</li>
+
+      </ul>
+  tags: >-
+    [{"value":"group"},{"value":"large"},{"value":"magical"},{"value":"cautious"},{"value":"amorphous"},{"value":"planar"},{"value":"close"},{"value":"reach"}]
+  tagsString: 'group, large, magical, cautious, amorphous, planar, close, reach'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Inevitable
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: ynA5BrqaGiFTXlhw
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

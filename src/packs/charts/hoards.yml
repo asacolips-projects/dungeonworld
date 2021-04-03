@@ -1,0 +1,14 @@
+_id: 01Zoo0giEhb8RcfZ
+name: Hoards
+permission:
+  default: 0
+folder: ''
+flags: {}
+content: |-
+  <ul>
+  <li>A goblin’s stash&nbsp; 2 coins</li>
+  <li>A lizardman’s trinkets&nbsp; 5 coins</li>
+  <li>A “priceless” sword&nbsp; 80 coins</li>
+  <li>An orc warchief’s tribute&nbsp; 250 coins</li>
+  <li>A dragon’s mound of coins and gems&nbsp; 130,000 coins</li>
+  </ul>

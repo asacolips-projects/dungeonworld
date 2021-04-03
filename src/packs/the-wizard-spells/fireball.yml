@@ -1,0 +1,17 @@
+name: Fireball
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>You evoke a mighty ball of flame that envelops your target and everyone
+    nearby, inflicting 2d6 damage which ignores armor.</p>
+  spellLevel: 3
+  rollFormula: 2d6
+  class: 'The Wizard'
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/fireball-red-3.webp
+effects: []
+_id: lfohybCtb4bnL3je

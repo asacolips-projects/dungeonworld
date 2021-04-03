@@ -1,0 +1,88 @@
+_id: bIffxoE8vwev9heo
+name: Roper
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 16
+      min: 0
+      max: 16
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d10+1
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Rock-like Flesh
+  details:
+    biography: >-
+      <p>Evolutionary happenstance has created a clever underground predator.
+      Disguised as a rocky formation—most often a stalactite or stalagmite—the
+      roper waits for its prey to wander by. When it does, whether it’s a rat, a
+      goblin or a foolhardy adventurer, a mass of thin, whipping tentacles
+      erupts from the thing’s hide. A hundred lashes in the blink of an eye and
+      the stunned prey is being dragged into the roper’s mouth. Surprisingly
+      effective for a thing that looks like a rock.</p>
+
+      <p>Instinct: To ambush</p>
+
+      <ul>
+
+      <li>Ensnare the unsuspecting</li>
+
+      <li>Disarm a foe</li>
+
+      <li>Chew on someone</li>
+
+      </ul>
+  tags: >-
+    [{"value":"close"},{"value":"reach"},{"value":"solitary"},{"value":"large"},{"value":"stealthy"},{"value":"intelligent"}]
+  tagsString: 'close, reach, solitary, large, stealthy, intelligent'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Roper
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 2
+  height: 2
+  scale: 1
+  mirrorX: false
+  mirrorY: false
+  lockRotation: false
+  rotation: 0
+  vision: true
+  dimSight: 60
+  brightSight: 30
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightColor: ''
+  lightAlpha: 1
+  actorId: bIffxoE8vwev9heo
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 20
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: ''
+  randomImg: false
+items: []

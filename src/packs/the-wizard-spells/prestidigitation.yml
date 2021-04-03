@@ -1,0 +1,21 @@
+name: Prestidigitation
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>You perform minor tricks of true magic. If you touch an item as part of
+    the casting you can make cosmetic changes to it: clean it, soil it, cool it,
+    warm it, flavor it, or change its color. If you cast the spell without
+    touching an item you can instead create minor illusions no bigger than
+    yourself. Prestidigitation illusions are crude and clearly illusions—they
+    won’t fool anyone, but they might entertain them.</p>
+  spellLevel: 0
+  rollFormula: ''
+  class: 'The Wizard'
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/air-burst-jade-1.webp
+effects: []
+_id: eyxn69bPznO1ZAOe

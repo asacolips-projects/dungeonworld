@@ -1,0 +1,90 @@
+_id: n5FtSxrVLoFL52CK
+name: Bakunawa
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 16
+      min: 0
+      max: 16
+    ac:
+      value: 2
+      base: 0
+      min: 0
+    damage:
+      value: d10+3
+      misc: ''
+      piercing: 1 piercing
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Amphibious
+  details:
+    biography: >-
+      <p>Dragon-Turtle’s sister is a mighty serpent queen. Ten yards of scales
+      and muscle, they say she wakes with a hunger when the sun disappears from
+      the sky. She is attracted by bright light in the darkness and like any
+      snake, the Bakunawa is sneaky. She will seek first to beguile and mislead
+      and will only strike out with violence when no other option is available.
+      When she does, though, her jaws are strong enough to crack the hull of any
+      swamp-boat and certainly enough to slice through a steel breastplate or
+      two. Give the greedy snake your treasures and she might just leave you
+      alone.</p>
+
+      <p>Instinct: To devour</p>
+
+      <ul>
+
+      <li>Lure prey with lies and illusions</li>
+
+      <li>Lash out at light</li>
+
+      <li>Devour</li>
+
+      </ul>
+  tags: >-
+    [{"value":"close"},{"value":"reach"},{"value":"solitary"},{"value":"large"},{"value":"intelligent"},{"value":"messy"},{"value":"forceful"}]
+  tagsString: 'close, reach, solitary, large, intelligent, messy, forceful'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Bakunawa
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 2
+  height: 2
+  scale: 1
+  mirrorX: false
+  mirrorY: false
+  lockRotation: false
+  rotation: 0
+  vision: true
+  dimSight: 60
+  brightSight: 30
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightColor: ''
+  lightAlpha: 1
+  actorId: n5FtSxrVLoFL52CK
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 20
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: ''
+  randomImg: false
+items: []

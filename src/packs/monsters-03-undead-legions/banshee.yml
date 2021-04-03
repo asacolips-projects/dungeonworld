@@ -1,0 +1,85 @@
+_id: spo4SLr7awGZJno0
+name: Banshee
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 16
+      min: 0
+      max: 16
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d10
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Insubstantial
+  details:
+    biography: >-
+      <p>Come away from an encounter with one of these vengeful spirits merely
+      deaf and count yourself lucky for the rest of your peaceful, silent days.
+      Often mistaken at first glance for a ghost or wandering spirit, the
+      banshee reveals a far more deadly talent for sonic assault when angered.
+      And her anger comes easy. A victim of betrayal (often by a loved one) the
+      banshee makes known her displeasure with a roar or scream that can putrefy
+      flesh and rend the senses. If you can help her get her vengeance, they say
+      she might grant rewards. Whether the affection of a spurned spirit is a
+      thing you’d want, well, that’s another question.</p>
+
+      <p>Instinct: To get revenge</p>
+
+      <ul>
+
+      <li>Drown out all other sound with a ceaseless scream</li>
+
+      <li>Unleash a skull-splitting noise</li>
+
+      <li>Disappear into the mists</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"magical"},{"value":"intelligent"},{"value":"near"}]
+  tagsString: 'solitary, magical, intelligent, near'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Banshee
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: spo4SLr7awGZJno0
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

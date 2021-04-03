@@ -1,0 +1,33 @@
+name: Alchemist
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When<strong> you have time to gather materials and a safe place to brew
+    </strong>you can create three doses of any poison you’ve used before.
+    Alternately you can describe the effects of a poison you’d like to create.
+    The GM will tell you that you can create it, but with one or more
+    caveats:</p>
+
+    <ul>
+
+    <li>It will only work under specific circumstances.</li>
+
+    <li>The best you can manage is a weaker version.</li>
+
+    <li>It’ll take a while to take effect.</li>
+
+    <li>It’ll have obvious side effects.</li>
+
+    </ul>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Brewer
+  class: 'The Thief'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: DREbtYkm7eb7XH5B

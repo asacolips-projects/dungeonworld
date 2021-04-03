@@ -1,0 +1,20 @@
+_id: fLJdOUkpSxPLDxTW
+name: Firebrand
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you<strong> introduce a new idea to an NPC</strong>, roll+CHA. On a
+    10+ They believe the idea to be their own and take to it with fervour On a
+    7-9, Their passion fades after a day or two. On a miss, they respond
+    negatively, speaking out against the idea.</p>
+  rollType: CHA
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Immolator'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

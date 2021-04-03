@@ -1,0 +1,19 @@
+name: Divine Authority
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>Take +1 to order hirelings. When you roll a 12+ the hireling transcends
+    their moment of fear and doubt and carries out your&nbsp;order with
+    particular effectiveness or&nbsp;efficiency.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Voice Of Authority
+  class: 'The Paladin'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: zcopuy8VlyAygHZ1

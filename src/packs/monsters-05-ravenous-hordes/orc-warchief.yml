@@ -1,0 +1,84 @@
+_id: 8nlvkC6ZVDgYuMcB
+name: Orc Warchief
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 16
+      min: 0
+      max: 16
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: 2d10kh1+2
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: 'One-Eye blessings, Shaman blessings, Divine protection from mortal harm'
+  details:
+    biography: >-
+      <p>There are chiefs and there are leaders of the tribes among the orcs.
+      There are those who rise to seize power and fall under the machinations of
+      their foes. There is but one Warchief. One orc in all the horde who stands
+      above the rest, bearing the blessings of the One-Eyes and the Shamans
+      both. But one who walks with the elements under Night. But one who bears
+      the Iron Sword of Ages and carries the ancient grudge against the civil
+      races on his shoulders. The Warchief is to be respected, to be obeyed and
+      above all else, to be feared. All glory to the Warchief.</p>
+
+      <p>Instinct: To lead</p>
+
+      <ul>
+
+      <li>Start a war</li>
+
+      <li>Make a show of power</li>
+
+      <li>Enrage the tribes</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"intelligent"},{"value":"organized"},{"value":"close"},{"value":"reach"}]
+  tagsString: 'solitary, intelligent, organized, close, reach'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Orc Warchief
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 8nlvkC6ZVDgYuMcB
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

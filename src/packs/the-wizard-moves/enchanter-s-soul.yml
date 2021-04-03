@@ -1,0 +1,19 @@
+_id: Hq8Nu4tThKu17nDa
+name: Enchanter's Soul
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you have time and safety with a magic item in a place of power you
+    can empower that item so that the next time you use it its effects are
+    amplified, the GM will tell you exactly how.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Enchanter
+  class: 'The Wizard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

@@ -1,15 +1,18 @@
 &.dw-level-up {
-  ul {
-    padding: 0;
-    margin: 0;
+  .dialog-buttons {
+    padding-bottom: 10px;
   }
 
   .selection-list {
     gap: 20px 10px;
     margin-bottom: 20px;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
   }
 
-  .selection-list li {
+  .selection-list > li,
+  .selection-list .grid > li {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -37,8 +40,7 @@
     margin: 10px;
     background: $c-light;
 
-    ul,
-    ol {
+    .selection-list {
       margin-left: 30px;
     }
   }
@@ -70,6 +72,26 @@
 
     .selection-list {
       display: flex;
+    }
+  }
+
+  .result-label {
+    margin-right: 5px;
+
+    + p,
+    + div,
+    + span {
+      display: inline;
+    }
+  }
+
+  .result--choices {
+    margin-top: 5px;
+
+    ul,
+    ol,
+    p {
+      margin-top: 0;
     }
   }
 }

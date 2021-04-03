@@ -76,6 +76,7 @@ DW.Spells8: "8th Level Spells"
 DW.Spells9: "9th Level Spells"
 DW.SpellPrepared: "Prepared"
 DW.SpellRollFormula: "Roll Formula"
+DW.RollFormula: "Roll Formula"
 DW.AddEquipment: "Add equipment"
 DW.AddSpell: "Add spell"
 DW.Common.Description: "Description"
@@ -146,5 +147,13 @@ DW.Hold: "Hold"
 DW.failure: "Complications (mark XP)"
 DW.partial: "Partial Success"
 DW.success: "Success"
+DW.ChooseResult: "Choose Result"
+DW.Choices: "Choices"
 DW.Settings.itemIcons.name: "Enable Item Icons"
 DW.Settings.itemIcons.hint: "Enable visual icons for moves, spells, and equipment in character sheets (requires browser reload)."
+DW.Settings.nightmode.name: "Enable Nightmode"
+DW.Settings.nightmode.hint: "Enable night/dark mode for character sheets (per user)."
+DW.Dialog.askTitle: 'Choose a stat'
+DW.Dialog.askContent: 'Choose a stat for this <strong>{name}</strong> move.'
+DW.Dialog.bondTitle: 'Enter your modifier'
+DW.Dialog.bondContent: 'Enter a bonus for the bond or modifier for this <strong>{name}</strong> move.'

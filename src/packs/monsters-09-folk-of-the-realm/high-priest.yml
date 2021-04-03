@@ -1,0 +1,83 @@
+_id: sb5n1xbE2VMcBlLh
+name: High Priest
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: null
+      min: 0
+      max: null
+    ac:
+      value: null
+      base: 0
+      min: 0
+    damage:
+      value: ''
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>Respected by all who gaze upon them, the high priests and abbesses of
+      Dungeon World are treated with a sort of reverence. Whether they pay
+      homage to Ur-thuu-hak, God of Swords, or whisper quiet prayers to Namiah,
+      precious daughter of peace, they know a thing or two that you and I won’t
+      ever know. The gods speak to them as a hawker-of-wares might speak to us
+      in the marketplace. For this, for the bearing-of-secrets and the
+      knowing-of-things, we give them a wide berth as they pass in their shining
+      robes.</p>
+
+      <p>Instinct: To lead</p>
+
+      <ul>
+
+      <li>Set down divine law</li>
+
+      <li>Reveal divine secrets</li>
+
+      <li>Commission divine undertakings</li>
+
+      </ul>
+  tags: ''
+  tagsString: ''
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: High Priest
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: sb5n1xbE2VMcBlLh
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

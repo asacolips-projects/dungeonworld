@@ -93,6 +93,7 @@ Actor:
 Item:
   types:
     - move
+    - npcMove
     - equipment
     - spell
     - bond
@@ -102,27 +103,45 @@ Item:
     base:
       name: ''
       description: ''
+    move:
+      choices: ''
+      requiresMove: ''
+      moveType: null
+      moveGroup: ''
+      moveResults:
+        failure:
+          value: ''
+        partial:
+          value: ''
+        success:
+          value: ''
   move:
     templates:
       - base
-    class: ''
+      - move
+    class: null
     rollType: ''
     rollMod: 0
     requiresLevel: 0
     requiresMove: ''
     moveType:
     moveGroup: ''
+  npcMove:
+    templates:
+      - base
+      - move
+    rollFormula: ''
   equipment:
     templates:
       - base
-    class: ''
+    class: null
     quantity: 1
     weight: 0
     uses: 0
     tags: []
     tagsString: ''
     magic: false
-    itemType:
+    itemType: null
     attributes: {}
   spell:
     templates:
@@ -130,6 +149,7 @@ Item:
     spellLevel: 0
     rollFormula: ''
     prepared: false
+    class: null
   bond:
     templates:
       - base
@@ -144,3 +164,4 @@ Item:
     equipment: {}
     hp: 10
     load: 6
+    damage: d6

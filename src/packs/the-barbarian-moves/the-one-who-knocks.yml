@@ -1,0 +1,18 @@
+name: The One Who Knocks
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>Defy Danger</strong>, on a 12+ you turn the danger back
+    on itself, the GM will describe how.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  class: 'The Barbarian'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: NvscYQLSkk1pabXL

@@ -1,0 +1,18 @@
+name: Indomitable
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you<strong> suffer a debility </strong>(even through Bloody Aegis)
+    take +1 forward against whatever caused it.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  class: 'The Paladin'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: 6W1I5uSZ0gcgY4Zd

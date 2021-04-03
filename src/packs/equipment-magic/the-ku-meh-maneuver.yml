@@ -1,0 +1,29 @@
+name: The Ku’meh Maneuver
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>A great, leathery tome worn shiny by the hands of a hundred great
+    generals, this book is often passed from warrior to warrior, from father to
+    son along the great battle lines that have divided Dungeon World’s past.
+    Anyone reading it may, upon finishing for the first time, roll+INT. ✴On a
+    10+, hold 3. ✴On a 7-9, hold 1. You may spend your hold to advise a
+    companion on some matter of strategic or tactical significance. This advice
+    allows you to, at any time, regardless of distance, roll to aid them on any
+    one roll. On a miss, the GM can hold 1 and spend it to apply -2 to any roll
+    of yours or the poor sap who listened to your advice.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/sundries/books/book-symbol-triangle-silver-brown.webp
+effects: []
+_id: CS2anoNJvwm1QGbO

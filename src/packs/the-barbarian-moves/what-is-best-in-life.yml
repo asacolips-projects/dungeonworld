@@ -1,0 +1,19 @@
+name: What Is Best In Life
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>At the end of a session, if during this session you have crushed your
+    enemies, seen them driven before you, or have heard the lamentations of
+    their kinfolk mark XP.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Barbarian'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: 5fV85NiEQADrI6RB

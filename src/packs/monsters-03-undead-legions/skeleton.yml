@@ -1,0 +1,70 @@
+_id: kBkgfb2YbzFLhTU2
+name: Skeleton
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 7
+      min: 0
+      max: 7
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: |-
+      <p>Dem bones, dem bones, dem dry bones.</p>
+      <p>Instinct: To take the semblance of life</p>
+      <ul>
+      <li>Act out what it did in life</li>
+      <li>Snuff out the warmth of life</li>
+      <li>Reconstruct from miscellaneous bones</li>
+      </ul>
+  tags: '[{"value":"horde"},{"value":"close"}]'
+  tagsString: 'horde, close'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Skeleton
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: kBkgfb2YbzFLhTU2
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

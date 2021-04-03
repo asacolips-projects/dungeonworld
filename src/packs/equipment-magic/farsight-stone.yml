@@ -1,0 +1,28 @@
+name: Farsight Stone
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>Swirling clouds fill this smoky orb and those in its presence often hear
+    strange whispers. In ancient times, it was part of a network of such stones,
+    used to communicate and surveil across great distances. When you gaze into
+    the stone, name a location and roll+WIS. ✴On a 10+, you see a clear vision
+    of the location and can maintain it as long as you concentrate on the orb.
+    ✴On a 7–9, you still see the vision, but you draw the attention of some
+    other thing (an angel, a demon, or the holder of another Farsight stone)
+    that uses the stone to surveil you, as well.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/tools/laboratory/alembic-glass-ball-blue.webp
+effects: []
+_id: 6UY6OSjnfhyqZ7wo

@@ -1,0 +1,85 @@
+_id: NysBXElzp5A6iCR4
+name: Orc Shaman
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 12
+      min: 0
+      max: 12
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d10
+      misc: ''
+      piercing: ignores armor
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Elemental power
+  details:
+    biography: >-
+      <p>The orcs are as old a race as any. They cast bones in the dirt and
+      called to the gods in the trees and stone as the elves built their first
+      cities. They have waged wars, conquered kingdoms, and fallen into
+      corruption in the aeons it took for men to crawl from their caves and
+      dwarves to first see the light of the sun. Fitting, then, that the old
+      ways still hold. They summon the powers of the world to work, to fight and
+      to protect their people, as they have since the first nights.</p>
+
+      <p>Instinct: To strengthen orc-kind</p>
+
+      <ul>
+
+      <li>Give protection of earth</li>
+
+      <li>Give power of fire</li>
+
+      <li>Give swiftness of water</li>
+
+      <li>Give clarity of air</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"intelligent"},{"value":"organized"},{"value":"close"},{"value":"reach"},{"value":"near"},{"value":"far"}]
+  tagsString: 'solitary, intelligent, organized, close, reach, near, far'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Orc Shaman
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: NysBXElzp5A6iCR4
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

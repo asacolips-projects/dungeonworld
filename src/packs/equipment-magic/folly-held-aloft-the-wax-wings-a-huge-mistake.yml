@@ -1,0 +1,31 @@
+name: 'Folly Held Aloft, The Wax Wings, A Huge Mistake'
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>Who hasn’t always wanted to soar the pretty blue sky? In an attempt to
+    grant the wishes of land-bound folk, these great magical wings were created.
+    Known by many names and crafted by as many mages, they commonly take the
+    shape of the wings of whatever local birds hold affection. Worn by means of
+    a harness or, in some dire cases, a surgical procedure.</p>
+
+    <p>When you take to the air with these magical wings, roll+DEX. ✴On a 10+,
+    your flight is controlled and you may stay aloft as long as you like. ✴On a
+    7–9, you make it aloft but your flight is short or erratic and
+    unpredictable, your choice. ✴On a 6-, you make it aloft, but the coming-down
+    part and everything between is up to the GM.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/commodities/biological/wing-bird-white.webp
+effects: []
+_id: crYk3CYWYTrIHE6L

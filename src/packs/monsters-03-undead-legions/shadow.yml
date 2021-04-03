@@ -1,0 +1,81 @@
+_id: pP0V058MVgvdqe4I
+name: Shadow
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 11
+      min: 0
+      max: 11
+    ac:
+      value: 4
+      base: 0
+      min: 0
+    damage:
+      value: d6+1
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Shadow form
+  details:
+    biography: >-
+      <p>We call to the elements. We call on fire, ever-burning. We summon
+      water, life-giving. We beseech the earth, stable-standing. We cry to the
+      air, forever-changing. These elements we recognize and give our thanks but
+      ask to pass. The elemental we call upon this night knows another name. We
+      call upon the element of Night. Shadow, we name you. Death’s messenger and
+      black assassin, we claim for our own. Accept our sacrifice and do our
+      bidding ’til the morning come.</p>
+
+      <p>Instinct: To darken</p>
+
+      <ul>
+
+      <li>Snuff out light</li>
+
+      <li>Spawn another shadow from the dead</li>
+
+      </ul>
+  tags: >-
+    [{"value":"horde"},{"value":"large"},{"value":"magical"},{"value":"construct"},{"value":"close"},{"value":"reach"}]
+  tagsString: 'horde, large, magical, construct, close, reach'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Shadow
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: pP0V058MVgvdqe4I
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

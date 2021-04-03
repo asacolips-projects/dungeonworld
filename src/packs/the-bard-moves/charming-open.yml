@@ -1,0 +1,34 @@
+_id: 9dDYXKrmz5NrXMzj
+name: Charming & Open
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>speak frankly with someone</strong>, you can ask their
+    player a question from the list below. They must answer it truthfully, then
+    they may ask you a question from the list (which you must answer
+    truthfully).</p>
+
+    <ul>
+
+    <li>Whom do you serve?</li>
+
+    <li>What do you wish I would do?</li>
+
+    <li>How can I get you to _____?</li>
+
+    <li>What are you really feeling right now?</li>
+
+    <li>What do you most desire?</li>
+
+    </ul>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  class: 'The Bard'
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

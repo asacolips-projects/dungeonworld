@@ -8,13 +8,19 @@ export class DwItemSheet extends ItemSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    let options = mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "item"],
       width: 520,
       height: 480,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "details" }],
       submitOnChange: false,
     });
+
+    if (CONFIG.DW.nightmode) {
+      options.classes.push('nightmode');
+    }
+
+    return options;
   }
 
   /* -------------------------------------------- */
@@ -54,6 +60,14 @@ export class DwItemSheet extends ItemSheet {
       }
     }
 
+    // Handle move results.
+    if (data.entity.type == 'move' || data.entity.type == 'npcMove') {
+      if (data.data.moveResults) {
+        for (let key of Object.keys(data.data.moveResults)) {
+          data.data.moveResults[key].key = `data.moveResults.${key}.value`;
+        }
+      }
+    }
 
     return data;
   }

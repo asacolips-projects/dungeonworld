@@ -1,0 +1,18 @@
+name: A Little Help From My Friends
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>successfully aid someone</strong> you take +1 forward as
+    well.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Bard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: YtznpOdHUqHO85BP

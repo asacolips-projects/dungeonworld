@@ -1,0 +1,18 @@
+_id: Lry3vbhPwelpicJ2
+name: Familiar Prey
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>Spout Lore about a monster</strong> you use WIS instead
+    of INT.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Ranger'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

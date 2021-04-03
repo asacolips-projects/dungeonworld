@@ -10,6 +10,150 @@ const jsYaml = require('js-yaml');
 const fs = require('fs');
 const replace = require('gulp-replace');
 
+// Dependencies for compendium tasks.
+const through2 = require("through2");
+const Datastore = require("nedb");
+const mergeStream = require("merge-stream");
+const path = require("path");
+const clean = require("gulp-clean");
+
+// Constants.
+const PACK_SRC = "src/packs";
+const PACK_DEST = "dist/packs";
+
+/* ----------------------------------------- */
+/*  Compile Compendia
+/* ----------------------------------------- */
+
+/**
+ * Gulp Task: Compile packs from the yaml source content to .db files.
+ */
+function compilePacks() {
+  // Every folder in the src dir will become a compendium.
+  const folders = fs.readdirSync(PACK_SRC).filter((file) => {
+    return fs.statSync(path.join(PACK_SRC, file)).isDirectory();
+  });
+
+  // Iterate over each folder/compendium.
+  const packs = folders.map((folder) => {
+    // Initialize a blank nedb database based on the directory name. The new
+    // database will be stored in the dest directory as <foldername>.db
+    const db = new Datastore({ filename: path.resolve(__dirname, PACK_DEST, `${folder}.db`), autoload: true });
+    // Process the folder contents and insert them in the database.
+    return gulp.src(path.join(PACK_SRC, folder, "/**/*.yml")).pipe(
+      through2.obj((file, enc, cb) => {
+        let json = jsYaml.loadAll(file.contents.toString());
+        db.insert(json);
+        cb(null, file);
+      })
+    );
+  });
+
+  // Execute the streams.
+  return mergeStream.call(null, packs);
+}
+
+/**
+ * Cleanup the packs directory.
+ *
+ * This task will delete the existing compendiums so that the compile task can
+ * write fresh copies in their place.
+ */
+function cleanPacks() {
+  return gulp.src(`${PACK_DEST}`, { allowEmpty: true }, {read: false}).pipe(clean());
+}
+
+/* ----------------------------------------- */
+/*  Export Compendia
+/* ----------------------------------------- */
+
+/**
+ * Santize pack entries.
+ *
+ * This function will deep clone a given compendium object, such as an Actor or
+ * Item, and will then delete the `_id` key along with replacing the
+ * `_permission` object with a generic version that doesn't reference user IDs.
+ *
+ * @param {object} pack Loaded compendium content.
+ */
+function sanitizePack(pack) {
+  let sanitizedPack = JSON.parse(JSON.stringify(pack));
+  // Leave the IDs in for now, so that item links are persisted.
+  // delete sanitizedPack._id;
+  sanitizedPack.permission = { default: 0 };
+  return sanitizedPack;
+}
+
+/**
+ * Sluggify a string.
+ *
+ * This function will take a given string and strip it of non-machine-safe
+ * characters, so that it contains only lowercase alphanumeric characters and
+ * hyphens.
+ *
+ * @param {string} string String to sluggify.
+ */
+function sluggify(string) {
+  return string
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/gi, ' ')
+    .trim()
+    .replace(/\s+|-{2,}/g, '-');
+}
+
+/**
+ * Gulp Task: Export Packs
+ *
+ * This gulp task will load all compendium .db files from the dest directory,
+ * load them into memory, and then export them to a human-readable YAML format.
+ */
+function extractPacks() {
+  // Start a stream for all db files in the packs dir.
+  const packs = gulp.src(`${PACK_DEST}/**/*.db`)
+    // Run a callback on each pack file to load it and then write its
+    // contents to the pack src dir in yaml format.
+    .pipe(through2.obj((file, enc, callback) => {
+      // Create directory.
+      let filename = path.parse(file.path).name;
+      if (!fs.existsSync(`./${PACK_SRC}/${filename}`)) {
+        fs.mkdirSync(`./${PACK_SRC}/${filename}`);
+      }
+
+      // Load the database.
+      const db = new Datastore({ filename: file.path, autoload: true });
+      db.loadDatabase();
+
+      // Export the packs.
+      db.find({}, (err, packs) => {
+        // Iterate through each compendium entry.
+        packs.forEach(pack => {
+          // Remove permissions and _id
+          pack = sanitizePack(pack);
+
+          // Convert to a Yaml document.
+          let output = jsYaml.dump(pack, {
+            quotingType: "'",
+            forceQuotes: true,
+            noRefs: true,
+            sortKeys: false
+          });
+
+          // Sluggify the filename.
+          let packName = sluggify(pack.name);
+
+          // Write to the file system.
+          fs.writeFileSync(`./${PACK_SRC}/${filename}/${packName}.yml`, output);
+        });
+      });
+
+      // Complete the through2 callback.
+      callback(null, file);
+    }));
+
+  // Call the streams.
+  return mergeStream.call(null, packs);
+}
+
 /* ----------------------------------------- */
 /* Compile Sass
 /* ----------------------------------------- */
@@ -170,7 +314,7 @@ function commitTag() {
 function watchUpdates() {
   gulp.watch(SYSTEM_YAML, yamlTask);
   gulp.watch(SYSTEM_IMAGES, compileImages);
-  gulp.watch(SYSTEM_SCSS, cssTask);
+  gulp.watch(SYSTEM_SCSS, gulp.series(compileScss, copyFiles));
   gulp.watch(SYSTEM_COPY, copyTask);
 }
 
@@ -193,7 +337,8 @@ const buildTask = gulp.series(
   compileImages,
   compileScss,
   copyFiles,
-  copyManifest
+  copyManifest,
+  compilePacks
 );
 
 exports.default = defaultTask;
@@ -203,6 +348,10 @@ exports.copy = copyTask;
 exports.images = imageTask;
 exports.css = cssTask;
 exports.yaml = yamlTask;
+
+exports.cleanPacks = gulp.series(cleanPacks);
+exports.compilePacks = gulp.series(cleanPacks, compilePacks);
+exports.extractPacks = gulp.series(extractPacks);
 
 /**
  * Bumping version number and tagging the repository with it.

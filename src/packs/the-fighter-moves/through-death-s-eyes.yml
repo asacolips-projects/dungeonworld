@@ -1,0 +1,22 @@
+name: Through Death’s Eyes
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you<strong> go into battle</strong>, roll+WIS. • On a 10+, name
+    someone who will live and someone who will die. • On a 7-9, name someone who
+    will live or someone who will die. Name NPCs, not player characters. The GM
+    will make your vision come true, if it’s even remotely possible. • On a 6-
+    you see your own death and consequently take -1 ongoing throughout the
+    battle.</p>
+  rollType: WIS
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  class: 'The Fighter'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: czC0Lk9K4LQyVbHB

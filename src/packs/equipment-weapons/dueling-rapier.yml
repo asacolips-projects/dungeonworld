@@ -1,0 +1,20 @@
+name: Dueling Rapier
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>A well balanced one-handed thin double-edged blade.</p>
+  class: ''
+  quantity: 1
+  weight: 2
+  uses: 0
+  tags: '[{"value":"close"},{"value":"1 piercing"},{"value":"precise"}]'
+  tagsString: 'close, 1 piercing, precise'
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/swords/sword-guard-brass-worn.webp
+effects: []
+_id: 5dSrhoG0LBXY6RyD

@@ -1,0 +1,27 @@
+name: Teleportation Room
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>James Ninefingers, eccentric genius mage, created these room-sized
+    magical apparati. A stone chamber etched with runes and scribblings, glowing
+    with a faint blue light. When you enter and say aloud the name of a
+    location, roll+INT. ✴On a 10+, you arrive exactly where you’d intended. ✴On
+    a 7–9, the GM chooses a safe location nearby. ✴On a miss, you end up
+    someplace. Maybe it’s nearby? It’s definitely not safe. Strange things
+    sometimes happen to those who bend time and space with these devices.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 0
+  tags: '[{"value":"slow"}]'
+  tagsString: slow
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/commodities/gems/pearl-water.webp
+effects: []
+_id: JWsaCNB0Evp0TzqX

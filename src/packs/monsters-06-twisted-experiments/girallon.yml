@@ -1,0 +1,84 @@
+_id: lYsdxOJHPDntHHHK
+name: Girallon
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 20
+      min: 0
+      max: 20
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d10+5
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Many arms
+  details:
+    biography: >-
+      <p>The pounding of the jungle drums calls to it. The slab of meat on the
+      sacrificial stone to lure in the great ape. Girallon, they call it—a name
+      from the long-forgotten tongue of the kings who bred the beast. Taller
+      than a building, some say. Cloaked in ivory fur with tusks as long as
+      scimitars. Four arms? Six? The rumors are hard to verify. Every year it is
+      the same: some explorer visits the jungle villages seeking the ape and
+      returns, never quite the same, never with a trophy. The pounding of the
+      drums goes on.</p>
+
+      <p>Instinct: To rule</p>
+
+      <ul>
+
+      <li>Answer the call of sacrifice</li>
+
+      <li>Drive them from the jungle</li>
+
+      <li>Throw someone</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"huge"},{"value":"reach"},{"value":"forceful"}]
+  tagsString: 'solitary, huge, reach, forceful'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Girallon
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: lYsdxOJHPDntHHHK
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

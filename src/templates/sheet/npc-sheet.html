@@ -46,20 +46,68 @@
 
       </section>
 
+      {{!-- Sheet Tab Navigation --}}
+        <nav class="sheet-tabs tabs" data-group="primary">
+          <a class="item" data-tab="description">{{localize "DW.Description"}}</a>
+          <a class="item" data-tab="moves">{{localize "DW.Moves"}}</a>
+        </nav>
+
       {{!-- Sheet Body --}}
       <section class="sheet-body">
 
-        <div class="cell cell--special-qualities">
-          <label class="cell__title">{{localize "DW.SpecialQualities"}}</label>
-          <input type="text" name="data.attributes.specialQualities.value" value="{{data.attributes.specialQualities.value}}" data-dtype="String"/>
+        <div class="tab description" data-group="primary" data-tab="description">
+          <section class="sheet-tab">
+            <div class="cell cell--special-qualities">
+              <label class="cell__title">{{localize "DW.SpecialQualities"}}</label>
+              <input type="text" name="data.attributes.specialQualities.value" value="{{data.attributes.specialQualities.value}}" data-dtype="String"/>
+            </div>
+            <div class="cell cell--description">
+              <label class="cell__title">{{localize "DW.Description"}}</label>
+              {{editor content=data.details.biography target="data.details.biography" button=true owner=owner editable=editable}}
+            </div>
+          </section>
         </div>
 
-        {{!-- Main Tab --}}
-        <label class="cell__title">{{localize "DW.Description"}}</label>
-        {{!-- We're avoiding WYSIWYGs... for now... --}}
-        {{editor content=data.details.biography target="data.details.biography" button=true owner=owner editable=editable}}
-        {{!-- <textarea class="biography" name="data.details.biography" rows="5" title="Hey there! Who are you!?"
-                data-dtype="String">{{#if data.details.biography}}{{data.details.biography}}{{/if}}</textarea> --}}
+        <div class="tab moves active" data-group="primary" data-tab="moves">
+          <section class="sheet-tab">
+
+            <div class="cell cell--basic-moves">
+              <h2 class="cell__title">
+                <label>{{localize "DW.MovesBasic"}}</label>
+                <div class="item-controls">
+                  <button  type="button" class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="npcMove" data-moveType="basic">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </h2>
+              <ol class="items-list">
+              {{#each actor.basicMoves as |item id|}}
+                <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
+                  {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
+                </li>
+              {{/each}}
+              </ol>
+            </div>
+
+            <div class="cell cell--special-moves">
+              <h2 class="cell__title">
+                <label>{{localize "DW.MovesSpecial"}}</label>
+                <div class="item-controls">
+                  <button  type="button" class="item-control item-create" title='{{localize "DW.MoveCreate"}}' data-type="npcMove" data-moveType="special">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </h2>
+              <ol class="items-list">
+              {{#each actor.specialMoves as |item id|}}
+                <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
+                  {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
+                </li>
+              {{/each}}
+              </ol>
+            </div>
+          </section>
+        </div>
       </section>
 
     </section>

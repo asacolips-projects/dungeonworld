@@ -1,0 +1,14 @@
+name: Thrown
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>Throw it at someone to hurt them. If you volley with this weapon, you
+    can&rsquo;t choose to mark off ammo on a 7&ndash;9; once you throw it,
+    it&rsquo;s gone until you can recover it.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: 7nLWP54iB5VjqK0d

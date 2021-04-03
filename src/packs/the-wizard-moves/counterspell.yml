@@ -1,0 +1,22 @@
+name: Counterspell
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you attempt to <strong>counter an arcane spell</strong> that will
+    otherwise affect you, stake one of your prepared spells on the
+    defense&nbsp;and roll+INT. On a 10+, the spell is countered and has no
+    effect on you. On a 7-9, the spell is countered and you forget the spell
+    that you staked. Your counterspell protects you alone; if the countered
+    spell has other targets they are affected as normal.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Wizard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: L0l4MyexRQx3q7an

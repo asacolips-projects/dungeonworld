@@ -1,0 +1,18 @@
+name: Superior Warrior
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>Hack &amp; Slash</strong>, on a 12+ you deal your
+    damage, avoid their attack, and impress, dismay, or frighten your enemy.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  class: 'The Fighter'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: bNefUGFZ8du9Cn1v

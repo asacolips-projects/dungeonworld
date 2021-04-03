@@ -1,0 +1,84 @@
+_id: LB14no1SFV4JCQaf
+name: Chain Devil
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 12
+      min: 0
+      max: 12
+    ac:
+      value: 3
+      base: 0
+      min: 0
+    damage:
+      value: d10
+      misc: ''
+      piercing: ignores armor
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>Do you think the phrase “drag him to hell” means nothing? It is
+      unfortunately literal, in the case of the chain devil. Appearing
+      differently to each victim, this summoned creature has but a single
+      purpose: to wrap its victim up in binding coils and take it away to a
+      place of torment. Sometimes it will come as a man-shaped mass of rusting
+      iron, hooks and coils of mismatched links. Other times, a roiling tangle
+      of rope or kelp or twisted bloody bedsheets. The results are always the
+      same.</p>
+
+      <p>Instinct: To capture</p>
+
+      <ul>
+
+      <li>Take a captive</li>
+
+      <li>Return to whence it came</li>
+
+      <li>Torture with glee</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"planar"},{"value":"close"},{"value":"reach"}]
+  tagsString: 'solitary, planar, close, reach'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Chain Devil
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: LB14no1SFV4JCQaf
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

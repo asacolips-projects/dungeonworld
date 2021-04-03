@@ -1,0 +1,20 @@
+name: Blacksmith
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you<strong> have access to a forge</strong> you can graft the
+    magical powers of a weapon onto your signature weapon. This process destroys
+    the magical weapon. Your signature weapon gains the magical powers of the
+    destroyed weapon.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Fighter'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: 2jajQJrxJ3Kyrddv

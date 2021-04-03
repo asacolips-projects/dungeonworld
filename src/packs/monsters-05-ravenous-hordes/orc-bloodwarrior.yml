@@ -1,0 +1,81 @@
+_id: rndBwPfBHwvcxH9O
+name: Orc Bloodwarrior
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 3
+      min: 0
+      max: 3
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d6+2
+      misc: ''
+      piercing: 1 piercing
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>The orcish horde is a savage, bloodthirsty, and hateful collection of
+      tribes. There are myths and stories that tell of the origin of their
+      rage—a demon curse, a homeland destroyed, elven magic gone wrong—but the
+      truth has been lost to time. Every able orc, be it man or woman, child or
+      elder, swears fealty to the warchief and their tribe and bears the jagged
+      blade of a bloodwarrior. Men are trained to fight and kill—orcs are born
+      to it.</p>
+
+      <p>Instinct: To fight</p>
+
+      <ul>
+
+      <li>Fight with abandon</li>
+
+      <li>Revel in destruction</li>
+
+      </ul>
+  tags: >-
+    [{"value":"horde"},{"value":"intelligent"},{"value":"organized"},{"value":"close"},{"value":"messy"}]
+  tagsString: 'horde, intelligent, organized, close, messy'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Orc Bloodwarrior
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: rndBwPfBHwvcxH9O
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

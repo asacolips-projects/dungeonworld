@@ -1,0 +1,26 @@
+_id: POzXGIZUFUleOmI9
+name: Armor - Tags
+permission:
+  default: 0
+folder: pT118pRlosZeToCW
+sort: 200000
+flags: {}
+content: >-
+  <h1>Armor Tags</h1>
+
+  <p>Armor, like weapons, has tags. Some are purely descriptive but the ones
+  below have some mechanical effect on the player wearing them</p>
+
+  <ul>
+
+  <li><strong>n Armor: </strong>It protects you from harm and absorbs damage.
+  When you take damage, subtract your armor from the total. If you have more
+  than one item with n Armor, only the highest value counts.</li>
+
+  <li><strong>+n Armor: </strong>It protects you and stacks with other armor.
+  Add its value to your total armor.</li>
+
+  <li><strong>Clumsy: </strong>It&rsquo;s tough to move around with. -1 ongoing
+  while using it. This penalty is cumulative.</li>
+
+  </ul>

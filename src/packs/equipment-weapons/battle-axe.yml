@@ -1,0 +1,20 @@
+name: Battle Axe
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>Two-handed axe designed for combat.</p>
+  class: ''
+  quantity: 1
+  weight: 2
+  uses: 0
+  tags: '[{"value":"close"},{"value":"+1 damage"}]'
+  tagsString: 'close, +1 damage'
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/axes/axe-double-engraved-black.webp
+effects: []
+_id: YDa0vBhIcuZ4X8TC

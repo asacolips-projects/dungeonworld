@@ -1,4 +1,20 @@
 .item-form {
+
+  .cell--image {
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.25);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+  }
+
   .sheet-header,
   .sheet-navigation {
     flex: 0 0 30px;
@@ -12,5 +28,21 @@
   .tab,
   .editor {
     height: 100%;
+  }
+
+  .tab.active[data-tab="description"] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .editor,
+  .resource {
+    flex: 0 auto;
+    min-height: 60px;
+  }
+
+  .resource {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
 }

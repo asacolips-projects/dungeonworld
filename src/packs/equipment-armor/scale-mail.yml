@@ -1,0 +1,20 @@
+name: Scale Mail
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: ''
+  class: ''
+  quantity: 1
+  weight: 3
+  uses: 0
+  tags: '[{"value":"2 armor"},{"value":"worn"},{"value":"clumsy"}]'
+  tagsString: '2 armor, worn, clumsy'
+  magic: false
+  itemType: armor
+  attributes: {}
+flags: {}
+img: icons/equipment/chest/breastplate-metal-scaled-grey.webp
+effects: []
+_id: oJ490334TfVi40Zj

@@ -1,0 +1,16 @@
+name: Healing Song
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: '<p>When you<strong> heal with Arcane Art</strong>, you heal +1d8 damage.</p>'
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Bard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: MJxBJbzwGZ1r0zSC

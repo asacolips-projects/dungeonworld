@@ -1,0 +1,21 @@
+_id: syaRsw4bygPNkwqs
+name: Ethereal Tether
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you have time with a willing or helpless subject you can craft an
+    ethereal&nbsp;tether with them. You perceive what they&nbsp;do and can
+    discern realities about them or&nbsp;their surroundings, no matter the
+    distance. Someone willingly tethered to you can communicate with you over
+    the tether as if you were in the room with them.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  class: 'The Wizard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

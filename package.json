@@ -8,6 +8,8 @@
     "watch": "gulp",
     "gulp": "gulp",
     "yaml": "gulp yaml",
+    "compilePacks": "gulp compilePacks",
+    "extractPacks": "gulp extractPacks",
     "patch": "gulp patch",
     "minor": "gulp minor",
     "major": "gulp major"
@@ -23,6 +25,7 @@
     "fs": "0.0.1-security",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean": "^0.4.0",
     "gulp-git": "^2.10.1",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.1.0",
@@ -30,6 +33,10 @@
     "gulp-webp": "^4.0.1",
     "gulp-yaml": "^2.0.4",
     "js-yaml": "^3.14.1",
+    "merge-stream": "^2.0.0",
+    "nedb": "^1.8.0",
+    "path": "^0.12.7",
+    "through2": "^4.0.2",
     "yargs": "^16.2.0"
   }
 }

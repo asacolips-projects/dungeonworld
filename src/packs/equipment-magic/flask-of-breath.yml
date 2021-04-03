@@ -1,0 +1,26 @@
+name: Flask of Breath
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>A simple thing, but useful when you need a breath of fresh air. The flask
+    appears empty but cannot be filled, anything added to it simply spills out.
+    This is because the flask is eternally full of air. If placed underwater, it
+    will bubble forever. If pressed to the mouth, one can breathe normally—smoke
+    is no concern, for example. I’m sure you’ll find all sorts of unusual uses
+    for it.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/containers/kitchenware/vase-005.webp
+effects: []
+_id: DzGcovYW5Cd14eqm

@@ -1,0 +1,20 @@
+name: Dirty Fighter
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When using a precise or hand weapon, your <strong>Backstab </strong>deals
+    an extra +1d8 damage and all other attacks deal +1d4 damage.</p>
+
+    <p>Additional damage rolls: [[/roll 1d8]] [[/roll 1d4]]</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Cheap Shot
+  class: 'The Thief'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: PynM5aubCK54J1oi

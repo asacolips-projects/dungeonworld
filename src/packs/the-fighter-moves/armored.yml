@@ -1,0 +1,16 @@
+name: Armored
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: <p>You ignore the clumsy tag on any armor you wear.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  class: 'The Fighter'
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: 8PFL24PUlOByWBr7

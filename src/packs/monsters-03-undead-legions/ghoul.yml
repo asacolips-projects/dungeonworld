@@ -1,0 +1,79 @@
+_id: YbvZrqizzZ1fpQLa
+name: Ghoul
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 10
+      min: 0
+      max: 10
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d8
+      misc: ''
+      piercing: 1 piercing
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>Hunger. Hunger hunger hunger. Desperate clinging void-stomach-emptiness
+      hunger. Sharp talons to rend flesh and teeth to tear and crack bones and
+      suck out the soft marrow inside. Vomit up hate and screaming jealous anger
+      and charge on twisted legs&mdash;scare the living flesh and sweeten it
+      ever more with the stink of fear. Feast. Peasant or knight, wizard, sage,
+      prince, or priest all make for such delicious meat.</p>
+
+      <p>Instinct: To eat</p>
+
+      <ul>
+
+      <li>Gnaw off a body part</li>
+
+      <li>Gain the memories of their meal</li>
+
+      </ul>
+  tags: '[{"value":"group"},{"value":"close"},{"value":"messy"}]'
+  tagsString: 'group, close, messy'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Ghoul
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: YbvZrqizzZ1fpQLa
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

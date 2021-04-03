@@ -1,0 +1,87 @@
+_id: HVULsGRPByKQo2n6
+name: Elvish Warrior
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 3
+      min: 0
+      max: 3
+    ac:
+      value: 2
+      base: 0
+      min: 0
+    damage:
+      value: 2d6kh1
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Sharp sense
+  details:
+    biography: >-
+      <p>”As with all things they undertake, the elves approach war as an art. I
+      saw them fight, once. The Battle of Astrid’s Veil. Yes, I am that old,
+      boy, now hush. A warrior-maiden, she was clad in plate that shone like the
+      winter sky. White hair streaming and a pennant of ocean blue tied to her
+      spear. She seemed to glide between the trees the way an angel might,
+      striking out and bathing her blade in blood that steamed in the cold air.
+      I never felt so small before. I trained with the master-at-arms of
+      Battlemoore, you know. I’ve held a sword longer than you’ve been alive,
+      boy, and in that one moment I knew that my skill meant nothing. Thank the
+      gods the elves were with us then. A more beautiful and terrible thing I
+      have never seen.”</p>
+
+      <p>Instinct: To seek perfection</p>
+
+      <ul>
+
+      <li>Strike at a weak point</li>
+
+      <li>Set ancient plans in motion</li>
+
+      <li>Use the woods to advantage</li>
+
+      </ul>
+  tags: >-
+    [{"value":"horde"},{"value":"intelligent"},{"value":"organized"},{"value":"close"}]
+  tagsString: 'horde, intelligent, organized, close'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Elvish Warrior
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: HVULsGRPByKQo2n6
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

@@ -40,6 +40,11 @@ export class DwUtility {
     return items;
   }
 
+  static getRollFormula(defaultFormula = '2d6') {
+    // TODO: Add support for adv/dis/ongoing/forward.
+    return defaultFormula;
+  }
+
   static getAbilityMod(abilityScore) {
     let abilityMod = 0;
 

@@ -122,13 +122,6 @@ export class MigrateDw {
       };
       await charClass.update(updates);
     }
-
-    // Output debug.
-    console.log({
-      itemsCurrent: itemsCurrent,
-      itemsOld: itemsOld,
-      itemMap: itemMap
-    });
   }
 
 }

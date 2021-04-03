@@ -1,0 +1,1032 @@
+_id: 8E1Ad4FSkVxtQ4wE
+name: Names
+permission:
+  default: 0
+flags: {}
+img: icons/svg/d20-grey.svg
+description: >-
+  When you need a quick NPC all you need is an instinct and some way to pursue
+  it. We call that a knack, it can be anything from a skill to a title to a debt
+  owed. Combine the two and you have an NPC who has something they want and a
+  way to try to get it—you’re ready to go.
+results:
+  - _id: VcYWZoAtNA2e0BWn
+    flags: {}
+    type: 0
+    text: Finbar
+    weight: 1
+    range:
+      - 1
+      - 1
+    drawn: false
+  - _id: 06AxTWAxcWyfsdks
+    flags: {}
+    type: 0
+    text: Hywn
+    weight: 1
+    range:
+      - 2
+      - 2
+    drawn: false
+  - _id: x2iAglHIEYbcQXuw
+    flags: {}
+    type: 0
+    text: OneEye
+    weight: 1
+    range:
+      - 3
+      - 3
+    drawn: false
+  - _id: gqO1mjB5vz5I0ddV
+    flags: {}
+    type: 0
+    text: Alhoro
+    weight: 1
+    range:
+      - 4
+      - 4
+    drawn: false
+  - _id: j2lKapkmNywCZdAD
+    flags: {}
+    type: 0
+    text: Arlon
+    weight: 1
+    range:
+      - 5
+      - 5
+    drawn: false
+  - _id: 36Q6vJ9bZD5NChmH
+    flags: {}
+    type: 0
+    text: Yev
+    weight: 1
+    range:
+      - 6
+      - 6
+    drawn: false
+  - _id: giWvSf0XiZMsabgt
+    flags: {}
+    type: 0
+    text: Slime
+    weight: 1
+    range:
+      - 7
+      - 7
+    drawn: false
+  - _id: qrwSJ9EYtbFBZcC7
+    flags: {}
+    type: 0
+    text: Jocat
+    weight: 1
+    range:
+      - 8
+      - 8
+    drawn: false
+  - _id: LDDCnnb51lIjD6cP
+    flags: {}
+    type: 0
+    text: Ewing
+    weight: 1
+    range:
+      - 9
+      - 9
+    drawn: false
+  - _id: ojiLd8fUWLxR7e58
+    flags: {}
+    type: 0
+    text: Lim
+    weight: 1
+    range:
+      - 10
+      - 10
+    drawn: false
+  - _id: j723JILnH2uw7cW0
+    flags: {}
+    type: 0
+    text: Poy
+    weight: 1
+    range:
+      - 11
+      - 11
+    drawn: false
+  - _id: 4LBc41jtmx2MNgbS
+    flags: {}
+    type: 0
+    text: Milo
+    weight: 1
+    range:
+      - 12
+      - 12
+    drawn: false
+  - _id: eoaWALNLkBdhPUSd
+    flags: {}
+    type: 0
+    text: Deryl
+    weight: 1
+    range:
+      - 13
+      - 13
+    drawn: false
+  - _id: eEe49SnShnLUePqM
+    flags: {}
+    type: 0
+    text: Medlyn
+    weight: 1
+    range:
+      - 14
+      - 14
+    drawn: false
+  - _id: Jh8w3ZZcriCpjKvF
+    flags: {}
+    type: 0
+    text: Astrafel
+    weight: 1
+    range:
+      - 15
+      - 15
+    drawn: false
+  - _id: xFI7qTZeFlkvX4De
+    flags: {}
+    type: 0
+    text: Daelwyn
+    weight: 1
+    range:
+      - 16
+      - 16
+    drawn: false
+  - _id: LRKUiFwSokyghiLc
+    flags: {}
+    type: 0
+    text: Feliana
+    weight: 1
+    range:
+      - 17
+      - 17
+    drawn: false
+  - _id: O7xTMeomx8XFf3Bq
+    flags: {}
+    type: 0
+    text: Damarra
+    weight: 1
+    range:
+      - 18
+      - 18
+    drawn: false
+  - _id: a9GoSi4VKAt2r5Aq
+    flags: {}
+    type: 0
+    text: Sistranalle
+    weight: 1
+    range:
+      - 19
+      - 19
+    drawn: false
+  - _id: vfIvLmPxv9CidUyZ
+    flags: {}
+    type: 0
+    text: Pendrell
+    weight: 1
+    range:
+      - 20
+      - 20
+    drawn: false
+  - _id: o0eOFtzQpI5ycukK
+    flags: {}
+    type: 0
+    text: Melliandre
+    weight: 1
+    range:
+      - 21
+      - 21
+    drawn: false
+  - _id: JGEQiRLODX44Zy9E
+    flags: {}
+    type: 0
+    text: Dagoliir
+    weight: 1
+    range:
+      - 22
+      - 22
+    drawn: false
+  - _id: JlEs1yyJ7vBFgPoq
+    flags: {}
+    type: 0
+    text: Baldric
+    weight: 1
+    range:
+      - 23
+      - 23
+    drawn: false
+  - _id: CqUttnFiVnC49WGC
+    flags: {}
+    type: 0
+    text: Leena
+    weight: 1
+    range:
+      - 24
+      - 24
+    drawn: false
+  - _id: 0g9NFyyUYz6qJ7gK
+    flags: {}
+    type: 0
+    text: Dunwick
+    weight: 1
+    range:
+      - 25
+      - 25
+    drawn: false
+  - _id: NSVfGhvjRFusresL
+    flags: {}
+    type: 0
+    text: Willem
+    weight: 1
+    range:
+      - 26
+      - 26
+    drawn: false
+  - _id: 2muUsUc5SZN5fUaa
+    flags: {}
+    type: 0
+    text: Edwyn
+    weight: 1
+    range:
+      - 27
+      - 27
+    drawn: false
+  - _id: cNUsee4rAVQ0XKk9
+    flags: {}
+    type: 0
+    text: Florian
+    weight: 1
+    range:
+      - 28
+      - 28
+    drawn: false
+  - _id: w3uLqF45MUgd5VJC
+    flags: {}
+    type: 0
+    text: Seraphine
+    weight: 1
+    range:
+      - 29
+      - 29
+    drawn: false
+  - _id: 75cSq9VmyCcKNntv
+    flags: {}
+    type: 0
+    text: Quorra
+    weight: 1
+    range:
+      - 30
+      - 30
+    drawn: false
+  - _id: hV7X6GTYsL00tT8E
+    flags: {}
+    type: 0
+    text: Charlotte
+    weight: 1
+    range:
+      - 31
+      - 31
+    drawn: false
+  - _id: apPzQ6r7NQPG7MDX
+    flags: {}
+    type: 0
+    text: Lily
+    weight: 1
+    range:
+      - 32
+      - 32
+    drawn: false
+  - _id: VPtOXfgtS9KA0YSb
+    flags: {}
+    type: 0
+    text: Ramonde
+    weight: 1
+    range:
+      - 33
+      - 33
+    drawn: false
+  - _id: edDmlHRYzFKder5x
+    flags: {}
+    type: 0
+    text: Cassandra
+    weight: 1
+    range:
+      - 34
+      - 34
+    drawn: false
+  - _id: gRB5dd3Flya2Ex14
+    flags: {}
+    type: 0
+    text: Durga
+    weight: 1
+    range:
+      - 35
+      - 35
+    drawn: false
+  - _id: KboVuU8wSepdMzFu
+    flags: {}
+    type: 0
+    text: Aelfar
+    weight: 1
+    range:
+      - 36
+      - 36
+    drawn: false
+  - _id: kLiID7I85DwaTV1n
+    flags: {}
+    type: 0
+    text: Gerda
+    weight: 1
+    range:
+      - 37
+      - 37
+    drawn: false
+  - _id: g9ysJrVxX3MlADTI
+    flags: {}
+    type: 0
+    text: Rurgosh
+    weight: 1
+    range:
+      - 38
+      - 38
+    drawn: false
+  - _id: e8QeJ0jBa0ZZxFr6
+    flags: {}
+    type: 0
+    text: Bjorn
+    weight: 1
+    range:
+      - 39
+      - 39
+    drawn: false
+  - _id: BaWeUzhgkmowAi2U
+    flags: {}
+    type: 0
+    text: Drummond
+    weight: 1
+    range:
+      - 40
+      - 40
+    drawn: false
+  - _id: cA3slOvDAidVC6ft
+    flags: {}
+    type: 0
+    text: Helga
+    weight: 1
+    range:
+      - 41
+      - 41
+    drawn: false
+  - _id: Z9HnmTKkFMdvVTNg
+    flags: {}
+    type: 0
+    text: Siggrun
+    weight: 1
+    range:
+      - 42
+      - 42
+    drawn: false
+  - _id: UsIP4vK0vHexzT2Z
+    flags: {}
+    type: 0
+    text: Freya
+    weight: 1
+    range:
+      - 43
+      - 43
+    drawn: false
+  - _id: R5qMMCfONUQgqJtr
+    flags: {}
+    type: 0
+    text: Wesley
+    weight: 1
+    range:
+      - 44
+      - 44
+    drawn: false
+  - _id: s60ZAK4t96aX656s
+    flags: {}
+    type: 0
+    text: Brinton
+    weight: 1
+    range:
+      - 45
+      - 45
+    drawn: false
+  - _id: 3UjtjKaZA4dotnat
+    flags: {}
+    type: 0
+    text: Jon
+    weight: 1
+    range:
+      - 46
+      - 46
+    drawn: false
+  - _id: NfXRe6U2O1aqt5ZD
+    flags: {}
+    type: 0
+    text: Sara
+    weight: 1
+    range:
+      - 47
+      - 47
+    drawn: false
+  - _id: SYxKLC3rZGOd90Tx
+    flags: {}
+    type: 0
+    text: Hawthorn
+    weight: 1
+    range:
+      - 48
+      - 48
+    drawn: false
+  - _id: r3vOpSibkm14YuPn
+    flags: {}
+    type: 0
+    text: Elise
+    weight: 1
+    range:
+      - 49
+      - 49
+    drawn: false
+  - _id: k9e1KCK4Ku3qtvwk
+    flags: {}
+    type: 0
+    text: Clarke
+    weight: 1
+    range:
+      - 50
+      - 50
+    drawn: false
+  - _id: Uo91RCCaNPCMmDn4
+    flags: {}
+    type: 0
+    text: Lenore
+    weight: 1
+    range:
+      - 51
+      - 51
+    drawn: false
+  - _id: tFX5KsD4nGTfrFa6
+    flags: {}
+    type: 0
+    text: Piotr
+    weight: 1
+    range:
+      - 52
+      - 52
+    drawn: false
+  - _id: c4rqGmLeqPcfpwcO
+    flags: {}
+    type: 0
+    text: Dahlia
+    weight: 1
+    range:
+      - 53
+      - 53
+    drawn: false
+  - _id: bxrabm78IAcUssVf
+    flags: {}
+    type: 0
+    text: Carmine
+    weight: 1
+    range:
+      - 54
+      - 54
+    drawn: false
+  - _id: dYcm8UgAE1cXqy0d
+    flags: {}
+    type: 0
+    text: Hycorax
+    weight: 1
+    range:
+      - 55
+      - 55
+    drawn: false
+  - _id: oljNIvKAUK032pHQ
+    flags: {}
+    type: 0
+    text: Ethanwe
+    weight: 1
+    range:
+      - 56
+      - 56
+    drawn: false
+  - _id: QcEuBx5zoEhpZyZW
+    flags: {}
+    type: 0
+    text: Sinathel
+    weight: 1
+    range:
+      - 57
+      - 57
+    drawn: false
+  - _id: BVAIiXuq057jStNz
+    flags: {}
+    type: 0
+    text: Demanor
+    weight: 1
+    range:
+      - 58
+      - 58
+    drawn: false
+  - _id: qZd1PiyFYFeWvzmM
+    flags: {}
+    type: 0
+    text: Menoliir
+    weight: 1
+    range:
+      - 59
+      - 59
+    drawn: false
+  - _id: FP9uTeguHFxw623a
+    flags: {}
+    type: 0
+    text: Mithralan
+    weight: 1
+    range:
+      - 60
+      - 60
+    drawn: false
+  - _id: KsWeSn3Xukijpv24
+    flags: {}
+    type: 0
+    text: Taeros
+    weight: 1
+    range:
+      - 61
+      - 61
+    drawn: false
+  - _id: g2wOsPuOXP1Ygt6Q
+    flags: {}
+    type: 0
+    text: Aegor
+    weight: 1
+    range:
+      - 62
+      - 62
+    drawn: false
+  - _id: 4jqtx3UZdy9gEQkm
+    flags: {}
+    type: 0
+    text: Tanner
+    weight: 1
+    range:
+      - 63
+      - 63
+    drawn: false
+  - _id: DHaxjPB4uVnEXY9H
+    flags: {}
+    type: 0
+    text: Dunstan
+    weight: 1
+    range:
+      - 64
+      - 64
+    drawn: false
+  - _id: USo2ouN23OS5Kg5w
+    flags: {}
+    type: 0
+    text: Rose
+    weight: 1
+    range:
+      - 65
+      - 65
+    drawn: false
+  - _id: FR8xkz5XFHZvuPaN
+    flags: {}
+    type: 0
+    text: Ivy
+    weight: 1
+    range:
+      - 66
+      - 66
+    drawn: false
+  - _id: fdhW2rwAbMg0wREq
+    flags: {}
+    type: 0
+    text: Robard
+    weight: 1
+    range:
+      - 67
+      - 67
+    drawn: false
+  - _id: 0HXCJvhwAiqGav0W
+    flags: {}
+    type: 0
+    text: Mab
+    weight: 1
+    range:
+      - 68
+      - 68
+    drawn: false
+  - _id: w5xdhnTvQaQ2GcpT
+    flags: {}
+    type: 0
+    text: Thistle
+    weight: 1
+    range:
+      - 69
+      - 69
+    drawn: false
+  - _id: 9gc7mmrExDOjmxGg
+    flags: {}
+    type: 0
+    text: Puck
+    weight: 1
+    range:
+      - 70
+      - 70
+    drawn: false
+  - _id: kAZ41NBCtJ6hUH9f
+    flags: {}
+    type: 0
+    text: Anne
+    weight: 1
+    range:
+      - 71
+      - 71
+    drawn: false
+  - _id: u3WO4fmVW041G2Mc
+    flags: {}
+    type: 0
+    text: Serah
+    weight: 1
+    range:
+      - 72
+      - 72
+    drawn: false
+  - _id: SkRnT3WIrBIa6O1V
+    flags: {}
+    type: 0
+    text: Elana
+    weight: 1
+    range:
+      - 73
+      - 73
+    drawn: false
+  - _id: lyVISEvpcq5qmGaE
+    flags: {}
+    type: 0
+    text: Obelis
+    weight: 1
+    range:
+      - 74
+      - 74
+    drawn: false
+  - _id: e6fBH3y6j2S3l9SV
+    flags: {}
+    type: 0
+    text: Herran
+    weight: 1
+    range:
+      - 75
+      - 75
+    drawn: false
+  - _id: wgAgUgcqHLyk0hZX
+    flags: {}
+    type: 0
+    text: Syla
+    weight: 1
+    range:
+      - 76
+      - 76
+    drawn: false
+  - _id: 21zBhwd7mXeDFKrM
+    flags: {}
+    type: 0
+    text: Andanna
+    weight: 1
+    range:
+      - 77
+      - 77
+    drawn: false
+  - _id: 441arvfgyAh2dPYr
+    flags: {}
+    type: 0
+    text: Siobhan
+    weight: 1
+    range:
+      - 78
+      - 78
+    drawn: false
+  - _id: qXYJwzTDDYDDCSJO
+    flags: {}
+    type: 0
+    text: Aziz
+    weight: 1
+    range:
+      - 79
+      - 79
+    drawn: false
+  - _id: DmSgJoRMqGywvUEW
+    flags: {}
+    type: 0
+    text: Pelin
+    weight: 1
+    range:
+      - 80
+      - 80
+    drawn: false
+  - _id: kXDmjuX1UdLPvjgV
+    flags: {}
+    type: 0
+    text: Sibel
+    weight: 1
+    range:
+      - 81
+      - 81
+    drawn: false
+  - _id: KN6opRKpcqhr0B4Y
+    flags: {}
+    type: 0
+    text: Nils
+    weight: 1
+    range:
+      - 82
+      - 82
+    drawn: false
+  - _id: t7bUcSPbRds3znQC
+    flags: {}
+    type: 0
+    text: Wei
+    weight: 1
+    range:
+      - 83
+      - 83
+    drawn: false
+  - _id: HtspNyqeiy1yMyhl
+    flags: {}
+    type: 0
+    text: Ozruk
+    weight: 1
+    range:
+      - 84
+      - 84
+    drawn: false
+  - _id: YJlxLUmXMiitZZHc
+    flags: {}
+    type: 0
+    text: Surtur
+    weight: 1
+    range:
+      - 85
+      - 85
+    drawn: false
+  - _id: inNUXp4HJXmFtkgZ
+    flags: {}
+    type: 0
+    text: Brunhilda
+    weight: 1
+    range:
+      - 86
+      - 86
+    drawn: false
+  - _id: gRNyl4kMiVZDNgqI
+    flags: {}
+    type: 0
+    text: Annika
+    weight: 1
+    range:
+      - 87
+      - 87
+    drawn: false
+  - _id: hMsykCrllBDKyzo5
+    flags: {}
+    type: 0
+    text: Janos
+    weight: 1
+    range:
+      - 88
+      - 88
+    drawn: false
+  - _id: 6IXmTF1cye5MKZAA
+    flags: {}
+    type: 0
+    text: Greta
+    weight: 1
+    range:
+      - 89
+      - 89
+    drawn: false
+  - _id: 8XgOp7Ew1r3CPpo9
+    flags: {}
+    type: 0
+    text: Dim
+    weight: 1
+    range:
+      - 90
+      - 90
+    drawn: false
+  - _id: hDczt9W4zkcYF88j
+    flags: {}
+    type: 0
+    text: Rundrig
+    weight: 1
+    range:
+      - 91
+      - 91
+    drawn: false
+  - _id: C9FbzXOV5sOUy7TF
+    flags: {}
+    type: 0
+    text: Jarl
+    weight: 1
+    range:
+      - 92
+      - 92
+    drawn: false
+  - _id: JO1M9BfttWXxLqtl
+    flags: {}
+    type: 0
+    text: Xotoq
+    weight: 1
+    range:
+      - 93
+      - 93
+    drawn: false
+  - _id: M5ZL7BBkfVHGTImu
+    flags: {}
+    type: 0
+    text: Elohiir
+    weight: 1
+    range:
+      - 94
+      - 94
+    drawn: false
+  - _id: jOTxNeL2QOA1dE53
+    flags: {}
+    type: 0
+    text: Sharaseth
+    weight: 1
+    range:
+      - 95
+      - 95
+    drawn: false
+  - _id: fQoXith3nqVlTZVi
+    flags: {}
+    type: 0
+    text: Hasrith
+    weight: 1
+    range:
+      - 96
+      - 96
+    drawn: false
+  - _id: DcnAG7bR9SiZboGc
+    flags: {}
+    type: 0
+    text: Shevaral
+    weight: 1
+    range:
+      - 97
+      - 97
+    drawn: false
+  - _id: yxQQQENJazmUHe8n
+    flags: {}
+    type: 0
+    text: Cadeus
+    weight: 1
+    range:
+      - 98
+      - 98
+    drawn: false
+  - _id: cmuwHcU782gQNeRA
+    flags: {}
+    type: 0
+    text: Eldar
+    weight: 1
+    range:
+      - 99
+      - 99
+    drawn: false
+  - _id: RU8qKVx343APILn4
+    flags: {}
+    type: 0
+    text: Kithracet
+    weight: 1
+    range:
+      - 100
+      - 100
+    drawn: false
+  - _id: UgKUOV5bkiX4nIin
+    flags: {}
+    type: 0
+    text: Thelian
+    weight: 1
+    range:
+      - 101
+      - 101
+    drawn: false
+  - _id: yrRqeeha42wqke3n
+    flags: {}
+    type: 0
+    text: Finnegan
+    weight: 1
+    range:
+      - 102
+      - 102
+    drawn: false
+  - _id: EhiIuP9BKr7nNsch
+    flags: {}
+    type: 0
+    text: Olive
+    weight: 1
+    range:
+      - 103
+      - 103
+    drawn: false
+  - _id: ledUzGccJcO3lTI4
+    flags: {}
+    type: 0
+    text: Randolph
+    weight: 1
+    range:
+      - 104
+      - 104
+    drawn: false
+  - _id: aLIlQjohj4jO3Qt0
+    flags: {}
+    type: 0
+    text: Bartleby
+    weight: 1
+    range:
+      - 105
+      - 105
+    drawn: false
+  - _id: g47YHmnM7btWM4TE
+    flags: {}
+    type: 0
+    text: Aubrey
+    weight: 1
+    range:
+      - 106
+      - 106
+    drawn: false
+  - _id: 9OGvmivcxREpcKpV
+    flags: {}
+    type: 0
+    text: Baldwin
+    weight: 1
+    range:
+      - 107
+      - 107
+    drawn: false
+  - _id: Zaf28FtxTbW4NQYX
+    flags: {}
+    type: 0
+    text: Becca
+    weight: 1
+    range:
+      - 108
+      - 108
+    drawn: false
+  - _id: Cf3tbR6Y5cxxMpLR
+    flags: {}
+    type: 0
+    text: Hawke
+    weight: 1
+    range:
+      - 109
+      - 109
+    drawn: false
+  - _id: z5UVza5yE5E7azeZ
+    flags: {}
+    type: 0
+    text: Rudiger
+    weight: 1
+    range:
+      - 110
+      - 110
+    drawn: false
+  - _id: Q5kQzQF9107cPs0E
+    flags: {}
+    type: 0
+    text: Gregor
+    weight: 1
+    range:
+      - 111
+      - 111
+    drawn: false
+  - _id: Iew8rR6CBlFxRvEz
+    flags: {}
+    type: 0
+    text: Brianne
+    weight: 1
+    range:
+      - 112
+      - 112
+    drawn: false
+  - _id: JTQTfMURp7bGWvrF
+    flags: {}
+    type: 0
+    text: Walton
+    weight: 1
+    range:
+      - 113
+      - 113
+    drawn: false
+formula: 1d113
+replacement: true
+displayRoll: true

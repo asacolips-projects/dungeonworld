@@ -1,0 +1,27 @@
+name: Lamented Memento
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>Taking the form of a single lock of bright red hair, bound in a black
+    ribbon and immune to the ravages of time, the Lamented Memento bears a grim
+    enchantment. In it are the memories and emotions of a girl who dealt with
+    Death at the Black Gates so many times that, in the end, they fell in love
+    and she left the world to be with him for a time. Her memory protects the
+    wielder. If he finds himself at the Gates, the Memento can be traded for an
+    automatic result of 10+ on the last breath move.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/commodities/cloth/yarn-skein-white-grey.webp
+effects: []
+_id: QQ8mDhtGdnYSSPDp

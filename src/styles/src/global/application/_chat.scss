@@ -3,14 +3,62 @@
     background: $c-white;
     font-family: $font-stack-base;
 
+    .message-sender {
+      font-family: $font-stack-base;
+    }
+
+    .chat-title {
+      align-items: center;
+      border: 1px solid $ct-gray;
+      border-left: 0;
+      border-right: 0;
+      padding: 4px 0;
+    }
+
+    .item-icon {
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      margin-right: 8px;
+    }
+
+    .cell__title {
+      font-size: 20px;
+      text-transform: capitalize;
+      line-height: 1;
+      margin: 0;
+      border: 0;
+    }
+
     &.whisper {
       background: #e0ecff;
     }
 
     .result {
+      padding: 0;
+      margin: 25px 0;
+      border: 2px solid;
+      border-left: 0;
+      border-right: 0;
+    }
+
+    .result-label {
       text-align: center;
       font-size: 18px;
       font-weight: bold;
+      border-bottom: 1px solid #ccc;
+      margin: 0;
+      padding: 10px;
+      background: #efefef;
+    }
+
+    .result-details {
+      padding: 10px 10px 0;
+      margin-bottom: 10px;
+    }
+
+    .result-choices {
+      margin: 10px 0;
     }
 
     .failure {
@@ -24,6 +72,10 @@
     .success {
       color: $c-success;
     }
+
+    .critical {
+      color: $c-critical;
+    }
   }
 
   .message-sender {
@@ -34,6 +86,8 @@
     font-family: $font-stack-secondary;
     font-weight: bold;
     font-size: 16px;
+    border-bottom: 2px solid $c-black;
+    margin-bottom: 15px;
   }
 
   h1,

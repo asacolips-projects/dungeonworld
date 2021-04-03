@@ -1,0 +1,16 @@
+name: Steel Hide
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: <p>You gain +2 armor.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Iron Hide
+  class: 'The Fighter'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: lhoOVl9UwdsbL2Ey

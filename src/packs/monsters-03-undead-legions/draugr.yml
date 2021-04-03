@@ -1,0 +1,83 @@
+_id: oRJC9QS1UObFzJqu
+name: Draugr
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 7
+      min: 0
+      max: 7
+    ac:
+      value: 2
+      base: 0
+      min: 0
+    damage:
+      value: d6+1
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Icy touch
+  details:
+    biography: >-
+      <p>In the Nordemark, the men and women tell tales in their wooden halls of
+      a place where the noble dead go. A mead hall atop their heavenly mountain
+      where men of valor go to await the final battle for the world. It is a
+      goodly place. It is a place where one hopes to go after death. And the
+      inglorious dead? Those who fall to poison or in an act of cowardice,
+      warriors though they may be? Well, those mead halls aren&rsquo;t open to
+      all and sundry. Some come back, frozen and twisted and empowered by
+      jealous rage and wage their eternal war not on the forces of giants or
+      trolls but on the towns of the men they once knew.</p>
+
+      <p>Instinct: To take from the living</p>
+
+      <ul>
+
+      <li>Freeze flesh</li>
+
+      <li>Call on the unworthy dead</li>
+
+      </ul>
+  tags: >-
+    [{"value":"horde"},{"value":"organized"},{"value":"close"},{"value":"reach"}]
+  tagsString: 'horde, organized, close, reach'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Draugr
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: oRJC9QS1UObFzJqu
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
