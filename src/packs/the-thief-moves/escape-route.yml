@@ -6,15 +6,23 @@ data:
   name: ''
   description: >-
     <p>When you’re <strong>in too deep and need a way out</strong>, name your
-    escape route and roll+DEX. • On a 10+ you’re gone. • On a 7–9 you can stay
-    or go, but if you go it costs you: leave something behind or take something
-    with you, the GM will tell you what.</p>
+    escape route and roll+DEX.</p>
   rollType: DEX
   rollMod: 0
   requiresLevel: 6
   requiresMove: ''
   class: 'The Thief'
   moveType: advanced
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>You can stay or go, but if you go it costs you: leave something
+        behind or take something with you, the GM will tell you what.</p>
+    success:
+      value: >-
+        <p>You’re gone.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
 _id: ZgyhQpdQNZ3ULIVa
