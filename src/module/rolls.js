@@ -240,9 +240,10 @@ export class DwRolls {
           }
 
           // Handle XP.
-          if (resultType == 'failure') {
-            xpGranted = true;
-          }
+          const token = this.actor.token;
+          templateData.actor = this.actor.data;
+          templateData.tokenId = token ? `${token.scene._id}.${token.id}` : null;
+          templateData.xp = resultType == 'failure' ? true : false;
 
           // Update the templateData.
           templateData.resultLabel = resultRanges[resultType]?.label ?? resultType;
@@ -297,10 +298,6 @@ export class DwRolls {
     // Update forward.
     if (forwardUsed) {
       await this.actor.update({'data.attributes.forward.value': 0});
-    }
-
-    if (xpGranted && this.actor.data.type == 'character') {
-      await this.actor.update({'data.attributes.xp.value': Number(this.actor.data.data.attributes.xp.value) + 1});
     }
   }
 }

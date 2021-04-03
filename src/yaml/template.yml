@@ -24,6 +24,7 @@ Actor:
         xp:
           value: 0
           min: 0
+          max: 8
       details:
         biography: ''
   character:
@@ -105,9 +106,7 @@ Item:
       description: ''
     move:
       choices: ''
-      requiresMove: ''
       moveType: null
-      moveGroup: ''
       moveResults:
         failure:
           value: ''

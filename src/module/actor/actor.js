@@ -60,6 +60,10 @@ export class ActorDw extends Actor {
     // Add base flags.
     if (!actorData.flags.dungeonworld) actorData.flags.dungeonworld = {};
     if (!actorData.flags.dungeonworld.sheetDisplay) actorData.flags.dungeonworld.sheetDisplay = {};
+
+    // Handle max XP.
+    let level = data.attributes.level.value ?? 1;
+    data.attributes.xp.max = 7 + Number(level);
   }
 
   /**
