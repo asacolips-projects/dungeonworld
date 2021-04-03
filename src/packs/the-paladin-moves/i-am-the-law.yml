@@ -7,25 +7,28 @@ data:
   name: ''
   description: >-
     <p>When you <strong>give an NPC an order based on your divine
-    authority</strong>, roll+Cha. • On a 7+, they choose one:</p>
-
+    authority</strong>, roll+CHA.</p>
+  choices: >-
     <ul>
-
     <li>Do what you say.</li>
-
     <li>Back away cautiously, then flee.</li>
-
     <li>Attack you.</li>
-
     </ul>
-
-    <p>On a 10+, you also take +1 forward against them. • On a miss, they do as
-    they please and you take -1 forward against them.</p>
   rollType: CHA
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
   class: 'The Paladin'
   moveType: starting
+  moveResults:
+    failure:
+      value: >-
+        <p>They do as they please and you take -1 forward against them.</p>
+    partial:
+      value: >-
+        <p>They choose one.</p>
+    success:
+      value: >-
+        <p>They choose one, and you take +1 forward against them.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
