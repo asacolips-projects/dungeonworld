@@ -21,6 +21,10 @@
                 <input name="data.attributes.xp.value" type="text" value="{{data.attributes.xp.value}}" placeholder="XP" data-dtype="Number"/>
                 {{{progressCircle data.xpSvg}}}
               </div>
+              <div class="flex-item flex-item--xp-button">
+                <button type="button" class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.xp.value">-</button>
+                <button type="button" class="resource-control resource-increase" data-action="increase" data-attr="attributes.xp.value">+</button>
+              </div>
               <div class="flex-item flex-item--level-up">
                 <a class="{{#if data.levelup}}clickable-level-up{{else}}disabled-level-up{{/if}}"><i class="fas fa-user-plus"></i></a>
               </div>
@@ -114,9 +118,13 @@
           <div class="cell cell--hp">
             <label for="data.attributes.hp.value" class="cell__title">{{localize "DW.HP"}}<i class="fas fa-heart attribute-icon"></i></label>
             <div class="cell__counter">
-              <input type="text" name="data.attributes.hp.value" value="{{data.attributes.hp.value}}" data-dtype="Number"/>
+              <div class="cell__wrapper">
+                <button type="button" class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.hp.value">-</button>
+                <input type="text" name="data.attributes.hp.value" value="{{data.attributes.hp.value}}" data-dtype="Number"/>
+                <button type="button" class="resource-control resource-increase" data-action="increase" data-attr="attributes.hp.value">+</button>
+              </div>
               <span> / </span>
-              <input type="text" name="data.attributes.hp.max" value="{{data.attributes.hp.max}}" data-dtype="Number"/>
+              <input type="text" class="hp--max" name="data.attributes.hp.max" value="{{data.attributes.hp.max}}" data-dtype="Number"/> 
             </div>
           </div>
 
@@ -131,7 +139,11 @@
 
           <div class="cell cell--coin">
             <label class="cell__title">{{localize "DW.Coin"}}<i class="fas fa-coins attribute-icon"></i></label>
-            <input type="text" name="data.attributes.coin.value" value="{{data.attributes.coin.value}}" data-dtype="Number"/>
+            <div class="cell__wrapper">
+              <button type="button" class="resource-control resource-decrease" data-action="decrease" data-attr="attributes.coin.value">-</button>
+              <input type="text" name="data.attributes.coin.value" value="{{data.attributes.coin.value}}" data-dtype="Number"/>
+              <button type="button" class="resource-control resource-increase" data-action="increase" data-attr="attributes.coin.value">+</button>
+            </div>
           </div>
 
           <div class="cell cell--abilities">
