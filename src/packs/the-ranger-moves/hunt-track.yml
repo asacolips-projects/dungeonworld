@@ -6,24 +6,27 @@ data:
   name: ''
   description: >-
     <p>When you <strong>follow a trail of clues left behind by passing
-    creatures</strong>, roll+WIS. • On a 7+, you follow the creature’s trail
-    until there’s a significant change in its direction or mode of travel. • On
-    a 10+, you also choose 1:</p>
-
-    <ul>
-
-    <li>Gain a useful bit of information about your quarry, the GM will tell you
-    what</li>
-
-    <li>Determine what caused the trail to end</li>
-
-    </ul>
+    creatures</strong>, roll+WIS.</p>
   rollType: WIS
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
   class: 'The Ranger'
   moveType: starting
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>You follow the creature’s trail until there’s a significant change in its direction or mode of travel.</p>
+    success:
+      value: >-
+        <p>You follow the creature’s trail until there’s a significant change in
+        its direction or mode of travel. You also choose 1:</p>
+        <ul>
+        <li>Gain a useful bit of information about your quarry, the GM will tell you what</li>
+        <li>Determine what caused the trail to end</li>
+        </ul>
 flags: {}
 img: icons/svg/mystery-man.svg
 _id: VRCeADx2hqurBG1u
