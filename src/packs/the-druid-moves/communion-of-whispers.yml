@@ -6,7 +6,7 @@ data:
   name: ''
   description: >-
     <p>When you <strong>spend time in a place</strong>, making note of its
-    resident spirits and calling on the spirits of the land, roll+Wis. You will
+    resident spirits and calling on the spirits of the land, roll+WIS. You will
     be granted a vision of significance to you, your allies, and the spirits
     around you.</p>
   rollType: WIS

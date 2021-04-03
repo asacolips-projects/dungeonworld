@@ -7,7 +7,7 @@ data:
   name: ''
   description: >-
     <p>When you <strong>hold your holy symbol aloft and call on your deity for
-    protection</strong>, roll+Wis.</p>
+    protection</strong>, roll+WIS.</p>
   rollType: WIS
   rollMod: 0
   requiresLevel: 0

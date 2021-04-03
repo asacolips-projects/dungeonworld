@@ -5,7 +5,7 @@ type: move
 data:
   name: ''
   description: >-
-    <p>When you <strong>cry out a challenge to your enemies</strong>, roll+Con.</p>
+    <p>When you <strong>cry out a challenge to your enemies</strong>, roll+CON.</p>
   rollType: CON
   rollMod: 0
   requiresLevel: 0
