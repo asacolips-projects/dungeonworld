@@ -9,23 +9,22 @@ data:
     resident spirits and calling on the spirits of the land, roll+Wis. You will
     be granted a vision of significance to you, your allies, and the spirits
     around you.</p>
-
-    <ul>
-
-    <li>On a 10+ the vision will be clear and helpful to you.</li>
-
-    <li>On a 7–9 the vision is unclear, its meaning murky.</li>
-
-    <li>On a miss, the vision is upsetting, frightening, or traumatizing. The GM
-    will describe it. Take -1 forward.</li>
-
-    </ul>
   rollType: WIS
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
   class: 'The Druid'
   moveType: advanced
+  moveResults:
+    failure:
+      value: >-
+        <p>The vision is upsetting, frightening, or traumatizing. The GM will describe it. Take -1 forward.</p>
+    partial:
+      value: >-
+        <p>The vision is unclear, its meaning murky.</p>
+    success:
+      value: >-
+        <p>The vision will be clear and helpful to you.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
 _id: gnXOkp07Uuj0UFMa
