@@ -9,13 +9,10 @@ data:
     <p>When you <strong>cast a spell</strong>, on a 10+ you have the option of
     choosing from the 7–9 list. If you do, you may choose one of these effects
     as well:</p>
-
+  choices: >-
     <ul>
-
     <li>The spell’s effects are doubled</li>
-
     <li>The spell’s targets are doubled</li>
-
     </ul>
   rollType: ''
   rollMod: 0
@@ -23,5 +20,12 @@ data:
   requiresMove: ''
   class: 'The Cleric'
   moveType: advanced
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
 flags: {}
 img: icons/svg/mystery-man.svg
