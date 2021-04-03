@@ -7,14 +7,22 @@ data:
   name: ''
   description: >-
     <p>When you <strong>put out word to the criminal underbelly about something
-    you want or need</strong>, roll+CHA. • On a 10+, someone has it, just for
-    you. • On a 7–9, you’ll have to settle for something close or it comes with
-    strings attached, your call.</p>
+    you want or need</strong>, roll+CHA.</p>
   rollType: CHA
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
   class: 'The Thief'
   moveType: advanced
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>You’ll have to settle for something close or it comes with
+        strings attached, your call.</p>
+    success:
+      value: >-
+        <p>Someone has it, just for you.</p>
 flags: {}
 img: icons/svg/mystery-man.svg

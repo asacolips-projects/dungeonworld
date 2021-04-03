@@ -7,14 +7,21 @@ data:
   name: ''
   description: >-
     <p>When you <strong>touch someone</strong>, skin to skin, and pray for their
-    well-being, roll+CHA. • On a 10+ you heal 1d8 damage or remove one disease.
-    • On a 7–9, they are healed, but the damage or disease is transferred to
-    you.</p>
+    well-being, roll+CHA.</p>
   rollType: CHA
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
   class: 'The Paladin'
   moveType: starting
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>You heal [[1d8]] damage from them or remove one disease. However, the damage or disease is transferred to you.</p>
+    success:
+      value: >-
+        <p>You heal [[1d8]] damage from them or remove one disease.</p>
 flags: {}
 img: icons/svg/mystery-man.svg

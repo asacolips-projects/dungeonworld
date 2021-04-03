@@ -7,15 +7,23 @@ data:
   description: >-
     <p>When you <strong>stare into a source of fire</strong>, looking for
     answers, roll+WIS. On a hit, the GM will tell you something new and
-    interesting about the current situation. On a 10+, the GM will give you good
-    detail. On a 7–9, the GM will give you an impression. If you already know
-    all there is to know, the GM will tell you that.</p>
+    interesting about the current situation.</p>
   rollType: WIS
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
   class: 'The Immolator'
   moveType: advanced
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>The GM will give you an impression. If you already know
+        all there is to know, the GM will tell you that.</p>
+    success:
+      value: >-
+        <p>The GM will give you good detail.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
 _id: Y7tHITmZA1MNz79X

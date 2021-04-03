@@ -7,15 +7,22 @@ data:
   description: >-
     <p>When you <strong>consult the spirits that reside within your signature
     weapon</strong>, they will give you an insight relating to the current
-    situation, and might ask you some questions in return, roll+CHA. • On a 10+,
-    the GM will give you good detail. • On a 7-9, the GM will give you an
-    impression.</p>
+    situation, and might ask you some questions in return, roll+CHA.</p>
   rollType: CHA
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
   class: 'The Fighter'
   moveType: advanced
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p> the GM will give you an impression.</p>
+    success:
+      value: >-
+        <p>The GM will give you good detail.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
 _id: 3TrwwyaE1Yj01DCL

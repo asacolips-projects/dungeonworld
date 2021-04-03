@@ -5,16 +5,23 @@ type: move
 data:
   name: ''
   description: >-
-    <p>When you <strong>insult an NPC</strong>, roll + CHA. On a 10+ you leave
-    them no room to react, they bear your insult and the scorn of all who hear
-    it. On a 7-9 you cross a line, they will have their revenge, someday. On a
-    miss you've gone too far, they blow up here and now.</p>
+    <p>When you <strong>insult an NPC</strong>, roll + CHA.</p>
   rollType: CHA
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
   class: 'The Immolator'
   moveType: advanced
+  moveResults:
+    failure:
+      value: >-
+        <p>You've gone too far, they blow up here and now.</p>
+    partial:
+      value: >-
+        <p>You cross a line, they will have their revenge, someday.</p>
+    success:
+      value: >-
+        <p>You leave them no room to react, they bear your insult and the scorn of all who hear it.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
 _id: e82qaTkvMCYyeK86

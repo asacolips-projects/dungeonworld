@@ -7,15 +7,23 @@ data:
   description: >-
     <p>When you <strong>unleash a crazed performance</strong> (a righteous lute
     solo or mighy brass blast, maybe) choose a target who can hear you and
-    roll+CHA. • On a 10+ the target attacks their nearest ally in range. • On a
-    7-9 they attack their nearest ally, but you also draw their attention and
-    ire.</p>
+    roll+CHA.</p>
   rollType: CHA
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
   class: 'The Bard'
   moveType: advanced
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>They attack their nearest ally, but you also draw their attention and
+        ire.</p>
+    success:
+      value: >-
+        <p>The target attacks their nearest ally in range.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
 _id: 3uGxvZ2eTyr2jYYw

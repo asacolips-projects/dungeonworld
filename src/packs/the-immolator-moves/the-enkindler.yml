@@ -5,17 +5,24 @@ type: move
 data:
   name: ''
   description: >-
-    <p>When you <strong>bolster the courage of others</strong> roll+CHA. On a
-    10+ they shake off all fear and doubt, becoming brave in an instant. On a
-    7-9, this effect is fleeting, they realize its superficiality and resort to
-    cowardice after a moment or two. On a miss, they’re cowed or terrified by
-    your presence.</p>
+    <p>When you <strong>bolster the courage of others</strong> roll+CHA.</p>
   rollType: CHA
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
   class: 'The Immolator'
   moveType: advanced
+  moveResults:
+    failure:
+      value: >-
+        <p>They’re cowed or terrified by your presence.</p>
+    partial:
+      value: >-
+        <p>This effect is fleeting, they realize its superficiality and resort to
+        cowardice after a moment or two.</p>
+    success:
+      value: >-
+        <p>They shake off all fear and doubt, becoming brave in an instant.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
 _id: 3zPJfcwfDfASiWMB

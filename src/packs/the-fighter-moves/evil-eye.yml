@@ -5,16 +5,25 @@ type: move
 data:
   name: ''
   description: >-
-    <p>When you <strong>enter combat</strong>, roll+CHA. • On a 10+, hold 2. •
-    On a 7-9, hold 1. Spend your hold to make eye contact with an NPC present,
-    who freezes or flinches and can’t act until you break it off. • On a 6-,
-    your enemies immediately identify you as their biggest threat.</p>
+    <p>When you <strong>enter combat</strong>, roll+CHA. Spend your hold to make
+    eye contact with an NPC present, who freezes or flinches and can’t act until
+    you break it off.</p>
   rollType: CHA
   rollMod: 0
   requiresLevel: 6
   requiresMove: Seeing Red
   class: 'The Fighter'
   moveType: advanced
+  moveResults:
+    failure:
+      value: >-
+        <p>Your enemies immediately identify you as their biggest threat.</p>
+    partial:
+      value: >-
+        <p>Hold 1.</p>
+    success:
+      value: >-
+        <p>Hold 2.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
 _id: VV5WsSWyrpXiDo6l
