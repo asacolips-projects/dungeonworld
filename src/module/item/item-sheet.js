@@ -16,7 +16,7 @@ export class DwItemSheet extends ItemSheet {
       submitOnChange: false,
     });
 
-    if (game.settings.get('dungeonworld', 'nightmode')) {
+    if (CONFIG.DW.nightmode) {
       options.classes.push('nightmode');
     }
 

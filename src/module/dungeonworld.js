@@ -117,6 +117,9 @@ Hooks.once("ready", async function() {
   for (let [k,v] of Object.entries(CONFIG.DW.rollResults)) {
     CONFIG.DW.rollResults[k].label = game.i18n.localize(v.label);
   }
+
+  // Add nightmode class.
+  CONFIG.DW.nightmode = game.settings.get('dungeonworld', 'nightmode') ?? false;
 });
 
 Hooks.on('renderChatMessage', (data, html, options) => {

@@ -93,6 +93,7 @@ Actor:
 Item:
   types:
     - move
+    - npcMove
     - equipment
     - spell
     - bond
@@ -125,6 +126,11 @@ Item:
     requiresMove: ''
     moveType:
     moveGroup: ''
+  npcMove:
+    templates:
+      - base
+      - move
+    rollFormula: ''
   equipment:
     templates:
       - base

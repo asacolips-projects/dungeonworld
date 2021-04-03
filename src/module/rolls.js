@@ -49,6 +49,12 @@ export class DwRolls {
     let templateData = options.templateData ? duplicate(options.templateData): {};
     let data = {};
 
+    let dlgOptions = {
+      classes: ['dungeonworld', 'dw-dialog']
+    };
+
+    if (CONFIG.DW.nightmode) dlgOptions.classes.push('nightmode');
+
     // Handle item rolls (moves).
     if (item) {
       // Handle moves.
@@ -80,7 +86,7 @@ export class DwRolls {
             title: game.i18n.localize('DW.Dialog.askTitle'),
             content: `<p>${game.i18n.format('DW.Dialog.askContent', {name: item.name})}`,
             buttons: statButtons
-          }).render(true);
+          }, dlgOptions).render(true);
         }
         // If this is a PROMPT roll, render a different bond to let the user
         // enter their bond value.
@@ -103,7 +109,7 @@ export class DwRolls {
                   }
                 }
               }
-            }).render(true);
+            }, dlgOptions).render(true);
           })
 
         }

@@ -1,0 +1,65 @@
+<form class="{{cssClass}} item-form flexcol" autocomplete="off">
+  <div class="sheet-wrapper flexcol">
+
+    <header class="sheet-header flexrow">
+      <div class="cell cell--image">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+      </div>
+      <div class="header-fields">
+        <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize "DW.Common.Name"}}"/></h1>
+      </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-navigation sheet-tabs tabs" data-group="primary">
+      <a class="item" data-tab="description">{{localize "DW.Common.Description" }}</a>
+      <a class="item" data-tab="details">{{localize "DW.Common.Details" }}</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+          <div class="resource">
+            <label>{{localize "DW.Description"}}</label>
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+          </div>
+
+          {{!-- TODO: Add moveResults here later if needed. --}}
+
+        </div>
+
+        {{!-- Details Tab --}}
+        <div class="tab" data-group="primary" data-tab="details">
+          <div class="resource">
+            <label>{{localize "DW.RollFormula"}}</label>
+            <input type="text" name="data.rollFormula" value="{{data.rollFormula}}" placeholder="ex: 2d12kh+2" data-dtype="String"/>
+          </div>
+
+          <div class="resource">
+            <label>{{localize "DW.MoveType"}}</label>
+            <select name="data.moveType" data-dtype="String">
+              {{#select data.moveType}}
+              <option value="">—</option>
+              <option value="basic">{{localize "DW.MoveBasic"}}</option>
+              <option value="special">{{localize "DW.MoveSpecial"}}</option>
+              {{/select}}
+            </select>
+          </div>
+
+          <div class="resource">
+            <label>{{localize "DW.RequiresMove"}}</label>
+            <input type="text" name="data.requiresMove" value="{{data.requiresMove}}" data-dtype="String"/>
+          </div>
+
+          <div class="resource">
+            <label>{{localize "DW.MoveGroup"}}</label>
+            <input type="text" name="data.moveGroup" value="{{data.moveGroup}}" placeholder="ex: barbarian-armor" data-dtype="String"/>
+            <span class="help-text">{{localize "DW.MoveGroupHelp"}}</span>
+          </div>
+
+        </div>
+    </section>
+  </div>
+</form>

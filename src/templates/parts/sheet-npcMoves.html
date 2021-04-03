@@ -3,8 +3,6 @@
     <span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">
       {{#if item.data.rollType}}
         <i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>
-      {{else if item.data.rollFormula}}
-        <i class="fas fa-dice-d20"></i>
       {{else}}
         <i class="fas fa-book"></i>
       {{/if}}
@@ -16,10 +14,6 @@
 {{#if item.data.rollType}}
   <div class="item-meta tags">
     <span class="tag">{{getLabel statSettings item.data.rollType}}</span>
-  </div>
-{{else if item.data.rollFormula}}
-  <div class="item-meta tags">
-    <span class="tag">{{item.data.rollFormula}}</span>
   </div>
 {{/if}}
 <div class="item-controls">

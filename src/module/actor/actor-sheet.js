@@ -17,7 +17,7 @@ export class DwActorSheet extends ActorSheet {
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "moves" }]
     });
 
-    if (game.settings.get('dungeonworld', 'nightmode')) {
+    if (CONFIG.DW.nightmode) {
       options.classes.push('nightmode');
     }
 
@@ -116,6 +116,9 @@ export class DwActorSheet extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterItems(sheetData) {
+    // Exit early if this isn't a character.
+    if (sheetData.entity.type !== 'character') return;
+
     const actorData = sheetData.actor;
 
     // Initialize containers.
@@ -197,26 +200,61 @@ export class DwActorSheet extends ActorSheet {
    *
    * @param {Object} actorData The actor to prepare.
    */
-  _prepareNpcItems(data) {
-    // Handle preprocessing for tagify data.
-    if (data.entity.type == 'npc') {
-      // If there are tags, convert it into a string.
-      if (data.data.tags != undefined && data.data.tags != '') {
-        let tagArray = [];
-        try {
-          tagArray = JSON.parse(data.data.tags);
-        } catch (e) {
-          tagArray = [data.data.tags];
-        }
-        data.data.tagsString = tagArray.map((item) => {
-          return item.value;
-        }).join(', ');
+  _prepareNpcItems(sheetData) {
+    // Exit early if this isn't an npc.
+    if (sheetData.entity.type != 'npc') return;
+
+    // If there are tags, convert it into a string.
+    if (sheetData.data.tags != undefined && sheetData.data.tags != '') {
+      let tagArray = [];
+      try {
+        tagArray = JSON.parse(sheetData.data.tags);
+      } catch (e) {
+        tagArray = [sheetData.data.tags];
       }
-      // Otherwise, set tags equal to the string.
-      else {
-        data.data.tags = data.data.tagsString;
+      sheetData.data.tagsString = tagArray.map((item) => {
+        return item.value;
+      }).join(', ');
+    }
+    // Otherwise, set tags equal to the string.
+    else {
+      sheetData.data.tags = sheetData.data.tagsString;
+    }
+
+    const actorData = sheetData.actor;
+
+    // Initialize containers.
+    const moves = [];
+    const basicMoves = [];
+    const specialMoves = [];
+
+    // Iterate through items, allocating to containers
+    // let totalWeight = 0;
+    for (let i of sheetData.items) {
+      let item = i.data;
+      i.img = i.img || DEFAULT_TOKEN;
+      // If this is a move, sort into various arrays.
+      if (i.type === 'npcMove') {
+        switch (i.data.moveType) {
+          case 'basic':
+            basicMoves.push(i);
+            break;
+
+          case 'special':
+            specialMoves.push(i);
+            break;
+
+          default:
+            moves.push(i);
+            break;
+        }
       }
     }
+
+    // Assign and return
+    actorData.moves = moves;
+    actorData.basicMoves = basicMoves;
+    actorData.specialMoves = specialMoves;
   }
 
   /* -------------------------------------------- */
@@ -644,7 +682,7 @@ export class DwActorSheet extends ActorSheet {
       resizable: true
     };
 
-    if (game.settings.get('dungeonworld', 'nightmode')) {
+    if (CONFIG.DW.nightmode) {
       dlg_options.classes.push('nightmode');
     }
 
