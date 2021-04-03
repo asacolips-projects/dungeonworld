@@ -1,0 +1,21 @@
+_id: U7zLcPwTti8AKquY
+name: Burns Twice As Bright
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>channel the flames of fate</strong>, you may treat a
+    missed roll as a 7-9 or a 7-9 result as a 10+. This may be a roll you or
+    another character has made. Tell the GM something you’ve lost; an emotion, a
+    memory or some innate piece of your being. You may not use this move again
+    until you’ve used Burns Half As Long.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Immolator'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

@@ -1,0 +1,71 @@
+_id: LMJUc76jS3hshl8t
+name: The Ranger
+permission:
+  default: 0
+type: class
+data:
+  name: ''
+  description: >-
+    <p>These city-born folk you travel with. Have they heard the call of the
+    wolf? Felt the winds howl in the bleak deserts of the East? Have they hunted
+    their prey with the bow and the knife like you? Hell no. That’s why they
+    need you.</p>
+
+    <p>Guide. Hunter. Creature of the wilds. You are these things and more. Your
+    time in the wilderness may have been solitary until now, but the call of
+    some greater thing—call it fate if you like—has cast your lot with these
+    folk. Brave, they may be. Powerful and strong, too. You know the secrets of
+    the spaces between, though.</p>
+
+    <p>Without you, they’d be lost. Blaze a trail through the blood and dark,
+    strider.</p>
+  races:
+    '0':
+      label: Elf
+      description: >-
+        When you undertake a perilous journey through wilderness whatever job
+        you take you succeed as if you rolled a 10+.
+    '1':
+      label: Human
+      description: >-
+        When you make camp in a dungeon or city, you don’t need to consume a
+        ration.
+  alignments:
+    '0':
+      label: Chaotic
+      description: Free someone from literal or figurative bonds.
+    '1':
+      label: Good
+      description: Endanger yourself to combat an unnatural threat.
+    '2':
+      label: Neutral
+      description: Help an animal or spirit of the wild.
+  equipment:
+    '0':
+      label: Starting gear
+      mode: checkbox
+      items:
+        - 6JcOoZ8CNqYxLgyQ
+        - oGiXIqNQbukIjf06
+        - WrnuJ6j8JerAozDO
+    '1':
+      label: Choose your armament
+      mode: checkbox
+      items:
+        - ygblVgrWgzUHEUax
+        - Bj8EezgO0DZ9OhVQ
+        - 4wGxPYN283j74dcF
+    '2':
+      label: Choose gear
+      mode: checkbox
+      items:
+        - YwHV7WYzTPSAOorl
+        - 6JcOoZ8CNqYxLgyQ
+        - WrnuJ6j8JerAozDO
+      objects: []
+  hp: 8
+  load: 11
+  damage: d8
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/yellow_34.webp
+effects: []

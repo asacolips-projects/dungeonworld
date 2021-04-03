@@ -1,0 +1,86 @@
+_id: 3RSIRayPxNRs57Iz
+name: Blink Dog
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 6
+      min: 0
+      max: 6
+    ac:
+      value: 4
+      base: 0
+      min: 0
+    damage:
+      value: d8
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Illusion
+  details:
+    biography: >-
+      <p>Now you see it, now you don’t. Hounds once owned by a sorcerer lord and
+      imbued with a kind of illusory cloak, they escaped into the woods around
+      his lair and began to breed with wolves and wild dogs of the forest. You
+      can spot them, if you’re lucky, by the glittering silver of their coats
+      and their strange, ululating howls. They have a remarkable talent for
+      being not quite where they appear to be and use it to take down prey much
+      stronger than themselves. If you find yourself facing a pack of blink dogs
+      you might as well close your eyes and fight. You’ll have an easier time
+      when not betrayed by your natural sight. By such sorceries are the natural
+      places of the world polluted with unnatural things.</p>
+
+      <p>Instinct: To hunt</p>
+
+      <ul>
+
+      <li>Give the appearance of being somewhere they’re not</li>
+
+      <li>Summon the pack</li>
+
+      <li>Move with amazing speed</li>
+
+      </ul>
+  tags: >-
+    [{"value":"group"},{"value":"small"},{"value":"magical"},{"value":"organized"},{"value":"close"}]
+  tagsString: 'group, small, magical, organized, close'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Blink Dog
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 3RSIRayPxNRs57Iz
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

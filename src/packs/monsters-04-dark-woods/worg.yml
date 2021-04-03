@@ -1,0 +1,81 @@
+_id: mADksJyUCOO3iDwe
+name: Worg
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 3
+      min: 0
+      max: 3
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>As horses are to the civil races, so go the worg to the goblins.
+      Mounts, fierce in battle, ridden by only the bravest and most dangerous,
+      are found and bred in the forest primeval to serve the goblins in their
+      wars on men. The only safe worg is a pup, separated from its mother. If
+      you can find one of these, or make orphans of a litter with a sharp sword,
+      you’ve got what could become a loyal protector or hunting hound in time.
+      Train it well, mind you, for the worg are smart and never quite free of
+      their primal urges.</p>
+
+      <p>Instinct: To serve</p>
+
+      <ul>
+
+      <li>Carry a rider into battle</li>
+
+      <li>Give its rider an advantage</li>
+
+      </ul>
+  tags: '[{"value":"horde"},{"value":"organized"},{"value":"close"}]'
+  tagsString: 'horde, organized, close'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Worg
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: mADksJyUCOO3iDwe
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

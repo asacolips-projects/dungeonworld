@@ -1,0 +1,11 @@
+name: Large
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: '<p>It’s much bigger than a human, about as big as a cart.</p>'
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: ElIJxSM53B0qsNhU

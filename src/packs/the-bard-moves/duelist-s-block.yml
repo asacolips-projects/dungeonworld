@@ -1,0 +1,18 @@
+name: Duelist’s Block
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>Hack &amp; Slash</strong>, you take +2 armor
+    forward.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Duelist's Parry
+  class: 'The Bard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: A2KboaSm5ZGjDlRS

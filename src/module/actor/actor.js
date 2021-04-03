@@ -56,6 +56,10 @@ export class ActorDw extends Actor {
     }
     // Update the value.
     data.attributes.weight.value = weight;
+
+    // Add base flags.
+    if (!actorData.flags.dungeonworld) actorData.flags.dungeonworld = {};
+    if (!actorData.flags.dungeonworld.sheetDisplay) actorData.flags.dungeonworld.sheetDisplay = {};
   }
 
   /**

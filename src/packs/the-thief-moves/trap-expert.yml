@@ -1,0 +1,29 @@
+_id: bGJyj5k905M8Ta9A
+name: Trap Expert
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>spend a moment to survey a dangerous area</strong>,
+    roll+DEX. • On a 10+, hold 3. • On a 7–9, hold 1. Spend your hold as you
+    walk through the area to ask these questions:</p>
+
+    <ul>
+
+    <li>Is there a trap here and if so, what activates it?</li>
+
+    <li>What does the trap do when activated?</li>
+
+    <li>What else is hidden here?</li>
+
+    </ul>
+  rollType: DEX
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  class: 'The Thief'
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

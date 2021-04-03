@@ -1,0 +1,18 @@
+name: Merciless
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: |-
+    <p>When you<strong> deal damage</strong>, deal +1d4 damage.</p>
+    <p>Additional damage roll: [[/roll 1d4]]</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Fighter'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: l544GxBPRWLP18gQ

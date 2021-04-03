@@ -1,0 +1,21 @@
+name: The Enkindler
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>bolster the courage of others</strong> roll+CHA. On a
+    10+ they shake off all fear and doubt, becoming brave in an instant. On a
+    7-9, this effect is fleeting, they realize its superficiality and resort to
+    cowardice after a moment or two. On a miss, they’re cowed or terrified by
+    your presence.</p>
+  rollType: CHA
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Immolator'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: 3zPJfcwfDfASiWMB

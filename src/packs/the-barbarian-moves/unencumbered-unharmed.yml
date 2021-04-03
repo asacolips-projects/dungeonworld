@@ -1,0 +1,19 @@
+_id: ffC4N3O7Qmkdr6od
+name: 'Unencumbered, Unharmed'
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>So long as you are below your Load and neither wear armor nor carry a
+    shield, take +1 armor.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  class: 'The Barbarian'
+  moveType: starting
+  moveGroup: barbarian-armor
+flags: {}
+img: icons/svg/mystery-man.svg

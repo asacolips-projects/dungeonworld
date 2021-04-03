@@ -1,0 +1,18 @@
+name: Samson
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>You may take a debility to immediately break free of any physical or
+    mental restraint.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Barbarian'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: FtrX04SBVhCqHORa

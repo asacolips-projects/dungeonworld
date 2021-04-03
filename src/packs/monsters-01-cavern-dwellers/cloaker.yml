@@ -1,0 +1,79 @@
+_id: wCwunwdNPBh7Nkb9
+name: Cloaker
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 12
+      min: 0
+      max: 12
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d10
+      misc: ''
+      piercing: ignores armor
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Looks like a cloak
+  details:
+    biography: >-
+      <p>Don’t put on that cloak, Gareth. Don’t. You don’t know where it’s been.
+      I tell you, it’s no good. See! It moved! I’m not mad, Gareth, it moved!
+      Don’t do it! No! GARETH!</p>
+
+      <p>Instinct: To engulf</p>
+
+      <ul>
+
+      <li>Engulf the unsuspecting</li>
+
+      </ul>
+  tags: '[{"value":"close"},{"value":"solitary"},{"value":"stealthy"}]'
+  tagsString: 'close, solitary, stealthy'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Cloaker
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  mirrorX: false
+  mirrorY: false
+  lockRotation: false
+  rotation: 0
+  vision: true
+  dimSight: 60
+  brightSight: 30
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightColor: ''
+  lightAlpha: 1
+  actorId: wCwunwdNPBh7Nkb9
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 20
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: ''
+  randomImg: false
+items: []

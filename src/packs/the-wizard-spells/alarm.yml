@@ -1,0 +1,18 @@
+name: Alarm
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Walk a wide circle as you cast this spell. Until you prepare spells again
+    your magic will alert you if a creature crosses that circle. Even if you are
+    asleep, the spell will shake you from your slumber.</p>
+  spellLevel: 1
+  rollFormula: ''
+  class: 'The Wizard'
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/air-burst-sky-2.webp
+effects: []
+_id: Fl3WpwCz9K5IFC4S

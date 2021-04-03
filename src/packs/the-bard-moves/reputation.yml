@@ -1,0 +1,20 @@
+name: Reputation
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>first meet someone who’s heard songs about you</strong>,
+    roll+CHA. • On a 10+, tell the GM two things they’ve heard about you. • On a
+    7-9, tell the GM one thing they’ve heard, and the GM tells you one
+    thing.</p>
+  rollType: CHA
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  class: 'The Bard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: nL221vsJeKDAUf0H

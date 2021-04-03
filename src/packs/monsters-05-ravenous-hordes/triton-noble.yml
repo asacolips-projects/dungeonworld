@@ -1,0 +1,85 @@
+_id: sshkS5OhRbzpGneR
+name: Triton Noble
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 6
+      min: 0
+      max: 6
+    ac:
+      value: 3
+      base: 0
+      min: 0
+    damage:
+      value: d8
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Aquatic
+  details:
+    biography: >-
+      <p>The triton ruling houses were chosen, they say, at the dawn of time.
+      Granted lordship over all the races of the sea by some now-forgotten god.
+      These bloodlines continue, passing rulership from father to daughter and
+      mother to son through the ages. Each is allowed to rule their city in
+      whatever way they choose—some alone or with their spouses, others in
+      council of brothers and sisters. In ages past, they were known for their
+      sagacity and bloodlines of even-temper were respected above all else. The
+      tidecallers prophecy is changing that: nobles are expected to be strong,
+      not wise. The nobles have begun to respond, and it is feared by some that
+      the ancient blood is changing forever. It may be too late to turn back.
+      Time and tide wait for none.</p>
+
+      <p>Instinct: To lead</p>
+
+      <ul>
+
+      <li>Stir tritons to war</li>
+
+      <li>Call reinforcements</li>
+
+      </ul>
+  tags: >-
+    [{"value":"group"},{"value":"organized"},{"value":"intelligent"},{"value":"close"},{"value":"near"},{"value":"far"}]
+  tagsString: 'group, organized, intelligent, close, near, far'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Triton Noble
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: sshkS5OhRbzpGneR
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

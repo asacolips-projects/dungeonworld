@@ -1,0 +1,27 @@
+name: Empowered Magic
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>cast a spell</strong>, on a 10+ you have the option of
+    choosing from the 7-9 list. If you do, you may additionally choose one of
+    the following effects:</p>
+
+    <ul>
+
+    <li>The spell’s effects are maximized</li>
+
+    <li>The spell’s targets are doubled</li>
+
+    </ul>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Wizard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: soE7VXYdldJAGwXX

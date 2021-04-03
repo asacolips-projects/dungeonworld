@@ -1,0 +1,73 @@
+_id: AvWAW7gj4kwlqeZv
+name: The Thief
+permission:
+  default: 0
+type: class
+data:
+  name: ''
+  description: >-
+    <p>You’ve heard them, sitting around the campfire. Bragging about this
+    battle or that. About how their gods are smiling on your merry band. You
+    count your coins and smile to yourself—this is the thrill above all. You
+    alone know the secret of Dungeon World—filthy filthy lucre.</p>
+
+    <p>Sure, they give you lip for all the times you’ve snuck off alone but
+    without you, who among them wouldn’t have been dissected by a flying
+    guillotine or poisoned straight to death by some ancient needle trap? So,
+    let them complain. When you’re done with all this delving you’ll toast their
+    hero’s graves.</p>
+
+    <p>From your castle. Full of gold. You rogue.</p>
+  races:
+    '0':
+      label: Halfling
+      description: 'When you attack with a ranged weapon, deal +2 damage.'
+    '1':
+      label: Human
+      description: >-
+        You are a professional. When you Spot Lore or Discern Realities about
+        criminal activities, take +1.
+  alignments:
+    '0':
+      label: Chaotic
+      description: Leap into danger without a plan.
+    '1':
+      label: Neutral
+      description: Avoid detection or infiltrate a location.
+    '2':
+      label: Evil
+      description: Shift danger or blame from yourself to someone else.
+  equipment:
+    '0':
+      label: Starting gear
+      mode: checkbox
+      items:
+        - 6JcOoZ8CNqYxLgyQ
+        - oGiXIqNQbukIjf06
+        - fYXLx7SefHMLGUPa
+    '1':
+      label: Choose your armament
+      mode: checkbox
+      items:
+        - nMag6sXXRqc6SC4Q
+        - Bj8EezgO0DZ9OhVQ
+        - TJ5kn5ewO47RhbkT
+    '2':
+      label: Choose a ranged weapon
+      mode: checkbox
+      items:
+        - onun19OKLyZ4fP9X
+        - jSFKrGehEa3y26cO
+        - WrnuJ6j8JerAozDO
+    '3':
+      label: Choose gear
+      mode: radio
+      items:
+        - YwHV7WYzTPSAOorl
+        - CMhNmAwhLVZk9lfq
+  hp: 6
+  load: 9
+  damage: d8
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/gray_05.webp
+effects: []

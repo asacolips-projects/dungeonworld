@@ -1,0 +1,18 @@
+name: Unforgettable Face
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>meet someone you’ve met before</strong> (your call)
+    after some time apart you take +1 forward against them.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  class: 'The Bard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: JApbpyxEwFsSf0Fc

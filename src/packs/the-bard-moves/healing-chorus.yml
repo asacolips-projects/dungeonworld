@@ -1,0 +1,18 @@
+name: Healing Chorus
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: |-
+    <p>When you<strong> heal with Arcane Art</strong>, you heal +2d8 damage.</p>
+    <p>Healing roll: [[/roll 2d8]]</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Healing Song
+  class: 'The Bard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: saa0g4kiGTEp8hny

@@ -1,0 +1,25 @@
+_id: O95u3NJZLys30rSQ
+name: Order Hirelings
+permission:
+  default: 0
+folder: pT118pRlosZeToCW
+sort: 900000
+flags: {}
+content: >-
+  <h1>Order Hirelings</h1>
+
+  <p>Hirelings do what you tell them to, so long as it isn&rsquo;t obviously
+  dangerous, degrading, or stupid, and their cost is met. When a hireling find
+  themselves in a dangerous, degrading, or just flat-out crazy situation due to
+  your orders <strong>roll+loyalty</strong>.</p>
+
+  <ul>
+
+  <li>On a 10+ they stand firm and carry out the order.</li>
+
+  <li>On a 7&ndash;9 they do it for now, but come back with serious demands
+  later. Meet them or the hireling quits on the worst terms.</li>
+
+  </ul>
+
+  <p>&nbsp;</p>

@@ -1,0 +1,80 @@
+_id: SkNsWqonPcc04V4Z
+name: Chaos Spawn
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 19
+      min: 0
+      max: 19
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d10
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Chaos form
+  details:
+    biography: >-
+      <p>Driven from the city, a cultist finds sanctuary in towns and villages.
+      Discovered there, he flees to the hills and scratches his devotion on the
+      cave walls. Found out again, he is chased with knife and torch into the
+      depths, crawling deeper and deeper until, in the deepest places, he loses
+      his way. First, he forgets his name. Then he forgets his shape. His chaos
+      gods, most beloved, bless him with a new one.</p>
+
+      <p>Instinct: To undermine the established order</p>
+
+      <ul>
+
+      <li>Rewrite reality</li>
+
+      <li>Unleash chaos from containment</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"amorphous"},{"value":"close"},{"value":"reach"}]
+  tagsString: 'solitary, amorphous, close, reach'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Chaos Spawn
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: SkNsWqonPcc04V4Z
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

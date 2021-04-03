@@ -1,0 +1,19 @@
+_id: wvUl05lxC5cLb6y1
+name: World-talker
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>You see the patterns that make up the fabric of the world. You may now
+    apply your spirit tongue, shapeshifter and studied essence moves to pure
+    elements—fire, water, air and earth.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Thing-talker
+  class: 'The Druid'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

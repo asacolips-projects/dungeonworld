@@ -1,0 +1,74 @@
+_id: UZJY2ktVbkzqxAOu
+name: Weapon - Tags
+permission:
+  default: 0
+folder: pT118pRlosZeToCW
+sort: 200000
+flags: {}
+content: >-
+  <h1>Weapon Tags</h1>
+
+  <p>Weapons may have tags that are primarily there to help you describe them
+  (like Rusty or Glowing) but these tags have a specific, mechanical effect.</p>
+
+  <ul>
+
+  <li><strong>n Ammo: </strong>It counts as ammunition for appropriate ranged
+  weapons. The number indicated does not represent individual arrows or sling
+  stones, but represents what you have left on hand.</li>
+
+  <li><strong>Forceful: </strong>It can knock someone back a pace, maybe even
+  off their feet.</li>
+
+  <li><strong>+n Damage: </strong>It is particularly harmful to your enemies.
+  When you deal damage, you add n to it.</li>
+
+  <li><strong>Ignores Armor: </strong>Don&rsquo;t subtract armor from the damage
+  taken.</li>
+
+  <li><strong>Messy: </strong>It does damage in a particularly destructive way,
+  ripping people and things apart.<br /><strong>n Piercing: </strong>It goes
+  right through armor. When you deal damage with n piercing, you subtract n from
+  the enemy&rsquo;s armor for that attack.</li>
+
+  <li><strong>Precise: </strong>It rewards careful strikes. You use DEX to hack
+  and slash with this weapon, not STR.</li>
+
+  <li><strong>Reload: </strong>After you attack with it, it takes more than a
+  moment to reset for another attack.</li>
+
+  <li><strong>Stun: </strong>When you attack with it, it does stun damage
+  instead of normal damage.</li>
+
+  <li><strong>Thrown: </strong>Throw it at someone to hurt them. If you volley
+  with this weapon, you can&rsquo;t choose to mark off ammo on a 7&ndash;9; once
+  you throw it, it&rsquo;s gone until you can recover it.</li>
+
+  </ul>
+
+  <p>&nbsp;</p>
+
+  <p>Weapons have tags to indicate the range at which they are useful. Dungeon
+  World doesn&rsquo;t inflict penalties or grant bonuses for &ldquo;optimal
+  range&rdquo; or the like, but if your weapon says Hand and an enemy is ten
+  yards away, a player would have a hard time justifying using that weapon
+  against him.</p>
+
+  <ul>
+
+  <li><strong>Hand: </strong>It&rsquo;s useful for attacking something within
+  your reach, no further.</li>
+
+  <li><strong>Close: </strong>It&rsquo;s useful for attacking something at
+  arm&rsquo;s reach plus a foot or two.</li>
+
+  <li><strong>Reach: </strong>It&rsquo;s useful for attacking something
+  that&rsquo;s several feet away&mdash;maybe as far as ten.</li>
+
+  <li><strong>Near: </strong>It&rsquo;s useful for attacking if you can see the
+  whites of their eyes.</li>
+
+  <li><strong>Far: </strong>It&rsquo;s useful for attacking something in
+  shouting distance.</li>
+
+  </ul>

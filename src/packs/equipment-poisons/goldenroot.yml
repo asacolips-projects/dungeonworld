@@ -1,0 +1,22 @@
+name: Goldenroot
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>The target treats the next creature they see as a trusted ally, until
+    proved otherwise.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 1
+  tags: '[{"value":"dangerous"},{"value":"applied"}]'
+  tagsString: 'dangerous, applied'
+  magic: false
+  itemType: poison
+  attributes: {}
+flags: {}
+img: icons/commodities/flowers/holly-buds-white.webp
+effects: []
+_id: c5yFXtEyUFWUQyMm

@@ -1,0 +1,20 @@
+name: Taste Of Blood
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>Hack &amp; Slash </strong>an enemy, your next attack
+    against that same foe deals +1d8 damage.</p>
+
+    <p>Additional damage roll: [[/roll 1d8]]</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Scent Of Blood
+  class: 'The Fighter'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: kjcAWzeJxN1eyWDI

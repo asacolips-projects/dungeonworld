@@ -1,0 +1,19 @@
+_id: 5PrOvaLrL4gmFmrd
+name: Wide-Wanderer
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>You’ve travelled the wide world over. When you <strong>arrive
+    someplace</strong> ask the GM about any important traditions, rituals, and
+    so on, they’ll tell you what you need to know.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Barbarian'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

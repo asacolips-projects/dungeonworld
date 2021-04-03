@@ -1,0 +1,20 @@
+_id: c44HRTASrr7ki0sb
+name: Formshaper
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>You may increase your armor by 1 or deal an additional +1d4 damage while
+    in an animal form. Choose which when you shapeshift.</p>
+
+    <p>Bonus damage roll: [[/roll 1d4]]</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Formcrafter
+  class: 'The Druid'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

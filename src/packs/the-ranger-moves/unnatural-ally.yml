@@ -1,0 +1,18 @@
+name: Unnatural Ally
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>Your animal companion is a monster, not an animal. Describe it. Give it
+    +2 ferocity and +1 instinct, plus a new training.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  class: 'The Ranger'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: VKVisB2xs9vhCnAa

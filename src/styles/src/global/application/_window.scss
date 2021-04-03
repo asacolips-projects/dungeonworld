@@ -33,6 +33,10 @@
     }
   }
 
+  button {
+    cursor: pointer;
+  }
+
   input[type="radio"],
   input[type="checkbox"] {
     zoom: 0.9;
@@ -119,6 +123,7 @@
 
 .window-content {
   background: $c-white;
+  padding: 10px;
 }
 
 // TODO: Tagify

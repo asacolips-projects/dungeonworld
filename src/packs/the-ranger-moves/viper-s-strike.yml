@@ -1,0 +1,20 @@
+_id: GjXmhaH1zlhIjwmI
+name: Viper’s Strike
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you<strong> strike an enemy with two weapons at once</strong>, add
+    an extra 1d4 damage for your off-hand strike.</p>
+
+    <p>Additional damage roll: [[/roll 1d4]]</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Ranger'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

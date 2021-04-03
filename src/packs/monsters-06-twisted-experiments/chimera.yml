@@ -1,0 +1,85 @@
+_id: V43OseR0zBtGMOR0
+name: Chimera
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 16
+      min: 0
+      max: 16
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d10+1
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>Well-known and categorized, the chimera is a perfected creature. From
+      the codices of the Mage’s Guild to the famous pages of Cullaina’s Creature
+      Compendium, there’s no confusion about what chimera means. Two parts
+      lioness, one part serpent, head of a she-goat, and all the vicious magic
+      one can muster. The actual ritual might vary, as might a detail or
+      two—more creative sorcerers switch the flame breath for acid, perhaps.
+      Used as a guardian, an assassin or merely an instrument of chaos
+      unchained, it matters little. The chimera is the worst sort of
+      abomination: an intentional affront to all natural life.</p>
+
+      <p>Instinct: To do as commanded</p>
+
+      <ul>
+
+      <li>Belch forth flame</li>
+
+      <li>Run them over</li>
+
+      <li>Poison them</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"large"},{"value":"construct"},{"value":"reach"}]
+  tagsString: 'solitary, large, construct, reach'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Chimera
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: V43OseR0zBtGMOR0
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

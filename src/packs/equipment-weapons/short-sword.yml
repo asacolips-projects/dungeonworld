@@ -1,0 +1,20 @@
+name: Short Sword
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>A short single-handed sword.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: '[{"value":"close"}]'
+  tagsString: close
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/swords/shortsword-broad-engraved.webp
+effects: []
+_id: Bj8EezgO0DZ9OhVQ

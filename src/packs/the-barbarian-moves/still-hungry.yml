@@ -1,0 +1,16 @@
+_id: mAwNZBPRzKLIX9E7
+name: Still Hungry
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: <p>Choose an additional appetite.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Barbarian'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

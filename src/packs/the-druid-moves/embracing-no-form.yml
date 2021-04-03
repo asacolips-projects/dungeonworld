@@ -1,0 +1,18 @@
+_id: SpwKCp7FVjw2lat6
+name: Embracing No Form
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>shapeshift</strong>, roll 1d4 and add that total to your
+    hold.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  class: 'The Druid'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

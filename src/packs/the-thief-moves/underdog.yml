@@ -1,0 +1,16 @@
+name: Underdog
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: '<p>When you’re outnumbered, you have +1 armor.</p>'
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Thief'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: RqnICjgbV2HOKiwA

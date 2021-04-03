@@ -1,0 +1,35 @@
+_id: c30UPpIrj9bUtC1J
+name: Cast a Spell
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>release a spell you’ve prepared</strong>, roll+INT. • On
+    a 10+ the the spell is successfully cast and you may cast the spell again
+    later. • On a 7-9 the spell is cast, but choose one:</p>
+
+    <ul>
+
+    <li>You draw unwelcome attention or put yourself in a spot. The GM will tell
+    you how.</li>
+
+    <li>The spell disturbs the fabric of reality as it is cast; take -1 ongoing
+    to cast a spell until the next time you Prepare Spells.</li>
+
+    <li>After it is cast, the spell is forgotten. You cannot cast the spell
+    again until you prepare spells.</li>
+
+    </ul>
+
+    <p>Note that maintaining spells with ongoing effects will sometimes cause a
+    penalty to your roll to cast a spell.</p>
+  rollType: INT
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  class: 'The Wizard'
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

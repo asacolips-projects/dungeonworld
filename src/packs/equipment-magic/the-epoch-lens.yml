@@ -1,0 +1,24 @@
+name: The Epoch Lens
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>An archmage, old and too frail to leave his tower, crafted this intricate
+    and fragile device of glass and gold to examine the histories and relics he
+    so loved. Looking at an object through the lens reveals visions of who made
+    it and where it came from.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/tools/scribal/lens-grey-red.webp
+effects: []
+_id: DeGQxs8mL546WPq5

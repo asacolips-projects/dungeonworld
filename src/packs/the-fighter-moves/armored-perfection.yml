@@ -1,0 +1,21 @@
+name: Armored Perfection
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you choose to <strong>let your armor take the brunt of
+    damage</strong> dealt to you, the damage is negated and you take +1 forward
+    against the attacker, but you must reduce the armor value of your armor or
+    shield (your choice) by 1. The value is reduced each time you make this
+    choice. If the reduction leaves the item with 0 armor it is destroyed.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Armor Mastery
+  class: 'The Fighter'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: qNJMmwQNXkPTRmRt

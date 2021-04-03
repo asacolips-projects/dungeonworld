@@ -1,0 +1,18 @@
+name: Fanning The Flames
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>You may apply the effects of your Firebrand move to a group of people - a
+    dozen or so - all at once.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Firebrand
+  class: 'The Immolator'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: EcoTiYa0g7jmxDyF

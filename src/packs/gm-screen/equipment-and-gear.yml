@@ -1,0 +1,384 @@
+_id: sowNcgeXWJpRlnmC
+name: Equipment and Gear
+permission:
+  default: 0
+folder: pT118pRlosZeToCW
+sort: 300000
+flags: {}
+content: >-
+  <h2>Note</h2>
+
+  <p>&ldquo;-Charisma&rdquo; a little negotiation subtracts the haggler&rsquo;s
+  Charisma score (not modifier) from the price.</p>
+
+  <h2><br />Ranged Weapons</h2>
+
+  <table style="width: 99.1453%;" border="1">
+
+  <tbody>
+
+  <tr>
+
+  <td style="width: 44.6621%;">Crossbow</td>
+
+  <td style="text-align: right; width: 54.7631%;">near, +1 damage, reload, 35
+  coins, 3 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="width: 44.6621%;">Fine Bow</td>
+
+  <td style="text-align: right; width: 54.7631%;">near, far, 60 coins, 2
+  weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="width: 44.6621%;">Hunter&rsquo;s Bow</td>
+
+  <td style="text-align: right; width: 54.7631%;">near, far, 100 coins, 1
+  weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="width: 44.6621%;">Ragged Bow</td>
+
+  <td style="text-align: right; width: 54.7631%;">near, 15 coins, 2 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="width: 44.6621%;">Bundle of Arrows</td>
+
+  <td style="text-align: right; width: 54.7631%;">3 ammo, 1 coin, 1 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="width: 44.6621%;">Elven Arrows</td>
+
+  <td style="text-align: right; width: 54.7631%;">4 ammo, 20 coins, 1
+  weight</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <p>&nbsp;</p>
+
+  <h2>Melee Weapons</h2>
+
+  <table border="1">
+
+  <tbody>
+
+  <tr>
+
+  <td>Club, Shillelagh</td>
+
+  <td style="text-align: right;">close, 1 coin, 2 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td>Dagger, Shiv, Knife</td>
+
+  <td style="text-align: right;">hand, 2 coins, 1 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td>Dueling Rapier</td>
+
+  <td style="text-align: right;">close, 1 piercing, precise, 50 coins, 2
+  weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td>Halberd</td>
+
+  <td style="text-align: right;">reach, +1 damage, 2-handed, 9 coins, 2
+  weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td>Long Sword, BattleAxe, Flail</td>
+
+  <td style="text-align: right;">close, +1 damage, 15 coins, 2 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td>Rapier</td>
+
+  <td style="text-align: right;">close, precise, 25 coins, 1 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td>Short Sword, Axe, Warhammer, Mace</td>
+
+  <td style="text-align: right;">close, 8 coins, 1 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td>Spear</td>
+
+  <td style="text-align: right;">reach, thrown, near, 5 coins, 1 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td>Staff</td>
+
+  <td style="text-align: right;">close, two-handed, 1 coin, 1 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td>Throwing Dagger</td>
+
+  <td style="text-align: right;">thrown, near, 1 coin, 0 weight</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <p>&nbsp;</p>
+
+  <h2>Armor</h2>
+
+  <table style="width: 99.1453%;" border="1">
+
+  <tbody>
+
+  <tr>
+
+  <td style="width: 45.2123%;">Leather, Chainmail</td>
+
+  <td style="width: 54.213%; text-align: right;">1 armor, worn, 10 coins, 1
+  weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="width: 45.2123%;">Plate</td>
+
+  <td style="width: 54.213%; text-align: right;">3 armor, worn, clumsy, 350
+  coins, 4 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="width: 45.2123%;">Scale Mail</td>
+
+  <td style="width: 54.213%; text-align: right;">2 armor, worn, clumsy, 50
+  coins, 3 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="width: 45.2123%;">Shield</td>
+
+  <td style="width: 54.213%; text-align: right;">+1 armor, 15 coins, 2
+  weight</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <p>&nbsp;</p>
+
+  <h2>Gear</h2>
+
+  <table style="width: 99.1453%; height: 192px;" border="1">
+
+  <tbody>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 50.4903%; height: 16px;">Adventuring Gear</td>
+
+  <td style="width: 48.935%; height: 16px; text-align: right;">5 uses, 20 coins,
+  1 weight</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 50.4903%; height: 16px;">Antitoxin</td>
+
+  <td style="width: 48.935%; height: 16px; text-align: right;">10 coins, 0
+  weight</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 50.4903%; height: 16px;">Bag of Books</td>
+
+  <td style="width: 48.935%; height: 16px; text-align: right;">5 uses, 10 coins,
+  2 weight</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 50.4903%; height: 16px;">Bandages</td>
+
+  <td style="width: 48.935%; height: 16px; text-align: right;">3 uses, slow, 5
+  coins, 0 weight</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 50.4903%; height: 16px;">Dungeon Rations</td>
+
+  <td style="width: 48.935%; height: 16px; text-align: right;">Ration, 5 uses, 3
+  coins, 1 weight</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 50.4903%; height: 16px;">Dwarven Hardtack</td>
+
+  <td style="width: 48.935%; height: 16px; text-align: right;">Dwarf, Ration, 7
+  uses, 3 coins, 1 weight</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 50.4903%; height: 16px;">Elven Bread</td>
+
+  <td style="width: 48.935%; height: 16px; text-align: right;">Ration, 7 uses,
+  10 coins, 1 weight</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 50.4903%; height: 16px;">Halfling Pipeleaf</td>
+
+  <td style="width: 48.935%; height: 16px; text-align: right;">6 uses, 5 coins,
+  0 weight</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 50.4903%; height: 16px;">Healing Potion</td>
+
+  <td style="width: 48.935%; height: 16px; text-align: right;">50 coins, 0
+  weight</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 50.4903%; height: 16px;">Keg of Dwarven Stout</td>
+
+  <td style="width: 48.935%; height: 16px; text-align: right;">10 coins, 4
+  weight</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 50.4903%; height: 16px;">Personal Feast</td>
+
+  <td style="width: 48.935%; height: 16px; text-align: right;">Ration, 1 use, 10
+  coins, 1 weight</td>
+
+  </tr>
+
+  <tr style="height: 16px;">
+
+  <td style="width: 50.4903%; height: 16px;">Poultices and Herbs</td>
+
+  <td style="width: 48.935%; height: 16px; text-align: right;">2 uses, slow, 10
+  coins, 1 weight</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <p>&nbsp;</p>
+
+  <h2>Poisons</h2>
+
+  <table style="width: 99.1453%;" border="1">
+
+  <tbody>
+
+  <tr>
+
+  <td style="width: 50.0221%;">Oil of Tagit</td>
+
+  <td style="width: 49.4031%; text-align: right;">Dangerous, applied, 15 coins,
+  0 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="width: 50.0221%;">Bloodweed</td>
+
+  <td style="width: 49.4031%; text-align: right;">Dangerous, touch, 12 coins, 0
+  weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="width: 50.0221%;">Goldenroot</td>
+
+  <td style="width: 49.4031%; text-align: right;">Dangerous, applied, 20 coins,
+  0 weight</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="width: 50.0221%;">Serpent&rsquo;s Tears</td>
+
+  <td style="width: 49.4031%; text-align: right;">Dangerous, touch, 10 coins, 0
+  weight</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>

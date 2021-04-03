@@ -1,5 +1,6 @@
 import { DwClassList } from "../config.js";
 import { DwUtility } from "../utility.js";
+import { DwRolls } from "../rolls.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -9,12 +10,18 @@ export class DwActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    let options = mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "actor"],
       width: 840,
       height: 780,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "moves" }]
     });
+
+    if (CONFIG.DW.nightmode) {
+      options.classes.push('nightmode');
+    }
+
+    return options;
   }
 
   /* -------------------------------------------- */
@@ -84,6 +91,16 @@ export class DwActorSheet extends ActorSheet {
       data.data.xpSvg = xpSvg;
     }
 
+    // Stats.
+    data.data.statSettings = {
+      'str': 'DW.STR',
+      'dex': 'DW.DEX',
+      'con': 'DW.CON',
+      'int': 'DW.INT',
+      'wis': 'DW.WIS',
+      'cha': 'DW.CHA'
+    };
+
     // Add item icon setting.
     data.data.itemIcons = game.settings.get('dungeonworld', 'itemIcons');
 
@@ -99,6 +116,9 @@ export class DwActorSheet extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterItems(sheetData) {
+    // Exit early if this isn't a character.
+    if (sheetData.entity.type !== 'character') return;
+
     const actorData = sheetData.actor;
 
     // Initialize containers.
@@ -180,26 +200,61 @@ export class DwActorSheet extends ActorSheet {
    *
    * @param {Object} actorData The actor to prepare.
    */
-  _prepareNpcItems(data) {
-    // Handle preprocessing for tagify data.
-    if (data.entity.type == 'npc') {
-      // If there are tags, convert it into a string.
-      if (data.data.tags != undefined && data.data.tags != '') {
-        let tagArray = [];
-        try {
-          tagArray = JSON.parse(data.data.tags);
-        } catch (e) {
-          tagArray = [data.data.tags];
-        }
-        data.data.tagsString = tagArray.map((item) => {
-          return item.value;
-        }).join(', ');
+  _prepareNpcItems(sheetData) {
+    // Exit early if this isn't an npc.
+    if (sheetData.entity.type != 'npc') return;
+
+    // If there are tags, convert it into a string.
+    if (sheetData.data.tags != undefined && sheetData.data.tags != '') {
+      let tagArray = [];
+      try {
+        tagArray = JSON.parse(sheetData.data.tags);
+      } catch (e) {
+        tagArray = [sheetData.data.tags];
       }
-      // Otherwise, set tags equal to the string.
-      else {
-        data.data.tags = data.data.tagsString;
+      sheetData.data.tagsString = tagArray.map((item) => {
+        return item.value;
+      }).join(', ');
+    }
+    // Otherwise, set tags equal to the string.
+    else {
+      sheetData.data.tags = sheetData.data.tagsString;
+    }
+
+    const actorData = sheetData.actor;
+
+    // Initialize containers.
+    const moves = [];
+    const basicMoves = [];
+    const specialMoves = [];
+
+    // Iterate through items, allocating to containers
+    // let totalWeight = 0;
+    for (let i of sheetData.items) {
+      let item = i.data;
+      i.img = i.img || DEFAULT_TOKEN;
+      // If this is a move, sort into various arrays.
+      if (i.type === 'npcMove') {
+        switch (i.data.moveType) {
+          case 'basic':
+            basicMoves.push(i);
+            break;
+
+          case 'special':
+            specialMoves.push(i);
+            break;
+
+          default:
+            moves.push(i);
+            break;
+        }
       }
     }
+
+    // Assign and return
+    actorData.moves = moves;
+    actorData.basicMoves = basicMoves;
+    actorData.specialMoves = specialMoves;
   }
 
   /* -------------------------------------------- */
@@ -514,7 +569,7 @@ export class DwActorSheet extends ActorSheet {
           return i.type == 'spell'
             && i.data.data.class
             // Check if this spell has either `classname` or `the classname` as its class.
-            && [caster_class, `the ${caster_class}`].includes(i.data.data.class.toLowerCase());
+            && [caster_class, `the ${caster_class}`].includes(DwUtility.cleanClass(i.data.data.class));
         });
         let spells_pack = game.packs.get(`dungeonworld.${char_class}-spells`);
         let spells_compendium = spells_pack ? await spells_pack.getContent() : [];
@@ -534,6 +589,11 @@ export class DwActorSheet extends ActorSheet {
           if (!spells_list.includes(spell.data.name)) {
             spells_items.push(spell);
           }
+        }
+
+        // Skip this class if there were no spells in it.
+        if (spells_items.length < 1) {
+          continue;
         }
 
         // Sort the spells and build our groups.
@@ -600,8 +660,8 @@ export class DwActorSheet extends ActorSheet {
       starting_move_groups: starting_move_groups,
       advanced_moves_2: advanced_moves_2.length > 0 ? advanced_moves_2 : null,
       advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null,
-      cast_spells: cast_spells.length > 0 ? true : false,
-      spells: spells ? spells : null,
+      cast_spells: cast_spells.length > 0 && spells.length > 0 ? true : false,
+      spells: spells.length > 0 ? spells : null,
     };
     const html = await renderTemplate(template, templateData);
 
@@ -621,6 +681,10 @@ export class DwActorSheet extends ActorSheet {
       classes: ['dw-level-up', 'dungeonworld', 'sheet'],
       resizable: true
     };
+
+    if (CONFIG.DW.nightmode) {
+      dlg_options.classes.push('nightmode');
+    }
 
     // Render the dialog.
     let d = new Dialog({
@@ -834,9 +898,11 @@ export class DwActorSheet extends ActorSheet {
     let flavorText = null;
     let templateData = {};
 
+    let dice = DwUtility.getRollFormula('2d6');
+
     // Handle rolls coming directly from the ability score.
-    if ($(a).hasClass('ability-rollable') && data.mod) {
-      formula = `2d6+${data.mod}`;
+    if ($(a).hasClass('ability-rollable') && data.roll) {
+      formula = data.roll;
       flavorText = data.label;
       if (data.debility) {
         flavorText += ` (${data.debility})`;
@@ -846,7 +912,8 @@ export class DwActorSheet extends ActorSheet {
         title: flavorText
       };
 
-      this.rollMove(formula, actorData, data, templateData);
+      // this.rollMove(formula, actorData, data, templateData);
+      DwRolls.rollMove({actor: this.actor, data: null, formula: formula, templateData: templateData});
     }
     else if ($(a).hasClass('damage-rollable') && data.roll) {
       formula = data.roll;
@@ -857,7 +924,7 @@ export class DwActorSheet extends ActorSheet {
         flavor: flavorText
       };
 
-      this.rollMove(formula, actorData, data, templateData);
+      DwRolls.rollMove({actor: this.actor, data: null, formula: formula, templateData: templateData});
     }
     else if (itemId != undefined) {
       item.roll();
@@ -865,94 +932,20 @@ export class DwActorSheet extends ActorSheet {
   }
 
   /**
-   * Roll a move and use the chat card template.
-   * @param {Object} templateData
-   */
-  rollMove(roll, actorData, dataset, templateData, form = null) {
-    // Render the roll.
-    let template = 'systems/dungeonworld/templates/chat/chat-move.html';
-    // GM rolls.
-    let chatData = {
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor })
-    };
-    let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
-    if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
-    if (rollMode === "blindroll") chatData["blind"] = true;
-    // Handle dice rolls.
-    if (roll) {
-      // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
-      let formula = '';
-      // Handle bond (user input).
-      if (roll == 'BOND') {
-        formula = form.bond.value ? `2d6+${form.bond.value}` : '2d6';
-        if (dataset.mod && dataset.mod != 0) {
-          formula += `+${dataset.mod}`;
-        }
-      }
-      // Handle ability scores (no input).
-      else if (roll.match(/(\d*)d\d+/g)) {
-        formula = roll;
-      }
-      // Handle moves.
-      else {
-        formula = `2d6+${actorData.abilities[roll].mod}`;
-        if (dataset.mod && dataset.mod != 0) {
-          formula += `+${dataset.mod}`;
-        }
-      }
-      if (formula != null) {
-        // Do the roll.
-        let roll = new Roll(`${formula}`);
-        roll.roll();
-        // Add success notification.
-        if (formula.includes('2d6')) {
-          if (roll.total < 7) {
-            templateData.result = 'failure';
-          }
-          else if (roll.total > 6 && roll.total < 10) {
-            templateData.result = 'partial';
-          }
-          else {
-            templateData.result = 'success';
-          }
-        }
-        // Render it.
-        roll.render().then(r => {
-          templateData.rollDw = r;
-          renderTemplate(template, templateData).then(content => {
-            chatData.content = content;
-            if (game.dice3d) {
-              game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-            }
-            else {
-              chatData.sound = CONFIG.sounds.dice;
-              ChatMessage.create(chatData);
-            }
-          });
-        });
-      }
-    }
-    else {
-      renderTemplate(template, templateData).then(content => {
-        chatData.content = content;
-        ChatMessage.create(chatData);
-      });
-    }
-  }
-
-  /**
    * Listen for toggling the look column.
    * @param {MouseEvent} event
    */
-  _toggleLook(html, event) {
+  async _toggleLook(html, event) {
     // Add a class to the sidebar.
     html.find('.sheet-look').toggleClass('closed');
 
     // Add a class to the toggle button.
     let $look = html.find('.toggle--look');
     $look.toggleClass('closed');
+
+    // Update flags.
+    let closed = $look.hasClass('closed');
+    await this.actor.update({'flags.dungeonworld.sheetDisplay.sidebarClosed': closed});
   }
 
   /* -------------------------------------------- */

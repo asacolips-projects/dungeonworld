@@ -14,6 +14,7 @@ import { DwActorSheet } from "./actor/actor-sheet.js";
 import { DwActorNpcSheet } from "./actor/actor-npc-sheet.js";
 import { DwClassItemSheet } from "./item/class-item-sheet.js";
 import { DwRegisterHelpers } from "./handlebars.js";
+import { preloadHandlebarsTemplates } from "./templates.js";
 import { DwUtility } from "./utility.js";
 import { CombatSidebarDw } from "./combat/combat.js";
 import { MigrateDw } from "./migrate/migrate.js";
@@ -83,7 +84,19 @@ Hooks.once("init", async function() {
     default: true
   });
 
+  game.settings.register("dungeonworld", "nightmode", {
+    name: game.i18n.localize("DW.Settings.nightmode.name"),
+    hint: game.i18n.localize("DW.Settings.nightmode.hint"),
+    scope: 'client',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
   DwUtility.replaceRollData();
+
+  // Preload template partials.
+  preloadHandlebarsTemplates();
 });
 
 Hooks.once("ready", async function() {
@@ -99,6 +112,14 @@ Hooks.once("ready", async function() {
 
   // Run migrations.
   MigrateDw.runMigration();
+
+  // Update config.
+  for (let [k,v] of Object.entries(CONFIG.DW.rollResults)) {
+    CONFIG.DW.rollResults[k].label = game.i18n.localize(v.label);
+  }
+
+  // Add nightmode class.
+  CONFIG.DW.nightmode = game.settings.get('dungeonworld', 'nightmode') ?? false;
 });
 
 Hooks.on('renderChatMessage', (data, html, options) => {
@@ -144,7 +165,7 @@ Hooks.on('createActor', async (actor, options, id) => {
     actor.setFlag('dungeonworld', 'levelup', true);
 
     // Get the item moves as the priority.
-    let moves = game.items.entities.filter(i => i.type == 'move' && i.data.data.moveType == 'basic');
+    let moves = game.items.entities.filter(i => i.type == 'move' && (i.data.data.moveType == 'basic' || i.data.data.moveType == 'special'));
     let pack = game.packs.get(`dungeonworld.basic-moves`);
     let compendium = pack ? await pack.getContent() : [];
     const actorMoves = actor.data.items.filter(i => i.type == 'move');

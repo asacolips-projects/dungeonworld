@@ -1,0 +1,18 @@
+name: Smaug’s Belly
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>know your target’s weakest point</strong> your arrows
+    have 2 piercing.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  class: 'The Ranger'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: OPuRTuGHCBYvZSXx

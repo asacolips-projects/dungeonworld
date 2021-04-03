@@ -1,0 +1,16 @@
+_id: BwSEykw4ejdishnq
+name: Stalker's Sister
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: <p>Choose one move from the ranger class list.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  class: 'The Druid'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

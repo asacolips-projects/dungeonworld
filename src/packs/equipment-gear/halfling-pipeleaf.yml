@@ -1,0 +1,22 @@
+name: Halfling Pipeleaf
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>When you share halfling pipeleaf with someone, expend two uses and take
+    +1 forward to parley with them.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 6
+  tags: ''
+  tagsString: ''
+  magic: false
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/sundries/misc/pipe-bone.webp
+effects: []
+_id: Faznfc01XOrNYIOn

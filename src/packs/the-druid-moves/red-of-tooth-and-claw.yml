@@ -1,0 +1,18 @@
+name: Red of Tooth and Claw
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>are in an appropriate animal form</strong> (something
+    dangerous) increase your damage to d8.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Druid'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: iLspH8wR3twQhj5t

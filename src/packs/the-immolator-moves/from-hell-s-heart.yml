@@ -1,0 +1,20 @@
+name: From Hell’s Heart
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>summon fire </strong>with any of your moves, you can
+    replace it with the black fires of hell itself. This fire does not burn with
+    heat and ignores armor, scorching the soul itself. Those creatures without
+    souls cannot be harmed by this type of flame.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  class: 'The Immolator'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: ZmukbBqafHbvy5WS

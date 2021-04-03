@@ -1,0 +1,13 @@
+name: Close
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>It&rsquo;s useful for attacking something at arm&rsquo;s reach plus a
+    foot or two.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: BkXmMNoR0r31JLvE

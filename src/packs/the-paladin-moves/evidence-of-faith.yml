@@ -1,0 +1,19 @@
+name: Evidence Of Faith
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you see<strong> divine magic as it happens</strong>, you can ask the
+    GM which deity granted the spell and its effects. Take +1 when acting on the
+    answers.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Divine Favor
+  class: 'The Paladin'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: IPzUCpKewDVcT6Xb

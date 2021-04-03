@@ -1,0 +1,90 @@
+_id: Xqk4nmbSnQAGBQ2I
+name: Basilisk
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 12
+      min: 0
+      max: 12
+    ac:
+      value: 2
+      base: 0
+      min: 0
+    damage:
+      value: d10
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <blockquote>
+
+      <p>Few have seen a basilisk and lived to tell the tale. Get it? Seen a
+      basilisk? Little bit of basilisk humor there. Sorry, I know you’re looking
+      for something helpful, sirs. Serious stuff, I understand. The basilisk,
+      even without its ability to turn your flesh to stone with a gaze, is a
+      dangerous creature. A bit like a frog, bulbous eyes and six muscled legs
+      built for leaping. A bit like an alligator, with snapping jaws and sawing
+      teeth. Covered in stony scales and very hard to kill. Best avoided, if
+      possible.</p>
+
+      </blockquote>
+
+      <p>Instinct: To create new statuary</p>
+
+      <ul>
+
+      <li>Turn flesh to stone with a gaze</li>
+
+      <li>Retreat into a maze of stone</li>
+
+      </ul>
+  tags: '[{"value":"close"},{"value":"solitary"},{"value":"hoarder"}]'
+  tagsString: 'close, solitary, hoarder'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Basilisk
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  mirrorX: false
+  mirrorY: false
+  lockRotation: false
+  rotation: 0
+  vision: true
+  dimSight: 60
+  brightSight: 30
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightColor: ''
+  lightAlpha: 1
+  actorId: Xqk4nmbSnQAGBQ2I
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 20
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: ''
+  randomImg: false
+items: []

@@ -1,0 +1,18 @@
+_id: cIX97Jp0XfFJSK5s
+name: Multiclass Initiate
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>Get one move from another class. Treat your level as one lower for
+    choosing the move.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Bard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

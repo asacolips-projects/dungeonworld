@@ -1,0 +1,86 @@
+_id: di5zEwR6GvZmMna5
+name: Dwarven Warrior
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 7
+      min: 0
+      max: 7
+    ac:
+      value: 2
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>For ages, men believed all dwarves were male and all were of this ilk:
+      stoic and proud warriors. Axe-wielding and plate-wearing. Stout bearded
+      battle-hungry dwarves who would push them, time and time again, back up
+      out of their mines and tunnels with ferocity. It just goes to show how
+      little men know about the elder races. These folk are merely a vanguard,
+      and they bravely do their duty to protect the riches of the Dwarven realm.
+      Earn their trust and you’ve an ally for life. Earn their ire and you’re
+      not likely to regret it very long.</p>
+
+      <p>Instinct: To defend</p>
+
+      <ul>
+
+      <li>Drive them back</li>
+
+      <li>Call up reinforcements</li>
+
+      </ul>
+  tags: '[{"value":"close"},{"value":"horde"},{"value":"organized"}]'
+  tagsString: 'close, horde, organized'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Dwarven Warrior
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  mirrorX: false
+  mirrorY: false
+  lockRotation: false
+  rotation: 0
+  vision: true
+  dimSight: 60
+  brightSight: 30
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightColor: ''
+  lightAlpha: 1
+  actorId: di5zEwR6GvZmMna5
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 20
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: ''
+  randomImg: false
+items: []

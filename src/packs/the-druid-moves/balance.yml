@@ -1,0 +1,19 @@
+name: Balance
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>deal damage</strong>, take 1 balance. When you touch
+    someone and channel the spirits of life you may spend balance. For each
+    balance spent, heal 1d4 HP.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Druid'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: PivDudgyzRQfs8Mp

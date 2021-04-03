@@ -1,0 +1,20 @@
+_id: DUWf94jNtvvlzS4z
+name: Half-elven
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>Somewhere in your lineage lies mixed blood and it begins to show its
+    presence. You gain the elf starting move if you took the human one at
+    character creation or vice versa.<strong> You may take this move only if it
+    is your first advancement.</strong></p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Ranger'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

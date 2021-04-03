@@ -1,0 +1,18 @@
+name: Fount of Knowledge
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>spout lore</strong> about something no one else has any
+    clue about, take +1.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Wizard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: PjtEZKEb7T6s0k87

@@ -18,6 +18,24 @@ DW.debilities = {
   "cha": "DW.DebilityCha"
 };
 
+DW.rollResults = {
+  failure: {
+    start: null,
+    end: 6,
+    label: 'DW.failure'
+  },
+  partial: {
+    start: 7,
+    end: 9,
+    label: 'DW.partial'
+  },
+  success: {
+    start: 10,
+    end: null,
+    label: 'DW.success'
+  }
+};
+
 export class DwClassList {
   static async getClasses(labels_only = true) {
     // First, retrieve any custom or overridden classes so that we can

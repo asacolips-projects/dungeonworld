@@ -1,0 +1,82 @@
+_id: ocAv4qE11juudevb
+name: The Tarrasque
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: null
+      min: 0
+      max: null
+    ac:
+      value: null
+      base: 0
+      min: 0
+    damage:
+      value: ''
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Impervious
+  details:
+    biography: >-
+      <p>The Tarrasque. Legendary unstoppable juggernaut—eater of cities and
+      swallower of ships, horses, and knights. A creature unseen in an age but
+      about whom all kinds of stories are told. One thread of truth weaves
+      through these stories. It cannot be killed. No blade can pierce its stony
+      shell nor spell penetrate the shield it somehow bears. Stories say,
+      though, that the will of one pure soul can send it to slumber, though what
+      that means and, by the gods, where such a thing might be found, pray we do
+      not ever need to learn. It slumbers. Somewhere in the periphery of the
+      planar edge, it sleeps for now.</p>
+
+      <p>Instinct: To consume</p>
+
+      <ul>
+
+      <li>Swallow a person, group, or place whole</li>
+
+      <li>Release a remnant of a long-eaten place from its gullet</li>
+
+      </ul>
+  tags: '[{"value":"solitary"},{"value":"huge"},{"value":"planar"}]'
+  tagsString: 'solitary, huge, planar'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: The Tarrasque
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: ocAv4qE11juudevb
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

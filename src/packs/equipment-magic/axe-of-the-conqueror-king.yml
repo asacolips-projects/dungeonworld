@@ -1,0 +1,24 @@
+name: Axe of the Conqueror-King
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>It is crafted of shining steel, glowing with a golden light and imbued
+    with mythical powers of authority. When you bear the axe, you become a
+    beacon of inspiration to all you lead. Any hirelings in your employ have +1
+    Loyalty, no matter the quality of your leadership.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: '[{"value":"close"}]'
+  tagsString: close
+  magic: true
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/axes/axe-battle-heavy-jagged.webp
+effects: []
+_id: cHspGYwT4zVcv6cl

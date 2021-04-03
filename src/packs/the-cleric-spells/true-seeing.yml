@@ -1,0 +1,19 @@
+name: True Seeing
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Your vision is opened to the true nature of everything you lay your eyes
+    on. You pierce illusions and see things that have been hidden. The GM will
+    describe the area before you ignoring any illusions and falsehoods, magical
+    or otherwise. While this spell is ongoing you take -1 to cast a spell.</p>
+  spellLevel: 5
+  rollFormula: ''
+  class: 'The Cleric'
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/red_09.webp
+effects: []
+_id: v31q2vof8DbK0FKA

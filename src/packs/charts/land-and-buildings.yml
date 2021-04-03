@@ -1,0 +1,17 @@
+_id: OuHOTaJ2thbreGoH
+name: Land and Buildings
+permission:
+  default: 0
+folder: ''
+flags: {}
+content: |-
+  <ul>
+  <li>A hovel&nbsp; 20 coins</li>
+  <li>A cottage&nbsp; 500 coins</li>
+  <li>A house&nbsp; 2,500 coins</li>
+  <li>A mansion&nbsp; 50,000 coins</li>
+  <li>A keep&nbsp; 75,000 coins</li>
+  <li>A castle&nbsp; 250,000 coins</li>
+  <li>A grand castle&nbsp; 1,000,000 coins</li>
+  <li>A month’s upkeep&nbsp; 1% of the cost</li>
+  </ul>

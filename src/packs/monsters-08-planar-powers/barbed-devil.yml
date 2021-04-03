@@ -1,0 +1,85 @@
+_id: b3DMzv1PI9M04D0I
+name: Barbed Devil
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 16
+      min: 0
+      max: 16
+    ac:
+      value: 3
+      base: 0
+      min: 0
+    damage:
+      value: d10+3
+      misc: ''
+      piercing: 3 piercing
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Spines
+  details:
+    biography: >-
+      <p>There are a thousand forms of devil, maybe more. Some common and some
+      unique. Each time the Inquisitors discover a new one they write it into
+      the Tormentors Codex and the knowledge is shared among the abbeys in the
+      hope that atrocities of that particular sort won’t find their way into the
+      world again. The barbed devil has long been known to the brothers and
+      sisters of the Inquisition. It appears only at a site of great violence or
+      when called by a wayward summoner. Covered in sharp quills, this
+      particular demon revels in the spilling of blood, preferably by impaling
+      victims piecemeal or in whole upon its thorns and letting them die there.
+      Cruel but not particularly effective beyond slaughter. A low inquisitorial
+      priority.</p>
+
+      <p>Instinct: To rend flesh and spill blood</p>
+
+      <ul>
+
+      <li>Impale someone</li>
+
+      <li>Kill indiscriminately</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"large"},{"value":"planar"},{"value":"terrifying"},{"value":"close"},{"value":"reach"},{"value":"messy"}]
+  tagsString: 'solitary, large, planar, terrifying, close, reach, messy'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Barbed Devil
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: b3DMzv1PI9M04D0I
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []

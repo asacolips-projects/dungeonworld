@@ -1,0 +1,20 @@
+name: Vicious Blast
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>grant bonus damage with Arcane Art</strong>, you grant
+    an extra +2d4 damage.</p>
+
+    <p>Bonus to damage roll: [[/roll 2d4]]</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Vicious Cacophony
+  class: 'The Bard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: afvlAMSMMsxAsX4M

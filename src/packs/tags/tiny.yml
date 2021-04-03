@@ -1,0 +1,11 @@
+name: Tiny
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: <p>It’s much smaller than a halfling.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: dOV4zaX59ivYsiuE

@@ -1,0 +1,18 @@
+name: Charm Person
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>The person (not beast or monster) you touch while casting this spell
+    counts you as a friend until they take damage or you prove otherwise.
+    Ongoing.</p>
+  spellLevel: 1
+  rollFormula: ''
+  class: 'The Wizard'
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/heal-sky-1.webp
+effects: []
+_id: xQa1PWJZ5KX0IwhS

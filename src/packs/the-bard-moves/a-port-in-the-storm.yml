@@ -1,0 +1,19 @@
+_id: SwCcS4PLZPsa50FL
+name: A Port In The Storm
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>return to a civilized settlement you’ve visited
+    before</strong>, tell the GM when you were last here. They’ll tell you how
+    it’s changed since then.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  class: 'The Bard'
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg

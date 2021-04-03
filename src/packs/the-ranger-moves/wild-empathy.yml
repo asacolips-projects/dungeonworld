@@ -1,0 +1,16 @@
+name: Wild Empathy
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: <p>You can speak with and understand animals.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  class: 'The Ranger'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: ANCWsXldvv5tIaZu

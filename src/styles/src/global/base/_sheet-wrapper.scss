@@ -6,6 +6,10 @@
   justify-content: space-between;
   height: 100%;
 
+  &.flexcol {
+    flex-direction: column;
+  }
+
   .sheet-header {
     // Use 101% to force a line break;
     width: 101%;
@@ -87,6 +91,15 @@
         .fas {
           transform: rotate(180deg);
         }
+      }
+    }
+
+    .tox-tinymce {
+      button[title="Formats"],
+      button[title="Table"],
+      button[title="Horizontal line"],
+      button[title="Insert/edit link"] {
+        display: none;
       }
     }
   }

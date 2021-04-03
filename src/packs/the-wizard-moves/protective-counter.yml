@@ -1,0 +1,19 @@
+_id: 6zjeOD85IA7M77YL
+name: Protective Counter
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When an ally within sight of you is <strong>affected by an arcane
+    spell</strong>, you can counter it as if it affected you. If the spell
+    affects multiple allies you must counter for each ally separately.</p>
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Counterspell
+  class: 'The Wizard'
+  moveType: advanced
+flags: {}
+img: icons/svg/mystery-man.svg

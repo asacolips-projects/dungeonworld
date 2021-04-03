@@ -1,0 +1,19 @@
+name: Plague
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Name a city, town, encampment, or other place where people live. As long
+    as this spell is active that place is beset by a plague appropriate to your
+    deity’s domains (locusts, death of the first born, etc.) While this spell is
+    ongoing you take -1 to cast a spell.</p>
+  spellLevel: 9
+  rollFormula: ''
+  class: 'The Cleric'
+  prepared: false
+flags: {}
+img: icons/environment/creatures/bug-centipede-brown.webp
+effects: []
+_id: XVX49vwmMqUn6kD9

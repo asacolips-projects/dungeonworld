@@ -1,0 +1,19 @@
+name: Alert
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Describe an event. The GM will tell you when that event occurs, no matter
+    where you are or how far away the event is. If you choose, you can view the
+    location of the event as though you were there in person. You can only have
+    one Alert active at a time.</p>
+  spellLevel: 9
+  rollFormula: ''
+  class: 'The Wizard'
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/evil-eye-eerie-3.webp
+effects: []
+_id: CYOEM8uF5h1lnCKR

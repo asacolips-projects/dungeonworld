@@ -1,0 +1,20 @@
+name: Tricks Of The Trade
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>pick locks or pockets or disable traps</strong>,
+    roll+DEX. • On a 10+, you do it, no problem. • On a 7–9, you still do it,
+    but the GM will offer you two options between suspicion, danger, or
+    cost.</p>
+  rollType: DEX
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  class: 'The Thief'
+  moveType: starting
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: 95FeLZOHKa30eJN2
