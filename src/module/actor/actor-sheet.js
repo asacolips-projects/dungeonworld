@@ -81,7 +81,7 @@ export class DwActorSheet extends ActorSheet {
 
         // Calculate xp bar length.
         let currentXp = Number(data.data.attributes.xp.value);
-        let nextLevel = Number(data.data.attributes.level.value) + 7;
+        let nextLevel = Number(data.data.attributes.xp.max);
         xpSvg = DwUtility.getProgressCircle({ current: currentXp, max: nextLevel, radius: 16 });
       }
       else {
@@ -262,6 +262,7 @@ export class DwActorSheet extends ActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
+    if (!this.options.editable) return;
 
     // Rollables.
     html.find('.rollable').on('click', this._onRollable.bind(this));

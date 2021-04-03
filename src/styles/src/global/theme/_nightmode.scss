@@ -27,6 +27,13 @@ $c-blue-dark: #344460;
       }
     }
 
+    .sheet-notifications {
+      .error,
+      .warning {
+        color: $c-white !important;
+      }
+    }
+
     .cell__title,
     .cell__subtitle,
     .result-label {

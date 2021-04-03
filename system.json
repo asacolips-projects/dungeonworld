@@ -281,13 +281,6 @@
       "entity": "JournalEntry"
     },
     {
-      "name": "macros",
-      "label": "Macros",
-      "system": "dungeonworld",
-      "path": "./packs/macros.db",
-      "entity": "Macro"
-    },
-    {
       "name": "tables",
       "label": "Tables",
       "system": "dungeonworld",
@@ -320,7 +313,7 @@
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "attributes.hp",
-  "secondaryTokenAttribute": null,
+  "secondaryTokenAttribute": "attributes.xp",
   "initiative": "1d20",
   "socket": true,
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld",
