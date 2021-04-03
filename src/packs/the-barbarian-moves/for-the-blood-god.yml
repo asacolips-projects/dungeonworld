@@ -9,23 +9,24 @@ data:
     something your gods (or the ancestor spirits, or your totem, etc)
     value—gold, blood, bones or the like. When you <strong>sacrifice those
     things as per your rites and rituals</strong>, roll+WIS.</p>
-
-    <ul>
-
-    <li>On a 10+ the GM will grant you insight into your current trouble or a
-    boon to help you.</li>
-
-    <li>On a 7-9 the sacrifice is not enough and your gods take of your flesh as
-    well, but still grant you some insight or boon. • On a miss, you earn the
-    ire of the fickle spirits.</li>
-
-    </ul>
+  choices: ''
   rollType: WIS
   rollMod: 0
   requiresLevel: 6
   requiresMove: ''
   class: 'The Barbarian'
   moveType: advanced
+  moveResults:
+    failure:
+      value: >-
+        <p>You earn the ire of the fickle spirits.</p>
+    partial:
+      value: >-
+        <p>The sacrifice is not enough and your gods take of your flesh as well, but still grant you some insight or boon.</p>
+    success:
+      value: >-
+        <p>The GM will grant you insight into your current trouble or a
+        boon to help you.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
 _id: bKbEi6MLGNKEmeuA

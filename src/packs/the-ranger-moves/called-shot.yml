@@ -6,20 +6,13 @@ data:
   name: ''
   description: >-
     <p>When you<strong> attack a defenseless or surprised enemy at
-    range</strong>, you can choose to deal your damage or name your target and
+    range</strong>, you can choose to either deal your damage automatically or name your target and
     roll+DEX.</p>
-
+  choices: >-
     <ul>
-
-    <li><strong>Head </strong>• 10+: As 7–9, plus your damage. • 7-9: They do
-    nothing but stand and drool for a few moments.</li>
-
-    <li><strong>Arms</strong> • 10+: As 7-9, plus your damage • 7-9: They drop
-    anything they’re holding.</li>
-
-    <li><strong>Legs </strong>• 10+: As 7-9, plus your damage • 7-9: They’re
-    hobbled and slow moving.</li>
-
+    <li><strong>Head</strong>: They do nothing but stand and drool for a few moments.</li>
+    <li><strong>Arms</strong>: They drop anything they’re holding.</li>
+    <li><strong>Legs</strong>: They’re hobbled and slow moving.</li>
     </ul>
   rollType: DEX
   rollMod: 0
@@ -27,6 +20,15 @@ data:
   requiresMove: ''
   class: 'The Ranger'
   moveType: starting
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>Choose one, but don't deal your damage.</p>
+    success:
+      value: >-
+        <p>Choose one, and deal your damage.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
 _id: VpeXMwtBhIQYyA77

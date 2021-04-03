@@ -8,32 +8,29 @@ data:
   description: >-
     <p>When you <strong>weave a performance into a basic spell</strong>, choose
     an ally and an effect:</p>
-
+  choices: >-
     <ul>
-
-    <li>Heal 1d8 damage</li>
-
-    <li>+1d4 forward to damage</li>
-
+    <li>Heal [[1d8]] damage</li>
+    <li>+ [[1d4]] forward to damage</li>
     <li>Their mind is shaken clear of one enchantment</li>
-
     <li>The next time someone successfully assists the target with aid, they get
     +2 instead of +1</li>
-
     </ul>
-
-    <p>Then roll+CHA. • On a 10+, the ally gets the selected effect. • On a 7-9,
-    your spell still works, but you draw unwanted attention or your magic
-    reverberates to other targets affecting them as well, GM’s choice.</p>
-
-    <p>Heal roll: [[/roll 1d8]]</p>
-
-    <p>Forward to damage roll: [[/roll 1d4]]</p>
   rollType: CHA
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
   class: 'The Bard'
   moveType: starting
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>Your spell still works, but you draw unwanted attention or your magic
+        reverberates to other targets affecting them as well, GM’s choice.</p>
+    success:
+      value: >-
+        <p>The ally gets the selected effect.</p>
 flags: {}
 img: icons/svg/mystery-man.svg

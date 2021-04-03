@@ -7,17 +7,12 @@ data:
   name: ''
   description: >-
     <p>When you <strong>spend a moment to survey a dangerous area</strong>,
-    roll+DEX. • On a 10+, hold 3. • On a 7–9, hold 1. Spend your hold as you
-    walk through the area to ask these questions:</p>
-
+    roll+DEX. Spend your hold as you walk through the area to ask these questions:</p>
+  choices: >-
     <ul>
-
     <li>Is there a trap here and if so, what activates it?</li>
-
     <li>What does the trap do when activated?</li>
-
     <li>What else is hidden here?</li>
-
     </ul>
   rollType: DEX
   rollMod: 0
@@ -25,5 +20,14 @@ data:
   requiresMove: ''
   class: 'The Thief'
   moveType: starting
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>Hold 1.</p>
+    success:
+      value: >-
+        <p>Hold 3.</p>
 flags: {}
 img: icons/svg/mystery-man.svg

@@ -21,14 +21,13 @@ data:
   moveResults:
     failure:
       value: >-
-        <p>On a miss, you still choose one, but things get really out of
-        hand.</p>
+        <p>You still choose one, but things get really out of hand.</p>
     partial:
       value: >-
-        <p>On a 7–9 choose 1.</p>
+        <p>Choose 1.</p>
     success:
       value: >-
-        <p>On a 10+ choose 3.</p>
+        <p>Choose 3.</p>
 flags: {}
 img: icons/containers/kitchenware/goblet-gold-red.webp
 effects: []

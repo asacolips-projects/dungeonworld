@@ -7,15 +7,14 @@ data:
   name: ''
   description: >-
     <p>When you <strong>call upon the spirits to change your shape</strong>,
-    roll+Wis. • On a 10+ hold 3. • On a 7–9 hold 2. • On a miss hold 1 in
-    addition to whatever the GM says. You may take on the physical form of any
+    roll+WIS.</p><p>You may take on the physical form of any
     species whose essence you have studied or who lives in your land: you and
     your possessions meld into a perfect copy of the species’ form. You have any
     innate abilities and weaknesses of the form: claws, wings, gills, breathing
     water instead of air. You still use your normal stats but some moves may be
     harder to trigger—a housecat will find it hard to do battle with an ogre.
     The GM will also tell you one or more moves associated with your new form.
-    <strong>Spend 1 hold to make that move.</strong> Once you’re out of hold,
+    <strong>Spend 1 hold to make that move.</strong></p><p>Once you’re out of hold,
     you return to your natural form. At any time, you may spend all your hold
     and revert to your natural form.</p>
   rollType: WIS
@@ -24,5 +23,15 @@ data:
   requiresMove: ''
   class: 'The Druid'
   moveType: starting
+  moveResults:
+    failure:
+      value: >-
+        <p>Hold 1, in addition to whatever the GM says.</p>
+    partial:
+      value: >-
+        <p>Hold 2.</p>
+    success:
+      value: >-
+        <p>Hold 3.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
