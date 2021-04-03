@@ -19,6 +19,8 @@ import { DwUtility } from "./utility.js";
 import { CombatSidebarDw } from "./combat/combat.js";
 import { MigrateDw } from "./migrate/migrate.js";
 
+import * as chat from "./chat.js";
+
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
@@ -122,9 +124,9 @@ Hooks.once("ready", async function() {
   CONFIG.DW.nightmode = game.settings.get('dungeonworld', 'nightmode') ?? false;
 });
 
-Hooks.on('renderChatMessage', (data, html, options) => {
+Hooks.on('renderChatMessage', (app, html, data) => {
   // Determine visibility.
-  let chatData = data.data;
+  let chatData = app.data;
   const whisper = chatData.whisper || [];
   const isBlind = whisper.length && chatData.blind;
   const isVisible = (whisper.length) ? game.user.isGM || whisper.includes(game.user._id) || (!isBlind) : true;
@@ -133,7 +135,12 @@ Hooks.on('renderChatMessage', (data, html, options) => {
     html.find('.dice-total').text('?');
     html.find('.dice-tooltip').remove();
   }
+
+  chat.displayChatActionButtons(app, html, data);
 });
+
+Hooks.on('renderChatLog', (app, html, data) => chat.activateChatListeners(html));
+Hooks.on('renderChatPopout', (app, html, data) => chat.activateChatListeners(html));
 
 /* -------------------------------------------- */
 /*  Foundry VTT Setup                           */
@@ -160,9 +167,13 @@ Hooks.once("setup", function() {
 /*  Actor Updates                               */
 /* -------------------------------------------- */
 Hooks.on('createActor', async (actor, options, id) => {
+  // Prepare updates object.
+  let updates = {};
+
   // Allow the character to levelup up when their level changes.
   if (actor.data.type == 'character') {
-    actor.setFlag('dungeonworld', 'levelup', true);
+    await actor.setFlag('dungeonworld', 'levelup', true);
+
 
     // Get the item moves as the priority.
     let moves = game.items.entities.filter(i => i.type == 'move' && (i.data.data.moveType == 'basic' || i.data.data.moveType == 'special'));
@@ -198,10 +209,30 @@ Hooks.on('createActor', async (actor, options, id) => {
       return 0;
     });
 
+    // Add default look.
+    updates['data.details.look'] = game.i18n.localize('DW.DefaultLook');
+
+    // Link the token.
+    updates['token.actorLink'] = true;
+    updates['token.bar1'] = { attribute: 'attributes.hp' };
+    updates['token.bar2'] = { attribute: 'attributes.xp' };
+    updates['token.displayBars'] = 20;
+    updates['token.disposition'] = 1;
+
     // Add to the actor.
     const movesToAdd = moves.map(m => duplicate(m));
     await actor.createEmbeddedEntity('OwnedItem', movesToAdd);
-    await actor.update({ 'data.details.look': game.i18n.localize("DW.DefaultLook") });
+  }
+
+  if (actor.data.type == 'npc') {
+    updates['token.bar1'] = { attribute: 'attributes.hp' };
+    updates['token.bar2'] = { attribute: null };
+    updates['token.displayBars'] = 20;
+    updates['token.disposition'] = -1;
+  }
+
+  if (updates && Object.keys(updates).length > 0) {
+    await actor.update(updates);
   }
 });
 

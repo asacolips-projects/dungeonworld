@@ -114,6 +114,44 @@
       }
     }
   }
+
+  .message-content {
+    .button {
+      display: block;
+      position: relative;
+      margin: 5px 0;
+      line-height: 24px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.1);
+      border: 1px solid #999;
+      border-radius: 3px;
+      box-shadow: 0 0 2px #FFF inset;
+      word-break: break-all;
+      font-family: $font-stack-base;
+    }
+
+    .xp-button {
+      background: $c-navy;
+      box-shadow: 0 0 2px $c-navy-hover inset;
+      border-color: $c-black;
+      color: $c-white;
+      font-weight: bold;
+
+      &:hover {
+        background: $c-navy-up;
+        box-shadow: 0 0 2px $c-navy-top inset;
+      }
+
+      &.button-disabled:hover {
+        background: $c-navy;
+        box-shadow: 0 0 2px $c-navy-hover inset;
+      }
+    }
+
+    .button-disabled {
+      opacity: 0.5;
+    }
+  }
 }
 
 #chat-form {

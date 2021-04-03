@@ -29,6 +29,10 @@
     background: $c-white;
   }
 
+  input {
+    font-size: 18px;
+  }
+
   .cell__title {
     position: relative;
 
@@ -119,7 +123,7 @@
   .cell--forward,
   .cell--hold,
   .cell--resource1 {
-    grid-column: span 4;
+    grid-column: span 3;
 
     input {
       background-color: $ct-gray;
@@ -153,6 +157,8 @@
   }
 
   .cell--resource1 {
+    grid-column: span 7;
+
     .cell__title input {
       background-color: $ct-white;
       color: $c-white;
@@ -179,5 +185,19 @@
     input[name="data.attributes.weight.value"] {
       color: $c-red;
     }
+  }
+}
+
+.sheet-resources {
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+
+  .cell--ongoing,
+  .cell--forward,
+  .cell--hold {
+    grid-column: span 2;
+  }
+
+  .cell--resource1 {
+    grid-column: span 3;
   }
 }
