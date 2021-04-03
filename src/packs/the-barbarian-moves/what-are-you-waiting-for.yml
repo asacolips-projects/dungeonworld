@@ -5,17 +5,24 @@ type: move
 data:
   name: ''
   description: >-
-    <p>When you <strong>cry out a challenge to your enemies</strong>, roll+Con.
-    • On a 10+ they treat you as the most obvious threat to be dealt with and
-    ignore your companions, take +2 damage ongoing against them. • On a 7–9 only
-    a few (the weakest or most foolhardy among them) fall prey to your
-    taunting.</p>
+    <p>When you <strong>cry out a challenge to your enemies</strong>, roll+Con.</p>
   rollType: CON
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
   class: 'The Barbarian'
   moveType: starting
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>Only a few (the weakest or most foolhardy among them) fall prey to your
+        taunting.</p>
+    success:
+      value: >-
+        <p>They treat you as the most obvious threat to be dealt with and
+        ignore your companions, take +2 damage ongoing against them.</p>
 flags: {}
 img: icons/svg/mystery-man.svg
 _id: XxW3y6veAnNmSBq9
