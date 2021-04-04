@@ -107,6 +107,7 @@ Item:
     move:
       choices: ''
       moveType: null
+      rollFormula: ''
       moveResults:
         failure:
           value: ''
@@ -129,7 +130,6 @@ Item:
     templates:
       - base
       - move
-    rollFormula: ''
   equipment:
     templates:
       - base

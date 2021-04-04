@@ -56,9 +56,17 @@
               <option value="CHA">{{localize "DW.CHA"}}</option>
               <option value="ASK">{{localize "DW.ASK"}}</option>
               <option value="BOND">{{localize "DW.BOND"}}</option>
+              <option value="FORMULA">{{localize "DW.FORMULA"}}</option>
               {{/select}}
             </select>
           </div>
+
+          {{#if (eq data.rollType 'FORMULA')}}
+            <div class="resource">
+              <label>{{localize "DW.RollFormula"}}</label>
+              <input type="text" name="data.rollFormula" value="{{data.rollFormula}}" placeholder="ex: d6 + d8 + @str.mod" data-dtype="String"/>
+            </div>
+          {{/if}}
 
           <div class="resource">
             <label>{{localize "DW.Modifier"}}</label>

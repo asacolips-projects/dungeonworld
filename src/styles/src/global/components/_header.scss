@@ -17,7 +17,7 @@
     color: $c-white;
     border-bottom: 2px solid $c-navy-up;
     margin: 0 10px;
-    font-size: 18px;
+    font-size: 14px;
     height: 32px;
     line-height: 32px;
     flex: 100px 2;
@@ -61,7 +61,8 @@
       bottom: 0;
       margin: auto;
       text-align: center;
-      font-size: 18px;
+      font-family: $font-stack-secondary;
+      font-size: 16px;
       line-height: 18px;
 
       &:hover,
@@ -91,6 +92,13 @@
 
     &.flex-item--xp-button {
       padding: 0;
+
+      button {
+        font-size: 22px;
+        font-family: sans-serif;
+        width: 32px;
+        line-height: 1;
+      }
     }
 
     &.flex-item--level-up {
