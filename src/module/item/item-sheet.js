@@ -13,7 +13,7 @@ export class DwItemSheet extends ItemSheet {
       width: 520,
       height: 480,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "details" }],
-      submitOnChange: false,
+      submitOnChange: true,
     });
 
     if (CONFIG.DW.nightmode) {

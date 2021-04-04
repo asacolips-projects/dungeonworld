@@ -15,7 +15,13 @@
 </h4>
 {{#if item.data.rollType}}
   <div class="item-meta tags">
-    <span class="tag">{{getLabel statSettings item.data.rollType}}</span>
+    <span class="tag">
+      {{#if (eq item.data.rollType 'FORMULA')}}
+        {{item.data.rollFormula}}
+      {{else}}
+        {{getLabel statSettings item.data.rollType}}
+      {{/if}}
+    </span>
   </div>
 {{else if item.data.rollFormula}}
   <div class="item-meta tags">

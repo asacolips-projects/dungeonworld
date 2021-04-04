@@ -27,12 +27,13 @@ data:
     <li>Fame and glory</li>
 
     </ul>
-  rollType: ''
+  rollType: 'FORMULA'
+  rollFormula: 'd6+d8+@str.mod'
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
   class: 'The Barbarian'
   moveType: starting
 flags: {}
-img: icons/svg/mystery-man.svg
+img: systems/dungeonworld/assets/icons/skills/blood_11.webp
 _id: 7EpgYJc7Isi37fD5

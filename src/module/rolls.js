@@ -68,7 +68,15 @@ export class DwRolls {
           moveResults: item.data.moveResults,
           choices: item.data.choices
         };
-        data.roll = item.type == 'move' ? item.data.rollType.toLowerCase() : item.data.rollFormula;
+
+        if (item.type == 'npcMove' || item.data?.rollType == 'FORMULA') {
+          data.roll = item.data.rollFormula;
+          data.rollType = item.data.rollType ? item.data.rollType.toLowerCase() : 'npc';
+        }
+        else {
+          data.roll = item.data.rollType.toLowerCase();
+          data.rollType = item.data.rollType.toLowerCase();
+        }
         data.mod = item.type == 'move' ? item.data.rollMod : 0;
         // If this is an ASK roll, render a bond first to determine which
         // score to use.
@@ -153,8 +161,8 @@ export class DwRolls {
     let template = 'systems/dungeonworld/templates/chat/chat-move.html';
     let dice = DwUtility.getRollFormula('2d6');
     let forwardUsed = false;
-    let xpGranted = false;
     let resultRangeNeeded = false;
+    let rollData = this.actor.getRollData();
     // GM rolls.
     let chatData = {
       user: game.user._id,
@@ -169,19 +177,22 @@ export class DwRolls {
       // Test if the roll is a formula.
       let validRoll = false;
       try {
-        validRoll = new Roll(roll.trim()).evaluate();
+        validRoll = new Roll(roll.trim(), rollData).evaluate();
       } catch (error) {
         validRoll = false;
       }
       // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
       let formula = validRoll ? roll.trim() : '';
       // Handle bond (user input).
-      if (!validRoll) {
+      if (!validRoll || dataset?.rollType == 'formula') {
         if (roll.toLowerCase() == 'bond') {
           formula = form.bond?.value ? `${dice}+${form.bond.value}` : dice;
           if (dataset.value && dataset.value != 0) {
             formula += `+${dataset.value}`;
           }
+        }
+        else if (dataset?.rollType == 'formula') {
+          formula = roll;
         }
         // Handle ability scores (no input).
         else if (roll.match(/(\d*)d\d+/g)) {
@@ -203,11 +214,11 @@ export class DwRolls {
       }
       if (formula != null) {
         // Do the roll.
-        let roll = new Roll(`${formula}`, this.actor.getRollData());
+        let roll = new Roll(`${formula}`, rollData);
         roll.roll();
         let rollType = templateData.rollType ?? 'move';
         // Add success notification.
-        if (formula.includes(dice) && resultRangeNeeded && rollType == 'move') {
+        if (resultRangeNeeded && rollType == 'move') {
           // Retrieve the result ranges.
           let resultRanges = CONFIG.DW.rollResults;
           let resultType = null;
