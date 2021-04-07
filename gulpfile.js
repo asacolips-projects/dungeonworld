@@ -209,7 +209,7 @@ const SYSTEM_COPY = [
   'src/assets/**/*',
   '!src/assets/**/*.{png,jpeg,jpg}',
   'src/module/**/*',
-  'src/packs/**/*',
+  'src/packs/**/*.db',
   'src/scripts/**/*',
   'src/styles/lib/**/*',
   'src/templates/**/*',
