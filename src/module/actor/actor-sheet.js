@@ -262,6 +262,11 @@ export class DwActorSheet extends ActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
+
+    if (this.actor.data.type == 'npc') {
+      this._activateTagging(html);
+    }
+
     if (!this.options.editable) return;
 
     // Rollables.
@@ -305,10 +310,6 @@ export class DwActorSheet extends ActorSheet {
         li.setAttribute("draggable", true);
         li.addEventListener("dragstart", handler, false);
       });
-    }
-
-    if (this.actor.data.type == 'npc') {
-      this._activateTagging(html);
     }
   }
 
@@ -1037,6 +1038,7 @@ export class DwActorSheet extends ActorSheet {
 
     // Tagify!
     var $input = html.find('input[name="data.tags"]');
+    if (!this.options.editable) $input.prop('readonly', true);
     if ($input.length > 0) {
       // init Tagify script on the above inputs
       var tagify = new Tagify($input[0], {
