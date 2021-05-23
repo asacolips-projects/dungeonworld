@@ -32,8 +32,8 @@ let system = JSON.parse(systemRaw);
 if (argv.branch && argv.branch == 'beta' && argv.versionpre) {
   let newVersionSplit = system.version.split('.');
   // Set the beta version.
-  newVersionSplit[1]++;
-  newVersionSplit[2] = 0;
+  // newVersionSplit[1]++;
+  // newVersionSplit[2] = 0;
   let newVersion = newVersionSplit.join('.');
   system.version = `beta${argv.versionpre ? argv.versionpre + '-' : ''}${newVersion}`;
 }
