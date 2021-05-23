@@ -60,7 +60,7 @@ export class MigrateDw {
 
         // If this is a valid move, update it.
         if (moveType) {
-          await actor.updateEmbeddedEntity("OwnedItem", {
+          await actor.updateEmbeddedDocuments("Item", {
             _id: item._id,
             name: item.name,
             data: {

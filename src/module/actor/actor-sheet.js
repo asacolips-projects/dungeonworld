@@ -54,7 +54,6 @@ export class DwActorSheet extends ActorSheet {
     // Owned Items
     data.items = actorData.items;
     for ( let i of data.items ) {
-      console.log(i);
       const item = this.actor.items.get(i._id);
       i.labels = item.labels;
     }
@@ -148,8 +147,6 @@ export class DwActorSheet extends ActorSheet {
       title: this.title
     };
 
-    console.log(returnData);
-
     // Return template data
     return returnData;
   }
@@ -183,8 +180,6 @@ export class DwActorSheet extends ActorSheet {
       7: [],
       9: []
     };
-
-    console.log(sheetData.items);
 
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
@@ -250,7 +245,7 @@ export class DwActorSheet extends ActorSheet {
    */
   _prepareNpcItems(sheetData) {
     // Exit early if this isn't an npc.
-    if (sheetData.entity.type != 'npc') return;
+    if (sheetData.actor.type != 'npc') return;
 
     // If there are tags, convert it into a string.
     if (sheetData.data.tags != undefined && sheetData.data.tags != '') {
@@ -300,9 +295,9 @@ export class DwActorSheet extends ActorSheet {
     }
 
     // Assign and return
-    actorData.moves = moves;
-    actorData.basicMoves = basicMoves;
-    actorData.specialMoves = specialMoves;
+    sheetData.moves = moves;
+    sheetData.basicMoves = basicMoves;
+    sheetData.specialMoves = specialMoves;
   }
 
   /* -------------------------------------------- */
@@ -918,14 +913,14 @@ export class DwActorSheet extends ActorSheet {
     const data = a.dataset;
     const actorData = this.actor.data.data;
     const itemId = $(a).parents('.item').attr('data-item-id');
-    const item = this.actor.getOwnedItem(itemId);
+    const item = this.actor.items.get(itemId);
 
     if (item) {
       let $self = $(a);
       $self.toggleClass('unprepared');
 
-      let update = { _id: item._id, "data.prepared": !item.data.data.prepared };
-      await this.actor.updateEmbeddedEntity("OwnedItem", update);
+      let update = { "data.prepared": !item.data.data.prepared };
+      await item.update(update, {});
 
       this.render();
     }
@@ -942,7 +937,7 @@ export class DwActorSheet extends ActorSheet {
     const data = a.dataset;
     const actorData = this.actor.data.data;
     const itemId = $(a).parents('.item').attr('data-item-id');
-    const item = this.actor.getOwnedItem(itemId);
+    const item = this.actor.items.get(itemId);
     let formula = null;
     let titleText = null;
     let flavorText = null;

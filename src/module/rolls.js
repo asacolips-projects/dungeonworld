@@ -13,7 +13,6 @@ export class DwRolls {
   }
 
   static getModifiers(actor) {
-    console.log(actor);
     let forward = Number(actor.data.data.attributes.forward.value) ?? 0;
     let ongoing = Number(actor.data.data.attributes.ongoing.value) ?? 0;
     return `+${forward}+${ongoing}`;
@@ -215,10 +214,6 @@ export class DwRolls {
       }
       if (formula != null) {
         // Do the roll.
-        console.log({
-          formula: formula,
-          rollData: rollData
-        })
         let roll = new Roll(`${formula}`, rollData);
         roll.evaluate({async: false});
         let rollType = templateData.rollType ?? 'move';
@@ -258,7 +253,7 @@ export class DwRolls {
           // Handle XP.
           const token = this.actor.token;
           templateData.actor = this.actor.data;
-          templateData.tokenId = token ? `${token.scene._id}.${token.id}` : null;
+          templateData.tokenId = token ? `${token.parent.data._id}.${token.id}` : null;
           templateData.xp = resultType == 'failure' ? true : false;
 
           // Update the templateData.

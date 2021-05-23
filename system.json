@@ -3,8 +3,8 @@
   "title": "Dungeon World",
   "description": "The Dungeon World system for FoundryVTT!",
   "version": "0.7.3",
-  "minimumCoreVersion": "0.7.2",
-  "compatibleCoreVersion": "0.7.9",
+  "minimumCoreVersion": "0.8.4",
+  "compatibleCoreVersion": "0.8.6",
   "templateVersion": 2,
   "author": "Asacolips, Vasid",
   "esmodules": [

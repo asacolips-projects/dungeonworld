@@ -184,7 +184,7 @@ export class CombatSidebarDw {
               // Set the initiative of the actor being draged to the drop
               // target's +1. This will later be adjusted increments of 10.
               let updatedCombatant = combatants[newCombatant.actor.data.type].find(c => c._id == newCombatant._id);
-              updatedCombatant.initiative = Number(oldInit) + 1;
+              updatedCombatant.data.initiative = Number(oldInit) + 1;
 
               // Loop through all combatants in initiative order, and assign
               // a new initiative in increments of 10. The "updates" variable
@@ -201,7 +201,7 @@ export class CombatSidebarDw {
 
               // If there are updates, update the combatants at once.
               if (updates) {
-                await combat.updateCombatant(updates);
+                await combat.updateEmbeddedDocuments('Combatant', updates, {});
               }
             }
           });
@@ -237,15 +237,15 @@ export class CombatSidebarDw {
     // initiative, set them in increments of 10. However, the system still has
     // initiative formula using a d20, in case the reroll initiative button
     // is used.
-    Hooks.on('preCreateCombatant', (combat, combatant, options, id) => {
-      if (!combatant.initiative) {
+    Hooks.on('preCreateCombatant', (document, data, options, userId) => {
+      if (!data.initiative) {
         let highestInit = 0;
-        let token = canvas.tokens.get(combatant.tokenId);
+        let token = canvas.tokens.get(data.tokenId);
         let actorType = token.actor ? token.actor.data.type : 'character';
 
         // Iterate over actors of this type and update the initiative of this
         // actor based on that.
-        combat.parent.data.combatants.filter(c => c.actor.data.type == actorType).forEach(c => {
+        document.parent.data.combatants.filter(c => c.actor.data.type == actorType).forEach(c => {
           let init = Number(c.initiative);
           if (init >= highestInit) {
             highestInit = init + 10;
@@ -253,7 +253,7 @@ export class CombatSidebarDw {
         });
 
         // Update this combatant.
-        combatant.initiative = highestInit;
+        document.data.update({initiative: highestInit});
       }
     });
 

@@ -84,7 +84,7 @@ export class ActorDw extends Actor {
     const data = a.dataset;
     const actorData = actor.data.data;
     const itemId = $(a).parents('.item').attr('data-item-id');
-    const item = actor.getOwnedItem(itemId);
+    const item = actor.items.get(itemId);
     let formula = null;
     let titleText = null;
     let flavorText = null;
