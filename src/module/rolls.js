@@ -13,6 +13,7 @@ export class DwRolls {
   }
 
   static getModifiers(actor) {
+    console.log(actor);
     let forward = Number(actor.data.data.attributes.forward.value) ?? 0;
     let ongoing = Number(actor.data.data.attributes.ongoing.value) ?? 0;
     return `+${forward}+${ongoing}`;
@@ -214,8 +215,12 @@ export class DwRolls {
       }
       if (formula != null) {
         // Do the roll.
+        console.log({
+          formula: formula,
+          rollData: rollData
+        })
         let roll = new Roll(`${formula}`, rollData);
-        roll.roll();
+        roll.evaluate({async: false});
         let rollType = templateData.rollType ?? 'move';
         // Add success notification.
         if (resultRangeNeeded && rollType == 'move') {
@@ -291,7 +296,7 @@ export class DwRolls {
     if (game.combat && game.combat.combatants) {
       let combatant = game.combat.combatants.find(c => c.actor.data._id == this.actor._id);
       if (combatant) {
-        let moveCount = combatant.flags.dungeonworld ? combatant.flags.dungeonworld.moveCount : 0;
+        let moveCount = combatant.data.flags.dungeonworld ? combatant.data.flags.dungeonworld.moveCount : 0;
         moveCount = moveCount ? Number(moveCount) + 1 : 1;
         // Emit a socket for the GM client.
         if (!game.user.isGM) {

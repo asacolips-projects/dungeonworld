@@ -128,7 +128,7 @@ export class DwUtility {
           default:
             if (!(k in data)) {
               v.val = v.value;
-              delete v.value;
+              // delete v.value;
               data[k] = v;
             }
             break;
