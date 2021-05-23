@@ -221,7 +221,7 @@ Hooks.on('createActor', async (actor, options, id) => {
 
     // Add to the actor.
     const movesToAdd = moves.map(m => duplicate(m));
-    await actor.createEmbeddedEntity('OwnedItem', movesToAdd);
+    await actor.createEmbeddedDocuments('Item', movesToAdd, {});
   }
 
   if (actor.data.type == 'npc') {

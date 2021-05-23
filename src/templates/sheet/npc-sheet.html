@@ -81,7 +81,7 @@
                 </div>
               </h2>
               <ol class="items-list">
-              {{#each actor.basicMoves as |item id|}}
+              {{#each basicMoves as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                   {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
                 </li>
@@ -99,7 +99,7 @@
                 </div>
               </h2>
               <ol class="items-list">
-              {{#each actor.specialMoves as |item id|}}
+              {{#each specialMoves as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                   {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
                 </li>

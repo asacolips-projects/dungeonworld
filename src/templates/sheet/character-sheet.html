@@ -71,7 +71,7 @@
               </div>
             </div>
             <ol class="items-list">
-            {{#each actor.bonds as |item id|}}
+            {{#each bonds as |item id|}}
               <li class="item flexrow" data-item-id="{{item._id}}">
                 <div class="item-description item-edit">{{{item.name}}}</div>
                 <div class="item-controls">
@@ -124,7 +124,7 @@
                 <button type="button" class="resource-control resource-increase" data-action="increase" data-attr="attributes.hp.value">+</button>
               </div>
               <span> / </span>
-              <input type="text" class="hp--max" name="data.attributes.hp.max" value="{{data.attributes.hp.max}}" data-dtype="Number"/> 
+              <input type="text" class="hp--max" name="data.attributes.hp.max" value="{{data.attributes.hp.max}}" data-dtype="Number"/>
             </div>
           </div>
 
@@ -248,7 +248,7 @@
                     </div>
                   </h2>
                   <ol class="items-list">
-                  {{#each actor.basicMoves as |item id|}}
+                  {{#each basicMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
                     </li>
@@ -266,7 +266,7 @@
                     </div>
                   </h2>
                   <ol class="items-list">
-                  {{#each actor.startingMoves as |item id|}}
+                  {{#each startingMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
                     </li>
@@ -284,7 +284,7 @@
                     </div>
                   </h2>
                   <ol class="items-list">
-                  {{#each actor.advancedMoves as |item id|}}
+                  {{#each advancedMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
                     </li>
@@ -302,7 +302,7 @@
                     </div>
                   </h2>
                   <ol class="items-list">
-                  {{#each actor.specialMoves as |item id|}}
+                  {{#each specialMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
                     </li>
@@ -320,7 +320,7 @@
                     </div>
                   </h2>
                   <ol class="items-list">
-                  {{#each actor.moves as |item id|}}
+                  {{#each moves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                       {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
                     </li>
@@ -341,7 +341,7 @@
                   </section>
 
                   <ol class="items-list">
-                  {{#each actor.spells as |spells spellLevel|}}
+                  {{#each spells as |spellsPerLevel spellLevel|}}
                     <h2 class="cell__title">
                       <label>{{localize (concat "DW.Spells" spellLevel)}}</label>
                       <div class="item-controls">
@@ -350,7 +350,7 @@
                       </button>
                     </div>
                     </h2>
-                    {{#each spells as |item id|}}
+                    {{#each spellsPerLevel as |item id|}}
                       <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                         {{!-- <h4 class="item-name rollable spell-rollable" data-roll="{{item.data.rollFormula}}"><i class="fas fa-dice-d20"></i> {{item.name}}</h4> --}}
                         <h4 class="item-name">
@@ -406,7 +406,7 @@
                     </div>
                   </h2>
                   <ol class="items-list">
-                  {{#each actor.equipment as |item id|}}
+                  {{#each equipment as |item id|}}
                       <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                           <h4 class="item-name">
                             <div class="item-avatar">

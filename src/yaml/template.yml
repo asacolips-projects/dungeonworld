@@ -158,8 +158,8 @@ Item:
   class:
     templates:
       - base
-    races: []
-    alignments: []
+    races: {}
+    alignments: {}
     equipment: {}
     hp: 10
     load: 6
