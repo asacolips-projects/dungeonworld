@@ -215,7 +215,7 @@ export class DwRolls {
       if (formula != null) {
         // Do the roll.
         let roll = new Roll(`${formula}`, rollData);
-        roll.roll();
+        roll.evaluate({async: false});
         let rollType = templateData.rollType ?? 'move';
         // Add success notification.
         if (resultRangeNeeded && rollType == 'move') {
@@ -253,7 +253,7 @@ export class DwRolls {
           // Handle XP.
           const token = this.actor.token;
           templateData.actor = this.actor.data;
-          templateData.tokenId = token ? `${token.scene._id}.${token.id}` : null;
+          templateData.tokenId = token ? `${token.parent.data._id}.${token.id}` : null;
           templateData.xp = resultType == 'failure' ? true : false;
 
           // Update the templateData.
@@ -291,7 +291,7 @@ export class DwRolls {
     if (game.combat && game.combat.combatants) {
       let combatant = game.combat.combatants.find(c => c.actor.data._id == this.actor._id);
       if (combatant) {
-        let moveCount = combatant.flags.dungeonworld ? combatant.flags.dungeonworld.moveCount : 0;
+        let moveCount = combatant.data.flags.dungeonworld ? combatant.data.flags.dungeonworld.moveCount : 0;
         moveCount = moveCount ? Number(moveCount) + 1 : 1;
         // Emit a socket for the GM client.
         if (!game.user.isGM) {

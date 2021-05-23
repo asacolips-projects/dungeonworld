@@ -35,41 +35,73 @@ export class DwItemSheet extends ItemSheet {
 
   /** @override */
   async getData() {
-    const data = super.getData();
+    let isOwner = false;
+    let isEditable = this.isEditable;
+    // const data = super.getData();
+    const itemData = this.item.data.toObject(false);
+    const data = itemData.data;
+    // const data = foundry.utils.deepClone(this.object.data);
+    let items = {};
+    let effects = {};
+    let actor = null;
+
+    this.options.title = this.document.data.name;
+    isOwner = this.document.isOwner;
+    isEditable = this.isEditable;
+
+    // Copy Active Effects
+    effects = this.object.effects.map(e => foundry.utils.deepClone(e.data));
+    data.effects = effects;
+
+    // Grab the parent actor, if any.
+    actor = this.object?.parent?.data;
+
     data.dtypes = ["String", "Number", "Boolean"];
     // Add classlist.
-    data.data.classlist = await DwClassList.getClasses();
+    data.classlist = await DwClassList.getClasses();
 
     // Handle preprocessing for tagify data.
-    if (data.entity.type == 'equipment') {
+    if (itemData.type == 'equipment') {
       // If there are tags, convert it into a string.
-      if (data.data.tags != undefined && data.data.tags != '') {
+      if (data.tags != undefined && data.tags != '') {
         let tagArray = [];
         try {
-          tagArray = JSON.parse(data.data.tags);
+          tagArray = JSON.parse(data.tags);
         } catch (e) {
-          tagArray = [data.data.tags];
+          tagArray = [data.tags];
         }
-        data.data.tagsString = tagArray.map((item) => {
+        data.tagsString = tagArray.map((item) => {
           return item.value;
         }).join(', ');
       }
       // Otherwise, set tags equal to the string.
       else {
-        data.data.tags = data.data.tagsString;
+        data.tags = data.tagsString;
       }
     }
 
     // Handle move results.
-    if (data.entity.type == 'move' || data.entity.type == 'npcMove') {
-      if (data.data.moveResults) {
-        for (let key of Object.keys(data.data.moveResults)) {
-          data.data.moveResults[key].key = `data.moveResults.${key}.value`;
+    if (itemData.type == 'move' || itemData.type == 'npcMove') {
+      if (data.moveResults) {
+        for (let key of Object.keys(data.moveResults)) {
+          data.moveResults[key].key = `data.moveResults.${key}.value`;
         }
       }
     }
 
-    return data;
+    let returnData = {
+      item: this.object.data.document,
+      cssClass: isEditable ? "editable" : "locked",
+      editable: isEditable,
+      data: data,
+      effects: effects,
+      limited: this.object.limited,
+      options: this.options,
+      owner: isOwner,
+      title: data.name
+    };
+
+    return returnData;
   }
 
   /* -------------------------------------------- */

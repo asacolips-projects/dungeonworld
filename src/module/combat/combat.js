@@ -17,7 +17,7 @@ export class CombatSidebarDw {
         let $actorElem = $self.parents('.actor-elem');
         let combatant_id = $actorElem.length > 0 ? $actorElem.attr('data-combatant-id') : null;
         if (combatant_id) {
-          let combatant = game.combat.combatants.find(c => c._id == combatant_id);
+          let combatant = game.combat.data.combatants.find(c => c._id == combatant_id);
           let actor = combatant.actor ? combatant.actor : null;
           if (actor) {
             actor._onRoll(event, actor);
@@ -40,7 +40,7 @@ export class CombatSidebarDw {
         }
 
         // Retrieve the combatant for this actor, or exit if not valid.
-        const combatant = game.combat.combatants.find(c => c._id == $actorRow.data('combatant-id'));
+        const combatant = game.combat.data.combatants.find(c => c._id == $actorRow.data('combatant-id'));
         if (!combatant) {
           return;
         }
@@ -86,7 +86,7 @@ export class CombatSidebarDw {
             // Store the combatant type for reference. We have to do this
             // because dragover doesn't have access to the drag data, so we
             // store it as a new type entry that can be split later.
-            let newCombatant = game.combat.combatants.find(c => c._id == dragData.combatantId);
+            let newCombatant = game.combat.data.combatants.find(c => c._id == dragData.combatantId);
             event.originalEvent.dataTransfer.setData(`newtype--${dragData.actorType}`, '');
           })
           // Add a class on hover, if the actor types match.
@@ -166,7 +166,7 @@ export class CombatSidebarDw {
             }
 
             // Retrieve the combatant being dropped.
-            let newCombatant = combat.combatants.find(c => c._id == data.combatantId);
+            let newCombatant = combat.data.combatants.find(c => c._id == data.combatantId);
 
             // Retrieve the combatants grouped by type.
             let combatants = this.getCombatantsData(false);
@@ -184,7 +184,7 @@ export class CombatSidebarDw {
               // Set the initiative of the actor being draged to the drop
               // target's +1. This will later be adjusted increments of 10.
               let updatedCombatant = combatants[newCombatant.actor.data.type].find(c => c._id == newCombatant._id);
-              updatedCombatant.initiative = Number(oldInit) + 1;
+              updatedCombatant.data.initiative = Number(oldInit) + 1;
 
               // Loop through all combatants in initiative order, and assign
               // a new initiative in increments of 10. The "updates" variable
@@ -201,7 +201,7 @@ export class CombatSidebarDw {
 
               // If there are updates, update the combatants at once.
               if (updates) {
-                await combat.updateCombatant(updates);
+                await combat.updateEmbeddedDocuments('Combatant', updates, {});
               }
             }
           });
@@ -237,15 +237,15 @@ export class CombatSidebarDw {
     // initiative, set them in increments of 10. However, the system still has
     // initiative formula using a d20, in case the reroll initiative button
     // is used.
-    Hooks.on('preCreateCombatant', (combat, combatant, options, id) => {
-      if (!combatant.initiative) {
+    Hooks.on('preCreateCombatant', (document, data, options, userId) => {
+      if (!data.initiative) {
         let highestInit = 0;
-        let token = canvas.tokens.get(combatant.tokenId);
+        let token = canvas.tokens.get(data.tokenId);
         let actorType = token.actor ? token.actor.data.type : 'character';
 
         // Iterate over actors of this type and update the initiative of this
         // actor based on that.
-        combat.combatants.filter(c => c.actor.data.type == actorType).forEach(c => {
+        document.parent.data.combatants.filter(c => c.actor.data.type == actorType).forEach(c => {
           let init = Number(c.initiative);
           if (init >= highestInit) {
             highestInit = init + 10;
@@ -253,7 +253,7 @@ export class CombatSidebarDw {
         });
 
         // Update this combatant.
-        combatant.initiative = highestInit;
+        document.data.update({initiative: highestInit});
       }
     });
 
@@ -281,7 +281,7 @@ export class CombatSidebarDw {
         let moveTotal = 0;
         if (combatants.character) {
           combatants.character.forEach(c => {
-            moveTotal = c.flags.dungeonworld ? moveTotal + Number(c.flags.dungeonworld.moveCount) : moveTotal;
+            moveTotal = c.data.flags.dungeonworld ? moveTotal + Number(c.data.flags.dungeonworld.moveCount) : moveTotal;
           });
         }
 
@@ -336,7 +336,7 @@ export class CombatSidebarDw {
         }
 
         // Retrieve the health bars mode from the token's resource settings.
-        let displayBarsMode = Object.entries(CONST.TOKEN_DISPLAY_MODES).find(i => i[1] == combatant.token.displayBars)[0];
+        let displayBarsMode = Object.entries(CONST.TOKEN_DISPLAY_MODES).find(i => i[1] == combatant._token.data.displayBars)[0];
         // Assume player characters should always show their health bar.
         let displayHealth = group == 'character' ? true : false;
 
@@ -346,7 +346,7 @@ export class CombatSidebarDw {
           // If the mode is one of the owner options, only the token owner or
           // the GM should be able to see it.
           if (displayBarsMode.includes("OWNER")) {
-            if (combatant.owner || game.user.isGM) {
+            if (combatant.isOwner || game.user.isGM) {
               displayHealth = true;
             }
           }
@@ -373,7 +373,7 @@ export class CombatSidebarDw {
         // Set a property for whether or not this is editable. This controls
         // whether editabel fields like HP will be shown as an input or a div
         // in the combat tracker HTML template.
-        combatant.editable = combatant.owner || game.user.isGM;
+        combatant.editable = combatant.isOwner || game.user.isGM;
 
         // Build the radial progress circle settings for the template.
         combatant.healthSvg = DwUtility.getProgressCircle({
@@ -384,7 +384,7 @@ export class CombatSidebarDw {
 
         // If this is the GM or the owner, push to the combatants list.
         // Otherwise, only push if the token isn't hidden in the scene.
-        if (game.user.isGM || combatant.owner || !combatant.token.hidden) {
+        if (game.user.isGM || combatant.isOwner || !combatant._token.data.hidden) {
           groups[group].push(combatant);
         }
       }

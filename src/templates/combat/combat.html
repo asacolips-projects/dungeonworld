@@ -47,7 +47,7 @@
           <div class="ct-item ct-item--damage"><button type="button" class="dw-rollable damage-rollable" data-roll="{{c.actor.data.data.attributes.damage.value}}" data-label="{{localize "DW.DamageRoll"}}" title="{{c.actor.data.data.attributes.damage.value}}">{{c.actor.data.data.attributes.damage.value}}</button></div>
           {{!-- Move count, if this is a player character. --}}
           {{#ifEquals group "character"}}
-          <div class="ct-item ct-item--moves">{{#if c.flags.dungeonworld}}{{c.flags.dungeonworld.moveCount}}{{/if}}</div>
+          <div class="ct-item ct-item--moves">{{#if c.data.flags.dungeonworld}}{{c.data.flags.dungeonworld.moveCount}}{{/if}}</div>
           {{/ifEquals}}
         </li>
       {{/each}}
