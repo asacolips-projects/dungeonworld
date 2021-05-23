@@ -35,12 +35,41 @@ export class DwActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  async getData() {
-    const data = super.getData();
+  async getData(options) {
+    let isOwner = false;
+    let isEditable = this.isEditable;
+    let data = super.getData(options);
+    let items = {};
+    let effects = {};
+    let actorData = {};
+
+    isOwner = this.document.isOwner;
+    isEditable = this.isEditable;
+
+    // The Actor's data
+    actorData = this.actor.data.toObject(false);
+    data.actor = actorData;
+    data.data = actorData.data;
+
+    // Owned Items
+    data.items = actorData.items;
+    for ( let i of data.items ) {
+      console.log(i);
+      const item = this.actor.items.get(i._id);
+      i.labels = item.labels;
+    }
+    data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+
+    // Copy Active Effects
+    // TODO: Test and refactor this.
+    effects = this.object.effects.map(e => foundry.utils.deepClone(e.data));
+    data.effects = effects;
+
     data.dtypes = ["String", "Number", "Boolean"];
     for (let attr of Object.values(data.data.attributes)) {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
+
     // Prepare items.
     this._prepareCharacterItems(data);
     this._prepareNpcItems(data);
@@ -63,14 +92,7 @@ export class DwActorSheet extends ActorSheet {
 
         // Handle the first level (special case).
         if (Number(data.data.attributes.level.value) === 1) {
-          let hasStarting = false;
-          for (let i = 0; i < data.items.length; i++) {
-            if (data.items[i].type == 'move' && data.items[i].data.moveType == 'starting') {
-              hasStarting = true;
-              break;
-            }
-          };
-
+          let hasStarting = data.startingMoves.length > 0;
           if (!hasStarting) {
             levelup = true;
           }
@@ -105,7 +127,31 @@ export class DwActorSheet extends ActorSheet {
     data.data.itemIcons = game.settings.get('dungeonworld', 'itemIcons');
 
     // Return data to the sheet
-    return data;
+    let returnData = {
+      actor: this.object,
+      cssClass: isEditable ? "editable" : "locked",
+      editable: isEditable,
+      data: data.data,
+      moves: data.moves,
+      basicMoves: data.basicMoves,
+      advancedMoves: data.advancedMoves,
+      startingMoves: data.startingMoves,
+      specialMoves: data.specialMoves,
+      equipment: data.equipment,
+      spells: data.spells,
+      bonds: data.bonds,
+      effects: effects,
+      items: items,
+      limited: this.object.limited,
+      options: this.options,
+      owner: isOwner,
+      title: this.title
+    };
+
+    console.log(returnData);
+
+    // Return template data
+    return returnData;
   }
 
   /**
@@ -117,7 +163,7 @@ export class DwActorSheet extends ActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     // Exit early if this isn't a character.
-    if (sheetData.entity.type !== 'character') return;
+    if (sheetData.actor.type !== 'character') return;
 
     const actorData = sheetData.actor;
 
@@ -137,6 +183,8 @@ export class DwActorSheet extends ActorSheet {
       7: [],
       9: []
     };
+
+    console.log(sheetData.items);
 
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
@@ -182,17 +230,17 @@ export class DwActorSheet extends ActorSheet {
     }
 
     // Assign and return
-    actorData.moves = moves;
-    actorData.basicMoves = basicMoves;
-    actorData.startingMoves = startingMoves;
-    actorData.advancedMoves = advancedMoves;
-    actorData.specialMoves = specialMoves;
+    sheetData.moves = moves;
+    sheetData.basicMoves = basicMoves;
+    sheetData.startingMoves = startingMoves;
+    sheetData.advancedMoves = advancedMoves;
+    sheetData.specialMoves = specialMoves;
     // Spells
-    actorData.spells = spells;
+    sheetData.spells = spells;
     // Equipment
-    actorData.equipment = equipment;
+    sheetData.equipment = equipment;
     // Bonds
-    actorData.bonds = bonds;
+    sheetData.bonds = bonds;
   }
 
   /**
@@ -847,13 +895,13 @@ export class DwActorSheet extends ActorSheet {
     }
 
     if (new_moves) {
-      await actor.createEmbeddedEntity('OwnedItem', new_moves);
+      await actor.createEmbeddedDocuments('Item', new_moves);
     }
     if (new_equipment) {
-      await actor.createEmbeddedEntity('OwnedItem', new_equipment);
+      await actor.createEmbeddedDocuments('Item', new_equipment);
     }
     if (new_spells) {
-      await actor.createEmbeddedEntity('OwnedItem', new_spells);
+      await actor.createEmbeddedDocuments('Item', new_spells);
     }
     await actor.update({ data: data });
     await actor.setFlag('dungeonworld', 'levelup', false);
@@ -956,7 +1004,7 @@ export class DwActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onItemCreate(event) {
+  async _onItemCreate(event) {
     event.preventDefault();
     const header = event.currentTarget;
     const type = header.dataset.type;
@@ -970,7 +1018,7 @@ export class DwActorSheet extends ActorSheet {
       data: data
     };
     delete itemData.data["type"];
-    return this.actor.createOwnedItem(itemData);
+    await this.actor.createEmbeddedDocuments('Item', [itemData], {});
   }
 
   /* -------------------------------------------- */
@@ -983,7 +1031,7 @@ export class DwActorSheet extends ActorSheet {
   _onItemEdit(event) {
     event.preventDefault();
     const li = event.currentTarget.closest(".item");
-    const item = this.actor.getOwnedItem(li.dataset.itemId);
+    const item = this.actor.items.get(li.dataset.itemId);
     item.sheet.render(true);
   }
 
@@ -997,7 +1045,8 @@ export class DwActorSheet extends ActorSheet {
   _onItemDelete(event) {
     event.preventDefault();
     const li = event.currentTarget.closest(".item");
-    this.actor.deleteOwnedItem(li.dataset.itemId);
+    let item = this.actor.items.get(li.dataset.itemId);
+    item.delete();
   }
 
   /* -------------------------------------------- */

@@ -105,9 +105,13 @@ export class DwUtility {
       let actor = this;
 
       // Use the current token if possible.
-      let token = canvas.tokens.controlled.find(t => t.actor.data._id == this.data._id);
-      if (token) {
-        actor = token.actor;
+      // TODO: Confirm this works.
+      if (typeof canvas.tokens !== 'undefined') {
+        let token = canvas.tokens.controlled.find(t => t.data._id == this.data._id);
+        if (token) {
+          console.log(token);
+          actor = token.actor;
+        }
       }
 
       const data = original.call(actor);
