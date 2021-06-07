@@ -47,8 +47,8 @@ export class ActorDw extends Actor {
     if (items) {
       let equipment = items.filter(i => i.type == 'equipment');
       equipment.forEach(i => {
-        let itemQuantity = Number(i.data.quantity);
-        let itemWeight = Number(i.data.weight);
+        let itemQuantity = Number(i.data.data.quantity);
+        let itemWeight = Number(i.data.data.weight);
         if (itemWeight > 0) {
           weight = weight + (itemQuantity * itemWeight);
         }
