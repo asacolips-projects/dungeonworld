@@ -77,6 +77,15 @@ Hooks.once("init", async function() {
   });
 
   // Configurable system settings.
+  game.settings.register("dungeonworld", "xpFormula", {
+    name: game.i18n.localize("DW.Settings.xpFormula.name"),
+    hint: game.i18n.localize("DW.Settings.xpFormula.hint"),
+    scope: "world",
+    config: true,
+    type: String,
+    default: "@attributes.level.value + 7"
+  });
+
   game.settings.register("dungeonworld", "itemIcons", {
     name: game.i18n.localize("DW.Settings.itemIcons.name"),
     hint: game.i18n.localize("DW.Settings.itemIcons.hint"),

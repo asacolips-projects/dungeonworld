@@ -62,8 +62,13 @@ export class ActorDw extends Actor {
     if (!actorData.flags.dungeonworld.sheetDisplay) actorData.flags.dungeonworld.sheetDisplay = {};
 
     // Handle max XP.
-    let level = data.attributes.level.value ?? 1;
-    data.attributes.xp.max = 7 + Number(level);
+    let rollData = this.getRollData();
+    if (!rollData.attributes.level.value) rollData.attributes.level.value = 1;
+    let xpRequiredFormula = game.settings.get('dungeonworld', 'xpFormula');
+    // Evaluate the max XP roll.
+    let xpRequiredRoll = new Roll(xpRequiredFormula, this.getRollData()).roll();
+    let xpRequired = xpRequiredRoll?.total ?? Number(data.attributes.level.value) + 7;
+    data.attributes.xp.max = xpRequired;
   }
 
   /**

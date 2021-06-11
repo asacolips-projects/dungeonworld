@@ -87,10 +87,13 @@ export class DwActorSheet extends ActorSheet {
       data.data.isToken = this.actor.token != null;
       if (!data.data.isToken) {
         // Add levelup choice.
-        let levelup = (Number(data.data.attributes.xp.value) >= Number(data.data.attributes.level.value) + 7) && Number(data.data.attributes.level.value) < 10;
+        let level = data.data.attributes.level.value ?? 1;
+        let xpRequired = data.data.attributes.xp.max ?? Number(level) + 7;
+        data.xpRequired = xpRequired;
+        let levelup = Number(data.data.attributes.xp.value) >= xpRequired && Number(level) < 10;
 
         // Handle the first level (special case).
-        if (Number(data.data.attributes.level.value) === 1) {
+        if (Number(level) === 1) {
           let hasStarting = data.startingMoves.length > 0;
           if (!hasStarting) {
             levelup = true;
@@ -763,6 +766,8 @@ export class DwActorSheet extends ActorSheet {
       return;
     }
 
+    let context = this.getData();
+
     let move_ids = [];
     let equipment_ids = [];
     let spell_ids = [];
@@ -860,7 +865,7 @@ export class DwActorSheet extends ActorSheet {
 
     // Adjust level.
     if (Number(actor.data.data.attributes.xp.value) > 0) {
-      let xp = Number(actor.data.data.attributes.xp.value) - Number(actor.data.data.attributes.level.value) - 7;
+      let xp = Number(actor.data.data.attributes.xp.value) - context.xpRequired;
       data['attributes.xp.value'] = xp > -1 ? xp : 0;
       data['attributes.level.value'] = Number(actor.data.data.attributes.level.value) + 1;
     }
