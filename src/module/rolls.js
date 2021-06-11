@@ -15,7 +15,10 @@ export class DwRolls {
   static getModifiers(actor) {
     let forward = Number(actor.data.data.attributes.forward.value) ?? 0;
     let ongoing = Number(actor.data.data.attributes.ongoing.value) ?? 0;
-    return `+${forward}+${ongoing}`;
+    let result = '';
+    if (forward) result += `+${forward}`;
+    if (ongoing) result += `+${ongoing}`;
+    return result;
   }
 
   static async rollMove(options = {}) {
@@ -161,6 +164,7 @@ export class DwRolls {
     let template = 'systems/dungeonworld/templates/chat/chat-move.html';
     let dice = DwUtility.getRollFormula('2d6');
     let forwardUsed = false;
+    let rollModeUsed = false;
     let resultRangeNeeded = false;
     let rollData = this.actor.getRollData();
     // GM rolls.
@@ -207,6 +211,55 @@ export class DwRolls {
             formula += `+${dataset.value}`;
           }
         }
+
+        // Handle formula overrides.
+        let formulaOverride = this.actor.data.data.attributes?.rollFormula?.value;
+        if (formulaOverride && formula.includes('2d6')) {
+          let overrideIsValid = false;
+          try {
+            overrideIsValid = new Roll(formulaOverride.trim(), rollData).evaluate();
+          }
+          catch (error) {
+            overrideIsValid = false;
+          }
+
+          if (overrideIsValid) formula = formula.replace('2d6', formulaOverride);
+        }
+
+        // Handle adv/dis.
+        let rollMode = this.actor.data.flags?.dungeonworld?.rollMode ?? 'def';
+        switch (rollMode) {
+          case 'adv':
+            rollModeUsed = true;
+            if (formula.includes('2d6')) {
+              formula = formula.replace('2d6', '3d6kh2');
+            }
+            else if (formula.includes('d6')) {
+              // Match the first d6 as (n)d6.
+              formula = formula.replace(/(\d*)(d6)/, (match, p1, p2, offset, string) => {
+                let keep = p1 ? Number(p1) : 1;
+                let count = keep + 1;
+                return `${count}d6kh${keep}`; // Ex: 2d6 -> 3d6kh2
+              });
+            }
+            break;
+
+          case 'dis':
+            rollModeUsed = true;
+            if (formula.includes('2d6')) {
+              formula = formula.replace('2d6', '3d6kl2');
+            }
+            else if (formula.includes('d6')) {
+              formula = formula.replace(/(\d*)(d6)/, (match, p1, p2, offset, string) => {
+                let keep = p1 ? Number(p1) : 1;
+                let count = keep + 1;
+                return `${count}d6kl${keep}`;
+              });
+            }
+            break;
+        }
+
+        // Append the modifiers.
         let modifiers = DwRolls.getModifiers(this.actor);
         formula = `${formula}${modifiers}`;
         forwardUsed = Number(this.actor.data.data.attributes.forward.value) != 0;
@@ -307,8 +360,13 @@ export class DwRolls {
     }
 
     // Update forward.
-    if (forwardUsed) {
-      await this.actor.update({'data.attributes.forward.value': 0});
+    if (forwardUsed || rollModeUsed) {
+      let updates = {};
+      if (forwardUsed) updates['data.attributes.forward.value'] = 0;
+      if (rollModeUsed && game.settings.get('dungeonworld', 'advForward')) {
+        updates['flags.dungeonworld.rollMode'] = 'def';
+      }
+      await this.actor.update(updates);
     }
   }
 }

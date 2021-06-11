@@ -36,6 +36,8 @@ Actor:
         max: 1
       coin:
         value: 0
+      rollFormula:
+        value: ''
       forward:
         value: 0
       hold:

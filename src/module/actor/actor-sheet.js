@@ -59,6 +59,13 @@ export class DwActorSheet extends ActorSheet {
     }
     data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
+    // Flags
+    data.rollModes = {
+      def: 'DW.Normal',
+      adv: 'DW.Advantage',
+      dis: 'DW.Disadvantage'
+    };
+
     // Copy Active Effects
     // TODO: Test and refactor this.
     effects = this.object.effects.map(e => foundry.utils.deepClone(e.data));
@@ -135,6 +142,7 @@ export class DwActorSheet extends ActorSheet {
       editable: isEditable,
       data: data.data,
       moves: data.moves,
+      rollModes: data.rollModes,
       basicMoves: data.basicMoves,
       advancedMoves: data.advancedMoves,
       startingMoves: data.startingMoves,
@@ -144,6 +152,7 @@ export class DwActorSheet extends ActorSheet {
       bonds: data.bonds,
       effects: effects,
       items: items,
+      flags: this.object?.data?.flags,
       limited: this.object.limited,
       options: this.options,
       owner: isOwner,

@@ -86,6 +86,15 @@ Hooks.once("init", async function() {
     default: "@attributes.level.value + 7"
   });
 
+  game.settings.register("dungeonworld", "advForward", {
+    name: game.i18n.localize("DW.Settings.advForward.name"),
+    hint: game.i18n.localize("DW.Settings.advForward.hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
   game.settings.register("dungeonworld", "itemIcons", {
     name: game.i18n.localize("DW.Settings.itemIcons.name"),
     hint: game.i18n.localize("DW.Settings.itemIcons.hint"),
