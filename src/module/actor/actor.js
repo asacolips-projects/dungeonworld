@@ -47,8 +47,8 @@ export class ActorDw extends Actor {
     if (items) {
       let equipment = items.filter(i => i.type == 'equipment');
       equipment.forEach(i => {
-        let itemQuantity = Number(i.data.quantity);
-        let itemWeight = Number(i.data.weight);
+        let itemQuantity = Number(i.data.data.quantity);
+        let itemWeight = Number(i.data.data.weight);
         if (itemWeight > 0) {
           weight = weight + (itemQuantity * itemWeight);
         }
@@ -62,8 +62,13 @@ export class ActorDw extends Actor {
     if (!actorData.flags.dungeonworld.sheetDisplay) actorData.flags.dungeonworld.sheetDisplay = {};
 
     // Handle max XP.
-    let level = data.attributes.level.value ?? 1;
-    data.attributes.xp.max = 7 + Number(level);
+    let rollData = this.getRollData();
+    if (!rollData.attributes.level.value) rollData.attributes.level.value = 1;
+    let xpRequiredFormula = game.settings.get('dungeonworld', 'xpFormula');
+    // Evaluate the max XP roll.
+    let xpRequiredRoll = new Roll(xpRequiredFormula, this.getRollData()).roll();
+    let xpRequired = xpRequiredRoll?.total ?? Number(data.attributes.level.value) + 7;
+    data.attributes.xp.max = xpRequired;
   }
 
   /**
