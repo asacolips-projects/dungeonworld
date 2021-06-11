@@ -332,6 +332,10 @@ export class DwActorSheet extends ActorSheet {
     // Spells.
     html.find('.prepared').click(this._onPrepareSpell.bind(this));
 
+    // Adjust quantity/uses.
+    html.find('.counter').on('click', event => this._onCounterClick(event, 'increase'));
+    html.find('.counter').on('contextmenu', event => this._onCounterClick(event, 'decrease'));
+
     // Resources.
     html.find('.resource-control').click(this._onResouceControl.bind(this));
 
@@ -929,6 +933,43 @@ export class DwActorSheet extends ActorSheet {
 
       this.render();
     }
+  }
+
+  /**
+   * Listen for click events on quantity/uses.
+   * @param {MouseEvent} event
+   */
+   async _onCounterClick(event, changeType = 'increase') {
+    event.preventDefault();
+    const a = event.currentTarget;
+    const dataset = a.dataset;
+    const actorData = this.actor.data.data;
+    const itemId = $(a).parents('.item').attr('data-item-id');
+    const item = this.actor.items.get(itemId);
+
+    if (!dataset.action || !item) return;
+
+    let offset = changeType == 'increase' ? 1 : -1;
+    let update = {};
+
+    switch (dataset.action) {
+      case 'uses':
+        let uses = item.data.data?.uses ?? 0;
+        update['data.uses'] = Number(uses) + offset;
+        break;
+
+      case 'quantity':
+        let quantity = item.data.data?.quantity ?? 0;
+        update['data.quantity'] = Number(quantity) + offset;
+        break;
+
+      default:
+        break;
+    }
+
+    await item.update(update, {});
+
+    this.render();
   }
 
   /**

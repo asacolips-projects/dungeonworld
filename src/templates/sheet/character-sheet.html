@@ -417,8 +417,8 @@
                           </h4>
 
                           <div class="item-meta tags">
-                            {{#if item.data.uses }}<span class="tag">{{localize "DW.Uses"}}: {{item.data.uses}}</span>{{/if}}
-                            {{#if item.data.quantity }}<span class="tag">{{localize "DW.Qty"}}: {{item.data.quantity}}</span>{{/if}}
+                            {{#if item.data.uses }}<a class="tag counter uses" data-action="uses">{{localize "DW.Uses"}}: {{item.data.uses}}</a>{{/if}}
+                            {{#if item.data.quantity }}<a class="tag counter quantity" data-action="quantity">{{localize "DW.Qty"}}: {{item.data.quantity}}</a>{{/if}}
                             {{#if item.data.weight }}<span class="tag">{{localize "DW.Wt"}}: {{item.data.weight}}</span>{{/if}}
                           </div>
                           <div class="item-controls">
