@@ -192,7 +192,8 @@
   .cell--ongoing,
   .cell--forward,
   .cell--hold,
-  .cell--resource1 {
+  .cell--resource1,
+  .cell--roll-formula {
     grid-column: span 3;
 
     input {
@@ -224,6 +225,10 @@
     .resource-increase {
       right: 5px;
     }
+  }
+
+  .cell--roll-formula {
+    font-size: 12px;
   }
 
   .cell--resource1 {
@@ -259,14 +264,32 @@
 
 .sheet-resources {
   grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 10px;
 
   .cell--ongoing,
   .cell--forward,
-  .cell--hold {
+  .cell--hold,
+  .cell--roll-formula {
     grid-column: span 2;
   }
 
   .cell--resource1 {
     grid-column: span 3;
+  }
+
+  .cell--roll-mode {
+    grid-column: span 7;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    align-items: center;
+
+    .cell__title {
+      flex: auto;
+      margin-top: 4px;
+    }
+
+    label.checkbox {
+      height: auto;
+    }
   }
 }
