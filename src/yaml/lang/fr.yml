@@ -122,8 +122,8 @@ DW.ChooseAlignment: Choisissez un alignement
 DW.ChooseAbilityScores: Répartissez les scores
 DW.ChooseAbilityScoresIncrease: Choisissez une caractéristique à augmenter de 1.
 DW.ChooseStartingMoves: Choisissez vos Actions de départ
-DW.ChooseStartingOne: Choisissez une des actions suivantes:
-DW.ChooseStartingAll: Vous démarrez également avec:
+DW.ChooseStartingOne: "Choisissez une des actions suivantes:"
+DW.ChooseStartingAll: "Vous démarrez également avec:"
 DW.ChooseAdvancedMoves: Choisissez une action avancée
 DW.ChooseAdvanced2: Quand vous gagnez un niveau entre 2 et 5, choisissez une de ces actions.
 DW.ChooseAdvanced6: Quand vous gagnez un niveau entre 6 et 10, choisissez une de ces actions ou une action de niveau 2-5.
