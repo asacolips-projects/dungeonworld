@@ -38,7 +38,7 @@
   "DW.Description": "Description",
   "DW.Moves": "Actions",
   "DW.Biography": "Biographie",
-  "DW.Equipment": "Equipement",
+  "DW.Equipment": "Équipement",
   "DW.Spells": "Sorts",
   "DW.SpellLevel": "Niveau de sort",
   "DW.Spells0": "Sort mineurs",
@@ -64,5 +64,5 @@
   "DW.RequiresMove": "Action requise",
   "DW.MoveType": "Type d'action",
   "DW.Quantity": "Quantité",
-  "DW.Weight": "Poid"
+  "DW.Weight": "Poids"
 }
