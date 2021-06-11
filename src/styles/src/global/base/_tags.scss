@@ -19,6 +19,13 @@
   list-style-type: none;
 }
 
+a.tag {
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 0 0 1px;
+  }
+}
+
 // Tagging widget.
 .tagging {
   padding: 5px 10px 8px;
