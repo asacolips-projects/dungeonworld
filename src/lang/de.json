@@ -136,5 +136,9 @@
   "DW.character": "Charakter",
   "DW.characters": "Charaktäre",
   "DW.npc": "NSC",
-  "DW.npcs": "NSCs"
+  "DW.npcs": "NSCs",
+  "DW.Forward": "Einmalig",
+  "DW.Ongoing": "Dauerhaft",
+  "DW.Hold": "Punkte"
+
 }
