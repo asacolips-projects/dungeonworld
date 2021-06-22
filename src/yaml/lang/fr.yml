@@ -53,6 +53,7 @@ DW.MovesStarting: Actions de Départ
 DW.MovesAdvanced: Actions Avancées
 DW.MovesSpecial: Actions Spéciales
 DW.MovesOther: Autres Actions
+DW.MoveBasic: "Action de Base"
 DW.MoveStarting: Action de Départ
 DW.MoveAdvanced: Action Avancée
 DW.MoveSpecial: Action Spéciale
@@ -76,8 +77,9 @@ DW.Spells8: Sorts de niveau 8
 DW.Spells9: Sorts de niveau 9
 DW.SpellPrepared: Preparé
 DW.SpellRollFormula: Formule du jet de dés
-DW.AddEquipment: ajout d'équipement
-DW.AddSpell: ajout de sort
+DW.RollFormula: "Formule du jet de dés"
+DW.AddEquipment: Ajout d'équipement
+DW.AddSpell: Ajout de sort
 DW.Common.Description: Description
 DW.Common.Details: Détails
 DW.Common.Name: Nom
@@ -94,6 +96,8 @@ DW.Uses: Utilisations
 DW.MagicItem: Objet magique
 DW.ItemType: Type d'objet
 DW.Coin: Pièces d'or
+DW.Weapon: "Arme"
+DW.DungeonGear: "Materiel d'aventurier"
 DW.Poison: Poison
 DW.Service: Service
 DW.Meal: Repas
@@ -141,7 +145,11 @@ DW.npcs: PNJs
 DW.Forward: À suivre
 DW.Ongoing: Continu
 DW.Hold: Retenue
-DW.failure: Complications
+DW.RollMode: "Mode de jet"
+DW.Normal: "Normal"
+DW.Advantage: "Avantage"
+DW.Disadvantage: "Désavantage"
+DW.failure: Complications 
 DW.partial: Réussite partielle
 DW.success: Réussite
 DW.ChooseResult: Choisissez un résultat
@@ -152,6 +160,10 @@ DW.Settings.itemIcons.name: Activer les Icones d'objets
 DW.Settings.itemIcons.hint: Activer les icones visuelles pour les actions, sorts et équipement dans les feuilles de personnage (requiert un redémarrage du navigateur).
 DW.Settings.nightmode.name: Activer le mode nuit
 DW.Settings.nightmode.hint: Activer le mode nuit/sombre pour les feuilles de personnages (par utilisateur).
+DW.Settings.xpFormula.name: "Formule de PX"
+DW.Settings.xpFormula.hint: "Entrez la formule de PX utilisée pour gagner un niveau. Les attributs disponibles sont ceux qui fonctionneraient dans des jets envoyés au chat, comme (2 * @attributes.level.value) + 10. La formule par défaut est (@attributes.level.value + 7)"
+DW.Settings.advForward.name: "Supprimer AV/DÉS Après les Jets"
+DW.Settings.advForward.hint: "Si activé, les choix d'avantage / désavantage sur la feuille de personnage seront remis à zéro après chaque jet. (Comme pour À suivre)."
 DW.Dialog.askTitle: Choisissez une caractéristique
 DW.Dialog.askContent: Choisissez une caractéristique pour cette action <strong>{name}</strong>.
 DW.Dialog.bondTitle: Entrez votre modificateur
