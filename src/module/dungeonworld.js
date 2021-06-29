@@ -142,6 +142,7 @@ Hooks.once("ready", async function() {
   CONFIG.DW.nightmode = game.settings.get('dungeonworld', 'nightmode') ?? false;
 });
 
+
 Hooks.on('renderChatMessage', (app, html, data) => {
   // Determine visibility.
   let chatData = app.data;

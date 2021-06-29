@@ -130,7 +130,15 @@
       font-family: $font-stack-base;
     }
 
-    .xp-button {
+    .chat-damage-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 5px;
+      margin: 5px 0;
+    }
+
+    .xp-button,
+    .chat-damage-buttons .button {
       background: $c-navy;
       box-shadow: 0 0 2px $c-navy-hover inset;
       border-color: $c-black;
@@ -145,6 +153,24 @@
       &.button-disabled:hover {
         background: $c-navy;
         box-shadow: 0 0 2px $c-navy-hover inset;
+      }
+
+      &.damage {
+        background: $c-failure;
+        border-color: #8a0505;
+
+        &:hover {
+          background: #db4d4d;
+        }
+      }
+
+      &.heal {
+        background: $c-critical;
+        border-color: #185c00;
+
+        &:hover {
+          background: #15991a;
+        }
       }
     }
 

@@ -7,6 +7,7 @@
 
   // Define template paths to load
   const templatePaths = [
+    "systems/dungeonworld/templates/parts/chat-buttons.html",
     "systems/dungeonworld/templates/parts/sheet-moves.html",
     "systems/dungeonworld/templates/parts/sheet-level-up-move.html"
   ];

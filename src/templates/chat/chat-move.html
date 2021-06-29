@@ -22,6 +22,7 @@
     {{!-- Roll results, color coded to match the result type label. --}}
     {{#if rollDw}}
       <div class="roll{{#if result}} {{result}}{{/if}}">{{{rollDw}}}</div>
+      {{> "systems/dungeonworld/templates/parts/chat-buttons.html" }}
     {{/if}}
     {{!-- XP --}}
     {{#if xp}}
