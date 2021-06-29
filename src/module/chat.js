@@ -95,38 +95,44 @@ async function _chatActionMarkXp(actor, message) {
   await message.update({'content': $content[0].outerHTML});
 }
 
-async function _chatActionDamage(actor, message, action) {
-  console.log(actor);
-  if (!actor.data || !actor.data.data.attributes.hp) return;
+async function _chatActionDamage(chatActor, message, action) {
+  let actors = canvas.tokens.controlled.map(t => t.data.document.actor);
 
-  // TODO: Replace this with the dynamic roll.
-  let rollTotal = 7;
+  if (!actors || actors.length < 1) return;
 
-  switch (action) {
-    case 'damage':
-      await actor.applyDamage(rollTotal, 'full');
-      break;
+  for (let actor of actors) {
+    console.log(actor);
+    if (!actor.data || !actor.data.data.attributes.hp) return;
 
-    case 'half-damage':
-      await actor.applyDamage(rollTotal, 'half');
-      break;
+    // TODO: Replace this with the dynamic roll.
+    let rollTotal = 7;
 
-    case 'double-damage':
-      await actor.applyDamage(rollTotal, 'double');
-      break;
+    switch (action) {
+      case 'damage':
+        await actor.applyDamage(rollTotal, 'full');
+        break;
 
-    case 'heal':
-      await actor.applyDamage(rollTotal, 'heal');
-      break;
+      case 'half-damage':
+        await actor.applyDamage(rollTotal, 'half');
+        break;
 
-    default:
-      break;
+      case 'double-damage':
+        await actor.applyDamage(rollTotal, 'double');
+        break;
+
+      case 'heal':
+        await actor.applyDamage(rollTotal, 'heal');
+        break;
+
+      default:
+        break;
+    }
   }
 
-  let $content = $(message.data.content);
-  let $button = $content.find('.chat-damage-buttons .button');
+  // let $content = $(message.data.content);
+  // let $button = $content.find('.chat-damage-buttons .button');
 
-  $button.prop('disabled', true).addClass('button-disabled');
+  // $button.prop('disabled', true).addClass('button-disabled');
 
-  await message.update({'content': $content[0].outerHTML});
+  // await message.update({'content': $content[0].outerHTML});
 }
