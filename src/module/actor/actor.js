@@ -238,6 +238,7 @@ export class ActorDw extends Actor {
     }
 
     let hp = this.data.data?.attributes?.hp?.value ?? 0;
+    let hpMax = this.data.data?.attributes?.hp?.max ?? 1;
     let armor = this.data.data?.attributes?.ac?.value ?? 0;
 
     if (!hp && !amount) return;
@@ -245,6 +246,7 @@ export class ActorDw extends Actor {
     if (operation !== 'heal') newAmount = Math.max(newAmount - armor, 0);
 
     let newHp = operation === 'heal' ? hp + newAmount : hp - newAmount;
+    if (newHp > hpMax) newHp = hpMax;
 
     console.log({
       hp: hp,
