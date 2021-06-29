@@ -212,4 +212,51 @@ export class ActorDw extends Actor {
       });
     }
   }
+
+  async applyDamage(amount, operation = 'full') {
+    let newAmount = amount;
+
+    switch (operation) {
+      // case 'full':
+      //   newAmount = amount;
+      //   break;
+
+      case 'half':
+        newAmount = Math.floor(amount / 2);
+        break;
+
+      case 'double':
+        newAmount = amount * 2;
+        break;
+
+      // case 'heal':
+      //   newAmount = amount;
+      //   break;
+
+      default:
+        break;
+    }
+
+    let hp = this.data.data?.attributes?.hp?.value ?? 0;
+    let armor = this.data.data?.attributes?.ac?.value ?? 0;
+
+    if (!hp && !amount) return;
+
+    if (operation !== 'heal') newAmount = Math.max(newAmount - armor, 0);
+
+    let newHp = operation === 'heal' ? hp + newAmount : hp - newAmount;
+
+    console.log({
+      hp: hp,
+      armor: armor,
+      newHp: newHp,
+      amount: amount,
+      newAmount: newAmount,
+      operation: operation
+    });
+
+    if (newHp !== hp) {
+      return this.update({'data.attributes.hp.value': newHp});
+    }
+  }
 }

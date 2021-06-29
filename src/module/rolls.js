@@ -305,7 +305,6 @@ export class DwRolls {
 
           // Handle XP.
           const token = this.actor.token;
-          templateData.actor = this.actor.data;
           templateData.tokenId = token ? `${token.parent.data._id}.${token.id}` : null;
           templateData.xp = resultType == 'failure' ? true : false;
 
@@ -318,6 +317,7 @@ export class DwRolls {
           }
         }
         // Render it.
+        templateData.actor = this.actor.data;
         roll.render().then(r => {
           templateData.rollDw = r;
           renderTemplate(template, templateData).then(content => {

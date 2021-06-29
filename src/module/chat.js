@@ -1,8 +1,10 @@
 export const displayChatActionButtons = function(message, html, data) {
   const chatCard = html.find(".dw.chat-card");
+  console.log(chatCard);
   if ( chatCard.length > 0 ) {
     // If the user is the message author or the actor owner, proceed.
     let actor = game.actors.get(data.message.speaker.actor);
+    console.log(actor);
     if ( actor && actor.owner ) return;
     else if ( game.user.isGM || (data.author.id === game.user.id)) return;
 
@@ -29,16 +31,21 @@ function _onChatCardAction(event) {
   const message =  game.messages.get(messageId);
   const action = button.dataset.action;
 
+  console.log(action);
+
   // Validate permission to proceed with the roll
   const isTargetted = action === "save";
   if ( !( isTargetted || game.user.isGM || message.isAuthor ) ) return;
 
   // Recover the actor for the chat card
   const actor = _getChatCardActor(card);
+  console.log(actor);
   if ( !actor ) return;
+
 
   // Perform the action.
   if (action == 'xp') _chatActionMarkXp(actor, message);
+  if (action.includes('damage') || action == 'heal') _chatActionDamage(actor, message, action);
 }
 
 /**
@@ -84,6 +91,42 @@ async function _chatActionMarkXp(actor, message) {
   // Replace the button.
   let newButton = `<span class="xp-button button button-disabled">${game.i18n.localize("DW.XpMarked")} <i class="fas fa-check"></i></span>`;
   $button.replaceWith($(newButton));
+
+  await message.update({'content': $content[0].outerHTML});
+}
+
+async function _chatActionDamage(actor, message, action) {
+  console.log(actor);
+  if (!actor.data || !actor.data.data.attributes.hp) return;
+
+  // TODO: Replace this with the dynamic roll.
+  let rollTotal = 7;
+
+  switch (action) {
+    case 'damage':
+      await actor.applyDamage(rollTotal, 'full');
+      break;
+
+    case 'half-damage':
+      await actor.applyDamage(rollTotal, 'half');
+      break;
+
+    case 'double-damage':
+      await actor.applyDamage(rollTotal, 'double');
+      break;
+
+    case 'heal':
+      await actor.applyDamage(rollTotal, 'heal');
+      break;
+
+    default:
+      break;
+  }
+
+  let $content = $(message.data.content);
+  let $button = $content.find('.chat-damage-buttons .button');
+
+  $button.prop('disabled', true).addClass('button-disabled');
 
   await message.update({'content': $content[0].outerHTML});
 }
