@@ -116,14 +116,6 @@
     flex-direction: row;
     justify-content: flex-end;
     flex: 0 auto;
-
-    > span {
-      margin: 0;
-
-      + span {
-        margin-left: 4px;
-      }
-    }
   }
 
   .item-label {

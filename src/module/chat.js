@@ -1,6 +1,5 @@
 export const displayChatActionButtons = function(message, html, data) {
   const chatCard = html.find(".dw.chat-card");
-  console.log(chatCard);
   if ( chatCard.length > 0 ) {
     // If the user is the message author or the actor owner, proceed.
     let actor = game.actors.get(data.message.speaker.actor);
@@ -28,7 +27,7 @@ function _onChatCardAction(event) {
   // Extract card data
   const button = event.currentTarget;
   const card = button.closest(".chat-card");
-  const messageId = card.closest(".message").dataset.messageId;
+  const messageId = button.closest(".message").dataset.messageId;
   const message =  game.messages.get(messageId);
   const action = button.dataset.action;
 
@@ -40,7 +39,7 @@ function _onChatCardAction(event) {
   if (action.includes('damage') || action == 'heal') _chatActionDamage(message, action);
 
   // Recover the actor for the chat card
-  const actor = _getChatCardActor(card);
+  const actor = card ? _getChatCardActor(card) : null;
   if ( !actor ) return;
 
   // Perform the action.
@@ -99,33 +98,40 @@ async function _chatActionMarkXp(actor, message) {
 
 async function _chatActionDamage(message, action) {
   let actors = canvas.tokens.controlled.map(t => t.data.document.actor);
-
   if (!actors || actors.length < 1) return;
 
+  let $content = $(message.data.content).text();
+  // TODO: Localize this.
+  let piercing = $content.match(/(\d+)\s*piercing|piercing\s*(\d+)/) ?? [];
+  let options = {
+    ignoreArmor: $content.toLowerCase().includes('ignores armor'),
+    piercing: (piercing[1] ?? piercing[2]) ?? 0,
+  };
+
   for (let actor of actors) {
-    console.log(actor);
     if (!actor.data || !actor.data.data.attributes.hp) return;
 
-    // TODO: Replace this with the dynamic roll.
     let rollTotal = $(message.data.content).find('.dice-total')?.text() ?? 0;
-
-    console.log($(message.data.content).find('.dice-total'))
 
     switch (action) {
       case 'damage':
-        await actor.applyDamage(rollTotal, 'full');
+        options.op = 'full';
+        await actor.applyDamage(rollTotal, options);
         break;
 
       case 'half-damage':
-        await actor.applyDamage(rollTotal, 'half');
+        options.op = 'half';
+        await actor.applyDamage(rollTotal, options);
         break;
 
       case 'double-damage':
-        await actor.applyDamage(rollTotal, 'double');
+        options.op = 'double';
+        await actor.applyDamage(rollTotal, options);
         break;
 
       case 'heal':
-        await actor.applyDamage(rollTotal, 'heal');
+        options.op = 'heal';
+        await actor.applyDamage(rollTotal, options);
         break;
 
       default:

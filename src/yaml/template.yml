@@ -137,6 +137,7 @@ Item:
       - base
     class: null
     quantity: 1
+    equipped: false
     weight: 0
     uses: 0
     tags: []

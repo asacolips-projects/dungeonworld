@@ -42,11 +42,13 @@ export class ActorDw extends Actor {
     }
 
     // Calculate weight.
-    let weight = 0;
+    let coin = data.attributes.coin.value ?? 0;
+    let weight = coin >= 100 ? Math.floor(coin / 100) : 0;
     let items = actorData.items;
     if (items) {
       let equipment = items.filter(i => i.type == 'equipment');
       equipment.forEach(i => {
+        // Add weight for each item.
         let itemQuantity = Number(i.data.data.quantity);
         let itemWeight = Number(i.data.data.weight);
         if (itemWeight > 0) {
@@ -213,10 +215,10 @@ export class ActorDw extends Actor {
     }
   }
 
-  async applyDamage(amount, operation = 'full') {
+  async applyDamage(amount, options = {op: 'full', ignoreArmor: false, piercing: 0}) {
     let newAmount = Number(amount);
 
-    switch (operation) {
+    switch (options.op) {
       // case 'full':
       //   newAmount = amount;
       //   break;
@@ -243,9 +245,15 @@ export class ActorDw extends Actor {
 
     if (!hp && !amount) return;
 
-    if (operation !== 'heal') newAmount = Math.max(newAmount - armor, 0);
+    // Reduce armor if needed.
+    if (options.piercing && options.piercing > 0) armor = Math.max(armor - options.piercing, 0);
+    if (options.ignoreArmor) armor = 0;
 
-    let newHp = operation === 'heal' ? hp + newAmount : hp - newAmount;
+    // Reduce damage by armor.
+    if (options.op !== 'heal' && !options.ignoreArmor) newAmount = Math.max(newAmount - armor, 0);
+
+    // Adjust hp.
+    let newHp = options.op === 'heal' ? hp + newAmount : hp - newAmount;
     if (newHp > hpMax) newHp = hpMax;
 
     console.log({
@@ -254,7 +262,7 @@ export class ActorDw extends Actor {
       newHp: newHp,
       amount: amount,
       newAmount: newAmount,
-      operation: operation
+      options: options
     });
 
     if (newHp !== hp) {

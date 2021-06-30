@@ -142,6 +142,27 @@ Hooks.once("ready", async function() {
   CONFIG.DW.nightmode = game.settings.get('dungeonworld', 'nightmode') ?? false;
 });
 
+Hooks.on('createChatMessage', async (message, options, id) => {
+  if (message?.data?.roll) {
+    // Retrieve the roll.
+    let r = Roll.fromJSON(message.data.roll);
+    // Re-render the roll.
+    renderTemplate(`templates/dice/roll.html`, r).then(rTemplate => {
+      // Render the damage buttons.
+      renderTemplate(`systems/dungeonworld/templates/parts/chat-buttons.html`, {}).then(buttonTemplate => {
+        // Update the chat message with the appended buttons.
+        message.update({
+          content: rTemplate + buttonTemplate,
+        })
+        // Update the chat log scroll position.
+        .then(m => {
+          let chatLog = document.querySelector('#chat-log');
+          chatLog.scrollTop = chatLog.scrollHeight;
+        });
+      })
+    });
+  }
+});
 
 Hooks.on('renderChatMessage', (app, html, data) => {
   // Determine visibility.

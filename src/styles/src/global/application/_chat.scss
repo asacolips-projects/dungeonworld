@@ -144,6 +144,7 @@
       border-color: $c-black;
       color: $c-white;
       font-weight: bold;
+      cursor: pointer;
 
       &:hover {
         background: $c-navy-up;
@@ -156,20 +157,26 @@
       }
 
       &.damage {
-        background: $c-failure;
+        background: rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 0 5px 1px rgba($c-failure, 0.4);
         border-color: #8a0505;
+        color: $c-black;
 
         &:hover {
           background: #db4d4d;
+          color: $c-white;
         }
       }
 
       &.heal {
-        background: $c-critical;
+        background: rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 0 5px 1px rgba($c-critical, 0.4);
         border-color: #185c00;
+        color: $c-black;
 
         &:hover {
           background: #15991a;
+          color: $c-white;
         }
       }
     }

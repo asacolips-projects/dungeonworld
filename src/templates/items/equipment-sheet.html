@@ -32,6 +32,10 @@
             <input name='data.tags' class='some_class_name' placeholder='write some tags' value='{{ data.tags }}'/>
           </div>
           <div class="resource">
+            <label>{{localize "DW.Equipped"}}</label>
+            <input type="checkbox" name="data.equipped" {{checked data.equipped}}/>
+          </div>
+          <div class="resource">
             <label>{{localize "DW.Quantity"}}</label>
             <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
           </div>
