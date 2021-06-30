@@ -176,6 +176,13 @@ export class DwRolls {
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
     if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
     if (rollMode === "blindroll") chatData["blind"] = true;
+    // Add piercing and armor tags.
+    let tags = [];
+    let piercing = this.actor.data.data.attributes.damage?.piercing ?? 0;
+    let ignoreArmor = this.actor.data.data.attributes.damage?.ignoreArmor ?? false;
+    if (piercing > 0) tags.push({value: `${piercing} piercing`});
+    if (ignoreArmor) tags.push({value: `ignores armor`});
+    templateData.tags = JSON.stringify(tags);
     // Handle dice rolls.
     if (!DwUtility.isEmpty(roll)) {
       // Test if the roll is a formula.
