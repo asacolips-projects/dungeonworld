@@ -320,6 +320,8 @@ export class DwRolls {
         templateData.actor = this.actor.data;
         roll.render().then(r => {
           templateData.rollDw = r;
+          templateData.roll = roll;
+          console.log(roll);
           renderTemplate(template, templateData).then(content => {
             chatData.content = content;
             if (game.dice3d) {

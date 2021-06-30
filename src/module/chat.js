@@ -4,13 +4,15 @@ export const displayChatActionButtons = function(message, html, data) {
   if ( chatCard.length > 0 ) {
     // If the user is the message author or the actor owner, proceed.
     let actor = game.actors.get(data.message.speaker.actor);
-    console.log(actor);
-    if ( actor && actor.owner ) return;
-    else if ( game.user.isGM || (data.author.id === game.user.id)) return;
+    if ( game.user.isGM ) return;
+    // Conceal damage buttons for non-GM users.
+    chatCard.find('.button.damage, .button.heal').each((i, btn) => {
+      btn.style.display = "none";
+    });
 
+    if ((data.author.id === game.user.id) || ( actor && actor.owner )) return;
     // Otherwise conceal action buttons.
-    const buttons = chatCard.find("button[data-action], .button-disabled");
-    buttons.each((i, btn) => {
+    chatCard.find("button[data-action], .button-disabled").each((i, btn) => {
       btn.style.display = "none"
     });
   }
@@ -25,27 +27,27 @@ function _onChatCardAction(event) {
 
   // Extract card data
   const button = event.currentTarget;
-  button.disabled = true;
   const card = button.closest(".chat-card");
   const messageId = card.closest(".message").dataset.messageId;
   const message =  game.messages.get(messageId);
   const action = button.dataset.action;
 
-  console.log(action);
-
   // Validate permission to proceed with the roll
   const isTargetted = action === "save";
   if ( !( isTargetted || game.user.isGM || message.isAuthor ) ) return;
 
+  // Chat damage.
+  if (action.includes('damage') || action == 'heal') _chatActionDamage(message, action);
+
   // Recover the actor for the chat card
   const actor = _getChatCardActor(card);
-  console.log(actor);
   if ( !actor ) return;
 
-
   // Perform the action.
-  if (action == 'xp') _chatActionMarkXp(actor, message);
-  if (action.includes('damage') || action == 'heal') _chatActionDamage(actor, message, action);
+  if (action == 'xp') {
+    button.disabled = true;
+    _chatActionMarkXp(actor, message);
+  }
 }
 
 /**
@@ -95,7 +97,7 @@ async function _chatActionMarkXp(actor, message) {
   await message.update({'content': $content[0].outerHTML});
 }
 
-async function _chatActionDamage(chatActor, message, action) {
+async function _chatActionDamage(message, action) {
   let actors = canvas.tokens.controlled.map(t => t.data.document.actor);
 
   if (!actors || actors.length < 1) return;
@@ -105,7 +107,9 @@ async function _chatActionDamage(chatActor, message, action) {
     if (!actor.data || !actor.data.data.attributes.hp) return;
 
     // TODO: Replace this with the dynamic roll.
-    let rollTotal = 7;
+    let rollTotal = $(message.data.content).find('.dice-total')?.text() ?? 0;
+
+    console.log($(message.data.content).find('.dice-total'))
 
     switch (action) {
       case 'damage':

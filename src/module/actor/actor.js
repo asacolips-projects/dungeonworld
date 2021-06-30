@@ -214,7 +214,7 @@ export class ActorDw extends Actor {
   }
 
   async applyDamage(amount, operation = 'full') {
-    let newAmount = amount;
+    let newAmount = Number(amount);
 
     switch (operation) {
       // case 'full':
