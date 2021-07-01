@@ -4,17 +4,16 @@ export const displayChatActionButtons = function(message, html, data) {
     // If the user is the message author or the actor owner, proceed.
     let actor = game.actors.get(data.message.speaker.actor);
     if ( game.user.isGM ) return;
-    // Conceal damage buttons for non-GM users.
-    chatCard.find('.button.damage, .button.heal').each((i, btn) => {
-      btn.style.display = "none";
-    });
-
     if ((data.author.id === game.user.id) || ( actor && actor.owner )) return;
     // Otherwise conceal action buttons.
     chatCard.find("button[data-action], .button-disabled").each((i, btn) => {
       btn.style.display = "none"
     });
   }
+
+  if ( game.user.isGM ) return;
+  // Conceal damage buttons for non-GM users.
+  html.find('.chat-damage-buttons').hide();
 }
 
 export const activateChatListeners = function(html) {
@@ -31,22 +30,22 @@ function _onChatCardAction(event) {
   const message =  game.messages.get(messageId);
   const action = button.dataset.action;
 
+  // Perform the action.
+  if (action == 'xp') {
+    // Recover the actor for the chat card
+    const actor = card ? _getChatCardActor(card) : null;
+    if ( !actor ) return;
+
+    button.disabled = true;
+    console.log(actor);
+    _chatActionMarkXp(actor, message);
+  }
+
   // Validate permission to proceed with the roll
-  const isTargetted = action === "save";
-  if ( !( isTargetted || game.user.isGM || message.isAuthor ) ) return;
+  if ( !( game.user.isGM ) ) return;
 
   // Chat damage.
   if (action.includes('damage') || action == 'heal') _chatActionDamage(message, action);
-
-  // Recover the actor for the chat card
-  const actor = card ? _getChatCardActor(card) : null;
-  if ( !actor ) return;
-
-  // Perform the action.
-  if (action == 'xp') {
-    button.disabled = true;
-    _chatActionMarkXp(actor, message);
-  }
 }
 
 /**
@@ -93,7 +92,17 @@ async function _chatActionMarkXp(actor, message) {
   let newButton = `<span class="xp-button button button-disabled">${game.i18n.localize("DW.XpMarked")} <i class="fas fa-check"></i></span>`;
   $button.replaceWith($(newButton));
 
-  await message.update({'content': $content[0].outerHTML});
+  if (message.isAuthor || game.user.isGM) {
+    console.log('update');
+    await message.update({'content': $content[0].outerHTML});
+  }
+  else {
+    console.log("update2");
+    game.socket.emit('system.dungeonworld', {
+      message: message._id,
+      content: $content[0].outerHTML
+    });
+  }
 }
 
 async function _chatActionDamage(message, action) {

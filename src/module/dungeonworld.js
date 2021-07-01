@@ -140,12 +140,33 @@ Hooks.once("ready", async function() {
 
   // Add nightmode class.
   CONFIG.DW.nightmode = game.settings.get('dungeonworld', 'nightmode') ?? false;
+
+  // Handle sockets.
+  game.socket.on('system.dungeonworld', (data) => {
+    if (!game.user.isGM) {
+      return;
+    }
+
+    // Update chat cards.
+    if (data?.message && data?.content) {
+      let message = game.messages.get(data.message);
+      message.update({'content': data.content});
+    }
+
+    // Update the move counter if a player made a move. Requires a GM account
+    // to be logged in currently for the socket to work. If GM account is the
+    // one that made the move, that happens directly in the actor update.
+    if (data?.combatantUpdate) {
+      game.combat.updateCombatant(data.combatantUpdate);
+      ui.combat.render();
+    }
+  });
 });
 
 Hooks.on('createChatMessage', async (message, options, id) => {
   if (message?.data?.roll) {
     // Exit early if this is a rollable table.
-    if (message?.data?.flags?.core?.RollTable) return;
+    if (message?.data?.flags?.core?.RollTable || !game.user.isGM) return;
     // Retrieve the roll.
     let r = Roll.fromJSON(message.data.roll);
     // Re-render the roll.

@@ -219,20 +219,6 @@ export class CombatSidebarDw {
       }
     });
 
-    // Update the move counter if a player made a move. Requires a GM account
-    // to be logged in currently for the socket to work. If GM account is the
-    // one that made the move, that happens directly in the actor update.
-    game.socket.on('system.dungeonworld', (data) => {
-      if (!game.user.isGM) {
-        return;
-      }
-
-      if (data.combatantUpdate) {
-        game.combat.updateCombatant(data.combatantUpdate);
-        ui.combat.render();
-      }
-    });
-
     // Pre-roll initiative for new combatants. Because DW doesn't use
     // initiative, set them in increments of 10. However, the system still has
     // initiative formula using a d20, in case the reroll initiative button
