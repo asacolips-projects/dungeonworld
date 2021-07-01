@@ -144,6 +144,8 @@ Hooks.once("ready", async function() {
 
 Hooks.on('createChatMessage', async (message, options, id) => {
   if (message?.data?.roll) {
+    // Exit early if this is a rollable table.
+    if (message?.data?.flags?.core?.RollTable) return;
     // Retrieve the roll.
     let r = Roll.fromJSON(message.data.roll);
     // Re-render the roll.
