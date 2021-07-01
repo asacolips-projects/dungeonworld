@@ -147,7 +147,7 @@ Hooks.on('createChatMessage', async (message, options, id) => {
     // Retrieve the roll.
     let r = Roll.fromJSON(message.data.roll);
     // Re-render the roll.
-    renderTemplate(`templates/dice/roll.html`, r).then(rTemplate => {
+    r.render().then(rTemplate => {
       // Render the damage buttons.
       renderTemplate(`systems/dungeonworld/templates/parts/chat-buttons.html`, {}).then(buttonTemplate => {
         // Update the chat message with the appended buttons.
