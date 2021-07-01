@@ -165,17 +165,22 @@ Hooks.once("ready", async function() {
 
 Hooks.on('createChatMessage', async (message, options, id) => {
   if (message?.data?.roll) {
+    // Limit this to a single user.
+    let firstGM = game.users.find(u => u.active && u.role == CONST.USER_ROLES.GAMEMASTER);
+    if (!game.user.isGM || game.user.data._id !== firstGM.data._id) return;
     // Exit early if this is a rollable table.
-    if (message?.data?.flags?.core?.RollTable || !game.user.isGM) return;
+    if (message?.data?.flags?.core?.RollTable) return;
     // Retrieve the roll.
     let r = Roll.fromJSON(message.data.roll);
     // Re-render the roll.
     r.render().then(rTemplate => {
       // Render the damage buttons.
       renderTemplate(`systems/dungeonworld/templates/parts/chat-buttons.html`, {}).then(buttonTemplate => {
+        if (message.data?.flags?.dungeonworld?.damageButtons) return;
         // Update the chat message with the appended buttons.
         message.update({
           content: rTemplate + buttonTemplate,
+          'flags.dungeonworld.damageButtons': true,
         })
         // Update the chat log scroll position.
         .then(m => {
