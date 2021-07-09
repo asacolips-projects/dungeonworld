@@ -6,6 +6,14 @@ import { DwClassList } from "../config.js";
  */
 export class DwItemSheet extends ItemSheet {
 
+  /** @inheritdoc */
+  constructor(...args) {
+    super(...args);
+
+    this.tagify = null;
+    this.needsRender = false;
+  }
+
   /** @override */
   static get defaultOptions() {
     let options = mergeObject(super.defaultOptions, {
@@ -29,6 +37,21 @@ export class DwItemSheet extends ItemSheet {
   get template() {
     const path = "systems/dungeonworld/templates/items";
     return `${path}/${this.item.data.type}-sheet.html`;
+  }
+
+  /* -------------------------------------------- */
+
+  /** @inheritdoc */
+  async close(options={}) {
+    await super.close(options);
+
+    if (this.tagify) {
+      // Destroy the tagify instance.
+      this.tagify.destroy();
+      // Re-render the parent actor.
+      if (this.needsRender && this.object?.parent) this.object.parent.render(true);
+    }
+
   }
 
   /* -------------------------------------------- */
@@ -118,10 +141,10 @@ export class DwItemSheet extends ItemSheet {
       callback: clicked => this._sheetTab = clicked.data("tab")
     });
 
-    this._tagify(html, this.options.editable);
+    this._tagify(html, this.isEditable);
 
     // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return;
+    if (!this.isEditable) return;
 
     this.html = html;
 
@@ -171,14 +194,14 @@ export class DwItemSheet extends ItemSheet {
     });
 
     // Tagify!
-    var $input = html.find('input[name="data.tags"]');
+    var $input = html.find('.tags-input-source');
     if ($input.length > 0) {
       if (!editable) {
         $input.attr('readonly', true);
       }
 
       // init Tagify script on the above inputs
-      var tagify = new Tagify($input[0], {
+      this.tagify = new Tagify($input[0], {
         whitelist: tagNames,
         maxTags: 'Infinity',
         dropdown: {
@@ -188,6 +211,30 @@ export class DwItemSheet extends ItemSheet {
           closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
         }
       });
+
+      // Update document with the changes.
+      this.tagify.on('change', e => {
+        // Grab the raw tags.
+        let newTags = e.detail.value;
+        // Parse it into a string.
+        let tagArray = [];
+        try {
+          tagArray = JSON.parse(newTags);
+        } catch (e) {
+          tagArray = [newTags];
+        }
+        let newTagsString = tagArray.map((item) => {
+          return item.value;
+        }).join(', ');
+
+        // Apply the update.
+        this.document.update({
+          'data.tags': newTags,
+          'data.tagsString': newTagsString
+        }, {render: false});
+
+        this.needsRender = true;
+      })
     }
   }
 

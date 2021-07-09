@@ -8,6 +8,13 @@ import { DwRolls } from "../rolls.js";
  */
 export class DwActorSheet extends ActorSheet {
 
+  /** @inheritdoc */
+  constructor(...args) {
+    super(...args);
+
+    this.tagify = null;
+  }
+
   /** @override */
   static get defaultOptions() {
     let options = mergeObject(super.defaultOptions, {
@@ -30,6 +37,15 @@ export class DwActorSheet extends ActorSheet {
   get template() {
     const path = "systems/dungeonworld/templates/sheet";
     return `${path}/${this.actor.data.type}-sheet.html`;
+  }
+
+  /* -------------------------------------------- */
+
+  /** @inheritdoc */
+  async close(options={}) {
+    await super.close(options);
+
+    if (this.tagify) this.tagify.destroy();
   }
 
   /* -------------------------------------------- */
@@ -1137,11 +1153,11 @@ export class DwActorSheet extends ActorSheet {
     });
 
     // Tagify!
-    var $input = html.find('input[name="data.tags"]');
-    if (!this.options.editable) $input.prop('readonly', true);
+    var $input = html.find('.tags-input-source');
+    if (!this.isEditable) $input.prop('readonly', true);
     if ($input.length > 0) {
       // init Tagify script on the above inputs
-      var tagify = new Tagify($input[0], {
+      this.tagify = new Tagify($input[0], {
         whitelist: tagNames,
         maxTags: 'Infinity',
         dropdown: {
@@ -1150,6 +1166,28 @@ export class DwActorSheet extends ActorSheet {
           enabled: 0,             // <- show suggestions on focus
           closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
         }
+      });
+
+      // Update document with the changes.
+      this.tagify.on('change', e => {
+        // Grab the raw tags.
+        let newTags = e.detail.value;
+        // Parse it into a string.
+        let tagArray = [];
+        try {
+          tagArray = JSON.parse(newTags);
+        } catch (e) {
+          tagArray = [newTags];
+        }
+        let newTagsString = tagArray.map((item) => {
+          return item.value;
+        }).join(', ');
+
+        // Apply the update.
+        this.document.update({
+          'data.tags': newTags,
+          'data.tagsString': newTagsString
+        }, {render: false});
       });
     }
   }

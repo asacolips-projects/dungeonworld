@@ -86,6 +86,10 @@ a.tag {
   }
 }
 
+.tags-input {
+  display: none;
+}
+
 .awesomplete {
   > ul {
     background-color: $c-navy-up;
