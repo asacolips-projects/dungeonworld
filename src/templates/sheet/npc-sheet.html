@@ -83,7 +83,7 @@
               <ol class="items-list">
               {{#each basicMoves as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
-                  {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
+                  {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item rollData=../../rollData statSettings=../../data.statSettings}}
                 </li>
               {{/each}}
               </ol>
@@ -101,7 +101,7 @@
               <ol class="items-list">
               {{#each specialMoves as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
-                  {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
+                  {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item rollData=../../rollData statSettings=../../data.statSettings}}
                 </li>
               {{/each}}
               </ol>

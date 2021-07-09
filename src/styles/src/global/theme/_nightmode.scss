@@ -97,9 +97,15 @@ $c-blue-dark: #344460;
       }
     }
 
-    button {
+    button,
+    a.entity-link,
+    a.inline-roll {
       background: $c-blue !important;
       color: $c-white !important;
+
+      i {
+        color: $c-white !important;
+      }
 
       &.toggle {
         background: rgba($c-white, 0.15) !important;

@@ -33,17 +33,17 @@
   <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
 </div>
 <div class="item-description">
-  <div>{{{item.data.description}}}</div>
+  <div>{{{enrichText item.data.description rollData}}}</div>
   {{#if item.data.moveResults.success.value}}
-    <div class="result result--success"><strong class="result-label">10+:</strong>{{{item.data.moveResults.success.value}}}</div>
+    <div class="result result--success"><strong class="result-label">10+:</strong>{{{enrichText item.data.moveResults.success.value rollData}}}</div>
   {{/if}}
   {{#if item.data.moveResults.partial.value}}
-    <div class="result result--partial"><strong class="result-label">7-9:</strong>{{{item.data.moveResults.partial.value}}}</div>
+    <div class="result result--partial"><strong class="result-label">7-9:</strong>{{{enrichText item.data.moveResults.partial.value rollData}}}</div>
   {{/if}}
   {{#if item.data.moveResults.failure.value}}
-    <div class="result result--failure"><strong class="result-label">6-:</strong>{{{item.data.moveResults.failure.value}}}</div>
+    <div class="result result--failure"><strong class="result-label">6-:</strong>{{{enrichText item.data.moveResults.failure.value rollData}}}</div>
   {{/if}}
   {{#if item.data.choices}}
-    <div class="result result--choices"><strong class="result-label">{{localize 'DW.Choices'}}:</strong>{{{item.data.choices}}}</div>
+    <div class="result result--choices"><strong class="result-label">{{localize 'DW.Choices'}}:</strong>{{{enrichText item.data.choices rollData}}}</div>
   {{/if}}
 </div>

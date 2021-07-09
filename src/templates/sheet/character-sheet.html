@@ -73,7 +73,7 @@
             <ol class="items-list">
             {{#each bonds as |item id|}}
               <li class="item flexrow" data-item-id="{{item._id}}">
-                <div class="item-description item-edit">{{{item.name}}}</div>
+                <div class="item-description item-edit">{{{enrichText item.name ../rollData}}}</div>
                 <div class="item-controls">
                   <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                 </div>
@@ -262,7 +262,7 @@
                   <ol class="items-list">
                   {{#each basicMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
-                      {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
+                      {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item rollData=../rollData statSettings=../../data.statSettings}}
                     </li>
                   {{/each}}
                   </ol>
@@ -280,7 +280,7 @@
                   <ol class="items-list">
                   {{#each startingMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
-                      {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
+                      {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item rollData=../rollData statSettings=../../data.statSettings}}
                     </li>
                   {{/each}}
                   </ol>
@@ -298,7 +298,7 @@
                   <ol class="items-list">
                   {{#each advancedMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
-                      {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
+                      {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item rollData=../rollData statSettings=../../data.statSettings}}
                     </li>
                   {{/each}}
                   </ol>
@@ -316,7 +316,7 @@
                   <ol class="items-list">
                   {{#each specialMoves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
-                      {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
+                      {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item rollData=../rollData statSettings=../../data.statSettings}}
                     </li>
                   {{/each}}
                   </ol>
@@ -334,7 +334,7 @@
                   <ol class="items-list">
                   {{#each moves as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
-                      {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item statSettings=../../data.statSettings}}
+                      {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item rollData=../rollData statSettings=../../data.statSettings}}
                     </li>
                   {{/each}}
                   </ol>
@@ -391,7 +391,7 @@
                           <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         </div>
                         <div class="item-description">
-                          <div class="description">{{{item.data.description}}}</div>
+                          <div class="description">{{{enrichText item.data.description ../../rollData}}}</div>
                         </div>
                       </li>
                     {{/each}}
@@ -440,7 +440,7 @@
                           </div>
                           <div class="item-description">
                             {{#if item.data.tags}}{{{dwTags item.data.tags}}}{{/if}}
-                            <div class="description">{{{item.data.description}}}</div>
+                            <div class="description">{{{enrichText item.data.description ../rollData}}}</div>
                           </div>
                       </li>
                   {{/each}}
