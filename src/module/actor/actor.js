@@ -58,11 +58,13 @@ export class ActorDw extends Actor {
         if (i.data.data?.equipped && i.data.data.itemType == 'weapon') {
           let tags = i.data.data.tags ? JSON.parse(i.data.data.tags) : [];
           for (let tag of tags) {
-            let piercing = tag.value.match(/(\d+)\s*piercing|piercing\s*(\d+)/) ?? [];
+            let piercing = tag.value.toLowerCase().match(/(\d+)\s*piercing|piercing\s*(\d+)/) ?? [];
             let ignoreArmor = tag.value.toLowerCase().includes('ignores armor');
             data.attributes.damage.piercing = (piercing[1] ?? piercing[2]) ?? 0;
             data.attributes.damage.ignoreArmor = ignoreArmor;
-            break;
+            if (data.attributes.damage.piercing || data.attributes.damage.ignoreArmor) {
+              break;
+            }
           }
         }
       });
@@ -266,15 +268,6 @@ export class ActorDw extends Actor {
     // Adjust hp.
     let newHp = options.op === 'heal' ? hp + newAmount : hp - newAmount;
     if (newHp > hpMax) newHp = hpMax;
-
-    console.log({
-      hp: hp,
-      armor: armor,
-      newHp: newHp,
-      amount: amount,
-      newAmount: newAmount,
-      options: options
-    });
 
     if (newHp !== hp) {
       return this.update({'data.attributes.hp.value': newHp});

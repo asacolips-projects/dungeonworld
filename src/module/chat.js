@@ -40,7 +40,6 @@ function _onChatCardAction(event) {
     if ( !actor ) return;
 
     button.disabled = true;
-    console.log(actor);
     _chatActionMarkXp(actor, message);
   }
 
@@ -96,11 +95,9 @@ async function _chatActionMarkXp(actor, message) {
   $button.replaceWith($(newButton));
 
   if (message.isAuthor || game.user.isGM) {
-    console.log('update');
     await message.update({'content': $content[0].outerHTML});
   }
   else {
-    console.log("update2");
     game.socket.emit('system.dungeonworld', {
       message: message._id,
       content: $content[0].outerHTML
