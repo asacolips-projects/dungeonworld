@@ -1,8 +1,15 @@
 export const displayChatActionButtons = function(message, html, data) {
   const chatCard = html.find(".dw.chat-card");
+
+  // Hide damage buttons if necessary.
+  if (!game.user.isGM || !game.settings.get('dungeonworld', 'enableDamageButtons')) {
+    html.find('.chat-damage-buttons').hide();
+  }
+
   if ( chatCard.length > 0 ) {
     // If the user is the message author or the actor owner, proceed.
     let actor = game.actors.get(data.message.speaker.actor);
+    // Exit early from further operations if this is a GM user.
     if ( game.user.isGM ) return;
     if ((data.author.id === game.user.id) || ( actor && actor.owner )) return;
     // Otherwise conceal action buttons.
@@ -10,10 +17,6 @@ export const displayChatActionButtons = function(message, html, data) {
       btn.style.display = "none"
     });
   }
-
-  if ( game.user.isGM ) return;
-  // Conceal damage buttons for non-GM users.
-  html.find('.chat-damage-buttons').hide();
 }
 
 export const activateChatListeners = function(html) {

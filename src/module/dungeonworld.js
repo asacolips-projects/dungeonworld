@@ -95,6 +95,7 @@ Hooks.once("init", async function() {
     default: false
   });
 
+  // TODO: Remove this setting.
   game.settings.register("dungeonworld", "itemIcons", {
     name: game.i18n.localize("DW.Settings.itemIcons.name"),
     hint: game.i18n.localize("DW.Settings.itemIcons.hint"),
@@ -102,6 +103,24 @@ Hooks.once("init", async function() {
     config: false,
     type: Boolean,
     default: true
+  });
+
+  game.settings.register("dungeonworld", "enableDamageButtons", {
+    name: game.i18n.localize("DW.Settings.enableDamageButtons.name"),
+    hint: game.i18n.localize("DW.Settings.enableDamageButtons.hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: true
+  });
+
+  game.settings.register("dungeonworld", "nightmode", {
+    name: game.i18n.localize("DW.Settings.nightmode.name"),
+    hint: game.i18n.localize("DW.Settings.nightmode.hint"),
+    scope: 'client',
+    config: true,
+    type: Boolean,
+    default: false
   });
 
   game.settings.register("dungeonworld", "alignmentSingle", {
@@ -156,15 +175,6 @@ Hooks.once("init", async function() {
     config: true,
     type: String,
     default: ''
-  });
-
-  game.settings.register("dungeonworld", "nightmode", {
-    name: game.i18n.localize("DW.Settings.nightmode.name"),
-    hint: game.i18n.localize("DW.Settings.nightmode.hint"),
-    scope: 'client',
-    config: true,
-    type: Boolean,
-    default: false
   });
 
   DwUtility.replaceRollData();
