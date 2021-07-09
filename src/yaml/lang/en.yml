@@ -165,6 +165,22 @@ DW.Settings.xpFormula.name: "XP Formula"
 DW.Settings.xpFormula.hint: "Enter the XP formula used for leveling up. Available attributes are those that would work in rolls sent to chat, such as (2 * @attributes.level.value) + 10. Default is (@attributes.level.value + 7)"
 DW.Settings.advForward.name: "Clear ADV/DIS After Rolls"
 DW.Settings.advForward.hint: "If enabled, advantage and disadvantage choices on the character sheet will be reset to normal after each roll (similar to Forward)."
+
+DW.Settings.alignmentSingle.name: 'Override "Alignment" label (single).'
+DW.Settings.alignmentSingle.hint: 'Override "Alignment", such as by using "Drive" instead.'
+DW.Settings.alignmentPlural.name: 'Override "Alignments" label (plural).'
+DW.Settings.alignmentPlural.hint: 'Override "Alignments", such as by using "Drives" instead.'
+
+DW.Settings.raceSingle.name: 'Override "Race" label (single).'
+DW.Settings.raceSingle.hint: 'Override "Race", such as by using "Background" instead.'
+DW.Settings.racePlural.name: 'Override "Races" label (plural).'
+DW.Settings.racePlural.hint: 'Override "Races", such as by using "Backgrounds" instead.'
+
+DW.Settings.bondSingle.name: 'Override "Bond" label (single).'
+DW.Settings.bondSingle.hint: 'Override "Bond", such as by using "Flag" instead.'
+DW.Settings.bondPlural.name: 'Override "Bonds" label (plural).'
+DW.Settings.bondPlural.hint: 'Override "Bonds", such as by using "Flags" instead.'
+
 DW.Dialog.askTitle: 'Choose a stat'
 DW.Dialog.askContent: 'Choose a stat for this <strong>{name}</strong> move.'
 DW.Dialog.bondTitle: 'Enter your modifier'

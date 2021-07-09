@@ -41,6 +41,14 @@ export class DwRegisterHelpers {
     });
 
     Handlebars.registerHelper('getLabel', function(obj, key) {
+      // Handle bond overrides.
+      if (key == 'BOND') {
+        let override = game.settings.get('dungeonworld', 'bondSingle') ?? '';
+        if (typeof override === 'string' && override.length > 0) {
+          return override;
+        }
+      }
+      // Handle other keys.
       let result = key;
       if (typeof obj == 'object' && obj[key]) {
         result = (typeof obj[key] == 'object' && obj[key].label) ? obj[key].label : obj[key];
@@ -62,6 +70,17 @@ export class DwRegisterHelpers {
         cy="${data.position}"
       />
     </svg>`;
+    });
+
+    Handlebars.registerHelper('localizeOverride', function(i18nKey, settingKey = false) {
+      let result = settingKey ? game.settings.get('dungeonworld', settingKey) : '';
+      if (typeof result === 'string' && result.length > 0) {
+        return result;
+      }
+      else {
+        return game.i18n.localize(i18nKey) ?? '';
+      }
+      return '';
     });
   }
 }

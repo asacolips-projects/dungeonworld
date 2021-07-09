@@ -99,9 +99,63 @@ Hooks.once("init", async function() {
     name: game.i18n.localize("DW.Settings.itemIcons.name"),
     hint: game.i18n.localize("DW.Settings.itemIcons.hint"),
     scope: 'client',
-    config: true,
+    config: false,
     type: Boolean,
     default: true
+  });
+
+  game.settings.register("dungeonworld", "alignmentSingle", {
+    name: game.i18n.localize("DW.Settings.alignmentSingle.name"),
+    hint: game.i18n.localize("DW.Settings.alignmentSingle.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: ''
+  });
+
+  game.settings.register("dungeonworld", "alignmentPlural", {
+    name: game.i18n.localize("DW.Settings.alignmentPlural.name"),
+    hint: game.i18n.localize("DW.Settings.alignmentPlural.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: ''
+  });
+
+  game.settings.register("dungeonworld", "raceSingle", {
+    name: game.i18n.localize("DW.Settings.raceSingle.name"),
+    hint: game.i18n.localize("DW.Settings.raceSingle.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: ''
+  });
+
+  game.settings.register("dungeonworld", "racePlural", {
+    name: game.i18n.localize("DW.Settings.racePlural.name"),
+    hint: game.i18n.localize("DW.Settings.racePlural.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: ''
+  });
+
+  game.settings.register("dungeonworld", "bondSingle", {
+    name: game.i18n.localize("DW.Settings.bondSingle.name"),
+    hint: game.i18n.localize("DW.Settings.bondSingle.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: ''
+  });
+
+  game.settings.register("dungeonworld", "bondPlural", {
+    name: game.i18n.localize("DW.Settings.bondPlural.name"),
+    hint: game.i18n.localize("DW.Settings.bondPlural.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: ''
   });
 
   game.settings.register("dungeonworld", "nightmode", {

@@ -50,20 +50,20 @@
           </div>
 
           <div class="cell cell--alignment">
-            <label class="cell__title">{{localize "DW.Alignment"}}</label>
+            <label class="cell__title">{{localizeOverride "DW.Alignment" "alignmentSingle"}}</label>
             <input type="text" class="input input--title" name="data.details.alignment.value" value="{{data.details.alignment.value}}" data-dtype="String"/>
             {{editor content=data.details.alignment.description target="data.details.alignment.description" button=true owner=owner editable=editable}}
           </div>
 
           <div class="cell cell--race">
-            <label class="cell__title">{{localize "DW.Race"}}</label>
+            <label class="cell__title">{{localizeOverride "DW.Race" "raceSingle"}}</label>
             <input type="text" class="input input--title" name="data.details.race.value" value="{{data.details.race.value}}" data-dtype="String"/>
             {{editor content=data.details.race.description target="data.details.race.description" button=true owner=owner editable=editable}}
           </div>
 
           <div class="cell cell--bonds">
             <div class="cell__title">
-              <label>{{localize "DW.Bonds"}}</label>
+              <label>{{localizeOverride "DW.Bonds" "bondPlural"}}</label>
               <div class="item-controls">
                 <button  type="button" class="item-control item-create" title='{{localize "DW.AddBond"}}' data-type="bond">
                   <i class="fas fa-plus"></i> <span class="visually-hidden">{{localize "DW.AddBond"}}</span>
