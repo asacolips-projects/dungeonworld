@@ -32,8 +32,8 @@ DW.Look: Aussehen
 DW.Alignment: Gesinnung
 DW.Alignments: Gesinnungen
 DW.Class: Klasse
-DW.Race: Rasse
-DW.Races: Rassen
+DW.Race: Volk
+DW.Races: Völker
 DW.Bond: Bande
 DW.Bonds: Banden
 DW.Tags: Eigenschaften
@@ -115,7 +115,7 @@ DW.ClassEquipmentGroupPlaceholder: Wähle eins, alle haben für dich Gewicht 0
 DW.ClassEquipmentDropText: Gegenstände hier reinziehen
 DW.ChooseOne: Wähle eines
 DW.ChooseAny: Wähle beliebige
-DW.ChooseRace: Wähle eine Rasse
+DW.ChooseRace: Wähle eine Volk
 DW.ChooseAlignment: Wähle eine Gesinnung
 DW.ChooseAbilityScores: Wähle die Attributswerte
 DW.ChooseAbilityScoresIncrease: Wähle ein Attributswert, der um 1 erhöht wird.
@@ -136,3 +136,6 @@ DW.character: Charakter
 DW.characters: Charaktäre
 DW.npc: NSC
 DW.npcs: NSCs
+DW.failure: Misserfolg (EP gutschreiben)
+DW.partial: Teilerfolg
+DW.success: Erfolg
