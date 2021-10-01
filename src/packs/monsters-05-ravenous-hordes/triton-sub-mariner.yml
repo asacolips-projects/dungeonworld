@@ -1,0 +1,80 @@
+_id: yLWDspKIKPhglWAQ
+name: Triton Sub-Mariner
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 6
+      min: 0
+      max: 6
+    ac:
+      value: 3
+      base: 0
+      min: 0
+    damage:
+      value: 2d8kh1
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Aquatic
+  details:
+    biography: >-
+      <p>The triton are not a militant race by nature. They shy away from battle except when the sahuagin attack, and then they only defend themselves and retreat into the depths where their foes can’t follow. This trend begins to change. As the tidecallers come to rally their people, some triton men and women take up arms. They call these generals “sub-mariners” and build for them armor of shells and hardened glass. They swim in formation, wielding pikes and harpoons and attack the crews of ships that wander too far from port. Watch for their pennants of kelp on the horizon and the conchcry of a call to battle and keep, if you can, your boats near shore.</p>
+
+      <p>Instinct: To wage war</p>
+
+      <ul>
+
+      <li>Lead tritons to battle</li>
+
+      <li>Pull them beneath the waves</li>
+
+      </ul>
+  tags: >-
+    [{"value":"close"},{"value":"near"},{"value":"far"},{"value":"group"},{"value":"organized"},{"value":"intelligent"}]
+  tagsString: 'close, near, far, group, organized, intelligent'
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Triton Sub-Mariner
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  mirrorX: false
+  mirrorY: false
+  lockRotation: false
+  rotation: 0
+  vision: true
+  dimSight: 60
+  brightSight: 30
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightColor: ''
+  lightAlpha: 1
+  actorId: yLWDspKIKPhglWAQ
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 20
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: ''
+  randomImg: false
+items: []
