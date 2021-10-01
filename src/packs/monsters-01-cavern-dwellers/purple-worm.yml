@@ -14,7 +14,7 @@ data:
       base: 0
       min: 0
     damage:
-      value: 10+5
+      value: d10+5
       misc: ''
       piercing: ''
     level:
