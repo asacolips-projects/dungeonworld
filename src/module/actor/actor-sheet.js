@@ -893,6 +893,23 @@ export class DwActorSheet extends ActorSheet {
       }
     }
 
+    //Set Level 1 bonds
+    if (Number(actor.data.data.attributes.xp.value) == 0) {
+      let theclass = DwUtility.cleanClass(actor.data.data.details.class);
+      let newbonds = [];
+      
+      for (let i = 1; i < 7; i++) {
+        if (game.i18n.localize("DW." + theclass + ".Bond" + i ) != "DW." + theclass + ".Bond" + i ) {
+          newbonds.push({name: game.i18n.localize("DW." + theclass + ".Bond" + i), type: 'bond', data: ''});
+         }
+      }
+
+      if (newbonds.length > 0) { 
+        await actor.createEmbeddedDocuments('Item', newbonds);
+      }
+      
+    }
+
     // Adjust level.
     if (Number(actor.data.data.attributes.xp.value) > 0) {
       let xp = Number(actor.data.data.attributes.xp.value) - context.xpRequired;
