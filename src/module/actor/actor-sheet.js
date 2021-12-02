@@ -465,7 +465,6 @@ export class DwActorSheet extends ActorSheet {
 
     const actor = this.actor.data;
     const actorData = this.actor.data.data;
-
     let char_class_name = actorData.details.class;
     let orig_class_name = char_class_name;
     let class_list = await DwClassList.getClasses();
@@ -900,6 +899,23 @@ export class DwActorSheet extends ActorSheet {
       data['attributes.level.value'] = Number(actor.data.data.attributes.level.value) + 1;
     }
 
+    //Set Level 1 bonds
+    if (Number(actor.data.data.attributes.xp.value) == 0) {
+      let theclass = DwUtility.cleanClass(actor.data.data.details.class);
+      let newbonds = [];
+      
+      for (let i = 1; i < 7; i++) {
+        if (game.i18n.localize("DW." + theclass + ".Bond" + i ) != "DW." + theclass + ".Bond" + i ) {
+          newbonds.push({name: game.i18n.localize("DW." + theclass + ".Bond" + i), type: 'bond', data: ''});
+         }
+      }
+
+      if (newbonds.length > 0) { 
+        await actor.createEmbeddedDocuments('Item', newbonds);
+      }
+      
+    }
+
     // Adjust hp.
     if (itemData.class_item.data.data.hp) {
       let constitution = actor.data.data.abilities.con.value;
@@ -933,6 +949,7 @@ export class DwActorSheet extends ActorSheet {
     if (new_spells) {
       await actor.createEmbeddedDocuments('Item', new_spells);
     }
+ 
     await actor.update({ data: data });
     await actor.setFlag('dungeonworld', 'levelup', false);
     // actor.render(true);
@@ -1044,7 +1061,7 @@ export class DwActorSheet extends ActorSheet {
       DwRolls.rollMove({actor: this.actor, data: null, formula: formula, templateData: templateData});
     }
     else if (itemId != undefined) {
-      item.roll();
+      await item.roll();
     }
   }
 

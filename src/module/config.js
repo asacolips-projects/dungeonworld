@@ -40,11 +40,11 @@ export class DwClassList {
   static async getClasses(labels_only = true) {
     // First, retrieve any custom or overridden classes so that we can
     // prioritize those.
-    let classes = game.items.entities.filter(item => item.type == 'class');
+    let classes = game.items.filter(item => item.type == 'class');
     // Next, retrieve compendium classes and merge them in.
     for (let c of game.packs) {
-      if (c.metadata.entity && c.metadata.entity == 'Item' && c.metadata.name == 'classes') {
-        let items = c ? await c.getContent() : [];
+      if (c.metadata.contents && c.metadata.contents == 'Item' && c.metadata.name == 'classes') {
+        let items = c ? await c.getDocuments() : [];
         classes = classes.concat(items);
       }
     }

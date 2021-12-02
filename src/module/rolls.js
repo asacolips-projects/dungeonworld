@@ -188,7 +188,7 @@ export class DwRolls {
       // Test if the roll is a formula.
       let validRoll = false;
       try {
-        validRoll = new Roll(roll.trim(), rollData).evaluate();
+        validRoll = await(new Roll(roll.trim(), rollData).evaluate(async=true));
       } catch (error) {
         validRoll = false;
       }
@@ -224,7 +224,7 @@ export class DwRolls {
         if (formulaOverride && formula.includes('2d6')) {
           let overrideIsValid = false;
           try {
-            overrideIsValid = new Roll(formulaOverride.trim(), rollData).evaluate();
+            overrideIsValid = await (new Roll(formulaOverride.trim(), rollData).evaluate(async=true));
           }
           catch (error) {
             overrideIsValid = false;
@@ -275,7 +275,7 @@ export class DwRolls {
       if (formula != null) {
         // Do the roll.
         let roll = new Roll(`${formula}`, rollData);
-        roll.evaluate({async: false});
+        await (roll.evaluate({async: true}));
         let rollType = templateData.rollType ?? 'move';
         // Add success notification.
         if (resultRangeNeeded && rollType == 'move') {
