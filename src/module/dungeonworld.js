@@ -40,8 +40,8 @@ Hooks.once("init", async function() {
   // CONFIG.Combat.entityClass = CombatDw;
 
   CONFIG.DW = DW;
-  CONFIG.Actor.entityClass = ActorDw;
-  CONFIG.Item.entityClass = ItemDw;
+  CONFIG.Actor.documentClass = ActorDw;
+  CONFIG.Item.documentClass = ItemDw;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -308,10 +308,10 @@ Hooks.on('createActor', async (actor, options, id) => {
 
 
     // Get the item moves as the priority.
-    let moves = game.items.entities.filter(i => i.type == 'move' && (i.data.data.moveType == 'basic' || i.data.data.moveType == 'special'));
+    let moves = game.items.filter(i => i.type == 'move' && (i.data.data.moveType == 'basic' || i.data.data.moveType == 'special'));
     let pack = game.packs.get(`dungeonworld.basic-moves`);
-    let compendium = pack ? await pack.getContent() : [];
-    const actorMoves = actor.data.items.filter(i => i.type == 'move');
+    let compendium = pack ? await pack.getDocuments() : [];
+    const actorMoves = actor.items.filter(i => i.type == 'move');
     // Get the compendium moves next.
     let moves_compendium = compendium.filter(m => {
       const notTaken = actorMoves.filter(i => i.name == m.data.name);
@@ -442,7 +442,7 @@ async function createDwMacro(data, slot) {
 
   // Create the macro command
   const command = `game.dungeonworld.rollItemMacro("${item.name}");`;
-  let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
+  let macro = game.macros.contents.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
       name: item.name,
