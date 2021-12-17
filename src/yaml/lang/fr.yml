@@ -36,14 +36,7 @@ DW.Class: Classe
 DW.Race: Race
 DW.Races: Races
 DW.Bond: Lien
-DW.Bonds: Liens
-DW.Tags: Tags
-DW.AddBond: Ajouter un lien
-DW.BondDefault: _____ a un lien avec moi
-DW.BondHelp: ________ texte du lien ici.
-DW.Dialog.Bond1: Choisissez le bonus pour le lien sur cette
-DW.Dialog.Bond2:  action.
-DW.MoveCreate: Créer une Action
+DW.MoveCreate: Créer Action
 DW.AddBasicMove: Créer Action de base
 DW.AddStartingMove: Créer Action de départ
 DW.AddAdvancedMove: Créer Action avancée
@@ -53,118 +46,36 @@ DW.MovesStarting: Actions de Départ
 DW.MovesAdvanced: Actions Avancées
 DW.MovesSpecial: Actions Spéciales
 DW.MovesOther: Autres Actions
-DW.MoveBasic: "Action de Base"
-DW.MoveStarting: Action de Départ
-DW.MoveAdvanced: Action Avancée
-DW.MoveSpecial: Action Spéciale
-DW.MoveGroup: Groupe d'actions
-DW.MoveGroupHelp: Toutes les actions avec le même groupe d'actions seront des options exclusives (l'une ou l'autre) à la création d'un nouveau personnage avec le constructeur de personnages.
+DW.MoveBasic: Action de base
+DW.MoveStarting: Action de départ
+DW.MoveAdvanced: Action avancée
 DW.Description: Description
 DW.Moves: Actions
 DW.Biography: Biographie
-DW.Equipment: Équipement
+DW.Equipment: Equipement
 DW.Spells: Sorts
 DW.SpellLevel: Niveau de sort
-DW.Spells0: Sorts mineurs
-DW.Spells1: Sorts de niveau 1
-DW.Spells2: Sorts de niveau 2
-DW.Spells3: Sorts de niveau 3
-DW.Spells4: Sorts de niveau 4
-DW.Spells5: Sorts de niveau 5
-DW.Spells6: Sorts de niveau 6
-DW.Spells7: Sorts de niveau 7
-DW.Spells8: Sorts de niveau 8
-DW.Spells9: Sorts de niveau 9
+DW.Spells0: Sort mineurs
+DW.Spells1: Sorts niv 1
+DW.Spells2: Sort niv 2
+DW.Spells3: Sort niv 3
+DW.Spells4: Sort niv 4
+DW.Spells5: Sort niv 5
+DW.Spells6: Sort niv 6
+DW.Spells7: Sort niv 7
+DW.Spells8: Sort niv 8
+DW.Spells9: Sort niv 9
 DW.SpellPrepared: Preparé
-DW.SpellRollFormula: Formule du jet de dés
-DW.RollFormula: "Formule du jet de dés"
-DW.AddEquipment: Ajout d'équipement
-DW.AddSpell: Ajout de sort
+DW.SpellRollFormula: lancer les dés de formule
+DW.AddEquipment: ajout d'équipement
+DW.AddSpell: ajout de sort
 DW.Common.Description: Description
 DW.Common.Details: Détails
 DW.Common.Name: Nom
-DW.Roll: Jet
+DW.Roll: lancer les dés
 DW.Modifier: Modificateur
 DW.RequiresLevel: Niveau requis
 DW.RequiresMove: Action requise
 DW.MoveType: Type d'action
 DW.Quantity: Quantité
-DW.Qty: Qté
-DW.Weight: Poids
-DW.Wt: Pds
-DW.Uses: Utilisations
-DW.MagicItem: Objet magique
-DW.ItemType: Type d'objet
-DW.Coin: Pièces d'or
-DW.Weapon: "Arme"
-DW.DungeonGear: "Materiel d'aventurier"
-DW.Poison: Poison
-DW.Service: Service
-DW.Meal: Repas
-DW.Transport: Transport
-DW.LandBuildings: Propriétés & Terres
-DW.Bribe: Gratifications
-DW.GiftsFinery: Cadeaux et Parures
-DW.Hoard: Trésor
-DW.TagsHelp: (Utilisez tab pour auto-compléter, des virgules pour créer de nouveaux tags, et double-cliquez sur un tag pour l'éditer)
-DW.SpecialQualities: Caractéristiques Spéciales
-DW.ClassSettings: Paramètres de Classe
-DW.ClassBaseHp: PV de base
-DW.ClassBaseHpHelp: La constitution sera automatiquement ajoutée à cette valeur.
-DW.ClassBaseLoad: Poids maximum de base
-DW.ClassBaseLoadHelp: La FOR sera automatiquement ajoutée à cette valeur.
-DW.ClassDamage: Dé de dégats
-DW.ClassDamageHelp: Dé de dégats utilisé pour les dégats de la classe.
-DW.ClassAddEquipmentGroup: Ajouter un groupe d'équipements
-DW.ClassEquipmentGroupHelp: Vous pouvez définir des groupes de choix d'équipement pour cette classe ci-dessous. Vous pouvez déposer autant de pièces d'équipement que vous voulez dans chaque groupe, et le mode de sélection de chaque groupe peut être réglé sur soit choisir un seul des objets, soit autant d'objets que l'on veut.
-DW.ClassEquipmentGroupPlaceholder: Choisir un, tous sont de poids 0 pour vous
-DW.ClassEquipmentDropText: Déposez les objets ici
-DW.ChooseOne: Choisissez un seul
-DW.ChooseAny: Choisissez autant que vous voulez
-DW.ChooseRace: Choisissez une race
-DW.ChooseAlignment: Choisissez un alignement
-DW.ChooseAbilityScores: Répartissez les scores
-DW.ChooseAbilityScoresIncrease: Choisissez une caractéristique à augmenter de 1.
-DW.ChooseStartingMoves: Choisissez vos Actions de départ
-DW.ChooseStartingOne: "Choisissez une des actions suivantes:"
-DW.ChooseStartingAll: "Vous démarrez également avec:"
-DW.ChooseAdvancedMoves: Choisissez une action avancée
-DW.ChooseAdvanced2: Quand vous gagnez un niveau entre 2 et 5, choisissez une de ces actions.
-DW.ChooseAdvanced6: Quand vous gagnez un niveau entre 6 et 10, choisissez une de ces actions ou une action de niveau 2-5.
-DW.ChooseSpells: Choisissez des Sorts
-DW.DefaultLook: <ul><li>Yeux:</li><li>Cheveux:</li><li>Corps:</li><li>Peau:</li><li>Vêtements:</li></ul>
-DW.Cancel: Annuler
-DW.Confirm: Confirmer
-DW.Prepared: Préparé
-DW.Unprepared: Non-Préparé
-DW.DamageRoll: Infliger des dégats
-DW.character: Personnage
-DW.characters: Personnages
-DW.npc: PNJ
-DW.npcs: PNJs
-DW.Forward: À suivre
-DW.Ongoing: Continu
-DW.Hold: Retenue
-DW.RollMode: "Mode de jet"
-DW.Normal: "Normal"
-DW.Advantage: "Avantage"
-DW.Disadvantage: "Désavantage"
-DW.failure: Complications 
-DW.partial: Réussite partielle
-DW.success: Réussite
-DW.ChooseResult: Choisissez un résultat
-DW.Choices: Choix
-DW.MarkXp: Marquer PX
-DW.XpMarked: PX marqué
-DW.Settings.itemIcons.name: Activer les Icones d'objets
-DW.Settings.itemIcons.hint: Activer les icones visuelles pour les actions, sorts et équipement dans les feuilles de personnage (requiert un redémarrage du navigateur).
-DW.Settings.nightmode.name: Activer le mode nuit
-DW.Settings.nightmode.hint: Activer le mode nuit/sombre pour les feuilles de personnages (par utilisateur).
-DW.Settings.xpFormula.name: "Formule de PX"
-DW.Settings.xpFormula.hint: "Entrez la formule de PX utilisée pour gagner un niveau. Les attributs disponibles sont ceux qui fonctionneraient dans des jets envoyés au chat, comme (2 * @attributes.level.value) + 10. La formule par défaut est (@attributes.level.value + 7)"
-DW.Settings.advForward.name: "Supprimer AV/DÉS Après les Jets"
-DW.Settings.advForward.hint: "Si activé, les choix d'avantage / désavantage sur la feuille de personnage seront remis à zéro après chaque jet. (Comme pour À suivre)."
-DW.Dialog.askTitle: Choisissez une caractéristique
-DW.Dialog.askContent: Choisissez une caractéristique pour cette action <strong>{name}</strong>.
-DW.Dialog.bondTitle: Entrez votre modificateur
-DW.Dialog.bondContent: Entrez un bonus pour le lien ou modificateur pour cette action <strong>{name}</strong>.
+DW.Weight: Poid
