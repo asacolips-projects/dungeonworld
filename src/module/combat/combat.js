@@ -18,7 +18,6 @@ export class CombatSidebarDw {
         let combatant_id = $actorElem.length > 0 ? $actorElem.attr('data-combatant-id') : null;
         if (combatant_id) {
           let combatant = game.combat.combatants.get(combatant_id);
-          console.log(combatant)
           let actor = combatant.actor ? combatant.actor : null;
           if (actor) {
             actor._onRoll(event, actor);

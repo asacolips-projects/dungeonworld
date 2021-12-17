@@ -560,7 +560,7 @@ export class DwActorSheet extends ActorSheet {
     const actorMoves = this.actor.data.items.filter(i => i.type == 'move');
 
     // Get the item moves as the priority.
-    let moves = game.items.entities.filter(m => {
+    let moves = game.items.filter(m => {
       if (m.type == 'move' && m.data.data.class == char_class_name) {
         const available_level = m.data.data.requiresLevel <= char_level;
         const not_taken = actorMoves.filter(i => i.name == m.data.name);
@@ -641,7 +641,7 @@ export class DwActorSheet extends ActorSheet {
       spells = [];
       for (let caster_class of cast_spells) {
         // Get the item spells as the priority.
-        let spells_items = game.items.entities.filter(i => {
+        let spells_items = game.items.filter(i => {
           // Return true for custom spell items that have a class.
           return i.type == 'spell'
             && i.data.data.class
@@ -903,17 +903,17 @@ export class DwActorSheet extends ActorSheet {
     if (Number(actor.data.data.attributes.xp.value) == 0) {
       let theclass = DwUtility.cleanClass(actor.data.data.details.class);
       let newbonds = [];
-      
+
       for (let i = 1; i < 7; i++) {
         if (game.i18n.localize("DW." + theclass + ".Bond" + i ) != "DW." + theclass + ".Bond" + i ) {
           newbonds.push({name: game.i18n.localize("DW." + theclass + ".Bond" + i), type: 'bond', data: ''});
          }
       }
 
-      if (newbonds.length > 0) { 
+      if (newbonds.length > 0) {
         await actor.createEmbeddedDocuments('Item', newbonds);
       }
-      
+
     }
 
     // Adjust hp.
@@ -949,7 +949,7 @@ export class DwActorSheet extends ActorSheet {
     if (new_spells) {
       await actor.createEmbeddedDocuments('Item', new_spells);
     }
- 
+
     await actor.update({ data: data });
     await actor.setFlag('dungeonworld', 'levelup', false);
     // actor.render(true);
@@ -1137,21 +1137,20 @@ export class DwActorSheet extends ActorSheet {
 
   async _activateTagging(html) {
     // Build the tags list.
-    let tags = game.items.entities.filter(item => item.type == 'tag');
+    let tags = game.items.filter(item => item.type == 'tag').map(item => item.name);
     for (let c of game.packs) {
-      if (c.metadata.entity && c.metadata.entity == 'Item' && c.metadata.name == 'tags') {
-        let items = c ? await c.getContent() : [];
+      if (c.metadata.type && c.metadata.type == 'Item' && c.metadata.name == 'tags') {
+        let items = c?.index ? c.index.map(indexedItem => {
+          return indexedItem.name;
+        }) : [];
         tags = tags.concat(items);
       }
     }
     // Reduce duplicates.
     let tagNames = [];
     for (let tag of tags) {
-      let tagName = tag.data.name.toLowerCase();
-      if (tagNames.includes(tagName) !== false) {
-        tags = tags.filter(item => item._id != tag._id);
-      }
-      else {
+      let tagName = tag.toLowerCase();
+      if (tagNames.includes(tagName) === false) {
         tagNames.push(tagName);
       }
     }

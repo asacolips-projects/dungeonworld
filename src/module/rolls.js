@@ -13,8 +13,8 @@ export class DwRolls {
   }
 
   static getModifiers(actor) {
-    let forward = Number(actor.data.data.attributes.forward.value) ?? 0;
-    let ongoing = Number(actor.data.data.attributes.ongoing.value) ?? 0;
+    let forward = Number(actor.data.data.attributes?.forward?.value) ?? 0;
+    let ongoing = Number(actor.data.data.attributes?.ongoing?.value) ?? 0;
     let result = '';
     if (forward) result += `+${forward}`;
     if (ongoing) result += `+${ongoing}`;
@@ -188,7 +188,7 @@ export class DwRolls {
       // Test if the roll is a formula.
       let validRoll = false;
       try {
-        validRoll = await(new Roll(roll.trim(), rollData).evaluate(async=true));
+        validRoll = await(new Roll(roll.trim(), rollData).evaluate({async: true}));
       } catch (error) {
         validRoll = false;
       }
@@ -224,13 +224,17 @@ export class DwRolls {
         if (formulaOverride && formula.includes('2d6')) {
           let overrideIsValid = false;
           try {
-            overrideIsValid = await (new Roll(formulaOverride.trim(), rollData).evaluate(async=true));
+            overrideIsValid = await (new Roll(formulaOverride.trim(), rollData).evaluate({async: true}));
           }
           catch (error) {
             overrideIsValid = false;
           }
 
           if (overrideIsValid) formula = formula.replace('2d6', formulaOverride);
+        }
+
+        if (formula.includes('2d6') || formulaOverride && formula.includes(formulaOverride)) {
+          resultRangeNeeded = true;
         }
 
         // Handle adv/dis.
@@ -269,16 +273,15 @@ export class DwRolls {
         // Append the modifiers.
         let modifiers = DwRolls.getModifiers(this.actor);
         formula = `${formula}${modifiers}`;
-        forwardUsed = Number(this.actor.data.data.attributes.forward.value) != 0;
-        resultRangeNeeded = true;
+        forwardUsed = Number(this.actor.data.data.attributes?.forward?.value) != 0;
       }
       if (formula != null) {
         // Do the roll.
         let roll = new Roll(`${formula}`, rollData);
         await (roll.evaluate({async: true}));
-        let rollType = templateData.rollType ?? 'move';
+        let rollType = templateData.rollType ?? 'none';
         // Add success notification.
-        if (resultRangeNeeded && rollType == 'move') {
+        if (resultRangeNeeded || rollType == 'move') {
           // Retrieve the result ranges.
           let resultRanges = CONFIG.DW.rollResults;
           let resultType = null;

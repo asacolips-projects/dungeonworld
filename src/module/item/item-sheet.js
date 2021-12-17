@@ -161,21 +161,20 @@ export class DwItemSheet extends ItemSheet {
    */
   async _tagify(html, editable) {
     // Build the tags list.
-    let tags = game.items.entities.filter(item => item.type == 'tag');
+    let tags = game.items.filter(item => item.type == 'tag').map(item => item.name);
     for (let c of game.packs) {
-      if (c.metadata.entity && c.metadata.entity == 'Item' && c.metadata.name == 'tags') {
-        let items = c ? await c.getContent() : [];
+      if (c.metadata.type && c.metadata.type == 'Item' && c.metadata.name == 'tags') {
+        let items = c?.index ? c.index.map(indexedItem => {
+          return indexedItem.name;
+        }) : [];
         tags = tags.concat(items);
       }
     }
     // Reduce duplicates.
     let tagNames = [];
     for (let tag of tags) {
-      let tagName = tag.data.name.toLowerCase();
-      if (tagNames.includes(tagName) !== false) {
-        tags = tags.filter(item => item._id != tag._id);
-      }
-      else {
+      let tagName = tag.toLowerCase();
+      if (tagNames.includes(tagName) === false) {
         tagNames.push(tagName);
       }
     }
@@ -234,7 +233,7 @@ export class DwItemSheet extends ItemSheet {
         }, {render: false});
 
         this.needsRender = true;
-      })
+      });
     }
   }
 
