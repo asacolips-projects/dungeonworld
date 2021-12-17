@@ -17,7 +17,7 @@ export class CombatSidebarDw {
         let $actorElem = $self.parents('.actor-elem');
         let combatant_id = $actorElem.length > 0 ? $actorElem.attr('data-combatant-id') : null;
         if (combatant_id) {
-          let combatant = game.combat.data.combatants.find(c => c._id == combatant_id);
+          let combatant = game.combat.combatants.get(combatant_id);
           let actor = combatant.actor ? combatant.actor : null;
           if (actor) {
             actor._onRoll(event, actor);
@@ -322,7 +322,7 @@ export class CombatSidebarDw {
         }
 
         // Retrieve the health bars mode from the token's resource settings.
-        let displayBarsMode = Object.entries(CONST.TOKEN_DISPLAY_MODES).find(i => i[1] == combatant._token.data.displayBars)[0];
+        let displayBarsMode = Object.entries(CONST.TOKEN_DISPLAY_MODES).find(i => i[1] == combatant.token.data.displayBars)[0];
         // Assume player characters should always show their health bar.
         let displayHealth = group == 'character' ? true : false;
 
