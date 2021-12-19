@@ -30,7 +30,9 @@ export class DwUtility {
     for (let pack of game.packs) {
       if (pack.metadata.name.includes('equipment')) {
         if (pack) {
-          items = items.concat(await pack.getContent());
+          // @todo update after v9 stable.
+          items = items.concat(isNewerVersion(game.data.version, '0.9') ? await pack.getDocuments() : await pack.getContent());
+          // @endtodo
         }
       }
     }

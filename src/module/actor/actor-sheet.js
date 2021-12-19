@@ -497,7 +497,9 @@ export class DwActorSheet extends ActorSheet {
     let pack_id = `dungeonworld.${char_class}-moves`;
     let pack = game.packs.get(pack_id);
 
-    let compendium = pack ? await pack.getContent() : [];
+    // @todo update after v9 stable.
+    let compendium = pack ? isNewerVersion(game.data.version, '0.9') ? await pack.getDocuments() : await pack.getContent() : [];
+    // @endtodo
 
     let class_item = class_list_items.find(i => i.data.name == orig_class_name);
     let blurb = class_item ? class_item.data.data.description : null;
@@ -649,7 +651,9 @@ export class DwActorSheet extends ActorSheet {
             && [caster_class, `the ${caster_class}`].includes(DwUtility.cleanClass(i.data.data.class));
         });
         let spells_pack = game.packs.get(`dungeonworld.${char_class}-spells`);
-        let spells_compendium = spells_pack ? await spells_pack.getContent() : [];
+        // @todo update after v9 stable.
+        let spells_compendium = spells_pack ? isNewerVersion(game.data.version, '0.9') ? await spells_pack.getDocuments() : await spells_pack.getContent() : [];
+        // @endtodo
         // Get the compendium spells next.
         let spells_compendium_items = spells_compendium.filter(s => {
           const available_level = s.data.data.spellLevel <= caster_level;
@@ -1138,6 +1142,7 @@ export class DwActorSheet extends ActorSheet {
   async _activateTagging(html) {
     // Build the tags list.
     let tags = game.items.filter(item => item.type == 'tag').map(item => item.name);
+    let version = '9';
     for (let c of game.packs) {
       if (c.metadata.type && c.metadata.type == 'Item' && c.metadata.name == 'tags') {
         let items = c?.index ? c.index.map(indexedItem => {
@@ -1145,14 +1150,36 @@ export class DwActorSheet extends ActorSheet {
         }) : [];
         tags = tags.concat(items);
       }
+      // @todo remove after v9 stable.
+      else if (!c.metadata?.type) {
+        if (c.metadata.entity && c.metadata.entity == 'Item' && c.metadata.name == 'tags') {
+          let items = c ? await c.getContent() : [];
+          tags = tags.concat(items);
+          version = '8';
+        }
+      }
+      // @endtodo
     }
     // Reduce duplicates.
     let tagNames = [];
     for (let tag of tags) {
-      let tagName = tag.toLowerCase();
-      if (tagNames.includes(tagName) === false) {
-        tagNames.push(tagName);
+      if (version === '9') {
+        let tagName = tag.toLowerCase();
+        if (tagNames.includes(tagName) === false) {
+          tagNames.push(tagName);
+        }
       }
+      // @todo remove after v9 stable.
+      else {
+        let tagName = tag.data.name.toLowerCase();
+        if (tagNames.includes(tagName) !== false) {
+          tags = tags.filter(item => item._id != tag._id);
+        }
+        else {
+          tagNames.push(tagName);
+        }
+      }
+      // @endtodo
     }
 
     // Sort the tagnames list.

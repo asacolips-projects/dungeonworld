@@ -43,10 +43,18 @@ export class DwClassList {
     let classes = game.items.filter(item => item.type == 'class');
     // Next, retrieve compendium classes and merge them in.
     for (let c of game.packs) {
-      if (c.metadata.contents && c.metadata.contents == 'Item' && c.metadata.name == 'classes') {
+      if (c.metadata.type && c.metadata.type == 'Item' && c.metadata.name == 'classes') {
         let items = c ? await c.getDocuments() : [];
-        classes = classes.concat(items);
+        classes = classes.concat(items.map(i => i.data));
       }
+      // @todo remove after V9 stable.
+      else if (!c.metadata?.type) {
+        if (c.metadata.entity && c.metadata.entity == 'Item' && c.metadata.name == 'classes') {
+          let items = c ? await c.getContent() : [];
+          classes = classes.concat(items);
+        }
+      }
+      // @endtodo
     }
     // Reduce duplicates. Because item classes happen first, this will prevent
     // duplicate compendium entries from overriding the items.

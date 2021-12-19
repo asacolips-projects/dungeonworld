@@ -212,10 +212,6 @@ export class ActorDw extends Actor {
               chatData.sound = CONFIG.sounds.dice;
               ChatMessage.create(chatData);
             }
-            // Deal damage to targets.
-            // if (applyDamage) {
-            //   console.log(game.user.targets);
-            // }
           });
         });
       }

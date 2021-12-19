@@ -88,17 +88,19 @@ export class MigrateDw {
     let itemMap = {};
     // Grab compendium data.
     for (let pack of game.packs) {
+      // @todo update after v9 stable.
       if (pack.metadata.name.includes('equipment')) {
         if (pack.metadata.name.includes('old')) {
-          itemsOld = itemsOld.concat(await pack.getContent());
+          itemsOld = itemsOld.concat(isNewerVersion(game.data.version, '0.9') ? await pack.getDocuments() : await pack.getContent());
         }
         else {
-          itemsCurrent = itemsCurrent.concat(await pack.getContent());
+          itemsCurrent = itemsCurrent.concat(isNewerVersion(game.data.version, '0.9') ? await pack.getDocuments() : await pack.getContent());
         }
       }
       else if (pack.metadata.name.includes('classes')) {
-        classes = await pack.getContent();
+        classes = isNewerVersion(game.data.version, '0.9') ? await pack.getDocuments() : await pack.getContent();
       }
+      // @endtodo
     }
     // Build a mapping of old > new items.
     for (let oldItem of itemsOld) {

@@ -310,8 +310,19 @@ Hooks.on('createActor', async (actor, options, id) => {
     // Get the item moves as the priority.
     let moves = game.items.filter(i => i.type == 'move' && (i.data.data.moveType == 'basic' || i.data.data.moveType == 'special'));
     let pack = game.packs.get(`dungeonworld.basic-moves`);
-    let compendium = pack ? await pack.getDocuments() : [];
-    const actorMoves = actor.items.filter(i => i.type == 'move');
+    let compendium = [];
+    let actorMoves = [];
+    // @todo only keep the first if statement after v9 stable.
+    if (isNewerVersion(game.data.version, '0.9')) {
+      compendium = pack ? await pack.getDocuments() : [];
+      actorMoves = actor.items.filter(i => i.type == 'move');
+    }
+    else {
+      compendium = pack ? await pack.getContent() : [];
+      actorMoves = actor.data.items.filter(i => i.type == 'move');
+    }
+    // @endtodo
+
     // Get the compendium moves next.
     let moves_compendium = compendium.filter(m => {
       const notTaken = actorMoves.filter(i => i.name == m.data.name);
@@ -421,7 +432,6 @@ Hooks.on('renderDialog', (dialog, html, options) => {
       });
     })
   }
-  // console.log(html.find('.cell--ability-scores'));
 });
 
 /* -------------------------------------------- */
