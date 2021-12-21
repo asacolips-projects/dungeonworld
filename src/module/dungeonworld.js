@@ -221,7 +221,7 @@ Hooks.once("ready", async function() {
     // to be logged in currently for the socket to work. If GM account is the
     // one that made the move, that happens directly in the actor update.
     if (data?.combatantUpdate) {
-      game.combat.updateCombatant(data.combatantUpdate);
+      game.combat.updateEmbeddedDocuments('Combatant', Array.isArray(data.combatantUpdate) ? data.combatantUpdate : [data.combatantUpdate]);
       ui.combat.render();
     }
   });
@@ -279,7 +279,7 @@ Hooks.on('renderChatPopout', (app, html, data) => chat.activateChatListeners(htm
 /* -------------------------------------------- */
 
 /**
- * This function runs after game data has been requested and loaded from the servers, so entities exist
+ * This function runs after game data has been requested and loaded from the servers, so documents exist
  */
 Hooks.once("setup", function() {
 
@@ -312,16 +312,8 @@ Hooks.on('createActor', async (actor, options, id) => {
     let pack = game.packs.get(`dungeonworld.basic-moves`);
     let compendium = [];
     let actorMoves = [];
-    // @todo only keep the first if statement after v9 stable.
-    if (isNewerVersion(game.data.version, '0.9')) {
-      compendium = pack ? await pack.getDocuments() : [];
-      actorMoves = actor.items.filter(i => i.type == 'move');
-    }
-    else {
-      compendium = pack ? await pack.getContent() : [];
-      actorMoves = actor.data.items.filter(i => i.type == 'move');
-    }
-    // @endtodo
+    compendium = pack ? await pack.getDocuments() : [];
+    actorMoves = actor.items.filter(i => i.type == 'move');
 
     // Get the compendium moves next.
     let moves_compendium = compendium.filter(m => {
@@ -452,7 +444,7 @@ async function createDwMacro(data, slot) {
 
   // Create the macro command
   const command = `game.dungeonworld.rollItemMacro("${item.name}");`;
-  let macro = game.macros.contents.find(m => (m.name === item.name) && (m.command === command));
+  let macro = game.macros.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
       name: item.name,

@@ -47,14 +47,6 @@ export class DwClassList {
         let items = c ? await c.getDocuments() : [];
         classes = classes.concat(items.map(i => i.data));
       }
-      // @todo remove after V9 stable.
-      else if (!c.metadata?.type) {
-        if (c.metadata.entity && c.metadata.entity == 'Item' && c.metadata.name == 'classes') {
-          let items = c ? await c.getContent() : [];
-          classes = classes.concat(items);
-        }
-      }
-      // @endtodo
     }
     // Reduce duplicates. Because item classes happen first, this will prevent
     // duplicate compendium entries from overriding the items.

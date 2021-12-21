@@ -364,7 +364,7 @@ export class DwRolls {
           });
         }
         else {
-          await game.combat.updateCombatant({ _id: combatant._id, 'flags.dungeonworld.moveCount': moveCount });
+          await game.combat.updateEmbeddedDocuments('Combatant', [{ _id: combatant._id, 'flags.dungeonworld.moveCount': moveCount }]);
           ui.combat.render();
         }
       }

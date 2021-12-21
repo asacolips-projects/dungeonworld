@@ -2,8 +2,8 @@
   "name": "dungeonworld",
   "title": "Dungeon World",
   "description": "The Dungeon World system for FoundryVTT!",
-  "version": "1.2.1",
-  "minimumCoreVersion": "0.8.6",
+  "version": "1.2.2",
+  "minimumCoreVersion": 9,
   "compatibleCoreVersion": 9,
   "templateVersion": 2,
   "author": "Asacolips, Vasid",
@@ -318,5 +318,5 @@
   "socket": true,
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld",
   "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/raw/master/system.json",
-  "download": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/jobs/artifacts/1.2.1/raw/dungeonworld.zip?job=build-prod"
+  "download": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/jobs/artifacts/1.2.2/raw/dungeonworld.zip?job=build-prod"
 }

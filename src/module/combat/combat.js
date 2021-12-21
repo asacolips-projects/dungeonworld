@@ -148,7 +148,7 @@ export class CombatSidebarDw {
             // needs to be refactored.
             // ---------------------------------------------------------------
             // const view = game.scenes.viewed;
-            // const combats = view ? game.combats.entities.filter(c => c.data.scene === view._id) : [];
+            // const combats = view ? game.combats.filter(c => c.data.scene === view._id) : [];
             // let combat = combats.length ? combats.find(c => c.data.active) || combats[0] : null;
 
             // Retreive the drop target, remove any hover classes.
@@ -311,7 +311,7 @@ export class CombatSidebarDw {
       // If this is for a combatant that has had its token/actor deleted,
       // remove it from the combat.
       if (!combatant.actor) {
-        game.combat.deleteCombatant(combatant._id);
+        game.combat.deleteEmbeddedDocuments('Combatant', [combatant._id]);
       }
       // Append valid actors to the appropriate group.
       else {
@@ -370,7 +370,8 @@ export class CombatSidebarDw {
 
         // If this is the GM or the owner, push to the combatants list.
         // Otherwise, only push if the token isn't hidden in the scene.
-        if (game.user.isGM || combatant.isOwner || !combatant._token.data.hidden) {
+        const combatantToken = combatant?.token?.data ?? combat?._token?.data;
+        if (game.user.isGM || combatant.isOwner || !combatantToken?.hidden) {
           groups[group].push(combatant);
         }
       }

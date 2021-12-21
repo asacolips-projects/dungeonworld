@@ -162,7 +162,6 @@ export class DwItemSheet extends ItemSheet {
   async _tagify(html, editable) {
     // Build the tags list.
     let tags = game.items.filter(item => item.type == 'tag').map(item => item.name);
-    let version = '9';
     for (let c of game.packs) {
       if (c.metadata.type && c.metadata.type == 'Item' && c.metadata.name == 'tags') {
         let items = c?.index ? c.index.map(indexedItem => {
@@ -170,36 +169,14 @@ export class DwItemSheet extends ItemSheet {
         }) : [];
         tags = tags.concat(items);
       }
-      // @todo remove after v9 stable.
-      else if (!c.metadata?.type) {
-        if (c.metadata.entity && c.metadata.entity == 'Item' && c.metadata.name == 'tags') {
-          let items = c ? await c.getContent() : [];
-          tags = tags.concat(items);
-          version = '8';
-        }
-      }
-      // @endtodo
     }
     // Reduce duplicates.
     let tagNames = [];
     for (let tag of tags) {
-      if (version === '9') {
-        let tagName = tag.toLowerCase();
-        if (tagNames.includes(tagName) === false) {
-          tagNames.push(tagName);
-        }
+      let tagName = tag.toLowerCase();
+      if (tagNames.includes(tagName) === false) {
+        tagNames.push(tagName);
       }
-      // @todo remove after v9 stable.
-      else {
-        let tagName = tag.data.name.toLowerCase();
-        if (tagNames.includes(tagName) !== false) {
-          tags = tags.filter(item => item._id != tag._id);
-        }
-        else {
-          tagNames.push(tagName);
-        }
-      }
-      // @endtodo
     }
 
     // Sort the tagnames list.
