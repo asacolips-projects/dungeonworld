@@ -491,6 +491,7 @@ export class DwActorSheet extends ActorSheet {
     }
 
     if (!class_list.includes(orig_class_name) && !class_list.includes(char_class_name)) {
+      ui.notifications.warn(game.i18n.localize('DW.Notifications.noClassWarning'));
       return;
     }
 
@@ -500,6 +501,10 @@ export class DwActorSheet extends ActorSheet {
     let compendium = pack ? await pack.getDocuments() : [];
 
     let class_item = class_list_items.find(i => i.data.name == orig_class_name);
+    if (!class_item?.data?.data) {
+      ui.notifications.warn(game.i18n.localize('DW.Notifications.noClassWarning'));
+      return;
+    }
     let blurb = class_item ? class_item.data.data.description : null;
 
     // Get races.
