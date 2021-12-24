@@ -11,7 +11,15 @@ Compatible with FoundryVTT 0.6.x and 0.7.x.
 
 Build campaigns in the Dungeon World RPG using Foundry VTT!
 
-# Building the system from source
+# Contributing
+
+This project is accepting issue reports and code merge requests! See the [CONTRIBUTING.MD](https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/blob/master/CONTRIBUTING.md) page for details.
+
+## Translations
+
+If you would like to contribute translations directly to the system, they're written using YAML and are under `src/yaml/lang`, and the repo includes build tools to convert them back into JSON. If you prefer writing in JSON, you can convert from JSON to YAML at https://www.json2yaml.com/
+
+## Building the system from source
 
 To build the system from source, you'll need to have node 12 or higher installed so that you can use npm and gulp. Changes made to either the `dist` directory or `system.json` in the root of this repo will be lost when building; you should instead edit the source files within `src`. Of particular note is that the system.json, template.json, and lang files are all originally written in Yaml format for an easier to read and work with syntax. You should make your changes there and build their json equivalents with npm.
 
