@@ -45,7 +45,7 @@ export class DwClassList {
     for (let c of game.packs) {
       if (c.metadata.type && c.metadata.type == 'Item' && c.metadata.name == 'classes') {
         let items = c ? await c.getDocuments() : [];
-        classes = classes.concat(items.map(i => i.data));
+        classes = classes.concat(items);
       }
     }
     // Reduce duplicates. Because item classes happen first, this will prevent
