@@ -5,6 +5,7 @@ import { DwUtility } from '../utility.js';
  * @extends {Actor}
  */
 export class ActorDw extends Actor {
+
   /**
    * Augment the basic actor data with additional dynamic data.
    */
@@ -251,22 +252,126 @@ export class ActorDw extends Actor {
     let hp = this.data.data?.attributes?.hp?.value ?? 0;
     let hpMax = this.data.data?.attributes?.hp?.max ?? 1;
     let armor = this.data.data?.attributes?.ac?.value ?? 0;
+    let piercing = options?.ignoreArmor ? armor : options?.piercing;
+    let reduced = armor;
 
     if (!hp && !amount) return;
 
     // Reduce armor if needed.
-    if (options.piercing && options.piercing > 0) armor = Math.max(armor - options.piercing, 0);
-    if (options.ignoreArmor) armor = 0;
+    if (options.piercing && options.piercing > 0) reduced = Math.max(armor - options.piercing, 0);
+    if (options.ignoreArmor) reduced = 0;
+    if (isNaN(piercing)) piercing = 0;
 
     // Reduce damage by armor.
-    if (options.op !== 'heal' && !options.ignoreArmor) newAmount = Math.max(newAmount - armor, 0);
+    if (options.op !== 'heal' && !options.ignoreArmor) {
+      newAmount = Math.max(newAmount - reduced, 0);
+    }
 
     // Adjust hp.
     let newHp = options.op === 'heal' ? hp + newAmount : hp - newAmount;
     if (newHp > hpMax) newHp = hpMax;
 
     if (newHp !== hp) {
-      return this.update({'data.attributes.hp.value': newHp});
+      const update = {'data.attributes.hp.value': newHp};
+      const context = {
+        'dw.armor.reduced': reduced,
+        'dw.armor.value': armor,
+        'dw.armor.piercing': piercing
+      };
+      return this.update(update, context);
+    }
+  }
+
+  /**
+   * Scrolling text helper method.
+   *
+   * @param {number} delta Difference to display.
+   * @param {number} max Maximum value to calculate against.
+   * @param {string} suffix Text to display
+   * @param {object} overrideOptions Override options to pass to the token method.
+   */
+  showScrollingText(delta, max, suffix="", overrideOptions={}) {
+    // Show scrolling text of hp update
+    const tokens = this.isToken ? [this.token?.object] : this.getActiveTokens(true);
+    if (tokens.length > 0) {
+      if (!delta) delta = 0;
+
+      let color = 0x999999;
+      if (delta < 0) {
+        color = 0xcc0000;
+      }
+      else if (delta > 0) {
+        color = 0x00cc00;
+      }
+
+      for ( let token of tokens ) {
+        const pct = delta !== 0 ? Math.clamped(Math.abs(delta) / max, 0, 1) : 0.25;
+        let textOptions = {
+          anchor: CONST.TEXT_ANCHOR_POINTS.CENTER,
+          direction: CONST.TEXT_ANCHOR_POINTS.TOP,
+          fontSize: 16 + (32 * pct), // Range between [16, 48]
+          fill: color,
+          stroke: 0x000000,
+          strokeThickness: 4,
+          // jitter: 1,
+          duration: 3000
+        };
+        token.hud.createScrollingText(delta !== 0 ? delta.signedString() + " " + suffix : suffix, foundry.utils.mergeObject(textOptions, overrideOptions));
+      }
+    }
+  }
+
+  /** @override */
+  async _preUpdate(data, options, userId) {
+    await super._preUpdate(data, options, userId);
+
+    if (options?.dw) {
+      options.dw.preUpdate = {data: foundry.utils.duplicate(this.data.data)};
+    }
+  }
+
+  /** @override */
+  async _onUpdate(data, options, userId) {
+    await super._onUpdate(data, options, userId);
+    const context = options?.dw?.preUpdate ?? false;
+
+    if (!options.diff || !context || context.data === undefined || data.data === undefined) return; // Nothing to do.
+
+    // Exit early if not owner.
+    let displayText = this.isOwner;
+    if (this.data.permission.default > 1) displayText = true;
+    if (this.data.permission[game.userId] !== undefined && this.data.permission[game.userId] > 1) displayText = true;
+
+    if (!displayText) return;
+
+    // Prepare the scrolling text update.
+    if (data.data?.attributes?.hp?.value !== undefined) {
+      let hp = {
+        original: context.data.attributes.hp.value ?? null,
+        current: data.data.attributes.hp.value ?? null,
+        max: context.data.attributes.hp?.max ?? data.data.attributes.hp.max
+      }
+
+      if (!isNaN(hp.original) && !isNaN(hp.current)) {
+        hp.delta = hp.current - hp.original;
+
+        if (hp.delta !== 0) {
+          this.showScrollingText(hp.delta, hp.max, game.i18n.localize('DW.HP'), {anchor: CONST.TEXT_ANCHOR_POINTS.TOP});
+        }
+
+        if (hp.delta < 0 && options?.dw?.armor?.reduced) {
+          let armorContext = {
+            reduced: options.dw.armor.reduced,
+            piercing: options.dw.armor?.piercing ?? 0
+          };
+
+          let textToShow = game.i18n.format('DW.Scrolling.armorReduced', armorContext);
+          if (armorContext.piercing > 0) {
+            textToShow = textToShow + '\r\n' + game.i18n.format('DW.Scrolling.armorPiercing', armorContext);
+          }
+          this.showScrollingText(null, null, textToShow, {anchor: CONST.TEXT_ANCHOR_POINTS.CENTER});
+        }
+      }
     }
   }
 }

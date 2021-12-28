@@ -231,3 +231,6 @@ DW.Dialog.bondTitle: 'Enter your modifier'
 DW.Dialog.bondContent: 'Enter a bonus for the bond or modifier for this <strong>{name}</strong> move.'
 
 DW.Notifications.noClassWarning: 'You must choose a valid class before you can level up.'
+
+DW.Scrolling.armorReduced: '{reduced} Armor applied'
+DW.Scrolling.armorPiercing: '{piercing} Armor ignored'
