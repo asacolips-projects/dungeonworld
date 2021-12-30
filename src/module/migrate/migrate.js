@@ -61,7 +61,7 @@ export class MigrateDw {
         // If this is a valid move, update it.
         if (moveType) {
           await actor.updateEmbeddedDocuments("Item", {
-            _id: item._id,
+            _id: item.id,
             name: item.name,
             data: {
               moveType: moveType
@@ -103,8 +103,8 @@ export class MigrateDw {
     // Build a mapping of old > new items.
     for (let oldItem of itemsOld) {
       let newItem = itemsCurrent.find(i => i.name == oldItem.name);
-      if (newItem?._id) {
-        itemMap[oldItem._id] = newItem._id;
+      if (newItem?.id) {
+        itemMap[oldItem.id] = newItem.id;
       }
     }
     // Get the class compendium data.
@@ -117,7 +117,7 @@ export class MigrateDw {
         });
       }
       let updates = {
-        _id: classItem._id,
+        _id: classItem.id,
         "data.equipment": classItem.data.equipment
       };
       await charClass.update(updates);

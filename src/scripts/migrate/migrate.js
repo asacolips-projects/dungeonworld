@@ -3,11 +3,11 @@ async function importDwTags(content) {
   // Reference a Compendium pack by it's callection ID
   const pack = game.packs.find(p => p.collection === `dungeonworld.tags`);
 
-  // Create temporary Actor entities which impose structure on the imported data
+  // Create temporary Actor documents which impose structure on the imported data
   Item.createMany(content, { temporary: true }).then(items => {
     // Save each temporary Actor into the Compendium pack
     for (let i of items) {
-      pack.importEntity(i);
+      pack.importDocument(i);
       console.log(`Imported Item ${i.name} into Compendium pack ${pack.collection}`);
     }
   });

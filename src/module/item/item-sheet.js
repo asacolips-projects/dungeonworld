@@ -390,7 +390,7 @@ export class DwItemSheet extends ItemSheet {
       obj[e[0]] = e[1];
       return obj;
     }, {
-      _id: this.object._id,
+      _id: this.object.id,
       "data.equipment": formObj.data.equipment,
       "data.races": formObj.data.races,
       "data.alignments": formObj.data.alignments

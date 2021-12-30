@@ -131,7 +131,7 @@
                   {{#if equipmentGroup.objects }}
                     <ul class="tags">
                     {{#each equipmentGroup.objects as |item key|}}
-                      <li class="tag" data-item-id="{{item.data._id}}">{{item.data.name}}<span class="remove-tag delete-equipment" role="button" data-action="delete"></span></span></li>
+                      <li class="tag" data-item-id="{{item.id}}">{{item.data.name}}<span class="remove-tag delete-equipment" role="button" data-action="delete"></span></span></li>
                     {{/each}}
                     </ul>
                   {{else}}

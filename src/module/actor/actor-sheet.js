@@ -461,8 +461,8 @@ export class DwActorSheet extends ActorSheet {
 
     const actor = this.actor.data;
     const actorData = this.actor.data.data;
-    let char_class_name = actorData.details.class;
-    let orig_class_name = char_class_name;
+    let orig_class_name = actorData.details.class;
+    let char_class_name = orig_class_name.trim();
     let class_list = await DwClassList.getClasses();
     let class_list_items = await DwClassList.getClasses(false);
 
@@ -838,7 +838,7 @@ export class DwActorSheet extends ActorSheet {
     // Add selected moves.
     let new_moves = null;
     if (move_ids.length > 0) {
-      let moves = itemData.moves.filter(m => move_ids.includes(m.data._id));
+      let moves = itemData.moves.filter(m => move_ids.includes(m.id));
 
       // Prepare moves for saving.
       new_moves = moves.map(m => {
@@ -849,7 +849,7 @@ export class DwActorSheet extends ActorSheet {
     // Add selected equipment.
     let new_equipment = null;
     if (equipment_ids.length > 0) {
-      let equipment = itemData.equipment.filter(e => equipment_ids.includes(e.data._id));
+      let equipment = itemData.equipment.filter(e => equipment_ids.includes(e.id));
       new_equipment = equipment.map(e => {
         return duplicate(e);
       });
@@ -864,7 +864,7 @@ export class DwActorSheet extends ActorSheet {
         for (let [key, obj] of Object.entries(itemData.spells)) {
           // Loop over spells by level.
           for (let [spellLevel, spellsByLevel] of Object.entries(obj.spells)) {
-            spells = spells.concat(spellsByLevel.filter(s => spell_ids.includes(s.data._id)));
+            spells = spells.concat(spellsByLevel.filter(s => spell_ids.includes(s.id)));
           }
         }
         // Append to the update array.

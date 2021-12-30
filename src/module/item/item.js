@@ -38,7 +38,7 @@ export class ItemDw extends Item {
     if (itemData.data.equipment) {
       for (let [group, group_items] of Object.entries(itemData.data.equipment)) {
         if (group_items) {
-          equipment[group] = items.filter(i => group_items['items'].includes(i.data._id));
+          equipment[group] = items.filter(i => group_items['items'].includes(i.id));
         }
       }
     }
