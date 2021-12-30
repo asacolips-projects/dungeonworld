@@ -54,7 +54,7 @@ export class DwClassList {
     for (let charClass of classes) {
       let charClassName = charClass.data.name;
       if (charClassNames.includes(charClassName) !== false) {
-        classes = classes.filter(item => item._id != charClass._id);
+        classes = classes.filter(item => item.id != charClass.id);
       }
       else {
         charClassNames.push(charClassName);

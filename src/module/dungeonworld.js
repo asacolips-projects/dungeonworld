@@ -231,7 +231,7 @@ Hooks.on('createChatMessage', async (message, options, id) => {
   if (message?.data?.roll) {
     // Limit this to a single user.
     let firstGM = game.users.find(u => u.active && u.role == CONST.USER_ROLES.GAMEMASTER);
-    if (!game.user.isGM || game.user.data._id !== firstGM.data._id) return;
+    if (!game.user.isGM || game.user.id !== firstGM.id) return;
     // Exit early if this is a rollable table.
     if (message?.data?.flags?.core?.RollTable) return;
     // Retrieve the roll.
@@ -261,7 +261,7 @@ Hooks.on('renderChatMessage', (app, html, data) => {
   let chatData = app.data;
   const whisper = chatData.whisper || [];
   const isBlind = whisper.length && chatData.blind;
-  const isVisible = (whisper.length) ? game.user.isGM || whisper.includes(game.user._id) || (!isBlind) : true;
+  const isVisible = (whisper.length) ? game.user.isGM || whisper.includes(game.user.id) || (!isBlind) : true;
   if (!isVisible) {
     html.find('.dice-formula').text('???');
     html.find('.dice-total').text('?');

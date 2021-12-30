@@ -40,7 +40,7 @@ export class CombatSidebarDw {
         }
 
         // Retrieve the combatant for this actor, or exit if not valid.
-        const combatant = game.combat.data.combatants.find(c => c._id == $actorRow.data('combatant-id'));
+        const combatant = game.combat.combatants.find(c => c.id == $actorRow.data('combatant-id'));
         if (!combatant) {
           return;
         }
@@ -86,7 +86,7 @@ export class CombatSidebarDw {
             // Store the combatant type for reference. We have to do this
             // because dragover doesn't have access to the drag data, so we
             // store it as a new type entry that can be split later.
-            let newCombatant = game.combat.data.combatants.find(c => c._id == dragData.combatantId);
+            let newCombatant = game.combat.combatants.find(c => c.id == dragData.combatantId);
             event.originalEvent.dataTransfer.setData(`newtype--${dragData.actorType}`, '');
           })
           // Add a class on hover, if the actor types match.
@@ -148,7 +148,7 @@ export class CombatSidebarDw {
             // needs to be refactored.
             // ---------------------------------------------------------------
             // const view = game.scenes.viewed;
-            // const combats = view ? game.combats.filter(c => c.data.scene === view._id) : [];
+            // const combats = view ? game.combats.filter(c => c.data.scene === view.id) : [];
             // let combat = combats.length ? combats.find(c => c.data.active) || combats[0] : null;
 
             // Retreive the drop target, remove any hover classes.
@@ -166,13 +166,13 @@ export class CombatSidebarDw {
             }
 
             // Retrieve the combatant being dropped.
-            let newCombatant = combat.data.combatants.find(c => c._id == data.combatantId);
+            let newCombatant = combat.combatants.find(c => c.id == data.combatantId);
 
             // Retrieve the combatants grouped by type.
             let combatants = this.getCombatantsData(false);
             // Retrieve the combatant being dropped onto.
             let originalCombatant = combatants[newCombatant.actor.data.type].find(c => {
-              return c._id == $dropTarget.data('combatant-id');
+              return c.id == $dropTarget.data('combatant-id');
             });
 
             // Set the initiative equal to the drop target's initiative.
@@ -183,7 +183,7 @@ export class CombatSidebarDw {
             if (oldInit !== null) {
               // Set the initiative of the actor being draged to the drop
               // target's +1. This will later be adjusted increments of 10.
-              let updatedCombatant = combatants[newCombatant.actor.data.type].find(c => c._id == newCombatant._id);
+              let updatedCombatant = combatants[newCombatant.actor.data.type].find(c => c.id == newCombatant.id);
               updatedCombatant.data.initiative = Number(oldInit) + 1;
 
               // Loop through all combatants in initiative order, and assign
@@ -192,7 +192,7 @@ export class CombatSidebarDw {
               let updatedInit = 0;
               let updates = combatants[newCombatant.actor.data.type].sort((a, b) => a.initiative - b.initiative).map(c => {
                 let result = {
-                  _id: c._id,
+                  _id: c.id,
                   initiative: updatedInit
                 };
                 updatedInit = updatedInit + 10;
@@ -307,11 +307,11 @@ export class CombatSidebarDw {
     let currentInitiative = 0;
     // Reduce the combatants array into a new object with keys based on
     // the actor types.
-    let combatants = game.combat.data.combatants.reduce((groups, combatant) => {
+    let combatants = game.combat.combatants.reduce((groups, combatant) => {
       // If this is for a combatant that has had its token/actor deleted,
       // remove it from the combat.
       if (!combatant.actor) {
-        game.combat.deleteEmbeddedDocuments('Combatant', [combatant._id]);
+        game.combat.deleteEmbeddedDocuments('Combatant', [combatant.id]);
       }
       // Append valid actors to the appropriate group.
       else {
