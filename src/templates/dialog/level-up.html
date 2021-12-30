@@ -184,7 +184,7 @@
             {{#each spellsByLevel as |spell key|}}
               <li>
                 <div class="selection-control">
-                  <input type="checkbox" {{#ifEquals spellLevel 0}}checked disabled="disabled"{{/ifEquals}} data-item-id="{{spell.data._id}}" data-type="spell">
+                  <input type="checkbox" {{#ifEquals spellLevel 0}}checked disabled="disabled"{{/ifEquals}} data-item-id="{{spell.id}}" data-type="spell">
                 </div>
                 <div class="selection-content">
                   <h3>{{spell.data.name}}</h3>

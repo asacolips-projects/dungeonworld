@@ -2,10 +2,10 @@
   <div class="selection-control">
     {{!-- Moves in a group should be in a radio. --}}
     {{#if move.data.data.moveGroup}}
-      <input type="radio" name="{{move.data.data.moveGroup}}" data-item-id="{{move.data._id}}" data-type="move">
+      <input type="radio" name="{{move.data.data.moveGroup}}" data-item-id="{{move.id}}" data-type="move">
     {{!-- Other moves should be checkboxes that the user is forced to take. --}}
     {{else}}
-      <input type="checkbox" data-item-id="{{move.data._id}}" data-type="move" {{#if preselect }}checked disabled="disabled"{{/if}}>
+      <input type="checkbox" data-item-id="{{move.id}}" data-type="move" {{#if preselect }}checked disabled="disabled"{{/if}}>
     {{/if}}
   </div>
   {{!-- Finally, show the description. --}}

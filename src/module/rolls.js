@@ -169,12 +169,12 @@ export class DwRolls {
     let rollData = this.actor.getRollData();
     // GM rolls.
     let chatData = {
-      user: game.user._id,
+      user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor })
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
-    if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
+    if (rollMode === "selfroll") chatData["whisper"] = [game.user.id];
     if (rollMode === "blindroll") chatData["blind"] = true;
     // Add piercing and armor tags.
     let tags = [];
@@ -314,8 +314,9 @@ export class DwRolls {
           }
 
           // Handle XP.
-          const token = this.actor.token;
-          templateData.tokenId = token ? `${token.parent.data._id}.${token.id}` : null;
+          const token = canvas.tokens.controlled.find(t => t.data.actorId == this.actor.id);
+          // @todo determine if this should be the canvas ID or the actor ID.
+          templateData.tokenId = token ? `${canvas.scene.id}.${token.id}` : null;
           templateData.xp = resultType == 'failure' ? true : false;
 
           // Update the templateData.
@@ -353,18 +354,18 @@ export class DwRolls {
 
     // Update the combat flags.
     if (game.combat && game.combat.combatants) {
-      let combatant = game.combat.combatants.find(c => c.actor.data._id == this.actor._id);
+      let combatant = game.combat.combatants.find(c => c.actor.id == this.actor.id);
       if (combatant) {
         let moveCount = combatant.data.flags.dungeonworld ? combatant.data.flags.dungeonworld.moveCount : 0;
         moveCount = moveCount ? Number(moveCount) + 1 : 1;
         // Emit a socket for the GM client.
         if (!game.user.isGM) {
           game.socket.emit('system.dungeonworld', {
-            combatantUpdate: { _id: combatant._id, 'flags.dungeonworld.moveCount': moveCount }
+            combatantUpdate: { _id: combatant.id, 'flags.dungeonworld.moveCount': moveCount }
           });
         }
         else {
-          await game.combat.updateEmbeddedDocuments('Combatant', [{ _id: combatant._id, 'flags.dungeonworld.moveCount': moveCount }]);
+          await game.combat.updateEmbeddedDocuments('Combatant', [{ _id: combatant.id, 'flags.dungeonworld.moveCount': moveCount }]);
           ui.combat.render();
         }
       }
