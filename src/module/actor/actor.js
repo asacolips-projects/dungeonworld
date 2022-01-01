@@ -26,13 +26,21 @@ export class ActorDw extends Actor {
     const data = actorData.data;
 
     // Ability Scores
+    const noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
+
+    console.log("_prepareCharacterData data.abilities", data.abilities)
     for (let [a, abl] of Object.entries(data.abilities)) {
       // TODO: This is a possible formula, but would require limits on the
       // upper and lower ends.
       // abl.mod = Math.floor(abl.value * 0.4 - (abl.value < 11 ? 3.4 : 4.2));
 
       // Ability modifiers.
-      abl.mod = DwUtility.getAbilityMod(abl.value);
+      if (noAbilityScores) {
+        abl.mod = abl.value
+      } else {
+        abl.mod = DwUtility.getAbilityMod(abl.value);  
+      }
+      
       // Add labels.
       abl.label = CONFIG.DW.abilities[a];
       abl.debilityLabel = CONFIG.DW.debilities[a];

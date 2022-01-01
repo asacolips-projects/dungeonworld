@@ -159,7 +159,7 @@ DW.MarkXp: "Mark XP"
 DW.XpMarked: "XP marked"
 
 DW.the-barbarian.Bond1: _______________ is puny and foolish, but amusing to me.
-DW.the-barbarian.Bond2: _______________ 's ways are strange and confusing.
+DW.the-barbarian.Bond2: "_______________ 's ways are strange and confusing."
 DW.the-barbarian.Bond3: _______________ is always getting into trouble - I must protect them from themselves.
 DW.the-barbarian.Bond4: _______________ shares my hunger for glory; the earth will tremble at our passing!
 DW.the-bard.Bond1: This is not my first adventure with _______________.
@@ -224,6 +224,12 @@ DW.Settings.bondSingle.name: 'Override "Bond" label (single).'
 DW.Settings.bondSingle.hint: 'Override "Bond", such as by using "Flag" instead.'
 DW.Settings.bondPlural.name: 'Override "Bonds" label (plural).'
 DW.Settings.bondPlural.hint: 'Override "Bonds", such as by using "Flags" instead.'
+
+DW.Settings.noAbilityScores.name: 'No Ability Scores'
+DW.Settings.noAbilityScores.hint: 'Only use ability modifiers, for DW hacks like Homebrew World'
+
+DW.Settings.noConstitutionToHP.name: "Don't Add Contitution Score to HP"
+DW.Settings.noConstitutionToHP.hint: 'Used for DW hacks like Homebrew World'
 
 DW.Dialog.askTitle: 'Choose a stat'
 DW.Dialog.askContent: 'Choose a stat for this <strong>{name}</strong> move.'

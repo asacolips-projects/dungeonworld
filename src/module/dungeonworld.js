@@ -177,6 +177,24 @@ Hooks.once("init", async function() {
     default: ''
   });
 
+  game.settings.register("dungeonworld", "noAbilityScores", {
+    name: game.i18n.localize("DW.Settings.noAbilityScores.name"),
+    hint: game.i18n.localize("DW.Settings.noAbilityScores.hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
+  game.settings.register("dungeonworld", "noConstitutionToHP", {
+    name: game.i18n.localize("DW.Settings.noConstitutionToHP.name"),
+    hint: game.i18n.localize("DW.Settings.noConstitutionToHP.hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
   DwUtility.replaceRollData();
 
   // Preload template partials.
@@ -247,10 +265,10 @@ Hooks.on('createChatMessage', async (message, options, id) => {
           'flags.dungeonworld.damageButtons': true,
         })
         // Update the chat log scroll position.
-        .then(m => {
-          let chatLog = document.querySelector('#chat-log');
-          chatLog.scrollTop = chatLog.scrollHeight;
-        });
+          .then(m => {
+            let chatLog = document.querySelector('#chat-log');
+            chatLog.scrollTop = chatLog.scrollHeight;
+          });
       })
     });
   }
@@ -408,16 +426,36 @@ Hooks.on('renderDialog', (dialog, html, options) => {
       // Loop over the list again, disabling invalid options.
       html.find('.cell--ability-scores select').each((index, item) => {
         let $self = $(item);
+        // Loop over the options in the select to get the possible value counts
+        const valueCounts = {}
+        $self.find('option').each((opt_index, opt_item) => {
+          const $opt = $(opt_item);
+          const val = $opt.attr('value');
+          if (valueCounts[val]) {
+            valueCounts[val] ++
+          } else {
+            valueCounts[val] = 1
+          }
+        })
         // Loop over the options in the select.
         $self.find('option').each((opt_index, opt_item) => {
           let $opt = $(opt_item);
           let val = $opt.attr('value');
+          const noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
           if (val) {
-            if (scores.includes(val) && $self.val() != val) {
-              $opt.attr('disabled', true);
-            }
-            else {
-              $opt.attr('disabled', false);
+            if (noAbilityScores) {
+              const alreadySelected = scores.filter(v => v == val) || [];
+              if (alreadySelected.length >= valueCounts[val]) {
+                $opt.attr('disabled', true);
+              } else {
+                $opt.attr('disabled', false);
+              }
+            } else {
+              if (scores.includes(val) && $self.val() != val) {
+                $opt.attr('disabled', true);
+              } else {
+                $opt.attr('disabled', false);
+              }
             }
           }
         });

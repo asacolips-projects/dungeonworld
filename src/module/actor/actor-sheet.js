@@ -151,6 +151,9 @@ export class DwActorSheet extends ActorSheet {
     // Add item icon setting.
     data.data.itemIcons = game.settings.get('dungeonworld', 'itemIcons');
 
+    // Check if ability scores are disabled
+    data.data.noAblilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
+
     // Return data to the sheet
     let returnData = {
       actor: this.object,
@@ -548,7 +551,11 @@ export class DwActorSheet extends ActorSheet {
     }
 
     // Get ability scores.
+    const noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
     let ability_scores = [16, 15, 13, 12, 9, 8];
+    if (noAbilityScores) {
+      ability_scores = [2, 1, 1, 0, 0, -1];
+    }
     let ability_labels = Object.entries(CONFIG.DW.abilities).map(a => {
       return {
         short: a[0],
@@ -733,6 +740,7 @@ export class DwActorSheet extends ActorSheet {
       alignments: alignments.length > 0 ? alignments : null,
       equipment: equipment ? equipment : null,
       ability_scores: actorData.attributes.xp.value == 0 ? ability_scores : null,
+      ability_mods_only: noAbilityScores,
       ability_labels: ability_labels ? ability_labels : null,
       starting_moves: starting_moves.length > 0 ? starting_moves : null,
       starting_move_groups: starting_move_groups,
@@ -825,6 +833,7 @@ export class DwActorSheet extends ActorSheet {
       else if (input.dataset.ability) {
         let val = $(input).val();
         let abl = input.dataset.ability;
+        console.log("_onLevelUpSave input.dataset.ability", val)
         if (val) {
           abilities[`abilities.${abl}.value`] = val;
         }
@@ -892,6 +901,8 @@ export class DwActorSheet extends ActorSheet {
         data[key] = update;
       }
     }
+    console.log("_onLevelUpSave abilities", abilities)
+    
 
     // Adjust level.
     if (Number(actor.data.data.attributes.xp.value) > 0) {
@@ -918,7 +929,8 @@ export class DwActorSheet extends ActorSheet {
     }
 
     // Adjust hp.
-    if (itemData.class_item.data.data.hp) {
+    const noConstitutionToHP = game.settings.get('dungeonworld', 'noConstitutionToHP');
+    if (!noConstitutionToHP && itemData.class_item.data.data.hp) {
       let constitution = actor.data.data.abilities.con.value;
       if (data['abilities.con.value']) {
         constitution = data['abilities.con.value'];
