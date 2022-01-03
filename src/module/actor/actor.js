@@ -28,7 +28,6 @@ export class ActorDw extends Actor {
     // Ability Scores
     const noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
 
-    console.log("_prepareCharacterData data.abilities", data.abilities)
     for (let [a, abl] of Object.entries(data.abilities)) {
       // TODO: This is a possible formula, but would require limits on the
       // upper and lower ends.

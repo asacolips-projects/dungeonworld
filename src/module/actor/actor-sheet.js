@@ -831,10 +831,9 @@ export class DwActorSheet extends ActorSheet {
         alignment = itemData.alignments[input.dataset.alignment];
       }
       else if (input.dataset.ability) {
-        let val = $(input).val();
+        let val = $(input).find('option:selected').val();
         let abl = input.dataset.ability;
-        console.log("_onLevelUpSave input.dataset.ability", val)
-        if (val) {
+        if (val != null) {
           abilities[`abilities.${abl}.value`] = val;
         }
       }
@@ -901,7 +900,6 @@ export class DwActorSheet extends ActorSheet {
         data[key] = update;
       }
     }
-    console.log("_onLevelUpSave abilities", abilities)
     
 
     // Adjust level.
@@ -929,11 +927,14 @@ export class DwActorSheet extends ActorSheet {
     }
 
     // Adjust hp.
-    const noConstitutionToHP = game.settings.get('dungeonworld', 'noConstitutionToHP');
-    if (!noConstitutionToHP && itemData.class_item.data.data.hp) {
-      let constitution = actor.data.data.abilities.con.value;
-      if (data['abilities.con.value']) {
-        constitution = data['abilities.con.value'];
+    if (itemData.class_item.data.data.hp) {
+      const noConstitutionToHP = game.settings.get('dungeonworld', 'noConstitutionToHP');
+      let constitution = 0;
+      if (!noConstitutionToHP) {
+        constitution = actor.data.data.abilities.con.value;
+        if (data['abilities.con.value']) {
+          constitution = data['abilities.con.value'];  
+        }
       }
       data['attributes.hp.max'] = Number(itemData.class_item.data.data.hp) + Number(constitution);
       data['attributes.hp.value'] = data['attributes.hp.max'];

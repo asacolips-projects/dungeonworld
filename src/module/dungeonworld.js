@@ -419,8 +419,14 @@ Hooks.on('renderDialog', (dialog, html, options) => {
       let scores = [];
       html.find('.cell--ability-scores select').each((index, item) => {
         let $self = $(item);
-        if ($self.val()) {
-          scores.push($self.val());
+        const val = parseInt($self.val())
+        if (!isNaN(val)) {
+          scores.push(val);
+        } else {
+          const val = parseInt($self.find('option:selected').val())
+          if (!isNaN(val)) {
+            scores.push(val);
+          }
         }
       });
       // Loop over the list again, disabling invalid options.
@@ -430,7 +436,7 @@ Hooks.on('renderDialog', (dialog, html, options) => {
         const valueCounts = {}
         $self.find('option').each((opt_index, opt_item) => {
           const $opt = $(opt_item);
-          const val = $opt.attr('value');
+          const val = parseInt($opt.attr('value'));
           if (valueCounts[val]) {
             valueCounts[val] ++
           } else {
@@ -440,9 +446,9 @@ Hooks.on('renderDialog', (dialog, html, options) => {
         // Loop over the options in the select.
         $self.find('option').each((opt_index, opt_item) => {
           let $opt = $(opt_item);
-          let val = $opt.attr('value');
+          let val = parseInt($opt.attr('value'));
           const noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
-          if (val) {
+          if (!isNaN(val)) {
             if (noAbilityScores) {
               const alreadySelected = scores.filter(v => v == val) || [];
               if (alreadySelected.length >= valueCounts[val]) {
