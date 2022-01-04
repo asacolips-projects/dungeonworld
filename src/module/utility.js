@@ -46,6 +46,10 @@ export class DwUtility {
   }
 
   static getAbilityMod(abilityScore) {
+    const noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
+    if (noAbilityScores) {
+      return abilityScore
+    }
     let abilityMod = 0;
 
     if (abilityScore >= 18) {
