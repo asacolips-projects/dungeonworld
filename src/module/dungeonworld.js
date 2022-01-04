@@ -177,6 +177,15 @@ Hooks.once("init", async function() {
     default: ''
   });
 
+  game.settings.register("dungeonworld", "noCompendiumAutoData", {
+    name: game.i18n.localize("DW.Settings.noCompendiumAutoData.name"),
+    hint: game.i18n.localize("DW.Settings.noCompendiumAutoData.hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
   game.settings.register("dungeonworld", "noAbilityScores", {
     name: game.i18n.localize("DW.Settings.noAbilityScores.name"),
     hint: game.i18n.localize("DW.Settings.noAbilityScores.hint"),
@@ -348,7 +357,11 @@ Hooks.on('createActor', async (actor, options, id) => {
     let pack = game.packs.get(`dungeonworld.basic-moves`);
     let compendium = [];
     let actorMoves = [];
-    compendium = pack ? await pack.getDocuments() : [];
+    const noCompendiumAutoData = game.settings.get('dungeonworld', 'noCompendiumAutoData');
+    if (!noCompendiumAutoData) {
+      compendium = pack ? await pack.getDocuments() : [];
+    }
+    
     actorMoves = actor.items.filter(i => i.type == 'move');
 
     // Get the compendium moves next.

@@ -504,7 +504,11 @@ export class DwActorSheet extends ActorSheet {
     let pack_id = `dungeonworld.${char_class}-moves`;
     let pack = game.packs.get(pack_id);
 
-    let compendium = pack ? await pack.getDocuments() : [];
+    const noCompendiumAutoData = game.settings.get('dungeonworld', 'noCompendiumAutoData');
+    let compendium = []
+    if (!noCompendiumAutoData) {
+      compendium = pack ? await pack.getDocuments() : [];
+    }
 
     let class_item = class_list_items.find(i => i.data.name == orig_class_name);
     if (!class_item?.data?.data) {
