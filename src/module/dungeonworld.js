@@ -186,6 +186,15 @@ Hooks.once("init", async function() {
     default: false
   });
 
+  game.settings.register("dungeonworld", "noAbilityIncrease", {
+    name: game.i18n.localize("DW.Settings.noAbilityIncrease.name"),
+    hint: game.i18n.localize("DW.Settings.noAbilityIncrease.hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
   game.settings.register("dungeonworld", "noConstitutionToHP", {
     name: game.i18n.localize("DW.Settings.noConstitutionToHP.name"),
     hint: game.i18n.localize("DW.Settings.noConstitutionToHP.hint"),

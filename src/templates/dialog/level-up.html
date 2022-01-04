@@ -73,6 +73,10 @@
 
     </div>
 
+    
+    {{#if no_ability_increase}}
+      {{!-- Hack to make a not condition. --}}
+    {{else}}
     {{#if ability_scores}}
       {{!-- Hack to make a not condition. --}}
     {{else}}
@@ -93,6 +97,7 @@
           </ul>
         </section>
       </div>
+    {{/if}}
     {{/if}}
 
     {{#if equipment}}

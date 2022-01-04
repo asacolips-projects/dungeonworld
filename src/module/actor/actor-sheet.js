@@ -755,6 +755,7 @@ export class DwActorSheet extends ActorSheet {
       advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null,
       cast_spells: cast_spells.length > 0 && spells.length > 0 ? true : false,
       spells: spells.length > 0 ? spells : null,
+      no_ability_increase: game.settings.get('dungeonworld', 'noAbilityIncrease'),
     };
     const html = await renderTemplate(template, templateData);
 
