@@ -77,27 +77,27 @@
     {{#if no_ability_increase}}
       {{!-- Hack to make a not condition. --}}
     {{else}}
-    {{#if ability_scores}}
-      {{!-- Hack to make a not condition. --}}
-    {{else}}
-      <div class="flexrow center">
-        <section class="cell cell--ability-scores">
-          <h2 class="cell__title">{{localize "DW.ChooseAbilityScoresIncrease"}}</h2>
-          <ul class="selection-list">
-            {{#each ability_labels as |ability ability_key|}}
-              <li>
-                <div class="selection-control">
-                  <input type="radio" name="ability_score.increase" value="{{ability.short}}" data-type="ability-increase" {{#if ability.disabled}}disabled="disabled" readonly{{/if}}>
-                </div>
-                <div class="selection-content">
-                  <h3 class="ability-score">{{ability.long}}</h3>
-                </div>
-              </li>
-            {{/each}}
-          </ul>
-        </section>
-      </div>
-    {{/if}}
+      {{#if ability_scores}}
+        {{!-- Hack to make a not condition. --}}
+      {{else}}
+        <div class="flexrow center">
+          <section class="cell cell--ability-scores">
+            <h2 class="cell__title">{{localize "DW.ChooseAbilityScoresIncrease"}}</h2>
+            <ul class="selection-list">
+              {{#each ability_labels as |ability ability_key|}}
+                <li>
+                  <div class="selection-control">
+                    <input type="radio" name="ability_score.increase" value="{{ability.short}}" data-type="ability-increase" {{#if ability.disabled}}disabled="disabled" readonly{{/if}}>
+                  </div>
+                  <div class="selection-content">
+                    <h3 class="ability-score">{{ability.long}}</h3>
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          </section>
+        </div>
+      {{/if}}
     {{/if}}
 
     {{#if equipment}}
