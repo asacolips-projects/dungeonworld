@@ -225,7 +225,7 @@ DW.Settings.bondSingle.hint: 'Override "Bond", such as by using "Flag" instead.'
 DW.Settings.bondPlural.name: 'Override "Bonds" label (plural).'
 DW.Settings.bondPlural.hint: 'Override "Bonds", such as by using "Flags" instead.'
 
-DW.Settings.noCompendiumAutoData.name: 'No Compendium Autfill Data'
+DW.Settings.noCompendiumAutoData.name: 'No Compendium Autofill Data'
 DW.Settings.noCompendiumAutoData.hint: 'Only auto-select moves and classes from the items in this game world, ignoring the compendiums, for DW hacks like Homebrew World'
 
 DW.Settings.compendiumPrefix.name: 'Compendium Prefix'
