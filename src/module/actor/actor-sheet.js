@@ -228,25 +228,25 @@ export class DwActorSheet extends ActorSheet {
       // If this is a move, sort into various arrays.
       if (i.type === 'move') {
         switch (i.data.moveType) {
-          case 'basic':
-            basicMoves.push(i);
-            break;
+        case 'basic':
+          basicMoves.push(i);
+          break;
 
-          case 'starting':
-            startingMoves.push(i);
-            break;
+        case 'starting':
+          startingMoves.push(i);
+          break;
 
-          case 'advanced':
-            advancedMoves.push(i);
-            break;
+        case 'advanced':
+          advancedMoves.push(i);
+          break;
 
-          case 'special':
-            specialMoves.push(i);
-            break;
+        case 'special':
+          specialMoves.push(i);
+          break;
 
-          default:
-            moves.push(i);
-            break;
+        default:
+          moves.push(i);
+          break;
         }
       }
       else if (i.type === 'spell') {
@@ -318,17 +318,17 @@ export class DwActorSheet extends ActorSheet {
       // If this is a move, sort into various arrays.
       if (i.type === 'npcMove') {
         switch (i.data.moveType) {
-          case 'basic':
-            basicMoves.push(i);
-            break;
+        case 'basic':
+          basicMoves.push(i);
+          break;
 
-          case 'special':
-            specialMoves.push(i);
-            break;
+        case 'special':
+          specialMoves.push(i);
+          break;
 
-          default:
-            moves.push(i);
-            break;
+        default:
+          moves.push(i);
+          break;
         }
       }
     }
@@ -670,18 +670,18 @@ export class DwActorSheet extends ActorSheet {
           // Return true for custom spell items that have a class.
           return i.type == 'spell'
             && i.data.data.class
-            // Check if this spell has either `classname` or `the classname` as its class.
+          // Check if this spell has either `classname` or `the classname` as its class.
             && [caster_class, `the ${caster_class}`].includes(DwUtility.cleanClass(i.data.data.class));
         });
         let spells_compendium = []
         if (!noCompendiumAutoData) {
           let pack_id = `dungeonworld.${char_class}-spells`;
-      
+          
           const compendiumPrefix = game.settings.get('dungeonworld', 'compendiumPrefix');
           if (compendiumPrefix != '') {
             pack_id = `${compendiumPrefix.toLowerCase()}-${char_class}-spells`;
           }
-      
+          
           const spells_pack = game.packs.find(p => {return p.metadata?.name?.indexOf(pack_id) >= 0});
           spells_compendium = spells_pack ? await pack.getDocuments() : [];
         }
@@ -818,9 +818,14 @@ export class DwActorSheet extends ActorSheet {
           callback: dlg => this._onLevelUpSave(dlg, this.actor, itemData, this)
           // callback: dlg => _onImportPower(dlg, this.actor)
         }
+      },
+      render: () => {
+        $('.dw-level-up').find('.item-label').click(this._showItemDetails.bind(this));
       }
     }, dlg_options);
     d.render(true);
+    
+
   }
 
   /**
@@ -946,7 +951,7 @@ export class DwActorSheet extends ActorSheet {
       for (let i = 1; i < 7; i++) {
         if (game.i18n.localize("DW." + theclass + ".Bond" + i ) != "DW." + theclass + ".Bond" + i ) {
           newbonds.push({name: game.i18n.localize("DW." + theclass + ".Bond" + i), type: 'bond', data: ''});
-         }
+        }
       }
 
       if (newbonds.length > 0) {
@@ -1030,7 +1035,7 @@ export class DwActorSheet extends ActorSheet {
    * Listen for click events on quantity/uses.
    * @param {MouseEvent} event
    */
-   async _onCounterClick(event, changeType = 'increase') {
+  async _onCounterClick(event, changeType = 'increase') {
     event.preventDefault();
     const a = event.currentTarget;
     const dataset = a.dataset;
@@ -1044,17 +1049,17 @@ export class DwActorSheet extends ActorSheet {
     let update = {};
 
     switch (dataset.action) {
-      case 'uses':
-        let uses = item.data.data?.uses ?? 0;
-        update['data.uses'] = Number(uses) + offset;
-        break;
+    case 'uses':
+      let uses = item.data.data?.uses ?? 0;
+      update['data.uses'] = Number(uses) + offset;
+      break;
 
-      case 'quantity':
-        let quantity = item.data.data?.quantity ?? 0;
-        update['data.quantity'] = Number(quantity) + offset;
-        break;
+    case 'quantity':
+      let quantity = item.data.data?.quantity ?? 0;
+      update['data.quantity'] = Number(quantity) + offset;
+      break;
 
-      default:
+    default:
         break;
     }
 
