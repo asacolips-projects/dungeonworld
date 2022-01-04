@@ -111,7 +111,11 @@ export class DwActorSheet extends ActorSheet {
       if (!data.data.isToken) {
         // Add levelup choice.
         let level = data.data.attributes.level.value ?? 1;
+        const flatXPLevelUp = game.settings.get('dungeonworld', 'flatXPLevelUp');
         let xpRequired = data.data.attributes.xp.max ?? Number(level) + 7;
+        if (flatXPLevelUp > 0) {
+          xpRequired = flatXPLevelUp
+        }
         data.xpRequired = xpRequired;
         let levelup = Number(data.data.attributes.xp.value) >= xpRequired && Number(level) < 10;
 
@@ -129,6 +133,9 @@ export class DwActorSheet extends ActorSheet {
         // Calculate xp bar length.
         let currentXp = Number(data.data.attributes.xp.value);
         let nextLevel = Number(data.data.attributes.xp.max);
+        if (flatXPLevelUp > 0) {
+          nextLevel = flatXPLevelUp
+        }
         xpSvg = DwUtility.getProgressCircle({ current: currentXp, max: nextLevel, radius: 16 });
       }
       else {

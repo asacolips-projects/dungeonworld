@@ -195,6 +195,15 @@ Hooks.once("init", async function() {
     default: false
   });
 
+  game.settings.register("dungeonworld", "flatXPLevelUp", {
+    name: game.i18n.localize("DW.Settings.flatXPLevelUp.name"),
+    hint: game.i18n.localize("DW.Settings.flatXPLevelUp.hint"),
+    scope: 'world',
+    config: true,
+    type: Number,
+    default: 0
+  });
+
   DwUtility.replaceRollData();
 
   // Preload template partials.

@@ -231,6 +231,9 @@ DW.Settings.noAbilityScores.hint: 'Only use ability modifiers, for DW hacks like
 DW.Settings.noConstitutionToHP.name: "Don't Add Contitution Score to HP"
 DW.Settings.noConstitutionToHP.hint: 'Used for DW hacks like Homebrew World'
 
+DW.Settings.flatXPLevelUp.name: "Flat XP Level Up"
+DW.Settings.flatXPLevelUp.hint: 'Will allow leveling up at a set XP level instead of based on current level, set to 0 to disable. Used for DW hacks like Homebrew World.'
+
 DW.Dialog.askTitle: 'Choose a stat'
 DW.Dialog.askContent: 'Choose a stat for this <strong>{name}</strong> move.'
 DW.Dialog.bondTitle: 'Enter your modifier'
