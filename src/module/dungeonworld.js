@@ -186,6 +186,15 @@ Hooks.once("init", async function() {
     default: false
   });
 
+  game.settings.register("dungeonworld", "compendiumPrefix", {
+    name: game.i18n.localize("DW.Settings.compendiumPrefix.name"),
+    hint: game.i18n.localize("DW.Settings.compendiumPrefix.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: ''
+  });
+
   game.settings.register("dungeonworld", "noAbilityScores", {
     name: game.i18n.localize("DW.Settings.noAbilityScores.name"),
     hint: game.i18n.localize("DW.Settings.noAbilityScores.hint"),
@@ -354,11 +363,20 @@ Hooks.on('createActor', async (actor, options, id) => {
 
     // Get the item moves as the priority.
     let moves = game.items.filter(i => i.type == 'move' && (i.data.data.moveType == 'basic' || i.data.data.moveType == 'special'));
-    let pack = game.packs.get(`dungeonworld.basic-moves`);
     let compendium = [];
     let actorMoves = [];
+    
     const noCompendiumAutoData = game.settings.get('dungeonworld', 'noCompendiumAutoData');
     if (!noCompendiumAutoData) {
+
+      let pack_id = `dungeonworld.basic-moves`;
+      
+      const compendiumPrefix = game.settings.get('dungeonworld', 'compendiumPrefix');
+      if (compendiumPrefix != '') {
+        pack_id = `${compendiumPrefix.toLowerCase()}-basic-moves`;
+      }
+      
+      const pack = game.packs.find(p => {return p.metadata?.name?.indexOf(pack_id) >= 0});
       compendium = pack ? await pack.getDocuments() : [];
     }
     

@@ -44,9 +44,16 @@ export class DwClassList {
     
     const noCompendiumAutoData = game.settings.get('dungeonworld', 'noCompendiumAutoData');
     if (!noCompendiumAutoData) {
+      const compendiumPrefix = game.settings.get('dungeonworld', 'compendiumPrefix');
       // Next, retrieve compendium classes and merge them in.
       for (let c of game.packs) {
-        if (c.metadata.type && c.metadata.type == 'Item' && c.metadata.name == 'classes') {
+
+        let isClassCompendium = c.metadata.name == 'classes'
+        if (compendiumPrefix != '') {
+          isClassCompendium = c.metadata.name.indexOf(`${compendiumPrefix.toLowerCase()}-classes`) >= 0
+        }
+        
+        if (c.metadata.type && c.metadata.type == 'Item' && isClassCompendium) {
           let items = c ? await c.getDocuments() : [];
           classes = classes.concat(items);
         }
