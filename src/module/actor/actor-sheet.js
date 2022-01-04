@@ -971,11 +971,16 @@ export class DwActorSheet extends ActorSheet {
 
     // Adjust load.
     if (itemData.class_item.data.data.load) {
-      let strength = actor.data.data.abilities.str.value;
-      if (data['abilities.str.value']) {
-        strength = data['abilities.str.value'];
+      const noSTRToMaxLoad = game.settings.get('dungeonworld', 'noSTRToMaxLoad');
+      if (noSTRToMaxLoad) {
+        data['attributes.weight.max'] = Number(itemData.class_item.data.data.load)
+      } else {
+        let strength = actor.data.data.abilities.str.value;
+        if (data['abilities.str.value']) {
+          strength = data['abilities.str.value'];
+        }
+        data['attributes.weight.max'] = Number(itemData.class_item.data.data.load) + Number(DwUtility.getAbilityMod(strength));
       }
-      data['attributes.weight.max'] = Number(itemData.class_item.data.data.load) + Number(DwUtility.getAbilityMod(strength));
     }
 
     // Adjust damage die.

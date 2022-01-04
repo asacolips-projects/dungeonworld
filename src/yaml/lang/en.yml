@@ -240,6 +240,9 @@ DW.Settings.noAbilityIncrease.hint: 'No abiltiy score increase on level up, for 
 DW.Settings.noConstitutionToHP.name: "Don't Add Contitution Score to HP"
 DW.Settings.noConstitutionToHP.hint: 'Used for DW hacks like Homebrew World'
 
+DW.Settings.noSTRToMaxLoad.name: "Don't Add STR mod to Max Load"
+DW.Settings.noSTRToMaxLoad.hint: 'Used for DW hacks like Homebrew World'
+
 DW.Settings.flatXPLevelUp.name: "Flat XP Level Up"
 DW.Settings.flatXPLevelUp.hint: 'Will allow leveling up at a set XP level instead of based on current level, set to 0 to disable. Used for DW hacks like Homebrew World.'
 

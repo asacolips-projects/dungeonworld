@@ -222,6 +222,15 @@ Hooks.once("init", async function() {
     default: false
   });
 
+  game.settings.register("dungeonworld", "noSTRToMaxLoad", {
+    name: game.i18n.localize("DW.Settings.noSTRToMaxLoad.name"),
+    hint: game.i18n.localize("DW.Settings.noSTRToMaxLoad.hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
   game.settings.register("dungeonworld", "flatXPLevelUp", {
     name: game.i18n.localize("DW.Settings.flatXPLevelUp.name"),
     hint: game.i18n.localize("DW.Settings.flatXPLevelUp.hint"),
