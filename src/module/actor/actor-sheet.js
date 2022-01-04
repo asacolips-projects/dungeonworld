@@ -683,7 +683,7 @@ export class DwActorSheet extends ActorSheet {
           }
       
           const spells_pack = game.packs.find(p => {return p.metadata?.name?.indexOf(pack_id) >= 0});
-          spells_compendium = pack ? await pack.getDocuments() : [];
+          spells_compendium = spells_pack ? await pack.getDocuments() : [];
         }
         
         // Get the compendium spells next.
