@@ -502,19 +502,7 @@ export class DwActorSheet extends ActorSheet {
     }
 
 
-    const noCompendiumAutoData = game.settings.get('dungeonworld', 'noCompendiumAutoData');
-    let compendium = []
-    if (!noCompendiumAutoData) {
-      let pack_id = `dungeonworld.${char_class}-moves`;
-      
-      const compendiumPrefix = game.settings.get('dungeonworld', 'compendiumPrefix');
-      if (compendiumPrefix != '') {
-        pack_id = `${compendiumPrefix.toLowerCase()}-${char_class}-moves`;
-      }
-      
-      const pack = game.packs.find(p => {return p.metadata?.name?.indexOf(pack_id) >= 0});
-      compendium = pack ? await pack.getDocuments() : [];
-    }
+    const compendium = DwUtility.loadCompendia(`${char_class}-moves`)
 
     let class_item = class_list_items.find(i => i.data.name == orig_class_name);
     if (!class_item?.data?.data) {

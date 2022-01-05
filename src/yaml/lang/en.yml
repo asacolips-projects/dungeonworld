@@ -225,11 +225,11 @@ DW.Settings.bondSingle.hint: 'Override "Bond", such as by using "Flag" instead.'
 DW.Settings.bondPlural.name: 'Override "Bonds" label (plural).'
 DW.Settings.bondPlural.hint: 'Override "Bonds", such as by using "Flags" instead.'
 
-DW.Settings.noCompendiumAutoData.name: 'No Compendium Autofill Data'
-DW.Settings.noCompendiumAutoData.hint: 'Only auto-select moves and classes from the items in this game world, ignoring the compendiums, for DW hacks like Homebrew World'
+DW.Settings.noCompendiumAutoData.name: 'Exclude Dungeon World Compendim Data'
+DW.Settings.noCompendiumAutoData.hint: 'Exclude moves and classes from the items in the default Dungeon World compendia, for DW hacks like Homebrew World that re-use the same classes'
 
 DW.Settings.compendiumPrefix.name: 'Compendium Prefix'
-DW.Settings.compendiumPrefix.hint: 'Only auto-select moves and classes from compendiums with this prefix on their name, for DW hacks like Homebrew World. For example if the setting is set to "HBW", the classes will be selected from a compendium named "HBW Classes" and moves for The Fighter will be selected from a compendium named "HBW The Fighter Moves"'
+DW.Settings.compendiumPrefix.hint: 'Auto-select moves and classes from compendiums with this prefix on their name, for DW hacks like Homebrew World. For example if the setting is set to "HBW", the classes will be selected from a compendium named "HBW Classes" and moves for The Fighter will be selected from a compendium named "HBW The Fighter Moves"'
 
 DW.Settings.noAbilityScores.name: 'No Ability Scores'
 DW.Settings.noAbilityScores.hint: 'Only use ability modifiers, for DW hacks like Homebrew World'

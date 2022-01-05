@@ -372,23 +372,9 @@ Hooks.on('createActor', async (actor, options, id) => {
 
     // Get the item moves as the priority.
     let moves = game.items.filter(i => i.type == 'move' && (i.data.data.moveType == 'basic' || i.data.data.moveType == 'special'));
-    let compendium = [];
+    let compendium = DwUtility.loadCompendia('basic-moves');
     let actorMoves = [];
-    
-    const noCompendiumAutoData = game.settings.get('dungeonworld', 'noCompendiumAutoData');
-    if (!noCompendiumAutoData) {
-
-      let pack_id = `dungeonworld.basic-moves`;
       
-      const compendiumPrefix = game.settings.get('dungeonworld', 'compendiumPrefix');
-      if (compendiumPrefix != '') {
-        pack_id = `${compendiumPrefix.toLowerCase()}-basic-moves`;
-      }
-      
-      const pack = game.packs.find(p => {return p.metadata?.name?.indexOf(pack_id) >= 0});
-      compendium = pack ? await pack.getDocuments() : [];
-    }
-    
     actorMoves = actor.items.filter(i => i.type == 'move');
 
     // Get the compendium moves next.
