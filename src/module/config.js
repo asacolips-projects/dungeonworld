@@ -1,3 +1,5 @@
+import { DwUtility } from "./utility.js";
+
 export const DW = {};
 
 DW.abilities = {
@@ -42,7 +44,7 @@ export class DwClassList {
     // prioritize those.
     let classes = game.items.filter(item => item.type == 'class');
     
-    classes.push(...DwUtility.loadCompendia('classes'))
+    classes.push(...(await DwUtility.loadCompendia('classes')))
     
     // Reduce duplicates. Because item classes happen first, this will prevent
     // duplicate compendium entries from overriding the items.

@@ -372,7 +372,7 @@ Hooks.on('createActor', async (actor, options, id) => {
 
     // Get the item moves as the priority.
     let moves = game.items.filter(i => i.type == 'move' && (i.data.data.moveType == 'basic' || i.data.data.moveType == 'special'));
-    let compendium = DwUtility.loadCompendia('basic-moves');
+    const compendium = await DwUtility.loadCompendia('basic-moves');
     let actorMoves = [];
       
     actorMoves = actor.items.filter(i => i.type == 'move');

@@ -502,7 +502,7 @@ export class DwActorSheet extends ActorSheet {
     }
 
 
-    const compendium = DwUtility.loadCompendia(`${char_class}-moves`)
+    const compendium = await DwUtility.loadCompendia(`${char_class}-moves`)
 
     let class_item = class_list_items.find(i => i.data.name == orig_class_name);
     if (!class_item?.data?.data) {
@@ -661,18 +661,7 @@ export class DwActorSheet extends ActorSheet {
           // Check if this spell has either `classname` or `the classname` as its class.
             && [caster_class, `the ${caster_class}`].includes(DwUtility.cleanClass(i.data.data.class));
         });
-        let spells_compendium = []
-        if (!noCompendiumAutoData) {
-          let pack_id = `dungeonworld.${char_class}-spells`;
-          
-          const compendiumPrefix = game.settings.get('dungeonworld', 'compendiumPrefix');
-          if (compendiumPrefix != '') {
-            pack_id = `${compendiumPrefix.toLowerCase()}-${char_class}-spells`;
-          }
-          
-          const spells_pack = game.packs.find(p => {return p.metadata?.name?.indexOf(pack_id) >= 0});
-          spells_compendium = spells_pack ? await pack.getDocuments() : [];
-        }
+        const spells_compendium = await DwUtility.loadCompendia('${char_class}-spells')
         
         // Get the compendium spells next.
         let spells_compendium_items = spells_compendium.filter(s => {

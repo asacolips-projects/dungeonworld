@@ -145,20 +145,20 @@ export class DwUtility {
     };
   }
 
-  static loadCompendia(slug) {
+  static async loadCompendia(slug) {
     
     const compendium = []
     
     const noCompendiumAutoData = game.settings.get('dungeonworld', 'noCompendiumAutoData');
     if (!noCompendiumAutoData) {
-      let pack_id = `dungeonworld.basic-moves`;
-      const pack = game.packs.find(p => {return p.metadata?.name?.indexOf(pack_id) >= 0});
+      const pack_id = `dungeonworld.${slug}`;
+      const pack = game.packs.get(pack_id);
       compendium.push(...(pack ? await pack.getDocuments() : []));
     }
     
     const compendiumPrefix = game.settings.get('dungeonworld', 'compendiumPrefix');
     if (compendiumPrefix != '') {
-      pack_id = `${compendiumPrefix.toLowerCase()}-basic-moves`;
+      const pack_id = `${compendiumPrefix.toLowerCase()}-${slug}`;
       const pack = game.packs.find(p => {return p.metadata?.name?.indexOf(pack_id) >= 0});
       compendium.push(...(pack ? await pack.getDocuments() : []));
     }
