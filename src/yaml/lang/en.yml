@@ -237,7 +237,7 @@ DW.Settings.noAbilityScores.hint: 'Only use ability modifiers, for DW hacks like
 DW.Settings.noAbilityIncrease.name: 'No Ability Increase'
 DW.Settings.noAbilityIncrease.hint: 'No abiltiy score increase on level up, for DW hacks like Homebrew World'
 
-DW.Settings.noConstitutionToHP.name: "Don't Add Contitution Score to HP"
+DW.Settings.noConstitutionToHP.name: "Don't Add Constitution Score to HP"
 DW.Settings.noConstitutionToHP.hint: 'Used for DW hacks like Homebrew World'
 
 DW.Settings.noSTRToMaxLoad.name: "Don't Add STR mod to Max Load"
