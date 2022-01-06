@@ -25,6 +25,15 @@ export class ActorDw extends Actor {
   _prepareCharacterData(actorData) {
     const data = actorData.data;
 
+    const debilities = {
+      "str": game.settings.get('dungeonworld', 'debilityLabelSTR'),
+      "dex": game.settings.get('dungeonworld', 'debilityLabelDEX'),
+      "con": game.settings.get('dungeonworld', 'debilityLabelCON'),
+      "int": game.settings.get('dungeonworld', 'debilityLabelINT'),
+      "wis": game.settings.get('dungeonworld', 'debilityLabelWIS'),
+      "cha": game.settings.get('dungeonworld', 'debilityLabelCHA')
+    }
+
     // Ability Scores
     for (let [a, abl] of Object.entries(data.abilities)) {
       // TODO: This is a possible formula, but would require limits on the
@@ -36,7 +45,7 @@ export class ActorDw extends Actor {
       
       // Add labels.
       abl.label = CONFIG.DW.abilities[a];
-      abl.debilityLabel = CONFIG.DW.debilities[a];
+      abl.debilityLabel = debilities[a];
       // Adjust mod based on debility.
       if (abl.debility) {
         abl.mod -= 1;
@@ -234,20 +243,20 @@ export class ActorDw extends Actor {
       //   newAmount = amount;
       //   break;
 
-      case 'half':
-        newAmount = Math.floor(amount / 2);
-        break;
+    case 'half':
+      newAmount = Math.floor(amount / 2);
+      break;
 
-      case 'double':
-        newAmount = amount * 2;
-        break;
+    case 'double':
+      newAmount = amount * 2;
+      break;
 
       // case 'heal':
       //   newAmount = amount;
       //   break;
 
-      default:
-        break;
+    default:
+      break;
     }
 
     let hp = this.data.data?.attributes?.hp?.value ?? 0;

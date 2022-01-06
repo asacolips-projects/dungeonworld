@@ -246,6 +246,24 @@ DW.Settings.noSTRToMaxLoad.hint: 'Used for DW hacks like Homebrew World'
 DW.Settings.flatXPLevelUp.name: "Flat XP Level Up"
 DW.Settings.flatXPLevelUp.hint: 'Will allow leveling up at a set XP level instead of based on current level, set to 0 to disable. Used for DW hacks like Homebrew World.'
 
+DW.Settings.debilityLabelSTR.name: "STR Debility Name"
+DW.Settings.debilityLabelSTR.hint: ''
+
+DW.Settings.debilityLabelDEX.name: "DEX Debility Name"
+DW.Settings.debilityLabelDEX.hint: ''
+
+DW.Settings.debilityLabelCON.name: "CON Debility Name"
+DW.Settings.debilityLabelCON.hint: ''
+
+DW.Settings.debilityLabelINT.name: "INT Debility Name"
+DW.Settings.debilityLabelINT.hint: ''
+
+DW.Settings.debilityLabelWIS.name: "WIS Debility Name"
+DW.Settings.debilityLabelWIS.hint: ''
+
+DW.Settings.debilityLabelCHA.name: "CHA Debility Name"
+DW.Settings.debilityLabelCHA.hint: ''
+
 DW.Dialog.askTitle: 'Choose a stat'
 DW.Dialog.askContent: 'Choose a stat for this <strong>{name}</strong> move.'
 DW.Dialog.bondTitle: 'Enter your modifier'

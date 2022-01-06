@@ -240,6 +240,60 @@ Hooks.once("init", async function() {
     default: 0
   });
 
+  game.settings.register("dungeonworld", "debilityLabelSTR", {
+    name: game.i18n.localize("DW.Settings.debilityLabelSTR.name"),
+    hint: game.i18n.localize("DW.Settings.debilityLabelSTR.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: 'Weak'
+  });
+
+  game.settings.register("dungeonworld", "debilityLabelDEX", {
+    name: game.i18n.localize("DW.Settings.debilityLabelDEX.name"),
+    hint: game.i18n.localize("DW.Settings.debilityLabelDEX.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: 'Shaky'
+  });
+
+  game.settings.register("dungeonworld", "debilityLabelCON", {
+    name: game.i18n.localize("DW.Settings.debilityLabelCON.name"),
+    hint: game.i18n.localize("DW.Settings.debilityLabelCON.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: 'Sick'
+  });
+
+  game.settings.register("dungeonworld", "debilityLabelINT", {
+    name: game.i18n.localize("DW.Settings.debilityLabelINT.name"),
+    hint: game.i18n.localize("DW.Settings.debilityLabelINT.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: 'Stunned'
+  });
+
+  game.settings.register("dungeonworld", "debilityLabelWIS", {
+    name: game.i18n.localize("DW.Settings.debilityLabelWIS.name"),
+    hint: game.i18n.localize("DW.Settings.debilityLabelWIS.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: 'Confused'
+  });
+
+  game.settings.register("dungeonworld", "debilityLabelCHA", {
+    name: game.i18n.localize("DW.Settings.debilityLabelCHA.name"),
+    hint: game.i18n.localize("DW.Settings.debilityLabelCHA.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: 'Scarred'
+  });
+
   DwUtility.replaceRollData();
 
   // Preload template partials.
