@@ -54,6 +54,10 @@ This project uses SCSS for generating its CSS. This can also be compiled via `np
 ## Combat Tracker
 ![combat tracker](https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/uploads/e3ff32b9c9e94c0dd57aeffa7e679e28/image.png)
 
+# Hack Modules
+
+- [Homebrew World](https://gitlab.com/mangofeet/homebrew-world-module)
+
 # Licensing
 
 All HTML, CSS, and JS is licensed under the [MIT license](https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/raw/master/LICENSE.txt).

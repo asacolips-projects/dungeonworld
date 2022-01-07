@@ -177,6 +177,114 @@ Hooks.once("init", async function() {
     default: ''
   });
 
+  game.settings.register("dungeonworld", "noCompendiumAutoData", {
+    name: game.i18n.localize("DW.Settings.noCompendiumAutoData.name"),
+    hint: game.i18n.localize("DW.Settings.noCompendiumAutoData.hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
+  game.settings.register("dungeonworld", "compendiumPrefix", {
+    name: game.i18n.localize("DW.Settings.compendiumPrefix.name"),
+    hint: game.i18n.localize("DW.Settings.compendiumPrefix.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: ''
+  });
+
+  game.settings.register("dungeonworld", "noAbilityScores", {
+    name: game.i18n.localize("DW.Settings.noAbilityScores.name"),
+    hint: game.i18n.localize("DW.Settings.noAbilityScores.hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
+  game.settings.register("dungeonworld", "noAbilityIncrease", {
+    name: game.i18n.localize("DW.Settings.noAbilityIncrease.name"),
+    hint: game.i18n.localize("DW.Settings.noAbilityIncrease.hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
+  game.settings.register("dungeonworld", "noConstitutionToHP", {
+    name: game.i18n.localize("DW.Settings.noConstitutionToHP.name"),
+    hint: game.i18n.localize("DW.Settings.noConstitutionToHP.hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
+  game.settings.register("dungeonworld", "noSTRToMaxLoad", {
+    name: game.i18n.localize("DW.Settings.noSTRToMaxLoad.name"),
+    hint: game.i18n.localize("DW.Settings.noSTRToMaxLoad.hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
+  game.settings.register("dungeonworld", "debilityLabelSTR", {
+    name: game.i18n.localize("DW.Settings.debilityLabelSTR.name"),
+    hint: game.i18n.localize("DW.Settings.debilityLabelSTR.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: "DW.DebilityStr"
+  });
+
+  game.settings.register("dungeonworld", "debilityLabelDEX", {
+    name: game.i18n.localize("DW.Settings.debilityLabelDEX.name"),
+    hint: game.i18n.localize("DW.Settings.debilityLabelDEX.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: "DW.DebilityDex"
+  });
+
+  game.settings.register("dungeonworld", "debilityLabelCON", {
+    name: game.i18n.localize("DW.Settings.debilityLabelCON.name"),
+    hint: game.i18n.localize("DW.Settings.debilityLabelCON.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: "DW.DebilityCon"
+  });
+
+  game.settings.register("dungeonworld", "debilityLabelINT", {
+    name: game.i18n.localize("DW.Settings.debilityLabelINT.name"),
+    hint: game.i18n.localize("DW.Settings.debilityLabelINT.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: "DW.DebilityInt"
+  });
+
+  game.settings.register("dungeonworld", "debilityLabelWIS", {
+    name: game.i18n.localize("DW.Settings.debilityLabelWIS.name"),
+    hint: game.i18n.localize("DW.Settings.debilityLabelWIS.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: "DW.DebilityWis"
+  });
+
+  game.settings.register("dungeonworld", "debilityLabelCHA", {
+    name: game.i18n.localize("DW.Settings.debilityLabelCHA.name"),
+    hint: game.i18n.localize("DW.Settings.debilityLabelCHA.hint"),
+    scope: 'world',
+    config: true,
+    type: String,
+    default: "DW.DebilityCha"
+  });
+
   DwUtility.replaceRollData();
 
   // Preload template partials.
@@ -247,10 +355,10 @@ Hooks.on('createChatMessage', async (message, options, id) => {
           'flags.dungeonworld.damageButtons': true,
         })
         // Update the chat log scroll position.
-        .then(m => {
-          let chatLog = document.querySelector('#chat-log');
-          chatLog.scrollTop = chatLog.scrollHeight;
-        });
+          .then(m => {
+            let chatLog = document.querySelector('#chat-log');
+            chatLog.scrollTop = chatLog.scrollHeight;
+          });
       })
     });
   }
@@ -309,10 +417,9 @@ Hooks.on('createActor', async (actor, options, id) => {
 
     // Get the item moves as the priority.
     let moves = game.items.filter(i => i.type == 'move' && (i.data.data.moveType == 'basic' || i.data.data.moveType == 'special'));
-    let pack = game.packs.get(`dungeonworld.basic-moves`);
-    let compendium = [];
+    const compendium = await DwUtility.loadCompendia('basic-moves');
     let actorMoves = [];
-    compendium = pack ? await pack.getDocuments() : [];
+      
     actorMoves = actor.items.filter(i => i.type == 'move');
 
     // Get the compendium moves next.
@@ -401,23 +508,49 @@ Hooks.on('renderDialog', (dialog, html, options) => {
       let scores = [];
       html.find('.cell--ability-scores select').each((index, item) => {
         let $self = $(item);
-        if ($self.val()) {
-          scores.push($self.val());
+        const val = parseInt($self.val())
+        if (!isNaN(val)) {
+          scores.push(val);
+        } else {
+          const val = parseInt($self.find('option:selected').val())
+          if (!isNaN(val)) {
+            scores.push(val);
+          }
         }
       });
       // Loop over the list again, disabling invalid options.
       html.find('.cell--ability-scores select').each((index, item) => {
         let $self = $(item);
+        // Loop over the options in the select to get the possible value counts
+        const valueCounts = {}
+        $self.find('option').each((opt_index, opt_item) => {
+          const $opt = $(opt_item);
+          const val = parseInt($opt.attr('value'));
+          if (valueCounts[val]) {
+            valueCounts[val] ++
+          } else {
+            valueCounts[val] = 1
+          }
+        })
         // Loop over the options in the select.
         $self.find('option').each((opt_index, opt_item) => {
           let $opt = $(opt_item);
-          let val = $opt.attr('value');
-          if (val) {
-            if (scores.includes(val) && $self.val() != val) {
-              $opt.attr('disabled', true);
-            }
-            else {
-              $opt.attr('disabled', false);
+          let val = parseInt($opt.attr('value'));
+          const noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
+          if (!isNaN(val)) {
+            if (noAbilityScores) {
+              const alreadySelected = scores.filter(v => v == val) || [];
+              if (alreadySelected.length >= valueCounts[val]) {
+                $opt.attr('disabled', true);
+              } else {
+                $opt.attr('disabled', false);
+              }
+            } else {
+              if (scores.includes(val) && $self.val() != val) {
+                $opt.attr('disabled', true);
+              } else {
+                $opt.attr('disabled', false);
+              }
             }
           }
         });

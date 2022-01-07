@@ -46,6 +46,10 @@ export class DwUtility {
   }
 
   static getAbilityMod(abilityScore) {
+    const noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
+    if (noAbilityScores) {
+      return abilityScore
+    }
     let abilityMod = 0;
 
     if (abilityScore >= 18) {
@@ -139,5 +143,27 @@ export class DwUtility {
       data.abil = data.abilities;
       return data;
     };
+  }
+
+  static async loadCompendia(slug) {
+    
+    const compendium = []
+    
+    const noCompendiumAutoData = game.settings.get('dungeonworld', 'noCompendiumAutoData');
+    if (!noCompendiumAutoData) {
+      const pack_id = `dungeonworld.${slug}`;
+      const pack = game.packs.get(pack_id);
+      compendium.push(...(pack ? await pack.getDocuments() : []));
+    }
+    
+    const compendiumPrefix = game.settings.get('dungeonworld', 'compendiumPrefix');
+    if (compendiumPrefix != '') {
+      const pack_id = `${compendiumPrefix.toLowerCase()}-${slug}`;
+      const pack = game.packs.find(p => {return p.metadata?.name?.indexOf(pack_id) >= 0});
+      compendium.push(...(pack ? await pack.getDocuments() : []));
+    }
+
+    return compendium
+
   }
 }

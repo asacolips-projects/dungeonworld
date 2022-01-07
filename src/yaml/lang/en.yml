@@ -159,7 +159,7 @@ DW.MarkXp: "Mark XP"
 DW.XpMarked: "XP marked"
 
 DW.the-barbarian.Bond1: _______________ is puny and foolish, but amusing to me.
-DW.the-barbarian.Bond2: _______________ 's ways are strange and confusing.
+DW.the-barbarian.Bond2: "_______________ 's ways are strange and confusing."
 DW.the-barbarian.Bond3: _______________ is always getting into trouble - I must protect them from themselves.
 DW.the-barbarian.Bond4: _______________ shares my hunger for glory; the earth will tremble at our passing!
 DW.the-bard.Bond1: This is not my first adventure with _______________.
@@ -206,7 +206,7 @@ DW.Settings.nightmode.hint: "Enable night/dark mode for character sheets (per us
 DW.Settings.enableDamageButtons.name: "Enable Damage Buttons"
 DW.Settings.enableDamageButtons.hint: "Enable damage buttons on chat cards for GM users. Damage will be applied to selected tokens (not targeted tokens) and will be reduced by armor and piercing values per the core rules. Requires reloading the browser to take effect."
 DW.Settings.xpFormula.name: "XP Formula"
-DW.Settings.xpFormula.hint: "Enter the XP formula used for leveling up. Available attributes are those that would work in rolls sent to chat, such as (2 * @attributes.level.value) + 10. Default is (@attributes.level.value + 7)"
+DW.Settings.xpFormula.hint: "Enter the XP formula used for leveling up. Available attributes are those that would work in rolls sent to chat, such as (2 * @attributes.level.value) + 10. Default is (@attributes.level.value + 7). To use a fixed XP amount for level up, just enter a number."
 DW.Settings.advForward.name: "Clear ADV/DIS After Rolls"
 DW.Settings.advForward.hint: "If enabled, advantage and disadvantage choices on the character sheet will be reset to normal after each roll (similar to Forward)."
 
@@ -224,6 +224,42 @@ DW.Settings.bondSingle.name: 'Override "Bond" label (single).'
 DW.Settings.bondSingle.hint: 'Override "Bond", such as by using "Flag" instead.'
 DW.Settings.bondPlural.name: 'Override "Bonds" label (plural).'
 DW.Settings.bondPlural.hint: 'Override "Bonds", such as by using "Flags" instead.'
+
+DW.Settings.noCompendiumAutoData.name: 'Exclude Dungeon World Compendim Data'
+DW.Settings.noCompendiumAutoData.hint: 'Exclude moves and classes from the items in the default Dungeon World compendia, for DW hacks like Homebrew World that re-use the same class names'
+
+DW.Settings.compendiumPrefix.name: 'Compendium Prefix'
+DW.Settings.compendiumPrefix.hint: 'Auto-select moves and classes from compendiums with this prefix on their name, for DW hacks like Homebrew World. For example if the setting is set to "HBW", the classes will be selected from a compendium named "HBW Classes" and moves for The Fighter will be selected from a compendium named "HBW The Fighter Moves". Leave blank to disable.'
+
+DW.Settings.noAbilityScores.name: 'No Ability Scores'
+DW.Settings.noAbilityScores.hint: 'Only use ability modifiers, for DW hacks like Homebrew World'
+
+DW.Settings.noAbilityIncrease.name: 'No Ability Increase'
+DW.Settings.noAbilityIncrease.hint: 'No abiltiy score increase on level up, for DW hacks like Homebrew World'
+
+DW.Settings.noConstitutionToHP.name: "Don't Add Constitution Score to HP"
+DW.Settings.noConstitutionToHP.hint: 'Used for DW hacks like Homebrew World'
+
+DW.Settings.noSTRToMaxLoad.name: "Don't Add STR mod to Max Load"
+DW.Settings.noSTRToMaxLoad.hint: 'Used for DW hacks like Homebrew World'
+
+DW.Settings.debilityLabelSTR.name: "STR Debility Name"
+DW.Settings.debilityLabelSTR.hint: ''
+
+DW.Settings.debilityLabelDEX.name: "DEX Debility Name"
+DW.Settings.debilityLabelDEX.hint: ''
+
+DW.Settings.debilityLabelCON.name: "CON Debility Name"
+DW.Settings.debilityLabelCON.hint: ''
+
+DW.Settings.debilityLabelINT.name: "INT Debility Name"
+DW.Settings.debilityLabelINT.hint: ''
+
+DW.Settings.debilityLabelWIS.name: "WIS Debility Name"
+DW.Settings.debilityLabelWIS.hint: ''
+
+DW.Settings.debilityLabelCHA.name: "CHA Debility Name"
+DW.Settings.debilityLabelCHA.hint: ''
 
 DW.Dialog.askTitle: 'Choose a stat'
 DW.Dialog.askContent: 'Choose a stat for this <strong>{name}</strong> move.'

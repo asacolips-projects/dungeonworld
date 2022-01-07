@@ -151,6 +151,9 @@ export class DwActorSheet extends ActorSheet {
     // Add item icon setting.
     data.data.itemIcons = game.settings.get('dungeonworld', 'itemIcons');
 
+    // Check if ability scores are disabled
+    data.data.noAblilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
+
     // Return data to the sheet
     let returnData = {
       actor: this.object,
@@ -218,25 +221,25 @@ export class DwActorSheet extends ActorSheet {
       // If this is a move, sort into various arrays.
       if (i.type === 'move') {
         switch (i.data.moveType) {
-          case 'basic':
-            basicMoves.push(i);
-            break;
+        case 'basic':
+          basicMoves.push(i);
+          break;
 
-          case 'starting':
-            startingMoves.push(i);
-            break;
+        case 'starting':
+          startingMoves.push(i);
+          break;
 
-          case 'advanced':
-            advancedMoves.push(i);
-            break;
+        case 'advanced':
+          advancedMoves.push(i);
+          break;
 
-          case 'special':
-            specialMoves.push(i);
-            break;
+        case 'special':
+          specialMoves.push(i);
+          break;
 
-          default:
-            moves.push(i);
-            break;
+        default:
+          moves.push(i);
+          break;
         }
       }
       else if (i.type === 'spell') {
@@ -308,17 +311,17 @@ export class DwActorSheet extends ActorSheet {
       // If this is a move, sort into various arrays.
       if (i.type === 'npcMove') {
         switch (i.data.moveType) {
-          case 'basic':
-            basicMoves.push(i);
-            break;
+        case 'basic':
+          basicMoves.push(i);
+          break;
 
-          case 'special':
-            specialMoves.push(i);
-            break;
+        case 'special':
+          specialMoves.push(i);
+          break;
 
-          default:
-            moves.push(i);
-            break;
+        default:
+          moves.push(i);
+          break;
         }
       }
     }
@@ -491,10 +494,8 @@ export class DwActorSheet extends ActorSheet {
       return;
     }
 
-    let pack_id = `dungeonworld.${char_class}-moves`;
-    let pack = game.packs.get(pack_id);
 
-    let compendium = pack ? await pack.getDocuments() : [];
+    const compendium = await DwUtility.loadCompendia(`${char_class}-moves`)
 
     let class_item = class_list_items.find(i => i.data.name == orig_class_name);
     if (!class_item?.data?.data) {
@@ -548,7 +549,11 @@ export class DwActorSheet extends ActorSheet {
     }
 
     // Get ability scores.
+    const noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
     let ability_scores = [16, 15, 13, 12, 9, 8];
+    if (noAbilityScores) {
+      ability_scores = [2, 1, 1, 0, 0, -1];
+    }
     let ability_labels = Object.entries(CONFIG.DW.abilities).map(a => {
       return {
         short: a[0],
@@ -646,11 +651,11 @@ export class DwActorSheet extends ActorSheet {
           // Return true for custom spell items that have a class.
           return i.type == 'spell'
             && i.data.data.class
-            // Check if this spell has either `classname` or `the classname` as its class.
+          // Check if this spell has either `classname` or `the classname` as its class.
             && [caster_class, `the ${caster_class}`].includes(DwUtility.cleanClass(i.data.data.class));
         });
-        let spells_pack = game.packs.get(`dungeonworld.${char_class}-spells`);
-        let spells_compendium = spells_pack ? await spells_pack.getDocuments() : [];
+        const spells_compendium = await DwUtility.loadCompendia('${char_class}-spells')
+        
         // Get the compendium spells next.
         let spells_compendium_items = spells_compendium.filter(s => {
           const available_level = s.data.data.spellLevel <= caster_level;
@@ -733,6 +738,7 @@ export class DwActorSheet extends ActorSheet {
       alignments: alignments.length > 0 ? alignments : null,
       equipment: equipment ? equipment : null,
       ability_scores: actorData.attributes.xp.value == 0 ? ability_scores : null,
+      ability_mods_only: noAbilityScores,
       ability_labels: ability_labels ? ability_labels : null,
       starting_moves: starting_moves.length > 0 ? starting_moves : null,
       starting_move_groups: starting_move_groups,
@@ -740,6 +746,7 @@ export class DwActorSheet extends ActorSheet {
       advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null,
       cast_spells: cast_spells.length > 0 && spells.length > 0 ? true : false,
       spells: spells.length > 0 ? spells : null,
+      no_ability_increase: game.settings.get('dungeonworld', 'noAbilityIncrease'),
     };
     const html = await renderTemplate(template, templateData);
 
@@ -781,9 +788,14 @@ export class DwActorSheet extends ActorSheet {
           callback: dlg => this._onLevelUpSave(dlg, this.actor, itemData, this)
           // callback: dlg => _onImportPower(dlg, this.actor)
         }
+      },
+      render: () => {
+        $('.dw-level-up').find('.item-label').click(this._showItemDetails.bind(this));
       }
     }, dlg_options);
     d.render(true);
+    
+
   }
 
   /**
@@ -823,9 +835,9 @@ export class DwActorSheet extends ActorSheet {
         alignment = itemData.alignments[input.dataset.alignment];
       }
       else if (input.dataset.ability) {
-        let val = $(input).val();
+        let val = $(input).find('option:selected').val();
         let abl = input.dataset.ability;
-        if (val) {
+        if (val != null) {
           abilities[`abilities.${abl}.value`] = val;
         }
       }
@@ -892,6 +904,7 @@ export class DwActorSheet extends ActorSheet {
         data[key] = update;
       }
     }
+    
 
     // Adjust level.
     if (Number(actor.data.data.attributes.xp.value) > 0) {
@@ -908,7 +921,7 @@ export class DwActorSheet extends ActorSheet {
       for (let i = 1; i < 7; i++) {
         if (game.i18n.localize("DW." + theclass + ".Bond" + i ) != "DW." + theclass + ".Bond" + i ) {
           newbonds.push({name: game.i18n.localize("DW." + theclass + ".Bond" + i), type: 'bond', data: ''});
-         }
+        }
       }
 
       if (newbonds.length > 0) {
@@ -919,9 +932,13 @@ export class DwActorSheet extends ActorSheet {
 
     // Adjust hp.
     if (itemData.class_item.data.data.hp) {
-      let constitution = actor.data.data.abilities.con.value;
-      if (data['abilities.con.value']) {
-        constitution = data['abilities.con.value'];
+      const noConstitutionToHP = game.settings.get('dungeonworld', 'noConstitutionToHP');
+      let constitution = 0;
+      if (!noConstitutionToHP) {
+        constitution = actor.data.data.abilities.con.value;
+        if (data['abilities.con.value']) {
+          constitution = data['abilities.con.value'];  
+        }
       }
       data['attributes.hp.max'] = Number(itemData.class_item.data.data.hp) + Number(constitution);
       data['attributes.hp.value'] = data['attributes.hp.max'];
@@ -929,11 +946,16 @@ export class DwActorSheet extends ActorSheet {
 
     // Adjust load.
     if (itemData.class_item.data.data.load) {
-      let strength = actor.data.data.abilities.str.value;
-      if (data['abilities.str.value']) {
-        strength = data['abilities.str.value'];
+      const noSTRToMaxLoad = game.settings.get('dungeonworld', 'noSTRToMaxLoad');
+      if (noSTRToMaxLoad) {
+        data['attributes.weight.max'] = Number(itemData.class_item.data.data.load)
+      } else {
+        let strength = actor.data.data.abilities.str.value;
+        if (data['abilities.str.value']) {
+          strength = data['abilities.str.value'];
+        }
+        data['attributes.weight.max'] = Number(itemData.class_item.data.data.load) + Number(DwUtility.getAbilityMod(strength));
       }
-      data['attributes.weight.max'] = Number(itemData.class_item.data.data.load) + Number(DwUtility.getAbilityMod(strength));
     }
 
     // Adjust damage die.
@@ -983,7 +1005,7 @@ export class DwActorSheet extends ActorSheet {
    * Listen for click events on quantity/uses.
    * @param {MouseEvent} event
    */
-   async _onCounterClick(event, changeType = 'increase') {
+  async _onCounterClick(event, changeType = 'increase') {
     event.preventDefault();
     const a = event.currentTarget;
     const dataset = a.dataset;
@@ -997,17 +1019,17 @@ export class DwActorSheet extends ActorSheet {
     let update = {};
 
     switch (dataset.action) {
-      case 'uses':
-        let uses = item.data.data?.uses ?? 0;
-        update['data.uses'] = Number(uses) + offset;
-        break;
+    case 'uses':
+      let uses = item.data.data?.uses ?? 0;
+      update['data.uses'] = Number(uses) + offset;
+      break;
 
-      case 'quantity':
-        let quantity = item.data.data?.quantity ?? 0;
-        update['data.quantity'] = Number(quantity) + offset;
-        break;
+    case 'quantity':
+      let quantity = item.data.data?.quantity ?? 0;
+      update['data.quantity'] = Number(quantity) + offset;
+      break;
 
-      default:
+    default:
         break;
     }
 

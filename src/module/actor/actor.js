@@ -25,6 +25,20 @@ export class ActorDw extends Actor {
   _prepareCharacterData(actorData) {
     const data = actorData.data;
 
+    let debilities = {
+      "str": game.settings.get('dungeonworld', 'debilityLabelSTR'),
+      "dex": game.settings.get('dungeonworld', 'debilityLabelDEX'),
+      "con": game.settings.get('dungeonworld', 'debilityLabelCON'),
+      "int": game.settings.get('dungeonworld', 'debilityLabelINT'),
+      "wis": game.settings.get('dungeonworld', 'debilityLabelWIS'),
+      "cha": game.settings.get('dungeonworld', 'debilityLabelCHA')
+    }
+
+    debilities = Object.entries(debilities).reduce((obj, e) => {
+      obj[e[0]] = game.i18n.localize(e[1]);
+      return obj;
+    }, {});
+    
     // Ability Scores
     for (let [a, abl] of Object.entries(data.abilities)) {
       // TODO: This is a possible formula, but would require limits on the
@@ -32,10 +46,11 @@ export class ActorDw extends Actor {
       // abl.mod = Math.floor(abl.value * 0.4 - (abl.value < 11 ? 3.4 : 4.2));
 
       // Ability modifiers.
-      abl.mod = DwUtility.getAbilityMod(abl.value);
+      abl.mod = DwUtility.getAbilityMod(abl.value);  
+      
       // Add labels.
       abl.label = CONFIG.DW.abilities[a];
-      abl.debilityLabel = CONFIG.DW.debilities[a];
+      abl.debilityLabel = debilities[a];
       // Adjust mod based on debility.
       if (abl.debility) {
         abl.mod -= 1;
@@ -81,9 +96,12 @@ export class ActorDw extends Actor {
     let rollData = this.getRollData();
     if (!rollData.attributes.level.value) rollData.attributes.level.value = 1;
     let xpRequiredFormula = game.settings.get('dungeonworld', 'xpFormula');
-    // Evaluate the max XP roll.
-    let xpRequiredRoll = new Roll(xpRequiredFormula, this.getRollData()).roll();
-    let xpRequired = xpRequiredRoll?.total ?? Number(data.attributes.level.value) + 7;
+    let xpRequired = parseInt(xpRequiredFormula)
+    if (isNaN(xpRequired)) {
+      // Evaluate the max XP roll.
+      let xpRequiredRoll = new Roll(xpRequiredFormula, this.getRollData()).roll();
+      xpRequired = xpRequiredRoll?.total ?? Number(data.attributes.level.value) + 7;
+    }
     data.attributes.xp.max = xpRequired;
 
     // Handle roll mode flag.
@@ -233,20 +251,20 @@ export class ActorDw extends Actor {
       //   newAmount = amount;
       //   break;
 
-      case 'half':
-        newAmount = Math.floor(amount / 2);
-        break;
+    case 'half':
+      newAmount = Math.floor(amount / 2);
+      break;
 
-      case 'double':
-        newAmount = amount * 2;
-        break;
+    case 'double':
+      newAmount = amount * 2;
+      break;
 
       // case 'heal':
       //   newAmount = amount;
       //   break;
 
-      default:
-        break;
+    default:
+      break;
     }
 
     let hp = this.data.data?.attributes?.hp?.value ?? 0;

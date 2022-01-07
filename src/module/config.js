@@ -1,3 +1,5 @@
+import { DwUtility } from "./utility.js";
+
 export const DW = {};
 
 DW.abilities = {
@@ -41,13 +43,9 @@ export class DwClassList {
     // First, retrieve any custom or overridden classes so that we can
     // prioritize those.
     let classes = game.items.filter(item => item.type == 'class');
-    // Next, retrieve compendium classes and merge them in.
-    for (let c of game.packs) {
-      if (c.metadata.type && c.metadata.type == 'Item' && c.metadata.name == 'classes') {
-        let items = c ? await c.getDocuments() : [];
-        classes = classes.concat(items);
-      }
-    }
+    
+    classes.push(...(await DwUtility.loadCompendia('classes')))
+    
     // Reduce duplicates. Because item classes happen first, this will prevent
     // duplicate compendium entries from overriding the items.
     let charClassNames = [];
