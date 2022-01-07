@@ -206,7 +206,7 @@ DW.Settings.nightmode.hint: "Enable night/dark mode for character sheets (per us
 DW.Settings.enableDamageButtons.name: "Enable Damage Buttons"
 DW.Settings.enableDamageButtons.hint: "Enable damage buttons on chat cards for GM users. Damage will be applied to selected tokens (not targeted tokens) and will be reduced by armor and piercing values per the core rules. Requires reloading the browser to take effect."
 DW.Settings.xpFormula.name: "XP Formula"
-DW.Settings.xpFormula.hint: "Enter the XP formula used for leveling up. Available attributes are those that would work in rolls sent to chat, such as (2 * @attributes.level.value) + 10. Default is (@attributes.level.value + 7)"
+DW.Settings.xpFormula.hint: "Enter the XP formula used for leveling up. Available attributes are those that would work in rolls sent to chat, such as (2 * @attributes.level.value) + 10. Default is (@attributes.level.value + 7). To use a fixed XP amount for level up, just enter a number."
 DW.Settings.advForward.name: "Clear ADV/DIS After Rolls"
 DW.Settings.advForward.hint: "If enabled, advantage and disadvantage choices on the character sheet will be reset to normal after each roll (similar to Forward)."
 
@@ -242,9 +242,6 @@ DW.Settings.noConstitutionToHP.hint: 'Used for DW hacks like Homebrew World'
 
 DW.Settings.noSTRToMaxLoad.name: "Don't Add STR mod to Max Load"
 DW.Settings.noSTRToMaxLoad.hint: 'Used for DW hacks like Homebrew World'
-
-DW.Settings.flatXPLevelUp.name: "Flat XP Level Up"
-DW.Settings.flatXPLevelUp.hint: 'Will allow leveling up at a set XP level instead of based on current level, set to 0 to disable. Used for DW hacks like Homebrew World.'
 
 DW.Settings.debilityLabelSTR.name: "STR Debility Name"
 DW.Settings.debilityLabelSTR.hint: ''

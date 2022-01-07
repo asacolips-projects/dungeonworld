@@ -96,9 +96,12 @@ export class ActorDw extends Actor {
     let rollData = this.getRollData();
     if (!rollData.attributes.level.value) rollData.attributes.level.value = 1;
     let xpRequiredFormula = game.settings.get('dungeonworld', 'xpFormula');
-    // Evaluate the max XP roll.
-    let xpRequiredRoll = new Roll(xpRequiredFormula, this.getRollData()).roll();
-    let xpRequired = xpRequiredRoll?.total ?? Number(data.attributes.level.value) + 7;
+    let xpRequired = parseInt(xpRequiredFormula)
+    if (isNaN(xpRequired)) {
+      // Evaluate the max XP roll.
+      let xpRequiredRoll = new Roll(xpRequiredFormula, this.getRollData()).roll();
+      xpRequired = xpRequiredRoll?.total ?? Number(data.attributes.level.value) + 7;
+    }
     data.attributes.xp.max = xpRequired;
 
     // Handle roll mode flag.

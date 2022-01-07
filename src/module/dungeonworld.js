@@ -231,15 +231,6 @@ Hooks.once("init", async function() {
     default: false
   });
 
-  game.settings.register("dungeonworld", "flatXPLevelUp", {
-    name: game.i18n.localize("DW.Settings.flatXPLevelUp.name"),
-    hint: game.i18n.localize("DW.Settings.flatXPLevelUp.hint"),
-    scope: 'world',
-    config: true,
-    type: Number,
-    default: 0
-  });
-
   game.settings.register("dungeonworld", "debilityLabelSTR", {
     name: game.i18n.localize("DW.Settings.debilityLabelSTR.name"),
     hint: game.i18n.localize("DW.Settings.debilityLabelSTR.hint"),
