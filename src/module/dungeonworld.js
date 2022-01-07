@@ -246,7 +246,7 @@ Hooks.once("init", async function() {
     scope: 'world',
     config: true,
     type: String,
-    default: 'Weak'
+    default: "DW.DebilityStr"
   });
 
   game.settings.register("dungeonworld", "debilityLabelDEX", {
@@ -255,7 +255,7 @@ Hooks.once("init", async function() {
     scope: 'world',
     config: true,
     type: String,
-    default: 'Shaky'
+    default: "DW.DebilityDex"
   });
 
   game.settings.register("dungeonworld", "debilityLabelCON", {
@@ -264,7 +264,7 @@ Hooks.once("init", async function() {
     scope: 'world',
     config: true,
     type: String,
-    default: 'Sick'
+    default: "DW.DebilityCon"
   });
 
   game.settings.register("dungeonworld", "debilityLabelINT", {
@@ -273,7 +273,7 @@ Hooks.once("init", async function() {
     scope: 'world',
     config: true,
     type: String,
-    default: 'Stunned'
+    default: "DW.DebilityInt"
   });
 
   game.settings.register("dungeonworld", "debilityLabelWIS", {
@@ -282,7 +282,7 @@ Hooks.once("init", async function() {
     scope: 'world',
     config: true,
     type: String,
-    default: 'Confused'
+    default: "DW.DebilityWis"
   });
 
   game.settings.register("dungeonworld", "debilityLabelCHA", {
@@ -291,7 +291,7 @@ Hooks.once("init", async function() {
     scope: 'world',
     config: true,
     type: String,
-    default: 'Scarred'
+    default: "DW.DebilityCha"
   });
 
   DwUtility.replaceRollData();

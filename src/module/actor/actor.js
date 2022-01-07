@@ -25,7 +25,7 @@ export class ActorDw extends Actor {
   _prepareCharacterData(actorData) {
     const data = actorData.data;
 
-    const debilities = {
+    let debilities = {
       "str": game.settings.get('dungeonworld', 'debilityLabelSTR'),
       "dex": game.settings.get('dungeonworld', 'debilityLabelDEX'),
       "con": game.settings.get('dungeonworld', 'debilityLabelCON'),
@@ -34,6 +34,11 @@ export class ActorDw extends Actor {
       "cha": game.settings.get('dungeonworld', 'debilityLabelCHA')
     }
 
+    debilities = Object.entries(debilities).reduce((obj, e) => {
+      obj[e[0]] = game.i18n.localize(e[1]);
+      return obj;
+    }, {});
+    
     // Ability Scores
     for (let [a, abl] of Object.entries(data.abilities)) {
       // TODO: This is a possible formula, but would require limits on the
