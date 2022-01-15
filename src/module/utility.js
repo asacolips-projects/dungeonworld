@@ -45,9 +45,9 @@ export class DwUtility {
     return defaultFormula;
   }
 
-  static getAbilityMod(abilityScore) {
+  static getAbilityMod(abilityScore, force=false) {
     const noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
-    if (noAbilityScores) {
+    if (noAbilityScores && !force) {
       return abilityScore
     }
     let abilityMod = 0;
@@ -75,6 +75,39 @@ export class DwUtility {
     }
 
     return abilityMod;
+  }
+
+  static getAbilityScore(abilityMod, force=false) {
+    const noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
+    if (noAbilityScores && !force) {
+      return abilityScore
+    }
+
+    let abilityScore = 0;
+
+    if (abilityMod >= 3) {
+      abilityScore = 18;
+    }
+    else if (abilityMod == 2) {
+      abilityScore = 16;
+    }
+    else if (abilityMod == 1) {
+      abilityScore = 13;
+    }
+    else if (abilityMod == 0) {
+      abilityScore = 9;
+    }
+    else if (abilityMod == -1) {
+      abilityScore = 8;
+    }
+    else if (abilityMod == -2) {
+      abilityScore = 5;
+    }
+    else {
+      abilityScore = 3;
+    }
+
+    return abilityScore;
   }
 
   static getProgressCircle({ current = 100, max = 100, radius = 16 }) {
@@ -146,16 +179,16 @@ export class DwUtility {
   }
 
   static async loadCompendia(slug) {
-    
+
     const compendium = []
-    
+
     const noCompendiumAutoData = game.settings.get('dungeonworld', 'noCompendiumAutoData');
     if (!noCompendiumAutoData) {
       const pack_id = `dungeonworld.${slug}`;
       const pack = game.packs.get(pack_id);
       compendium.push(...(pack ? await pack.getDocuments() : []));
     }
-    
+
     const compendiumPrefix = game.settings.get('dungeonworld', 'compendiumPrefix');
     if (compendiumPrefix != '') {
       const pack_id = `${compendiumPrefix.toLowerCase()}-${slug}`;

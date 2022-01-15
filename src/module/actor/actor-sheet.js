@@ -152,7 +152,7 @@ export class DwActorSheet extends ActorSheet {
     data.data.itemIcons = game.settings.get('dungeonworld', 'itemIcons');
 
     // Check if ability scores are disabled
-    data.data.noAblilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
+    data.data.noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
 
     // Return data to the sheet
     let returnData = {
@@ -655,7 +655,7 @@ export class DwActorSheet extends ActorSheet {
             && [caster_class, `the ${caster_class}`].includes(DwUtility.cleanClass(i.data.data.class));
         });
         const spells_compendium = await DwUtility.loadCompendia('${char_class}-spells')
-        
+
         // Get the compendium spells next.
         let spells_compendium_items = spells_compendium.filter(s => {
           const available_level = s.data.data.spellLevel <= caster_level;
@@ -794,7 +794,7 @@ export class DwActorSheet extends ActorSheet {
       }
     }, dlg_options);
     d.render(true);
-    
+
 
   }
 
@@ -904,7 +904,7 @@ export class DwActorSheet extends ActorSheet {
         data[key] = update;
       }
     }
-    
+
 
     // Adjust level.
     if (Number(actor.data.data.attributes.xp.value) > 0) {
@@ -937,7 +937,7 @@ export class DwActorSheet extends ActorSheet {
       if (!noConstitutionToHP) {
         constitution = actor.data.data.abilities.con.value;
         if (data['abilities.con.value']) {
-          constitution = data['abilities.con.value'];  
+          constitution = data['abilities.con.value'];
         }
       }
       data['attributes.hp.max'] = Number(itemData.class_item.data.data.hp) + Number(constitution);

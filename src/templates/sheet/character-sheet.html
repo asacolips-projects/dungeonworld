@@ -151,8 +151,12 @@
             {{#each data.abilities as |ability key|}}
                 <li class="ability flexrow" data-ability="{{key}}">
                     <label for="data.abilities.{{key}}.value" class="cell__title ability-rollable rollable" data-roll="{{key}}" data-label="{{ability.label}}">{{ ability.label }}</label>
-                    <input class="ability-value" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="{{ability.dtype}}"/>
-                    <span class="ability-mod">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+                    {{#if ../data.noAbilityScores}}
+                      <input class="ability-mod" type="text" name="data.abilities.{{key}}.value" value="{{#if ability.value}}{{numberFormat ability.value decimals=0 sign=true}}{{else}}0{{/if}}" data-dtype="Number"/>
+                    {{else}}
+                      <input class="ability-value" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+                      <span class="ability-mod">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+                    {{/if}}
                     <label class="ability-debility checkbox"><input type="checkbox" name="data.abilities.{{key}}.debility" {{checked ability.debility}}/>{{ ability.debilityLabel }}</label>
                 </li>
             {{/each}}

@@ -38,16 +38,31 @@ export class ActorDw extends Actor {
       obj[e[0]] = game.i18n.localize(e[1]);
       return obj;
     }, {});
-    
+
+    const noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
+
     // Ability Scores
     for (let [a, abl] of Object.entries(data.abilities)) {
       // TODO: This is a possible formula, but would require limits on the
       // upper and lower ends.
       // abl.mod = Math.floor(abl.value * 0.4 - (abl.value < 11 ? 3.4 : 4.2));
 
+      // @todo: This could be improved by storing old scores in a flag.
+      // Convert ability scores if the no mod setting changed.
+      if (noAbilityScores) {
+        if (!Number.isNaN(abl.value) && abl.value > 3) {
+          abl.value = DwUtility.getAbilityMod(abl.value, true);
+        }
+      }
+      else {
+        if (!Number.isNaN(abl.value) && abl.value < 4) {
+          abl.value = DwUtility.getAbilityScore(abl.value, true);
+        }
+      }
+
       // Ability modifiers.
-      abl.mod = DwUtility.getAbilityMod(abl.value);  
-      
+      abl.mod = DwUtility.getAbilityMod(abl.value);
+
       // Add labels.
       abl.label = CONFIG.DW.abilities[a];
       abl.debilityLabel = debilities[a];
