@@ -183,7 +183,8 @@ Hooks.once("init", async function() {
     scope: 'world',
     config: true,
     type: Boolean,
-    default: false
+    default: false,
+    onChange: () => window.location.reload()
   });
 
   game.settings.register("dungeonworld", "compendiumPrefix", {
@@ -192,7 +193,8 @@ Hooks.once("init", async function() {
     scope: 'world',
     config: true,
     type: String,
-    default: ''
+    default: '',
+    onChange: () => window.location.reload()
   });
 
   game.settings.register("dungeonworld", "noAbilityScores", {
@@ -201,7 +203,8 @@ Hooks.once("init", async function() {
     scope: 'world',
     config: true,
     type: Boolean,
-    default: false
+    default: false,
+    onChange: () => window.location.reload()
   });
 
   game.settings.register("dungeonworld", "noAbilityIncrease", {
@@ -419,7 +422,7 @@ Hooks.on('createActor', async (actor, options, id) => {
     let moves = game.items.filter(i => i.type == 'move' && (i.data.data.moveType == 'basic' || i.data.data.moveType == 'special'));
     const compendium = await DwUtility.loadCompendia('basic-moves');
     let actorMoves = [];
-      
+
     actorMoves = actor.items.filter(i => i.type == 'move');
 
     // Get the compendium moves next.
