@@ -67,7 +67,7 @@ export class ActorDw extends Actor {
       abl.label = CONFIG.DW.abilities[a];
       abl.debilityLabel = debilities[a];
       // Adjust mod based on debility.
-      if (abl.debility) {
+      if (abl.debility && !game.settings.get("dungeonworld", "disDebility")) {
         abl.mod -= 1;
       }
     }

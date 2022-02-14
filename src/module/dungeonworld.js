@@ -95,6 +95,16 @@ Hooks.once("init", async function() {
     default: false
   });
 
+  game.settings.register("dungeonworld", "disDebility", {
+    name: game.i18n.localize("DW.Settings.disDebility.name"),
+    hint: game.i18n.localize("DW.Settings.disDebility.hint"),
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false,
+    onChange: () => window.location.reload(),
+  })
+
   // TODO: Remove this setting.
   game.settings.register("dungeonworld", "itemIcons", {
     name: game.i18n.localize("DW.Settings.itemIcons.name"),
