@@ -423,10 +423,9 @@ Hooks.on('createActor', async (actor, options, id) => {
   // Prepare updates object.
   let updates = {};
 
-  // Allow the character to levelup up when their level changes.
   if (actor.data.type == 'character') {
+    // Allow the character to levelup up when their level changes.
     await actor.setFlag('dungeonworld', 'levelup', true);
-
 
     // Get the item moves as the priority.
     let moves = game.items.filter(i => i.type == 'move' && (i.data.data.moveType == 'basic' || i.data.data.moveType == 'special'));
@@ -476,7 +475,22 @@ Hooks.on('createActor', async (actor, options, id) => {
 
     // Add to the actor.
     const movesToAdd = moves.map(m => duplicate(m));
-    await actor.createEmbeddedDocuments('Item', movesToAdd, {});
+
+    // Only execute the function once.
+    const owners = [];
+    Object.entries(actor.data.permission).forEach(([uid, role]) => {
+      // @todo unhardcode this role ID (owner).
+      if (role == 3) owners.push(uid);
+    });
+    const isOwner = owners.includes(game.user.id);
+    // @todo improve this to better handle multiple GMs/owers.
+    const allowMoveAdd = game.user.isGM || (isOwner && game.users.filter(u => u.data.role == CONST.USER_ROLES.GAMEMASTER && u.data.document.active).length < 1);
+
+    // If there are moves and we haven't already add them, add them.
+    if (movesToAdd.length > 0 && allowMoveAdd) {
+      await actor.createEmbeddedDocuments('Item', movesToAdd, {});
+      console.log(movesToAdd);
+    }
   }
 
   if (actor.data.type == 'npc') {
