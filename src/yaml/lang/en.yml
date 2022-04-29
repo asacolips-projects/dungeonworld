@@ -209,6 +209,8 @@ DW.Settings.xpFormula.name: "XP Formula"
 DW.Settings.xpFormula.hint: "Enter the XP formula used for leveling up. Available attributes are those that would work in rolls sent to chat, such as (2 * @attributes.level.value) + 10. Default is (@attributes.level.value + 7). To use a fixed XP amount for level up, just enter a number."
 DW.Settings.advForward.name: "Clear ADV/DIS After Rolls"
 DW.Settings.advForward.hint: "If enabled, advantage and disadvantage choices on the character sheet will be reset to normal after each roll (similar to Forward)."
+DW.Settings.disDebility.name: "Debilities Impose Disadvantage"
+DW.Settings.disDebility.hint: "If enabled, debilities will apply disadvantage on rolls rather than a change to the ability modifier."
 
 DW.Settings.alignmentSingle.name: 'Override "Alignment" label (single).'
 DW.Settings.alignmentSingle.hint: 'Override "Alignment", such as by using "Drive" instead.'
