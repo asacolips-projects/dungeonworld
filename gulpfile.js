@@ -198,7 +198,10 @@ const yamlTask = gulp.series(compileYaml);
 /* ----------------------------------------- */
 const SYSTEM_DELETE = ['dist'];
 function deleteFiles() {
-  return del('dist/**', {force: true});
+  return del([
+    'dist/**',
+    '!dist/packs'
+  ], {force: true});
 }
 const deleteTask = gulp.series(deleteFiles);
 
@@ -338,6 +341,7 @@ const buildTask = gulp.series(
   compileScss,
   copyFiles,
   copyManifest,
+  cleanPacks,
   compilePacks
 );
 
