@@ -1,0 +1,255 @@
+---
+Dungeon World: Dungeon World
+DW.title: Dungeon World
+DW.description: Spela Dungeon World i Foundry VTT!
+DW.AbilityStr: Styrka
+DW.AbilityDex: Smidighet
+DW.AbilityCon: Fysik
+DW.AbilityInt: Intelligens
+DW.AbilityWis: Visdom
+DW.AbilityCha: Karisma
+DW.STR: STY
+DW.DEX: SMI
+DW.CON: FYS
+DW.INT: INT
+DW.WIS: VIS
+DW.CHA: KAR
+DW.ASK: Be om slag mot en grundegenskap
+DW.BOND: Välj ett band
+DW.FORMULA: Anpassat slag
+DW.DebilityStr: Försvagad
+DW.DebilityDex: Skakig
+DW.DebilityCon: Sjuk
+DW.DebilityInt: Bedövad
+DW.DebilityWis: Förvirrad
+DW.DebilityCha: Ärrad
+DW.Level: Nivå
+DW.XP: Erfarenhet
+DW.Damage: Skada
+DW.Dmg: Skada
+DW.Armor: Skydd
+DW.HP: TÅL
+DW.Misc: ex. t4+2
+DW.Look: Utseende
+DW.Alignment: Inriktning
+DW.Alignments: Inriktningar
+DW.Class: Klass
+DW.Race: Släkte
+DW.Races: Släkten
+DW.Bond: Band
+DW.Bonds: Band
+DW.Tags: Etiketter
+DW.AddBond: Lägg till band
+DW.BondDefault: _____ har ett band till mig
+DW.BondHelp: ________ beskriv bandet här.
+DW.Dialog.Bond1: 'Välj en bonus för det här bandet '
+DW.Dialog.Bond2: " drag."
+DW.MoveCreate: Skapa ett drag
+DW.AddBasicMove: Lägg til ett grunddrag
+DW.AddStartingMove: Lägg till ett startdrag
+DW.AddAdvancedMove: Lägg till ett avancerat drag
+DW.AddMove: Lägg till ett drag
+DW.MovesBasic: Grunddrag
+DW.MovesStarting: Startdrag
+DW.MovesAdvanced: Avancerade drag
+DW.MovesSpecial: Specialdrag
+DW.MovesOther: Andra drag
+DW.MoveBasic: Grunddrag
+DW.MoveStarting: Startdrag
+DW.MoveAdvanced: Avancerat drag
+DW.MoveSpecial: Specialdrag
+DW.MoveGroup: Grupp av drag
+DW.MoveGroupHelp: Drag inom samma grupp kommer att vara antingen/eller när du använder Karaktärsbyggaren för att skapa en ny rollperson.
+DW.Description: Beskrivning
+DW.Moves: Drag
+DW.Biography: Biografi
+DW.Equipment: Utrustning
+DW.Spells: Besvärjelser
+DW.SpellLevel: Besvärjelsenivå
+DW.Spells0: Utantillärda
+DW.Spells1: Besvärjelser Första nivån
+DW.Spells2: Besvärjelser Andra nivån
+DW.Spells3: Besvärjelser Tredje nivån
+DW.Spells4: Besvärjelser Fjärde nivån
+DW.Spells5: Besvärjelser Femte nivån
+DW.Spells6: Besvärjelser Sjätte nivån
+DW.Spells7: Besvärjelser Sjunde nivån
+DW.Spells8: Besvärjelser Åttonde nivån
+DW.Spells9: Besvärjelser Nionde nivån
+DW.SpellPrepared: Förberedd
+DW.SpellRollFormula: Formel för slag
+DW.RollFormula: Formel för slag
+DW.AddEquipment: Lägg till utrustning
+DW.AddSpell: Lägg till besvärjelse
+DW.Common.Description: Beskrivning
+DW.Common.Details: Detaljer
+DW.Common.Name: Namn
+DW.Roll: Slå +
+DW.Modifier: Modifikation
+DW.RequiresLevel: Kräver minst nivå
+DW.RequiresMove: Kräver drag
+DW.MoveType: Typ av drag
+DW.Equipped: Buren
+DW.Quantity: Antal
+DW.Qty: St.
+DW.Weight: Vikt
+DW.Wt: Vikt
+DW.Uses: Doser
+DW.MagicItem: Magiskt föremål
+DW.ItemType: Typ av föremål
+DW.Coin: Mynt
+DW.Weapon: Vapen
+DW.DungeonGear: Äventyrarutrustning
+DW.Poison: Gift
+DW.Service: Tjänst
+DW.Meal: Måltid
+DW.Transport: Transport
+DW.LandBuildings: Mark och byggnader
+DW.Bribe: Muta
+DW.GiftsFinery: Gåvor och grannlåt
+DW.Hoard: Förråd
+DW.TagsHelp: "(Använd tab för autocomplete, komma för att skapa nya taggar and dubbelklicka på en tagg för att redigera den)"
+DW.SpecialQualities: Specialegenskaper
+DW.ClassSettings: Klassinställningar
+DW.ClassBaseHp: Tålighet, grundvärde
+DW.ClassBaseHpHelp: Fysik (FYS) läggs automatiskt till det här värdet.
+DW.ClassBaseLoad: Max belastning, grundvärde
+DW.ClassBaseLoadHelp: STY läggs automatiskt till det här värdet.
+DW.ClassDamage: Skadetärning
+DW.ClassDamageHelp: Skadetärningen används för klasskada.
+DW.ClassAddEquipmentGroup: Lägg till utrustningsgrupp
+DW.ClassEquipmentGroupHelp: Du kan definera utrustningsgrupper för den här klassen nedan. Varje grupp kan innehålla ett obegränsad antal föremål. De kan ha valmetod satt till Välj ett eller Välj flera.
+DW.ClassEquipmentGroupPlaceholder: Välj en där alla föremål är vikt 0 för dig
+DW.ClassEquipmentDropText: Släpp föremål här
+DW.ChooseOne: Välj ett
+DW.ChooseAny: Välj flera
+DW.ChooseRace: Välj ett släkte
+DW.ChooseAlignment: Välj en inriktning
+DW.ChooseAbilityScores: Välj egenskapsvärden
+DW.ChooseAbilityScoresIncrease: Välj vilken egenskap som ska höjas med 1.
+DW.ChooseStartingMoves: Välj startdrag
+DW.ChooseStartingOne: 'Välj en av dessa som du börjar med:'
+DW.ChooseStartingAll: 'Du börjar även med alla dessa:'
+DW.ChooseAdvancedMoves: Välj avancerade drag
+DW.ChooseAdvanced2: När du går upp en nivå från 2-5, välj ett av de här dragen.
+DW.ChooseAdvanced6: När du går upp en nivå från 6-10, välj ett av de här dragen eller ett av nivå 2-5-drag.
+DW.ChooseSpells: Välj besvärjelser
+DW.DefaultLook: "<ul><li>Ögon:</li><li>Hår:</li><li>Kropp:</li><li>Utsmyckningar:</li><li>Kläder:</li></ul>"
+DW.Cancel: Avbryt
+DW.Confirm: Bekräfta
+DW.Prepared: Förberedd
+DW.Unprepared: Oförberedd
+DW.DamageRoll: Åsamka skada
+DW.character: Rollperson
+DW.characters: Rollpersoner
+DW.npc: SLP
+DW.npcs: SLP:er
+DW.Forward: Framåt
+DW.Ongoing: Pågående
+DW.Hold: Hållen
+DW.RollMode: Tärningsslag
+DW.Normal: Normalt
+DW.Advantage: Fördel
+DW.Disadvantage: Nackdel
+DW.failure: Komplikationer
+DW.partial: Delvis framgång
+DW.success: Framgång
+DW.ChooseResult: Välj resultat
+DW.Choices: Valmöjligheter
+DW.MarkXp: Lägg till ett erfarenhetspoäng
+DW.XpMarked: Erfarenhetspoäng tillagd
+DW.the-barbarian.Bond1: _______________ är ynklig och dåraktig, men roar mig.
+DW.the-barbarian.Bond2: _______________ sätt är märkligt och förvirrande.
+DW.the-barbarian.Bond3: _______________ hamnar alltid i problem; jag måste skydda hen mot sig själv.
+DW.the-barbarian.Bond4: _______________ delar min längtan efter makt; jorden må skälva i våra fotspår!
+DW.the-bard.Bond1: Det här är inte mitt första äventyr tillsammans med _______________.
+DW.the-bard.Bond2: Jag sjöng sånger om _______________ långt innan jag träffade hen i verkligheten.
+DW.the-bard.Bond3: Jag skämtar ofta om _______________.
+DW.the-bard.Bond4: Jag skriver en ballad om _______________s äventyr.
+DW.the-bard.Bond5: _______________ anförtrodde mig en hemlighet.
+DW.the-bard.Bond6: _______________ litar inte på mig, på goda grunder.
+DW.the-cleric.Bond1: _______________ har förolämpat min gudom. Jag litar inte på hen.
+DW.the-cleric.Bond2: _______________ är en god och trogen person. Jag litar på hen villkorslöst.
+DW.the-cleric.Bond3: _______________ hamnar jämt i farofyllda situationer. Jag ska skydda hen.
+DW.the-cleric.Bond4: Jag bearbetar _______________ för att konvertera hen till min tro.
+DW.the-druid.Bond1: ____________________ doftar mer som ett bytesdjur än som en jägare.
+DW.the-druid.Bond2: Andarna talade till mig om en stor fara som följer i ______________s fotspår.
+DW.the-druid.Bond3: Jag har visat ________________ markens heliga ritual.
+DW.the-druid.Bond4: ___________ har smakat mitt blod och jag henoms. Vi är bundna av det.
+DW.the-fighter.Bond1: _______________ har mig att tacka för att de är vid liv, vare sig de vill medge det eller inte.
+DW.the-fighter.Bond2: Jag har svurit att beskydda _______________.,
+DW.the-fighter.Bond3: Jag tvivlar på _______________ ts förmåga att överleva i ett grottsystem.
+DW.the-fighter.Bond4: _______________ är vek, men jag ska lära hen att bli lika tuff som jag.
+DW.the-immolator.Bond1: ____________________ har känt eldens helvetiska beröring; nu inser hen min styrka.
+DW.the-immolator.Bond2: Jag ska lära  ______________ offrandets sanna innebörd.
+DW.the-immolator.Bond3: Jag kastade något till elden för ________________s skull och hen har fortfarande en skuld till mig.
+DW.the-paladin.Bond1: _______________s beteende äventyrar deras själ!
+DW.the-paladin.Bond2: _______________ har stått vid min sida på slagfältet och är fullständigt pålitlig.
+DW.the-paladin.Bond3: Jag respekterar _______________ bs tro, men hoppas att de en dag ser den sanna vägen.
+DW.the-paladin.Bond4: _______________ är en modig själ, som jag kan lära mig mycket från.
+DW.the-thief.Bond1: Jag stal något från _______________.
+DW.the-thief.Bond2: _______________ skyddar mig när något går fel.
+DW.the-thief.Bond3: _______________ vet graverande saker om mig.
+DW.the-thief.Bond4: _______________ aoch jag har ett bondfångeri på gång tillsammans.
+DW.the-wizard.Bond1: _______________ wkommer att spela en viktig roll i framtida händelser. De har du förutspått!,
+DW.the-wizard.Bond2: _______________ undanhåller en viktig hemlighet för mig.
+DW.the-wizard.Bond3: _______________ är sorligt felinformerad om världen; Jag ska lära dem allt jag kan.
+DW.the-ranger.Bond1: Jag har guidat _______________ tidigare och de står i skuld till mig för det.
+DW.the-ranger.Bond2: _______________ är en naturvän och jag kommer därför också att vara hens vän.
+DW.the-ranger.Bond3: _______________ respekterar inte naturen och därför respekterar jag inte dem.
+DW.the-ranger.Bond4: _______________ förstår inte vildmarkslivet, så jag ska lära dem.
+DW.Settings.itemIcons.name: Aktivera föremålsikoner
+DW.Settings.itemIcons.hint: Aktivera ikoner på rollformuläret för drag, besvärjelser och utrustning (kräver att webbläsaren laddas om).
+DW.Settings.nightmode.name: Aktivera nattläge
+DW.Settings.nightmode.hint: Aktivera natt-/mörkt läge för rollformuläret (per spelare).
+DW.Settings.enableDamageButtons.name: Aktivera skadeknappar
+DW.Settings.enableDamageButtons.hint: Aktivera skadeknappar på chattkortet (för SL). Skadan åsamkas vald markör (inte på markörer som bara är mål). Rustning eller pansarbrytande används i enlighet med grundreglerna. Kräver omstart av webbläsaren.
+DW.Settings.xpFormula.name: XP-formel
+DW.Settings.xpFormula.hint: Skriv in vilken formel som ska användas för att gå upp en nivå. Tillgängliga attribut är de som fungerar att skicka till chatten såsom (2 * @attributes.level.value) + 10. Standard är (@attributes.level.value + 7). För att använda fasta XP-värden, skriv in talet.
+DW.Settings.advForward.name: Rensa Fördel/Nackdel efter slaget
+DW.Settings.advForward.hint: Om den här är vald återgår slagen till det normala efter varje slag, istället för att behålla Fördel/Nackdel (ungefär som Framåt).
+DW.Settings.disDebility.name: Svagheter ger nackdelar
+DW.Settings.disDebility.hint: När den här är aktiv, ger svagheter en nackdel vid tärningsslaget snarare än att förändra grundegenskapens modifikation.
+DW.Settings.alignmentSingle.name: Skriv över "Inriktning" (singular).
+DW.Settings.alignmentSingle.hint: Skriv över "Inriktning", med till exempel "Drivkraft".
+DW.Settings.alignmentPlural.name: Skriv över "Inriktningar" (plural).
+DW.Settings.alignmentPlural.hint: Skriv över "Inriktningar", med till exempel "Drivkrafter".
+DW.Settings.raceSingle.name: Skriv över "Släkte" (singular).
+DW.Settings.raceSingle.hint: Skriv över "Släkte", med till exempel "Bakgrund".
+DW.Settings.racePlural.name: Skriv över "Släkten" (plural).
+DW.Settings.racePlural.hint: Skriv över "Släkten", med till exempel "Bakgrunder".
+DW.Settings.bondSingle.name: Skriv över "Band" (singular).
+DW.Settings.bondSingle.hint: Skriv över "Band", till exempel med "Flagga".
+DW.Settings.bondPlural.name: Skriv över "Band" (plural).
+DW.Settings.bondPlural.hint: Skriv över "Band", till exempel med "Flaggor".
+DW.Settings.noCompendiumAutoData.name: Exkludera Dungeon World kompendiumdata
+DW.Settings.noCompendiumAutoData.hint: Exkludera drag och klasser som kommer från Dungeon Worlds standardkompenium, så att DW-hack som Homebrew World ska kunna återanvända samma klassnamn
+DW.Settings.compendiumPrefix.name: Kompendiumprefix
+DW.Settings.compendiumPrefix.hint: Välj automatiskt drag och klasser från kompendier med detta prefix, för DW-hack som Homebrew World. Om du till exempel anger "HBW", väljs klasserna från kompendiet som heter "HBW Classes" och drag för Krigaren väljs från "HBW The Fighter Moves". Låt fältet vara tomt för att avaktivera funktionen.
+DW.Settings.noAbilityScores.name: Inga grundegenskapsvärden
+DW.Settings.noAbilityScores.hint: Använd endast modifikationen, för DW-hack som Homebrew World
+DW.Settings.noAbilityIncrease.name: Ingen ökning av grundegenskaperna
+DW.Settings.noAbilityIncrease.hint: Grundegenskaperna ökar inte när karaktären går upp i nivå, för DW-hack som Homebrew World
+DW.Settings.noConstitutionToHP.name: Lägg inte till Fysik-värdet till TÅL
+DW.Settings.noConstitutionToHP.hint: Används för DW-hack som Homebrew World
+DW.Settings.noSTRToMaxLoad.name: Lägg inte till STY till max bärförmåga
+DW.Settings.noSTRToMaxLoad.hint: Används för DW-hack som Homebrew World
+DW.Settings.debilityLabelSTR.name: Svaghet för STY
+DW.Settings.debilityLabelSTR.hint: ''
+DW.Settings.debilityLabelDEX.name: Svaghet för SMI
+DW.Settings.debilityLabelDEX.hint: ''
+DW.Settings.debilityLabelCON.name: Svaghet för FYS
+DW.Settings.debilityLabelCON.hint: ''
+DW.Settings.debilityLabelINT.name: Svaghet för INT
+DW.Settings.debilityLabelINT.hint: ''
+DW.Settings.debilityLabelWIS.name: Svaghet för VIS
+DW.Settings.debilityLabelWIS.hint: ''
+DW.Settings.debilityLabelCHA.name: Svaghet för KAR
+DW.Settings.debilityLabelCHA.hint: ''
+DW.Dialog.askTitle: Välj ett värde
+DW.Dialog.askContent: Välj ett värde för det här <strong>{name}</strong> draget.
+DW.Dialog.bondTitle: Lägg in modifikation
+DW.Dialog.bondContent: Lägg in en modifikation för bandet eller en modifikation för det här <strong>{name}</strong> draget.
+DW.Notifications.noClassWarning: Du måste välja en existerande klass innan du går upp i nivå.
+DW.Scrolling.armorReduced: "{reduced} Rustning skyddar"
+DW.Scrolling.armorPiercing: "{piercing} Rustning ignoreras"
