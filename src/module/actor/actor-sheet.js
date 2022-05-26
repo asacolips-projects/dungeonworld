@@ -654,7 +654,7 @@ export class DwActorSheet extends ActorSheet {
           // Check if this spell has either `classname` or `the classname` as its class.
             && [caster_class, `the ${caster_class}`].includes(DwUtility.cleanClass(i.data.data.class));
         });
-        const spells_compendium = await DwUtility.loadCompendia('${char_class}-spells')
+        const spells_compendium = await DwUtility.loadCompendia(`${char_class}-spells`);
 
         // Get the compendium spells next.
         let spells_compendium_items = spells_compendium.filter(s => {
