@@ -1,7 +1,7 @@
 name: dungeonworld
 title: Dungeon World
 description: The Dungeon World system for FoundryVTT!
-version: 1.5.1
+version: 1.6.0
 minimumCoreVersion: 9
 compatibleCoreVersion: 9
 templateVersion: 2
@@ -237,4 +237,4 @@ initiative: 1d20
 socket: true
 url: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld
 manifest: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/raw/master/system.json
-download: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/jobs/artifacts/1.5.1/raw/dungeonworld.zip?job=build-prod
+download: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/jobs/artifacts/1.6.0/raw/dungeonworld.zip?job=build-prod
