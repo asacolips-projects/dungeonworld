@@ -113,7 +113,7 @@ export class DwItemSheet extends ItemSheet {
     }
 
     let returnData = {
-      item: this.object.document,
+      item: this.object,
       cssClass: isEditable ? "editable" : "locked",
       editable: isEditable,
       system: context.system,

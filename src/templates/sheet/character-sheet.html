@@ -46,19 +46,19 @@
 
           <div class="cell cell--look">
             <label class="cell__title">{{localize "DW.Look"}}</label>
-            {{editor content=system.details.look target="system.details.look" button=true owner=owner editable=editable}}
+            {{editor system.details.look target="system.details.look" button=true owner=owner editable=editable}}
           </div>
 
           <div class="cell cell--alignment">
             <label class="cell__title">{{localizeOverride "DW.Alignment" "alignmentSingle"}}</label>
             <input type="text" class="input input--title" name="system.details.alignment.value" value="{{system.details.alignment.value}}" data-dtype="String"/>
-            {{editor content=system.details.alignment.description target="system.details.alignment.description" button=true owner=owner editable=editable}}
+            {{editor system.details.alignment.description target="system.details.alignment.description" button=true owner=owner editable=editable}}
           </div>
 
           <div class="cell cell--race">
             <label class="cell__title">{{localizeOverride "DW.Race" "raceSingle"}}</label>
             <input type="text" class="input input--title" name="system.details.race.value" value="{{system.details.race.value}}" data-dtype="String"/>
-            {{editor content=system.details.race.description target="system.details.race.description" button=true owner=owner editable=editable}}
+            {{editor system.details.race.description target="system.details.race.description" button=true owner=owner editable=editable}}
           </div>
 
           <div class="cell cell--bonds">
@@ -181,7 +181,7 @@
               <div class="sheet-tab">
                 <div class="cell cell--bio">
                   <label class="cell__title">{{localize "DW.Biography"}}</label>
-                  {{editor content=system.details.biography target="system.details.biography" button=true owner=owner editable=editable}}
+                  {{editor system.details.biography target="system.details.biography" button=true owner=owner editable=editable}}
                 </div>
               </div>
             </div>

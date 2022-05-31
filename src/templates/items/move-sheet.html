@@ -23,21 +23,21 @@
         <div class="tab" data-group="primary" data-tab="description">
             <div class="resource">
               <label>{{localize "DW.Description"}}</label>
-              {{editor content=system.description target="system.description" button=true owner=owner editable=editable}}
+              {{editor system.description target="system.description" button=true owner=owner editable=editable}}
             </div>
 
             {{#if system.moveResults}}
               {{#each system.moveResults as |result key|}}
                 <div class="resource">
                   <label>{{localize (concat 'DW.' key)}}</label>
-                  {{editor content=result.value target=result.key button=true owner=../owner editable=../editable}}
+                  {{editor result.value target=result.key button=true owner=../owner editable=../editable}}
                 </div>
               {{/each}}
             {{/if}}
 
             <div class="resource">
               <label>{{localize "DW.Choices"}}</label>
-              {{editor content=system.choices target="system.choices" button=true owner=owner editable=editable}}
+              {{editor system.choices target="system.choices" button=true owner=owner editable=editable}}
             </div>
         </div>
 

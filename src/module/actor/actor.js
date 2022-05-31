@@ -13,7 +13,7 @@ export class ActorDw extends Actor {
     super.prepareData();
 
     const actorData = this;
-    const data = actorData.data;
+    const data = actorData.system;
     const flags = actorData.flags;
 
     if (actorData.type === 'character') this._prepareCharacterData(actorData);
@@ -23,7 +23,7 @@ export class ActorDw extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    const data = actorData.data;
+    const data = actorData.system;
 
     let debilities = {
       "str": game.settings.get('dungeonworld', 'debilityLabelSTR'),

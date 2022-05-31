@@ -93,8 +93,8 @@ export class DwActorSheet extends ActorSheet {
     }
 
     // Prepare items.
-    this._prepareCharacterItems(data);
-    this._prepareNpcItems(data);
+    this._prepareCharacterItems(context);
+    this._prepareNpcItems(context);
 
     // Add classlist.
     if (this.actor.type == 'character') {
@@ -171,7 +171,7 @@ export class DwActorSheet extends ActorSheet {
       bonds: context.bonds,
       effects: effects,
       items: items,
-      flags: this.object?.data?.flags,
+      flags: this.object?.flags,
       limited: this.object.limited,
       options: this.options,
       owner: isOwner,
