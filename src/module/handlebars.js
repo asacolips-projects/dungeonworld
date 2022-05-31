@@ -84,7 +84,7 @@ export class DwRegisterHelpers {
     });
 
     Handlebars.registerHelper('enrichText', function(content, rollData) {
-      return TextEditor.enrichHTML(content, {rollData});
+      return TextEditor.enrichHTML(content, {rollData: rollData, async: false});
     });
   }
 }

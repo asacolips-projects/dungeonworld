@@ -23,7 +23,7 @@
         <div class="tab" data-group="primary" data-tab="description">
           <div class="resource">
             <label>{{localize "DW.Description"}}</label>
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor content=system.description target="system.description" button=true owner=owner editable=editable}}
           </div>
 
           {{!-- TODO: Add moveResults here later if needed. --}}
@@ -34,13 +34,13 @@
         <div class="tab" data-group="primary" data-tab="details">
           <div class="resource">
             <label>{{localize "DW.RollFormula"}}</label>
-            <input type="text" name="data.rollFormula" value="{{data.rollFormula}}" placeholder="ex: 2d12kh+2" data-dtype="String"/>
+            <input type="text" name="system.rollFormula" value="{{system.rollFormula}}" placeholder="ex: 2d12kh+2" data-dtype="String"/>
           </div>
 
           <div class="resource">
             <label>{{localize "DW.MoveType"}}</label>
-            <select name="data.moveType" data-dtype="String">
-              {{#select data.moveType}}
+            <select name="system.moveType" data-dtype="String">
+              {{#select system.moveType}}
               <option value="">—</option>
               <option value="basic">{{localize "DW.MoveBasic"}}</option>
               <option value="special">{{localize "DW.MoveSpecial"}}</option>

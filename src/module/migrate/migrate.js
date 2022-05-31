@@ -41,20 +41,20 @@ export class MigrateDw {
     ];
 
     // Query actors.
-    let actors = game.actors.filter(a => a.data.type == 'character');
+    let actors = game.actors.filter(a => a.type == 'character');
     for (let actor of actors) {
       // Query moves on this actor.
-      let items = actor.items.filter(i => i.data.type == 'move');
+      let items = actor.items.filter(i => i.type == 'move');
       // Iterate through each move and update them as needed.
       for (let item of items) {
         let moveType = null;
 
         // Basic moves.
-        if (basicMoves.includes(item.data.name)) {
+        if (basicMoves.includes(item.name)) {
           moveType = 'basic';
         }
         // Special moves.
-        else if (specialMoves.includes(item.data.name)) {
+        else if (specialMoves.includes(item.name)) {
           moveType = 'special';
         }
 
@@ -109,16 +109,16 @@ export class MigrateDw {
     }
     // Get the class compendium data.
     for (let charClass of classes) {
-      let classItem = charClass.data;
+      let classItem = charClass.system;
       let hasUpdate = false;
-      for (let [k,v] of Object.entries(classItem.data.equipment)) {
+      for (let [k,v] of Object.entries(classItem.system.equipment)) {
         v.items = v.items.map(i => {
           return itemMap[i];
         });
       }
       let updates = {
         _id: classItem.id,
-        "data.equipment": classItem.data.equipment
+        "system.equipment": classItem.system.equipment
       };
       await charClass.update(updates);
     }

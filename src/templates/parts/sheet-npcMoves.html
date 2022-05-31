@@ -1,7 +1,7 @@
 <h4 class="item-name">
   <div class="item-avatar">
-    <span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">
-      {{#if item.data.rollType}}
+    <span class="rollable move-rollable" data-roll="{{item.system.rollType}}" data-mod="{{item.system.rollMod}}">
+      {{#if item.system.rollType}}
         <i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>
       {{else}}
         <i class="fas fa-book"></i>
@@ -11,9 +11,9 @@
   </div>
   <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span>
 </h4>
-{{#if item.data.rollType}}
+{{#if item.system.rollType}}
   <div class="item-meta tags">
-    <span class="tag">{{getLabel statSettings item.data.rollType}}</span>
+    <span class="tag">{{getLabel statSettings item.system.rollType}}</span>
   </div>
 {{/if}}
 <div class="item-controls">
@@ -21,17 +21,17 @@
   <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
 </div>
 <div class="item-description">
-  <div>{{{item.data.description}}}</div>
-  {{#if item.data.moveResults.success.value}}
-    <div class="result result--success"><strong class="result-label">10+:</strong>{{{item.data.moveResults.success.value}}}</div>
+  <div>{{{item.system.description}}}</div>
+  {{#if item.system.moveResults.success.value}}
+    <div class="result result--success"><strong class="result-label">10+:</strong>{{{item.system.moveResults.success.value}}}</div>
   {{/if}}
-  {{#if item.data.moveResults.partial.value}}
-    <div class="result result--partial"><strong class="result-label">7-9:</strong>{{{item.data.moveResults.partial.value}}}</div>
+  {{#if item.system.moveResults.partial.value}}
+    <div class="result result--partial"><strong class="result-label">7-9:</strong>{{{item.system.moveResults.partial.value}}}</div>
   {{/if}}
-  {{#if item.data.moveResults.failure.value}}
-    <div class="result result--failure"><strong class="result-label">6-:</strong>{{{item.data.moveResults.failure.value}}}</div>
+  {{#if item.system.moveResults.failure.value}}
+    <div class="result result--failure"><strong class="result-label">6-:</strong>{{{item.system.moveResults.failure.value}}}</div>
   {{/if}}
-  {{#if item.data.choices}}
-    <div class="result result--choices"><strong class="result-label">{{localize 'DW.Choices'}}:</strong>{{{item.data.choices}}}</div>
+  {{#if item.system.choices}}
+    <div class="result result--choices"><strong class="result-label">{{localize 'DW.Choices'}}:</strong>{{{item.system.choices}}}</div>
   {{/if}}
 </div>

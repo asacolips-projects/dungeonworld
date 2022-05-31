@@ -36,7 +36,7 @@ export class DwActorSheet extends ActorSheet {
   /** @override */
   get template() {
     const path = "systems/dungeonworld/templates/sheet";
-    return `${path}/${this.actor.data.type}-sheet.html`;
+    return `${path}/${this.actor.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
@@ -54,7 +54,7 @@ export class DwActorSheet extends ActorSheet {
   async getData(options) {
     let isOwner = false;
     let isEditable = this.isEditable;
-    let data = super.getData(options);
+    let context = super.getData(options);
     let items = {};
     let effects = {};
     let actorData = {};
@@ -63,20 +63,20 @@ export class DwActorSheet extends ActorSheet {
     isEditable = this.isEditable;
 
     // The Actor's data
-    actorData = this.actor.data.toObject(false);
-    data.actor = actorData;
-    data.data = actorData.data;
+    actorData = this.actor.toObject(false);
+    context.actor = actorData;
+    context.system = actorData.system;
 
     // Owned Items
-    data.items = actorData.items;
-    for ( let i of data.items ) {
+    context.items = actorData.items;
+    for ( let i of context.items ) {
       const item = this.actor.items.get(i._id);
       i.labels = item.labels;
     }
-    data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    context.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
     // Flags
-    data.rollModes = {
+    context.rollModes = {
       def: 'DW.Normal',
       adv: 'DW.Advantage',
       dis: 'DW.Disadvantage'
@@ -85,10 +85,10 @@ export class DwActorSheet extends ActorSheet {
     // Copy Active Effects
     // TODO: Test and refactor this.
     effects = this.object.effects.map(e => foundry.utils.deepClone(e.data));
-    data.effects = effects;
+    context.effects = effects;
 
-    data.dtypes = ["String", "Number", "Boolean"];
-    for (let attr of Object.values(data.data.attributes)) {
+    context.dtypes = ["String", "Number", "Boolean"];
+    for (let attr of Object.values(context.system.attributes)) {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
 
@@ -97,8 +97,8 @@ export class DwActorSheet extends ActorSheet {
     this._prepareNpcItems(data);
 
     // Add classlist.
-    if (this.actor.data.type == 'character') {
-      data.data.classlist = await DwClassList.getClasses();
+    if (this.actor.type == 'character') {
+      context.system.classlist = await DwClassList.getClasses();
 
       let xpSvg = {
         radius: 16,
@@ -107,39 +107,39 @@ export class DwActorSheet extends ActorSheet {
       };
 
       // Set a warning for tokens.
-      data.data.isToken = this.actor.token != null;
-      if (!data.data.isToken) {
+      context.system.isToken = this.actor.token != null;
+      if (!context.system.isToken) {
         // Add levelup choice.
-        let level = data.data.attributes.level.value ?? 1;
-        let xpRequired = data.data.attributes.xp.max ?? Number(level) + 7;
-        data.xpRequired = xpRequired;
-        let levelup = Number(data.data.attributes.xp.value) >= xpRequired && Number(level) < 10;
+        let level = context.system.attributes.level.value ?? 1;
+        let xpRequired = context.system.attributes.xp.max ?? Number(level) + 7;
+        context.xpRequired = xpRequired;
+        let levelup = Number(context.system.attributes.xp.value) >= xpRequired && Number(level) < 10;
 
         // Handle the first level (special case).
         if (Number(level) === 1) {
-          let hasStarting = data.startingMoves.length > 0;
+          let hasStarting = context.startingMoves.length > 0;
           if (!hasStarting) {
             levelup = true;
           }
         }
 
         // Set the template variable.
-        data.data.levelup = levelup && data.data.classlist.includes(data.data.details.class);
+        context.system.levelup = levelup && context.system.classlist.includes(context.system.details.class);
 
         // Calculate xp bar length.
-        let currentXp = Number(data.data.attributes.xp.value);
-        let nextLevel = Number(data.data.attributes.xp.max);
+        let currentXp = Number(context.system.attributes.xp.value);
+        let nextLevel = Number(context.system.attributes.xp.max);
         xpSvg = DwUtility.getProgressCircle({ current: currentXp, max: nextLevel, radius: 16 });
       }
       else {
-        data.data.levelup = false;
+        context.system.levelup = false;
       }
 
-      data.data.xpSvg = xpSvg;
+      context.system.xpSvg = xpSvg;
     }
 
     // Stats.
-    data.data.statSettings = {
+    context.system.statSettings = {
       'str': 'DW.STR',
       'dex': 'DW.DEX',
       'con': 'DW.CON',
@@ -149,26 +149,26 @@ export class DwActorSheet extends ActorSheet {
     };
 
     // Add item icon setting.
-    data.data.itemIcons = game.settings.get('dungeonworld', 'itemIcons');
+    context.system.itemIcons = game.settings.get('dungeonworld', 'itemIcons');
 
     // Check if ability scores are disabled
-    data.data.noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
+    context.system.noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
 
     // Return data to the sheet
     let returnData = {
       actor: this.object,
       cssClass: isEditable ? "editable" : "locked",
       editable: isEditable,
-      data: data.data,
-      moves: data.moves,
-      rollModes: data.rollModes,
-      basicMoves: data.basicMoves,
-      advancedMoves: data.advancedMoves,
-      startingMoves: data.startingMoves,
-      specialMoves: data.specialMoves,
-      equipment: data.equipment,
-      spells: data.spells,
-      bonds: data.bonds,
+      system: context.system,
+      moves: context.moves,
+      rollModes: context.rollModes,
+      basicMoves: context.basicMoves,
+      advancedMoves: context.advancedMoves,
+      startingMoves: context.startingMoves,
+      specialMoves: context.specialMoves,
+      equipment: context.equipment,
+      spells: context.spells,
+      bonds: context.bonds,
       effects: effects,
       items: items,
       flags: this.object?.data?.flags,
@@ -216,11 +216,10 @@ export class DwActorSheet extends ActorSheet {
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     for (let i of sheetData.items) {
-      let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
       // If this is a move, sort into various arrays.
       if (i.type === 'move') {
-        switch (i.data.moveType) {
+        switch (i.system.moveType) {
         case 'basic':
           basicMoves.push(i);
           break;
@@ -243,8 +242,8 @@ export class DwActorSheet extends ActorSheet {
         }
       }
       else if (i.type === 'spell') {
-        if (i.data.spellLevel != undefined) {
-          spells[i.data.spellLevel].push(i);
+        if (i.system.spellLevel != undefined) {
+          spells[i.system.spellLevel].push(i);
         }
       }
       // If this is equipment, we currently lump it together.
@@ -280,20 +279,20 @@ export class DwActorSheet extends ActorSheet {
     if (sheetData.actor.type != 'npc') return;
 
     // If there are tags, convert it into a string.
-    if (sheetData.data.tags != undefined && sheetData.data.tags != '') {
+    if (sheetData.system.tags != undefined && sheetData.system.tags != '') {
       let tagArray = [];
       try {
-        tagArray = JSON.parse(sheetData.data.tags);
+        tagArray = JSON.parse(sheetData.system.tags);
       } catch (e) {
-        tagArray = [sheetData.data.tags];
+        tagArray = [sheetData.system.tags];
       }
-      sheetData.data.tagsString = tagArray.map((item) => {
+      sheetData.system.tagsString = tagArray.map((item) => {
         return item.value;
       }).join(', ');
     }
     // Otherwise, set tags equal to the string.
     else {
-      sheetData.data.tags = sheetData.data.tagsString;
+      sheetData.system.tags = sheetData.system.tagsString;
     }
 
     const actorData = sheetData.actor;
@@ -306,11 +305,10 @@ export class DwActorSheet extends ActorSheet {
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     for (let i of sheetData.items) {
-      let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
       // If this is a move, sort into various arrays.
       if (i.type === 'npcMove') {
-        switch (i.data.moveType) {
+        switch (i.system.moveType) {
         case 'basic':
           basicMoves.push(i);
           break;
@@ -338,7 +336,7 @@ export class DwActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
-    if (this.actor.data.type == 'npc') {
+    if (this.actor.type == 'npc') {
       this._activateTagging(html);
     }
 
@@ -392,12 +390,12 @@ export class DwActorSheet extends ActorSheet {
 
   _adjustWeight(html) {
     // Adjust weight.
-    let $weight = html.find('[name="data.attributes.weight.value"]');
+    let $weight = html.find('[name="system.attributes.weight.value"]');
     let $weight_cell = html.find('.cell--weight');
     if ($weight.length > 0) {
       let weight = {
         current: Number($weight.val()),
-        max: Number(html.find('[name="data.attributes.weight.max"]').val())
+        max: Number(html.find('[name="system.attributes.weight.max"]').val())
       };
       if (weight.current > weight.max) {
         $weight_cell.addClass('encumbered');
@@ -423,23 +421,23 @@ export class DwActorSheet extends ActorSheet {
     // If there's an action and target attribute, update it.
     if (action && attr) {
       // Initialize data structure.
-      let data = {};
+      let system = {};
       let changed = false;
       // Retrieve the existin value.
-      data[attr] = Number(getProperty(this.actor.data.data, attr));
+      system[attr] = Number(getProperty(this.actor.system, attr));
       // Decrease the value.
       if (action == 'decrease') {
-        data[attr] -= 1;
+        system[attr] -= 1;
         changed = true;
       }
       // Increase the value.
       else if (action == 'increase') {
-        data[attr] += 1;
+        system[attr] += 1;
         changed = true;
       }
       // If there are changes, apply to the actor.
       if (changed) {
-        this.actor.update({ data: data });
+        this.actor.update({ system: system });
       }
     }
   }
@@ -462,8 +460,8 @@ export class DwActorSheet extends ActorSheet {
       return;
     }
 
-    const actor = this.actor.data;
-    const actorData = this.actor.data.data;
+    const actor = this.actor;
+    const actorData = this.actor.system;
     let orig_class_name = actorData.details.class;
     let char_class_name = orig_class_name.trim();
     let class_list = await DwClassList.getClasses();
@@ -497,17 +495,17 @@ export class DwActorSheet extends ActorSheet {
 
     const compendium = await DwUtility.loadCompendia(`${char_class}-moves`)
 
-    let class_item = class_list_items.find(i => i.data.name == orig_class_name);
-    if (!class_item?.data?.data) {
+    let class_item = class_list_items.find(i => i.name == orig_class_name);
+    if (!class_item?.system) {
       ui.notifications.warn(game.i18n.localize('DW.Notifications.noClassWarning'));
       return;
     }
-    let blurb = class_item ? class_item.data.data.description : null;
+    let blurb = class_item ? class_item.system.description : null;
 
     // Get races.
     let races = [];
-    if (!this.actor.data.data.details.race.value || !this.actor.data.data.details.race.description) {
-      races = class_item.data.data.races;
+    if (!this.actor.system.details.race.value || !this.actor.system.details.race.description) {
+      races = class_item.system.races;
       if (typeof races == 'object') {
         races = Object.entries(races).map(r => {
           return {
@@ -521,8 +519,8 @@ export class DwActorSheet extends ActorSheet {
 
     // Get alignments.
     let alignments = [];
-    if (!this.actor.data.data.details.alignment.value || !this.actor.data.data.details.alignment.description) {
-      alignments = class_item.data.data.alignments;
+    if (!this.actor.system.details.alignment.value || !this.actor.system.details.alignment.description) {
+      alignments = class_item.system.alignments;
       if (typeof alignments == 'object') {
         alignments = Object.entries(alignments).map(a => {
           return {
@@ -538,13 +536,13 @@ export class DwActorSheet extends ActorSheet {
     let equipment = null;
     let equipment_list = [];
     if (actorData.attributes.xp.value == 0) {
-      if (typeof class_item.data.data.equipment == 'object') {
+      if (typeof class_item.system.equipment == 'object') {
         let equipmentObjects = await class_item._getEquipmentObjects();
         for (let [group, group_items] of Object.entries(equipmentObjects)) {
-          class_item.data.data.equipment[group]['objects'] = group_items;
+          class_item.system.equipment[group]['objects'] = group_items;
           equipment_list = equipment_list.concat(group_items);
         }
-        equipment = duplicate(class_item.data.data.equipment);
+        equipment = duplicate(class_item.system.equipment);
       }
     }
 
@@ -558,57 +556,57 @@ export class DwActorSheet extends ActorSheet {
       return {
         short: a[0],
         long: a[1],
-        disabled: Number(this.actor.data.data.abilities[a[0]].value) > 17
+        disabled: Number(this.actor.system.abilities[a[0]].value) > 17
       }
     });
 
     // Retrieve the actor's current moves so that we can hide them.
-    const actorMoves = this.actor.data.items.filter(i => i.type == 'move');
+    const actorMoves = this.actor.items.filter(i => i.type == 'move');
 
     // Get the item moves as the priority.
     let moves = game.items.filter(m => {
-      if (m.type == 'move' && m.data.data.class == char_class_name) {
-        const available_level = m.data.data.requiresLevel <= char_level;
-        const not_taken = actorMoves.filter(i => i.name == m.data.name);
-        const has_requirements = m.data.data.requiresMove ? actorMoves.filter(i => i.name == m.data.data.requiresMove).length > 0 : true;
+      if (m.type == 'move' && m.system.class == char_class_name) {
+        const available_level = m.system.requiresLevel <= char_level;
+        const not_taken = actorMoves.filter(i => i.name == m.name);
+        const has_requirements = m.system.requiresMove ? actorMoves.filter(i => i.name == m.system.requiresMove).length > 0 : true;
         return available_level && not_taken.length < 1 && has_requirements;
       }
       return false;
     });
     // Get the compendium moves next.
     let moves_compendium = compendium.filter(m => {
-      const available_level = m.data.data.requiresLevel <= char_level;
-      // TODO: Babele: `const not_taken = actorMoves.filter(i => i.name == m.data.name || i.name === m.data.originalName);`
-      const not_taken = actorMoves.filter(i => i.name == m.data.name);
-      const has_requirements = m.data.data.requiresMove ? actorMoves.filter(i => i.name == m.data.data.requiresMove).length > 0 : true;
+      const available_level = m.system.requiresLevel <= char_level;
+      // TODO: Babele: `const not_taken = actorMoves.filter(i => i.name == m.name || i.name === m.originalName);`
+      const not_taken = actorMoves.filter(i => i.name == m.name);
+      const has_requirements = m.system.requiresMove ? actorMoves.filter(i => i.name == m.system.requiresMove).length > 0 : true;
       return available_level && not_taken.length < 1 && has_requirements;
     });
 
     // Append compendium moves to the item moves.
     let moves_list = moves.map(m => {
-      return m.data.name;
+      return m.name;
     })
     for (let move of moves_compendium) {
-      if (!moves_list.includes(move.data.name)) {
+      if (!moves_list.includes(move.name)) {
         moves.push(move);
       }
     }
 
     // Sort the moves and build our groups.
     moves.sort((a, b) => {
-      return a.data.data.requiresLevel - b.data.data.requiresLevel;
+      return a.system.requiresLevel - b.system.requiresLevel;
     });
 
     let starting_moves = [];
     let starting_move_groups = [];
     if (char_level < 2) {
       starting_moves = moves.filter(m => {
-        return m.data.data.requiresLevel < 2;
+        return m.system.requiresLevel < 2;
       });
 
       starting_move_groups = starting_moves.reduce((groups, move) => {
         // Assign the undefined group to all Z's so that it's last.
-        let group = move.data.data.moveGroup ? move.data.data.moveGroup : 'ZZZZZZZ';
+        let group = move.system.moveGroup ? move.system.moveGroup : 'ZZZZZZZ';
         if (!groups[group]) {
           groups[group] = [];
         }
@@ -619,11 +617,11 @@ export class DwActorSheet extends ActorSheet {
     }
 
     let advanced_moves_2 = moves.filter(m => {
-      return m.data.data.requiresLevel >= 2 && m.data.data.requiresLevel < 6;
+      return m.system.requiresLevel >= 2 && m.system.requiresLevel < 6;
     });
 
     let advanced_moves_6 = moves.filter(m => {
-      return m.data.data.requiresLevel >= 6;
+      return m.system.requiresLevel >= 6;
     });
 
     // Determine if spells can be cast.
@@ -641,7 +639,7 @@ export class DwActorSheet extends ActorSheet {
 
     if (cast_spells.length > 0) {
       // Retrieve the actor's current moves so that we can hide them.
-      const actorSpells = this.actor.data.items.filter(i => i.type == 'spell');
+      const actorSpells = this.actor.items.filter(i => i.type == 'spell');
       let caster_level = char_level;
       let spell_preparation_type = null;
       spells = [];
@@ -650,26 +648,26 @@ export class DwActorSheet extends ActorSheet {
         let spells_items = game.items.filter(i => {
           // Return true for custom spell items that have a class.
           return i.type == 'spell'
-            && i.data.data.class
+            && i.system.class
           // Check if this spell has either `classname` or `the classname` as its class.
-            && [caster_class, `the ${caster_class}`].includes(DwUtility.cleanClass(i.data.data.class));
+            && [caster_class, `the ${caster_class}`].includes(DwUtility.cleanClass(i.system.class));
         });
         const spells_compendium = await DwUtility.loadCompendia(`${char_class}-spells`);
 
         // Get the compendium spells next.
         let spells_compendium_items = spells_compendium.filter(s => {
-          const available_level = s.data.data.spellLevel <= caster_level;
-          const not_taken = actorSpells.filter(i => i.name == s.data.name);
+          const available_level = s.system.spellLevel <= caster_level;
+          const not_taken = actorSpells.filter(i => i.name == s.name);
           return available_level && not_taken.length < 1;
         });
 
         // Append compendium spells to the item spells.
         let spells_list = spells.map(s => {
-          return s.data.name;
+          return s.name;
         })
         // Add to the array, and also add to a sorted by level array.
         for (let spell of spells_compendium_items) {
-          if (!spells_list.includes(spell.data.name)) {
+          if (!spells_list.includes(spell.name)) {
             spells_items.push(spell);
           }
         }
@@ -681,12 +679,12 @@ export class DwActorSheet extends ActorSheet {
 
         // Sort the spells and build our groups.
         spells_items.sort((a, b) => {
-          return a.data.data.spellLevel - b.data.data.spellLevel;
+          return a.system.spellLevel - b.system.spellLevel;
         });
 
         let spell_groups = spells_items.reduce((groups, spell) => {
           // Default to rotes.
-          let group = spell.data.data.spellLevel ? spell.data.data.spellLevel : 0;
+          let group = spell.system.spellLevel ? spell.system.spellLevel : 0;
           if (!groups[group]) {
             groups[group] = [];
           }
@@ -699,23 +697,25 @@ export class DwActorSheet extends ActorSheet {
         if (caster_class == 'wizard') {
           let move = moves.filter(m => m.name == 'Spellbook');
           if (move && move.length > 0) {
-            spell_preparation_type = move[0].data.data.description;
+            spell_preparation_type = move[0].system.description;
           }
           else {
             move = actorMoves.filter(m => m.name == 'Spellbook');
             if (move && move.length > 0) {
-              spell_preparation_type = move[0].data.description;
+              // @todo: v10 test this.
+              spell_preparation_type = move[0].system.description;
             }
           }
         }
         else if (caster_class == 'cleric') {
           let move = moves.filter(m => m.name == 'Commune');
           if (move && move.length > 0) {
-            spell_preparation_type = move[0].data.data.description;
+            spell_preparation_type = move[0].system.description;
           }
           else {
             move = actorMoves.filter(m => m.name == 'Commune');
             if (move && move.length > 0) {
+              // @todo: v10 test this.
               spell_preparation_type = move[0].data.description;
             }
           }
@@ -843,7 +843,7 @@ export class DwActorSheet extends ActorSheet {
       }
       else if (input.dataset.type == 'ability-increase') {
         let abl = $(input).val();
-        abilities[`abilities.${abl}.value`] = Number(actor.data.data.abilities[abl].value) + 1;
+        abilities[`abilities.${abl}.value`] = Number(actor.system.abilities[abl].value) + 1;
       }
     }
 
@@ -886,41 +886,41 @@ export class DwActorSheet extends ActorSheet {
       }
     }
 
-    const data = {};
+    const system = {};
     if (race) {
-      data['details.race'] = {
+      system['details.race'] = {
         value: race.label,
         description: race.description
       };
     }
     if (alignment) {
-      data['details.alignment'] = {
+      system['details.alignment'] = {
         value: alignment.label,
         description: alignment.description
       }
     }
     if (abilities != []) {
       for (let [key, update] of Object.entries(abilities)) {
-        data[key] = update;
+        system[key] = update;
       }
     }
 
 
     // Adjust level.
-    if (Number(actor.data.data.attributes.xp.value) > 0) {
-      let xp = Number(actor.data.data.attributes.xp.value) - context.xpRequired;
-      data['attributes.xp.value'] = xp > -1 ? xp : 0;
-      data['attributes.level.value'] = Number(actor.data.data.attributes.level.value) + 1;
+    if (Number(actor.system.attributes.xp.value) > 0) {
+      let xp = Number(actor.system.attributes.xp.value) - context.xpRequired;
+      system['attributes.xp.value'] = xp > -1 ? xp : 0;
+      system['attributes.level.value'] = Number(actor.system.attributes.level.value) + 1;
     }
 
     //Set Level 1 bonds
-    if (Number(actor.data.data.attributes.xp.value) == 0) {
-      let theclass = DwUtility.cleanClass(actor.data.data.details.class);
+    if (Number(actor.system.attributes.xp.value) == 0) {
+      let theclass = DwUtility.cleanClass(actor.system.details.class);
       let newbonds = [];
 
       for (let i = 1; i < 7; i++) {
         if (game.i18n.localize("DW." + theclass + ".Bond" + i ) != "DW." + theclass + ".Bond" + i ) {
-          newbonds.push({name: game.i18n.localize("DW." + theclass + ".Bond" + i), type: 'bond', data: ''});
+          newbonds.push({name: game.i18n.localize("DW." + theclass + ".Bond" + i), type: 'bond', system: ''});
         }
       }
 
@@ -931,36 +931,36 @@ export class DwActorSheet extends ActorSheet {
     }
 
     // Adjust hp.
-    if (itemData.class_item.data.data.hp) {
+    if (itemData.class_item.system.hp) {
       const noConstitutionToHP = game.settings.get('dungeonworld', 'noConstitutionToHP');
       let constitution = 0;
       if (!noConstitutionToHP) {
-        constitution = actor.data.data.abilities.con.value;
-        if (data['abilities.con.value']) {
-          constitution = data['abilities.con.value'];
+        constitution = actor.system.abilities.con.value;
+        if (system['abilities.con.value']) {
+          constitution = system['abilities.con.value'];
         }
       }
-      data['attributes.hp.max'] = Number(itemData.class_item.data.data.hp) + Number(constitution);
-      data['attributes.hp.value'] = data['attributes.hp.max'];
+      system['attributes.hp.max'] = Number(itemData.class_item.system.hp) + Number(constitution);
+      system['attributes.hp.value'] = system['attributes.hp.max'];
     }
 
     // Adjust load.
-    if (itemData.class_item.data.data.load) {
+    if (itemData.class_item.system.load) {
       const noSTRToMaxLoad = game.settings.get('dungeonworld', 'noSTRToMaxLoad');
       if (noSTRToMaxLoad) {
-        data['attributes.weight.max'] = Number(itemData.class_item.data.data.load)
+        system['attributes.weight.max'] = Number(itemData.class_item.system.load)
       } else {
-        let strength = actor.data.data.abilities.str.value;
-        if (data['abilities.str.value']) {
-          strength = data['abilities.str.value'];
+        let strength = actor.system.abilities.str.value;
+        if (system['abilities.str.value']) {
+          strength = system['abilities.str.value'];
         }
-        data['attributes.weight.max'] = Number(itemData.class_item.data.data.load) + Number(DwUtility.getAbilityMod(strength));
+        system['attributes.weight.max'] = Number(itemData.class_item.system.load) + Number(DwUtility.getAbilityMod(strength));
       }
     }
 
     // Adjust damage die.
-    if (itemData.class_item.data.data.damage) {
-      data['attributes.damage.value'] = itemData.class_item.data.data.damage;
+    if (itemData.class_item.system.damage) {
+      system['attributes.damage.value'] = itemData.class_item.system.damage;
     }
 
     if (new_moves) {
@@ -973,7 +973,7 @@ export class DwActorSheet extends ActorSheet {
       await actor.createEmbeddedDocuments('Item', new_spells);
     }
 
-    await actor.update({ data: data });
+    await actor.update({ system: system });
     await actor.setFlag('dungeonworld', 'levelup', false);
     // actor.render(true);
   }
@@ -986,7 +986,7 @@ export class DwActorSheet extends ActorSheet {
     event.preventDefault();
     const a = event.currentTarget;
     const data = a.dataset;
-    const actorData = this.actor.data.data;
+    const actorData = this.actor.system;
     const itemId = $(a).parents('.item').attr('data-item-id');
     const item = this.actor.items.get(itemId);
 
@@ -994,7 +994,7 @@ export class DwActorSheet extends ActorSheet {
       let $self = $(a);
       $self.toggleClass('unprepared');
 
-      let update = { "data.prepared": !item.data.data.prepared };
+      let update = { "system.prepared": !item.system.prepared };
       await item.update(update, {});
 
       this.render();
@@ -1009,7 +1009,7 @@ export class DwActorSheet extends ActorSheet {
     event.preventDefault();
     const a = event.currentTarget;
     const dataset = a.dataset;
-    const actorData = this.actor.data.data;
+    const actorData = this.actor.system;
     const itemId = $(a).parents('.item').attr('data-item-id');
     const item = this.actor.items.get(itemId);
 
@@ -1020,13 +1020,13 @@ export class DwActorSheet extends ActorSheet {
 
     switch (dataset.action) {
     case 'uses':
-      let uses = item.data.data?.uses ?? 0;
-      update['data.uses'] = Number(uses) + offset;
+      let uses = item.system?.uses ?? 0;
+      update['system.uses'] = Number(uses) + offset;
       break;
 
     case 'quantity':
-      let quantity = item.data.data?.quantity ?? 0;
-      update['data.quantity'] = Number(quantity) + offset;
+      let quantity = item.system?.quantity ?? 0;
+      update['system.quantity'] = Number(quantity) + offset;
       break;
 
     default:
@@ -1047,7 +1047,7 @@ export class DwActorSheet extends ActorSheet {
     event.preventDefault();
     const a = event.currentTarget;
     const data = a.dataset;
-    const actorData = this.actor.data.data;
+    const actorData = this.actor.system;
     const itemId = $(a).parents('.item').attr('data-item-id');
     const item = this.actor.items.get(itemId);
     let formula = null;
@@ -1122,9 +1122,9 @@ export class DwActorSheet extends ActorSheet {
     const itemData = {
       name: name,
       type: type,
-      data: data
+      system: data
     };
-    delete itemData.data["type"];
+    delete itemData.system["type"];
     await this.actor.createEmbeddedDocuments('Item', [itemData], {});
   }
 
@@ -1224,8 +1224,8 @@ export class DwActorSheet extends ActorSheet {
 
         // Apply the update.
         this.document.update({
-          'data.tags': newTags,
-          'data.tagsString': newTagsString
+          'system.tags': newTags,
+          'system.tagsString': newTagsString
         }, {render: false});
       });
     }

@@ -20,7 +20,7 @@
 
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor content=system.description target="system.description" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Details Tab --}}
@@ -28,32 +28,32 @@
           <div class="resource">
             <label for="tag" class="control-label">{{localize "DW.Tags"}}</label>
             <div class="help-text"><p>{{localize "DW.TagsHelp" }}</p></div>
-            <input class='tags-input-source' placeholder='write some tags' value='{{ data.tags }}'/>
+            <input class='tags-input-source' placeholder='write some tags' value='{{ system.tags }}'/>
           </div>
           <div class="resource">
             <label>{{localize "DW.Equipped"}}</label>
-            <input type="checkbox" name="data.equipped" {{checked data.equipped}}/>
+            <input type="checkbox" name="system.equipped" {{checked system.equipped}}/>
           </div>
           <div class="resource">
             <label>{{localize "DW.Quantity"}}</label>
-            <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
+            <input type="text" name="system.quantity" value="{{system.quantity}}" data-dtype="Number"/>
           </div>
           <div class="resource">
             <label>{{localize "DW.Uses"}}</label>
-            <input type="text" name="data.uses" value="{{data.uses}}" data-dtype="Number"/>
+            <input type="text" name="system.uses" value="{{system.uses}}" data-dtype="Number"/>
           </div>
           <div class="resource">
             <label>{{localize "DW.Weight"}}</label>
-            <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
+            <input type="text" name="system.weight" value="{{system.weight}}" data-dtype="Number"/>
           </div>
           <div class="resource">
             <label>{{localize "DW.MagicItem"}}</label>
-            <input type="checkbox" name="data.magic" {{checked data.magic}}/>
+            <input type="checkbox" name="system.magic" {{checked system.magic}}/>
           </div>
           <div class="resource">
             <label>{{localize "DW.ItemType"}}</label>
-            <select name="data.itemType" data-dtype="String">
-              {{#select data.itemType}}
+            <select name="system.itemType" data-dtype="String">
+              {{#select system.itemType}}
               <option value="">—</option>
               <option value="weapon">{{localize "DW.Weapon"}}</option>
               <option value="armor">{{localize "DW.Armor"}}</option>

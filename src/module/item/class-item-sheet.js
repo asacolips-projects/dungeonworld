@@ -23,16 +23,16 @@ export class DwClassItemSheet extends DwItemSheet {
   /** @override */
   get template() {
     const path = "systems/dungeonworld/templates/items";
-    return `${path}/${this.item.data.type}-sheet.html`;
+    return `${path}/${this.item.type}-sheet.html`;
   }
 
   async getData() {
-    const data = await super.getData();
+    const context = await super.getData();
     let equipmentObjects = await this.item._getEquipmentObjects();
     for (let [group, group_items] of Object.entries(equipmentObjects)) {
-      data.data.equipment[group]['objects'] = group_items;
+      context.system.equipment[group]['objects'] = group_items;
     }
-    return data;
+    return context;
   }
 
   async activateListeners(html) {
@@ -72,16 +72,16 @@ export class DwClassItemSheet extends DwItemSheet {
     let updated = false;
 
     // Get data.
-    let data;
+    let itemData;
     try {
-      data = JSON.parse(ev.originalEvent.dataTransfer.getData('text/plain'));
-      if (data.type !== "Item") return;
+      itemData = JSON.parse(ev.originalEvent.dataTransfer.getData('text/plain'));
+      if (itemData.type !== "Item") return;
     } catch (err) {
       return false;
     }
 
     let group = $dropTarget.data('group');
-    this._createEquipment(data.id, group);
+    this._createEquipment(itemData.id, group);
 
     $dropTarget.removeClass('drop-hover');
 
@@ -98,12 +98,12 @@ export class DwClassItemSheet extends DwItemSheet {
   }
 
   async _deleteEquipment(equipmentId, groupId) {
-    let originalData = duplicate(this.item.data);
+    let originalData = duplicate(this.item);
     let itemData = {};
 
     // Filter items.
-    let newItems = originalData.data.equipment[groupId]['items'].filter(i => i != equipmentId);
-    itemData[`data.equipment.${groupId}.items`] = newItems;
+    let newItems = originalData.system.equipment[groupId]['items'].filter(i => i != equipmentId);
+    itemData[`system.equipment.${groupId}.items`] = newItems;
 
     // Update the entity.
     await this.item.update(itemData);
@@ -111,14 +111,14 @@ export class DwClassItemSheet extends DwItemSheet {
   }
 
   async _createEquipment(equipmentId, groupId) {
-    let originalData = duplicate(this.item.data);
+    let originalData = duplicate(this.item);
     let itemData = {};
 
     // Filter items.
     let existing_items = [];
 
-    if (!DwUtility.isEmpty(originalData.data.equipment[groupId]['items'])) {
-      existing_items = originalData.data.equipment[groupId]['items'];
+    if (!DwUtility.isEmpty(originalData.system.equipment[groupId]['items'])) {
+      existing_items = originalData.system.equipment[groupId]['items'];
     }
     else {
       existing_items = [];
@@ -126,7 +126,7 @@ export class DwClassItemSheet extends DwItemSheet {
     // Append our item.
     if (!existing_items.includes(equipmentId)) {
       existing_items.push(equipmentId);
-      itemData[`data.equipment.${groupId}.items`] = existing_items;
+      itemData[`system.equipment.${groupId}.items`] = existing_items;
       // Update the entity.
       await this.item.update(itemData);
       this.render(true);

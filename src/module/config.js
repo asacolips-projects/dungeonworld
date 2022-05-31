@@ -43,14 +43,14 @@ export class DwClassList {
     // First, retrieve any custom or overridden classes so that we can
     // prioritize those.
     let classes = game.items.filter(item => item.type == 'class');
-    
+
     classes.push(...(await DwUtility.loadCompendia('classes')))
-    
+
     // Reduce duplicates. Because item classes happen first, this will prevent
     // duplicate compendium entries from overriding the items.
     let charClassNames = [];
     for (let charClass of classes) {
-      let charClassName = charClass.data.name;
+      let charClassName = charClass.name;
       if (charClassNames.includes(charClassName) !== false) {
         classes = classes.filter(item => item.id != charClass.id);
       }
@@ -78,8 +78,8 @@ export class DwClassList {
     // Sort the class objects list.
     else {
       classes.sort((a, b) => {
-        const aSort = a.data.name.toLowerCase();
-        const bSort = b.data.name.toLowerCase();
+        const aSort = a.name.toLowerCase();
+        const bSort = b.name.toLowerCase();
         if (aSort < bSort) {
           return -1;
         }

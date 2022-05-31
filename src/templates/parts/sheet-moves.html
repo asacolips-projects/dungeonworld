@@ -1,9 +1,9 @@
 <h4 class="item-name">
   <div class="item-avatar">
-    <span class="rollable move-rollable" data-roll="{{item.data.rollType}}" data-mod="{{item.data.rollMod}}">
-      {{#if item.data.rollType}}
+    <span class="rollable move-rollable" data-roll="{{item.system.rollType}}" data-mod="{{item.system.rollMod}}">
+      {{#if item.system.rollType}}
         <i class="fas fa-dice-d6"></i> <i class="fas fa-dice-d6"></i>
-      {{else if item.data.rollFormula}}
+      {{else if item.system.rollFormula}}
         <i class="fas fa-dice-d20"></i>
       {{else}}
         <i class="fas fa-book"></i>
@@ -13,19 +13,19 @@
   </div>
   <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span>
 </h4>
-{{#if item.data.rollType}}
+{{#if item.system.rollType}}
   <div class="item-meta tags roll-type">
     <span class="tag">
-      {{#if (eq item.data.rollType 'FORMULA')}}
-        {{item.data.rollFormula}}
+      {{#if (eq item.system.rollType 'FORMULA')}}
+        {{item.system.rollFormula}}
       {{else}}
-        {{getLabel statSettings item.data.rollType}}
+        {{getLabel statSettings item.system.rollType}}
       {{/if}}
     </span>
   </div>
-{{else if item.data.rollFormula}}
+{{else if item.system.rollFormula}}
   <div class="item-meta tags">
-    <span class="tag">{{item.data.rollFormula}}</span>
+    <span class="tag">{{item.system.rollFormula}}</span>
   </div>
 {{/if}}
 <div class="item-controls">
@@ -33,17 +33,17 @@
   <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
 </div>
 <div class="item-description">
-  <div>{{{enrichText item.data.description rollData}}}</div>
-  {{#if item.data.moveResults.success.value}}
-    <div class="result result--success"><strong class="result-label">10+:</strong>{{{enrichText item.data.moveResults.success.value rollData}}}</div>
+  <div>{{{enrichText item.system.description rollData}}}</div>
+  {{#if item.system.moveResults.success.value}}
+    <div class="result result--success"><strong class="result-label">10+:</strong>{{{enrichText item.system.moveResults.success.value rollData}}}</div>
   {{/if}}
-  {{#if item.data.moveResults.partial.value}}
-    <div class="result result--partial"><strong class="result-label">7-9:</strong>{{{enrichText item.data.moveResults.partial.value rollData}}}</div>
+  {{#if item.system.moveResults.partial.value}}
+    <div class="result result--partial"><strong class="result-label">7-9:</strong>{{{enrichText item.system.moveResults.partial.value rollData}}}</div>
   {{/if}}
-  {{#if item.data.moveResults.failure.value}}
-    <div class="result result--failure"><strong class="result-label">6-:</strong>{{{enrichText item.data.moveResults.failure.value rollData}}}</div>
+  {{#if item.system.moveResults.failure.value}}
+    <div class="result result--failure"><strong class="result-label">6-:</strong>{{{enrichText item.system.moveResults.failure.value rollData}}}</div>
   {{/if}}
-  {{#if item.data.choices}}
-    <div class="result result--choices"><strong class="result-label">{{localize 'DW.Choices'}}:</strong>{{{enrichText item.data.choices rollData}}}</div>
+  {{#if item.system.choices}}
+    <div class="result result--choices"><strong class="result-label">{{localize 'DW.Choices'}}:</strong>{{{enrichText item.system.choices rollData}}}</div>
   {{/if}}
 </div>
