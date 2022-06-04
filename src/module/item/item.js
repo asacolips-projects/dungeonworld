@@ -51,6 +51,6 @@ export class ItemDw extends Item {
    * @return {Promise}
    */
    async roll({ configureDialog = true } = {}) {
-    DwRolls.rollMove({actor: this.actor, data: this.data});
+    DwRolls.rollMove({actor: this.actor, data: this});
   }
 }

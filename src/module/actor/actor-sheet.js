@@ -84,7 +84,7 @@ export class DwActorSheet extends ActorSheet {
 
     // Copy Active Effects
     // TODO: Test and refactor this.
-    effects = this.object.effects.map(e => foundry.utils.deepClone(e.data));
+    effects = this.object.effects.map(e => foundry.utils.deepClone(e));
     context.effects = effects;
 
     context.dtypes = ["String", "Number", "Boolean"];
@@ -716,7 +716,7 @@ export class DwActorSheet extends ActorSheet {
             move = actorMoves.filter(m => m.name == 'Commune');
             if (move && move.length > 0) {
               // @todo: v10 test this.
-              spell_preparation_type = move[0].data.description;
+              spell_preparation_type = move[0].system.description;
             }
           }
         }

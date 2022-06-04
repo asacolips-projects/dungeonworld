@@ -184,7 +184,7 @@ export class CombatSidebarDw {
               // Set the initiative of the actor being draged to the drop
               // target's +1. This will later be adjusted increments of 10.
               let updatedCombatant = combatants[newCombatant.actor.type].find(c => c.id == newCombatant.id);
-              updatedCombatant.data.initiative = Number(oldInit) + 1;
+              updatedCombatant.initiative = Number(oldInit) + 1;
 
               // Loop through all combatants in initiative order, and assign
               // a new initiative in increments of 10. The "updates" variable
@@ -231,7 +231,7 @@ export class CombatSidebarDw {
 
         // Iterate over actors of this type and update the initiative of this
         // actor based on that.
-        document.parent.data.combatants.filter(c => c.actor.type == actorType).forEach(c => {
+        document.parent.combatants.filter(c => c.actor.type == actorType).forEach(c => {
           let init = Number(c.initiative);
           if (init >= highestInit) {
             highestInit = init + 10;
@@ -239,7 +239,7 @@ export class CombatSidebarDw {
         });
 
         // Update this combatant.
-        document.data.update({initiative: highestInit});
+        document.update({initiative: highestInit});
       }
     });
 
@@ -267,7 +267,7 @@ export class CombatSidebarDw {
         let moveTotal = 0;
         if (combatants.character) {
           combatants.character.forEach(c => {
-            moveTotal = c.data.flags.dungeonworld ? moveTotal + Number(c.data.flags.dungeonworld.moveCount) : moveTotal;
+            moveTotal = c.flags.dungeonworld ? moveTotal + Number(c.flags.dungeonworld.moveCount) : moveTotal;
           });
         }
 
@@ -300,7 +300,7 @@ export class CombatSidebarDw {
    */
   getCombatantsData(updateInitiative = false) {
     // If there isn't a combat, exit and return an empty array.
-    if (!game.combat || !game.combat.data) {
+    if (!game.combat) {
       return [];
     }
 
@@ -370,7 +370,7 @@ export class CombatSidebarDw {
 
         // If this is the GM or the owner, push to the combatants list.
         // Otherwise, only push if the token isn't hidden in the scene.
-        const combatantToken = combatant?.token?.data ?? combat?._token?.data;
+        const combatantToken = combatant?.token ?? combat?._token;
         if (game.user.isGM || combatant.isOwner || !combatantToken?.hidden) {
           groups[group].push(combatant);
         }

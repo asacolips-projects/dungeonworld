@@ -360,7 +360,7 @@ export class ActorDw extends Actor {
     await super._preUpdate(data, options, userId);
 
     if (options?.dw) {
-      options.dw.preUpdate = {data: foundry.utils.duplicate(this.system)};
+      options.dw.preUpdate = {system: foundry.utils.duplicate(this.system)};
     }
   }
 
@@ -369,7 +369,7 @@ export class ActorDw extends Actor {
     await super._onUpdate(updateData, options, userId);
     const context = options?.dw?.preUpdate ?? false;
 
-    if (!options.diff || !context || context.data === undefined || updateData.system === undefined) return; // Nothing to do.
+    if (!options.diff || !context || updateData.system === undefined) return; // Nothing to do.
 
     // Exit early if not owner.
     let displayText = this.isOwner;
@@ -381,9 +381,9 @@ export class ActorDw extends Actor {
     // Prepare the scrolling text update.
     if (updateData.system?.attributes?.hp?.value !== undefined) {
       let hp = {
-        original: context.data.attributes.hp.value ?? null,
+        original: context.system.attributes.hp.value ?? null,
         current: updateData.system.attributes.hp.value ?? null,
-        max: context.data.attributes.hp?.max ?? updateData.system.attributes.hp.max
+        max: context.system.attributes.hp?.max ?? updateData.system.attributes.hp.max
       }
 
       if (!isNaN(hp.original) && !isNaN(hp.current)) {

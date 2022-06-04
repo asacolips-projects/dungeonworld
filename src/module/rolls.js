@@ -42,7 +42,7 @@ export class DwRolls {
 
     // Grab the item data, if any.
     const item = options?.data;
-    const itemData = item ? item?.data : null;
+    const itemData = item ? item?.system : null;
 
     // Grab the formula, if any.
     let formula = options.formula ?? null;
@@ -239,7 +239,7 @@ export class DwRolls {
 
         // Handle adv/dis.
         let rollMode = this.actor.flags?.dungeonworld?.rollMode ?? 'def';
-        const debilityIsActive = this.actorData.abilities[roll].debility
+        const debilityIsActive = this.actorData.abilities[roll] != undefined ? this.actorData.abilities[roll].debility : false;
         if (game.settings.get("dungeonworld", "disDebility") && debilityIsActive) {
           // If the roll had advantage, the debility disadvantage cancels it out,
           // otherwise the debility gives disadvantage
@@ -325,7 +325,7 @@ export class DwRolls {
           }
 
           // Handle XP.
-          const token = canvas.tokens.controlled.find(t => t.data.actorId == this.actor.id);
+          const token = canvas.tokens.controlled.find(t => t.actorId == this.actor.id);
           // @todo determine if this should be the canvas ID or the actor ID.
           templateData.tokenId = token ? `${canvas.scene.id}.${token.id}` : null;
           templateData.xp = resultType == 'failure' ? true : false;

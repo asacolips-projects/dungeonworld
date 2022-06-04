@@ -349,31 +349,34 @@ Hooks.once("ready", async function() {
 });
 
 Hooks.on('createChatMessage', async (message, options, id) => {
-  if (message?.roll) {
+  // @todo expand this to work with multiple rolls.
+  if (message?.rolls) {
     // Limit this to a single user.
     let firstGM = game.users.find(u => u.active && u.role == CONST.USER_ROLES.GAMEMASTER);
     if (!game.user.isGM || game.user.id !== firstGM.id) return;
     // Exit early if this is a rollable table.
     if (message?.flags?.core?.RollTable) return;
     // Retrieve the roll.
-    let r = Roll.fromJSON(message.roll);
+    let r = message.rolls[0] ?? null;
     // Re-render the roll.
-    r.render().then(rTemplate => {
-      // Render the damage buttons.
-      renderTemplate(`systems/dungeonworld/templates/parts/chat-buttons.html`, {}).then(buttonTemplate => {
-        if (message?.flags?.dungeonworld?.damageButtons) return;
-        // Update the chat message with the appended buttons.
-        message.update({
-          content: rTemplate + buttonTemplate,
-          'flags.dungeonworld.damageButtons': true,
+    if (r) {
+      r.render().then(rTemplate => {
+        // Render the damage buttons.
+        renderTemplate(`systems/dungeonworld/templates/parts/chat-buttons.html`, {}).then(buttonTemplate => {
+          if (message?.flags?.dungeonworld?.damageButtons) return;
+          // Update the chat message with the appended buttons.
+          message.update({
+            content: rTemplate + buttonTemplate,
+            'flags.dungeonworld.damageButtons': true,
+          })
+          // Update the chat log scroll position.
+            .then(m => {
+              let chatLog = document.querySelector('#chat-log');
+              chatLog.scrollTop = chatLog.scrollHeight;
+            });
         })
-        // Update the chat log scroll position.
-          .then(m => {
-            let chatLog = document.querySelector('#chat-log');
-            chatLog.scrollTop = chatLog.scrollHeight;
-          });
-      })
-    });
+      });
+    }
   }
 });
 

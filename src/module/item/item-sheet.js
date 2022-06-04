@@ -284,8 +284,8 @@ export class DwItemSheet extends ItemSheet {
         newKey.innerHTML = await renderTemplate(template, templateData);
         newKey = newKey.children[0];
 
-        let update = duplicate(this.object.data);
-        update.data.equipment[nk] = {
+        let update = duplicate(this.object.system);
+        update.system.equipment[nk] = {
           label: '',
           mode: 'radio',
           items: [],
