@@ -176,6 +176,7 @@ export class DwActorSheet extends ActorSheet {
       options: this.options,
       owner: isOwner,
       title: this.title,
+      xpRequired: data.xpRequired,
       rollData: this.actor.getRollData()
     };
 
@@ -808,7 +809,7 @@ export class DwActorSheet extends ActorSheet {
       return;
     }
 
-    let context = this.getData();
+    let context = await this.getData();
 
     let move_ids = [];
     let equipment_ids = [];
@@ -905,7 +906,6 @@ export class DwActorSheet extends ActorSheet {
       }
     }
 
-
     // Adjust level.
     if (Number(actor.system.attributes.xp.value) > 0) {
       let xp = Number(actor.system.attributes.xp.value) - context.xpRequired;
@@ -927,7 +927,6 @@ export class DwActorSheet extends ActorSheet {
       if (newbonds.length > 0) {
         await actor.createEmbeddedDocuments('Item', newbonds);
       }
-
     }
 
     // Adjust hp.
