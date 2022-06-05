@@ -241,5 +241,5 @@ secondaryTokenAttribute: attributes.xp
 initiative: 1d20
 socket: true
 url: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld
-manifest: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/raw/master/system.json
-download: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/jobs/artifacts/1.5.1/raw/dungeonworld.zip?job=build-prod
+manifest: https://asacolips-artifacts.s3.amazonaws.com/dungeonworld/master/system.json
+download: https://asacolips-artifacts.s3.amazonaws.com/dungeonworld/1.5.2/dungeonworld.zip
