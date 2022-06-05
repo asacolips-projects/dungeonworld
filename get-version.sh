@@ -1,3 +1,4 @@
 #!/bin/bash
 
-grep -oP '(?<="version": "\d.\d.\d.)[a-z]*' system.json
+VAL=$(grep -oP '(?<="version": "\d.\d.\d.)[a-z]*' system.json)
+echo ${VAL:='master'}
