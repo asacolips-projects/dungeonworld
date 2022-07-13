@@ -176,7 +176,7 @@ export class DwActorSheet extends ActorSheet {
       options: this.options,
       owner: isOwner,
       title: this.title,
-      xpRequired: data.xpRequired,
+      xpRequired: context.xpRequired,
       rollData: this.actor.getRollData()
     };
 

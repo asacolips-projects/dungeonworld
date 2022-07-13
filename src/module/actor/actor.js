@@ -340,6 +340,7 @@ export class ActorDw extends Actor {
 
       for ( let token of tokens ) {
         const pct = delta !== 0 ? Math.clamped(Math.abs(delta) / max, 0, 1) : 0.25;
+        let content = delta !== 0 ? delta.signedString() + " " + suffix : suffix;
         let textOptions = {
           anchor: CONST.TEXT_ANCHOR_POINTS.CENTER,
           direction: CONST.TEXT_ANCHOR_POINTS.TOP,
@@ -350,7 +351,7 @@ export class ActorDw extends Actor {
           // jitter: 1,
           duration: 3000
         };
-        token.hud.createScrollingText(delta !== 0 ? delta.signedString() + " " + suffix : suffix, foundry.utils.mergeObject(textOptions, overrideOptions));
+        canvas.interface.createScrollingText(token.center, content, foundry.utils.mergeObject(textOptions, overrideOptions));
       }
     }
   }
