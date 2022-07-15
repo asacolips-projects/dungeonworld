@@ -232,14 +232,14 @@ export class CombatSidebarDw {
         // Iterate over actors of this type and update the initiative of this
         // actor based on that.
         document.parent.combatants.filter(c => c.actor.type == actorType).forEach(c => {
-          let init = Number(c.initiative);
+          let init = Number(c.initiative) ?? 0;
           if (init >= highestInit) {
             highestInit = init + 10;
           }
         });
 
         // Update this combatant.
-        document.update({initiative: highestInit});
+        document.updateSource({initiative: highestInit ?? 0});
       }
     });
 
