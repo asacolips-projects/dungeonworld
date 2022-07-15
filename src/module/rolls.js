@@ -239,7 +239,7 @@ export class DwRolls {
 
         // Handle adv/dis.
         let rollMode = this.actor.flags?.dungeonworld?.rollMode ?? 'def';
-        const debilityIsActive = this.actorData.abilities[roll] != undefined ? this.actorData.abilities[roll].debility : false;
+        const debilityIsActive = this.actorData.abilities[roll] !== undefined ? this.actorData.abilities[roll].debility : false;
         if (game.settings.get("dungeonworld", "disDebility") && debilityIsActive) {
           // If the roll had advantage, the debility disadvantage cancels it out,
           // otherwise the debility gives disadvantage

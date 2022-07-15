@@ -939,8 +939,9 @@ export class DwActorSheet extends ActorSheet {
           constitution = system['abilities.con.value'];
         }
       }
-      system['attributes.hp.max'] = Number(itemData.class_item.system.hp) + Number(constitution);
-      system['attributes.hp.value'] = system['attributes.hp.max'];
+      data['attributes.hp.max'] = Number(itemData.class_item.system.hp) + Number(constitution);
+      const hpDelta = Math.max(system['attributes.hp.max'] - actor.system.attributes.hp.max, 0);
+      data['attributes.hp.value'] = hpDelta > 0 ? actor.system.attributes.hp.value + hpDelta : actor.system.attributes.hp.value;
     }
 
     // Adjust load.
