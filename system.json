@@ -7,10 +7,9 @@
   "compatibleCoreVersion": 10,
   "compatibility": {
     "minimum": 10,
-    "verified": 10,
-    "maximum": 11
+    "verified": 10.273,
+    "maximum": 10
   },
-  "templateVersion": 2,
   "authors": [
     {
       "name": "Asacolips"
@@ -332,5 +331,5 @@
   "socket": true,
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld",
   "manifest": "https://asacolips-artifacts.s3.amazonaws.com/dungeonworld/master/system.json",
-  "download": "https://asacolips-artifacts.s3.amazonaws.com/dungeonworld/1.5.2/dungeonworld.zip"
+  "download": "https://asacolips-artifacts.s3.amazonaws.com/dungeonworld/1.6.0/dungeonworld.zip"
 }
