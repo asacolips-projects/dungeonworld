@@ -73,7 +73,7 @@
 
     </div>
 
-    
+
     {{#if no_ability_increase}}
       {{!-- Hack to make a not condition. --}}
     {{else}}
@@ -119,16 +119,16 @@
                     <h4 class="item-name">
                       <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span>
                     </h4>
-                
+
                     <div class="item-meta tags">
-                      {{#if item.data.equipped }}<span class="tag equipped" data-action="equipped">{{localize "DW.Equipped"}}</span>{{/if}}
-                      {{#if item.data.uses }}<a class="tag counter uses" data-action="uses">{{localize "DW.Uses"}}: {{item.data.uses}}</a>{{/if}}
-                      {{#if item.data.quantity }}<a class="tag counter quantity" data-action="quantity">{{localize "DW.Qty"}}: {{item.data.quantity}}</a>{{/if}}
-                      {{#if item.data.weight }}<span class="tag">{{localize "DW.Wt"}}: {{item.data.weight}}</span>{{/if}}
+                      {{#if item.system.equipped }}<span class="tag equipped" data-action="equipped">{{localize "DW.Equipped"}}</span>{{/if}}
+                      {{#if item.system.uses }}<a class="tag counter uses" data-action="uses">{{localize "DW.Uses"}}: {{item.system.uses}}</a>{{/if}}
+                      {{#if item.system.quantity }}<a class="tag counter quantity" data-action="quantity">{{localize "DW.Qty"}}: {{item.system.quantity}}</a>{{/if}}
+                      {{#if item.system.weight }}<span class="tag">{{localize "DW.Wt"}}: {{item.system.weight}}</span>{{/if}}
                     </div>
                     <div class="item-description">
-                      {{#if item.data.tags}}{{{dwTags item.data.tags}}}{{/if}}
-                      <div class="description">{{{enrichText item.data.description ../rollData}}}</div>
+                      {{#if item.system.tags}}{{{dwTags item.system.tags}}}{{/if}}
+                      <div class="description">{{{enrichText item.system.description ../rollData}}}</div>
                     </div>
                   </div>
                 </li>
@@ -146,7 +146,7 @@
           {{!-- Loop through each group of starting moves. --}}
           {{#each starting_move_groups as |moves group|}}
             {{!-- If a movegroup is defined, that means this should be an OR choice. --}}
-            {{#if moves.0.data.data.moveGroup}}
+            {{#if moves.0.system.moveGroup}}
               <h2 class="cell__subtitle">{{localize "DW.ChooseStartingOne"}}</h2>
             {{!-- Otherwise, everything is valid. --}}
             {{else}}
@@ -203,8 +203,8 @@
                   <input type="checkbox" {{#ifEquals spellLevel 0}}checked disabled="disabled"{{/ifEquals}} data-item-id="{{spell.id}}" data-type="spell">
                 </div>
                 <div class="selection-content">
-                  <h3>{{spell.data.name}}</h3>
-                  <div>{{{spell.data.data.description}}}</div>
+                  <h3>{{spell.name}}</h3>
+                  <div>{{{spell.system.description}}}</div>
                 </div>
               </li>
             {{/each}}

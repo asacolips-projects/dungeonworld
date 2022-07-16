@@ -23,21 +23,21 @@
         <div class="tab" data-group="primary" data-tab="description">
             <div class="resource">
               <label>{{localize "DW.Description"}}</label>
-              {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+              {{editor system.description target="system.description" button=true owner=owner editable=editable}}
             </div>
 
-            {{#if data.moveResults}}
-              {{#each data.moveResults as |result key|}}
+            {{#if system.moveResults}}
+              {{#each system.moveResults as |result key|}}
                 <div class="resource">
                   <label>{{localize (concat 'DW.' key)}}</label>
-                  {{editor content=result.value target=result.key button=true owner=../owner editable=../editable}}
+                  {{editor result.value target=result.key button=true owner=../owner editable=../editable}}
                 </div>
               {{/each}}
             {{/if}}
 
             <div class="resource">
               <label>{{localize "DW.Choices"}}</label>
-              {{editor content=data.choices target="data.choices" button=true owner=owner editable=editable}}
+              {{editor system.choices target="system.choices" button=true owner=owner editable=editable}}
             </div>
         </div>
 
@@ -45,8 +45,8 @@
         <div class="tab" data-group="primary" data-tab="details">
           <div class="resource">
             <label>{{localize "DW.Roll"}}</label>
-            <select name="data.rollType" data-dtype="String">
-              {{#select data.rollType}}
+            <select name="system.rollType" data-dtype="String">
+              {{#select system.rollType}}
               <option value="">—</option>
               <option value="STR">{{localize "DW.STR"}}</option>
               <option value="DEX">{{localize "DW.DEX"}}</option>
@@ -61,24 +61,24 @@
             </select>
           </div>
 
-          {{#if (eq data.rollType 'FORMULA')}}
+          {{#if (eq system.rollType 'FORMULA')}}
             <div class="resource">
               <label>{{localize "DW.RollFormula"}}</label>
-              <input type="text" name="data.rollFormula" value="{{data.rollFormula}}" placeholder="ex: d6 + d8 + @str.mod" data-dtype="String"/>
+              <input type="text" name="system.rollFormula" value="{{system.rollFormula}}" placeholder="ex: d6 + d8 + @str.mod" data-dtype="String"/>
             </div>
           {{/if}}
 
           <div class="resource">
             <label>{{localize "DW.Modifier"}}</label>
-            <input type="text" name="data.rollMod" value="{{data.rollMod}}" data-dtype="Number"/>
+            <input type="text" name="system.rollMod" value="{{system.rollMod}}" data-dtype="Number"/>
           </div>
 
           <div class="resource">
             <label>{{localize "DW.Class"}}</label>
-            <select name="data.class">
-              {{#select data.class}}
+            <select name="system.class">
+              {{#select system.class}}
                 <option value="">—</option>
-                {{#each data.classlist as |class id|}}
+                {{#each system.classlist as |class id|}}
                 <option value="{{class}}">{{class}}</option>
                 {{/each}}
               {{/select}}
@@ -87,8 +87,8 @@
 
           <div class="resource">
             <label>{{localize "DW.MoveType"}}</label>
-            <select name="data.moveType" data-dtype="String">
-              {{#select data.moveType}}
+            <select name="system.moveType" data-dtype="String">
+              {{#select system.moveType}}
               <option value="">—</option>
               <option value="basic">{{localize "DW.MoveBasic"}}</option>
               <option value="starting">{{localize "DW.MoveStarting"}}</option>
@@ -100,17 +100,17 @@
 
           <div class="resource">
             <label>{{localize "DW.RequiresLevel"}}</label>
-            <input type="text" name="data.requiresLevel" value="{{data.requiresLevel}}" data-dtype="Number"/>
+            <input type="text" name="system.requiresLevel" value="{{system.requiresLevel}}" data-dtype="Number"/>
           </div>
 
           <div class="resource">
             <label>{{localize "DW.RequiresMove"}}</label>
-            <input type="text" name="data.requiresMove" value="{{data.requiresMove}}" data-dtype="String"/>
+            <input type="text" name="system.requiresMove" value="{{system.requiresMove}}" data-dtype="String"/>
           </div>
 
           <div class="resource">
             <label>{{localize "DW.MoveGroup"}}</label>
-            <input type="text" name="data.moveGroup" value="{{data.moveGroup}}" placeholder="ex: barbarian-armor" data-dtype="String"/>
+            <input type="text" name="system.moveGroup" value="{{system.moveGroup}}" placeholder="ex: barbarian-armor" data-dtype="String"/>
             <span class="help-text">{{localize "DW.MoveGroupHelp"}}</span>
           </div>
 

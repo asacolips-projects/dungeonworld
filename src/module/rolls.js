@@ -13,8 +13,8 @@ export class DwRolls {
   }
 
   static getModifiers(actor) {
-    let forward = Number(actor.data.data.attributes?.forward?.value) ?? 0;
-    let ongoing = Number(actor.data.data.attributes?.ongoing?.value) ?? 0;
+    let forward = Number(actor.system.attributes?.forward?.value) ?? 0;
+    let ongoing = Number(actor.system.attributes?.ongoing?.value) ?? 0;
     let result = '';
     if (forward) result += `+${forward}`;
     if (ongoing) result += `+${ongoing}`;
@@ -37,12 +37,12 @@ export class DwRolls {
 
     // Grab the actor data.
     this.actor = options.actor;
-    this.actorData = this.actor ? this.actor.data.data : {};
-    let actorType = this.actor.data.type;
+    this.actorData = this.actor ? this.actor.system : {};
+    let actorType = this.actor.type;
 
     // Grab the item data, if any.
     const item = options?.data;
-    const itemData = item ? item?.data : null;
+    const itemData = item ? item?.system : null;
 
     // Grab the formula, if any.
     let formula = options.formula ?? null;
@@ -67,20 +67,20 @@ export class DwRolls {
           image: item.img,
           title: item.name,
           trigger: null,
-          details: item.data.description,
-          moveResults: item.data.moveResults,
-          choices: item.data.choices
+          details: item.system.description,
+          moveResults: item.system.moveResults,
+          choices: item.system.choices
         };
 
-        if (item.type == 'npcMove' || item.data?.rollType == 'FORMULA') {
-          data.roll = item.data.rollFormula;
-          data.rollType = item.data.rollType ? item.data.rollType.toLowerCase() : 'npc';
+        if (item.type == 'npcMove' || item.system?.rollType == 'FORMULA') {
+          data.roll = item.system.rollFormula;
+          data.rollType = item.system.rollType ? item.system.rollType.toLowerCase() : 'npc';
         }
         else {
-          data.roll = item.data.rollType.toLowerCase();
-          data.rollType = item.data.rollType.toLowerCase();
+          data.roll = item.system.rollType.toLowerCase();
+          data.rollType = item.system.rollType.toLowerCase();
         }
-        data.mod = item.type == 'move' ? item.data.rollMod : 0;
+        data.mod = item.type == 'move' ? item.system.rollMod : 0;
         // If this is an ASK roll, render a bond first to determine which
         // score to use.
         if (data.roll == 'ask') {
@@ -135,9 +135,9 @@ export class DwRolls {
           image: item.img,
           title: item.name,
           trigger: null,
-          details: item.data.description
+          details: item.system.description
         };
-        data.roll = item.data.rollFormula;
+        data.roll = item.system.rollFormula;
         this.rollMoveExecute(data.roll, data, templateData);
       }
       // Handle equipment.
@@ -146,8 +146,8 @@ export class DwRolls {
           image: item.img,
           title: item.name,
           trigger: null,
-          details: item.data.description,
-          tags: item.data.tags
+          details: item.system.description,
+          tags: item.system.tags
         }
         data.roll = null;
         this.rollMoveExecute(data.roll, data, templateData);
@@ -178,8 +178,8 @@ export class DwRolls {
     if (rollMode === "blindroll") chatData["blind"] = true;
     // Add piercing and armor tags.
     let tags = [];
-    let piercing = this.actor.data.data.attributes.damage?.piercing ?? 0;
-    let ignoreArmor = this.actor.data.data.attributes.damage?.ignoreArmor ?? false;
+    let piercing = this.actor.system.attributes.damage?.piercing ?? 0;
+    let ignoreArmor = this.actor.system.attributes.damage?.ignoreArmor ?? false;
     if (piercing > 0) tags.push({value: `${piercing} piercing`});
     if (ignoreArmor) tags.push({value: `ignores armor`});
     templateData.tags = JSON.stringify(tags);
@@ -220,7 +220,7 @@ export class DwRolls {
         }
 
         // Handle formula overrides.
-        let formulaOverride = this.actor.data.data.attributes?.rollFormula?.value;
+        let formulaOverride = this.actor.system.attributes?.rollFormula?.value;
         if (formulaOverride && formula.includes('2d6')) {
           let overrideIsValid = false;
           try {
@@ -238,8 +238,8 @@ export class DwRolls {
         }
 
         // Handle adv/dis.
-        let rollMode = this.actor.data.flags?.dungeonworld?.rollMode ?? 'def';
-        const debilityIsActive = this.actorData.abilities[roll] !== undefined && this.actorData.abilities[roll].debility
+        let rollMode = this.actor.flags?.dungeonworld?.rollMode ?? 'def';
+        const debilityIsActive = this.actorData.abilities[roll] !== undefined ? this.actorData.abilities[roll].debility : false;
         if (game.settings.get("dungeonworld", "disDebility") && debilityIsActive) {
           // If the roll had advantage, the debility disadvantage cancels it out,
           // otherwise the debility gives disadvantage
@@ -284,7 +284,7 @@ export class DwRolls {
         // Append the modifiers.
         let modifiers = DwRolls.getModifiers(this.actor);
         formula = `${formula}${modifiers}`;
-        forwardUsed = Number(this.actor.data.data.attributes?.forward?.value) != 0;
+        forwardUsed = Number(this.actor.system.attributes?.forward?.value) != 0;
       }
       if (formula != null) {
         // Do the roll.
@@ -325,7 +325,7 @@ export class DwRolls {
           }
 
           // Handle XP.
-          const token = canvas.tokens.controlled.find(t => t.data.actorId == this.actor.id);
+          const token = canvas.tokens.controlled.find(t => t.actorId == this.actor.id);
           // @todo determine if this should be the canvas ID or the actor ID.
           templateData.tokenId = token ? `${canvas.scene.id}.${token.id}` : null;
           templateData.xp = resultType == 'failure' ? true : false;
@@ -339,7 +339,7 @@ export class DwRolls {
           }
         }
         // Render it.
-        templateData.actor = this.actor.data;
+        templateData.actor = this.actor;
         roll.render().then(r => {
           templateData.rollDw = r;
           templateData.roll = roll;
@@ -367,7 +367,7 @@ export class DwRolls {
     if (game.combat && game.combat.combatants) {
       let combatant = game.combat.combatants.find(c => c.actor.id == this.actor.id);
       if (combatant) {
-        let moveCount = combatant.data.flags.dungeonworld ? combatant.data.flags.dungeonworld.moveCount : 0;
+        let moveCount = combatant.flags.dungeonworld ? combatant.flags.dungeonworld.moveCount : 0;
         moveCount = moveCount ? Number(moveCount) + 1 : 1;
         // Emit a socket for the GM client.
         if (!game.user.isGM) {
@@ -385,7 +385,7 @@ export class DwRolls {
     // Update forward.
     if (forwardUsed || rollModeUsed) {
       let updates = {};
-      if (forwardUsed) updates['data.attributes.forward.value'] = 0;
+      if (forwardUsed) updates['system.attributes.forward.value'] = 0;
       if (rollModeUsed && game.settings.get('dungeonworld', 'advForward')) {
         updates['flags.dungeonworld.rollMode'] = 'def';
       }

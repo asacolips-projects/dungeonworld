@@ -18,29 +18,29 @@
       <section class="sheet-attributes sheet-attributes--npc">
 
         <div class="cell cell--damage">
-          <label class="cell__title damage-rollable rollable" data-roll="{{data.attributes.damage.value}}" data-label="{{localize "DW.Damage"}}" data-flavor="{{data.attributes.damage.piercing}}"><i class="fas fa-dice-d20"></i> {{localize "DW.Damage"}}</label>
-          <input type="text" name="data.attributes.damage.value" value="{{data.attributes.damage.value}}" placeholder="e.g. 2d12+7" data-dtype="String"/>
-          <input type="text" name="data.attributes.damage.piercing" value="{{data.attributes.damage.piercing}}" placeholder="e.g. 4 piercing" data-dtype="String"/>
+          <label class="cell__title damage-rollable rollable" data-roll="{{system.attributes.damage.value}}" data-label="{{localize "DW.Damage"}}" data-flavor="{{system.attributes.damage.piercing}}"><i class="fas fa-dice-d20"></i> {{localize "DW.Damage"}}</label>
+          <input type="text" name="system.attributes.damage.value" value="{{system.attributes.damage.value}}" placeholder="e.g. 2d12+7" data-dtype="String"/>
+          <input type="text" name="system.attributes.damage.piercing" value="{{system.attributes.damage.piercing}}" placeholder="e.g. 4 piercing" data-dtype="String"/>
         </div>
 
         <div class="cell cell--ac">
           <label class="cell__title">{{localize "DW.Armor"}}</label>
-          <input type="text" name="data.attributes.ac.value" value="{{data.attributes.ac.value}}" data-dtype="Number"/>
+          <input type="text" name="system.attributes.ac.value" value="{{system.attributes.ac.value}}" data-dtype="Number"/>
         </div>
 
         <div class="cell cell--hp">
-          <label for="data.attributes.hp.value" class="cell__title">{{localize "DW.HP"}}</label>
+          <label for="system.attributes.hp.value" class="cell__title">{{localize "DW.HP"}}</label>
           <div class="cell__counter">
-            <input type="text" name="data.attributes.hp.value" value="{{data.attributes.hp.value}}" data-dtype="Number"/>
+            <input type="text" name="system.attributes.hp.value" value="{{system.attributes.hp.value}}" data-dtype="Number"/>
             <span> / </span>
-            <input type="text" name="data.attributes.hp.max" value="{{data.attributes.hp.max}}" data-dtype="Number"/>
+            <input type="text" name="system.attributes.hp.max" value="{{system.attributes.hp.max}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="cell cell--tags">
           <label for="tag" class="control-label">{{localize "DW.Tags"}}</label>
           <div class="help-text"><p>{{localize "DW.TagsHelp" }}</p></div>
-          <input class='tags-input-source' placeholder='write some tags' value='{{ data.tags }}'/>
+          <input class='tags-input-source' placeholder='write some tags' value='{{ system.tags }}'/>
         </div>
 
       </section>
@@ -58,11 +58,11 @@
           <section class="sheet-tab">
             <div class="cell cell--special-qualities">
               <label class="cell__title">{{localize "DW.SpecialQualities"}}</label>
-              <input type="text" name="data.attributes.specialQualities.value" value="{{data.attributes.specialQualities.value}}" data-dtype="String"/>
+              <input type="text" name="system.attributes.specialQualities.value" value="{{system.attributes.specialQualities.value}}" data-dtype="String"/>
             </div>
             <div class="cell cell--description">
               <label class="cell__title">{{localize "DW.Description"}}</label>
-              {{editor content=data.details.biography target="data.details.biography" button=true owner=owner editable=editable}}
+              {{editor system.details.biography target="system.details.biography" button=true owner=owner editable=editable}}
             </div>
           </section>
         </div>
@@ -82,7 +82,7 @@
               <ol class="items-list">
               {{#each basicMoves as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
-                  {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item rollData=../../rollData statSettings=../../data.statSettings}}
+                  {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item rollData=../../rollData statSettings=../../system.statSettings}}
                 </li>
               {{/each}}
               </ol>
@@ -100,7 +100,7 @@
               <ol class="items-list">
               {{#each specialMoves as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
-                  {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item rollData=../../rollData statSettings=../../data.statSettings}}
+                  {{> "systems/dungeonworld/templates/parts/sheet-moves.html" item=item rollData=../../rollData statSettings=../../system.statSettings}}
                 </li>
               {{/each}}
               </ol>

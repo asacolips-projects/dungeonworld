@@ -76,18 +76,18 @@ function _getChatCardActor(card) {
 }
 
 async function _chatActionMarkXp(actor, message) {
-  if (!actor.data || !actor.data.data.attributes.xp) return;
+  if (!actor.system || !actor.system.attributes.xp) return;
 
-  let xp = actor.data.data.attributes.xp.value ?? 0;
+  let xp = actor.system.attributes.xp.value ?? 0;
   let updates = {
-    'data.attributes.xp.value': Number(xp) + 1
+    'system.attributes.xp.value': Number(xp) + 1
   };
 
   // Update the actor.
   await actor.update(updates);
 
   // Update the chat message.
-  let $content = $(message.data.content);
+  let $content = $(message.content);
   let $button = $content.find('.xp-button');
 
   // Replace the button.
@@ -106,10 +106,10 @@ async function _chatActionMarkXp(actor, message) {
 }
 
 async function _chatActionDamage(message, action) {
-  let actors = canvas.tokens.controlled.map(t => t.data.document.actor);
+  let actors = canvas.tokens.controlled.map(t => t.document.actor);
   if (!actors || actors.length < 1) return;
 
-  let $content = $(message.data.content).text();
+  let $content = $(message.content).text();
   // TODO: Localize this.
   let piercing = $content.match(/(\d+)\s*piercing|piercing\s*(\d+)/) ?? [];
   let options = {
@@ -118,9 +118,9 @@ async function _chatActionDamage(message, action) {
   };
 
   for (let actor of actors) {
-    if (!actor.data || !actor.data.data.attributes.hp) return;
+    if (!actor || !actor.system.attributes.hp) return;
 
-    let rollTotal = $(message.data.content).find('.dice-total')?.text() ?? 0;
+    let rollTotal = $(message.content).find('.dice-total')?.text() ?? 0;
 
     switch (action) {
       case 'damage':
@@ -147,11 +147,4 @@ async function _chatActionDamage(message, action) {
         break;
     }
   }
-
-  // let $content = $(message.data.content);
-  // let $button = $content.find('.chat-damage-buttons .button');
-
-  // $button.prop('disabled', true).addClass('button-disabled');
-
-  // await message.update({'content': $content[0].outerHTML});
 }
