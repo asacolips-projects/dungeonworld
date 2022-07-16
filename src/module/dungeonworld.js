@@ -349,37 +349,40 @@ Hooks.once("ready", async function() {
 });
 
 Hooks.on('createChatMessage', async (message, options, id) => {
-  if (message?.data?.roll) {
+  // @todo expand this to work with multiple rolls.
+  if (message?.rolls) {
     // Limit this to a single user.
     let firstGM = game.users.find(u => u.active && u.role == CONST.USER_ROLES.GAMEMASTER);
     if (!game.user.isGM || game.user.id !== firstGM.id) return;
     // Exit early if this is a rollable table.
-    if (message?.data?.flags?.core?.RollTable) return;
+    if (message?.flags?.core?.RollTable) return;
     // Retrieve the roll.
-    let r = Roll.fromJSON(message.data.roll);
+    let r = message.rolls[0] ?? null;
     // Re-render the roll.
-    r.render().then(rTemplate => {
-      // Render the damage buttons.
-      renderTemplate(`systems/dungeonworld/templates/parts/chat-buttons.html`, {}).then(buttonTemplate => {
-        if (message.data?.flags?.dungeonworld?.damageButtons) return;
-        // Update the chat message with the appended buttons.
-        message.update({
-          content: rTemplate + buttonTemplate,
-          'flags.dungeonworld.damageButtons': true,
+    if (r) {
+      r.render().then(rTemplate => {
+        // Render the damage buttons.
+        renderTemplate(`systems/dungeonworld/templates/parts/chat-buttons.html`, {}).then(buttonTemplate => {
+          if (message?.flags?.dungeonworld?.damageButtons) return;
+          // Update the chat message with the appended buttons.
+          message.update({
+            content: rTemplate + buttonTemplate,
+            'flags.dungeonworld.damageButtons': true,
+          })
+          // Update the chat log scroll position.
+            .then(m => {
+              let chatLog = document.querySelector('#chat-log');
+              chatLog.scrollTop = chatLog.scrollHeight;
+            });
         })
-        // Update the chat log scroll position.
-          .then(m => {
-            let chatLog = document.querySelector('#chat-log');
-            chatLog.scrollTop = chatLog.scrollHeight;
-          });
-      })
-    });
+      });
+    }
   }
 });
 
 Hooks.on('renderChatMessage', (app, html, data) => {
   // Determine visibility.
-  let chatData = app.data;
+  let chatData = app;
   const whisper = chatData.whisper || [];
   const isBlind = whisper.length && chatData.blind;
   const isVisible = (whisper.length) ? game.user.isGM || whisper.includes(game.user.id) || (!isBlind) : true;
@@ -423,12 +426,12 @@ Hooks.on('createActor', async (actor, options, id) => {
   // Prepare updates object.
   let updates = {};
 
-  if (actor.data.type == 'character') {
+  if (actor.type == 'character') {
     // Allow the character to levelup up when their level changes.
     await actor.setFlag('dungeonworld', 'levelup', true);
 
     // Get the item moves as the priority.
-    let moves = game.items.filter(i => i.type == 'move' && (i.data.data.moveType == 'basic' || i.data.data.moveType == 'special'));
+    let moves = game.items.filter(i => i.type == 'move' && (i.system.moveType == 'basic' || i.system.moveType == 'special'));
     const compendium = await DwUtility.loadCompendia('basic-moves');
     let actorMoves = [];
 
@@ -436,24 +439,24 @@ Hooks.on('createActor', async (actor, options, id) => {
 
     // Get the compendium moves next.
     let moves_compendium = compendium.filter(m => {
-      const notTaken = actorMoves.filter(i => i.name == m.data.name);
+      const notTaken = actorMoves.filter(i => i.name == m.name);
       return notTaken.length < 1;
     });
     // Append compendium moves to the item moves.
     let moves_list = moves.map(m => {
-      return m.data.name;
+      return m.name;
     })
     for (let move of moves_compendium) {
-      if (!moves_list.includes(move.data.name)) {
+      if (!moves_list.includes(move.name)) {
         moves.push(move);
-        moves_list.push(move.data.name);
+        moves_list.push(move.name);
       }
     }
 
     // Sort the moves and build our groups.
     moves.sort((a, b) => {
-      const aSort = a.data.name.toLowerCase();
-      const bSort = b.data.name.toLowerCase();
+      const aSort = a.name.toLowerCase();
+      const bSort = b.name.toLowerCase();
       if (aSort < bSort) {
         return -1;
       }
@@ -464,7 +467,7 @@ Hooks.on('createActor', async (actor, options, id) => {
     });
 
     // Add default look.
-    updates['data.details.look'] = game.i18n.localize('DW.DefaultLook');
+    updates['system.details.look'] = game.i18n.localize('DW.DefaultLook');
 
     // Link the token.
     updates['token.actorLink'] = true;
@@ -478,13 +481,13 @@ Hooks.on('createActor', async (actor, options, id) => {
 
     // Only execute the function once.
     const owners = [];
-    Object.entries(actor.data.permission).forEach(([uid, role]) => {
+    Object.entries(actor.permission).forEach(([uid, role]) => {
       // @todo unhardcode this role ID (owner).
       if (role == 3) owners.push(uid);
     });
     const isOwner = owners.includes(game.user.id);
     // @todo improve this to better handle multiple GMs/owers.
-    const allowMoveAdd = game.user.isGM || (isOwner && game.users.filter(u => u.data.role == CONST.USER_ROLES.GAMEMASTER && u.data.document.active).length < 1);
+    const allowMoveAdd = game.user.isGM || (isOwner && game.users.filter(u => u.role == CONST.USER_ROLES.GAMEMASTER && u.document.active).length < 1);
 
     // If there are moves and we haven't already add them, add them.
     if (movesToAdd.length > 0 && allowMoveAdd) {
@@ -493,7 +496,7 @@ Hooks.on('createActor', async (actor, options, id) => {
     }
   }
 
-  if (actor.data.type == 'npc') {
+  if (actor.type == 'npc') {
     updates['token.bar1'] = { attribute: 'attributes.hp' };
     updates['token.bar2'] = { attribute: null };
     updates['token.displayBars'] = 20;
@@ -507,16 +510,16 @@ Hooks.on('createActor', async (actor, options, id) => {
 
 // Update the item list on new item creation.
 Hooks.on('createItem', async (item, options, id) => {
-  if (item.data.type == 'equipment') {
+  if (item.type == 'equipment') {
     DwUtility.getEquipment(true);
   }
 })
 
-Hooks.on('preUpdateActor', (actor, data, options, id) => {
-  if (actor.data.type == 'character') {
+Hooks.on('preUpdateActor', (actor, updateData, options, id) => {
+  if (actor.type == 'character') {
     // Allow the character to levelup up when their level changes.
-    if (data.data && data.data.attributes && data.data.attributes.level) {
-      if (data.data.attributes.level.value > actor.data.data.attributes.level.value) {
+    if (updateData.system && updateData.system.attributes && updateData.system.attributes.level) {
+      if (updateData.system.attributes.level.value > actor.system.attributes.level.value) {
         actor.setFlag('dungeonworld', 'levelup', true);
       }
     }
@@ -528,7 +531,7 @@ Hooks.on('preUpdateActor', (actor, data, options, id) => {
 /* -------------------------------------------- */
 Hooks.on('renderDialog', (dialog, html, options) => {
   // If this is the levelup dialog, we need to add listeners to it.
-  if (dialog.data.id && dialog.data.id == 'level-up') {
+  if (dialog.id && dialog.id == 'level-up') {
     // If an ability score is chosen, we need to update the available options.
     html.find('.cell--ability-scores select').on('change', () => {
       // Build the list of selected score values.
@@ -598,11 +601,16 @@ Hooks.on('renderDialog', (dialog, html, options) => {
  * @returns {Promise}
  */
 async function createDwMacro(data, slot) {
+  // First, determine if this is a valid owned item.
   if (data.type !== "Item") return;
-  if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
-  const item = data.data;
+  if (!data.uuid.includes('Actor.') && !data.uuid.includes('Token.')) {
+    return ui.notifications.warn("You can only create macro buttons for owned Items");
+  }
+  // If it is, retrieve it based on the uuid.
+  const item = await Item.fromDropData(data);
 
   // Create the macro command
+  // @todo refactor this to use uuids and folders.
   const command = `game.dungeonworld.rollItemMacro("${item.name}");`;
   let macro = game.macros.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
@@ -611,7 +619,10 @@ async function createDwMacro(data, slot) {
       type: "script",
       img: item.img,
       command: command,
-      flags: { "dungeonworld.itemMacro": true }
+      flags: {
+        "dungeonworld.itemMacro": true,
+        "dungeonworld.itemUuid": data.uuid
+      }
     });
   }
   game.user.assignHotbarMacro(macro, slot);
@@ -621,18 +632,39 @@ async function createDwMacro(data, slot) {
 /**
  * Create a Macro from an Item drop.
  * Get an existing item macro if one exists, otherwise create a new one.
- * @param {string} itemName
+ * @param {string} itemData
  * @return {Promise}
  */
-function rollItemMacro(itemName) {
-  const speaker = ChatMessage.getSpeaker();
-  let actor;
-  if (speaker.token) actor = game.actors.tokens[speaker.token];
-  if (!actor) actor = game.actors.get(speaker.actor);
-  const item = actor ? actor.items.find(i => i.name === itemName) : null;
-  if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
+function rollItemMacro(itemData) {
+  // Reconstruct the drop data so that we can load the item.
+  // @todo this section isn't currently used, the name section below is used.
+  if (itemData.includes('Actor.') || itemData.includes('Token.')) {
+    const dropData = {
+      type: 'Item',
+      uuid: itemData
+    };
+    Item.fromDropData(dropData).then(item => {
+      // Determine if the item loaded and if it's an owned item.
+      if (!item || !item.parent) {
+        const itemName = item?.name ?? itemData;
+        return ui.notifications.warn(`Could not find item ${itemName}. You may need to delete and recreate this macro.`);
+      }
 
-  // Trigger the item roll
-  // if ( item.data.type === "spell" ) return actor.useSpell(item);
-  return item.roll();
+      // Trigger the item roll
+      item.roll();
+    });
+  }
+  // Load item by name from the actor.
+  else {
+    const speaker = ChatMessage.getSpeaker();
+    const itemName = itemData;
+    let actor;
+    if (speaker.token) actor = game.actors.tokens[speaker.token];
+    if (!actor) actor = game.actors.get(speaker.actor);
+    const item = actor ? actor.items.find(i => i.name === itemName) : null;
+    if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
+
+    // Trigger the item roll
+    return item.roll();
+  }
 }

@@ -21,7 +21,7 @@
 
       {{!-- Description Tab --}}
       <div class="tab" data-group="primary" data-tab="description">
-        {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        {{editor system.description target="system.description" button=true owner=owner editable=editable}}
       </div>
 
       {{!-- Details Tab --}}
@@ -34,13 +34,13 @@
               <a class="class-control" data-action="create" data-type="races"><i class="fas fa-plus"></i></a>
             </div>
             <ul class="items-list">
-            {{#each data.races as |race id|}}
+            {{#each system.races as |race id|}}
               <li class="item race" data-index="{{id}}">
                 <div class="flexrow">
-                  <input type="text" class="input input--title" name="data.races.{{id}}.label" value="{{race.label}}" data-dtype="string"/>
+                  <input type="text" class="input input--title" name="system.races.{{id}}.label" value="{{race.label}}" data-dtype="string"/>
                   <a class="class-control" data-action="delete" data-type="races"><i class="fas fa-trash"></i></a>
                 </div>
-                <textarea class="race" name="data.races.{{id}}.description" rows="5" title="What's your race?" data-dtype="String">{{race.description}}</textarea>
+                <textarea class="race" name="system.races.{{id}}.description" rows="5" title="What's your race?" data-dtype="String">{{race.description}}</textarea>
               </li>
             {{/each}}
             </ul>
@@ -52,13 +52,13 @@
               <a class="class-control" data-action="create" data-type="alignments"><i class="fas fa-plus"></i></a>
             </div>
             <ul class="items-list">
-            {{#each data.alignments as |alignment id|}}
+            {{#each system.alignments as |alignment id|}}
               <li class="item alignment" data-index="{{id}}">
                 <div class="flexrow">
-                  <input type="text" class="input input--title" name="data.alignments.{{id}}.label" value="{{alignment.label}}" data-dtype="string"/>
+                  <input type="text" class="input input--title" name="system.alignments.{{id}}.label" value="{{alignment.label}}" data-dtype="string"/>
                   <a class="class-control" data-action="delete" data-type="alignments"><i class="fas fa-trash"></i></a>
                 </div>
-                <textarea class="alignment" name="data.alignments.{{id}}.description" rows="5" title="What's your alignment?" data-dtype="String">{{alignment.description}}</textarea>
+                <textarea class="alignment" name="system.alignments.{{id}}.description" rows="5" title="What's your alignment?" data-dtype="String">{{alignment.description}}</textarea>
               </li>
             {{/each}}
             </ul>
@@ -72,18 +72,18 @@
               <div class="resource">
                 <label>{{localize "DW.ClassBaseHp"}}</label>
                 <div class="help-text">{{localize "DW.ClassBaseHpHelp"}}</div>
-                <input type="text" name="data.hp" value="{{data.hp}}" data-dtype="Number">
+                <input type="text" name="system.hp" value="{{system.hp}}" data-dtype="Number">
               </div>
               <div class="resource">
                 <label>{{localize "DW.ClassBaseLoad"}}</label>
                 <div class="help-text">{{localize "DW.ClassBaseLoadHelp"}}</div>
-                <input type="text" name="data.load" value="{{data.load}}" data-dtype="Number">
+                <input type="text" name="system.load" value="{{system.load}}" data-dtype="Number">
               </div>
               <div class="resource">
                 <label>{{localize "DW.ClassDamage"}}</label>
                 <div class="help-text">{{localize "DW.ClassDamageHelp"}}</div>
-                <select name="data.damage" data-dtype="String">
-                  {{#select data.damage}}
+                <select name="system.damage" data-dtype="String">
+                  {{#select system.damage}}
                   <option value="">—</option>
                   <option value="d4">d4</option>
                   <option value="d6">d6</option>
@@ -113,11 +113,11 @@
 
           <div class="equipment-grid grid grid-2col">
 
-            {{#each data.equipment as |equipmentGroup groupId|}}
+            {{#each system.equipment as |equipmentGroup groupId|}}
               <div class="cell resource equipment-group" data-index="{{groupId}}">
                 <div class="cell__title">
-                  <input type="text" name="data.equipment.{{groupId}}.label" placeholder="{{localize "DW.ClassEquipmentGroupPlaceholder"}}" value="{{equipmentGroup.label}}">
-                  <select name="data.equipment.{{groupId}}.mode">
+                  <input type="text" name="system.equipment.{{groupId}}.label" placeholder="{{localize "DW.ClassEquipmentGroupPlaceholder"}}" value="{{equipmentGroup.label}}">
+                  <select name="system.equipment.{{groupId}}.mode">
                     {{#select equipmentGroup.mode}}
                     <option value="radio">{{localize "DW.ChooseOne"}}</option>
                     <option value="checkbox">{{localize "DW.ChooseAny"}}</option>
@@ -131,7 +131,7 @@
                   {{#if equipmentGroup.objects }}
                     <ul class="tags">
                     {{#each equipmentGroup.objects as |item key|}}
-                      <li class="tag" data-item-id="{{item.id}}">{{item.data.name}}<span class="remove-tag delete-equipment" role="button" data-action="delete"></span></span></li>
+                      <li class="tag" data-item-id="{{item.id}}">{{item.name}}<span class="remove-tag delete-equipment" role="button" data-action="delete"></span></span></li>
                     {{/each}}
                     </ul>
                   {{else}}

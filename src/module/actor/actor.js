@@ -12,8 +12,8 @@ export class ActorDw extends Actor {
   prepareData() {
     super.prepareData();
 
-    const actorData = this.data;
-    const data = actorData.data;
+    const actorData = this;
+    const data = actorData.system;
     const flags = actorData.flags;
 
     if (actorData.type === 'character') this._prepareCharacterData(actorData);
@@ -23,7 +23,7 @@ export class ActorDw extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    const data = actorData.data;
+    const data = actorData.system;
 
     let debilities = {
       "str": game.settings.get('dungeonworld', 'debilityLabelSTR'),
@@ -80,14 +80,14 @@ export class ActorDw extends Actor {
       let equipment = items.filter(i => i.type == 'equipment');
       equipment.forEach(i => {
         // Add weight for each item.
-        let itemQuantity = Number(i.data.data.quantity);
-        let itemWeight = Number(i.data.data.weight);
+        let itemQuantity = Number(i.system.quantity);
+        let itemWeight = Number(i.system.weight);
         if (itemWeight > 0) {
           weight = weight + (itemQuantity * itemWeight);
         }
         // Add weapon tags.
-        if (i.data.data?.equipped && i.data.data.itemType == 'weapon') {
-          let tags = i.data.data.tags ? JSON.parse(i.data.data.tags) : [];
+        if (i.system?.equipped && i.system.itemType == 'weapon') {
+          let tags = i.system.tags ? JSON.parse(i.system.tags) : [];
           for (let tag of tags) {
             let piercing = tag.value.toLowerCase().match(/(\d+)\s*piercing|piercing\s*(\d+)/) ?? [];
             let ignoreArmor = tag.value.toLowerCase().includes('ignores armor');
@@ -136,13 +136,13 @@ export class ActorDw extends Actor {
     // Initialize variables.
     event.preventDefault();
 
-    if (!actor.data) {
+    if (!actor.system) {
       return;
     }
 
     const a = event.currentTarget;
     const data = a.dataset;
-    const actorData = actor.data.data;
+    const actorData = actor.system;
     const itemId = $(a).parents('.item').attr('data-item-id');
     const item = actor.items.get(itemId);
     let formula = null;
@@ -185,7 +185,7 @@ export class ActorDw extends Actor {
    * @param {Object} templateData
    */
   rollMove(roll, actor, dataset, templateData, form = null, applyDamage = false) {
-    let actorData = actor.data.data;
+    let actorData = actor.system;
     // Render the roll.
     let template = 'systems/dungeonworld/templates/chat/chat-move.html';
     // GM rolls.
@@ -283,9 +283,9 @@ export class ActorDw extends Actor {
       break;
     }
 
-    let hp = this.data.data?.attributes?.hp?.value ?? 0;
-    let hpMax = this.data.data?.attributes?.hp?.max ?? 1;
-    let armor = this.data.data?.attributes?.ac?.value ?? 0;
+    let hp = this.system?.attributes?.hp?.value ?? 0;
+    let hpMax = this.system?.attributes?.hp?.max ?? 1;
+    let armor = this.system?.attributes?.ac?.value ?? 0;
     let piercing = options?.ignoreArmor ? armor : options?.piercing;
     let reduced = armor;
 
@@ -306,7 +306,7 @@ export class ActorDw extends Actor {
     if (newHp > hpMax) newHp = hpMax;
 
     if (newHp !== hp) {
-      const update = {'data.attributes.hp.value': newHp};
+      const update = {'system.attributes.hp.value': newHp};
       const context = {
         'dw.armor.reduced': reduced,
         'dw.armor.value': armor,
@@ -340,6 +340,7 @@ export class ActorDw extends Actor {
 
       for ( let token of tokens ) {
         const pct = delta !== 0 ? Math.clamped(Math.abs(delta) / max, 0, 1) : 0.25;
+        let content = delta !== 0 ? delta.signedString() + " " + suffix : suffix;
         let textOptions = {
           anchor: CONST.TEXT_ANCHOR_POINTS.CENTER,
           direction: CONST.TEXT_ANCHOR_POINTS.TOP,
@@ -350,7 +351,7 @@ export class ActorDw extends Actor {
           // jitter: 1,
           duration: 3000
         };
-        token.hud.createScrollingText(delta !== 0 ? delta.signedString() + " " + suffix : suffix, foundry.utils.mergeObject(textOptions, overrideOptions));
+        canvas.interface.createScrollingText(token.center, content, foundry.utils.mergeObject(textOptions, overrideOptions));
       }
     }
   }
@@ -360,30 +361,30 @@ export class ActorDw extends Actor {
     await super._preUpdate(data, options, userId);
 
     if (options?.dw) {
-      options.dw.preUpdate = {data: foundry.utils.duplicate(this.data.data)};
+      options.dw.preUpdate = {system: foundry.utils.duplicate(this.system)};
     }
   }
 
   /** @override */
-  async _onUpdate(data, options, userId) {
-    await super._onUpdate(data, options, userId);
+  async _onUpdate(updateData, options, userId) {
+    await super._onUpdate(updateData, options, userId);
     const context = options?.dw?.preUpdate ?? false;
 
-    if (!options.diff || !context || context.data === undefined || data.data === undefined) return; // Nothing to do.
+    if (!options.diff || !context || updateData.system === undefined) return; // Nothing to do.
 
     // Exit early if not owner.
     let displayText = this.isOwner;
-    if (this.data.permission.default > 1) displayText = true;
-    if (this.data.permission[game.userId] !== undefined && this.data.permission[game.userId] > 1) displayText = true;
+    if (this.permission.default > 1) displayText = true;
+    if (this.permission[game.userId] !== undefined && this.permission[game.userId] > 1) displayText = true;
 
     if (!displayText) return;
 
     // Prepare the scrolling text update.
-    if (data.data?.attributes?.hp?.value !== undefined) {
+    if (updateData.system?.attributes?.hp?.value !== undefined) {
       let hp = {
-        original: context.data.attributes.hp.value ?? null,
-        current: data.data.attributes.hp.value ?? null,
-        max: context.data.attributes.hp?.max ?? data.data.attributes.hp.max
+        original: context.system.attributes.hp.value ?? null,
+        current: updateData.system.attributes.hp.value ?? null,
+        max: context.system.attributes.hp?.max ?? updateData.system.attributes.hp.max
       }
 
       if (!isNaN(hp.original) && !isNaN(hp.current)) {

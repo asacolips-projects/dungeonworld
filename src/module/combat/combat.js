@@ -52,7 +52,7 @@ export class CombatSidebarDw {
         if (dataset.dtype == 'Number') {
           value = Number(value);
           if (Number.isNaN(value)) {
-            $input.val(actor.data.data.attributes.hp.value);
+            $input.val(actor.system.attributes.hp.value);
             return false;
           }
         }
@@ -62,7 +62,7 @@ export class CombatSidebarDw {
         // If this started with a "+" or "-", handle it as a relative change.
         let operation = $input.val().match(/^\+|\-/g);
         if (operation) {
-          updateData[$input.attr('name')] = Number(actor.data.data.attributes.hp.value) + value;
+          updateData[$input.attr('name')] = Number(actor.system.attributes.hp.value) + value;
         }
         // Otherwise, set it absolutely.
         else {
@@ -171,7 +171,7 @@ export class CombatSidebarDw {
             // Retrieve the combatants grouped by type.
             let combatants = this.getCombatantsData(false);
             // Retrieve the combatant being dropped onto.
-            let originalCombatant = combatants[newCombatant.actor.data.type].find(c => {
+            let originalCombatant = combatants[newCombatant.actor.type].find(c => {
               return c.id == $dropTarget.data('combatant-id');
             });
 
@@ -183,14 +183,14 @@ export class CombatSidebarDw {
             if (oldInit !== null) {
               // Set the initiative of the actor being draged to the drop
               // target's +1. This will later be adjusted increments of 10.
-              let updatedCombatant = combatants[newCombatant.actor.data.type].find(c => c.id == newCombatant.id);
-              updatedCombatant.data.initiative = Number(oldInit) + 1;
+              let updatedCombatant = combatants[newCombatant.actor.type].find(c => c.id == newCombatant.id);
+              updatedCombatant.initiative = Number(oldInit) + 1;
 
               // Loop through all combatants in initiative order, and assign
               // a new initiative in increments of 10. The "updates" variable
               // will be an array of objects iwth _id and initiative keys.
               let updatedInit = 0;
-              let updates = combatants[newCombatant.actor.data.type].sort((a, b) => a.initiative - b.initiative).map(c => {
+              let updates = combatants[newCombatant.actor.type].sort((a, b) => a.initiative - b.initiative).map(c => {
                 let result = {
                   _id: c.id,
                   initiative: updatedInit
@@ -227,19 +227,19 @@ export class CombatSidebarDw {
       if (!data.initiative) {
         let highestInit = 0;
         let token = canvas.tokens.get(data.tokenId);
-        let actorType = token.actor ? token.actor.data.type : 'character';
+        let actorType = token.actor ? token.actor.type : 'character';
 
         // Iterate over actors of this type and update the initiative of this
         // actor based on that.
-        document.parent.data.combatants.filter(c => c.actor.data.type == actorType).forEach(c => {
-          let init = Number(c.initiative);
+        document.parent.combatants.filter(c => c.actor.type == actorType).forEach(c => {
+          let init = Number(c.initiative) ?? 0;
           if (init >= highestInit) {
             highestInit = init + 10;
           }
         });
 
         // Update this combatant.
-        document.data.update({initiative: highestInit});
+        document.updateSource({initiative: highestInit ?? 0});
       }
     });
 
@@ -267,7 +267,7 @@ export class CombatSidebarDw {
         let moveTotal = 0;
         if (combatants.character) {
           combatants.character.forEach(c => {
-            moveTotal = c.data.flags.dungeonworld ? moveTotal + Number(c.data.flags.dungeonworld.moveCount) : moveTotal;
+            moveTotal = c.flags.dungeonworld ? moveTotal + Number(c.flags.dungeonworld.moveCount) : moveTotal;
           });
         }
 
@@ -300,7 +300,7 @@ export class CombatSidebarDw {
    */
   getCombatantsData(updateInitiative = false) {
     // If there isn't a combat, exit and return an empty array.
-    if (!game.combat || !game.combat.data) {
+    if (!game.combat) {
       return [];
     }
 
@@ -316,13 +316,13 @@ export class CombatSidebarDw {
       // Append valid actors to the appropriate group.
       else {
         // Initialize the group if it doesn't exist.
-        let group = combatant.actor.data.type;
+        let group = combatant.actor.type;
         if (!groups[group]) {
           groups[group] = [];
         }
 
         // Retrieve the health bars mode from the token's resource settings.
-        let displayBarsMode = Object.entries(CONST.TOKEN_DISPLAY_MODES).find(i => i[1] == combatant.token.data.displayBars)[0];
+        let displayBarsMode = Object.entries(CONST.TOKEN_DISPLAY_MODES).find(i => i[1] == combatant.token.displayBars)[0];
         // Assume player characters should always show their health bar.
         let displayHealth = group == 'character' ? true : false;
 
@@ -363,14 +363,14 @@ export class CombatSidebarDw {
 
         // Build the radial progress circle settings for the template.
         combatant.healthSvg = DwUtility.getProgressCircle({
-          current: combatant.actor.data.data.attributes.hp.value,
-          max: combatant.actor.data.data.attributes.hp.max,
+          current: combatant.actor.system.attributes.hp.value,
+          max: combatant.actor.system.attributes.hp.max,
           radius: 16
         });
 
         // If this is the GM or the owner, push to the combatants list.
         // Otherwise, only push if the token isn't hidden in the scene.
-        const combatantToken = combatant?.token?.data ?? combat?._token?.data;
+        const combatantToken = combatant?.token ?? combat?._token;
         if (game.user.isGM || combatant.isOwner || !combatantToken?.hidden) {
           groups[group].push(combatant);
         }
