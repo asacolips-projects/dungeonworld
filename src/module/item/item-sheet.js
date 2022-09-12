@@ -107,7 +107,7 @@ export class DwItemSheet extends ItemSheet {
     if (itemData.type == 'move' || itemData.type == 'npcMove') {
       if (context.system.moveResults) {
         for (let key of Object.keys(context.system.moveResults)) {
-          context.system.moveResults[key].key = `context.system.moveResults.${key}.value`;
+          context.system.moveResults[key].key = `system.moveResults.${key}.value`;
         }
       }
     }
