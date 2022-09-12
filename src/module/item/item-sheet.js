@@ -107,7 +107,7 @@ export class DwItemSheet extends ItemSheet {
     if (itemData.type == 'move' || itemData.type == 'npcMove') {
       if (context.system.moveResults) {
         for (let key of Object.keys(context.system.moveResults)) {
-          context.system.moveResults[key].key = `context.system.moveResults.${key}.value`;
+          context.system.moveResults[key].key = `system.moveResults.${key}.value`;
         }
       }
     }
@@ -284,7 +284,9 @@ export class DwItemSheet extends ItemSheet {
         newKey.innerHTML = await renderTemplate(template, templateData);
         newKey = newKey.children[0];
 
-        let update = duplicate(this.object.system);
+        let update = {
+          system: duplicate(this.object.system)
+        };
         update.system.equipment[nk] = {
           label: '',
           mode: 'radio',
@@ -342,7 +344,7 @@ export class DwItemSheet extends ItemSheet {
     if (typeof formObj.system.equipment == 'object') {
       for (let [k, v] of Object.entries(formObj.system.equipment)) {
         if (i != k) {
-          v.items = duplicate(this.object.system.equipment[k].items);
+          v.items = duplicate(this.object.system.equipment[k]?.items ?? []);
           formObj.system.equipment[i] = v;
           delete formObj.system.equipment[k];
           deletedKeys.push(`equipment.${k}`);
