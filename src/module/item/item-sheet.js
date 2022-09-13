@@ -81,7 +81,7 @@ export class DwItemSheet extends ItemSheet {
 
     context.dtypes = ["String", "Number", "Boolean"];
     // Add classlist.
-    context.classlist = await DwClassList.getClasses();
+    context.system.classlist = await DwClassList.getClasses();
 
     // Handle preprocessing for tagify data.
     if (itemData.type == 'equipment') {
