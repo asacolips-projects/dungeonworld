@@ -13,8 +13,8 @@ DW.CON: CON
 DW.INT: INT
 DW.WIS: SAB
 DW.CHA: CAR
-DW.ASK: PREGUNTAR
-DW.BOND: VÍNCULO
+DW.ASK: Preguntar
+DW.BOND: Vínculo
 DW.DebilityStr: Debilitado
 DW.DebilityDex: Tembloroso
 DW.DebilityCon: Enfermo
@@ -24,12 +24,15 @@ DW.DebilityCha: Marcado
 DW.Level: Nivel
 DW.XP: Experiencia
 DW.Damage: Daño
+DW.Dmg: Dñ
 DW.Armor: Armadura
 DW.HP: PG
 DW.Misc: p.ej. d4+2
 DW.Look: Apariencia
 DW.Alignment: Alineamiento
+DW.Alignments: Alineamientos
 DW.Race: Raza
+DW.Races: Razas
 DW.Bond: Vínculo
 DW.Bonds: Vínculos
 DW.Tags: Etiquetas
@@ -46,10 +49,15 @@ DW.AddMove: Añadir un Movimiento
 DW.MovesBasic: Movimientos Básicos
 DW.MovesStarting: Movimientos Iniciales
 DW.MovesAdvanced: Movimientos Avanzados
+DW.MovesSpecial: Movimientos Especiales
 DW.MovesOther: Otros Movimientos
-DW.MoveBasic: Movimiento Básicos
+DW.MoveBasic: Movimiento Básico
 DW.MoveStarting: Movimiento Inicial
 DW.MoveAdvanced: Movimiento Avanzado
+DW.MoveSpecial: Movimiento Especial
+DW.MoveGroup: Movimiento Grupo
+DW.MoveGroupHelp: Los movimientos en un mismo grupo serán excluyentes (o uno u otro)
+  al momento de crear un nuevo personaje usando el creador de personajes.
 DW.Description: Descripción
 DW.Moves: Movimientos
 DW.Biography: Biografía
@@ -74,15 +82,19 @@ DW.Common.Description: Descripción
 DW.Common.Details: Detalles
 DW.Common.Name: Nombre
 DW.Roll: Tirada
-DW.Modifier: Modifcador
+DW.Modifier: Modificador
 DW.RequiresLevel: Nivel Requerido
 DW.RequiresMove: Movimiento Requerido
 DW.MoveType: Tipo de Movimiento
+DW.Equipped: Equipado
 DW.Quantity: Cantidad
+DW.Qty: Cant
 DW.Weight: Peso
+DW.Wt: Pe
 DW.Uses: Usos
 DW.MagicItem: Objeto Mágico
 DW.ItemType: Tipo de Objeto
+DW.Coin: Moneda
 DW.Weapon: Arma
 DW.DungeonGear: Equipo General
 DW.Poison: Veneno
@@ -93,4 +105,201 @@ DW.LandBuildings: Tierras y Edificios
 DW.Bribe: Soborno
 DW.GiftsFinery: Regalos y Ropas Elegantes
 DW.Hoard: Tesoro
-DW.TagsHelp: "(Utiliza el tabulador para autocompletar, comas para crear una nueva etiqueta, y doble clic en una etiqueta para editarla)"
+DW.TagsHelp: "(Utiliza el tabulador para autocompletar, comas para crear una nueva
+  etiqueta, y doble clic en una etiqueta para editarla)"
+DW.SpecialQualities: Cualidades Especiales
+DW.ClassSettings: Configuración de Clase
+DW.ClassBaseHp: PG Base
+DW.ClassBaseHpHelp: El valor de Constitución será añadido automáticamente a este número.
+DW.ClassBaseLoad: Carga Máxima Base
+DW.ClassBaseLoadHelp: Tu valor de FUE es añadido automáticamente a este número.
+DW.ClassDamage: Dado de Daño
+DW.ClassDamageHelp: El dado de daño se usa para calcular el daño de clase.
+DW.ClassAddEquipmentGroup: Añadir un nuevo grupo de equipamiento
+DW.ClassEquipmentGroupHelp: Puedes definir grupos de opciones de equipamiento para
+  esta clase. Puedes añadir cualquier cantidad de objetos o equipo a un grupo simplemente
+  arrastrándolo sobre él, también puedes escoger el modo de selección entre 'Elige
+  uno' o 'Elige varias'.
+DW.ClassEquipmentGroupPlaceholder: Elige uno, todos pesan 0 para tí
+DW.ClassEquipmentDropText: Arrastra aquí el equipo.
+DW.ChooseOne: Elige uno
+DW.ChooseAny: Elige cualquiera
+DW.ChooseRace: Elige una raza
+DW.ChooseAlignment: Elige un alineamiento
+DW.ChooseAbilityScores: Elige una puntuación de características
+DW.ChooseAbilityScoresIncrease: Elige una puntuación de características para aumentar
+  en 1.
+DW.ChooseStartingMoves: Elige los movimientos iniciales
+DW.ChooseStartingOne: 'Elige uno de estos para iniciar con:'
+DW.ChooseStartingAll: 'Puedes iniciar con todos estos:'
+DW.ChooseAdvancedMoves: Elige los movimientos avanzados
+DW.ChooseAdvanced2: Cuando ganes un nivel de 2 a 5, elige entre estos movimientos.
+DW.ChooseAdvanced6: Cuando ganes un nivel del 6 al 10, elige entre estos movimientos
+  o los del nivel 2 al 5.
+DW.ChooseSpells: Elige conjuros
+DW.DefaultLook: "<ul><li>Ojos:</li><li>Pelo:</li><li>Cuerpo:</li><li>Piel:</li><li>Ropas:</li></ul>"
+DW.Cancel: Cancelar
+DW.Confirm: Confirmar
+DW.Prepared: Preparado
+DW.Unprepared: No preparado
+DW.DamageRoll: Tirada de daño
+DW.character: PJ
+DW.characters: PJs
+DW.npc: PNJ
+DW.npcs: PNJs
+DW.Forward: A la siguiente
+DW.Ongoing: En adelante
+DW.Hold: Puntos
+DW.RollMode: Modo de tirada
+DW.Normal: Normal
+DW.Advantage: Ventaja
+DW.Disadvantage: Desventaja
+DW.failure: Complicación
+DW.partial: Éxito Parcial
+DW.success: Éxito Total
+DW.ChooseResult: Elige el resultado
+DW.Choices: Elige
+DW.MarkXp: Marca PX
+DW.XpMarked: PX marcado
+DW.the-barbarian.Bond1: _______________ es débil e ingenuo, pero me divierte.
+DW.the-barbarian.Bond2: Las costumbres de _______________ son extrañas y confusas.
+DW.the-barbarian.Bond3: _______________ siempre se está metiendo en problemas... Tengo
+  que protegerlo de sí mismo.
+DW.the-barbarian.Bond4: _______________ comparte mi sed de gloria, ¡la tierra temblará
+  a nuestro paso!
+DW.the-bard.Bond1: No es mi primera aventura con _______________.
+DW.the-bard.Bond2: Canté historias sobre _______________ mucho antes de conocerlo
+  en persona.
+DW.the-bard.Bond3: _______________ suele ser el objetivo de mis bromas.
+DW.the-bard.Bond4: Estoy escribiendo una balada sobre las aventuras de _______________.
+DW.the-bard.Bond5: _______________ me confió un secreto.
+DW.the-bard.Bond6: _______________ no se fía de mí, y tiene un buen motivo.
+DW.the-cleric.Bond1: _______________ ha insultado a mi deidad. No me fío.
+DW.the-cleric.Bond2: _______________ es una persona buena y fiel. Confío plenamente
+  en ella (o él).
+DW.the-cleric.Bond3: _______________ siempre está en peligro. Le mantendré a salvo.
+DW.the-cleric.Bond4: Estoy intentando convertir a _______________ a mi fe.
+DW.the-druid.Bond1: ____________________ huele más a presa que a cazador.
+DW.the-druid.Bond2: Los espíritus me hablaron del gran peligro que seguía a ______________.
+DW.the-druid.Bond3: He mostrado a ________________ el ritual secreto de la Tierra.
+DW.the-druid.Bond4: ___________ ha probado mi sangre y yo la suya. Estamos unidos
+  por ella.
+DW.the-fighter.Bond1: _______________ me debe la vida, lo quiera reconocer o no.,
+DW.the-fighter.Bond2: He jurado proteger a _______________.,
+DW.the-fighter.Bond3: Me preocupa la capacidad de _______________ para sobrevivir
+  en una mazmorra.,
+DW.the-fighter.Bond4: _______________ es débil, pero haré que sea tan fuerte como
+  yo.
+DW.the-immolator.Bond1: ____________________ ha sentido el infernal toque del fuego,
+  ahora conoce mi fuerza.
+DW.the-immolator.Bond2: Le enseñaré a ______________ el verdadero significado del
+  sacrificio.
+DW.the-immolator.Bond3: Tiré algo al fuego por ________________ y todavía no me ha
+  pagado su deuda.
+DW.the-paladin.Bond1: "¡La mala conducta de _______________ pone en peligro su alma!"
+DW.the-paladin.Bond2: _______________ ha permanecido junto a mí en la batalla y es
+  alguien en quien puedo confiar plenamente.
+DW.the-paladin.Bond3: Respeto las creencias de _______________ , pero espero que aĺgún
+  día vea la verdad.
+DW.the-paladin.Bond4: _______________ es un espíritu valeroso, tengo mucho que aprender
+  de ella (o él).
+DW.the-thief.Bond1: He robado algo a _______________.
+DW.the-thief.Bond2: _______________ me cubre las espaldas cuando todo sale mal.
+DW.the-thief.Bond3: _______________ conoce detaller incriminatorios sobre mí.
+DW.the-thief.Bond4: _______________ y yo tenemos una estafa en marcha.
+DW.the-wizard.Bond1: _______________ jugará un papel importante en futuros acontecimientos.
+  ¡Lo he predicho!,
+DW.the-wizard.Bond2: _______________ me esconde un secreto importante.,
+DW.the-wizard.Bond3: _______________ desgraciadamente está mal informado sobre cómo
+  funciona el mundo. Le enseñaré todo lo que pueda.
+DW.the-ranger.Bond1: He guiado anteriormente a _______________ y me debe una.
+DW.the-ranger.Bond2: _______________ es un amigo de la naturaleza, así que seré amigo
+  suyo.
+DW.the-ranger.Bond3: _______________ no respeta la naturaleza, así que tampoco lo
+  respeto a él (o ella).
+DW.the-ranger.Bond4: _______________ no comprende la vida en el entorno natural, yo
+  le enseñaré.
+DW.Settings.itemIcons.name: Habilitar iconos
+DW.Settings.itemIcons.hint: Habilitar iconos para movimientos, conjuros y equipo en
+  la hoja de personaje (requiere recargar el navegador).
+DW.Settings.nightmode.name: Activar modo nocturno
+DW.Settings.nightmode.hint: Activar el modo nocturno/oscuridad para las hojas de personaje
+  (por usuario).
+DW.Settings.enableDamageButtons.name: Activar botones de daño
+DW.Settings.enableDamageButtons.hint: Activar los botones de daño en las tarjetas
+  del chat para usuarios DJ. El daño será aplicado para tokens seleccionados (no tokens
+  objetivos) y se le reducirán por los valores de armadura y penetración según las
+  reglas básicas. Requiere recargar el navegador para que tomen efecto.
+DW.Settings.xpFormula.name: Formula PX
+DW.Settings.xpFormula.hint: Introduce la fórmula de PX utilizada para subir de nivel.
+  Los atributos disponibles son los que funcionarían en las tiradas enviadas al chat,
+  como (2 * @attributes.level.value) + 10. Por defecto es (@attributes.level.value
+  + 7). Para usar una cantidad fija de PX para subir de nivel, simplemente introduce
+  un número.
+DW.Settings.advForward.name: Borra VENT/DESV después de la tirada
+DW.Settings.advForward.hint: Si se activa, las opciones de ventaja y desventaja en
+  la hoja de personaje se restablecerán a la normalidad después de cada tirada (similar
+  a la de Siguiente).
+DW.Settings.disDebility.name: Las debilidades imponen desventajas
+DW.Settings.disDebility.hint: Si se activa, las debilidades aplicarán desventaja en
+  las tiradas en lugar de un cambio en el modificador de la característica.
+DW.Settings.alignmentSingle.name: Anular la etiqueta de "Alineamiento" (simple).
+DW.Settings.alignmentSingle.hint: Anulando "Alineamiento", por ejemplo, utilizando
+  "Impulsos" en su lugar.
+DW.Settings.alignmentPlural.name: Anular la etiqueta de "Alineamientos" (plural).
+DW.Settings.alignmentPlural.hint: Anulando "Alineamientos", por ejemplo, utilizando
+  "Impulsos" en su lugar.
+DW.Settings.raceSingle.name: Anulando etiqueta de "Raza" (simple)
+DW.Settings.raceSingle.hint: Anulando "Raza", por ejemplo, utilizando "Trasfondo"
+  en su lugar.
+DW.Settings.racePlural.name: Anulando etiqueta de  "Razas" (plural).
+DW.Settings.racePlural.hint: Anulando "Razas", por ejemplo, utilizando "Trasfondos"
+  en su lugar.
+DW.Settings.bondSingle.name: Anulando etiqueta de "Vínculo" (simple).
+DW.Settings.bondSingle.hint: Anulando "Vínculo", por ejemplo, utilizando "Bandera"
+  en su lugar.
+DW.Settings.bondPlural.name: Anulando etiqueta de "Vínculos" (plural).
+DW.Settings.bondPlural.hint: Anulando "Vínculos", por ejemplo, utilizando "Banderas"
+  en su lugar.
+DW.Settings.noCompendiumAutoData.name: Excluir los datos del Compendio de Dungeon
+  World
+DW.Settings.noCompendiumAutoData.hint: Excluir los movimientos y las clases de los
+  items en los compendios de Dungeon World por defecto, para los hacks de DW como
+  Homebrew World que reutilizan los mismos nombres de clase
+DW.Settings.compendiumPrefix.name: Prefijo Compendio
+DW.Settings.compendiumPrefix.hint: Auto-seleccionar movimientos y clases de los compendios
+  con este prefijo en su nombre, para los hacks de DW como Homebrew World. Por ejemplo,
+  si la configuración se establece en "HBW", las clases se seleccionarán de un compendio
+  llamado "Clases HBW" y los movimientos del luchador se seleccionarán de un compendio
+  llamado "Movimientos del luchador HBW". Dejar en blanco para desactivar.
+DW.Settings.noAbilityScores.name: Sin puntuación en la característica
+DW.Settings.noAbilityScores.hint: Sólo utiliza modificadores de característica, para
+  hacks de DW como Homebrew World
+DW.Settings.noAbilityIncrease.name: Ninguna característica incrementada
+DW.Settings.noAbilityIncrease.hint: No hay incremento de la puntuación de característica
+  al subir de nivel, para los hacks de DW como Homebrew World
+DW.Settings.noConstitutionToHP.name: No se añade la puntuación de la Constitución
+  a los PG
+DW.Settings.noConstitutionToHP.hint: Utilizado para hacks de DW como Homebrew World
+DW.Settings.noSTRToMaxLoad.name: No se añade el modificador de STR a la carga máxima
+DW.Settings.noSTRToMaxLoad.hint: Utilizado para hacks de DW como Homebrew World
+DW.Settings.debilityLabelSTR.name: Nombre de la Debilidad FUE
+DW.Settings.debilityLabelSTR.hint: ''
+DW.Settings.debilityLabelDEX.name: Nombre de la Debilidad DES
+DW.Settings.debilityLabelDEX.hint: ''
+DW.Settings.debilityLabelCON.name: Nombre de la Debilidad CON
+DW.Settings.debilityLabelCON.hint: ''
+DW.Settings.debilityLabelINT.name: Nombre de la Debilidad INT
+DW.Settings.debilityLabelINT.hint: ''
+DW.Settings.debilityLabelWIS.name: Nombre de la Debilidad SAB
+DW.Settings.debilityLabelWIS.hint: ''
+DW.Settings.debilityLabelCHA.name: Nombre de la Debilidad CAR
+DW.Settings.debilityLabelCHA.hint: ''
+DW.Dialog.askTitle: Elige un stat
+DW.Dialog.askContent: Elige un stat para este movimiento <strong>{name}</strong>.
+DW.Dialog.bondTitle: Introduce tu modificador
+DW.Dialog.bondContent: Introduce un bonus o un modificador para este movimiento <strong>{name}</strong>.
+DW.Notifications.noClassWarning: Debes elegir una clase válida antes que puedas subir
+  de nivel.
+DW.Scrolling.armorReduced: "{reduced} Armadura aplicada"
+DW.Scrolling.armorPiercing: "{Penetración} Armor ignorada"
