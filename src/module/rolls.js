@@ -89,7 +89,7 @@ export class DwRolls {
 
           for (let stat of stats) {
             statButtons[stat] = {
-              label: stat.toUpperCase(),
+              label: game.i18n.localize(`DW.${stat.toUpperCase()}`),
               callback: () => this.rollMoveExecute(stat, data, templateData)
             };
           }
