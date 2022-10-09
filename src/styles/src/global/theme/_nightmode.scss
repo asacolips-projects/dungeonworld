@@ -140,6 +140,10 @@ $c-blue-dark: #344460;
         }
       }
 
+      .tox:not(.tox-tinymce-inline) .tox-editor-header {
+        background: transparent;
+      }
+
       .tox-edit-area {
         background: rgba($c-white, 0.85);
         padding: 10px;
