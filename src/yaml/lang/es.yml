@@ -87,6 +87,7 @@ DW.RequiresLevel: Nivel Requerido
 DW.RequiresMove: Movimiento Requerido
 DW.MoveType: Tipo de Movimiento
 DW.Equipped: Equipado
+DW.NotEquipped: "No Equipado" 
 DW.Quantity: Cantidad
 DW.Qty: Cant
 DW.Weight: Peso

@@ -89,6 +89,7 @@ DW.RequiresLevel: Benötigte Stufe
 DW.RequiresMove: Benötigter Spielzug
 DW.MoveType: Spielzugart
 DW.Equipped: Ausgerüstet
+DW.NotEquipped: "Unausgerüstet"
 DW.Quantity: Anzahl
 DW.Qty: Anz
 DW.Weight: Gewicht

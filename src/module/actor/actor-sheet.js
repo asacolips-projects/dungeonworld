@@ -360,6 +360,9 @@ export class DwActorSheet extends ActorSheet {
     // Spells.
     html.find('.prepared').click(this._onPrepareSpell.bind(this));
 
+	// Equipment.
+    html.find('.equipped').click(this._onEquipEquipment.bind(this));
+
     // Adjust quantity/uses.
     html.find('.counter').on('click', event => this._onCounterClick(event, 'increase'));
     html.find('.counter').on('contextmenu', event => this._onCounterClick(event, 'decrease'));
@@ -995,6 +998,32 @@ export class DwActorSheet extends ActorSheet {
       $self.toggleClass('unprepared');
 
       let update = { "system.prepared": !item.system.prepared };
+      await item.update(update, {});
+
+      this.render();
+    }
+  }
+
+  /**
+   * Listen for click events on equipment.
+   * @param {MouseEvent} event
+   */
+  async _onEquipEquipment(event) 
+  {
+    event.preventDefault();
+    const a = event.currentTarget;
+    const data = a.dataset;
+    const actorData = this.actor.system;
+    const itemId = $(a).parents('.item').attr('data-item-id');
+    const item = this.actor.items.get(itemId);
+
+    if (item) 
+	{
+      let $self = $(a);
+      $self.toggleClass('unequipped');
+
+      let update = 
+	  { "system.equipped": !item.system.equipped };
       await item.update(update, {});
 
       this.render();
