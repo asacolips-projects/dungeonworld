@@ -1008,8 +1008,7 @@ export class DwActorSheet extends ActorSheet {
    * Listen for click events on equipment.
    * @param {MouseEvent} event
    */
-  async _onEquipEquipment(event) 
-  {
+  async _onEquipEquipment(event) {
     event.preventDefault();
     const a = event.currentTarget;
     const data = a.dataset;
@@ -1017,13 +1016,12 @@ export class DwActorSheet extends ActorSheet {
     const itemId = $(a).parents('.item').attr('data-item-id');
     const item = this.actor.items.get(itemId);
 
-    if (item) 
-	{
+    if (item) {
       let $self = $(a);
       $self.toggleClass('unequipped');
 
       let update = 
-	  { "system.equipped": !item.system.equipped };
+      { "system.equipped": !item.system.equipped };
       await item.update(update, {});
 
       this.render();
