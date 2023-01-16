@@ -21,7 +21,7 @@
 
   .item-controls {
     text-align: right;
-    flex: 0 0 40px;
+    flex: 0 0 50px;
   }
 
   .item-description {
@@ -178,12 +178,6 @@
 
 .cell--spells {
   .unprepared {
-    background-color: $c-pink;
-  }
-}
-
-.cell--equipment {
-  .unequipped {
     background-color: $c-pink;
   }
 }

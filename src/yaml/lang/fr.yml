@@ -78,7 +78,6 @@ DW.RequiresLevel: Niveau requis
 DW.RequiresMove: Action requise
 DW.MoveType: Type d'action
 DW.Equipped: "Equipé"
-DW.NotEquipped: "Non Equipé"
 DW.Quantity: Quantité
 DW.Weight: Poid
 DW.Price: Prix

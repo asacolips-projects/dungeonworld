@@ -353,15 +353,13 @@ export class DwActorSheet extends ActorSheet {
     html.find('.item-create').click(this._onItemCreate.bind(this));
     html.find('.item-edit').click(this._onItemEdit.bind(this));
     html.find('.item-delete').click(this._onItemDelete.bind(this));
+    html.find('.item-equip').click(this._onEquipEquipment.bind(this));
 
     // Moves
     html.find('.item-label').click(this._showItemDetails.bind(this));
 
     // Spells.
     html.find('.prepared').click(this._onPrepareSpell.bind(this));
-
-	// Equipment.
-    html.find('.equipped').click(this._onEquipEquipment.bind(this));
 
     // Adjust quantity/uses.
     html.find('.counter').on('click', event => this._onCounterClick(event, 'increase'));
