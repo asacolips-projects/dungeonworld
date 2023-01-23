@@ -139,6 +139,7 @@ Item:
     quantity: 1
     equipped: false
     weight: 0
+    price: 0
     uses: 0
     tags: []
     tagsString: ''
