@@ -1,0 +1,263 @@
+ACTOR.TypeCharacter: "Персонаж Гравця"
+ACTOR.TypeNpc: "Персонаж Майстра"
+ITEM.TypeMove: "Хід"
+ITEM.TypeNpcmove: "Хід ПМ"
+ITEM.TypeEquipment: "Спорядження"
+ITEM.TypeSpell: "Закляття"
+ITEM.TypeBond: "Стосунки"
+ITEM.TypeTag: "Якість"
+ITEM.TypeClass: "Клас"
+Dungeon World: "Світ Підземель"
+DW.title: "Світ Підземель"
+DW.description: "Запущена гра Світ Підземель у FoundryVTT!"
+DW.AbilityStr: "Сила"
+DW.AbilityDex: "Спритність"
+DW.AbilityCon: "Витривалість"
+DW.AbilityInt: "Інтелект"
+DW.AbilityWis: "Мудрість"
+DW.AbilityCha: "Харизма"
+DW.STR: "СИЛ"
+DW.DEX: "СПР"
+DW.CON: "ВИТ"
+DW.INT: "ІНТ"
+DW.WIS: "МДР"
+DW.CHA: "ХАР"
+DW.ASK: "Запитувати"
+DW.BOND: "Стосунки (запит модифікатора)"
+DW.FORMULA: "Своя Формула Кидка"
+DW.DebilityStr: "Заслаб"
+DW.DebilityDex: "Лихоманить"
+DW.DebilityCon: "Хворий"
+DW.DebilityInt: "Контужений"
+DW.DebilityWis: "Розгублений"
+DW.DebilityCha: "Спотворений"
+DW.Level: "Рівень"
+DW.XP: "Досвід"
+DW.Damage: "Пошкодження"
+DW.Dmg: "Пошк"
+DW.Armor: "Броня"
+DW.HP: "ХП"
+DW.Misc: "напр. d4+2"
+DW.Look: "Зовнішність"
+DW.Alignment: "Світогляд"
+DW.Alignments: "Світогляди"
+DW.Class: "Клас"
+DW.Race: "Раса"
+DW.Races: "Раси"
+DW.Bond: "Стосунки"
+DW.Bonds: "Стосунки"
+DW.Tags: "Якості"
+DW.AddBond: "Додати Стосунки"
+DW.BondDefault: "_____ має стосунки зі мною"
+DW.BondHelp: "________ текст стосунків тут."
+DW.Dialog.Bond1: "Виберіть бонус за стосунки "
+DW.Dialog.Bond2: " хід."
+DW.MoveCreate: "Створити Хід"
+DW.AddBasicMove: "Додати Основний хід"
+DW.AddStartingMove: "Додати Стартовий хід"
+DW.AddAdvancedMove: "Додати Просунутий хід"
+DW.AddMove: "Додати хід"
+DW.MovesBasic: "Основні Ходи"
+DW.MovesStarting: "Стартові Ходи"
+DW.MovesAdvanced: "Просунуті Ходи"
+DW.MovesSpecial: "Особливі Ходи"
+DW.MovesOther: "Інші Ходи"
+DW.MoveBasic: "Основний Хід"
+DW.MoveStarting: "Стартовий Хід"
+DW.MoveAdvanced: "Просунутий Хід"
+DW.MoveSpecial: "Особливий Хід"
+DW.MoveGroup: "Група Ходів"
+DW.MoveGroupHelp: "Декілька ходів з однаковими ходами-групами будуть вибрані при створенні нового персонажа за допомогою character builder."
+DW.Description: "Опис"
+DW.Moves: "Ходи"
+DW.Biography: "Біографія"
+DW.Equipment: "Спорядження"
+DW.Spells: "Закляття"
+DW.SpellLevel: "Рівень закляття"
+DW.Spells0: "Замовляння"
+DW.Spells1: "Закляття 1-го рівня"
+DW.Spells2: "Закляття 2-го рівня"
+DW.Spells3: "Закляття 3-го рівня"
+DW.Spells4: "Закляття 4-го рівня"
+DW.Spells5: "Закляття 5-го рівня"
+DW.Spells6: "Закляття 6-го рівня"
+DW.Spells7: "Закляття 7-го рівня"
+DW.Spells8: "Закляття 8-го рівня"
+DW.Spells9: "Закляття 9-го рівня"
+DW.SpellPrepared: "Підготовлено"
+DW.SpellRollFormula: "Формула кидка"
+DW.RollFormula: "Формула кидка"
+DW.AddEquipment: "Додати спорядження"
+DW.AddSpell: "Додати Закляття"
+DW.Common.Description: "Опис"
+DW.Common.Details: "Подробиці"
+DW.Common.Name: "Назва"
+DW.Roll: "Кидок"
+DW.Modifier: "Модифікатор"
+DW.RequiresLevel: "Необхідний рівень"
+DW.RequiresMove: "Необхідний Хід"
+DW.MoveType: "Тип ходу"
+DW.Equipped: "Споряджено"
+DW.Quantity: "Кількість"
+DW.Qty: "К-сть"
+DW.Weight: "Вага"
+DW.Wt: "Вага"
+DW.Uses: "Використання"
+DW.MagicItem: "Магічні Предмети"
+DW.ItemType: "Тип предмету"
+DW.Coin: "Монета"
+DW.Weapon: "Зброя"
+DW.DungeonGear: "Спорядження"
+DW.Poison: "Отрута"
+DW.Service: "Послуга"
+DW.Meal: "Продукти"
+DW.Transport: "Транспорт"
+DW.LandBuildings: "Нерухомість"
+DW.Bribe: "Хабарі"
+DW.GiftsFinery: "Подарунки і Розкіш"
+DW.Hoard: "Здобич"
+DW.TagsHelp: "(Використовуйте вкладку для автозаповнення, коми для створення нових тегів, а також двічі клацніть по якості, щоб відредагувати її)"
+DW.SpecialQualities: "Особливі Якості"
+DW.ClassSettings: "Параметри класу"
+DW.ClassBaseHp: "Базові Хіти"
+DW.ClassBaseHpHelp: "Витривалість буде автоматично додана до цього числа."
+DW.ClassBaseLoad: "Базове максимальне навантаження"
+DW.ClassBaseLoadHelp: "Сила буде автоматично додана до цього числа."
+DW.ClassDamage: "Куб Пошкодження"
+DW.ClassDamageHelp: "Куб пошкодження використовується для пошкоджень класу."
+DW.ClassAddEquipmentGroup: "Додати нову групу спорядження"
+DW.ClassEquipmentGroupHelp: "Ви можете визначити групи спорядження для цього класу нижче. Кожна група може мати будь-яку кількість елементів спорядження, що розкидані всередині неї, і він може мати свій режим вибору, який задає можливість обрати один з пунктів, або обрати все."
+DW.ClassEquipmentGroupPlaceholder: "Оберіть один, всі мають вагу 0 для вас"
+DW.ClassEquipmentDropText: "Перетягніть елементи сюди"
+DW.ChooseOne: "Виберіть один"
+DW.ChooseAny: "Все"
+DW.ChooseRace: "Виберіть расу"
+DW.ChooseAlignment: "Виберіть світогляд"
+DW.ChooseAbilityScores: "Виберіть значення характеристик"
+DW.ChooseAbilityScoresIncrease: "Оберіть характеристику, яка буде збільшена на 1."
+DW.ChooseStartingMoves: "Виберіть стартові ходи"
+DW.ChooseStartingOne: "Виберіть одне з яким почнете:"
+DW.ChooseStartingAll: "Ви також починаєте з усім цим:"
+DW.ChooseAdvancedMoves: "Виберіть просунуті ходи"
+DW.ChooseAdvanced2: "Коли ви отримуєте 2-5 рівні, оберіть з цих ходів."
+DW.ChooseAdvanced6: "Коли ви отримуєте 6-10 рівні, ви можете обрати ці ходи або ходи для 2-5 рівнів."
+DW.ChooseSpells: "Виберіть закляття"
+DW.DefaultLook: "<ul><li>Очі:</li><li>Волосся:</li><li>Тіло:</li><li>Шкіра:</li><li>Одяг:</li></ul>"
+DW.Cancel: "Скасувати"
+DW.Confirm: "Підтвердити"
+DW.Prepared: "Підготовлено"
+DW.Unprepared: "Непідготовлене"
+DW.DamageRoll: "Нанести Пошкодження"
+DW.character: "Персонаж"
+DW.characters: "Персонажі"
+DW.npc: "Персонаж Майстра"
+DW.npcs: "Персонажі Майстра"
+DW.Forward: "Бонус"
+DW.Ongoing: "Штраф"
+DW.Hold: "Утримання"
+DW.RollMode: "Режим Кидка"
+DW.Normal: "Звичайний"
+DW.Advantage: "Перевага"
+DW.Disadvantage: "Перешкода"
+DW.failure: "Ускладнення"
+DW.partial: "Частковий успіх"
+DW.success: "Успіх"
+DW.ChooseResult: "Вибрати результат"
+DW.Choices: "Варіанти"
+DW.MarkXp: "Отримати Досвід"
+DW.XpMarked: "Досвід Отримано"
+DW.the-barbarian.Bond1: _______________ слабенький і дурнуватий, але розважає мене.
+DW.the-barbarian.Bond2: "Шляхи _______________ дивні та заплутані."
+DW.the-barbarian.Bond3: _______________ постійно потрапляє в халепи – я повинен захистити його від них.
+DW.the-barbarian.Bond4: _______________ поділяє мою жагу до слави; земля здригнеться, коли ми підемо!
+DW.the-bard.Bond1: Це не перша моя пригода з _______________.
+DW.the-bard.Bond2: Я співав балади про _______________ перш ніж я зустрівся з ним особисто.
+DW.the-bard.Bond3: _______________ часто жертва моїх жартів.
+DW.the-bard.Bond4: Я пишу баладу про пригоди _______________.
+DW.the-bard.Bond5: _______________ довірив мені таємницю.
+DW.the-bard.Bond6: _______________ мені не довіряє, й недарма.
+DW.the-cleric.Bond1: _______________ образив моє божество, я йому не довіряю.
+DW.the-cleric.Bond2: _______________ хороша і вірна людина, я йому беззастережно довіряю.
+DW.the-cleric.Bond3: _______________ знаходиться у постійній небезпеці, я буду його оберігати.
+DW.the-cleric.Bond4: Я намагаюсь навернути _______________ у свою віру.
+DW.the-druid.Bond1: ____________________ пахне швидше як здобич, а не як мисливець.
+DW.the-druid.Bond2: Духи розповіли мені про велику небезпеку, яка йде за ______________.
+DW.the-druid.Bond3: Я показав ________________ секретний ритуал моєї Землі.
+DW.the-druid.Bond4: ___________ пив мою кров, а я - його, тепер ми пов’язані.
+DW.the-fighter.Bond1: _______________ зобов’язаний мені життям, визнає він це чи ні.
+DW.the-fighter.Bond2: Я присягнув захищати _______________.
+DW.the-fighter.Bond3: Я турбуюсь про здатність _______________ виживати в підземеллях.
+DW.the-fighter.Bond4: _______________ слабак, але я його зроблю таким же сильним як і я.
+DW.the-immolator.Bond1: ____________________ відчув пекельний дотик вогню, тепер він знає мою силу.
+DW.the-immolator.Bond2: Я навчу ______________ справжнього сенсу самопожертви.
+DW.the-immolator.Bond3: Я попав закляттям в ________________ і все ще в боргу перед ним.
+DW.the-paladin.Bond1: Поведінка _______________ загрожує його душі!
+DW.the-paladin.Bond2: _______________ стояв разом зі мною в битві, йому можна вірити.
+DW.the-paladin.Bond3: Я поважаю погляди _______________, але я сподіваюсь, що одного разу він побачить істинний шлях.
+DW.the-paladin.Bond4: _______________ – хоробра душа, мені є чому в нього навчитися.
+DW.the-thief.Bond1: Я вкрав щось у _______________.
+DW.the-thief.Bond2: _______________ прикриває мій тил, коли справи кепські.
+DW.the-thief.Bond3: _______________ знає компромат на мене.
+DW.the-thief.Bond4: _______________ мій старий напарник.
+DW.the-wizard.Bond1: _______________ буде грати важливу роль у майбутньому, я це передбачив!
+DW.the-wizard.Bond2: _______________ приховує важливий секрет від мене.
+DW.the-wizard.Bond3: _______________ страшний невіглас, я навчатиму його основам освіти.
+DW.the-ranger.Bond1: Я проводив _______________ раніше, і він за це мені винен.
+DW.the-ranger.Bond2: _______________ друг природи, і я теж йому друг.
+DW.the-ranger.Bond3: _______________ не поважає природу, і я теж його не поважаю.
+DW.the-ranger.Bond4: _______________ не розуміє життя на природі, я навчатиму його цьому.
+DW.Settings.itemIcons.name: "Увімкнути Піктограми Елементів"
+DW.Settings.itemIcons.hint: "Дозволити піктограми для ходів, заклять та спорядження на аркушах персонажів (потрібно перезавантажити браузер)."
+DW.Settings.nightmode.name: "Увімкнути Нічний Режим"
+DW.Settings.nightmode.hint: "Увімкнути нічний/темний режим для аркушів персонажів (персонально)."
+DW.Settings.enableDamageButtons.name: "Увімкнути Кнопку Пошкодження"
+DW.Settings.enableDamageButtons.hint: "Увімкнути кнопки пошкодження для ГМ користувачів у чаті. Пошкодження буде застосовано до вибраних токенів (не цільових токенів) та буде зменшені відповідно до значень броні та пробивання. Потребує перезавантаження браузера для застосування змін."
+DW.Settings.xpFormula.name: "Формула Досвіду"
+DW.Settings.xpFormula.hint: "Введіть формулу досвіду, яка використовується для підвищення рівня. Доступні атрибути це ті, що будуть працювати в кидках, які відправлені в чат, наприклад, (2 * @attributes.level.value) + 10. За замовчуванням - (@attributes.level.value + 7). Щоб використати фіксовану кількість досвіду для рівня, просто введіть число."
+DW.Settings.advForward.name: "Очищати перевагу/перешкоду після кидка"
+DW.Settings.advForward.hint: "Якщо відмічено, перевага та перешкода відповідними на аркуші персонажа будуть скинуті до нормального після кожного кидка (подібного до Бонуса)."
+DW.Settings.disDebility.name: "Стани Накладають Перешкоду"
+DW.Settings.disDebility.hint: "Якщо увімкнуто, стани надаватимуть перешкоди для кидків, а не змінюватимуть модифікатори характеристик."
+DW.Settings.alignmentSingle.name: 'Перейменувати "Alignment" (однина).'
+DW.Settings.alignmentSingle.hint: 'Перейменувати "Alignment", наприклад на "Ціль".'
+DW.Settings.alignmentPlural.name: 'Перейменувати "Alignment" (множина).'
+DW.Settings.alignmentPlural.hint: 'Перейменувати "Alignments", наприклад на "Цілі".'
+DW.Settings.raceSingle.name: 'Перейменувати "Race" (однина).'
+DW.Settings.raceSingle.hint: 'Перейменувати "Race", наприклад на "Спадщина".'
+DW.Settings.racePlural.name: 'Перейменувати "Race" (множина).'
+DW.Settings.racePlural.hint: 'Перейменувати "Races", наприклад на "Спадщини".'
+DW.Settings.bondSingle.name: 'Перейменувати "Bond" (однина).'
+DW.Settings.bondSingle.hint: 'Перейменувати "Bond", наприклад на "Стосунки".'
+DW.Settings.bondPlural.name: 'Перейменувати "Bonds" (множина).'
+DW.Settings.bondPlural.hint: 'Перейменувати "Bonds", наприклад на "Стосунки".'
+DW.Settings.noCompendiumAutoData.name: 'Виключити Компендіуми Dungeon World'
+DW.Settings.noCompendiumAutoData.hint: 'Виключати "ходи та класи" з Dungeon World компендіумів за замовчуванням, для DW хаків на кшталт Homebrew World, які повторно використовують назви цих класів'
+DW.Settings.compendiumPrefix.name: 'Префікс Компендіуму'
+DW.Settings.compendiumPrefix.hint: 'Автовибір ходів і класів з компендіумів, які мають цей префікс в їх назві, для використань в DW хаках, таких як Homebrew World. Наприклад, якщо параметр встановлено як "HBW", класи будуть обрані з компендіуму "HBW Classes" і ходи для бійця буде обрано з компендіуму з назвою "HBW The Fighter Moves". Залиште поле пустим, щоб вимкнути.'
+DW.Settings.noAbilityScores.name: 'Без Значень Характеристик'
+DW.Settings.noAbilityScores.hint: 'Тільки модифікатори характеристик, для DW хаків таких як Homebrew World'
+DW.Settings.noAbilityIncrease.name: 'Не Підвищувати Характеристики'
+DW.Settings.noAbilityIncrease.hint: 'Не підвищувати характеристики під час підняття рівня, для DW хаків таких як Homebrew World'
+DW.Settings.noConstitutionToHP.name: "Не Додавати Значення Витривалості до Хітів"
+DW.Settings.noConstitutionToHP.hint: 'Використовується для DW хаків, таких як Homebrew World'
+DW.Settings.noSTRToMaxLoad.name: "Не додавати модифікатор Сили до максимального Навантаження"
+DW.Settings.noSTRToMaxLoad.hint: 'Використовується для DW хаків, таких як Homebrew World'
+DW.Settings.debilityLabelSTR.name: "Назва Стану СИЛ"
+DW.Settings.debilityLabelSTR.hint: ''
+DW.Settings.debilityLabelDEX.name: "Назва Стану СПР"
+DW.Settings.debilityLabelDEX.hint: ''
+DW.Settings.debilityLabelCON.name: "Назва Стану ВИТ"
+DW.Settings.debilityLabelCON.hint: ''
+DW.Settings.debilityLabelINT.name: "Назва Стану ІНТ"
+DW.Settings.debilityLabelINT.hint: ''
+DW.Settings.debilityLabelWIS.name: "Назва Стану МУД"
+DW.Settings.debilityLabelWIS.hint: ''
+DW.Settings.debilityLabelCHA.name: "Назва Стану ХАР"
+DW.Settings.debilityLabelCHA.hint: ''
+DW.Dialog.askTitle: 'Оберіть Характеристику'
+DW.Dialog.askContent: 'Оберіть характеристику для ходу <strong>{name}</strong>.'
+DW.Dialog.bondTitle: 'Введіть свій модифікатор'
+DW.Dialog.bondContent: 'Введіть бонус за стосунки або модифікатор для ходу <strong>{name}</strong>.'
+DW.Notifications.noClassWarning: 'Ви повинні вибрати дійсний клас, перш ніж ви зможете підняти рівень.'
+DW.Scrolling.armorReduced: '{reduced} застосовано Броню'
+DW.Scrolling.armorPiercing: '{piercing} Броня ігнорується'
