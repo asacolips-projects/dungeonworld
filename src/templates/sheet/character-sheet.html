@@ -426,7 +426,13 @@
                       <li class="item flexrow" data-item-id="{{item._id}}" draggable="true">
                           <h4 class="item-name">
                             <div class="item-avatar">
-                              <span class="rollable item-rollable" data-roll=""><i class="fas fa-book"></i></span>
+                              <span class="rollable item-rollable" data-roll="{{item.system.rollFormula}}">
+                                {{#if item.system.rollFormula}}
+                                  <i class="fas fa-dice-d20"></i>
+                                {{else}}
+                                  <i class="fas fa-book"></i>
+                                {{/if}}
+                              </span>
                               <img class="item-icon" src="{{item.img}}" title="{{item.name}}" width="27" height="27"/>
                             </div>
                             <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span>

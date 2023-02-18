@@ -93,6 +93,7 @@ DW.Quantity: Anzahl
 DW.Qty: Anz
 DW.Weight: Gewicht
 DW.Price: Preis
+DW.DamageOverride: "Schadensüberbrückung"
 DW.Wt: Gew
 DW.Uses: Anwendungen
 DW.MagicItem: Magischer Gegenstand

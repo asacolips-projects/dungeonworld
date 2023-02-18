@@ -149,7 +149,7 @@ export class DwRolls {
           details: item.system.description,
           tags: item.system.tags
         }
-        data.roll = null;
+        data.roll = item.system.rollFormula;
         this.rollMoveExecute(data.roll, data, templateData);
       }
     }
