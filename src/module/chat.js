@@ -112,11 +112,12 @@ async function _chatActionDamage(message, action) {
   let $content = $(message.content).text();
   // TODO: Localize this.
   let piercing = $content.match(/(\d+)\s*piercing|piercing\s*(\d+)/) ?? [];
+  let dmgBonus = $content.match(/[+](\d+)\s*damage|damage\s*[+](\d+)/) ?? [];
   let options = {
     ignoreArmor: $content.toLowerCase().includes('ignores armor'),
     piercing: (piercing[1] ?? piercing[2]) ?? 0,
+    dmgBonus: (dmgBonus[1] ?? dmgBonus[2]) ?? 0,
   };
-
   for (let actor of actors) {
     if (!actor || !actor.system.attributes.hp) return;
 

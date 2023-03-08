@@ -179,9 +179,11 @@ export class DwRolls {
     // Add piercing and armor tags.
     let tags = [];
     let piercing = this.actor.system.attributes.damage?.piercing ?? 0;
+    let dmgBonus = this.actor.system.attributes.damage?.dmgBonus ?? 0;
     let ignoreArmor = this.actor.system.attributes.damage?.ignoreArmor ?? false;
     if (piercing > 0) tags.push({value: `${piercing} piercing`});
     if (ignoreArmor) tags.push({value: `ignores armor`});
+    if (dmgBonus > 0) tags.push({value: `+${dmgBonus} damage`});
     templateData.tags = JSON.stringify(tags);
     // Handle dice rolls.
     if (!DwUtility.isEmpty(roll)) {

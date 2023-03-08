@@ -91,9 +91,22 @@ export class ActorDw extends Actor {
           for (let tag of tags) {
             let piercing = tag.value.toLowerCase().match(/(\d+)\s*piercing|piercing\s*(\d+)/) ?? [];
             let ignoreArmor = tag.value.toLowerCase().includes('ignores armor');
+            //let dmgBonus = tag.value.toLowerCase().match(/[+](\d+)\s*damage|damage\s*[+](\d+)/) ?? [];
+            if (piercing[1] > 0 || piercing[2] > 0) {
             data.attributes.damage.piercing = (piercing[1] ?? piercing[2]) ?? 0;
+            }
             data.attributes.damage.ignoreArmor = ignoreArmor;
+            //data.attributes.damage.dmgBonus = (dmgBonus[1] ?? dmgBonus[2]) ?? 0;
             if (data.attributes.damage.piercing || data.attributes.damage.ignoreArmor) {
+              break;
+            }
+          }
+          for (let tag of tags) {
+            let dmgBonus = tag.value.toLowerCase().match(/[+](\d+)\s*damage|damage\s*[+](\d+)/) ?? [];
+            if (dmgBonus[1] > 0 || dmgBonus[2] > 0) { 
+                data.attributes.damage.dmgBonus = (dmgBonus[1] ?? dmgBonus[2]) ?? 0;
+            }
+            if (data.attributes.damage.dmgBonus) {
               break;
             }
           }
@@ -259,8 +272,15 @@ export class ActorDw extends Actor {
     }
   }
 
-  async applyDamage(amount, options = {op: 'full', ignoreArmor: false, piercing: 0}) {
+  async applyDamage(amount, options = {op: 'full', ignoreArmor: false, piercing: 0, dmgBonus: 0}) {
     let newAmount = Number(amount);
+    let dmgBonus = options?.dmgBonus;
+
+ // apply dmgbonus
+    if (options.op !== 'heal') {
+        newAmount += parseInt(dmgBonus);
+    }
+//    }
 
     switch (options.op) {
       // case 'full':
@@ -268,11 +288,11 @@ export class ActorDw extends Actor {
       //   break;
 
     case 'half':
-      newAmount = Math.floor(amount / 2);
+      newAmount = Math.floor(newAmount / 2);
       break;
 
     case 'double':
-      newAmount = amount * 2;
+      newAmount = newAmount * 2;
       break;
 
       // case 'heal':
