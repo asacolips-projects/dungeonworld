@@ -124,13 +124,18 @@ Hooks.once("init", async function() {
     default: true
   });
 
+  let browserDefaultColor = false;
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    browserDefaultColor = true;
+  }
+
   game.settings.register("dungeonworld", "nightmode", {
     name: game.i18n.localize("DW.Settings.nightmode.name"),
     hint: game.i18n.localize("DW.Settings.nightmode.hint"),
     scope: 'client',
     config: true,
     type: Boolean,
-    default: false
+    default: browserDefaultColor
   });
 
   game.settings.register("dungeonworld", "alignmentSingle", {
