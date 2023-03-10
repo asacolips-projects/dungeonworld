@@ -19,7 +19,7 @@
       {{#if (eq item.system.rollType 'FORMULA')}}
         {{item.system.rollFormula}}
       {{else}}
-        {{getLabel statSettings item.system.rollType}}
+        {{localize (concat "DW." item.system.rollType)}}
       {{/if}}
     </span>
   </div>

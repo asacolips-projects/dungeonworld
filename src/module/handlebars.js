@@ -40,22 +40,6 @@ export class DwRegisterHelpers {
       }
     });
 
-    Handlebars.registerHelper('getLabel', function(obj, key) {
-      // Handle bond overrides.
-      if (key == 'BOND') {
-        let override = game.settings.get('dungeonworld', 'bondSingle') ?? '';
-        if (typeof override === 'string' && override.length > 0) {
-          return override;
-        }
-      }
-      // Handle other keys.
-      let result = key;
-      if (typeof obj == 'object' && obj[key]) {
-        result = (typeof obj[key] == 'object' && obj[key].label) ? obj[key].label : obj[key];
-      }
-      return result.length > 0 ? result : key;
-    });
-
     Handlebars.registerHelper('progressCircle', function(data) {
       return `<svg class="progress-ring progress-ring--${data.class}" viewBox="0 0 ${data.diameter} ${data.diameter}" width="${data.diameter}" height="${data.diameter}">
       <circle
