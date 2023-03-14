@@ -1,20 +1,38 @@
-name: Dirty Fighter
-permission:
-  default: 0
-type: move
-data:
+name: 'Dirty Fighter'
+type: 'move'
+flags: {}
+img: 'icons/skills/melee/blood-slash-foam-red.webp'
+_id: 'PynM5aubCK54J1oi'
+system:
   name: ''
-  description: >-
-    <p>When using a precise or hand weapon, your <strong>Backstab </strong>deals
-    an extra +1d8 damage and all other attacks deal +1d4 damage.</p>
-
-    <p>Additional damage rolls: [[/roll 1d8]] [[/roll 1d4]]</p>
+  description: "<p>When using a precise or hand weapon, your <strong>Backstab </strong>deals an extra +1d8 damage and all other attacks deal +1d4 damage.</p>\n<p>Additional damage rolls: [[/roll 1d8]] [[/roll 1d4]]</p>"
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Thief'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
-  requiresMove: Cheap Shot
-  class: 'The Thief'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: PynM5aubCK54J1oi
+  requiresMove: 'Cheap Shot'
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139137061
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

@@ -1,19 +1,38 @@
-name: Smash!
-permission:
-  default: 0
-type: move
-data:
+name: 'Smash!'
+type: 'move'
+flags: {}
+img: 'icons/skills/melee/sword-damaged-broken-orange.webp'
+_id: 'z9FTySEZ7NdlHgbB'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>Hack &amp; Slash</strong>, on a 12+ deal your damage and
-    choose something physical your target has (a weapon, their position, a
-    limb): they lose it.</p>
+  description: '<p>When you <strong>Hack &amp; Slash</strong>, on a 12+ deal your damage and choose something physical your target has (a weapon, their position, a limb): they lose it.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Barbarian'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Barbarian'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: z9FTySEZ7NdlHgbB
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815123066
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

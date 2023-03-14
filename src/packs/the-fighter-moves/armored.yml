@@ -1,16 +1,38 @@
-name: Armored
-permission:
-  default: 0
-type: move
-data:
+name: 'Armored'
+type: 'move'
+flags: {}
+img: 'icons/equipment/chest/breastplate-leather-brown-belted.webp'
+_id: '8PFL24PUlOByWBr7'
+system:
   name: ''
-  description: <p>You ignore the clumsy tag on any armor you wear.</p>
+  description: '<p>You ignore the clumsy tag on any armor you wear.</p>'
+  choices: ''
+  moveType: 'starting'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Fighter'
   rollType: ''
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
-  class: 'The Fighter'
-  moveType: starting
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: 8PFL24PUlOByWBr7
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678127418759
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

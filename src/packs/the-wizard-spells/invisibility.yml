@@ -1,18 +1,15 @@
-name: Invisibility
+name: 'Invisibility'
 permission:
   default: 0
-type: spell
+type: 'spell'
 data:
   name: ''
-  description: >-
-    <p>Touch an ally: nobody can see them. They’re invisible! The spell persists
-    until the target attacks or you dismiss the effect. While the spell is
-    ongoing you can’t cast a spell. Ongoing.</p>
+  description: '<p>Touch an ally: nobody can see them. They’re invisible! The spell persists until the target attacks or you dismiss the effect. While the spell is ongoing you can’t cast a spell. Ongoing.</p>'
   spellLevel: 1
   rollFormula: ''
   class: 'The Wizard'
   prepared: false
 flags: {}
-img: systems/dungeonworld/assets/icons/skills/blue_35.webp
+img: 'systems/dungeonworld/assets/icons/skills/blue_35.webp'
 effects: []
-_id: xs8SSH7qeZka44lc
+_id: 'xs8SSH7qeZka44lc'

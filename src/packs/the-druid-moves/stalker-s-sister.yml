@@ -1,16 +1,38 @@
-_id: BwSEykw4ejdishnq
-name: Stalker's Sister
-permission:
-  default: 0
-type: move
-data:
+_id: 'BwSEykw4ejdishnq'
+name: 'Stalker''s Sister'
+type: 'move'
+flags: {}
+img: 'icons/skills/ranged/target-bullseye-arrow-white.webp'
+system:
   name: ''
-  description: <p>Choose one move from the ranger class list.</p>
+  description: '<p>Choose one move from the ranger class list.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Druid'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
   requiresMove: ''
-  class: 'The Druid'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678608851111
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

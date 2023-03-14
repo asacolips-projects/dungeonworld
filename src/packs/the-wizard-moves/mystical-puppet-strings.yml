@@ -1,18 +1,38 @@
-_id: iyL6aWi2CWcv3Kw4
-name: Mystical Puppet Strings
-permission:
-  default: 0
-type: move
-data:
+_id: 'iyL6aWi2CWcv3Kw4'
+name: 'Mystical Puppet Strings'
+type: 'move'
+flags: {}
+img: 'icons/magic/control/control-influence-puppet.webp'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>use magic to control a person’s actions</strong>, they
-    have no memory of what you had them do and bear you no ill will.</p>
+  description: '<p>When you <strong>use magic to control a person’s actions</strong>, they have no memory of what you had them do and bear you no ill will.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Wizard'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
   requiresMove: ''
-  class: 'The Wizard'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678660019964
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

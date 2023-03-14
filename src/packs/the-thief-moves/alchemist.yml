@@ -1,33 +1,38 @@
-name: Alchemist
-permission:
-  default: 0
-type: move
-data:
+name: 'Alchemist'
+type: 'move'
+flags: {}
+img: 'icons/skills/toxins/cauldron-pot-bubbles-green.webp'
+_id: 'DREbtYkm7eb7XH5B'
+system:
   name: ''
-  description: >-
-    <p>When<strong> you have time to gather materials and a safe place to brew
-    </strong>you can create three doses of any poison you’ve used before.
-    Alternately you can describe the effects of a poison you’d like to create.
-    The GM will tell you that you can create it, but with one or more
-    caveats:</p>
-
-    <ul>
-
-    <li>It will only work under specific circumstances.</li>
-
-    <li>The best you can manage is a weaker version.</li>
-
-    <li>It’ll take a while to take effect.</li>
-
-    <li>It’ll have obvious side effects.</li>
-
-    </ul>
+  description: "<p>When<strong> you have time to gather materials and a safe place to brew </strong>you can create three doses of any poison you’ve used before. Alternately you can describe the effects of a poison you’d like to create. The GM will tell you that you can create it, but with one or more caveats:</p>\n<ul>\n<li>It will only work under specific circumstances.</li>\n<li>The best you can manage is a weaker version.</li>\n<li>It’ll take a while to take effect.</li>\n<li>It’ll have obvious side effects.</li>\n</ul>"
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Thief'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
-  requiresMove: Brewer
-  class: 'The Thief'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: DREbtYkm7eb7XH5B
+  requiresMove: 'Brewer'
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139034042
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

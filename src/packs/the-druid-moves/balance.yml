@@ -1,19 +1,38 @@
-name: Balance
-permission:
-  default: 0
-type: move
-data:
+name: 'Balance'
+type: 'move'
+flags: {}
+img: 'icons/skills/social/trading-justice-scale-yellow.webp'
+_id: 'PivDudgyzRQfs8Mp'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>deal damage</strong>, take 1 balance. When you touch
-    someone and channel the spirits of life you may spend balance. For each
-    balance spent, heal 1d4 HP.</p>
+  description: '<p>When you <strong>deal damage</strong>, take 1 balance. When you touch someone and channel the spirits of life you may spend balance. For each balance spent, heal 1d4 HP.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Druid'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Druid'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: PivDudgyzRQfs8Mp
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678607331454
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

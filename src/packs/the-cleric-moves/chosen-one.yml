@@ -1,18 +1,38 @@
-name: Chosen One
-permission:
-  default: 0
-type: move
-data:
+name: 'Chosen One'
+type: 'move'
+flags: {}
+img: 'icons/magic/holy/saint-glass-portrait-halo.webp'
+_id: '8OOBOZ8N8FuyyOmy'
+system:
   name: ''
-  description: >-
-    <p>Choose one spell. You are granted that spell as if it was one level
-    lower.</p>
+  description: '<p>Choose one spell. You are granted that spell as if it was one level lower.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Cleric'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Cleric'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: 8OOBOZ8N8FuyyOmy
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678547534987
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

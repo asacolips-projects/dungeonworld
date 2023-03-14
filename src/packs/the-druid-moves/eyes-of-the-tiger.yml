@@ -1,20 +1,38 @@
-_id: o3afcG6OQFN3VFz6
-name: Eyes of the Tiger
-permission:
-  default: 0
-type: move
-data:
+_id: 'o3afcG6OQFN3VFz6'
+name: 'Eyes of the Tiger'
+type: 'move'
+flags: {}
+img: 'icons/creatures/abilities/cougar-roar-rush-orange.webp'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>mark an animal</strong> (with mud, dirt, or blood) you
-    can see through that animal’s eyes as if they were your own, no matter what
-    distance separates you. Only one animal at a time may be marked in this
-    way.</p>
+  description: '<p>When you <strong>mark an animal</strong> (with mud, dirt, or blood) you can see through that animal’s eyes as if they were your own, no matter what distance separates you. Only one animal at a time may be marked in this way.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Druid'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Druid'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678608279687
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

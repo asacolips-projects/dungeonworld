@@ -1,16 +1,38 @@
-_id: mAwNZBPRzKLIX9E7
-name: Still Hungry
-permission:
-  default: 0
-type: move
-data:
+_id: 'mAwNZBPRzKLIX9E7'
+name: 'Still Hungry'
+type: 'move'
+flags: {}
+img: 'icons/consumables/food/plate-fish-bowl-bones-brown.webp'
+system:
   name: ''
-  description: <p>Choose an additional appetite.</p>
+  description: '<p>Choose an additional appetite.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Barbarian'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Barbarian'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815120964
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

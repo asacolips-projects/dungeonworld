@@ -1,19 +1,38 @@
-_id: wvUl05lxC5cLb6y1
-name: World-talker
-permission:
-  default: 0
-type: move
-data:
+_id: 'wvUl05lxC5cLb6y1'
+name: 'World-talker'
+type: 'move'
+flags: {}
+img: 'icons/magic/control/buff-luck-fortune-rainbow.webp'
+system:
   name: ''
-  description: >-
-    <p>You see the patterns that make up the fabric of the world. You may now
-    apply your spirit tongue, shapeshifter and studied essence moves to pure
-    elements—fire, water, air and earth.</p>
+  description: '<p>You see the patterns that make up the fabric of the world. You may now apply your spirit tongue, shapeshifter and studied essence moves to pure elements—fire, water, air and earth.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Druid'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
-  requiresMove: Thing-talker
-  class: 'The Druid'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
+  requiresMove: 'Thing-talker'
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678609223285
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

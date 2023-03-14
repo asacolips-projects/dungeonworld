@@ -1,20 +1,38 @@
-name: Blacksmith
-permission:
-  default: 0
-type: move
-data:
+name: 'Blacksmith'
+type: 'move'
+flags: {}
+img: 'icons/skills/trades/smithing-tongs-metal-red.webp'
+_id: '2jajQJrxJ3Kyrddv'
+system:
   name: ''
-  description: >-
-    <p>When you<strong> have access to a forge</strong> you can graft the
-    magical powers of a weapon onto your signature weapon. This process destroys
-    the magical weapon. Your signature weapon gains the magical powers of the
-    destroyed weapon.</p>
+  description: '<p>When you<strong> have access to a forge</strong> you can graft the magical powers of a weapon onto your signature weapon. This process destroys the magical weapon. Your signature weapon gains the magical powers of the destroyed weapon.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Fighter'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Fighter'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: 2jajQJrxJ3Kyrddv
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678127484247
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

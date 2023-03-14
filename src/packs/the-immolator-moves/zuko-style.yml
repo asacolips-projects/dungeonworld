@@ -1,27 +1,38 @@
-name: Zuko Style
-permission:
-  default: 0
-type: move
-data:
+name: 'Zuko Style'
+type: 'move'
+flags: {}
+img: 'icons/magic/fire/elemental-fire-flying.webp'
+_id: 'fvDKKUOYlvW8uvRF'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>bend a flame to your will</strong>, roll+WIS.</p>
-  rollType: WIS
-  rollMod: 0
-  requiresLevel: 0
-  requiresMove: ''
-  class: 'The Immolator'
-  moveType: starting
+  description: '<p>When you <strong>bend a flame to your will</strong>, roll+WIS.</p>'
+  choices: ''
+  moveType: 'starting'
+  rollFormula: ''
   moveResults:
     failure:
       value: ''
     partial:
-      value: >-
-        <p>The effect is short-lived, lasting only a moment.</p>
+      value: '<p>The effect is short-lived, lasting only a moment.</p>'
     success:
-      value: >-
-        <p>It does as you command, taking the shape and movement you desire for as long
-        as it has fuel on which to burn.</p>
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: fvDKKUOYlvW8uvRF
+      value: '<p>It does as you command, taking the shape and movement you desire for as long as it has fuel on which to burn.</p>'
+  class: 'The Immolator'
+  rollType: 'WIS'
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678745176419
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

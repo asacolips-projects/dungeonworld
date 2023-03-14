@@ -1,20 +1,15 @@
-name: Mimic
+name: 'Mimic'
 permission:
   default: 0
-type: spell
+type: 'spell'
 data:
   name: ''
-  description: >-
-    <p>You take the form of someone you touch while casting this spell. Your
-    physical characteristics match theirs exactly but your behavior may not.
-    This change persists until you take damage or choose to return to your own
-    form. While this spell is ongoing you lose access to all your wizard moves.
-    Ongoing.</p>
+  description: '<p>You take the form of someone you touch while casting this spell. Your physical characteristics match theirs exactly but your behavior may not. This change persists until you take damage or choose to return to your own form. While this spell is ongoing you lose access to all your wizard moves. Ongoing.</p>'
   spellLevel: 3
   rollFormula: ''
   class: 'The Wizard'
   prepared: false
 flags: {}
-img: systems/dungeonworld/assets/icons/spells/link-royal-2.webp
+img: 'systems/dungeonworld/assets/icons/spells/link-royal-2.webp'
 effects: []
-_id: j9Xe9y4h7Mr5eQoR
+_id: 'j9Xe9y4h7Mr5eQoR'

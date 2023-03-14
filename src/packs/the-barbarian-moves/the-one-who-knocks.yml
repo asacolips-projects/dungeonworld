@@ -1,18 +1,38 @@
-name: The One Who Knocks
-permission:
-  default: 0
-type: move
-data:
+name: 'The One Who Knocks'
+type: 'move'
+flags: {}
+img: 'icons/magic/defensive/shield-barrier-deflect-teal.webp'
+_id: 'NvscYQLSkk1pabXL'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>Defy Danger</strong>, on a 12+ you turn the danger back
-    on itself, the GM will describe how.</p>
+  description: '<p>When you <strong>Defy Danger</strong>, on a 12+ you turn the danger back on itself, the GM will describe how.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Barbarian'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
   requiresMove: ''
-  class: 'The Barbarian'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: NvscYQLSkk1pabXL
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815118722
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

@@ -1,18 +1,38 @@
-name: Invigorate
-permission:
-  default: 0
-type: move
-data:
+name: 'Invigorate'
+type: 'move'
+flags: {}
+img: 'icons/magic/life/heart-area-circle-red-green.webp'
+_id: 'GUNLYITIg0EHQmyM'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>heal someone</strong> they take +2 forward to their
-    damage.</p>
+  description: '<p>When you <strong>heal someone</strong> they take +2 forward to their damage.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Cleric'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Cleric'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: GUNLYITIg0EHQmyM
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678548881278
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

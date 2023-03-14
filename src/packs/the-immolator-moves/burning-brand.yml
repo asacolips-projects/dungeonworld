@@ -1,36 +1,40 @@
-_id: huY49rl2rk5HaK55
-name: Burning Brand
-permission:
-  default: 0
-type: move
-data:
+_id: 'huY49rl2rk5HaK55'
+name: 'Burning Brand'
+type: 'move'
+flags: {}
+img: 'icons/magic/fire/dagger-rune-enchant-flame-strong-orange.webp'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>conjure a weapon of pure flame</strong>, roll+CON.</p>
-    <p>You may treat your INT as your STR or DEX in regards to making attacks with this weapon.
-    The weapon always begins with the <em>fiery</em>, <em>touch</em>, <em>dangerous</em>, and <em>3 uses</em> tags.
-    Each attack with the weapon consumes one use.</p>
-  choices: >-
-    <ul>
-    <li><em>hand</em></li>
-    <li><em>thrown, near</em></li>
-    <li><em>+1 damage</em></li>
-    <li><em>remove the dangerous tag</em></li>
-    </ul>
-  rollType: CON
-  rollMod: 0
-  requiresLevel: 0
-  requiresMove: ''
-  class: 'The Immolator'
-  moveType: starting
+  description: '<p>When you <strong>conjure a weapon of pure flame</strong>, roll+CON.</p> <p>You may treat your INT as your STR or DEX in regards to making attacks with this weapon. The weapon always begins with the <em>fiery</em>, <em>touch</em>, <em>dangerous</em>, and <em>3 uses</em> tags. Each attack with the weapon consumes one use.</p>'
+  choices: '<ul> <li><em>hand</em></li> <li><em>thrown, near</em></li> <li><em>+1 damage</em></li> <li><em>remove the dangerous tag</em></li> </ul>'
+  moveType: 'starting'
+  rollFormula: ''
   moveResults:
     failure:
       value: ''
     partial:
-      value: >-
-        <p>Choose one additional tag.</p>
+      value: '<p>Choose one additional tag.</p>'
+    success:
+      value: ''
     sucess:
-      value: >-
-        <p>Choose two additional tags.</p>
-flags: {}
-img: icons/svg/mystery-man.svg
+      value: '<p>Choose two additional tags.</p>'
+  class: 'The Immolator'
+  rollType: 'CON'
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678743503069
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

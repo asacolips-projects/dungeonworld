@@ -1,24 +1,14 @@
-name: Empowered Magic
-permission:
-  default: 0
-type: move
-data:
+name: 'Empowered Magic'
+type: 'move'
+flags: {}
+img: 'icons/magic/symbols/runes-star-blue.webp'
+_id: 'soE7VXYdldJAGwXX'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>cast a spell</strong>, on a 10+ you have the option of
-    choosing from the 7-9 list. If you do, you may additionally choose one of
-    the following effects:</p>
-  choices: >-
-    <ul>
-    <li>The spell’s effects are maximized</li>
-    <li>The spell’s targets are doubled</li>
-    </ul>
-  rollType: ''
-  rollMod: 0
-  requiresLevel: 2
-  requiresMove: ''
-  class: 'The Wizard'
-  moveType: advanced
+  description: '<p>When you <strong>cast a spell</strong>, on a 10+ you have the option of choosing from the 7-9 list. If you do, you may additionally choose one of the following effects:</p>'
+  choices: '<ul> <li>The spell’s effects are maximized</li> <li>The spell’s targets are doubled</li> </ul>'
+  moveType: 'advanced'
+  rollFormula: ''
   moveResults:
     failure:
       value: ''
@@ -26,6 +16,23 @@ data:
       value: ''
     success:
       value: ''
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: soE7VXYdldJAGwXX
+  class: 'The Wizard'
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678660328402
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

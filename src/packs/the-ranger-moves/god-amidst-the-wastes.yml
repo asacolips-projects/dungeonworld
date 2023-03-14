@@ -1,21 +1,38 @@
-name: God Amidst The Wastes
-permission:
-  default: 0
-type: move
-data:
+name: 'God Amidst The Wastes'
+type: 'move'
+flags: {}
+img: 'icons/magic/holy/chalice-glowing-gold-water.webp'
+_id: '5aeZZIGX48Nx0R5r'
+system:
   name: ''
-  description: >-
-    <p>Dedicate yourself to a deity (name a new one or choose one that’s already
-    been established). You gain the commune and cast a spell cleric moves. When
-    you select this move, treat yourself as a cleric of level 1 for using
-    spells. Every time you gain a level thereafter, increase your effective
-    cleric level by 1.</p>
+  description: '<p>Dedicate yourself to a deity (name a new one or choose one that’s already been established). You gain the commune and cast a spell cleric moves. When you select this move, treat yourself as a cleric of level 1 for using spells. Every time you gain a level thereafter, increase your effective cleric level by 1.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Ranger'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Ranger'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: 5aeZZIGX48Nx0R5r
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139607560
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

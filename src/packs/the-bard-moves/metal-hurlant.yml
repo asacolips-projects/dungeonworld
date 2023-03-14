@@ -1,29 +1,38 @@
-name: Metal Hurlant
-permission:
-  default: 0
-type: move
-data:
+name: 'Metal Hurlant'
+type: 'move'
+flags: {}
+img: 'icons/magic/sonic/scream-wail-shout-teal.webp'
+_id: 'DHCnlyX8ktZaY5He'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>shout with great force or play a shattering note
-    </strong>choose a target and roll+CON.</p>
-  rollType: CON
-  rollMod: 0
-  requiresLevel: 2
-  requiresMove: ''
-  class: 'The Bard'
-  moveType: advanced
+  description: '<p>When you <strong>shout with great force or play a shattering note </strong>choose a target and roll+CON.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
   moveResults:
     failure:
       value: ''
     partial:
-      value: >-
-        <p>You still damage your target, but it’s out of control: the GM will
-        choose an additional target nearby.</p>
+      value: '<p>You still damage your target, but it’s out of control: the GM will choose an additional target nearby.</p>'
     success:
-      value: >-
-        <p>The target takes 1d10
-        damage and is deafened for a few minutes.</p>
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: DHCnlyX8ktZaY5He
+      value: '<p>The target takes 1d10 damage and is deafened for a few minutes.</p>'
+  class: 'The Bard'
+  rollType: 'CON'
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678529979102
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

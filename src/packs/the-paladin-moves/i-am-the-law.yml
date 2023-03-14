@@ -1,34 +1,38 @@
-_id: 20NgXNnKKNms25wj
-name: I Am The Law
-permission:
-  default: 0
-type: move
-data:
+_id: '20NgXNnKKNms25wj'
+name: 'I Am The Law'
+type: 'move'
+flags: {}
+img: 'icons/skills/social/trading-justice-scale-yellow.webp'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>give an NPC an order based on your divine
-    authority</strong>, roll+CHA.</p>
-  choices: >-
-    <ul>
-    <li>Do what you say.</li>
-    <li>Back away cautiously, then flee.</li>
-    <li>Attack you.</li>
-    </ul>
-  rollType: CHA
+  description: '<p>When you <strong>give an NPC an order based on your divine authority</strong>, roll+CHA.</p>'
+  choices: '<ul> <li>Do what you say.</li> <li>Back away cautiously, then flee.</li> <li>Attack you.</li> </ul>'
+  moveType: 'starting'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: '<p>They do as they please and you take -1 forward against them.</p>'
+    partial:
+      value: '<p>They choose one.</p>'
+    success:
+      value: '<p>They choose one, and you take +1 forward against them.</p>'
+  class: 'The Paladin'
+  rollType: 'CHA'
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
-  class: 'The Paladin'
-  moveType: starting
-  moveResults:
-    failure:
-      value: >-
-        <p>They do as they please and you take -1 forward against them.</p>
-    partial:
-      value: >-
-        <p>They choose one.</p>
-    success:
-      value: >-
-        <p>They choose one, and you take +1 forward against them.</p>
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678651406182
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

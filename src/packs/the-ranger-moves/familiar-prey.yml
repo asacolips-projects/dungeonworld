@@ -1,18 +1,38 @@
-_id: Lry3vbhPwelpicJ2
-name: Familiar Prey
-permission:
-  default: 0
-type: move
-data:
+_id: 'Lry3vbhPwelpicJ2'
+name: 'Familiar Prey'
+type: 'move'
+flags: {}
+img: 'icons/creatures/mammals/deer-movement-leap-green.webp'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>Spout Lore about a monster</strong> you use WIS instead
-    of INT.</p>
+  description: '<p>When you <strong>Spout Lore about a monster</strong> you use WIS instead of INT.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Ranger'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Ranger'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139587595
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

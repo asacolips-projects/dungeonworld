@@ -1,18 +1,38 @@
-name: Multiclass Dabbler
-permission:
-  default: 0
-type: move
-data:
+name: 'Multiclass Dabbler'
+type: 'move'
+flags: {}
+img: 'icons/skills/trades/academics-study-reading-book.webp'
+_id: '1CuMyz5rXkB3QLJT'
+system:
   name: ''
-  description: >-
-    <p>Get one move from another class. Treat your level as one lower for
-    choosing the move.</p>
+  description: '<p>Get one move from another class. Treat your level as one lower for choosing the move.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Fighter'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Fighter'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: 1CuMyz5rXkB3QLJT
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678127643837
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

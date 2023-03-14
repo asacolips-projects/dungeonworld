@@ -1,34 +1,38 @@
-name: Called Shot
-permission:
-  default: 0
-type: move
-data:
+name: 'Called Shot'
+type: 'move'
+flags: {}
+img: 'icons/skills/targeting/crosshair-pointed-orange.webp'
+_id: 'VpeXMwtBhIQYyA77'
+system:
   name: ''
-  description: >-
-    <p>When you<strong> attack a defenseless or surprised enemy at
-    range</strong>, you can choose to either deal your damage automatically or name your target and
-    roll+DEX.</p>
-  choices: >-
-    <ul>
-    <li><strong>Head</strong>: They do nothing but stand and drool for a few moments.</li>
-    <li><strong>Arms</strong>: They drop anything they’re holding.</li>
-    <li><strong>Legs</strong>: They’re hobbled and slow moving.</li>
-    </ul>
-  rollType: DEX
-  rollMod: 0
-  requiresLevel: 0
-  requiresMove: ''
-  class: 'The Ranger'
-  moveType: starting
+  description: '<p>When you<strong> attack a defenseless or surprised enemy at range</strong>, you can choose to either deal your damage automatically or name your target and roll+DEX.</p>'
+  choices: '<ul> <li><strong>Head</strong>: They do nothing but stand and drool for a few moments.</li> <li><strong>Arms</strong>: They drop anything they’re holding.</li> <li><strong>Legs</strong>: They’re hobbled and slow moving.</li> </ul>'
+  moveType: 'starting'
+  rollFormula: ''
   moveResults:
     failure:
       value: ''
     partial:
-      value: >-
-        <p>Choose one, but don't deal your damage.</p>
+      value: '<p>Choose one, but don''t deal your damage.</p>'
     success:
-      value: >-
-        <p>Choose one, and deal your damage.</p>
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: VpeXMwtBhIQYyA77
+      value: '<p>Choose one, and deal your damage.</p>'
+  class: 'The Ranger'
+  rollType: 'DEX'
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139556029
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

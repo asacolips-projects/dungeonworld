@@ -1,18 +1,38 @@
-name: Fount of Knowledge
-permission:
-  default: 0
-type: move
-data:
+name: 'Fount of Knowledge'
+type: 'move'
+flags: {}
+img: 'icons/sundries/books/book-open-purple.webp'
+_id: 'PjtEZKEb7T6s0k87'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>spout lore</strong> about something no one else has any
-    clue about, take +1.</p>
+  description: '<p>When you <strong>spout lore</strong> about something no one else has any clue about, take +1.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Wizard'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Wizard'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: PjtEZKEb7T6s0k87
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678659826567
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

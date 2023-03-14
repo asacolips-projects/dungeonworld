@@ -1,16 +1,38 @@
-name: Steel Hide
-permission:
-  default: 0
-type: move
-data:
+name: 'Steel Hide'
+type: 'move'
+flags: {}
+img: 'icons/magic/defensive/armor-shield-barrier-steel.webp'
+_id: 'lhoOVl9UwdsbL2Ey'
+system:
   name: ''
-  description: <p>You gain +2 armor.</p>
+  description: '<p>You gain +2 armor.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Fighter'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
-  requiresMove: Iron Hide
-  class: 'The Fighter'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: lhoOVl9UwdsbL2Ey
+  requiresMove: 'Iron Hide'
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678127714565
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

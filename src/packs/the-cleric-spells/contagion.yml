@@ -1,18 +1,15 @@
-name: Contagion
+name: 'Contagion'
 permission:
   default: 0
-type: spell
+type: 'spell'
 data:
   name: ''
-  description: >-
-    <p>Choose a creature you can see. Until you end this spell, the target
-    suffers from a disease of your choice. While this spell is ongoing you take
-    -1 to cast a spell.</p>
+  description: '<p>Choose a creature you can see. Until you end this spell, the target suffers from a disease of your choice. While this spell is ongoing you take -1 to cast a spell.</p>'
   spellLevel: 5
   rollFormula: ''
   class: 'The Cleric'
   prepared: false
 flags: {}
-img: systems/dungeonworld/assets/icons/skills/blood_09.webp
+img: 'systems/dungeonworld/assets/icons/skills/blood_09.webp'
 effects: []
-_id: rN7xNmyfIy8lKNcz
+_id: 'rN7xNmyfIy8lKNcz'

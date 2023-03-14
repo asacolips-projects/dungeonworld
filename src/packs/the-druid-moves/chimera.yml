@@ -1,21 +1,38 @@
-_id: 7nKYqlTVjBMg4oXC
-name: Chimera
-permission:
-  default: 0
-type: move
-data:
+_id: '7nKYqlTVjBMg4oXC'
+name: 'Chimera'
+type: 'move'
+flags: {}
+img: 'icons/creatures/claws/claw-talons-yellow-red.webp'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>shapeshift</strong>, you may create a merged form of up
-    to three different shapes. You may be a bear with the wings of an eagle and
-    the head of a ram, for example. Each feature will grant you a different move
-    to make. Your chimera form follows the same rules as shapeshifter
-    otherwise.</p>
+  description: '<p>When you <strong>shapeshift</strong>, you may create a merged form of up to three different shapes. You may be a bear with the wings of an eagle and the head of a ram, for example. Each feature will grant you a different move to make. Your chimera form follows the same rules as shapeshifter otherwise.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Druid'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
   requiresMove: ''
-  class: 'The Druid'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678607705437
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

@@ -1,22 +1,38 @@
-name: More! Always More!
-permission:
-  default: 0
-type: move
-data:
+name: 'More! Always More!'
+type: 'move'
+flags: {}
+img: 'icons/consumables/food/cheese-wheel-round-yellow.webp'
+_id: 'jXJVOzicFp1eUtoh'
+system:
   name: ''
-  description: >-
-    <p>When you<strong> satisfy an appetite to the
-    </strong><strong>extreme</strong> (destroying something unique and
-    significant, gaining enormous fame, riches, power, etc.) you may choose to
-    resolve it. Cross it off the list and mark XP. While you may pursue that
-    appetite again, you no longer feel the burning desire you once did. In its
-    place, choose a new appetite from the list or write your own.</p>
+  description: '<p>When you<strong> satisfy an appetite to the </strong><strong>extreme</strong> (destroying something unique and significant, gaining enormous fame, riches, power, etc.) you may choose to resolve it. Cross it off the list and mark XP. While you may pursue that appetite again, you no longer feel the burning desire you once did. In its place, choose a new appetite from the list or write your own.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Barbarian'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
   requiresMove: ''
-  class: 'The Barbarian'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: jXJVOzicFp1eUtoh
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815134091
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

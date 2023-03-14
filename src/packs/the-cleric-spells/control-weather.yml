@@ -1,18 +1,15 @@
-name: Control Weather
+name: 'Control Weather'
 permission:
   default: 0
-type: spell
+type: 'spell'
 data:
   name: ''
-  description: >-
-    <p>Pray for rain—or sun, wind, or snow. Within a day or so, your god will
-    answer. The weather will change according to your will and last a handful of
-    days.</p>
+  description: '<p>Pray for rain—or sun, wind, or snow. Within a day or so, your god will answer. The weather will change according to your will and last a handful of days.</p>'
   spellLevel: 7
   rollFormula: ''
   class: 'The Cleric'
   prepared: false
 flags: {}
-img: icons/environment/wilderness/island.webp
+img: 'icons/environment/wilderness/island.webp'
 effects: []
-_id: 2GQRjKODEhemxDOh
+_id: '2GQRjKODEhemxDOh'

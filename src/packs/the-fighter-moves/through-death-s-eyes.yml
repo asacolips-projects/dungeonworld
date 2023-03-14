@@ -1,30 +1,38 @@
-name: Through Death’s Eyes
-permission:
-  default: 0
-type: move
-data:
+name: 'Through Death’s Eyes'
+type: 'move'
+flags: {}
+img: 'icons/magic/death/skull-humanoid-white-red.webp'
+_id: 'czC0Lk9K4LQyVbHB'
+system:
   name: ''
-  description: >-
-    <p>When you<strong> go into battle</strong>, roll+WIS.</p>
-    <p>When naming someone, name NPCs, not player characters. The GM will make
-    your vision come true, if it’s even remotely possible.</p>
-  rollType: WIS
+  description: '<p>When you<strong> go into battle</strong>, roll+WIS.</p> <p>When naming someone, name NPCs, not player characters. The GM will make your vision come true, if it’s even remotely possible.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: '<p>You see your own death and consequently take -1 ongoing throughout the battle.</p>'
+    partial:
+      value: '<p>Name someone who will live <strong>or</strong> someone who will die.</p>'
+    success:
+      value: '<p>Name someone who will live <strong>and</strong> someone who will die.</p>'
+  class: 'The Fighter'
+  rollType: 'WIS'
   rollMod: 0
   requiresLevel: 6
   requiresMove: ''
-  class: 'The Fighter'
-  moveType: advanced
-  moveResults:
-    failure:
-      value: >-
-        <p>You see your own death and consequently take -1 ongoing throughout the
-        battle.</p>
-    partial:
-      value: >-
-        <p>Name someone who will live <strong>or</strong> someone who will die.</p>
-    success:
-      value: >-
-        <p>Name someone who will live <strong>and</strong> someone who will die.</p>
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: czC0Lk9K4LQyVbHB
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678127752368
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

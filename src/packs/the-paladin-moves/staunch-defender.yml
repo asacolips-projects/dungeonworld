@@ -1,18 +1,38 @@
-name: Staunch Defender
-permission:
-  default: 0
-type: move
-data:
+name: 'Staunch Defender'
+type: 'move'
+flags: {}
+img: 'icons/magic/defensive/shield-barrier-deflect-teal.webp'
+_id: 'zcTuZTCv2RU0c9wz'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>Defend </strong>you always get +1 hold, even on a
-    6-.</p>
+  description: '<p>When you <strong>Defend </strong>you always get +1 hold, even on a 6-.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Paladin'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Paladin'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: zcTuZTCv2RU0c9wz
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678651702566
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

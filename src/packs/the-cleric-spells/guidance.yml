@@ -1,19 +1,15 @@
-name: Guidance
+name: 'Guidance'
 permission:
   default: 0
-type: spell
+type: 'spell'
 data:
   name: ''
-  description: >-
-    <p>The symbol of your deity appears before you and gestures towards the
-    direction or course of action your deity would have you take then
-    disappears. The message is through gesture only; your communication through
-    this spell is severely limited.</p>
+  description: '<p>The symbol of your deity appears before you and gestures towards the direction or course of action your deity would have you take then disappears. The message is through gesture only; your communication through this spell is severely limited.</p>'
   spellLevel: 0
   rollFormula: ''
   class: 'The Cleric'
   prepared: false
 flags: {}
-img: systems/dungeonworld/assets/icons/skills/light_06.webp
+img: 'systems/dungeonworld/assets/icons/skills/light_06.webp'
 effects: []
-_id: NdweGhq7sSkWXZqk
+_id: 'NdweGhq7sSkWXZqk'

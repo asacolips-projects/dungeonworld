@@ -1,18 +1,38 @@
-name: Bamboozle
-permission:
-  default: 0
-type: move
-data:
+name: 'Bamboozle'
+type: 'move'
+flags: {}
+img: 'icons/creatures/unholy/demon-hairy-winged-pink.webp'
+_id: 'vYbpbxUzoNAv1hC9'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>parley with someone</strong>, on a 7+ you also take +1
-    forward with them.</p>
+  description: '<p>When you <strong>parley with someone</strong>, on a 7+ you also take +1 forward with them.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Bard'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Bard'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: vYbpbxUzoNAv1hC9
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678529107052
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

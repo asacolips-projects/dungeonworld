@@ -1,18 +1,38 @@
-name: Eye for Weakness
-permission:
-  default: 0
-type: move
-data:
+name: 'Eye for Weakness'
+type: 'move'
+flags: {}
+img: 'icons/skills/wounds/bone-broken-knee-beam.webp'
+_id: 'uywxN6aKCSTzCBcs'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>Discern Realities</strong> add "What here is weak or
-    vulnerable?" to the list of questions you can ask.</p>
+  description: '<p>When you <strong>Discern Realities</strong> add "What here is weak or vulnerable?" to the list of questions you can ask.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Barbarian'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Barbarian'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: uywxN6aKCSTzCBcs
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815060508
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0
