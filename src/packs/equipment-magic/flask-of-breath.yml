@@ -1,26 +1,33 @@
-name: Flask of Breath
-permission:
-  default: 0
-type: equipment
-data:
+name: 'Flask of Breath'
+type: 'equipment'
+flags: {}
+img: 'icons/equipment/neck/amulet-carved-stone-bottle.webp'
+effects: []
+_id: 'DzGcovYW5Cd14eqm'
+system:
   name: ''
-  description: >-
-    <p>A simple thing, but useful when you need a breath of fresh air. The flask
-    appears empty but cannot be filled, anything added to it simply spills out.
-    This is because the flask is eternally full of air. If placed underwater, it
-    will bubble forever. If pressed to the mouth, one can breathe normally—smoke
-    is no concern, for example. I’m sure you’ll find all sorts of unusual uses
-    for it.</p>
+  description: '<p>A simple thing, but useful when you need a breath of fresh air. The flask appears empty but cannot be filled, anything added to it simply spills out. This is because the flask is eternally full of air. If placed underwater, it will bubble forever. If pressed to the mouth, one can breathe normally—smoke is no concern, for example. I’m sure you’ll find all sorts of unusual uses for it.</p>'
   class: ''
   quantity: 1
+  equipped: false
   weight: 0
+  price: 0
   uses: 0
   tags: ''
   tagsString: ''
   magic: true
-  itemType: dungeongear
+  itemType: 'dungeongear'
   attributes: {}
-flags: {}
-img: icons/containers/kitchenware/vase-005.webp
-effects: []
-_id: DzGcovYW5Cd14eqm
+ownership:
+  default: 0
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678917787299
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0
