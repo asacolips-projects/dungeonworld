@@ -321,6 +321,16 @@
       "lang": "sv",
       "name": "Svenska",
       "path": "lang/sv.json"
+    },
+    {
+      "lang": "uk",
+      "name": "Українська (Ukrainian)",
+      "path": "lang/uk.json"
+    },
+    {
+      "lang": "it",
+      "name": "Italiano",
+      "path": "lang/it.json"
     }
   ],
   "gridDistance": 5,
