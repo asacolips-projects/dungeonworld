@@ -1,0 +1,274 @@
+Dungeon World: "Dungeon World"
+DW.title: "Dungeon World"
+DW.description: "Gioca a Dungeon World in FoundryVTT!"
+DW.AbilityStr: "Forza"
+DW.AbilityDex: "Destrezza"
+DW.AbilityCon: "Costituzione"
+DW.AbilityInt: "Intelligenza"
+DW.AbilityWis: "Saggezza"
+DW.AbilityCha: "Carisma"
+DW.STR: "FOR"
+DW.DEX: "DES"
+DW.CON: "COS"
+DW.INT: "INT"
+DW.WIS: "SAG"
+DW.CHA: "CAR"
+DW.ASK: "Chiedi (finestra di dialogo caratteristica)"
+DW.BOND: "Legame (finestra di dialogo modificatore)"
+DW.FORMULA: "Formula lancio personalizzata"
+DW.DebilityStr: "Indebolito"
+DW.DebilityDex: "Instabile"
+DW.DebilityCon: "Malato"
+DW.DebilityInt: "Stordito"
+DW.DebilityWis: "Confuso"
+DW.DebilityCha: "Sfregiato"
+DW.Level: "Livello"
+DW.XP: "Esperienza"
+DW.Damage: "Danno"
+DW.Dmg: "Dan"
+DW.Armor: "Armatura"
+DW.HP: "PV"
+DW.Misc: "es. d4+2"
+DW.Look: "Apparenza"
+DW.Alignment: "Allineamento"
+DW.Alignments: "Allineamenti"
+DW.Class: "Classe"
+DW.Race: "Razza"
+DW.Races: "Razze"
+DW.Bond: "Legame"
+DW.Bonds: "Legami"
+DW.Tags: "Etichette"
+DW.AddBond: "Aggiungi legame"
+DW.BondDefault: "_____ ha un legame con me"
+DW.BondHelp: "________ inserisci qui il testo del legame."
+DW.Dialog.Bond1: "Scegli il bonus per il legame su questa "
+DW.Dialog.Bond2: " mossa."
+DW.MoveCreate: "Crea Mossa"
+DW.AddBasicMove: "Aggiungi Mossa Basilare"
+DW.AddStartingMove: "Aggiungi Mossa Iniziale"
+DW.AddAdvancedMove: "Aggiungi Mossa Avanzata"
+DW.AddMove: "Add una Mossa"
+DW.MovesBasic: "Mosse Basilari"
+DW.MovesStarting: "Mosse Iniziali"
+DW.MovesAdvanced: "Mosse Avanzate"
+DW.MovesSpecial: "Mosse Speciali"
+DW.MovesOther: "Altre Mosse"
+DW.MoveBasic: "Mossa Basilare"
+DW.MoveStarting: "Mossa Iniziale"
+DW.MoveAdvanced: "Mossa Avanzata"
+DW.MoveSpecial: "Mossa Speciale"
+DW.MoveGroup: "Gruppo Mosse"
+DW.MoveGroupHelp: "Più mosse con lo stesso gruppo saranno o meno selezionate durante la creazione guidata di un nuovo personaggio."
+DW.Description: "Descrizione"
+DW.Moves: "Mosse"
+DW.Biography: "Biografia"
+DW.Equipment: "Equipaggiamento"
+DW.Spells: "Incantesimi"
+DW.SpellLevel: "Livello Incantesimo"
+DW.Spells0: "Trucchetti"
+DW.Spells1: "Incantesimi di Livello 1"
+DW.Spells2: "Incantesimi di Livello 2"
+DW.Spells3: "Incantesimi di Livello 3"
+DW.Spells4: "Incantesimi di Livello 4"
+DW.Spells5: "Incantesimi di Livello 5"
+DW.Spells6: "Incantesimi di Livello 6"
+DW.Spells7: "Incantesimi di Livello 7"
+DW.Spells8: "Incantesimi di Livello 8"
+DW.Spells9: "Incantesimi di Livello 9"
+DW.SpellPrepared: "Preparato"
+DW.SpellRollFormula: "Formula del lancio"
+DW.RollFormula: "Formula del lancio"
+DW.AddEquipment: "Aggiungi equipaggiamento"
+DW.AddSpell: "Aggiungi incantesimo"
+DW.Common.Description: "Descrizione"
+DW.Common.Details: "Dettagli"
+DW.Common.Name: "Nome"
+DW.Roll: "Lancia"
+DW.Modifier: "Modificatore"
+DW.RequiresLevel: "Richiede Livello"
+DW.RequiresMove: "Richiede Mossa"
+DW.MoveType: "Tipo Mossa"
+DW.Equipped: "Equipaggiato"
+DW.Quantity: "Quantità"
+DW.Qty: "Qtà"
+DW.Weight: "Peso"
+DW.Wt: "Peso"
+DW.Uses: "Usi"
+DW.MagicItem: "Oggetto Magico"
+DW.ItemType: "Tipo Oggetto"
+DW.Coin: "Monete"
+DW.Weapon: "Arma"
+DW.DungeonGear: "Equip per dungeon"
+DW.Poison: "Veleno"
+DW.Service: "Servizio"
+DW.Meal: "Provvista"
+DW.Transport: "Mezzo di trasporto"
+DW.LandBuildings: "Terre ed Edifici"
+DW.Bribe: "Bustarella"
+DW.GiftsFinery: "Regali e ornamenti"
+DW.Hoard: "Tesoro"
+DW.TagsHelp: "(Usa tab per l'autocompletamento, separa i nuovi tag con una virgola, doppio click su un tag per modificarlo)"
+DW.SpecialQualities: "Qualità Speciali"
+DW.ClassSettings: "Impostazioni Classe"
+DW.ClassBaseHp: "PV di base"
+DW.ClassBaseHpHelp: "La Costituzione verrà sommata automaticamente."
+DW.ClassBaseLoad: "Carico massimo di base"
+DW.ClassBaseLoadHelp: "La Forza verrà sommata automaticamente."
+DW.ClassDamage: "Dado Danno"
+DW.ClassDamageHelp: "Dado Danno della Classe."
+DW.ClassAddEquipmentGroup: "Aggiungi gruppo equipaggiamento"
+DW.ClassEquipmentGroupHelp: "Di seguito puoi scegliere i gruppi equipaggiamento di classe. Ogni gruppo può avere qualsiasi numero di oggetti e puoi scegliere di selezionarne uno o tutti"
+DW.ClassEquipmentGroupPlaceholder: "Scegline uno, per te pesano tutti 0"
+DW.ClassEquipmentDropText: "Rilascia qui gli oggetti"
+DW.ChooseOne: "Scegline uno"
+DW.ChooseAny: "Scegline quanti preferisci"
+DW.ChooseRace: "Scegli una razza"
+DW.ChooseAlignment: "Scegli un allineamento"
+DW.ChooseAbilityScores: "Scegli i punteggi caratteristiche"
+DW.ChooseAbilityScoresIncrease: "Scegli una caratteristica da aumentare di 1."
+DW.ChooseStartingMoves: "Scegli le Mosse Iniziali"
+DW.ChooseStartingOne: "Scegline una per iniziare:"
+DW.ChooseStartingAll: "Inizierai inoltre con tutte queste:"
+DW.ChooseAdvancedMoves: "Scegli le Mosse Avanzate"
+DW.ChooseAdvanced2: "Quando ottieni un livello tra 2-5, scegli tra queste mosse."
+DW.ChooseAdvanced6: "Quando ottieni un livello tra 6-10, scegli tra queste mosse o quelle di livello 2-5."
+DW.ChooseSpells: "Scegli gli Incantesimi"
+DW.DefaultLook: "<ul><li>Occhi:</li><li>Capelli:</li><li>Fisico:</li><li>Pelle:</li><li>Abiti:</li></ul>"
+DW.Cancel: "Annulla"
+DW.Confirm: "Conferma"
+DW.Prepared: "Preparato"
+DW.Unprepared: "Non preparato"
+DW.DamageRoll: "Infliggi Danni"
+DW.character: "Personaggio"
+DW.characters: "Personaggi"
+DW.npc: "PNG"
+DW.npcs: "PNG"
+DW.Forward: "Prossimo"
+DW.Ongoing: "Continuato"
+DW.Hold: "Riserva"
+DW.RollMode: "Tipo di Lancio"
+DW.Normal: "Normale"
+DW.Advantage: "Vantaggio"
+DW.Disadvantage: "Svantaggio"
+DW.failure: "Fallimento"
+DW.partial: "Successo parziale"
+DW.success: "Successo"
+DW.ChooseResult: "Scegli Risultato"
+DW.Choices: "Scelte"
+DW.MarkXp: "Segna EXP"
+DW.XpMarked: "EXP segnata"
+
+DW.the-barbarian.Bond1: _______________ è gracile e sciocco, ma mi fa divertire.
+DW.the-barbarian.Bond2: Le vie di _______________ sono strane e mi confondono.
+DW.the-barbarian.Bond3: _______________ finisce sempre nei guai; devo proteggerlo da se stesso.
+DW.the-barbarian.Bond4: _______________ condivide la mia fame di gloria; la terra tremerà al nostro passaggio!
+DW.the-bard.Bond1: Questa non è la mia prima avventura con _______________.
+DW.the-bard.Bond2: Ho cantato storie riguardo a _______________ molto prima di averlo incontrato di persona.
+DW.the-bard.Bond3: _______________ è spesso vittima dei miei scherzi.
+DW.the-bard.Bond4: Sto scrivendo una ballata sulle avventure di _______________.
+DW.the-bard.Bond5: _______________ mi ha confidato un segreto.
+DW.the-bard.Bond6: _______________ non si fida di me, e per degli ottimi motivi.
+DW.the-cleric.Bond1: _______________ ha insultato la mia divinita; Non mi fido di lui.
+DW.the-cleric.Bond2: _______________ è una persona buona e di fede; Inconsciamente mi fido di lui.
+DW.the-cleric.Bond3: _______________ è in costante pericolo, lo terrò al sicuro.
+DW.the-cleric.Bond4: Sto lavorando per convertire _______________ alla mia fede.
+DW.the-druid.Bond1: ____________________ odora più di preda che di cacciatore.
+DW.the-druid.Bond2: Gli spiriti mi hanno parlato di un grande pericolo che perseguita ______________.
+DW.the-druid.Bond3: Ho mostrato a ________________ un rito segreto della mia terra.
+DW.the-druid.Bond4: ___________ ha assaggiato il mio sangue e io il suo. Questo gesto ci lega.
+DW.the-fighter.Bond1: _______________ mi deve la vita, che lo ammetta o meno.
+DW.the-fighter.Bond2: Ho giurato di proteggere _______________.
+DW.the-fighter.Bond3: Mi preoccupa la capacità di _______________ di sopravvivere in un dungeon.
+DW.the-fighter.Bond4: _______________ è debole, ma lo renderò forte come me.
+DW.the-immolator.Bond1: ____________________ ha provato il tocco infernale del fuoco, adesso conosce la mia forza.
+DW.the-immolator.Bond2: Insegnerò a ______________ il vero significato del sacrificio.
+DW.the-immolator.Bond3: Ho sacrificato qualcosa nel fuoco per ________________ ma sono ancora in debito.
+DW.the-paladin.Bond1: Il comportamento deviato di _______________ mette in pericolo la sua stessa anima!
+DW.the-paladin.Bond2: _______________ ha combattuto al mio fianco e posso fidarmi ciecamente.
+DW.the-paladin.Bond3: Rispetto le credenze di _______________ ma spero che un giorno si convertirà alla retta via.
+DW.the-paladin.Bond4: _______________ è un'anima coraggiosa, ho molto da imparare da lui.
+DW.the-thief.Bond1: Ho rubato qualcosa a _______________.
+DW.the-thief.Bond2: _______________ mi copre le spalle quando le cose vanno male.
+DW.the-thief.Bond3: _______________ conosce dettagli che possono incriminarmi.
+DW.the-thief.Bond4: Io e _______________ abbiamo un affare losco.
+DW.the-wizard.Bond1: _______________ avrà un ruolo importante nel prossimo futuro. L'ho previsto!
+DW.the-wizard.Bond2: _______________ mi sta nascondendo un segreto importante.
+DW.the-wizard.Bond3: _______________ è terribilmente disinformato sul mondo; Gli insegnerò tutto ciò che posso.
+DW.the-ranger.Bond1: In passato ho fatto da guida per _______________ e ora mi deve un favore.
+DW.the-ranger.Bond2: _______________ è un amico della natura, quindi è anche mio amico.
+DW.the-ranger.Bond3: _______________ non ha rispetto per la natura, quindi non lo rispetto neanche io.
+DW.the-ranger.Bond4: _______________ non comprende la vita nelle terre selvagge, quindi gli farò da mentore.
+
+DW.Settings.itemIcons.name: "Abilita icona oggetti"
+DW.Settings.itemIcons.hint: "Abilita icona visuale per per mosse, incantesimi ed equipaggiamento nella scheda personaggio (richiede riavvio)."
+DW.Settings.nightmode.name: "Abilita modalità notte"
+DW.Settings.nightmode.hint: "Abilita la modalità scura/notte per le schede personaggio (per ogni utente)"
+DW.Settings.enableDamageButtons.name: "Abilita pulsanti danno"
+DW.Settings.enableDamageButtons.hint: "Abilita i pulsanti per il danno sulle card in chat, per gli utenti GM. Il danno verrà applicato ai token selezionati (non ai token con un bersaglio) e verrà ridotto da armatura e modificatori (richiede riavvio)."
+DW.Settings.xpFormula.name: "Formula EXP"
+DW.Settings.xpFormula.hint: "Inserisci la formula EXP usata per il Level up. Gli attributi disponibili sono gli stessi utilizzabili per i lanci di dado in chat, come (2 * @attributes.level.value) + 10. Il valore di default è (@attributes.level.value + 7). Per usare un quantitativo fisso di EXP ti basta inserire il numero."
+DW.Settings.advForward.name: "Azzera Vantaggio/Svantaggio dopo il lancio dadi"
+DW.Settings.advForward.hint: "Se abilitato, i campi vantaggio e svantaggio sulla scheda personaggio verranno resettati dopo ogni lancio di dadi (similare all'effetto di 'Prossimo')."
+DW.Settings.disDebility.name: "Le debilitazioni impongono tiri con Svantaggio"
+DW.Settings.disDebility.hint: "Se abilitato, le debilitazioni applicheranno Svantaggio sui tiri di dado invece di cambiare il modificatore della caratteristica."
+
+DW.Settings.alignmentSingle.name: 'Sovrascrivi etichetta "Allineamento" (singolare).'
+DW.Settings.alignmentSingle.hint: 'Sovrascrivi etichetta "Allineamento", usando ad esempio "Tendenza".'
+DW.Settings.alignmentPlural.name: 'Sovrascrivi etichetta "Allineamenti" (plurale).'
+DW.Settings.alignmentPlural.hint: 'Sovrascrivi etichetta "Allineamenti", usando ad esempio "Tendenze".'
+
+DW.Settings.raceSingle.name: 'Sovrascrivi etichetta "Razza" (singolare).'
+DW.Settings.raceSingle.hint: 'Sovrascrivi etichetta "Razza", usando ad esempio "Etnia".'
+DW.Settings.racePlural.name: 'Sovrascrivi etichetta "Razze" (plurale).'
+DW.Settings.racePlural.hint: 'Sovrascrivi etichetta "Razze", usando ad esempio "Etnie".'
+
+DW.Settings.bondSingle.name: 'Sovrascrivi etichetta "Legame" (singolare).'
+DW.Settings.bondSingle.hint: 'Sovrascrivi etichetta "Legame", usando ad esempio "Flag".'
+DW.Settings.bondPlural.name: 'Sovrascrivi etichetta "Legami" (plurale).'
+DW.Settings.bondPlural.hint: 'Sovrascrivi etichetta "Legami", usando ad esempio "Flags".'
+
+DW.Settings.noCompendiumAutoData.name: 'Escludi Compendium Dungeon World'
+DW.Settings.noCompendiumAutoData.hint: 'Esclude Mosse e Classi dagli oggetti nei compendium di default, per versioni di DW come Homebrew World che riciclano gli stessi nomi di classe'
+
+DW.Settings.compendiumPrefix.name: 'Prefisso Compendium'
+DW.Settings.compendiumPrefix.hint: 'Seleziona automaticamente Modde e Classi con un dato prefisso nel nome, per versioni di DW come Homebrew World. Per esempio se impostato come "HBW" le Classi verranno caricate dal compendio chiamato "HBW Classes" e le Mosse del Guerriero verranno caricate dal compendio di nome "HBW The Fighter Moves". Lascia vuoto per disabilitare.'
+
+DW.Settings.noAbilityScores.name: 'Nessun valore caratteristiche'
+DW.Settings.noAbilityScores.hint: 'Verranno usati solo i modificatori di caratteristica, per versioni di DW come Homebrew World'
+
+DW.Settings.noAbilityIncrease.name: 'Nessun incremento caratteristiche'
+DW.Settings.noAbilityIncrease.hint: 'Le caratteristiche non incrementano al level up, per versioni di DW come Homebrew World'
+
+DW.Settings.noConstitutionToHP.name: "Non aggiungere costituzione ai PV"
+DW.Settings.noConstitutionToHP.hint: 'Usata per versioni di DW come Homebrew World'
+
+DW.Settings.noSTRToMaxLoad.name: "Non aggiungere modificatore di FOR al peso massimo"
+DW.Settings.noSTRToMaxLoad.hint: 'Usata per versioni di DW come Homebrew World'
+
+DW.Settings.debilityLabelSTR.name: "Nome debilitazione per la Forza"
+DW.Settings.debilityLabelSTR.hint: ''
+
+DW.Settings.debilityLabelDEX.name: "Nome debilitazione per la Destrezza"
+DW.Settings.debilityLabelDEX.hint: ''
+
+DW.Settings.debilityLabelCON.name: "Nome debilitazione per la Costituzione"
+DW.Settings.debilityLabelCON.hint: ''
+
+DW.Settings.debilityLabelINT.name: "Nome debilitazione per l'Intelligenza"
+DW.Settings.debilityLabelINT.hint: ''
+
+DW.Settings.debilityLabelWIS.name: "Nome debilitazione per la Saggezza"
+DW.Settings.debilityLabelWIS.hint: ''
+
+DW.Settings.debilityLabelCHA.name: "Nome debilitazione per il Carisma"
+DW.Settings.debilityLabelCHA.hint: ''
+
+DW.Dialog.askTitle: 'Scegli una statistica'
+DW.Dialog.askContent: 'Scegli una statistica per la Mossa <strong>{name}</strong>.'
+DW.Dialog.bondTitle: 'Inserisci il tuo modificatore'
+DW.Dialog.bondContent: 'Inserisci un bonus per il Legame o un modificatore per la Mossa <strong>{name}</strong>.'
+
+DW.Notifications.noClassWarning: 'Devi scegliere una classe valida prima di poter fare level up.'
+
+DW.Scrolling.armorReduced: '{reduced} Armatura applicato'
+DW.Scrolling.armorPiercing: '{piercing} Armatura ignorato'
