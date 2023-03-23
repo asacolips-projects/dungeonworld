@@ -27,7 +27,9 @@ content: >-
   taken.</li>
 
   <li><strong>Messy: </strong>It does damage in a particularly destructive way,
-  ripping people and things apart.<br /><strong>n Piercing: </strong>It goes
+  ripping people and things apart.</li>
+  
+  <li><strong>n Piercing: </strong>It goes
   right through armor. When you deal damage with n piercing, you subtract n from
   the enemy&rsquo;s armor for that attack.</li>
 
