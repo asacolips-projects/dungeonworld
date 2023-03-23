@@ -89,25 +89,32 @@ export class ActorDw extends Actor {
         if (i.system?.equipped && i.system.itemType == 'weapon') {
           let tags = i.system.tags ? JSON.parse(i.system.tags) : [];
           for (let tag of tags) {
+          // Match for piercing, armor, and damage tags.
             let piercing = tag.value.toLowerCase().match(/(\d+)\s*piercing|piercing\s*(\d+)/) ?? [];
             let ignoreArmor = tag.value.toLowerCase().includes('ignores armor');
-            if (piercing[1] > 0 || piercing[2] > 0) {
-            data.attributes.damage.piercing = (piercing[1] ?? piercing[2]) ?? 0;
-            }
-            data.attributes.damage.ignoreArmor = ignoreArmor;
-            if (data.attributes.damage.piercing || data.attributes.damage.ignoreArmor) {
-              break;
-            }
-          }
-          for (let tag of tags) {
             let dmgBonus = tag.value.toLowerCase().match(/[+](\d+)\s*damage|damage\s*[+](\d+)/) ?? [];
-            if (dmgBonus[1] > 0 || dmgBonus[2] > 0) { 
-                data.attributes.damage.dmgBonus = (dmgBonus[1] ?? dmgBonus[2]) ?? 0;
+
+            // Add matching piercing tags if it's unset or if the value is higher.
+            if (piercing[1] > 0 || piercing[2] > 0) {
+              piercing = (piercing[1] ?? piercing[2]) ?? 0;
+              if (!data.attributes.damage?.piercing || piercing > data.attributes.damage.piercing) {
+                data.attributes.damage.piercing = piercing;
+              }
             }
-            if (data.attributes.damage.dmgBonus) {
-              break;
+
+            // Add matching ignore armor tags if it's unset.
+            if (!data.attributes.damage?.ignoreArmor) {
+              data.attributes.damage.ignoreArmor = ignoreArmor;
             }
-          }
+
+              // Add matching damage bonus tags if it's unset or if the value is higher.
+              if (dmgBonus[1] > 0 || dmgBonus[2] > 0) { 
+                dmgBonus = (dmgBonus[1] ?? dmgBonus[2]) ?? 0;
+                if (!data.attributes.damage?.dmgBonus || dmgBonus > data.attributes.damage.dmgBonus) {
+                  data.attributes.damage.dmgBonus = dmgBonus;
+                }
+              }
+            }
         }
       });
     }
