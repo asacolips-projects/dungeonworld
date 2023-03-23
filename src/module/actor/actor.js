@@ -91,12 +91,10 @@ export class ActorDw extends Actor {
           for (let tag of tags) {
             let piercing = tag.value.toLowerCase().match(/(\d+)\s*piercing|piercing\s*(\d+)/) ?? [];
             let ignoreArmor = tag.value.toLowerCase().includes('ignores armor');
-            //let dmgBonus = tag.value.toLowerCase().match(/[+](\d+)\s*damage|damage\s*[+](\d+)/) ?? [];
             if (piercing[1] > 0 || piercing[2] > 0) {
             data.attributes.damage.piercing = (piercing[1] ?? piercing[2]) ?? 0;
             }
             data.attributes.damage.ignoreArmor = ignoreArmor;
-            //data.attributes.damage.dmgBonus = (dmgBonus[1] ?? dmgBonus[2]) ?? 0;
             if (data.attributes.damage.piercing || data.attributes.damage.ignoreArmor) {
               break;
             }
@@ -280,12 +278,8 @@ export class ActorDw extends Actor {
     if (options.op !== 'heal') {
         newAmount += parseInt(dmgBonus);
     }
-//    }
 
     switch (options.op) {
-      // case 'full':
-      //   newAmount = amount;
-      //   break;
 
     case 'half':
       newAmount = Math.floor(newAmount / 2);
@@ -294,10 +288,6 @@ export class ActorDw extends Actor {
     case 'double':
       newAmount = newAmount * 2;
       break;
-
-      // case 'heal':
-      //   newAmount = amount;
-      //   break;
 
     default:
       break;

@@ -46,16 +46,16 @@
             <label>{{localize "DW.Weight"}}</label>
             <input type="text" name="system.weight" value="{{system.weight}}" data-dtype="Number"/>
           </div>
-		  <div class="resource">
+          <div class="resource">
             <label>{{localize "DW.Price"}}</label>
             <input type="text" name="system.price" value="{{system.price}}" data-dtype="Number"/>
           </div>
-		  {{#if (eq system.itemType "weapon")}}
-		  <div class="resource">
+          {{#if (eq system.itemType "weapon")}}
+          <div class="resource">
             <label>{{localize "DW.DamageOverride"}}</label>
             <input type="text" name="system.rollFormula" value="{{system.rollFormula}}" placeholder="e.g. 1d4+3" data-dtype="String"/>
           </div>
-		  {{/if}}
+          {{/if}}
           <div class="resource">
             <label>{{localize "DW.MagicItem"}}</label>
             <input type="checkbox" name="system.magic" {{checked system.magic}}/>
