@@ -216,8 +216,8 @@ export class DwRolls {
           // Determine if the stat toggle is in effect.
           let toggleModifier = 0;
           formula = `${dice}+${this.actorData.abilities[roll].mod}${toggleModifier ? '+' + toggleModifier : ''}`;
-          if (dataset.value && dataset.value != 0) {
-            formula += `+${dataset.value}`;
+          if (dataset.mod && dataset.mod != 0) {
+            formula += `+${dataset.mod}`;
           }
         }
 
