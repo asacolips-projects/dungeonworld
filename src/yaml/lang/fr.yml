@@ -213,6 +213,8 @@ DW.Settings.advForward.name: "Desactiver avantage/désavantage aprés un jet"
 DW.Settings.advForward.hint: "Si cette option est activée, les choix d'avantages et de désavantages sur la feuille de personnage seront remis à zéro après chaque jet (comme pour Forward)."
 DW.Settings.disDebility.name: "Débilité Impose Désavantage"
 DW.Settings.disDebility.hint: "Si cette option est activée, les débilités appliqueront un désavantage sur les jets plutôt qu'un changement du modificateur de capacité."
+DW.Settings.coinWeight.name: "Poid des pièces"
+DW.Settings.coinWeight.hint: "Nombre de pièces correspondant à une unité de poid, les pièces ne pèsent rien si la valeur est 0"
 
 DW.Settings.alignmentSingle.name: 'Remplacer l étiquette "Alignement" (simple).'
 DW.Settings.alignmentSingle.hint: 'Remplacer Alignment, par exemple en utilisant Motivations à la place.'

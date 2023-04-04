@@ -74,7 +74,8 @@ export class ActorDw extends Actor {
 
     // Calculate weight.
     let coin = data.attributes.coin.value ?? 0;
-    let weight = coin >= 100 ? Math.floor(coin / 100) : 0;
+    let coinWeight = game.settings.get("dungeonworld", "coinWeight");
+    let weight = coinWeight > 0 ? Math.floor(coin/coinWeight ) : 0;
     let items = actorData.items;
     if (items) {
       let equipment = items.filter(i => i.type == 'equipment');

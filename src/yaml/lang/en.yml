@@ -213,6 +213,8 @@ DW.Settings.advForward.name: "Clear ADV/DIS After Rolls"
 DW.Settings.advForward.hint: "If enabled, advantage and disadvantage choices on the character sheet will be reset to normal after each roll (similar to Forward)."
 DW.Settings.disDebility.name: "Debilities Impose Disadvantage"
 DW.Settings.disDebility.hint: "If enabled, debilities will apply disadvantage on rolls rather than a change to the ability modifier."
+DW.Settings.coinWeight.name: "Coin weight"
+DW.Settings.coinWeight.hint: "Number of coins corresponding to one unit of weight, 0 makes coins weightless"
 
 DW.Settings.alignmentSingle.name: 'Override "Alignment" label (single).'
 DW.Settings.alignmentSingle.hint: 'Override "Alignment", such as by using "Drive" instead.'

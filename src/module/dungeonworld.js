@@ -105,6 +105,15 @@ Hooks.once("init", async function() {
     onChange: () => window.location.reload(),
   })
 
+    game.settings.register("dungeonworld", "coinWeight", {
+    name: game.i18n.localize("DW.Settings.coinWeight.name"),
+    hint: game.i18n.localize("DW.Settings.coinWeight.hint"),
+    scope: "world",
+    config: true,
+    type: Number,
+    default: 100
+  });
+
   // TODO: Remove this setting.
   game.settings.register("dungeonworld", "itemIcons", {
     name: game.i18n.localize("DW.Settings.itemIcons.name"),
