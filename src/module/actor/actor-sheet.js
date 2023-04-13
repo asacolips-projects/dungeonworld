@@ -373,6 +373,9 @@ export class DwActorSheet extends ActorSheet {
 
     // Character builder dialog.
     html.find('.clickable-level-up').on('click', this._onLevelUp.bind(this));
+	
+	//class viewer
+	html.find('.clickable-class-viewer').on('click', this._onViewClass.bind(this));
 
     let isOwner = this.document.isOwner;
     if (isOwner) {
@@ -799,6 +802,327 @@ export class DwActorSheet extends ActorSheet {
 
 
   }
+
+
+//////////////////////////////////////////////////
+
+  async _onViewClass(event) {
+    event.preventDefault();
+
+    const actor = this.actor;
+    const actorData = this.actor.system;
+    let orig_class_name = actorData.details.class;
+    let char_class_name = orig_class_name.trim();
+    let class_list = await DwClassList.getClasses();
+    let class_list_items = await DwClassList.getClasses(false);
+
+    let char_class = DwUtility.cleanClass(char_class_name);
+    let char_level = Number(20);
+
+    // Get the original class name if this was a translation.
+    if (game.babele) {
+      let babele_classes = game.babele.translations.find(p => p.collection == 'dungeonworld.classes');
+      if (babele_classes) {
+        let babele_pack = babele_classes.entries.find(p => p.name == char_class_name);
+        if (babele_pack) {
+          char_class_name = babele_pack.id;
+          char_class = DwUtility.cleanClass(babele_pack.id);
+        }
+      }
+    }
+
+    if (!class_list.includes(orig_class_name) && !class_list.includes(char_class_name)) {
+      ui.notifications.warn(game.i18n.localize('DW.Notifications.noClassWarning'));
+      return;
+    }
+
+    const compendium = await DwUtility.loadCompendia(`${char_class}-moves`)
+
+    let class_item = class_list_items.find(i => i.name == orig_class_name);
+    if (!class_item?.system) {
+      ui.notifications.warn(game.i18n.localize('DW.Notifications.noClassWarning'));
+      return;
+    }
+    let blurb = class_item ? class_item.system.description : null;
+
+    // Get races.
+    let races = [];
+    ///if (!this.actor.system.details.race.value || !this.actor.system.details.race.description) {
+      races = class_item.system.races;
+      if (typeof races == 'object') {
+        races = Object.entries(races).map(r => {
+          return {
+            key: r[0],
+            label: r[1]['label'],
+            description: r[1]['description']
+          };
+        });
+      }
+    ///}
+
+    // Get alignments.
+    let alignments = [];
+    ///if (!this.actor.system.details.alignment.value || !this.actor.system.details.alignment.description) {
+      alignments = class_item.system.alignments;
+      if (typeof alignments == 'object') {
+        alignments = Object.entries(alignments).map(a => {
+          return {
+            key: a[0],
+            label: a[1]['label'],
+            description: a[1]['description']
+          };
+        });
+      }
+    ///}
+
+    // Get equipment.
+    let equipment = null;
+    let equipment_list = [];
+    ///if (actorData.attributes.xp.value == 0) {
+      if (typeof class_item.system.equipment == 'object') {
+        let equipmentObjects = await class_item._getEquipmentObjects();
+        for (let [group, group_items] of Object.entries(equipmentObjects)) {
+          class_item.system.equipment[group]['objects'] = group_items;
+          equipment_list = equipment_list.concat(group_items);
+        }
+        equipment = duplicate(class_item.system.equipment);
+      }
+    ///}
+
+    // Get ability scores.
+    const noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
+    let ability_scores = [16, 15, 13, 12, 9, 8];
+    if (noAbilityScores) {
+      ability_scores = [2, 1, 1, 0, 0, -1];
+    }
+    let ability_labels = Object.entries(CONFIG.DW.abilities).map(a => {
+      return {
+        short: a[0],
+        long: a[1],
+        disabled: Number(this.actor.system.abilities[a[0]].value) > 17
+      }
+    });
+
+    // Retrieve the actor's current moves so that we can hide them.
+    const actorMoves = this.actor.items.filter(i => i.type == 'move');
+
+    // Get the item moves as the priority.
+    let moves = game.items.filter(m => {
+      return true;
+    });
+    // Get the compendium moves next.
+    let moves_compendium = compendium.filter(m => {
+      return true;
+    });
+
+    // Append compendium moves to the item moves.
+    let moves_list = moves.map(m => {
+      return m.name;
+    })
+    for (let move of moves_compendium) {
+      if (!moves_list.includes(move.name)) {
+        moves.push(move);
+      }
+    }
+
+    // Sort the moves and build our groups.
+    moves.sort((a, b) => {
+      return a.system.requiresLevel - b.system.requiresLevel;
+    });
+
+    let starting_moves = [];
+    let starting_move_groups = [];
+    ///if (char_level < 2) {
+      starting_moves = moves.filter(m => {
+        return m.system.requiresLevel < 2;
+      });
+
+      starting_move_groups = starting_moves.reduce((groups, move) => {
+        // Assign the undefined group to all Z's so that it's last.
+        let group = move.system.moveGroup ? move.system.moveGroup : 'ZZZZZZZ';
+        if (!groups[group]) {
+          groups[group] = [];
+        }
+
+        groups[group].push(move);
+        return groups;
+      }, {});
+    ///}
+
+    let advanced_moves_2 = moves.filter(m => {
+      return m.system.requiresLevel >= 2 && m.system.requiresLevel < 6;
+    });
+
+    let advanced_moves_6 = moves.filter(m => {
+      return m.system.requiresLevel >= 6;
+    });
+
+    // Determine if spells can be cast.
+    let cast_spells = [];
+    let spells = null;
+    if (char_class == 'the-wizard') {
+      cast_spells.push('wizard');
+    }
+    else if (char_class == 'the-cleric') {
+      cast_spells.push('cleric');
+    }
+    else {
+      cast_spells.push(char_class);
+    }
+
+    if (cast_spells.length > 0) {
+      // Retrieve the actor's current moves so that we can hide them.
+      const actorSpells = this.actor.items.filter(i => i.type == 'spell');
+      let caster_level = char_level;
+      let spell_preparation_type = null;
+      spells = [];
+      for (let caster_class of cast_spells) {
+        // Get the item spells as the priority.
+        let spells_items = game.items.filter(i => {
+          // Return true for custom spell items that have a class.
+          return i.type == 'spell'
+            && i.system.class
+          // Check if this spell has either `classname` or `the classname` as its class.
+            && [caster_class, `the ${caster_class}`].includes(DwUtility.cleanClass(i.system.class));
+        });
+        const spells_compendium = await DwUtility.loadCompendia(`${char_class}-spells`);
+
+        // Get the compendium spells next.
+        let spells_compendium_items = spells_compendium.filter(s => {
+          const available_level = s.system.spellLevel <= caster_level;
+          const not_taken = actorSpells.filter(i => i.name == s.name);
+          return available_level && not_taken.length < 1;
+        });
+
+        // Append compendium spells to the item spells.
+        let spells_list = spells.map(s => {
+          return s.name;
+        })
+        // Add to the array, and also add to a sorted by level array.
+        for (let spell of spells_compendium_items) {
+          if (!spells_list.includes(spell.name)) {
+            spells_items.push(spell);
+          }
+        }
+
+        // Skip this class if there were no spells in it.
+        if (spells_items.length < 1) {
+          continue;
+        }
+
+        // Sort the spells and build our groups.
+        spells_items.sort((a, b) => {
+          return a.system.spellLevel - b.system.spellLevel;
+        });
+
+        let spell_groups = spells_items.reduce((groups, spell) => {
+          // Default to rotes.
+          let group = spell.system.spellLevel ? spell.system.spellLevel : 0;
+          if (!groups[group]) {
+            groups[group] = [];
+          }
+
+          groups[group].push(spell);
+          return groups;
+        }, {});
+
+        // Get the description for how to prepare spells for this class.
+        if (caster_class == 'wizard') {
+          let move = moves.filter(m => m.name == 'Spellbook');
+          if (move && move.length > 0) {
+            spell_preparation_type = move[0].system.description;
+          }
+          else {
+            move = actorMoves.filter(m => m.name == 'Spellbook');
+            if (move && move.length > 0) {
+              // @todo: v10 test this.
+              spell_preparation_type = move[0].system.description;
+            }
+          }
+        }
+        else if (caster_class == 'cleric') {
+          let move = moves.filter(m => m.name == 'Commune');
+          if (move && move.length > 0) {
+            spell_preparation_type = move[0].system.description;
+          }
+          else {
+            move = actorMoves.filter(m => m.name == 'Commune');
+            if (move && move.length > 0) {
+              // @todo: v10 test this.
+              spell_preparation_type = move[0].system.description;
+            }
+          }
+        }
+
+        spells.push({
+          description: spell_preparation_type,
+          spells: spell_groups
+        });
+      }
+    }
+
+    // Build the content.
+    const template = 'systems/dungeonworld/templates/dialog/class-viewer.html';
+    const templateData = {
+      char_class: char_class,
+      char_class_name: orig_class_name,
+      blurb: blurb.length > 0 ? blurb : null,
+      races: races.length > 0 ? races : null,
+      alignments: alignments.length > 0 ? alignments : null,
+      equipment: equipment ? equipment : null,
+      ability_scores: actorData.attributes.xp.value == 0 ? ability_scores : null,
+      ability_mods_only: noAbilityScores,
+      ability_labels: ability_labels ? ability_labels : null,
+      starting_moves: starting_moves.length > 0 ? starting_moves : null,
+      starting_move_groups: starting_move_groups,
+      advanced_moves_2: advanced_moves_2.length > 0 ? advanced_moves_2 : null,
+      advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null,
+      cast_spells: cast_spells.length > 0 && spells.length > 0 ? true : false,
+      spells: spells.length > 0 ? spells : null,
+      no_ability_increase: game.settings.get('dungeonworld', 'noAbilityIncrease'),
+    };
+    const html = await renderTemplate(template, templateData);
+
+    const itemData = {
+      moves: moves,
+      races: races,
+      alignments: alignments,
+      equipment: equipment_list,
+      class_item: class_item,
+      spells: spells,
+    };
+
+    // Initialize dialog options.
+    const dlg_options = {
+      width: 920,
+      height: 640,
+      classes: ['dw-level-up', 'dungeonworld', 'sheet'],
+      resizable: true
+    };
+
+    if (CONFIG.DW.nightmode) {
+      dlg_options.classes.push('nightmode');
+    }
+
+    // Render the dialog.
+    let d = new Dialog({
+      title: char_class_name,
+      content: html,
+      id: char_class_name,
+      buttons: {},
+      render: () => {
+        $('.dw-level-up').find('.item-label').click(this._showItemDetails.bind(this));
+      }
+    }, dlg_options);
+    d.render(true);
+
+
+  }
+
+
+
+/////////////////////////////////////////////////
+
 
   /**
    * Import moves.

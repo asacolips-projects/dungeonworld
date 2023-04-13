@@ -1,0 +1,200 @@
+<form>
+  <div class="dialog-wrapper level-up">
+
+    <header class="cell cell--description">
+      <h1 class="cell__title">{{char_class_name}}</h1>
+      {{#if blurb}}
+        <div class="cell__description">{{{blurb}}}</div>
+      {{/if}}
+    </header>
+
+    <div class="grid grid-col">
+      {{#if races}}
+        <section class="cell cell--races">
+          <h2 class="cell__title">{{localize "DW.Race"}}</h2>
+          <ul class="selection-list">
+            {{#each races as |race key|}}
+              <li>
+                <div class="selection-content">
+                  <h3>{{race.label}}</h3>
+                  <p>{{race.description}}</p>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        </section>
+      {{/if}}
+      {{#if alignments}}
+        <section class="cell cell--alignments">
+          <h2 class="cell__title">{{localize "DW.Alignment"}}</h2>
+          <ul class="selection-list">
+            {{#each alignments as |alignment key|}}
+              <li>
+                <div class="selection-content">
+                  <h3>{{alignment.label}}</h3>
+                  <p>{{alignment.description}}</p>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        </section>
+      {{/if}}
+    </div>
+
+    {{#if equipment}}
+      <div class="grid grid-2col">
+        {{#each equipment as |equipmentGroup groupId|}}
+          <section class="cell cell--equipment">
+            <h2 class="cell__title">{{equipmentGroup.label}}</h2>
+            <ul class="selection-list">
+              {{#each equipmentGroup.objects as |item key|}}
+                <li>
+                  <div class="selection-content flexrow item">
+                    <h4 class="item-name">
+                      <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span></span>
+                    </h4>
+                    <div class="item-meta tags">
+                      {{#if item.system.equipped }}<span class="tag equipped" data-action="equipped">{{localize "DW.Equipped"}}</span>{{/if}}
+                      {{#if item.system.uses }}<a class="tag counter uses" data-action="uses">{{localize "DW.Uses"}}: {{item.system.uses}}</a>{{/if}}
+                      {{#if item.system.quantity }}<a class="tag counter quantity" data-action="quantity">{{localize "DW.Qty"}}: {{item.system.quantity}}</a>{{/if}}
+                      {{#if item.system.weight }}<span class="tag">{{localize "DW.Wt"}}: {{item.system.weight}}</span>{{/if}}
+                    </div>
+                    <div class="item-description">
+                      {{#if item.system.tags}}{{{dwTags item.system.tags}}}{{/if}}
+                      <div class="description">{{{enrichText item.system.description ../rollData}}}</div>
+                    </div>
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          </section>
+        {{/each}}
+      </div>
+    {{/if}}
+
+    {{#if starting_moves}}
+      <section class="cell cell--starting_moves">
+        <h1 class="cell__title">{{localize "DW.MovesStarting"}}</h1>
+        <ul class="selection-list">
+          {{!-- Loop through each group of starting moves. --}}
+          {{#each starting_move_groups as |moves group|}}
+            {{!-- If a movegroup is defined, that means this should be an OR choice. --}}
+            {{!-- Create the grid and loop through moves within the groups. --}}
+            <div class="grid grid-2col">
+              {{#each moves as |move key|}}
+              <li>
+                <div class="selection-control">
+                  {{!-- Moves in a group should be in a radio. --}}
+                </div>
+                {{!-- Finally, show the description. --}}
+                <div class="selection-content">
+                  <h3>{{move.name}}</h3>
+                  <div>{{{move.system.description}}}</div>
+                  {{#if move.system.moveResults.success.value}}
+                    <div class="result result--success"><strong class="result-label">10+:</strong>{{{move.system.moveResults.success.value}}}</div>
+                  {{/if}}
+                  {{#if move.system.moveResults.partial.value}}
+                    <div class="result result--partial"><strong class="result-label">7-9:</strong>{{{move.system.moveResults.partial.value}}}</div>
+                  {{/if}}
+                  {{#if move.system.moveResults.failure.value}}
+                    <div class="result result--failure"><strong class="result-label">6-:</strong>{{{move.system.moveResults.failure.value}}}</div>
+                  {{/if}}
+                  {{#if move.system.choices}}
+                    <div class="result result--choices"><strong class="result-label">{{localize 'DW.Choices'}}:</strong>{{{move.system.choices}}}</div>
+                  {{/if}}
+                </div>
+              </li>
+              {{/each}}
+            </div>
+          {{/each}}
+        </ul>
+      </section>
+    {{/if}}
+
+    {{#ifor advanced_moves_2 advanced_moves_6}}
+      <section class="cell cell--advanced_moves">
+        <h1 class="cell__title">{{localize "DW.MovesAdvanced"}} 2-5</h1>
+        {{#if advanced_moves_2}}
+          <ul class="selection-list grid grid-2col">
+            {{#each advanced_moves_2 as |move key|}}
+              <li>
+                <div class="selection-control">
+                  {{!-- Moves in a group should be in a radio. --}}  
+                </div>
+                {{!-- Finally, show the description. --}}
+                <div class="selection-content">
+                  <h3>{{move.name}}</h3>
+                  <div>{{{move.system.description}}}</div>
+                  {{#if move.system.moveResults.success.value}}
+                    <div class="result result--success"><strong class="result-label">10+:</strong>{{{move.system.moveResults.success.value}}}</div>
+                  {{/if}}
+                  {{#if move.system.moveResults.partial.value}}
+                    <div class="result result--partial"><strong class="result-label">7-9:</strong>{{{move.system.moveResults.partial.value}}}</div>
+                  {{/if}}
+                  {{#if move.system.moveResults.failure.value}}
+                    <div class="result result--failure"><strong class="result-label">6-:</strong>{{{move.system.moveResults.failure.value}}}</div>
+                  {{/if}}
+                  {{#if move.system.choices}}
+                    <div class="result result--choices"><strong class="result-label">{{localize 'DW.Choices'}}:</strong>{{{move.system.choices}}}</div>
+                  {{/if}}
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+        <h1 class="cell__title">{{localize "DW.MovesAdvanced"}} 6-10</h1>
+        {{#if advanced_moves_6}}
+          <ul class="selection-list grid grid-2col">
+            {{#each advanced_moves_6 as |move key|}}
+              <li>
+                <div class="selection-content">
+                  <h3>{{move.name}}</h3>
+                  <div>{{{move.system.description}}}</div>
+                  {{#if move.system.moveResults.success.value}}
+                    <div class="result result--success"><strong class="result-label">10+:</strong>{{{move.system.moveResults.success.value}}}</div>
+                  {{/if}}
+                  {{#if move.system.moveResults.partial.value}}
+                    <div class="result result--partial"><strong class="result-label">7-9:</strong>{{{move.system.moveResults.partial.value}}}</div>
+                  {{/if}}
+                  {{#if move.system.moveResults.failure.value}}
+                    <div class="result result--failure"><strong class="result-label">6-:</strong>{{{move.system.moveResults.failure.value}}}</div>
+                  {{/if}}
+                  {{#if move.system.choices}}
+                    <div class="result result--choices"><strong class="result-label">{{localize 'DW.Choices'}}:</strong>{{{move.system.choices}}}</div>
+                  {{/if}}
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+      </section>
+    {{/ifor}}
+
+    {{#if cast_spells}}
+      <section class="cell cell--spells">
+        <h1 class="cell__title">{{localize "DW.Spells"}}</h1>
+        {{#each spells as |spellsByCaster casterKey|}}
+          {{#if spellsByCaster.description }}
+            <div class="cell__description">{{{spellsByCaster.description}}}</div>
+          {{/if}}
+          {{#each spellsByCaster.spells as |spellsByLevel spellLevel|}}
+            <h2 class="cell__subtitle">{{localize (concat "DW.Spells" spellLevel)}}</h2>
+            <ul class="selection-list grid grid-2col">
+              {{#each spellsByLevel as |spell key|}}
+                <li>
+
+
+                  <div class="selection-content">
+                    <h3>{{spell.name}}</h3>
+                    <div>{{{spell.system.description}}}</div>
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          {{/each}}
+        {{/each}}
+      </section>
+    {{/if}}
+
+  </div>
+</form>
