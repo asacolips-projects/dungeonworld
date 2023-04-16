@@ -306,7 +306,7 @@ Hooks.once("init", async function() {
 
 Hooks.once("ready", async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on("hotbarDrop", (bar, data, slot) => createDwMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => {createDwMacro(data, slot); return false});
 
   DW.classlist = await DwClassList.getClasses();
   CONFIG.DW = DW;
