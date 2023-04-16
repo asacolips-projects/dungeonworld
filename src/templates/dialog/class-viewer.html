@@ -83,9 +83,6 @@
             <div class="grid grid-2col">
               {{#each moves as |move key|}}
               <li>
-                <div class="selection-control">
-                  {{!-- Moves in a group should be in a radio. --}}
-                </div>
                 {{!-- Finally, show the description. --}}
                 <div class="selection-content">
                   <h3>{{move.name}}</h3>
@@ -118,9 +115,6 @@
           <ul class="selection-list grid grid-2col">
             {{#each advanced_moves_2 as |move key|}}
               <li>
-                <div class="selection-control">
-                  {{!-- Moves in a group should be in a radio. --}}  
-                </div>
                 {{!-- Finally, show the description. --}}
                 <div class="selection-content">
                   <h3>{{move.name}}</h3>
