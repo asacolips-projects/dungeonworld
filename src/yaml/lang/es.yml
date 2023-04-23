@@ -299,7 +299,7 @@ DW.Settings.debilityLabelCHA.hint: ''
 DW.Dialog.askTitle: Elige un stat
 DW.Dialog.askContent: Elige un stat para este movimiento <strong>{name}</strong>.
 DW.Dialog.bondTitle: Introduce tu modificador
-DW.Dialog.bondContent: Introduce un bonus o un modificador para este movimiento <strong>{name}</strong>.
+DW.Dialog.bondContent: Introduce un modificador para este movimiento <strong>{name}</strong>.
 DW.Notifications.noClassWarning: Debes elegir una clase válida antes que puedas subir
   de nivel.
 DW.Scrolling.armorReduced: "{reduced} Armadura aplicada"

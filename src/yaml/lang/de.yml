@@ -13,7 +13,7 @@ DW.CON: KO
 DW.INT: IN
 DW.WIS: WE
 DW.CHA: CH
-DW.ASK: Frage (Abfrage Attribut)
+DW.ASK: Abfrage Attribut
 DW.BOND: Bande (Abfrage Modifikator)
 DW.FORMULA: Wurf-Formel
 DW.DebilityStr: Schwach
@@ -224,4 +224,4 @@ DW.Settings.bondPlural.hint: Überschreibe "Bonds", wie bei Nutzung von "Flags" 
 DW.Dialog.askTitle: Wähle ein Attribut
 DW.Dialog.askContent: Wähle ein Attribut für den Spielzug <strong>{name}</strong>.
 DW.Dialog.bondTitle: 'Gib den Modifikator an:'
-DW.Dialog.bondContent: Gib einen Bonus für die Bande bzw. den Modifikator für den Spielzug <strong>{name}</strong> an.
+DW.Dialog.bondContent: Gib einen Modifikator für den Spielzug <strong>{name}</strong> an.

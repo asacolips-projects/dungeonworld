@@ -13,7 +13,7 @@ DW.CON: "COS"
 DW.INT: "INT"
 DW.WIS: "SAG"
 DW.CHA: "CAR"
-DW.ASK: "Chiedi (finestra di dialogo caratteristica)"
+DW.ASK: "Finestra di dialogo caratteristica"
 DW.BOND: "Legame (finestra di dialogo modificatore)"
 DW.FORMULA: "Formula lancio personalizzata"
 DW.DebilityStr: "Indebolito"
@@ -266,7 +266,7 @@ DW.Settings.debilityLabelCHA.hint: ''
 DW.Dialog.askTitle: 'Scegli una statistica'
 DW.Dialog.askContent: 'Scegli una statistica per la Mossa <strong>{name}</strong>.'
 DW.Dialog.bondTitle: 'Inserisci il tuo modificatore'
-DW.Dialog.bondContent: 'Inserisci un bonus per il Legame o un modificatore per la Mossa <strong>{name}</strong>.'
+DW.Dialog.bondContent: 'Inserisci un modificatore per la Mossa <strong>{name}</strong>.'
 
 DW.Notifications.noClassWarning: 'Devi scegliere una classe valida prima di poter fare level up.'
 

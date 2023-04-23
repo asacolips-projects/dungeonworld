@@ -13,7 +13,7 @@ DW.CON: "CON"
 DW.INT: "INT"
 DW.WIS: "SAG"
 DW.CHA: "CHA"
-DW.ASK: "Demander Stat"
+DW.ASK: "Stat"
 DW.BOND: "Lien/Bonus"
 DW.FORMULA: "Formule personalisée"
 DW.DebilityStr: "Faible"
@@ -268,9 +268,9 @@ DW.Settings.debilityLabelCHA.name: "Nom débilité CHA"
 DW.Settings.debilityLabelCHA.hint: ''
 
 DW.Dialog.askTitle: 'Choisir une statistique'
-DW.Dialog.askContent: 'Choisir une statistique pour cette <strong>{name}</strong> action.'
+DW.Dialog.askContent: 'Choisir une statistique pour cette action <strong>{name}</strong>.'
 DW.Dialog.bondTitle: 'Entrer votre modificateur'
-DW.Dialog.bondContent: 'Entrer un bonus pour le lien ou le modificateur pour cette <strong>{name}</strong> action.'
+DW.Dialog.bondContent: 'Entrer un modificateur pour cette action <strong>{name}</strong>.'
 
 DW.Notifications.noClassWarning: 'Vous devez choisir une classe valide avant de monter en niveau.'
 
