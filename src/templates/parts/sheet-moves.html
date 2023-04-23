@@ -18,6 +18,8 @@
     <span class="tag">
       {{#if (eq item.system.rollType 'FORMULA')}}
         {{item.system.rollFormula}}
+      {{else if (eq item.system.rollType 'BOND')}}
+        {{localize 'DW.Modifier'}}
       {{else}}
         {{localize (concat "DW." item.system.rollType)}}
       {{/if}}
