@@ -1267,7 +1267,7 @@ export class DwActorSheet extends ActorSheet {
 
     // Render the dialog.
     let d = new Dialog({
-      title: char_class_name,
+      title: game.i18n.localize("DW.ClassViewer"),
       content: html,
       id: char_class_name,
       buttons: {},
