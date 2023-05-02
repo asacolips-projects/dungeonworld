@@ -105,7 +105,7 @@ Hooks.once("init", async function() {
     onChange: () => window.location.reload(),
   })
 
-    game.settings.register("dungeonworld", "coinWeight", {
+  game.settings.register("dungeonworld", "coinWeight", {
     name: game.i18n.localize("DW.Settings.coinWeight.name"),
     hint: game.i18n.localize("DW.Settings.coinWeight.hint"),
     scope: "world",
@@ -320,11 +320,16 @@ Hooks.once("init", async function() {
 
 Hooks.once("ready", async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-    Hooks.on("hotbarDrop", (bar, data, slot) => {
-	//overwrite the default drop-to-hotbar behaviour for items
-	if (data.type == "Item"){createDwMacro(data, slot); return false}
-	else {return true}
-    });
+  Hooks.on("hotbarDrop", (bar, data, slot) => {
+    //overwrite the default drop-to-hotbar behaviour for items
+    if (data.type == "Item") {
+      createDwMacro(data, slot);
+      return false;
+    }
+    else {
+      return true
+    }
+  });
 
   DW.classlist = await DwClassList.getClasses();
   CONFIG.DW = DW;

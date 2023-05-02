@@ -282,23 +282,22 @@ export class ActorDw extends Actor {
     let newAmount = Number(amount);
     let dmgBonus = options?.dmgBonus;
 
- // apply dmgbonus
+    // Apply dmgbonus.
     if (options.op !== 'heal') {
         newAmount += parseInt(dmgBonus);
     }
 
     switch (options.op) {
+      case 'half':
+        newAmount = Math.floor(newAmount / 2);
+        break;
 
-    case 'half':
-      newAmount = Math.floor(newAmount / 2);
-      break;
+      case 'double':
+        newAmount = newAmount * 2;
+        break;
 
-    case 'double':
-      newAmount = newAmount * 2;
-      break;
-
-    default:
-      break;
+      default:
+        break;
     }
 
     let hp = this.system?.attributes?.hp?.value ?? 0;
