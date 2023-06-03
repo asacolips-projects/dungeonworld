@@ -1,227 +1,254 @@
-Dungeon World: Dungeon World
-DW.title: Dungeon World
-DW.description: Spiele Dungeon World in FoundryVTT!
-DW.AbilityStr: Stärke
-DW.AbilityDex: Geschicklichkeit
-DW.AbilityCon: Konstitution
-DW.AbilityInt: Intelligenz
-DW.AbilityWis: Weisheit
-DW.AbilityCha: Charisma
-DW.STR: ST
-DW.DEX: GE
-DW.CON: KO
-DW.INT: IN
-DW.WIS: WE
-DW.CHA: CH
-DW.ASK: Abfrage Attribut
-DW.BOND: Bande (Abfrage Modifikator)
-DW.FORMULA: Wurf-Formel
-DW.DebilityStr: Schwach
-DW.DebilityDex: Wackelig
-DW.DebilityCon: Kränklich
-DW.DebilityInt: Benommen
-DW.DebilityWis: Verwirrt
-DW.DebilityCha: Entstellt
-DW.Level: Stufe
-DW.XP: Erfahrung
-DW.Damage: Schaden
-DW.Dmg: Sch
-DW.Armor: Rüstung
-DW.HP: TP
-DW.Misc: z.B. d4+2
-DW.Look: Aussehen
-DW.Alignment: Gesinnung
-DW.Alignments: Gesinnungen
-DW.Class: Klasse
-DW.Race: Volk
-DW.Races: Völker
-DW.Bond: Bande
-DW.Bonds: Banden
-DW.Tags: Eigenschaften
-DW.AddBond: Knüpfe Bande
-DW.BondDefault: _____ hat eine Bande mit mir
-DW.BondHelp: ________ hier Banden-Beschreibung eintragen.
-DW.Dialog.Bond1: 'Wähle den Bonus des Bandes für den '
+Dungeon World: "Dungeon World"
+DW.title: "Dungeon World"
+DW.description: "Spiele Dungeon World in FoundryVTT!"
+DW.AbilityStr: "Stärke"
+DW.AbilityDex: "Geschicklichkeit"
+DW.AbilityCon: "Konstitution"
+DW.AbilityInt: "Intelligenz"
+DW.AbilityWis: "Weisheit"
+DW.AbilityCha: "Charisma"
+DW.STR: "ST"
+DW.DEX: "GE"
+DW.CON: "KO"
+DW.INT: "IN"
+DW.WIS: "WE"
+DW.CHA: "CH"
+DW.ASK: "Frage (Abfrage Attribut)"
+DW.BOND: "Bande (Abfrage Modifikator)"
+DW.FORMULA: "Wurf-Formel"
+DW.DebilityStr: "Schwach"
+DW.DebilityDex: "Wackelig"
+DW.DebilityCon: "Kränklich"
+DW.DebilityInt: "Benommen"
+DW.DebilityWis: "Verwirrt"
+DW.DebilityCha: "Entstellt"
+DW.Level: "Stufe"
+DW.XP: "Erfahrung"
+DW.Damage: "Schaden"
+DW.Dmg: "Sch"
+DW.Armor: "Rüstung"
+DW.HP: "TP"
+DW.Misc: "z.B. d4+2"
+DW.Look: "Aussehen"
+DW.Alignment: "Gesinnung"
+DW.Alignments: "Gesinnungen"
+DW.Class: "Klasse"
+DW.Race: "Volk"
+DW.Races: "Völker"
+DW.Bond: "Bande"
+DW.Bonds: "Banden"
+DW.Tags: "Eigenschaften"
+DW.AddBond: "Knüpfe Bande"
+DW.BondDefault: "_____ hat eine Bande mit mir"
+DW.BondHelp: "________ hier Banden-Beschreibung eintragen."
+DW.Dialog.Bond1: "Wähle den Bonus des Bandes für den "
 DW.Dialog.Bond2: " Spielzug."
-DW.MoveCreate: Spielzug erstellen
-DW.AddBasicMove: Grundspielzug hinzufügen
-DW.AddStartingMove: Spielzug zu Beginn hinzufügen
-DW.AddAdvancedMove: Spielzug für Fortgeschrittene hinzufügen
-DW.AddMove: Spielzug hinzufügen
-DW.MovesBasic: Grundspielzüge
-DW.MovesStarting: Spielzüge zu Beginn
-DW.MovesAdvanced: Spielzüge für Forgeschrittene
-DW.MovesSpecial: Spezial-Spielzüge
-DW.MovesOther: Andere Spielzüge
-DW.MoveBasic: Grundspielzug
-DW.MoveStarting: Spielzug zu Beginn
-DW.MoveAdvanced: Spielzug für Forgeschrittene
-DW.MoveSpecial: Spezial-Spielzug
-DW.MoveGroup: Spielzug Gruppe
-DW.MoveGroupHelp: Spielzüge in der gleichen Spielzug-Gruppe ermöglichen die entweder/oder-Auswahl bei Erstellung eines neuen Charakers mit dem Generator.
-DW.Description: Beschreibung
-DW.Moves: Spielzüge
-DW.Biography: Lebenslauf
-DW.Equipment: Ausrüstung
-DW.Spells: Zauber
-DW.SpellLevel: Zaubergrad
-DW.Spells0: Zaubertricks
-DW.Spells1: Zauber des 1. Grades
-DW.Spells2: Zauber des 2. Grades
-DW.Spells3: Zauber des 3. Grades
-DW.Spells4: Zauber des 4. Grades
-DW.Spells5: Zauber des 5. Grades
-DW.Spells6: Zauber des 6. Grades
-DW.Spells7: Zauber des 7. Grades
-DW.Spells8: Zauber des 8. Grades
-DW.Spells9: Zauber des 9. Grades
-DW.SpellPrepared: Vorbereitet
-DW.SpellRollFormula: Wurf-Formel
-DW.RollFormula: Wurf-Formel
-DW.AddEquipment: Ausrüstung hinzufügen
-DW.AddSpell: Zauber hinzufügen
-DW.Common.Description: Beschreibung
-DW.Common.Details: Details
-DW.Common.Name: Name
-DW.Roll: Wurf
-DW.Modifier: Modifikator
-DW.RequiresLevel: Benötigte Stufe
-DW.RequiresMove: Benötigter Spielzug
-DW.MoveType: Spielzugart
-DW.Equipped: Ausgerüstet
-DW.Quantity: Anzahl
-DW.Qty: Anz
-DW.Weight: Gewicht
-DW.Price: Preis
-DW.DamageOverride: "Schadensüberbrückung"
-DW.Wt: Gew
-DW.Uses: Anwendungen
-DW.MagicItem: Magischer Gegenstand
-DW.ItemType: Gegenstand Typ
-DW.Coin: Münzen
-DW.Weapon: Waffe
-DW.DungeonGear: Abenteurerausrüstung
-DW.Poison: Gift
-DW.Service: Service
-DW.Meal: Mahl
-DW.Transport: Transport
-DW.LandBuildings: Land und Gebäude
-DW.Bribe: Bestechungen
-DW.GiftsFinery: Schmuck und Geschenke
-DW.Hoard: Horte
+DW.MoveCreate: "Spielzug erstellen"
+DW.AddBasicMove: "Grundspielzug hinzufügen"
+DW.AddStartingMove: "Spielzug zu Beginn hinzufügen"
+DW.AddAdvancedMove: "Spielzug für Fortgeschrittene hinzufügen"
+DW.AddMove: "Spielzug hinzufügen"
+DW.MovesBasic: "Grundspielzüge"
+DW.MovesStarting: "Spielzüge zu Beginn"
+DW.MovesAdvanced: "Spielzüge für Forgeschrittene"
+DW.MovesSpecial: "Spezial-Spielzüge"
+DW.MovesOther: "Andere Spielzüge"
+DW.MoveBasic: "Grundspielzug"
+DW.MoveStarting: "Spielzug zu Beginn"
+DW.MoveAdvanced: "Spielzug für Forgeschrittene"
+DW.MoveSpecial: "Spezial-Spielzug"
+DW.MoveGroup: "Spielzug Gruppe"
+DW.MoveGroupHelp: "Spielzüge in der gleichen Spielzug-Gruppe ermöglichen die entweder/oder-Auswahl bei Erstellung eines neuen Charakers mit dem Generator."
+DW.Description: "Beschreibung"
+DW.Moves: "Spielzüge"
+DW.Biography: "Lebenslauf"
+DW.Equipment: "Ausrüstung"
+DW.Spells: "Zauber"
+DW.SpellLevel: "Zaubergrad"
+DW.Spells0: "Zaubertricks"
+DW.Spells1: "Zauber des 1. Grades"
+DW.Spells2: "Zauber des 2. Grades"
+DW.Spells3: "Zauber des 3. Grades"
+DW.Spells4: "Zauber des 4. Grades"
+DW.Spells5: "Zauber des 5. Grades"
+DW.Spells6: "Zauber des 6. Grades"
+DW.Spells7: "Zauber des 7. Grades"
+DW.Spells8: "Zauber des 8. Grades"
+DW.Spells9: "Zauber des 9. Grades"
+DW.SpellPrepared: "Vorbereitet"
+DW.SpellRollFormula: "Wurf-Formel"
+DW.RollFormula: "Wurf-Formel"
+DW.AddEquipment: "Ausrüstung hinzufügen"
+DW.AddSpell: "Zauber hinzufügen"
+DW.Common.Description: "Beschreibung"
+DW.Common.Details: "Details"
+DW.Common.Name: "Name"
+DW.Roll: "Wurf"
+DW.Modifier: "Modifikator"
+DW.RequiresLevel: "Benötigte Stufe"
+DW.RequiresMove: "Benötigter Spielzug"
+DW.MoveType: "Spielzugart"
+DW.Equipped: "Ausgerüstet"
+DW.Quantity: "Anzahl"
+DW.Qty: "Anz"
+DW.Weight: "Gewicht"
+DW.Wt: "Gew"
+DW.Uses: "Anwendungen"
+DW.MagicItem: "Magischer Gegenstand"
+DW.ItemType: "Gegenstand Typ"
+DW.Coin: "Münzen"
+DW.Weapon: "Waffe"
+DW.DungeonGear: "Abenteurerausrüstung"
+DW.Poison: "Gift"
+DW.Service: "Service"
+DW.Meal: "Mahl"
+DW.Transport: "Transport"
+DW.LandBuildings: "Land und Gebäude"
+DW.Bribe: "Bestechungen"
+DW.GiftsFinery: "Schmuck und Geschenke"
+DW.Hoard: "Horte"
 DW.TagsHelp: "(Tab: Autovervollständigen, Komma: Neuerstellung, Doppelklick: Ändern)"
-DW.SpecialQualities: Besonderheiten
-DW.ClassSettings: Weitere Werte
-DW.ClassBaseHp: Basis TP
-DW.ClassBaseHpHelp: Konstitution wird automatisch hinzugerechnet.
-DW.ClassBaseLoad: Tragkraft
-DW.ClassBaseLoadHelp: Stärke wird automatisch hinzugerechnet.
-DW.ClassDamage: Schaden-Würfel
-DW.ClassDamageHelp: Schaden-Würfel für Klassen-Schaden.
-DW.ClassAddEquipmentGroup: Erzeuge neue Ausrüstungs-Gruppe
-DW.ClassEquipmentGroupHelp: Definiere hier Ausrüstungs-Gruppen für diese Klasse. Jeder Gruppe können beliebige Ausrüstungs-Gegenstände hinzugefügt werden, und es möglich, hiervon eine zu wählen oder alle zu erhalten.
-DW.ClassEquipmentGroupPlaceholder: Wähle eins, alle haben für dich Gewicht 0
-DW.ClassEquipmentDropText: Gegenstände hier reinziehen
-DW.ChooseOne: Wähle eines
-DW.ChooseAny: Wähle beliebige
-DW.ChooseRace: Wähle ein Volk
-DW.ChooseAlignment: Wähle eine Gesinnung
-DW.ChooseAbilityScores: Wähle die Attributswerte
-DW.ChooseAbilityScoresIncrease: Wähle ein Attributswert, der um 1 erhöht wird.
-DW.ChooseStartingMoves: Wähle die Grundspielzüge
-DW.ChooseStartingOne: 'Wähle einen hieraus zu Beginn:'
-DW.ChooseStartingAll: 'Du erhälst auch alle folgenden zu Beginn:'
-DW.ChooseAdvancedMoves: Wähle Spielzüge für Forgeschrittene
-DW.ChooseAdvanced2: 'Wenn du eine Stufe von 2–5 erreichst, wähle aus den folgenden Spielzügen:'
-DW.ChooseAdvanced6: 'Wenn du eine Stufe von 6–10 erreichst, wähle einen Spielzug aus der folgenden Liste oder der Liste der Stufen 2–5:'
-DW.ChooseSpells: Wähle Zauber
+DW.SpecialQualities: "Besonderheiten"
+DW.ClassSettings: "Weitere Werte"
+DW.ClassBaseHp: "Basis TP"
+DW.ClassBaseHpHelp: "Konstitution wird automatisch hinzugerechnet."
+DW.ClassBaseLoad: "Tragkraft"
+DW.ClassBaseLoadHelp: "Stärke wird automatisch hinzugerechnet."
+DW.ClassDamage: "Schaden-Würfel"
+DW.ClassDamageHelp: "Schaden-Würfel für Klassen-Schaden."
+DW.ClassAddEquipmentGroup: "Erzeuge neue Ausrüstungs-Gruppe"
+DW.ClassEquipmentGroupHelp: "Definiere hier Ausrüstungs-Gruppen für diese Klasse. Jeder Gruppe können beliebige Ausrüstungs-Gegenstände hinzugefügt werden, und es möglich, hiervon eine zu wählen oder alle zu erhalten."
+DW.ClassEquipmentGroupPlaceholder: "Wähle eins, alle haben für dich Gewicht 0"
+DW.ClassEquipmentDropText: "Gegenstände hier reinziehen"
+DW.ChooseOne: "Wähle eines"
+DW.ChooseAny: "Wähle beliebige"
+DW.ChooseRace: "Wähle ein Volk"
+DW.ChooseAlignment: "Wähle eine Gesinnung"
+DW.ChooseAbilityScores: "Wähle die Attributswerte"
+DW.ChooseAbilityScoresIncrease: "Wähle ein Attributswert, der um 1 erhöht wird."
+DW.ChooseStartingMoves: "Wähle die Grundspielzüge"
+DW.ChooseStartingOne: "Wähle einen hieraus zu Beginn:"
+DW.ChooseStartingAll: "Du erhälst auch alle folgenden zu Beginn:"
+DW.ChooseAdvancedMoves: "Wähle Spielzüge für Forgeschrittene"
+DW.ChooseAdvanced2: "Wenn du eine Stufe von 2–5 erreichst, wähle aus den folgenden Spielzügen:"
+DW.ChooseAdvanced6: "Wenn du eine Stufe von 6–10 erreichst, wähle einen Spielzug aus der folgenden Liste oder der Liste der Stufen 2–5:"
+DW.ChooseSpells: "Wähle Zauber"
 DW.DefaultLook: "Augen:\r\nHaar:\r\nKörper:\r\nHaut:\r\nKleidung:"
-DW.Cancel: Abbruch
-DW.Confirm: Bestätigung
-DW.Prepared: Vorbereitet
-DW.Unprepared: Nicht vorbereitet
-DW.DamageRoll: Schaden verursachen
-DW.character: Charakter
-DW.characters: Charaktere
-DW.npc: NSC
-DW.npcs: NSCs
-DW.Forward: Einmalig
-DW.Ongoing: Dauerhaft
-DW.Hold: Punkte
-DW.RollMode: Wurfmodus
-DW.Normal: Normal
-DW.Advantage: Vorteil
-DW.Disadvantage: Nachteil
-DW.failure: Misserfolg (EP gutschreiben)
-DW.partial: Teilerfolg
-DW.success: Erfolg
-DW.ChooseResult: Wähle Ergebnis
-DW.Choices: Auswahloptionen
-DW.MarkXp: Markiere Erfahrung
-DW.XpMarked: Erfahrung markiert
-DW.the-barbarian.Bond1: _______________ ist ein törichter Schwächling, doch er/sie amüsiert mich.
-DW.the-barbarian.Bond2: _______________ 's Sitten sind befremdlich und verwirrend.
-DW.the-barbarian.Bond3: _______________ gerät immer wieder in Schwierigkeiten – ich muss ihn/sie vor sich selbst beschützen.
-DW.the-barbarian.Bond4: _______________ teilt meinen Hunger nach Ruhm; die Erde wird beben, wo auch immer wir schreiten!
-DW.the-bard.Bond1: Dies ist nicht mein erstes Abenteuer mit _______________.
-DW.the-bard.Bond2: Ich habe schon von _______________ gesungen, lange bevor wir uns trafen.
-DW.the-bard.Bond3: _______________ ist oft Ziel meiner Scherze.
-DW.the-bard.Bond4: Ich schreibe eine Ballade über die Abenteuer von _______________.
-DW.the-bard.Bond5: _______________ hat mir ein Geheimnis anvertraut.
-DW.the-bard.Bond6: _______________ traut mir nicht – und das aus gutem Grund.
-DW.the-cleric.Bond1: _______________ hat meine Gottheit beleidigt. Ich traue ihm/ihr nicht.
-DW.the-cleric.Bond2: _______________ ist gut und fest im Glauben. Ich vertraue ihm/ihr blind.
-DW.the-cleric.Bond3: _______________ schwebt in ständiger Gefahr. Ich werde ihn/sie beschützen.
-DW.the-cleric.Bond4: Ich arbeite daran, _______________ zu meinem Glauben zu konvertieren.
-DW.the-druid.Bond1: ____________________ riecht eher nach Beute als Jäger.
-DW.the-druid.Bond2: Die Geister haben mir von einer großen Gefahr berichtet, die ______________ folgt.
-DW.the-druid.Bond3: Ich habe ________________ ein geheimes Ritual des Landes gezeigt.
-DW.the-druid.Bond4: ___________ hat mein Blut gekostet, und ich seines/ihres. Wir sind aneinander gebunden.
-DW.the-fighter.Bond1: _______________ verdankt mir sein/ ihr Leben, ob er/sie es zugibt oder nicht.,
-DW.the-fighter.Bond2: Ich habe geschworen, _______________ zu beschützen.,
-DW.the-fighter.Bond3: Ich mache mir Sorgen, ob _______________ in der Lage ist, im Dungeon zu überleben.,
-DW.the-fighter.Bond4: _______________ ist weich, doch ich werde ihn/sie so hart machen, wie ich es bin.
-DW.the-immolator.Bond1: ____________________ has felt the hellish touch of fire, now they know my strength.
-DW.the-immolator.Bond2: I will teach ______________ the true meaning of sacrifice.
-DW.the-immolator.Bond3: I cast something into the fire for ________________ and still owe them their due.
-DW.the-paladin.Bond1: Das fehlgeleitete Benehmen von _______________ bringt seine/ihre wahrhaftige Seele in Gefahr!
-DW.the-paladin.Bond2: _______________ hat mir in der Schlacht zur Seite gestanden; ich kann ihm/ihr vollständig vertrauen.
-DW.the-paladin.Bond3: Ich respektiere den Glauben von _______________ , aber ich hoffe, dass er/sie eines Tages den wahrhaftigen Weg findet.
-DW.the-paladin.Bond4: _______________ ist eine tapfere Seele, ich muss noch viel von ihm/ihr lernen.
-DW.the-thief.Bond1: Ich habe _______________ etwas gestohlen.
-DW.the-thief.Bond2: _______________ hält mir den Rücken frei, wenn etwas schiefgeht.
-DW.the-thief.Bond3: _______________ hat belastende Informationen über mich.
-DW.the-thief.Bond4: _______________ und ich sind dabei, ein krummes Ding zu drehen.
-DW.the-wizard.Bond1: _______________ wird eine wichtige Rolle in den kommenden Ereignissen spielen! Ich habe es vorausgesehen!,
-DW.the-wizard.Bond2: _______________ hält etwas von großer Wichtigkeit vor mir geheim.,
-DW.the-wizard.Bond3: _______________ ist bedauernswert ahnungslos, was die Welt betrifft. Ich werde ihm beibringen, was ich kann.
-DW.the-ranger.Bond1: Ich habe _______________ schon ein- mal geführt und er/sie steht in meiner Schuld.
-DW.the-ranger.Bond2: _______________ ist ein Freund der Natur, also werde ich auch sein/ihr Freund sein.
-DW.the-ranger.Bond3: _______________ zollt der Natur keinen Respekt, also habe ich auch keinen Respekt vor ihm/ihr.
-DW.the-ranger.Bond4: _______________ versteht das Leben in der Wildnis nicht, also werde ich es ihm/ihr beibringen.
-DW.Settings.itemIcons.name: Aktiviere Gegenstands-Symbole
-DW.Settings.itemIcons.hint: Aktiviere Symbol-Icons für Spielzüge, Zauber und Ausrüstung in Characterbögen (erfordert Browser-Reload).
-DW.Settings.nightmode.name: Aktiviere dunklen Modus
-DW.Settings.nightmode.hint: Aktiviere Tag-/Nacht-Modus für Character-Bögen (je User).
-DW.Settings.enableDamageButtons.name: Aktiviere Schadens-Knöpfe
-DW.Settings.enableDamageButtons.hint: Aktiviere Schadens-Knöpfe auf Chat-Karten für SL-User. Schaden wird auf angewählte Token angewandt (nicht zielmarkierte Tokens). Hierbei werden Rüstung und Rüstungsdurchdringung gemäß Regelwerk eingerechnet. Erfordert Browser-Reload.
-DW.Settings.xpFormula.name: Erfahrungs-Formel
-DW.Settings.xpFormula.hint: Gib die Erfahrungs-Formel ein, die für den Level-Aufstieg verwendet werden soll. Verfügbare Attribute sind die, die bei Proben in den Chat gesendet werden, wie (2 * @attributes.level.value) + 10. Standard ist (@attributes.level.value + 7)
-DW.Settings.advForward.name: Lösche Vorteil/Nachteil nach dem Würfeln
-DW.Settings.advForward.hint: Wenn aktiv, wird die Auswahl für Vorteil oder Nachteil nach jedem Wurf wieder gelöscht. (wie bei Einmalschaden).
-DW.Settings.alignmentSingle.name: Überschreibe Bezeichnung "Alignment" (Einzahl).
-DW.Settings.alignmentSingle.hint: Überschreibe "Alignment", wie bei Nutzung von "Drive" statt dessen.
-DW.Settings.alignmentPlural.name: Überschreibe Bezeichnung "Alignments" (Mehrzahl).
-DW.Settings.alignmentPlural.hint: Überschreibe "Alignments", wie bei Nutzung von "Drives" statt dessen.
-DW.Settings.raceSingle.name: Überschreibe Bezeichnung"Race" (Einzahl).
-DW.Settings.raceSingle.hint: Überschreibe "Race", wie bei Nutzung von "Background" statt dessen.
-DW.Settings.racePlural.name: Überschreibe Bezeichnung "Races" (Mehrzahl).
-DW.Settings.racePlural.hint: Überschreibe "Races", wie bei Nutzung von "Backgrounds" statt dessen.
-DW.Settings.bondSingle.name: Überschreibe Bezeichnung"Bond" (Einzahl).
-DW.Settings.bondSingle.hint: Überschreibe "Bond", wie bei Nutzung von "Flag" statt dessen.
-DW.Settings.bondPlural.name: Überschreibe Bezeichnung"Bonds" (Mehrzahl).
-DW.Settings.bondPlural.hint: Überschreibe "Bonds", wie bei Nutzung von "Flags" statt dessen.
-DW.Dialog.askTitle: Wähle ein Attribut
-DW.Dialog.askContent: Wähle ein Attribut für den Spielzug <strong>{name}</strong>.
-DW.Dialog.bondTitle: 'Gib den Modifikator an:'
-DW.Dialog.bondContent: Gib einen Modifikator für den Spielzug <strong>{name}</strong> an.
+DW.Cancel: "Abbruch"
+DW.Confirm: "Bestätigung"
+DW.Prepared: "Vorbereitet"
+DW.Unprepared: "Nicht vorbereitet"
+DW.DamageRoll: "Schaden verursachen"
+DW.character: "Charakter"
+DW.characters: "Charaktere"
+DW.npc: "NSC"
+DW.npcs: "NSCs"
+DW.Forward: "Einmalig"
+DW.Ongoing: "Dauerhaft"
+DW.Hold: "Punkte"
+DW.RollMode: "Wurfmodus"
+DW.Normal: "Normal"
+DW.Advantage: "Vorteil"
+DW.Disadvantage: "Nachteil"
+DW.failure: "Misserfolg (EP gutschreiben)"
+DW.partial: "Teilerfolg"
+DW.success: "Erfolg"
+DW.ChooseResult: "Wähle Ergebnis"
+DW.Choices: "Auswahloptionen"
+DW.MarkXp: "Markiere Erfahrung"
+DW.XpMarked: "Erfahrung markiert"
+DW.the-barbarian.Bond1: "_______________ ist ein törichter Schwächling, doch er/sie amüsiert mich."
+DW.the-barbarian.Bond2: "_______________ 's Sitten sind befremdlich und verwirrend."
+DW.the-barbarian.Bond3: "_______________ gerät immer wieder in Schwierigkeiten – ich muss ihn/sie vor sich selbst beschützen."
+DW.the-barbarian.Bond4: "_______________ teilt meinen Hunger nach Ruhm; die Erde wird beben, wo auch immer wir schreiten!"
+DW.the-bard.Bond1: "Dies ist nicht mein erstes Abenteuer mit _______________."
+DW.the-bard.Bond2: "Ich habe schon von _______________ gesungen, lange bevor wir uns trafen."
+DW.the-bard.Bond3: "_______________ ist oft Ziel meiner Scherze."
+DW.the-bard.Bond4: "Ich schreibe eine Ballade über die Abenteuer von _______________."
+DW.the-bard.Bond5: "_______________ hat mir ein Geheimnis anvertraut."
+DW.the-bard.Bond6: "_______________ traut mir nicht – und das aus gutem Grund."
+DW.the-cleric.Bond1: "_______________ hat meine Gottheit beleidigt. Ich traue ihm/ihr nicht."
+DW.the-cleric.Bond2: "_______________ ist gut und fest im Glauben. Ich vertraue ihm/ihr blind."
+DW.the-cleric.Bond3: "_______________ schwebt in ständiger Gefahr. Ich werde ihn/sie beschützen."
+DW.the-cleric.Bond4: "Ich arbeite daran, _______________ zu meinem Glauben zu konvertieren."
+DW.the-druid.Bond1: "____________________ riecht eher nach Beute als Jäger."
+DW.the-druid.Bond2: "Die Geister haben mir von einer großen Gefahr berichtet, die ______________ folgt."
+DW.the-druid.Bond3: "Ich habe ________________ ein geheimes Ritual des Landes gezeigt."
+DW.the-druid.Bond4: "___________ hat mein Blut gekostet, und ich seines/ihres. Wir sind aneinander gebunden."
+DW.the-fighter.Bond1: "_______________ verdankt mir sein/ ihr Leben, ob er/sie es zugibt oder nicht.,"
+DW.the-fighter.Bond2: "Ich habe geschworen, _______________ zu beschützen.,"
+DW.the-fighter.Bond3: "Ich mache mir Sorgen, ob _______________ in der Lage ist, im Dungeon zu überleben.,"
+DW.the-fighter.Bond4: "_______________ ist weich, doch ich werde ihn/sie so hart machen, wie ich es bin."
+DW.the-immolator.Bond1: "____________________ has felt the hellish touch of fire, now they know my strength."
+DW.the-immolator.Bond2: "I will teach ______________ the true meaning of sacrifice."
+DW.the-immolator.Bond3: "I cast something into the fire for ________________ and still owe them their due."
+DW.the-paladin.Bond1: "Das fehlgeleitete Benehmen von _______________ bringt seine/ihre wahrhaftige Seele in Gefahr!"
+DW.the-paladin.Bond2: "_______________ hat mir in der Schlacht zur Seite gestanden; ich kann ihm/ihr vollständig vertrauen."
+DW.the-paladin.Bond3: "Ich respektiere den Glauben von _______________ , aber ich hoffe, dass er/sie eines Tages den wahrhaftigen Weg findet."
+DW.the-paladin.Bond4: "_______________ ist eine tapfere Seele, ich muss noch viel von ihm/ihr lernen."
+DW.the-thief.Bond1: "Ich habe _______________ etwas gestohlen."
+DW.the-thief.Bond2: "_______________ hält mir den Rücken frei, wenn etwas schiefgeht."
+DW.the-thief.Bond3: "_______________ hat belastende Informationen über mich."
+DW.the-thief.Bond4: "_______________ und ich sind dabei, ein krummes Ding zu drehen."
+DW.the-wizard.Bond1: "_______________ wird eine wichtige Rolle in den kommenden Ereignissen spielen! Ich habe es vorausgesehen!,"
+DW.the-wizard.Bond2: "_______________ hält etwas von großer Wichtigkeit vor mir geheim.,"
+DW.the-wizard.Bond3: "_______________ ist bedauernswert ahnungslos, was die Welt betrifft. Ich werde ihm beibringen, was ich kann."
+DW.the-ranger.Bond1: "Ich habe _______________ schon ein- mal geführt und er/sie steht in meiner Schuld."
+DW.the-ranger.Bond2: "_______________ ist ein Freund der Natur, also werde ich auch sein/ihr Freund sein."
+DW.the-ranger.Bond3: "_______________ zollt der Natur keinen Respekt, also habe ich auch keinen Respekt vor ihm/ihr."
+DW.the-ranger.Bond4: "_______________ versteht das Leben in der Wildnis nicht, also werde ich es ihm/ihr beibringen."
+DW.Settings.itemIcons.name: "Aktiviere Gegenstands-Symbole"
+DW.Settings.itemIcons.hint: "Aktiviere Symbol-Icons für Spielzüge, Zauber und Ausrüstung in Characterbögen (erfordert Browser-Reload)."
+DW.Settings.nightmode.name: "Aktiviere dunklen Modus"
+DW.Settings.nightmode.hint: "Aktiviere Tag-/Nacht-Modus für Character-Bögen (je User)."
+DW.Settings.enableDamageButtons.name: "Aktiviere Schadens-Knöpfe"
+DW.Settings.enableDamageButtons.hint: "Aktiviere Schadens-Knöpfe auf Chat-Karten für SL-User. Schaden wird auf angewählte Token angewandt (nicht zielmarkierte Tokens). Hierbei werden Rüstung und Rüstungsdurchdringung gemäß Regelwerk eingerechnet. Erfordert Browser-Reload."
+DW.Settings.xpFormula.name: "Erfahrungs-Formel"
+DW.Settings.xpFormula.hint: "Gib die Erfahrungs-Formel ein, die für den Level-Aufstieg verwendet werden soll. Verfügbare Attribute sind die, die bei Proben in den Chat gesendet werden, wie (2 * @attributes.level.value) + 10. Standard ist (@attributes.level.value + 7)"
+DW.Settings.advForward.name: "Lösche Vorteil/Nachteil nach dem Würfeln"
+DW.Settings.advForward.hint: "Wenn aktiv, wird die Auswahl für Vorteil oder Nachteil nach jedem Wurf wieder gelöscht. (wie bei Einmalschaden)."
+DW.Settings.alignmentSingle.name: 'Überschreibe Bezeichnung "Gesinnung" (Einzahl).'
+DW.Settings.alignmentSingle.hint: 'Überschreibe "Gesinnung", wie bei Nutzung von "Antriebe" statt dessen.'
+DW.Settings.alignmentPlural.name: 'Überschreibe Bezeichnung "Gesinnungen" (Mehrzahl).'
+DW.Settings.alignmentPlural.hint: 'Überschreibe "Gesinnungen", wie bei Nutzung von "Antriebe" statt dessen.'
+DW.Settings.raceSingle.name: 'Überschreibe Bezeichnung"Volk" (Einzahl).'
+DW.Settings.raceSingle.hint: 'Überschreibe "Volk", wie bei Nutzung von "Hintergründen," statt dessen.'
+DW.Settings.racePlural.name: 'Überschreibe Bezeichnung "Völker" (Mehrzahl).'
+DW.Settings.racePlural.hint: 'Überschreibe "Völker", wie bei Nutzung von "Hintergründen," statt dessen.'
+DW.Settings.bondSingle.name: 'Überschreibe Bezeichnung"Bande" (Einzahl).'
+DW.Settings.bondSingle.hint: 'Überschreibe "Bande", wie bei Nutzung von "Flaggen" statt dessen.'
+DW.Settings.bondPlural.name: 'Überschreibe Bezeichnung"Banden" (Mehrzahl).'
+DW.Settings.bondPlural.hint: 'Überschreibe "Banden", wie bei Nutzung von "Flaggen" statt dessen.'
+DW.Dialog.askTitle: "Wähle ein Attribut"
+DW.Dialog.askContent: "Wähle ein Attribut für den Spielzug <strong>{name}</strong>."
+DW.Dialog.bondTitle: "Gib den Modifikator an:"
+DW.Dialog.bondContent: "Gib einen Bonus für die Bande bzw. den Modifikator für den Spielzug <strong>{name}</strong> an."
+DW.Settings.disDebility.name: "Beeinträchtigungen bringen Nachteile mit sich."
+DW.Settings.disDebility.hint: "Wenn diese Funktion aktiviert ist, werden Beeinträchtigungen bei Würfen mit Nachteilen belegt, anstatt den Fähigkeitsmodifikator zu ändern."
+DW.Settings.noCompendiumAutoData.name: "Dungeon World Kompendium Daten ausschließen"
+DW.Settings.noCompendiumAutoData.hint: "Ausschließen von Spielzügen und Klassen aus den Gegenständen in dem Standardkompendiun von Dungeon World, für DW-Hacks wie Homebrew World, die dieselben Klassennamen wiederverwenden"
+DW.Settings.compendiumPrefix.name: "Kompendium Präfix"
+DW.Settings.compendiumPrefix.hint: 'Automatische Auswahl von Spielzügen und Klassen aus Kompendium mit diesem Präfix in ihrem Namen, für DW-Hacks wie Homebrew World. Wenn die Einstellung beispielsweise auf "HBW" gesetzt ist, werden die Klassen aus einem Kompendium namens "HBW Klassen" und die Spielzüge für den Kämpfer aus einem Kompendium namens "HBW  Kämpfer-Moves" ausgewählt. Zum Deaktivieren leer lassen.'
+DW.Settings.noAbilityScores.name: "Keine Attributswert"
+DW.Settings.noAbilityScores.hint: "Verwenden Sie nur Attributsmodifikatoren, für DW-Hacks wie Homebrew World"
+DW.Settings.noAbilityIncrease.name: "Keine Steigerung der Fähigkeiten"
+DW.Settings.noAbilityIncrease.hint: "Keine Erhöhung der Fähigkeitspunkte beim Levelaufstieg, für DW-Hacks wie Homebrew World"
+DW.Settings.noConstitutionToHP.name: "Konstitutionswert nicht zu TP addieren"
+DW.Settings.noConstitutionToHP.hint: "Wird verwendet für DW-Hacks wie Homebrew World"
+DW.Settings.noSTRToMaxLoad.name: "ST-Mod nicht zur Maximallast addieren"
+DW.Settings.noSTRToMaxLoad.hint: "Wird verwendet für DW-Hacks wie Homebrew World"
+DW.Settings.debilityLabelSTR.name: "ST Beeinträchtigung Name"
+DW.Settings.debilityLabelSTR.hint: ""
+DW.Settings.debilityLabelDEX.name: "GE Beeinträchtigung Name"
+DW.Settings.debilityLabelDEX.hint: ""
+DW.Settings.debilityLabelCON.name: "KO Beeinträchtigung Name"
+DW.Settings.debilityLabelCON.hint: ""
+DW.Settings.debilityLabelINT.name: "IN Beeinträchtigung Name"
+DW.Settings.debilityLabelINT.hint: ""
+DW.Settings.debilityLabelWIS.name: "WE Beeinträchtigung Name"
+DW.Settings.debilityLabelWIS.hint: ""
+DW.Settings.debilityLabelCHA.name: "CH Beeinträchtigung Name"
+DW.Settings.debilityLabelCHA.hint: ""
+DW.Notifications.noClassWarning: "Du musst eine gültige Klasse wählen, bevor du aufsteigen kannst."
+DW.Scrolling.armorReduced: "{reduced} Rüstung angewendet"
+DW.Scrolling.armorPiercing: "{piercing} Rüstung ignoriert"
