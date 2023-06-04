@@ -1,20 +1,38 @@
-name: Scent Of Blood
-permission:
-  default: 0
-type: move
-data:
+name: 'Scent Of Blood'
+type: 'move'
+flags: {}
+img: 'icons/skills/wounds/blood-spurt-spray-red.webp'
+_id: 'WlKrkJIoAjxrftJf'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>Hack &amp; Slash</strong> an enemy, your next attack
-    against that same foe deals +1d4 damage.</p>
-
-    <p>Additional damage roll: [[/roll 1d4]]</p>
+  description: "<p>When you <strong>Hack &amp; Slash</strong> an enemy, your next attack against that same foe deals +1d4 damage.</p>\n<p>Additional damage roll: [[/roll 1d4]]</p>"
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Fighter'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Fighter'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: WlKrkJIoAjxrftJf
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678127670795
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

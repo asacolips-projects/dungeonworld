@@ -1,40 +1,38 @@
-_id: hknEZbNqXJPziikT
-name: Bardic Lore
-permission:
-  default: 0
-type: move
-data:
+_id: 'hknEZbNqXJPziikT'
+name: 'Bardic Lore'
+type: 'move'
+flags: {}
+img: 'icons/skills/trades/academics-merchant-scribe.webp'
+system:
   name: ''
-  description: >-
-    <p>Choose an area of expertise:</p>
-
-    <ul>
-
-    <li>Spells and Magicks</li>
-
-    <li>The Dead and Undead</li>
-
-    <li>Grand Histories of the Known World</li>
-
-    <li>A Bestiary of Creatures Unusual</li>
-
-    <li>The Planar Spheres</li>
-
-    <li>Legends of Heroes Past</li>
-
-    <li>Gods and Their Servants</li>
-
-    </ul>
-
-    <p>When you <strong>first encounter an important creature, location, or
-    item</strong> (your call) covered by your bardic lore you can ask the GM any
-    one question about it; the GM will answer truthfully. The GM may then ask
-    you what tale, song, or legend you heard that information in.</p>
+  description: "<p>Choose an area of expertise:</p>\n<ul>\n<li>Spells and Magicks</li>\n<li>The Dead and Undead</li>\n<li>Grand Histories of the Known World</li>\n<li>A Bestiary of Creatures Unusual</li>\n<li>The Planar Spheres</li>\n<li>Legends of Heroes Past</li>\n<li>Gods and Their Servants</li>\n</ul>\n<p>When you <strong>first encounter an important creature, location, or item</strong> (your call) covered by your bardic lore you can ask the GM any one question about it; the GM will answer truthfully. The GM may then ask you what tale, song, or legend you heard that information in.</p>"
+  choices: ''
+  moveType: 'starting'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Bard'
   rollType: ''
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
-  class: 'The Bard'
-  moveType: starting
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678528778615
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

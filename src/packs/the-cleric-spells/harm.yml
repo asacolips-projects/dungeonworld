@@ -1,19 +1,15 @@
-name: Harm
+name: 'Harm'
 permission:
   default: 0
-type: spell
+type: 'spell'
 data:
   name: ''
-  description: >-
-    <p>Touch an enemy and strike them with divine wrath—deal 2d8 damage to them
-    and 1d6 damage to yourself. This damage ignores armor.</p>
-
-    <p>Self damage roll: [[/roll 1d6]]</p>
+  description: "<p>Touch an enemy and strike them with divine wrath—deal 2d8 damage to them and 1d6 damage to yourself. This damage ignores armor.</p>\n<p>Self damage roll: [[/roll 1d6]]</p>"
   spellLevel: 7
-  rollFormula: 2d8
+  rollFormula: '2d8'
   class: 'The Cleric'
   prepared: false
 flags: {}
-img: systems/dungeonworld/assets/icons/skills/light_08.webp
+img: 'systems/dungeonworld/assets/icons/skills/light_08.webp'
 effects: []
-_id: zsR4VEizLPaIICsE
+_id: 'zsR4VEizLPaIICsE'

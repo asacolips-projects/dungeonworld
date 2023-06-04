@@ -74,7 +74,8 @@ export class ActorDw extends Actor {
 
     // Calculate weight.
     let coin = data.attributes.coin.value ?? 0;
-    let weight = coin >= 100 ? Math.floor(coin / 100) : 0;
+    let coinWeight = game.settings.get("dungeonworld", "coinWeight");
+    let weight = coinWeight > 0 ? Math.floor(coin/coinWeight ) : 0;
     let items = actorData.items;
     if (items) {
       let equipment = items.filter(i => i.type == 'equipment');
@@ -89,14 +90,32 @@ export class ActorDw extends Actor {
         if (i.system?.equipped && i.system.itemType == 'weapon') {
           let tags = i.system.tags ? JSON.parse(i.system.tags) : [];
           for (let tag of tags) {
+          // Match for piercing, armor, and damage tags.
             let piercing = tag.value.toLowerCase().match(/(\d+)\s*piercing|piercing\s*(\d+)/) ?? [];
             let ignoreArmor = tag.value.toLowerCase().includes('ignores armor');
-            data.attributes.damage.piercing = (piercing[1] ?? piercing[2]) ?? 0;
-            data.attributes.damage.ignoreArmor = ignoreArmor;
-            if (data.attributes.damage.piercing || data.attributes.damage.ignoreArmor) {
-              break;
+            let dmgBonus = tag.value.toLowerCase().match(/[+](\d+)\s*damage|damage\s*[+](\d+)/) ?? [];
+
+            // Add matching piercing tags if it's unset or if the value is higher.
+            if (piercing[1] > 0 || piercing[2] > 0) {
+              piercing = (piercing[1] ?? piercing[2]) ?? 0;
+              if (!data.attributes.damage?.piercing || piercing > data.attributes.damage.piercing) {
+                data.attributes.damage.piercing = piercing;
+              }
             }
-          }
+
+            // Add matching ignore armor tags if it's unset.
+            if (!data.attributes.damage?.ignoreArmor) {
+              data.attributes.damage.ignoreArmor = ignoreArmor;
+            }
+
+              // Add matching damage bonus tags if it's unset or if the value is higher.
+              if (dmgBonus[1] > 0 || dmgBonus[2] > 0) { 
+                dmgBonus = (dmgBonus[1] ?? dmgBonus[2]) ?? 0;
+                if (!data.attributes.damage?.dmgBonus || dmgBonus > data.attributes.damage.dmgBonus) {
+                  data.attributes.damage.dmgBonus = dmgBonus;
+                }
+              }
+            }
         }
       });
     }
@@ -259,28 +278,26 @@ export class ActorDw extends Actor {
     }
   }
 
-  async applyDamage(amount, options = {op: 'full', ignoreArmor: false, piercing: 0}) {
+  async applyDamage(amount, options = {op: 'full', ignoreArmor: false, piercing: 0, dmgBonus: 0}) {
     let newAmount = Number(amount);
+    let dmgBonus = options?.dmgBonus;
+
+    // Apply dmgbonus.
+    if (options.op !== 'heal') {
+        newAmount += parseInt(dmgBonus);
+    }
 
     switch (options.op) {
-      // case 'full':
-      //   newAmount = amount;
-      //   break;
+      case 'half':
+        newAmount = Math.floor(newAmount / 2);
+        break;
 
-    case 'half':
-      newAmount = Math.floor(amount / 2);
-      break;
+      case 'double':
+        newAmount = newAmount * 2;
+        break;
 
-    case 'double':
-      newAmount = amount * 2;
-      break;
-
-      // case 'heal':
-      //   newAmount = amount;
-      //   break;
-
-    default:
-      break;
+      default:
+        break;
     }
 
     let hp = this.system?.attributes?.hp?.value ?? 0;

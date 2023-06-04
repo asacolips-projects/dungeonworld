@@ -1,20 +1,38 @@
-_id: 3yuNuWyxXqpRHBC9
-name: Divine Intervention
-permission:
-  default: 0
-type: move
-data:
+_id: '3yuNuWyxXqpRHBC9'
+name: 'Divine Intervention'
+type: 'move'
+flags: {}
+img: 'icons/magic/defensive/shield-barrier-deflect-teal.webp'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>Commune </strong>you get 1 hold and lose any hold you
-    already had. Spend that hold when you or an ally takes damage to call on
-    your deity, they intervene with an appropriate manifestation (a sudden gust
-    of wind, a lucky slip, a burst of light) and negate the damage.</p>
+  description: '<p>When you <strong>Commune </strong>you get 1 hold and lose any hold you already had. Spend that hold when you or an ally takes damage to call on your deity, they intervene with an appropriate manifestation (a sudden gust of wind, a lucky slip, a burst of light) and negate the damage.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Cleric'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Cleric'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678548104427
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

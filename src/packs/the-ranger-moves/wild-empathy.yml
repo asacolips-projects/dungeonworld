@@ -1,16 +1,38 @@
-name: Wild Empathy
-permission:
-  default: 0
-type: move
-data:
+name: 'Wild Empathy'
+type: 'move'
+flags: {}
+img: 'icons/creatures/mammals/dog-husky-white-blue.webp'
+_id: 'ANCWsXldvv5tIaZu'
+system:
   name: ''
-  description: <p>You can speak with and understand animals.</p>
+  description: '<p>You can speak with and understand animals.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Ranger'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Ranger'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: ANCWsXldvv5tIaZu
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678557275981
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

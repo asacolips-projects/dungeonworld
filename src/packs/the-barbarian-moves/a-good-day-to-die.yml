@@ -1,18 +1,38 @@
-name: A Good Day To Die
-permission:
-  default: 0
-type: move
-data:
+name: 'A Good Day To Die'
+type: 'move'
+flags: {}
+img: 'icons/magic/death/grave-tombstone-glow-teal.webp'
+_id: 'AwxmGu1qu9yYQXEr'
+system:
   name: ''
-  description: >-
-    <p>As long as you have less than your CON in current HP (or 1, whichever is
-    higher) take +1 ongoing.</p>
+  description: '<p>As long as you have less than your CON in current HP (or 1, whichever is higher) take +1 ongoing.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Barbarian'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
   requiresMove: ''
-  class: 'The Barbarian'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: AwxmGu1qu9yYQXEr
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815007289
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

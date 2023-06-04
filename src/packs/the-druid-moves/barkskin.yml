@@ -1,16 +1,38 @@
-name: Barkskin
-permission:
-  default: 0
-type: move
-data:
+name: 'Barkskin'
+type: 'move'
+flags: {}
+img: 'icons/magic/nature/hand-weapon-wood-bark-brown.webp'
+_id: 'cfyVvhKV8jOkpK2h'
+system:
   name: ''
-  description: <p>So long as your feet touch the ground you&nbsp;have +1 armor.</p>
+  description: '<p>So long as your feet touch the ground you&nbsp;have +1 armor.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Druid'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Druid'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: cfyVvhKV8jOkpK2h
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678607370484
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

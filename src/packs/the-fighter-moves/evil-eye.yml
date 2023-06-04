@@ -1,29 +1,38 @@
-name: Evil Eye
-permission:
-  default: 0
-type: move
-data:
+name: 'Evil Eye'
+type: 'move'
+flags: {}
+img: 'icons/magic/perception/eye-ringed-glow-angry-red.webp'
+_id: 'VV5WsSWyrpXiDo6l'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>enter combat</strong>, roll+CHA. Spend your hold to make
-    eye contact with an NPC present, who freezes or flinches and can’t act until
-    you break it off.</p>
-  rollType: CHA
-  rollMod: 0
-  requiresLevel: 6
-  requiresMove: Seeing Red
-  class: 'The Fighter'
-  moveType: advanced
+  description: '<p>When you <strong>enter combat</strong>, roll+CHA. Spend your hold to make eye contact with an NPC present, who freezes or flinches and can’t act until you break it off.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
   moveResults:
     failure:
-      value: >-
-        <p>Your enemies immediately identify you as their biggest threat.</p>
+      value: '<p>Your enemies immediately identify you as their biggest threat.</p>'
     partial:
-      value: >-
-        <p>Hold 1.</p>
+      value: '<p>Hold 1.</p>'
     success:
-      value: >-
-        <p>Hold 2.</p>
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: VV5WsSWyrpXiDo6l
+      value: '<p>Hold 2.</p>'
+  class: 'The Fighter'
+  rollType: 'CHA'
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: 'Seeing Red'
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678127526625
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

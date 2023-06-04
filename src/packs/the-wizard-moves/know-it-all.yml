@@ -1,19 +1,38 @@
-name: Know-It-All
-permission:
-  default: 0
-type: move
-data:
+name: 'Know-It-All'
+type: 'move'
+flags: {}
+img: 'icons/skills/trades/academics-merchant-scribe.webp'
+_id: 'VSMxSJCqsQKukY9P'
+system:
   name: ''
-  description: >-
-    <p>When another player’s character comes to&nbsp;you for advice and you
-    <strong>tell them what you think is best</strong>, they get +1 forward when
-    following your advice and you mark experience if they do.</p>
+  description: '<p>When another player’s character comes to&nbsp;you for advice and you <strong>tell them what you think is best</strong>, they get +1 forward when following your advice and you mark experience if they do.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Wizard'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Wizard'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: VSMxSJCqsQKukY9P
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678659989419
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

@@ -1,23 +1,38 @@
-_id: 2oflWsSQ9VwvcNQo
-name: Exterminatus
-permission:
-  default: 0
-type: move
-data:
+_id: '2oflWsSQ9VwvcNQo'
+name: 'Exterminatus'
+type: 'move'
+flags: {}
+img: 'icons/magic/unholy/silhouette-evil-horned-giant.webp'
+system:
   name: ''
-  description: >-
-    <p>When you<strong> speak aloud your promise to defat an enemy</strong>, you
-    deal +2d4 damage against that enemy and -4 damage against anyone else. This
-    effect lasts until the enemy is defeated. If you fail to defeat the enemy or
-    give up the fight, you can admit your failure, but the effect continues
-    until you find a way to redeem yourself.</p>
-
-    <p>Additional damage roll: [[/roll 2d4]]</p>
+  description: "<p>When you<strong> speak aloud your promise to defat an enemy</strong>, you deal +2d4 damage against that enemy and -4 damage against anyone else. This effect lasts until the enemy is defeated. If you fail to defeat the enemy or give up the fight, you can admit your failure, but the effect continues until you find a way to redeem yourself.</p>\n<p>Additional damage roll: [[/roll 2d4]]</p>"
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Paladin'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Paladin'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678652067886
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

@@ -1,19 +1,38 @@
-name: Hunter’s Prey
-permission:
-  default: 0
-type: move
-data:
+name: 'Hunter’s Prey'
+type: 'move'
+flags: {}
+img: 'icons/creatures/abilities/cougar-pounce-stalk-black.webp'
+_id: 'lZzEoUqXt8hIIBYh'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>Spout Lore about a monster</strong> you use WIS instead
-    of INT. On a 12+, in addition to the normal effects, you get to ask the GM
-    any one question about the subject.</p>
+  description: '<p>When you <strong>Spout Lore about a monster</strong> you use WIS instead of INT. On a 12+, in addition to the normal effects, you get to ask the GM any one question about the subject.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Ranger'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
-  requiresMove: Familiar Prey
-  class: 'The Ranger'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: lZzEoUqXt8hIIBYh
+  requiresMove: 'Familiar Prey'
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139630060
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

@@ -149,7 +149,7 @@ export class DwRolls {
           details: item.system.description,
           tags: item.system.tags
         }
-        data.roll = null;
+        data.roll = item.system.rollFormula;
         this.rollMoveExecute(data.roll, data, templateData);
       }
     }
@@ -179,9 +179,11 @@ export class DwRolls {
     // Add piercing and armor tags.
     let tags = [];
     let piercing = this.actor.system.attributes.damage?.piercing ?? 0;
+    let dmgBonus = this.actor.system.attributes.damage?.dmgBonus ?? 0;
     let ignoreArmor = this.actor.system.attributes.damage?.ignoreArmor ?? false;
     if (piercing > 0) tags.push({value: `${piercing} piercing`});
     if (ignoreArmor) tags.push({value: `ignores armor`});
+    if (dmgBonus > 0) tags.push({value: `+${dmgBonus} damage`});
     templateData.tags = JSON.stringify(tags);
     // Handle dice rolls.
     if (!DwUtility.isEmpty(roll)) {
@@ -214,8 +216,8 @@ export class DwRolls {
           // Determine if the stat toggle is in effect.
           let toggleModifier = 0;
           formula = `${dice}+${this.actorData.abilities[roll].mod}${toggleModifier ? '+' + toggleModifier : ''}`;
-          if (dataset.value && dataset.value != 0) {
-            formula += `+${dataset.value}`;
+          if (dataset.mod && dataset.mod != 0) {
+            formula += `+${dataset.mod}`;
           }
         }
 

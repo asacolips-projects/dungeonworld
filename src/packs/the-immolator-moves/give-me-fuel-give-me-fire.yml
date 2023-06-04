@@ -1,20 +1,38 @@
-_id: 6CC9pLcy3ARQaZFW
+_id: '6CC9pLcy3ARQaZFW'
 name: 'Give Me Fuel, Give Me Fire'
-permission:
-  default: 0
-type: move
-data:
+type: 'move'
+flags: {}
+img: 'icons/magic/fire/flame-burning-eye.webp'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>gaze intensely into someones eyes</strong>, you may ask
-    their player “what fuels the flames of your desire?” they’ll answer with the
-    truth, even if the character does not know or would otherwise keep this
-    hidden.</p>
+  description: '<p>When you <strong>gaze intensely into someones eyes</strong>, you may ask their player “what fuels the flames of your desire?” they’ll answer with the truth, even if the character does not know or would otherwise keep this hidden.</p>'
+  choices: ''
+  moveType: 'starting'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Immolator'
   rollType: ''
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
-  class: 'The Immolator'
-  moveType: starting
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678744456227
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

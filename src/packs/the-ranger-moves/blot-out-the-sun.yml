@@ -1,19 +1,38 @@
-name: Blot Out The Sun
-permission:
-  default: 0
-type: move
-data:
+name: 'Blot Out The Sun'
+type: 'move'
+flags: {}
+img: 'icons/skills/ranged/arrows-flying-salvo-blue.webp'
+_id: '4uurAYsN3T275xEk'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>Volley </strong>you may spend extra ammo before rolling.
-    For each point of ammo spent you may choose an extra target. Roll once and
-    apply damage to all targets.</p>
+  description: '<p>When you <strong>Volley </strong>you may spend extra ammo before rolling. For each point of ammo spent you may choose an extra target. Roll once and apply damage to all targets.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Ranger'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Ranger'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: 4uurAYsN3T275xEk
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139544683
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

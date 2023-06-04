@@ -1,15 +1,15 @@
-name: Cure Critical Wounds
+name: 'Cure Critical Wounds'
 permission:
   default: 0
-type: spell
+type: 'spell'
 data:
   name: ''
-  description: <p>Heal an ally you touch of 3d8 damage.</p>
+  description: '<p>Heal an ally you touch of 3d8 damage.</p>'
   spellLevel: 5
-  rollFormula: 3d8
+  rollFormula: '3d8'
   class: 'The Cleric'
   prepared: false
 flags: {}
-img: systems/dungeonworld/assets/icons/spells/heal-royal-3.webp
+img: 'systems/dungeonworld/assets/icons/spells/heal-royal-3.webp'
 effects: []
-_id: LNa1yJ3AJgwfOtFG
+_id: 'LNa1yJ3AJgwfOtFG'

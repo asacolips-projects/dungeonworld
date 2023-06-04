@@ -1,20 +1,15 @@
-name: Trap Soul
+name: 'Trap Soul'
 permission:
   default: 0
-type: spell
+type: 'spell'
 data:
   name: ''
-  description: >-
-    <p>You trap the soul of a dying creature within a gem. The trapped creature
-    is aware of its imprisonment but can still be manipulated through spells,
-    parley, and other effects. All moves against the trapped creature are at +1.
-    You can free the soul at any time but it can never be recaptured once
-    freed.</p>
+  description: '<p>You trap the soul of a dying creature within a gem. The trapped creature is aware of its imprisonment but can still be manipulated through spells, parley, and other effects. All moves against the trapped creature are at +1. You can free the soul at any time but it can never be recaptured once freed.</p>'
   spellLevel: 5
   rollFormula: ''
   class: 'The Cleric'
   prepared: false
 flags: {}
-img: systems/dungeonworld/assets/icons/skills/yellow_40.webp
+img: 'systems/dungeonworld/assets/icons/skills/yellow_40.webp'
 effects: []
-_id: meJ8EdG4WSahir2W
+_id: 'meJ8EdG4WSahir2W'

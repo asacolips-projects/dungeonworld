@@ -2,13 +2,13 @@
   "name": "dungeonworld",
   "title": "Dungeon World",
   "description": "The Dungeon World system for FoundryVTT!",
-  "version": "1.6.2",
-  "minimumCoreVersion": 10,
-  "compatibleCoreVersion": 10,
+  "version": "1.7.0",
+  "minimumCoreVersion": "10",
+  "compatibleCoreVersion": "11",
   "compatibility": {
-    "minimum": 10,
-    "verified": 10.287,
-    "maximum": 11
+    "minimum": "10",
+    "verified": "11.300",
+    "maximum": "11"
   },
   "authors": [
     {
@@ -21,6 +21,15 @@
   "styles": [
     "styles/lib/tagify.css",
     "styles/dist/dungeonworld.css"
+  ],
+  "media": [
+    {
+      "type": "setup",
+      "url": "systems/dungeonworld/assets/dungeon-world.webp",
+      "thumbnail": "systems/dungeonworld/assets/dungeon-world.webp",
+      "loop": false,
+      "flags": {}
+    }
   ],
   "scripts": [
     "scripts/lib/tagify.min.js"
@@ -341,7 +350,7 @@
   "socket": true,
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld",
   "manifest": "https://asacolips-artifacts.s3.amazonaws.com/dungeonworld/master/system.json",
-  "download": "https://asacolips-artifacts.s3.amazonaws.com/dungeonworld/1.6.2/dungeonworld.zip",
+  "download": "https://asacolips-artifacts.s3.amazonaws.com/dungeonworld/1.7.0/dungeonworld.zip",
   "changelog": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/raw/master/CHANGELOG.md",
   "bugs": "https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/issues"
 }

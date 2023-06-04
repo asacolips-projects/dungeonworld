@@ -1,18 +1,38 @@
-_id: n1OGjl7OHGXN2ODd
-name: By Nature Sustained
-permission:
-  default: 0
-type: move
-data:
+_id: 'n1OGjl7OHGXN2ODd'
+name: 'By Nature Sustained'
+type: 'move'
+flags: {}
+img: 'icons/magic/nature/cornucopia-orange.webp'
+system:
   name: ''
-  description: >-
-    <p>You don’t need to eat or drink. If a move tells you to mark off a ration
-    just ignore it.</p>
+  description: '<p>You don’t need to eat or drink. If a move tells you to mark off a ration just ignore it.</p>'
+  choices: ''
+  moveType: 'starting'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Druid'
   rollType: ''
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
-  class: 'The Druid'
-  moveType: starting
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678607615779
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

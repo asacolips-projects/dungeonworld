@@ -1,28 +1,38 @@
-_id: 1RD6f8JqbSuODs79
-name: Connections
-permission:
-  default: 0
-type: move
-data:
+_id: '1RD6f8JqbSuODs79'
+name: 'Connections'
+type: 'move'
+flags: {}
+img: 'icons/skills/social/diplomacy-handshake-blue.webp'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>put out word to the criminal underbelly about something
-    you want or need</strong>, roll+CHA.</p>
-  rollType: CHA
-  rollMod: 0
-  requiresLevel: 2
-  requiresMove: ''
-  class: 'The Thief'
-  moveType: advanced
+  description: '<p>When you <strong>put out word to the criminal underbelly about something you want or need</strong>, roll+CHA.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
   moveResults:
     failure:
       value: ''
     partial:
-      value: >-
-        <p>You’ll have to settle for something close or it comes with
-        strings attached, your call.</p>
+      value: '<p>You’ll have to settle for something close or it comes with strings attached, your call.</p>'
     success:
-      value: >-
-        <p>Someone has it, just for you.</p>
-flags: {}
-img: icons/svg/mystery-man.svg
+      value: '<p>Someone has it, just for you.</p>'
+  class: 'The Thief'
+  rollType: 'CHA'
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139124402
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

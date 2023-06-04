@@ -1,20 +1,15 @@
-name: Shadow Walk
+name: 'Shadow Walk'
 permission:
   default: 0
-type: spell
+type: 'spell'
 data:
   name: ''
-  description: >-
-    <p>The shadows you target with this spell become a portal for you and your
-    allies. Name a location, describing it with a number of words up to your
-    level. Stepping through the portal deposits you and any allies present when
-    you cast the spell at the location you described. The portal may only be
-    used once by each ally.</p>
+  description: '<p>The shadows you target with this spell become a portal for you and your allies. Name a location, describing it with a number of words up to your level. Stepping through the portal deposits you and any allies present when you cast the spell at the location you described. The portal may only be used once by each ally.</p>'
   spellLevel: 7
   rollFormula: ''
   class: 'The Wizard'
   prepared: false
 flags: {}
-img: systems/dungeonworld/assets/icons/spells/haste-fire-1.webp
+img: 'systems/dungeonworld/assets/icons/spells/haste-fire-1.webp'
 effects: []
-_id: gC3y0R2kEvtdxwkn
+_id: 'gC3y0R2kEvtdxwkn'

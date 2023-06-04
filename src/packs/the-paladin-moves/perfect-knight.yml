@@ -1,16 +1,38 @@
-name: Perfect Knight
-permission:
-  default: 0
-type: move
-data:
+name: 'Perfect Knight'
+type: 'move'
+flags: {}
+img: 'icons/sundries/gaming/chess-knight-white.webp'
+_id: 'uMXLtNtQuHbDWavS'
+system:
   name: ''
-  description: <p>When you Quest you choose three boons instead of two.</p>
+  description: '<p>When you Quest you choose three boons instead of two.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Paladin'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
   requiresMove: ''
-  class: 'The Paladin'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: uMXLtNtQuHbDWavS
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678627870249
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

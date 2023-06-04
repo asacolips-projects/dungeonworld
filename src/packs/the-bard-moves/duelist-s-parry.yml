@@ -1,18 +1,38 @@
-name: Duelist’s Parry
-permission:
-  default: 0
-type: move
-data:
+name: 'Duelist’s Parry'
+type: 'move'
+flags: {}
+img: 'icons/skills/melee/swords-parry-block-blue.webp'
+_id: 'sdrdah12r1CLnC9V'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>Hack &amp; Slash</strong>, you take +1 armor
-    forward.</p>
+  description: '<p>When you <strong>Hack &amp; Slash</strong>, you take +1 armor forward.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Bard'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Bard'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: sdrdah12r1CLnC9V
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678528387490
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

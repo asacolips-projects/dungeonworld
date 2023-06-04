@@ -1,20 +1,38 @@
-name: Setup Strike
-permission:
-  default: 0
-type: move
-data:
+name: 'Setup Strike'
+type: 'move'
+flags: {}
+img: 'icons/skills/melee/blade-tips-double-blue.webp'
+_id: 'kgzENmAOYRrAzwdR'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>Hack &amp; Slash</strong>, choose an ally. Their next
-    attack against your target does +1d4 damage.</p>
-
-    <p>Additional damage roll: [[/roll 1d4]]</p>
+  description: "<p>When you <strong>Hack &amp; Slash</strong>, choose an ally. Their next attack against your target does +1d4 damage.</p>\n<p>Additional damage roll: [[/roll 1d4]]</p>"
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Paladin'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Paladin'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: kgzENmAOYRrAzwdR
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678651570868
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

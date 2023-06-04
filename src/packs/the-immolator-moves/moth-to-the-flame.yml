@@ -1,29 +1,38 @@
-name: Moth To The Flame
-permission:
-  default: 0
-type: move
-data:
+name: 'Moth To The Flame'
+type: 'move'
+flags: {}
+img: 'icons/magic/fire/projectile-feathers-embers-gold.webp'
+_id: 'hzVuoXmsthNNsSUr'
+system:
   name: ''
-  description: >-
-    <p>When you<strong> tempt a weak mind with your inner fire</strong>,
-    roll+WIS.</p>
-  rollType: WIS
+  description: '<p>When you<strong> tempt a weak mind with your inner fire</strong>, roll+WIS.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: '<p>They become agitated and upset, your fire having sparked their hidden desires.</p>'
+    partial:
+      value: '<p>The effect is only strong enough to distract or confuse them.</p>'
+    success:
+      value: '<p>Their will is suppressed, they’ll follow you and do as you desire, so long as nothing startles or surprises them.</p>'
+  class: 'The Immolator'
+  rollType: 'WIS'
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Immolator'
-  moveType: advanced
-  moveResults:
-    failure:
-      value: >-
-        <p>They become agitated and upset, your fire having sparked their hidden desires.</p>
-    partial:
-      value: >-
-        <p>The effect is only strong enough to distract or confuse them.</p>
-    success:
-      value: >-
-        <p>Their will is suppressed, they’ll follow you and do as
-        you desire, so long as nothing startles or surprises them.</p>
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: hzVuoXmsthNNsSUr
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678744760270
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

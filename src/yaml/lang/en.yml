@@ -22,8 +22,8 @@ DW.CON: "CON"
 DW.INT: "INT"
 DW.WIS: "WIS"
 DW.CHA: "CHA"
-DW.ASK: "Ask (ability prompt)"
-DW.BOND: "Bond (modifier prompt)"
+DW.ASK: "Stat"
+DW.BOND: "Modifier/Bond prompt"
 DW.FORMULA: "Custom Roll Formula"
 DW.DebilityStr: "Weak"
 DW.DebilityDex: "Shaky"
@@ -42,6 +42,7 @@ DW.Look: "Look"
 DW.Alignment: "Alignment"
 DW.Alignments: "Alignments"
 DW.Class: "Class"
+DW.ClassViewer: "Class Viewer"
 DW.Race: "Race"
 DW.Races: "Races"
 DW.Bond: "Bond"
@@ -101,6 +102,8 @@ DW.Equipped: "Equipped"
 DW.Quantity: "Quantity"
 DW.Qty: "Qty"
 DW.Weight: "Weight"
+DW.Price: "Price"
+DW.DamageOverride: "Damage Override"
 DW.Wt: "Wt"
 DW.Uses: "Uses"
 DW.MagicItem: "Magic Item"
@@ -220,6 +223,8 @@ DW.Settings.advForward.name: "Clear ADV/DIS After Rolls"
 DW.Settings.advForward.hint: "If enabled, advantage and disadvantage choices on the character sheet will be reset to normal after each roll (similar to Forward)."
 DW.Settings.disDebility.name: "Debilities Impose Disadvantage"
 DW.Settings.disDebility.hint: "If enabled, debilities will apply disadvantage on rolls rather than a change to the ability modifier."
+DW.Settings.coinWeight.name: "Coin weight"
+DW.Settings.coinWeight.hint: "Number of coins corresponding to one unit of weight, 0 makes coins weightless"
 
 DW.Settings.alignmentSingle.name: 'Override "Alignment" label (single).'
 DW.Settings.alignmentSingle.hint: 'Override "Alignment", such as by using "Drive" instead.'
@@ -275,7 +280,7 @@ DW.Settings.debilityLabelCHA.hint: ''
 DW.Dialog.askTitle: 'Choose a stat'
 DW.Dialog.askContent: 'Choose a stat for this <strong>{name}</strong> move.'
 DW.Dialog.bondTitle: 'Enter your modifier'
-DW.Dialog.bondContent: 'Enter a bonus for the bond or modifier for this <strong>{name}</strong> move.'
+DW.Dialog.bondContent: 'Enter a modifier for this <strong>{name}</strong> move.'
 
 DW.Notifications.noClassWarning: 'You must choose a valid class before you can level up.'
 

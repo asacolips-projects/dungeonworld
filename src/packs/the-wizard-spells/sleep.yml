@@ -1,18 +1,15 @@
-name: Sleep
+name: 'Sleep'
 permission:
   default: 0
-type: spell
+type: 'spell'
 data:
   name: ''
-  description: >-
-    <p>1d4 enemies you can see of the GM’s choice fall asleep. Only creatures
-    capable of sleeping are affected. They awake as normal: loud noises, jolts,
-    pain.</p>
+  description: '<p>1d4 enemies you can see of the GM’s choice fall asleep. Only creatures capable of sleeping are affected. They awake as normal: loud noises, jolts, pain.</p>'
   spellLevel: 3
-  rollFormula: 1d4
+  rollFormula: '1d4'
   class: 'The Wizard'
   prepared: false
 flags: {}
-img: systems/dungeonworld/assets/icons/skills/light_01.webp
+img: 'systems/dungeonworld/assets/icons/skills/light_01.webp'
 effects: []
-_id: cm9zeuSmjzkvXBpV
+_id: 'cm9zeuSmjzkvXBpV'

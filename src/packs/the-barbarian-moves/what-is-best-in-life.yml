@@ -1,19 +1,38 @@
-name: What Is Best In Life
-permission:
-  default: 0
-type: move
-data:
+name: 'What Is Best In Life'
+type: 'move'
+flags: {}
+img: 'icons/creatures/unholy/demon-horned-winged-laughing.webp'
+_id: '5fV85NiEQADrI6RB'
+system:
   name: ''
-  description: >-
-    <p>At the end of a session, if during this session you have crushed your
-    enemies, seen them driven before you, or have heard the lamentations of
-    their kinfolk mark XP.</p>
+  description: '<p>At the end of a session, if during this session you have crushed your enemies, seen them driven before you, or have heard the lamentations of their kinfolk mark XP.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Barbarian'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Barbarian'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: 5fV85NiEQADrI6RB
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815105087
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

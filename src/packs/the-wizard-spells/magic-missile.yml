@@ -1,17 +1,15 @@
-name: Magic Missile
+name: 'Magic Missile'
 permission:
   default: 0
-type: spell
+type: 'spell'
 data:
   name: ''
-  description: >-
-    <p>Projectiles of pure magic spring from your fingers. Deal 2d4 damage to
-    one target.</p>
+  description: '<p>Projectiles of pure magic spring from your fingers. Deal 2d4 damage to one target.</p>'
   spellLevel: 1
-  rollFormula: 2d4
+  rollFormula: '2d4'
   class: 'The Wizard'
   prepared: false
 flags: {}
-img: systems/dungeonworld/assets/icons/spells/needles-sky-1.webp
+img: 'systems/dungeonworld/assets/icons/spells/needles-sky-1.webp'
 effects: []
-_id: E37vFHQJ0aMdKzYP
+_id: 'E37vFHQJ0aMdKzYP'

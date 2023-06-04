@@ -20,7 +20,7 @@ export class DwItemSheet extends ItemSheet {
       classes: ["dungeonworld", "sheet", "item"],
       width: 520,
       height: 480,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "details" }],
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
       submitOnChange: true,
     });
 

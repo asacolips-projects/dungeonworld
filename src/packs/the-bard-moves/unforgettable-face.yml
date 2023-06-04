@@ -1,18 +1,38 @@
-name: Unforgettable Face
-permission:
-  default: 0
-type: move
-data:
+name: 'Unforgettable Face'
+type: 'move'
+flags: {}
+img: 'icons/commodities/treasure/totem-wood-face-brown.webp'
+_id: 'JApbpyxEwFsSf0Fc'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>meet someone you’ve met before</strong> (your call)
-    after some time apart you take +1 forward against them.</p>
+  description: '<p>When you <strong>meet someone you’ve met before</strong> (your call) after some time apart you take +1 forward against them.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Bard'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
   requiresMove: ''
-  class: 'The Bard'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: JApbpyxEwFsSf0Fc
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678529550089
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

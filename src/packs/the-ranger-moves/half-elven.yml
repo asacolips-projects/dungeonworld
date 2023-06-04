@@ -1,20 +1,38 @@
-_id: DUWf94jNtvvlzS4z
-name: Half-elven
-permission:
-  default: 0
-type: move
-data:
+_id: 'DUWf94jNtvvlzS4z'
+name: 'Half-elven'
+type: 'move'
+flags: {}
+img: 'icons/sundries/books/book-symbol-tree-silver-green.webp'
+system:
   name: ''
-  description: >-
-    <p>Somewhere in your lineage lies mixed blood and it begins to show its
-    presence. You gain the elf starting move if you took the human one at
-    character creation or vice versa.<strong> You may take this move only if it
-    is your first advancement.</strong></p>
+  description: '<p>Somewhere in your lineage lies mixed blood and it begins to show its presence. You gain the elf starting move if you took the human one at character creation or vice versa.<strong> You may take this move only if it is your first advancement.</strong></p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Ranger'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Ranger'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678140045580
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

@@ -1,52 +1,38 @@
-_id: 901uEUL4f8so6zAL
-name: Deity
-permission:
-  default: 0
-type: move
-data:
+_id: '901uEUL4f8so6zAL'
+name: 'Deity'
+type: 'move'
+flags: {}
+img: 'icons/commodities/treasure/broach-lightning-gold.webp'
+system:
   name: ''
-  description: >-
-    <p>You serve and worship some deity or power which grants you spells. Give
-    your god a name and choose your deity’s domain:</p>
-
-    <ul>
-
-    <li>Healing and Restoration</li>
-
-    <li>Bloody Conquest</li>
-
-    <li>Civilization</li>
-
-    <li>Knowledge and Hidden Things</li>
-
-    <li>The Downtrodden and Forgotten</li>
-
-    <li>What Lies Beneath</li>
-
-    </ul>
-
-    <p>Choose one precept of your religion:</p>
-
-    <ul>
-
-    <li>It preaches the sanctity of suffering, add <strong>Petition:
-    Suffering</strong></li>
-
-    <li>It’s clutish and insular, add <strong>Petition: Gaining
-    Secrets</strong></li>
-
-    <li>It Observes important sacrificial rites, add <strong>Petition:
-    Offering</strong></li>
-
-    <li>It believes in trial by combat, add Petition: <strong>Personal
-    Victory</strong></li>
-
-    </ul>
+  description: "<p>You serve and worship some deity or power which grants you spells. Give your god a name and choose your deity’s domain:</p>\n<ul>\n<li>Healing and Restoration</li>\n<li>Bloody Conquest</li>\n<li>Civilization</li>\n<li>Knowledge and Hidden Things</li>\n<li>The Downtrodden and Forgotten</li>\n<li>What Lies Beneath</li>\n</ul>\n<p>Choose one precept of your religion:</p>\n<ul>\n<li>It preaches the sanctity of suffering, add <strong>Petition: Suffering</strong></li>\n<li>It’s clutish and insular, add <strong>Petition: Gaining Secrets</strong></li>\n<li>It Observes important sacrificial rites, add <strong>Petition: Offering</strong></li>\n<li>It believes in trial by combat, add Petition: <strong>Personal Victory</strong></li>\n</ul>"
+  choices: ''
+  moveType: 'starting'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Cleric'
   rollType: ''
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
-  class: 'The Cleric'
-  moveType: starting
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678547762173
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

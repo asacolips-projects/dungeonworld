@@ -1,34 +1,38 @@
-_id: 9dDYXKrmz5NrXMzj
-name: Charming & Open
-permission:
-  default: 0
-type: move
-data:
+_id: '9dDYXKrmz5NrXMzj'
+name: 'Charming & Open'
+type: 'move'
+flags: {}
+img: 'icons/skills/social/diplomacy-handshake.webp'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>speak frankly with someone</strong>, you can ask their
-    player a question from the list below. They must answer it truthfully, then
-    they may ask you a question from the list (which you must answer
-    truthfully).</p>
-
-    <ul>
-
-    <li>Whom do you serve?</li>
-
-    <li>What do you wish I would do?</li>
-
-    <li>How can I get you to _____?</li>
-
-    <li>What are you really feeling right now?</li>
-
-    <li>What do you most desire?</li>
-
-    </ul>
+  description: "<p>When you <strong>speak frankly with someone</strong>, you can ask their player a question from the list below. They must answer it truthfully, then they may ask you a question from the list (which you must answer truthfully).</p>\n<ul>\n<li>Whom do you serve?</li>\n<li>What do you wish I would do?</li>\n<li>How can I get you to _____?</li>\n<li>What are you really feeling right now?</li>\n<li>What do you most desire?</li>\n</ul>"
+  choices: ''
+  moveType: 'starting'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Bard'
   rollType: ''
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
-  class: 'The Bard'
-  moveType: starting
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678528728254
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

@@ -105,6 +105,15 @@ Hooks.once("init", async function() {
     onChange: () => window.location.reload(),
   })
 
+  game.settings.register("dungeonworld", "coinWeight", {
+    name: game.i18n.localize("DW.Settings.coinWeight.name"),
+    hint: game.i18n.localize("DW.Settings.coinWeight.hint"),
+    scope: "world",
+    config: true,
+    type: Number,
+    default: 100
+  });
+
   // TODO: Remove this setting.
   game.settings.register("dungeonworld", "itemIcons", {
     name: game.i18n.localize("DW.Settings.itemIcons.name"),
@@ -124,13 +133,18 @@ Hooks.once("init", async function() {
     default: true
   });
 
+  let browserDefaultColor = false;
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    browserDefaultColor = true;
+  }
+
   game.settings.register("dungeonworld", "nightmode", {
     name: game.i18n.localize("DW.Settings.nightmode.name"),
     hint: game.i18n.localize("DW.Settings.nightmode.hint"),
     scope: 'client',
     config: true,
     type: Boolean,
-    default: false
+    default: browserDefaultColor
   });
 
   game.settings.register("dungeonworld", "alignmentSingle", {
@@ -306,7 +320,16 @@ Hooks.once("init", async function() {
 
 Hooks.once("ready", async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on("hotbarDrop", (bar, data, slot) => createDwMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => {
+    //overwrite the default drop-to-hotbar behaviour for items
+    if (data.type == "Item") {
+      createDwMacro(data, slot);
+      return false;
+    }
+    else {
+      return true
+    }
+  });
 
   DW.classlist = await DwClassList.getClasses();
   CONFIG.DW = DW;

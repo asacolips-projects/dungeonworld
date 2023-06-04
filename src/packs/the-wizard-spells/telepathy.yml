@@ -1,18 +1,15 @@
-name: Telepathy
+name: 'Telepathy'
 permission:
   default: 0
-type: spell
+type: 'spell'
 data:
   name: ''
-  description: >-
-    <p>You form a telepathic bond with a single person you touch, enabling you
-    to converse with that person through your thoughts. You can only have one
-    telepathic bond at a time. Ongoing.</p>
+  description: '<p>You form a telepathic bond with a single person you touch, enabling you to converse with that person through your thoughts. You can only have one telepathic bond at a time. Ongoing.</p>'
   spellLevel: 1
   rollFormula: ''
   class: 'The Wizard'
   prepared: false
 flags: {}
-img: systems/dungeonworld/assets/icons/spells/link-spirit-2.webp
+img: 'systems/dungeonworld/assets/icons/spells/link-spirit-2.webp'
 effects: []
-_id: RrSQMwMwuLHvcvPY
+_id: 'RrSQMwMwuLHvcvPY'

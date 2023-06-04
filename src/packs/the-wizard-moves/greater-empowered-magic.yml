@@ -1,28 +1,38 @@
-_id: mBPFmhMOvAGfLo53
-name: Greater Empowered Magic
-permission:
-  default: 0
-type: move
-data:
+_id: 'mBPFmhMOvAGfLo53'
+name: 'Greater Empowered Magic'
+type: 'move'
+flags: {}
+img: 'icons/magic/symbols/runes-star-pentagon-blue.webp'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>cast a spell</strong>, on a 10-11 you have the option of
-    choosing from the 7-9 list. If you do, you may additionally choose one of
-    the following effects. On a 12+ you get to choose one of these effects for
-    free:</p>
-
-    <ul>
-
-    <li>The spell’s effects are maximized</li>
-
-    <li>The spell’s targets are doubled</li>
-
-    </ul>
+  description: "<p>When you <strong>cast a spell</strong>, on a 10-11 you have the option of choosing from the 7-9 list. If you do, you may additionally choose one of the following effects. On a 12+ you get to choose one of these effects for free:</p>\n<ul>\n<li>The spell’s effects are maximized</li>\n<li>The spell’s targets are doubled</li>\n</ul>"
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Wizard'
   rollType: ''
   rollMod: 0
   requiresLevel: 6
-  requiresMove: Empowered Magic
-  class: 'The Wizard'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
+  requiresMove: 'Empowered Magic'
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678660324498
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

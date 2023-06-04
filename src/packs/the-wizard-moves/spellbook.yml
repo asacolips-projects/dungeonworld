@@ -1,20 +1,38 @@
-_id: 76XpZKGUvy6HUG2r
-name: Spellbook
-permission:
-  default: 0
-type: move
-data:
+_id: '76XpZKGUvy6HUG2r'
+name: 'Spellbook'
+type: 'move'
+flags: {}
+img: 'icons/sundries/books/book-open-brown.webp'
+system:
   name: ''
-  description: >-
-    <p>You have mastered several spells and inscribed them in your spellbook.
-    You start out with three first level spells, as well as all your cantrips.
-    Whenever you gain a level, you inscribe a new spell of your level or lower.
-    Your spellbook is 1 weight.</p>
+  description: '<p>You have mastered several spells and inscribed them in your spellbook. You start out with three first level spells, as well as all your cantrips. Whenever you gain a level, you inscribe a new spell of your level or lower. Your spellbook is 1 weight.</p>'
+  choices: ''
+  moveType: 'starting'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Wizard'
   rollType: ''
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
-  class: 'The Wizard'
-  moveType: starting
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678660722431
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

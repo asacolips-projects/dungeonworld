@@ -1,30 +1,38 @@
-name: Communion of Whispers
-permission:
-  default: 0
-type: move
-data:
+name: 'Communion of Whispers'
+type: 'move'
+flags: {}
+img: 'icons/magic/nature/leaf-juggle-humanoid-green.webp'
+_id: 'gnXOkp07Uuj0UFMa'
+system:
   name: ''
-  description: >-
-    <p>When you <strong>spend time in a place</strong>, making note of its
-    resident spirits and calling on the spirits of the land, roll+WIS. You will
-    be granted a vision of significance to you, your allies, and the spirits
-    around you.</p>
-  rollType: WIS
+  description: '<p>When you <strong>spend time in a place</strong>, making note of its resident spirits and calling on the spirits of the land, roll+WIS. You will be granted a vision of significance to you, your allies, and the spirits around you.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: '<p>The vision is upsetting, frightening, or traumatizing. The GM will describe it. Take -1 forward.</p>'
+    partial:
+      value: '<p>The vision is unclear, its meaning murky.</p>'
+    success:
+      value: '<p>The vision will be clear and helpful to you.</p>'
+  class: 'The Druid'
+  rollType: 'WIS'
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Druid'
-  moveType: advanced
-  moveResults:
-    failure:
-      value: >-
-        <p>The vision is upsetting, frightening, or traumatizing. The GM will describe it. Take -1 forward.</p>
-    partial:
-      value: >-
-        <p>The vision is unclear, its meaning murky.</p>
-    success:
-      value: >-
-        <p>The vision will be clear and helpful to you.</p>
-flags: {}
-img: icons/svg/mystery-man.svg
-_id: gnXOkp07Uuj0UFMa
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678607828389
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

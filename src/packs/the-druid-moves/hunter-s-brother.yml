@@ -1,16 +1,38 @@
-_id: n3Gq7hymBosKkmvK
-name: Hunter's Brother
-permission:
-  default: 0
-type: move
-data:
+_id: 'n3Gq7hymBosKkmvK'
+name: 'Hunter''s Brother'
+type: 'move'
+flags: {}
+img: 'icons/skills/ranged/target-bullseye-arrow-glowing.webp'
+system:
   name: ''
-  description: <p>Choose one move from the ranger class list.</p>
+  description: '<p>Choose one move from the ranger class list.</p>'
+  choices: ''
+  moveType: 'advanced'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Druid'
   rollType: ''
   rollMod: 0
   requiresLevel: 2
   requiresMove: ''
-  class: 'The Druid'
-  moveType: advanced
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678608509858
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0

@@ -1,29 +1,38 @@
-_id: c2ayDJ4RJaOoQNPJ
-name: Prepare Spells
-permission:
-  default: 0
-type: move
-data:
+_id: 'c2ayDJ4RJaOoQNPJ'
+name: 'Prepare Spells'
+type: 'move'
+flags: {}
+img: 'icons/skills/trades/academics-study-reading-book.webp'
+system:
   name: ''
-  description: >-
-    <p>When you spend uninterrupted time (an hour or so) in <strong>quiet
-    contemplation</strong> of your spellbook, you:</p>
-
-    <ul>
-
-    <li>Lose any spells you already prepared</li>
-
-    <li>Prepare new spells chosen from your spellbook whose total levels don’t
-    exceed your own level +1</li>
-
-    <li>Prepare your cantrips which never count against your limit</li>
-
-    </ul>
+  description: "<p>When you spend uninterrupted time (an hour or so) in <strong>quiet contemplation</strong> of your spellbook, you:</p>\n<ul>\n<li>Lose any spells you already prepared</li>\n<li>Prepare new spells chosen from your spellbook whose total levels don’t exceed your own level +1</li>\n<li>Prepare your cantrips which never count against your limit</li>\n</ul>"
+  choices: ''
+  moveType: 'starting'
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: 'The Wizard'
   rollType: ''
   rollMod: 0
   requiresLevel: 0
   requiresMove: ''
-  class: 'The Wizard'
-  moveType: starting
-flags: {}
-img: icons/svg/mystery-man.svg
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: 'dungeonworld'
+  systemVersion: '1.6.2'
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678660132162
+  lastModifiedBy: 'ZAKkxHEmCmVhvUjX'
+permission:
+  default: 0
