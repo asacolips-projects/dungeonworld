@@ -22,6 +22,15 @@
     "styles/lib/tagify.css",
     "styles/dist/dungeonworld.css"
   ],
+  "media": [
+    {
+      "type": "setup",
+      "url": "systems/dungeonworld/assets/dungeon-world.webp",
+      "thumbnail": "systems/dungeonworld/assets/dungeon-world.webp",
+      "loop": false,
+      "flags": {}
+    }
+  ],
   "scripts": [
     "scripts/lib/tagify.min.js"
   ],

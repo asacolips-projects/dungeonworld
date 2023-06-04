@@ -151,7 +151,7 @@
             <ol class="abilities-list">
             {{#each system.abilities as |ability key|}}
                 <li class="ability flexrow" data-ability="{{key}}">
-                    <label for="system.abilities.{{key}}.value" class="cell__title ability-rollable rollable" data-roll="{{key}}" data-label="{{ability.label}}">{{ localize (concat ability.label) }}</label>
+                    <label for="system.abilities.{{key}}.value" class="cell__title ability-rollable rollable" data-roll="{{key}}" data-label="{{ability.label}}">{{ localize ability.label }}</label>
                     {{#if ../system.noAbilityScores}}
                       <input class="ability-mod" type="text" name="system.abilities.{{key}}.value" value="{{#if ability.value}}{{numberFormat ability.value decimals=0 sign=true}}{{else}}0{{/if}}" data-dtype="Number"/>
                     {{else}}
