@@ -799,8 +799,6 @@ export class DwActorSheet extends ActorSheet {
       }
     }, dlg_options);
     d.render(true);
-
-
   }
 
   /**
@@ -979,9 +977,9 @@ export class DwActorSheet extends ActorSheet {
 
     await actor.update({ system: system });
     await actor.setFlag('dungeonworld', 'levelup', false);
-    // actor.render(true);
   }
 
+  // @todo abstract the logic in this method so that we can combine it with onLevelUp as much as possible.
   async _onClassView(event) {
     event.preventDefault();
 
