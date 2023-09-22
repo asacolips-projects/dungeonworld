@@ -84,6 +84,18 @@ $c-blue-dark: #344460;
           }
         }
       }
+
+      .encumbered {
+        .cell__title {
+          background-color: #a35d03 !important;
+        }
+      }
+
+      .overencumbered {
+        .cell__title {
+          background-color: #8b3e3e !important;
+        }
+      }
     }
 
     .level-up {
