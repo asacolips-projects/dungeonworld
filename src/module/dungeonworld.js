@@ -144,7 +144,8 @@ Hooks.once("init", async function() {
     scope: 'client',
     config: true,
     type: Boolean,
-    default: browserDefaultColor
+    default: browserDefaultColor,
+    onChange: () => window.location.reload()
   });
 
   game.settings.register("dungeonworld", "alignmentSingle", {
