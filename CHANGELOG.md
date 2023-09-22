@@ -1,3 +1,13 @@
+# 1.7.1
+
+## Bug Fixes
+
+- #125: Fixed warnings related to obsolete localizations on actor and item types.
+- #118: Fixed bug where damage tags on equipped weapons (ex: 1 piercing) would appear on non-weapon items when sent to chat. Also fixed a bug where tags on items weren't appearing on chat messages.
+- #121: Fixed bug where tags on NPCs didn't appear on their damage rolls.
+- #122: Updated nightmode setting to force refresh the window when saving changes.
+- #123: Fixed bug where encumbrance color coding wasn't present on nightmode.
+
 # 1.7.0
 
 ## Features
