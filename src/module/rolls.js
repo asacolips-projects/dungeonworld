@@ -5,6 +5,7 @@ export class DwRolls {
   constructor() {
     this.actor = null;
     this.actorData = null;
+    this.item = null;
   }
 
   static getRollFormula(defaultFormula = '2d6') {
@@ -41,8 +42,7 @@ export class DwRolls {
     let actorType = this.actor.type;
 
     // Grab the item data, if any.
-    const item = options?.data;
-    const itemData = item ? item?.system : null;
+    this.item = options?.data;
 
     // Grab the formula, if any.
     let formula = options.formula ?? null;
@@ -59,28 +59,28 @@ export class DwRolls {
     if (CONFIG.DW.nightmode) dlgOptions.classes.push('nightmode');
 
     // Handle item rolls (moves).
-    if (item) {
+    if (this.item) {
       // Handle moves.
-      if (item.type == 'move' || item.type == 'npcMove') {
+      if (this.item.type == 'move' || this.item.type == 'npcMove') {
         formula = dice;
         templateData = {
-          image: item.img,
-          title: item.name,
+          image: this.item.img,
+          title: this.item.name,
           trigger: null,
-          details: item.system.description,
-          moveResults: item.system.moveResults,
-          choices: item.system.choices
+          details: this.item.system.description,
+          moveResults: this.item.system.moveResults,
+          choices: this.item.system.choices
         };
 
-        if (item.type == 'npcMove' || item.system?.rollType == 'FORMULA') {
-          data.roll = item.system.rollFormula;
-          data.rollType = item.system.rollType ? item.system.rollType.toLowerCase() : 'npc';
+        if (this.item.type == 'npcMove' || this.item.system?.rollType == 'FORMULA') {
+          data.roll = this.item.system.rollFormula;
+          data.rollType = this.item.system.rollType ? this.item.system.rollType.toLowerCase() : 'npc';
         }
         else {
-          data.roll = item.system.rollType.toLowerCase();
-          data.rollType = item.system.rollType.toLowerCase();
+          data.roll = this.item.system.rollType.toLowerCase();
+          data.rollType = this.item.system.rollType.toLowerCase();
         }
-        data.mod = item.type == 'move' ? item.system.rollMod : 0;
+        data.mod = this.item.type == 'move' ? this.item.system.rollMod : 0;
         // If this is an ASK roll, render a bond first to determine which
         // score to use.
         if (data.roll == 'ask') {
@@ -95,7 +95,7 @@ export class DwRolls {
           }
           new Dialog({
             title: game.i18n.localize('DW.Dialog.askTitle'),
-            content: `<p>${game.i18n.format('DW.Dialog.askContent', {name: item.name})}`,
+            content: `<p>${game.i18n.format('DW.Dialog.askContent', {name: this.item.name})}`,
             buttons: statButtons
           }, dlgOptions).render(true);
         }
@@ -104,7 +104,7 @@ export class DwRolls {
         else if (data.roll == 'bond') {
           let template = 'systems/dungeonworld/templates/chat/roll-dialog.html';
           let dialogData = {
-            title: game.i18n.format('DW.Dialog.bondContent', {name: item.name}),
+            title: game.i18n.format('DW.Dialog.bondContent', {name: this.item.name}),
             bond: null
           };
           const html = await renderTemplate(template, dialogData);
@@ -130,26 +130,26 @@ export class DwRolls {
         }
       }
       // Handle spells.
-      else if (item.type == 'spell') {
+      else if (this.item.type == 'spell') {
         templateData = {
-          image: item.img,
-          title: item.name,
+          image: this.item.img,
+          title: this.item.name,
           trigger: null,
-          details: item.system.description
+          details: this.item.system.description
         };
-        data.roll = item.system.rollFormula;
+        data.roll = this.item.system.rollFormula;
         this.rollMoveExecute(data.roll, data, templateData);
       }
       // Handle equipment.
-      else if (item.type == 'equipment') {
+      else if (this.item.type == 'equipment') {
         templateData = {
-          image: item.img,
-          title: item.name,
+          image: this.item.img,
+          title: this.item.name,
           trigger: null,
-          details: item.system.description,
-          tags: item.system.tags
+          details: this.item.system.description,
+          tags: this.item.system.tags
         }
-        data.roll = item.system.rollFormula;
+        data.roll = this.item.system.rollFormula;
         this.rollMoveExecute(data.roll, data, templateData);
       }
     }
@@ -176,14 +176,34 @@ export class DwRolls {
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
     if (rollMode === "selfroll") chatData["whisper"] = [game.user.id];
     if (rollMode === "blindroll") chatData["blind"] = true;
-    // Add piercing and armor tags.
+    // Define tags.
+    let baseTags = this.item?.system?.tags ?? this.actor?.system?.tags;
     let tags = [];
-    let piercing = this.actor.system.attributes.damage?.piercing ?? 0;
-    let dmgBonus = this.actor.system.attributes.damage?.dmgBonus ?? 0;
-    let ignoreArmor = this.actor.system.attributes.damage?.ignoreArmor ?? false;
-    if (piercing > 0) tags.push({value: `${piercing} piercing`});
-    if (ignoreArmor) tags.push({value: `ignores armor`});
-    if (dmgBonus > 0) tags.push({value: `+${dmgBonus} damage`});
+    let hasPiercingTag = false;
+    let hasDmgBonusTag = false;
+    let hasIgnoreArmorTag = false;
+    if (baseTags && baseTags.length > 0) {
+      tags = JSON.parse(baseTags);
+      if (baseTags.includes('piercing')) {
+        hasPiercingTag = true;
+      }
+      if (baseTags.includes('damage')) {
+        hasDmgBonusTag = true;
+      }
+      if (baseTags.includes('ignores armor')) {
+        hasIgnoreArmorTag = true;
+      }
+    }
+    // Add piercing and armor tags.
+    if (this.item?.system?.itemType == 'weapon' || templateData?.rollType == 'damage') {
+      let piercing = this.actor.system.attributes.damage?.piercing ?? 0;
+      let dmgBonus = this.actor.system.attributes.damage?.dmgBonus ?? 0;
+      let ignoreArmor = this.actor.system.attributes.damage?.ignoreArmor ?? false;
+      if (piercing > 0 && !hasPiercingTag) tags.push({value: `${piercing} piercing`});
+      if (ignoreArmor && !hasIgnoreArmorTag) tags.push({value: `ignores armor`});
+      if (dmgBonus > 0 && !hasDmgBonusTag) tags.push({value: `+${dmgBonus} damage`});
+      if (this.actor.type == 'npc' && templateData?.flavor) tags.push({value: templateData.flavor});
+    }
     templateData.tags = JSON.stringify(tags);
     // Handle dice rolls.
     if (!DwUtility.isEmpty(roll)) {

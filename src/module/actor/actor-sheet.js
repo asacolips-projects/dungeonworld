@@ -1402,7 +1402,8 @@ export class DwActorSheet extends ActorSheet {
       flavorText = data.flavor;
       templateData = {
         title: titleText,
-        flavor: flavorText
+        flavor: flavorText,
+        rollType: 'damage'
       };
 
       DwRolls.rollMove({actor: this.actor, data: null, formula: formula, templateData: templateData});
