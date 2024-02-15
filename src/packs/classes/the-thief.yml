@@ -25,7 +25,7 @@ data:
     '1':
       label: Human
       description: >-
-        You are a professional. When you Spot Lore or Discern Realities about
+        You are a professional. When you Spout Lore or Discern Realities about
         criminal activities, take +1.
   alignments:
     '0':
