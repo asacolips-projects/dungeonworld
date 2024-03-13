@@ -13,7 +13,10 @@ env:
   FOOBAR: "${{ secrets.FOOBAR }}"
   S3_BUCKET: asacolips-artifacts
 jobs:
-  # Artifact Build
+  
+  #####################################################################
+  ### Build Job #######################################################
+  #####################################################################
   build:
     runs-on: ubuntu-latest
     container:
@@ -22,36 +25,53 @@ jobs:
     if: github.ref == 'refs/heads/actions-test'
     timeout-minutes: 60
     steps:
-    - uses: actions/checkout@v4.1.0
+    - name: Retrieving git refs
+      uses: actions/checkout@v4.1.0
       with:
         fetch-depth: 50
         lfs: false
-    - uses: actions/cache@v3.3.2
+    
+    - name: Retrieving cache
+      uses: actions/cache@v3.3.2
       with:
         path: node_modules/
         key: default
+
     # - run: apt-get update
     # - run: apt-get install zip
-    - run: export
-    - run: npm install
-    - run: npm run build
-    - run: node update-build-tags.js --branch=${{ github.ref }}  --tag=${{ github.ref }} --bucket=$S3_BUCKET
-    - run: cp ./dist/system.json ./system.json
-    - run: mv dist dungeonworld
-    - name: Install zip
+
+    - name: Var export
+      run: export
+    
+    - name: Install NPM dependencies
+      run: npm install
+
+    - name: Build dist directory
+      run: npm run build
+
+    - name: Build manifest
+      run: node update-build-tags.js --branch=${{ github.ref }}  --tag=${{ github.ref }} --bucket=$S3_BUCKET
+
+    - name: Create package directory
+      run: cp ./dist/system.json ./system.json && mv dist dungeonworld
+
+    - name: Generate dungeonworld.zip
       uses: montudor/action-zip@v1
-    - name: Zip output
-      run: zip -q dungeonworld.zip -r dungeonworld
-      working-directory: ./
-    # - run: zip -q dungeonworld.zip -r dungeonworld
-    - uses: actions/upload-artifact@v4.1.0
+      with:
+        args: zip -q dungeonworld.zip -r dungeonworld
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4.1.0
       if: success()
       with:
         name: "${{ github.job }}"
         path: |-
           dungeonworld.zip
           system.json
-  # Artifact Deploy.
+
+  #####################################################################
+  ### Deploy Job ######################################################
+  #####################################################################
   deploy:
     needs: build
     runs-on: ubuntu-latest
