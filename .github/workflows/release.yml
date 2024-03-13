@@ -25,7 +25,7 @@ jobs:
     - uses: actions/checkout@v4.1.0
       with:
         fetch-depth: 50
-        lfs: true
+        lfs: false
     - uses: actions/cache@v3.3.2
       with:
         path: node_modules/
@@ -35,7 +35,7 @@ jobs:
     - run: export
     - run: npm ci
     - run: npm run build
-    - run: node update-build-tags.js --branch=${{ github.ref }} --gitlabpath=${{ github.repository }} --jobname=${{ github.job }}  --tag=${{ github.ref }} --bucket=$S3_BUCKET
+    - run: node update-build-tags.js --branch=${{ github.ref }}  --tag=${{ github.ref }} --bucket=$S3_BUCKET
     - run: cp ./dist/system.json ./system.json
     - run: mv dist dungeonworld
     - run: zip -q dungeonworld.zip -r dungeonworld
@@ -59,7 +59,7 @@ jobs:
     - uses: actions/checkout@v4.1.0
       with:
         fetch-depth: 50
-        lfs: true
+        lfs: false
     - uses: actions/cache@v3.3.2
       with:
         path: node_modules/

@@ -6,14 +6,6 @@ const argv = yargs
         'type': 'string',
         description: 'specifies the branch (CI_COMMIT_BRANCH)'
     })
-    .option('gitlabpath', {
-        type: 'string',
-        description: 'The path on gitlab where this branch is stored (CI_PROJECT_PATH)'
-    })
-    .option('jobname', {
-      'type': 'string',
-      description: 'specifies the job name (CI_JOB_NAME)'
-    })
     .option('tag', {
       type: 'string',
       description: 'The git tag used for this version (CI_COMMIT_TAG)'
@@ -26,7 +18,7 @@ const argv = yargs
       type: 'string',
       description: 'specifies the timestamp as a prefix on beta builds (CI_PIPELINE_IID)'
     })
-    .demandOption(['branch', 'gitlabpath', 'jobname'])
+    .demandOption(['branch', 'bucket'])
     .argv;
 
 const systemRaw = fs.readFileSync('./dist/system.json');
@@ -56,18 +48,9 @@ else if (argv.tag) {
 
 // Update URLs.
 system.url = `https://gitlab.com/${argv.gitlabpath}`;
+system.manifest = `https://${bucket}.s3.amazonaws.com/${system.name}/${artifactBranch}/system.json`;
+system.download = `https://${bucket}.s3.amazonaws.com/${system.name}/${artifactVersion}/${system.name}.zip`;
 if (versionParsed == 'beta' || versionParsed == 'alpha') {
-  system.manifest = `https://${bucket}.s3.amazonaws.com/${system.name}/${artifactBranch}/system.json`;
-  system.download = `https://${bucket}.s3.amazonaws.com/${system.name}/${artifactVersion}/${system.name}.zip`;
-}
-else {
-  system.manifest = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${artifactVersion}/raw/system.json?job=${argv.jobname}`;
-  system.download = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${artifactVersion}/raw/${system.name}.zip?job=${argv.jobname}`;
-
-  if (artifactBranch == 'master') {
-    system.manifest = `https://${bucket}.s3.amazonaws.com/${system.name}/${artifactBranch}/system.json`;
-    system.download = `https://${bucket}.s3.amazonaws.com/${system.name}/${artifactVersion}/${system.name}.zip`;
-  }
 }
 
 fs.writeFileSync('./dist/system.json', JSON.stringify(system, null, 2));
