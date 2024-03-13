@@ -1,0 +1,77 @@
+name: asacolips-projects/dungeonworld
+on:
+  push:
+  workflow_dispatch:
+concurrency:
+  group: "${{ github.ref }}"
+  cancel-in-progress: true
+env:
+  BETA_BUILD_NUMBER: '0'
+  # AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
+  # AWS_DEFAULT_REGION: "${{ secrets.AWS_DEFAULT_REGION }}"
+  # AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+  FOOBAR: "${{ secrets.FOOBAR }}"
+  S3_BUCKET: asacolips-artifacts
+jobs:
+  # Artifact Build
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: node:16
+    # if: startsWith(github.ref, 'refs/tags')
+    if: github.ref == 'refs/heads/actions-test'
+    timeout-minutes: 60
+    steps:
+    - uses: actions/checkout@v4.1.0
+      with:
+        fetch-depth: 50
+        lfs: true
+    - uses: actions/cache@v3.3.2
+      with:
+        path: node_modules/
+        key: default
+    - run: apt-get update
+    - run: apt-get install zip
+    - run: export
+    - run: npm ci
+    - run: npm run build
+    - run: node update-build-tags.js --branch=${{ github.ref }} --gitlabpath=${{ github.repository }} --jobname=${{ github.job }}  --tag=${{ github.ref }} --bucket=$S3_BUCKET
+    - run: cp ./dist/system.json ./system.json
+    - run: mv dist dungeonworld
+    - run: zip -q dungeonworld.zip -r dungeonworld
+    - uses: actions/upload-artifact@v4.1.0
+      if: success()
+      with:
+        name: "${{ github.job }}"
+        path: |-
+          dungeonworld.zip
+          system.json
+  # Artifact Deploy.
+  deploy:
+    needs: build-prod
+    runs-on: ubuntu-latest
+    container:
+      image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+    # if: (github.ref == 'refs/heads//^(\d+\.)+(\d+)*((beta|alpha)+(([-.v])*\d+)+)*$/i') && !(startsWith(github.ref, 'refs/heads'))
+    if: github.ref == 'refs/heads/actions-test'
+    timeout-minutes: 60
+    steps:
+    - uses: actions/checkout@v4.1.0
+      with:
+        fetch-depth: 50
+        lfs: true
+    - uses: actions/cache@v3.3.2
+      with:
+        path: node_modules/
+        key: default
+    - uses: actions/download-artifact@v4.1.0
+      with:
+        name: build-prod
+    # - run: apt-get update
+    # - run: apt-get install zip
+    - run: BRANCH=$(./get-version.sh)
+    - run: echo $FOOBAR
+    # - run: aws configure set region us-east-1
+    # - run: aws s3 cp ./dungeonworld.zip s3://$S3_BUCKET/dungeonworld/${{ github.ref }}/dungeonworld.zip --acl="public-read"
+    # - run: aws s3 cp ./system.json s3://$S3_BUCKET/dungeonworld/${{ github.ref }}/system.json --acl="public-read"
+    # - run: aws s3 cp ./system.json s3://$S3_BUCKET/dungeonworld/$BRANCH/system.json --acl="public-read"
