@@ -48,7 +48,7 @@ jobs:
           system.json
   # Artifact Deploy.
   deploy:
-    needs: build-prod
+    needs: build
     runs-on: ubuntu-latest
     container:
       image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
