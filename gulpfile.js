@@ -223,11 +223,7 @@ function copyFiles() {
   return gulp.src(SYSTEM_COPY, {base: 'src'})
     .pipe(gulp.dest('./dist'))
 }
-function copyManifest() {
-  return gulp.src('./dist/system.json')
-    .pipe(gulp.dest('./'))
-}
-const copyTask = gulp.series(copyFiles, copyManifest);
+const copyTask = gulp.series(copyFiles);
 
 /* ----------------------------------------- */
 /* Convert images
@@ -331,7 +327,6 @@ const defaultTask = gulp.series(
   compileImages,
   compileScss,
   copyFiles,
-  copyManifest,
   watchUpdates
 );
 const buildTask = gulp.series(
@@ -340,7 +335,6 @@ const buildTask = gulp.series(
   compileImages,
   compileScss,
   copyFiles,
-  copyManifest,
   cleanPacks,
   compilePacks
 );

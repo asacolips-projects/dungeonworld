@@ -30,15 +30,20 @@ jobs:
       with:
         path: node_modules/
         key: default
-    - run: apt-get update
-    - run: apt-get install zip
+    # - run: apt-get update
+    # - run: apt-get install zip
     - run: export
-    - run: npm ci
+    - run: npm install
     - run: npm run build
     - run: node update-build-tags.js --branch=${{ github.ref }}  --tag=${{ github.ref }} --bucket=$S3_BUCKET
     - run: cp ./dist/system.json ./system.json
     - run: mv dist dungeonworld
-    - run: zip -q dungeonworld.zip -r dungeonworld
+    - name: Install zip
+      uses: montudor/action-zip@v1
+    - name: Zip output
+      run: zip -q dungeonworld.zip -r dungeonworld
+      working-directory: ./
+    # - run: zip -q dungeonworld.zip -r dungeonworld
     - uses: actions/upload-artifact@v4.1.0
       if: success()
       with:
