@@ -96,7 +96,7 @@ jobs:
         name: build
     # - run: apt-get update
     # - run: apt-get install zip
-    - run: . ./get-version.sh
+    - run: echo "BRANCH=$(./get-version.sh)" >> $GITHUB_ENV
     - run: echo $BRANCH
     - run: echo $FOOBAR
     - run: echo "s3://${S3_BUCKET}/dungeonworld/${REF}/dungeonworld.zip"
