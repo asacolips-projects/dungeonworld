@@ -7,10 +7,9 @@ concurrency:
   cancel-in-progress: true
 env:
   BETA_BUILD_NUMBER: '0'
-  # AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
-  # AWS_DEFAULT_REGION: "${{ secrets.AWS_DEFAULT_REGION }}"
-  # AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
-  FOOBAR: "${{ secrets.FOOBAR }}"
+  AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
+  AWS_DEFAULT_REGION: "${{ secrets.AWS_DEFAULT_REGION }}"
+  AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
   S3_BUCKET: asacolips-artifacts
   REF_TYPE: ${{ github.ref_type }}
   REF: "${{ github.head_ref || github.ref_name}}"
@@ -22,11 +21,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: node:16
+      image: node:20
     # if: startsWith(github.ref, 'refs/tags')
     if: github.ref == 'refs/heads/actions-test'
     timeout-minutes: 60
     steps:
+
     - name: Retrieving git refs
       uses: actions/checkout@v4.1.0
       with:
@@ -38,9 +38,6 @@ jobs:
       with:
         path: node_modules/
         key: default
-
-    # - run: apt-get update
-    # - run: apt-get install zip
 
     - name: Var export
       run: export
@@ -83,27 +80,36 @@ jobs:
     if: github.ref == 'refs/heads/actions-test'
     timeout-minutes: 60
     steps:
-    - uses: actions/checkout@v4.1.0
+
+    - name: Retrieving git refs
+      uses: actions/checkout@v4.1.0
       with:
         fetch-depth: 50
         lfs: false
-    - uses: actions/cache@v3.3.2
+    
+    - name: Retrieving cache
+      uses: actions/cache@v3.3.2
       with:
         path: node_modules/
         key: default
-    - uses: actions/download-artifact@v4.1.0
+
+    - name: Download artifacts from previous step
+      uses: actions/download-artifact@v4.1.0
       with:
         name: build
-    # - run: apt-get update
-    # - run: apt-get install zip
-    - run: echo "BRANCH=$(./get-version.sh)" >> $GITHUB_ENV
-    - run: echo $BRANCH
-    - run: echo $FOOBAR
-    - run: echo "s3://${S3_BUCKET}/dungeonworld/${REF}/dungeonworld.zip"
-    - run: echo "s3://${S3_BUCKET}/dungeonworld/${REF}/system.json"
-    - run: echo "s3://${S3_BUCKET}/dungeonworld/${BRANCH}/system.json"
-    # - run: aws configure set region us-east-1
-    # - run: aws s3 cp ./dungeonworld.zip s3://${S3_BUCKET}/dungeonworld/${REF}/dungeonworld.zip --acl="public-read"
-    # - run: aws s3 cp ./system.json s3://${S3_BUCKET}/dungeonworld/${REF}/system.json --acl="public-read"
-    # - run: aws s3 cp ./system.json s3://${S3_BUCKET}/dungeonworld/${BRANCH}/system.json --acl="public-read"
+
+    - name: Getting branch name
+      run: echo "BRANCH=$(./get-version.sh)" >> $GITHUB_ENV
+
+    - name: Setting AWS region
+      run: aws configure set region us-east-1
+
+    - name: Uploading tagged zip
+      run: aws s3 cp ./dungeonworld.zip s3://${S3_BUCKET}/dungeonworld/${REF}/dungeonworld.zip --acl="public-read"
+
+    - name: Uploading tagged manifest
+      run: aws s3 cp ./system.json s3://${S3_BUCKET}/dungeonworld/${REF}/system.json --acl="public-read"
+
+    - name: Uploading branch manifest
+      run: aws s3 cp ./system.json s3://${S3_BUCKET}/dungeonworld/${BRANCH}/system.json --acl="public-read"
     
