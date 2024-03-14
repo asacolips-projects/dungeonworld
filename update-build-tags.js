@@ -2,56 +2,60 @@ const yargs = require('yargs');
 const fs = require('fs');
 
 const argv = yargs
-    .option('branch', {
+    .option('ref_type', {
         'type': 'string',
-        description: 'specifies the branch (CI_COMMIT_BRANCH)'
+        description: 'The ref type (branch or tag)'
     })
     .option('tag', {
       type: 'string',
-      description: 'The git tag used for this version (CI_COMMIT_TAG)'
+      description: 'The tag or branch for this ref.'
     })
     .option('bucket', {
       type: 'string',
       description: 'The s3 bucket used for this build (S3_BUCKET)'
     })
-    .option('versionpost', {
+    .option('project', {
       type: 'string',
-      description: 'specifies the timestamp as a prefix on beta builds (CI_PIPELINE_IID)'
+      description: 'The github project, such as asacolips-projects/dungeonworld'
     })
-    .demandOption(['branch', 'bucket'])
+    .demandOption(['ref_type', 'tag', 'bucket', 'project'])
     .argv;
 
+// Load the existing manifest.
 const systemRaw = fs.readFileSync('./dist/system.json');
 let system = JSON.parse(systemRaw);
 
 // Set the artifact path.
-let artifactBranch = argv.branch ? argv.branch : 'master';
-let artifactVersion = argv.tag ? argv.tag : argv.branch;
+let artifactBranch = argv.ref_type == 'branch' ? argv.tag : 'master';
+let artifactVersion = argv.ref_type == 'tag' ? argv.tag : null;
 let versionParsed = 'master';
 let bucket = argv.bucket ? argv.bucket : '';
 
-// Calculate the version.
-if (argv.branch && argv.branch == 'beta' && argv.versionpost) {
-  let newVersionSplit = system.version.split('.');
-  // Set the beta version.
-  // newVersionSplit[1]++;
-  // newVersionSplit[2] = 0;
-  let newVersion = newVersionSplit.join('.');
-  system.version = `${newVersion}-beta${argv.versionpost ? argv.versionpost : ''}`;
-}
-else if (argv.tag) {
+// Calculate branch based on tag.
+if (argv.ref_type == 'tag') {
+  artifactVersion = argv.tag;
   system.version = argv.tag;
   // Determine if this is a pre-release version tag.
   versionParsed = system.version.match(/beta|alpha/);
-  if (versionParsed && versionParsed[0]) artifactBranch = versionParsed[0];
+  if (versionParsed && versionParsed[0]) {
+    artifactBranch = versionParsed[0];
+  }
+  // Otherwise, assume it's the master branch.
+  else {
+    artifactBranch = 'master';
+  }
+}
+// Calculate tag based on branch.
+else {
+  // Load our previous manifest to get the version.
+  artifactVersion = system.version;
+  artifactBranch = argv.tag;
 }
 
 // Update URLs.
-system.url = `https://gitlab.com/${argv.gitlabpath}`;
+system.url = `https://github.com/${argv.project}`;
 system.manifest = `https://${bucket}.s3.amazonaws.com/${system.name}/${artifactBranch}/system.json`;
 system.download = `https://${bucket}.s3.amazonaws.com/${system.name}/${artifactVersion}/${system.name}.zip`;
-if (versionParsed == 'beta' || versionParsed == 'alpha') {
-}
 
 fs.writeFileSync('./dist/system.json', JSON.stringify(system, null, 2));
 console.log(`Build: ${system.version}`);
