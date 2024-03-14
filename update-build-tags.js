@@ -59,5 +59,6 @@ system.download = `https://${bucket}.s3.amazonaws.com/${system.name}/${artifactV
 
 fs.writeFileSync('./dist/system.json', JSON.stringify(system, null, 2));
 console.log(`Build: ${system.version}`);
+console.log(`Project: ${system.url}`);
 console.log(`Manifest: ${system.manifest}`);
 console.log(`Download: ${system.download}`);
