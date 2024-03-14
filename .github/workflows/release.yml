@@ -107,4 +107,12 @@ jobs:
         aws s3 cp ./dungeonworld.zip s3://${S3_BUCKET}/dungeonworld/${REF}/dungeonworld.zip --acl="public-read"
         aws s3 cp ./system.json s3://${S3_BUCKET}/dungeonworld/${REF}/system.json --acl="public-read"
         aws s3 cp ./system.json s3://${S3_BUCKET}/dungeonworld/${BRANCH}/system.json --acl="public-read"
+
+    # - name: Create release
+        # id: create_versioned_release
+        # uses: ncipollo/release-action@v1
+        # with:
+          # name: ${{ github.head_ref || github.ref_name }}
+          # token: ${{ secrets.GITHUB_TOKEN }}
+          # artifacts: './system.json,./dungeonworld.zip'
     
