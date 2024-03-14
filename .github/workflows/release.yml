@@ -101,15 +101,10 @@ jobs:
     - name: Getting branch name
       run: echo "BRANCH=$(./get-version.sh)" >> $GITHUB_ENV
 
-    - name: Setting AWS region
-      run: aws configure set region us-east-1
-
-    - name: Uploading tagged zip
-      run: aws s3 cp ./dungeonworld.zip s3://${S3_BUCKET}/dungeonworld/${REF}/dungeonworld.zip --acl="public-read"
-
-    - name: Uploading tagged manifest
-      run: aws s3 cp ./system.json s3://${S3_BUCKET}/dungeonworld/${REF}/system.json --acl="public-read"
-
-    - name: Uploading branch manifest
-      run: aws s3 cp ./system.json s3://${S3_BUCKET}/dungeonworld/${BRANCH}/system.json --acl="public-read"
+    - name: S3 Upload
+      run: |
+        aws configure set region us-east-1
+        aws s3 cp ./dungeonworld.zip s3://${S3_BUCKET}/dungeonworld/${REF}/dungeonworld.zip --acl="public-read"
+        aws s3 cp ./system.json s3://${S3_BUCKET}/dungeonworld/${REF}/system.json --acl="public-read"
+        aws s3 cp ./system.json s3://${S3_BUCKET}/dungeonworld/${BRANCH}/system.json --acl="public-read"
     
