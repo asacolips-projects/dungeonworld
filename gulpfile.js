@@ -332,7 +332,6 @@ const defaultTask = gulp.series(
 const buildTask = gulp.series(
   deleteFiles,
   compileYaml,
-  compileImages,
   compileScss,
   copyFiles,
   cleanPacks,
