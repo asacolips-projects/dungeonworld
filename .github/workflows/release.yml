@@ -34,7 +34,7 @@ jobs:
         lfs: false
 
     - name: Retrieving cache
-      uses: actions/cache@v3.3.2
+      uses: actions/cache@v4
       with:
         path: node_modules/
         key: default
@@ -73,7 +73,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
-    if: (github.ref_type == 'tag') && (github.ref == 'refs/heads//^(\d+\.)+(\d+)*((beta|alpha)+(([-.v])*\d+)+)*$/i')
+    # if: (github.ref_type == 'tag') && (github.ref == 'refs/heads//^(\d+\.)+(\d+)*((beta|alpha)+(([-.v])*\d+)+)*$/i')
+    if: github.ref_type == 'tag'
     timeout-minutes: 60
     steps:
 
