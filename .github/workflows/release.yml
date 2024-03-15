@@ -20,6 +20,7 @@ jobs:
   ### Build Job #######################################################
   #####################################################################
   build:
+    name: Build
     runs-on: ubuntu-latest
     container:
       image: node:20
@@ -69,6 +70,7 @@ jobs:
   ### Deploy Job ######################################################
   #####################################################################
   deploy:
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
     container:
@@ -95,11 +97,6 @@ jobs:
       with:
         name: build
 
-    - name: Get Version
-      shell: bash
-      id: get-version
-      run: echo "TAG=$(node ./.github/workflows/get-version.js) >> $GITHUB_ENV"
-
     - name: Get branch
       run: echo "BRANCH=$(./.github/workflows/get-branch.sh)" >> $GITHUB_ENV
 
@@ -124,6 +121,19 @@ jobs:
         bodyFile: release-notes/${{ env.REF }}.md
         draft: true
         token: ${{ secrets.GITHUB_TOKEN }} # Provided by actions.
+
+  #####################################################################
+  ### FVTT Package Manager Release Job ################################
+  #####################################################################
+  fvtt_release:
+    name: FVTT Package Release
+    needs: deploy
+    runs-on: ubuntu-latest
+    container:
+      image: node:20
+    if: github.ref_type == 'tag'
+    timeout-minutes: 60
+    steps:
 
     - name: Create FVTT Release
       id: create_fvtt_release
