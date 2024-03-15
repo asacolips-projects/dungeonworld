@@ -1,7 +1,8 @@
 name: asacolips-projects/dungeonworld
 on:
   push:
-    workflow_dispatch:
+    tags:
+      - '*'
 concurrency:
   group: "${{ github.ref }}"
   cancel-in-progress: true
@@ -72,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
-    if: (github.ref_type == 'tag') && (github.head_ref == '/^(\d+\.)+(\d+)*((beta|alpha)+(([-.v])*\d+)+)*$/i')
+    if: (env.REF_TYPE == 'tag') && (env.REF == '/^(\d+\.)+(\d+)*((beta|alpha)+(([-.v])*\d+)+)*$/i')
     timeout-minutes: 60
     steps:
 
