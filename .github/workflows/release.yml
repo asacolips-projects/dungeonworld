@@ -9,8 +9,8 @@ concurrency:
 env:
   BETA_BUILD_NUMBER: '0'
   AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
-  #AWS_DEFAULT_REGION: us-east-1
   AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+  FVTT_PACKAGE_TOKEN: "${{ secrets.FVTT_PACKAGE_TOKEN }}"
   S3_BUCKET: asacolips-artifacts
   REF_TYPE: ${{ github.ref_type }}
   REF: "${{ github.head_ref || github.ref_name}}"
@@ -124,4 +124,9 @@ jobs:
         bodyFile: release-notes/${{ env.REF }}.md
         draft: true
         token: ${{ secrets.GITHUB_TOKEN }} # Provided by actions.
+
+    ## @todo FVTT release action
+    # - name: Create FVTT Release
+    #   id: create_fvtt_release
+    #   run: 'node ./.github/workflows/foundry-package-release.js'
 
