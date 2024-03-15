@@ -46,7 +46,7 @@ jobs:
       run: npm run build
 
     - name: Build manifest
-      run: node update-build-tags.js --ref_type=${REF_TYPE}  --tag=${REF} --bucket=${S3_BUCKET} --project=${GITHUB_REPOSITORY}
+      run: node ./.github/workflows/update-build-tags.js --ref_type=${REF_TYPE}  --tag=${REF} --bucket=${S3_BUCKET} --project=${GITHUB_REPOSITORY}
 
     - name: Create package directory
       run: cp ./dist/system.json ./system.json && mv dist dungeonworld
@@ -125,8 +125,7 @@ jobs:
         draft: true
         token: ${{ secrets.GITHUB_TOKEN }} # Provided by actions.
 
-    ## @todo FVTT release action
-    # - name: Create FVTT Release
-    #   id: create_fvtt_release
-    #   run: 'node ./.github/workflows/foundry-package-release.js'
+    - name: Create FVTT Release
+      id: create_fvtt_release
+      run: node ./.github/workflows/foundry-package-release.js --fvtt_token=${FVTT_PACKAGE_TOKEN}
 
