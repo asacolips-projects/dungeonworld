@@ -73,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
-    if: (env.REF_TYPE == 'tag') && (env.REF == '/^(\d+\.)+(\d+)*((beta|alpha)+(([-.v])*\d+)+)*$/i')
+    if: (REF_TYPE == 'tag') && (REF == '/^(\d+\.)+(\d+)*((beta|alpha)+(([-.v])*\d+)+)*$/i')
     timeout-minutes: 60
     steps:
 
