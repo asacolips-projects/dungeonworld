@@ -77,8 +77,7 @@ const response = await fetch("https://api.foundryvtt.com/_api/packages/release_v
   method: "POST",
   body: JSON.stringify({
     "id": "dungeonworld",
-    // @todo remove this before merging to the main branch.
-    "dry-run": true,
+    // "dry-run": true,
     "release": release_data
   })
 });

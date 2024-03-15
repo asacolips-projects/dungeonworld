@@ -49,10 +49,6 @@ jobs:
     - name: Build manifest
       run: node ./.github/workflows/update-build-tags.js --ref_type=${REF_TYPE}  --tag=${REF} --bucket=${S3_BUCKET} --project=${GITHUB_REPOSITORY}
 
-    - name: Create FVTT Release
-      id: create_fvtt_release
-      run: node ./.github/workflows/foundry-package-release.mjs --fvtt_token=${FVTT_PACKAGE_TOKEN}
-
     - name: Create package directory
       run: cp ./dist/system.json ./system.json && mv dist dungeonworld
 
@@ -79,7 +75,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
-    # if: (github.ref_type == 'tag') && (github.ref == 'refs/heads//^(\d+\.)+(\d+)*((beta|alpha)+(([-.v])*\d+)+)*$/i')
     if: github.ref_type == 'tag'
     timeout-minutes: 60
     steps:
@@ -151,5 +146,5 @@ jobs:
 
     - name: Create FVTT Release
       id: create_fvtt_release
-      run: node ./.github/workflows/foundry-package-release.js --fvtt_token=${FVTT_PACKAGE_TOKEN}
+      run: node ./.github/workflows/foundry-package-release.mjs --fvtt_token=${FVTT_PACKAGE_TOKEN}
 
