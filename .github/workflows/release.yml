@@ -72,7 +72,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
-    if: (github.ref_type == 'tag') && (github.head_ref == '/^(\d+\.)+(\d+)*((beta|alpha)+(([-.v])*\d+)+)*$/i'))
+    if: (github.ref_type == 'tag') && (github.head_ref == '/^(\d+\.)+(\d+)*((beta|alpha)+(([-.v])*\d+)+)*$/i')
     timeout-minutes: 60
     steps:
 
