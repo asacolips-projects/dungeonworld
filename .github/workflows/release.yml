@@ -61,7 +61,7 @@ jobs:
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4.1.0
-      if: success()
+      if: success() && github.ref_type == 'tag'
       with:
         name: "${{ github.job }}"
         path: |-
