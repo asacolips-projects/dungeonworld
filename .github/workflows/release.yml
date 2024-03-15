@@ -1,7 +1,7 @@
 name: asacolips-projects/dungeonworld
 on:
   push:
-  workflow_dispatch:
+    workflow_dispatch:
 concurrency:
   group: "${{ github.ref }}"
   cancel-in-progress: true
@@ -14,7 +14,7 @@ env:
   REF_TYPE: ${{ github.ref_type }}
   REF: "${{ github.head_ref || github.ref_name}}"
 jobs:
-  
+
   #####################################################################
   ### Build Job #######################################################
   #####################################################################
@@ -22,8 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: node:20
-    # if: startsWith(github.ref, 'refs/tags')
-    if: github.ref == 'refs/heads/actions-test'
+    if: github.ref_type == 'tag'
     timeout-minutes: 60
     steps:
 
@@ -32,16 +31,13 @@ jobs:
       with:
         fetch-depth: 50
         lfs: false
-    
+
     - name: Retrieving cache
       uses: actions/cache@v3.3.2
       with:
         path: node_modules/
         key: default
 
-    #- name: Var export
-    #  run: export
-    
     - name: Install NPM dependencies
       run: npm install
 
@@ -76,8 +72,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
-    # if: (github.ref == 'refs/heads//^(\d+\.)+(\d+)*((beta|alpha)+(([-.v])*\d+)+)*$/i') && !(startsWith(github.ref, 'refs/heads'))
-    if: github.ref == 'refs/heads/actions-test'
+    if: (github.ref_type == 'tag' && github.head_ref == '/^(\d+\.)+(\d+)*((beta|alpha)+(([-.v])*\d+)+)*$/i'))
     timeout-minutes: 60
     steps:
 
@@ -86,7 +81,7 @@ jobs:
       with:
         fetch-depth: 50
         lfs: false
-    
+
     - name: Retrieving cache
       uses: actions/cache@v3.3.2
       with:
@@ -98,8 +93,13 @@ jobs:
       with:
         name: build
 
-    - name: Getting branch name
-      run: echo "BRANCH=$(./get-version.sh)" >> $GITHUB_ENV
+    - name: Get Version
+      shell: bash
+      id: get-version
+      run: echo "TAG=$(node ./.github/workflows/get-version.js) >> $GITHUB_ENV"
+
+    - name: Get branch
+      run: echo "BRANCH=$(./.github/workflows/get-branch.sh)" >> $GITHUB_ENV
 
     - name: S3 Upload
       run: |
@@ -108,11 +108,22 @@ jobs:
         aws s3 cp ./system.json s3://${S3_BUCKET}/dungeonworld/${REF}/system.json --acl="public-read"
         aws s3 cp ./system.json s3://${S3_BUCKET}/dungeonworld/${BRANCH}/system.json --acl="public-read"
 
-    # - name: Create release
-        # id: create_versioned_release
-        # uses: ncipollo/release-action@v1
-        # with:
-          # name: ${{ github.head_ref || github.ref_name }}
-          # token: ${{ secrets.GITHUB_TOKEN }}
-          # artifacts: './system.json,./dungeonworld.zip'
-    
+    - name: Verify release notes exist
+      id: check_files
+      uses: andstor/file-existence-action@v1
+      with:
+        files: "release-notes/${{ env.TAG }}"
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      if: steps.check_files.outputs.files_exists == 'true'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Provided by actions.
+      with:
+        tag_name: ${{ env.TAG }}
+        release_name: ${{ env.TAG }}
+        body_path: release-notes/${{ env.TAG }}.md
+        draft: true
+        prerelease: false
+
