@@ -114,7 +114,7 @@ jobs:
       id: check_files
       uses: andstor/file-existence-action@v3
       with:
-        files: "release-notes/${{ env.REF }}"
+        files: "release-notes/${{ env.REF }}.md"
 
     - name: Create Release
       id: create_release
