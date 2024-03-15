@@ -112,20 +112,16 @@ jobs:
 
     - name: Verify release notes exist
       id: check_files
-      uses: andstor/file-existence-action@v1
+      uses: andstor/file-existence-action@v3
       with:
         files: "release-notes/${{ env.TAG }}"
 
     - name: Create Release
       id: create_release
-      uses: actions/create-release@v1
+      uses: ncipollo/release-action@v1
       if: steps.check_files.outputs.files_exists == 'true'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Provided by actions.
       with:
-        tag_name: ${{ env.TAG }}
-        release_name: ${{ env.TAG }}
-        body_path: release-notes/${{ env.TAG }}.md
+        bodyFile: release-notes/${{ env.TAG }}.md
         draft: true
-        prerelease: false
+        token: ${{ secrets.GITHUB_TOKEN }} # Provided by actions.
 
