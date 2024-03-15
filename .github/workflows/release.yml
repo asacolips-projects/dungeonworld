@@ -1,9 +1,9 @@
 name: asacolips-projects/dungeonworld
 on:
+  pull_request:
   push:
-  workflow_dispatch:
-    # tags:
-    #   - '*'
+    tags:
+      - '*'
 
 concurrency:
   group: "${{ github.ref }}"
