@@ -69,7 +69,7 @@ jobs:
       if: steps.check_files.outputs.files_exists == 'true'
       with:
         bodyFile: release-notes/${{ env.REF }}.md
-        draft: true
+        draft: false
         allowUpdates: true
         token: ${{ secrets.GITHUB_TOKEN }} # Provided by actions.
 
@@ -91,6 +91,11 @@ jobs:
       with:
         fetch-depth: 50
         lfs: false
+
+    - name: Download artifacts from previous step
+      uses: actions/download-artifact@v4.1.0
+      with:
+        name: build
 
     - name: Retrieving cache
       uses: actions/cache@v4

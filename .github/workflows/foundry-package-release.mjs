@@ -10,7 +10,7 @@ const argv = yargs(process.argv.slice(2))
   .argv;
 
 // Load the existing manifest.
-const systemRaw = fs.readFileSync('./dist/system.json');
+const systemRaw = fs.readFileSync('./system.json');
 let system = JSON.parse(systemRaw);
 
 // Attempt the request.
