@@ -92,6 +92,15 @@ export class DwActorSheet extends ActorSheet {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
 
+    // Prepare enrichment options.
+    context.enrichmentOptions = {
+      async: true,
+      documents: true,
+      secrets: this.actor.isOwner,
+      rollData: this.actor.getRollData(),
+      relativeTo: this.actor
+    };
+
     // Prepare items.
     this._prepareCharacterItems(context);
     this._prepareNpcItems(context);
@@ -105,6 +114,12 @@ export class DwActorSheet extends ActorSheet {
         circumference: 100,
         offset: 100,
       };
+
+      // Handle enriched fields.
+      context.system.details.biographyEnriched = await TextEditor.enrichHTML(context.system.details.biography, context.enrichmentOptions);
+      context.system.details.lookEnriched = await TextEditor.enrichHTML(context.system.details.look, context.enrichmentOptions);
+      context.system.details.alignment.enriched = await TextEditor.enrichHTML(context.system.details.alignment.description, context.enrichmentOptions);
+      context.system.details.race.enriched = await TextEditor.enrichHTML(context.system.details.race.description, context.enrichmentOptions);
 
       // Set a warning for tokens.
       context.system.isToken = this.actor.token != null;
