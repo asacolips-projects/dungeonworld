@@ -240,7 +240,9 @@ export class DwActorSheet extends ActorSheet {
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     for (let i of sheetData.items) {
-      enrichmentOptions.relativeTo = this.actor.items.get(i._id);
+      const item = this.actor.items.get(i._id);
+      enrichmentOptions.relativeTo = item;
+      enrichmentOptions.rollData = item.getRollData();
       if (i.system?.description) {
         i.system.descriptionEnriched = await TextEditor.enrichHTML(i.system.description, enrichmentOptions);
       }

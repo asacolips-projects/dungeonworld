@@ -313,8 +313,6 @@ Hooks.once("init", async function() {
     default: "DW.DebilityCha"
   });
 
-  DwUtility.replaceRollData();
-
   // Preload template partials.
   preloadHandlebarsTemplates();
 });

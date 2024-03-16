@@ -92,6 +92,9 @@ export class DwItemSheet extends ItemSheet {
       relativeTo: this.item
     };
 
+    // Handle enriched fields.
+    context.system.descriptionEnriched = await TextEditor.enrichHTML(context.system.description, enrichmentOptions);
+
     // Handle preprocessing for tagify data.
     if (itemData.type == 'equipment') {
       // If there are tags, convert it into a string.
