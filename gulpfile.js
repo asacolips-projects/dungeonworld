@@ -7,12 +7,11 @@ const webp = require('gulp-webp');
 const git = require('gulp-git');
 const tagVersion = require('gulp-tag-version');
 const jsYaml = require('js-yaml');
-const fs = require('fs');
 const replace = require('gulp-replace');
 
 // Dependencies for compendium tasks.
-const through2 = require("through2");
-const Datastore = require("nedb");
+const fs = require('fs');
+const shell = require('gulp-shell')
 const mergeStream = require("merge-stream");
 const path = require("path");
 const clean = require("gulp-clean");
@@ -34,22 +33,13 @@ function compilePacks() {
     return fs.statSync(path.join(PACK_SRC, file)).isDirectory();
   });
 
-  // Iterate over each folder/compendium.
   const packs = folders.map((folder) => {
-    // Initialize a blank nedb database based on the directory name. The new
-    // database will be stored in the dest directory as <foldername>.db
-    const db = new Datastore({ filename: path.resolve(__dirname, PACK_DEST, `${folder}.db`), autoload: true });
-    // Process the folder contents and insert them in the database.
-    return gulp.src(path.join(PACK_SRC, folder, "/**/*.yml")).pipe(
-      through2.obj((file, enc, cb) => {
-        let json = jsYaml.loadAll(file.contents.toString());
-        db.insert(json);
-        cb(null, file);
-      })
-    );
-  });
+    return gulp.src(path.join(PACK_SRC, folder))
+      .pipe(shell([
+        `fvtt package --id dungeonworld --type System pack <%= file.stem %> -c --yaml --in "<%= file.path %>" --out ${PACK_DEST}`
+      ]))
+  })
 
-  // Execute the streams.
   return mergeStream.call(null, packs);
 }
 
@@ -68,40 +58,6 @@ function cleanPacks() {
 /* ----------------------------------------- */
 
 /**
- * Santize pack entries.
- *
- * This function will deep clone a given compendium object, such as an Actor or
- * Item, and will then delete the `_id` key along with replacing the
- * `_permission` object with a generic version that doesn't reference user IDs.
- *
- * @param {object} pack Loaded compendium content.
- */
-function sanitizePack(pack) {
-  let sanitizedPack = JSON.parse(JSON.stringify(pack));
-  // Leave the IDs in for now, so that item links are persisted.
-  // delete sanitizedPack._id;
-  sanitizedPack.permission = { default: 0 };
-  return sanitizedPack;
-}
-
-/**
- * Sluggify a string.
- *
- * This function will take a given string and strip it of non-machine-safe
- * characters, so that it contains only lowercase alphanumeric characters and
- * hyphens.
- *
- * @param {string} string String to sluggify.
- */
-function sluggify(string) {
-  return string
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/gi, ' ')
-    .trim()
-    .replace(/\s+|-{2,}/g, '-');
-}
-
-/**
  * Gulp Task: Export Packs
  *
  * This gulp task will load all compendium .db files from the dest directory,
@@ -109,46 +65,10 @@ function sluggify(string) {
  */
 function extractPacks() {
   // Start a stream for all db files in the packs dir.
-  const packs = gulp.src(`${PACK_DEST}/**/*.db`)
-    // Run a callback on each pack file to load it and then write its
-    // contents to the pack src dir in yaml format.
-    .pipe(through2.obj((file, enc, callback) => {
-      // Create directory.
-      let filename = path.parse(file.path).name;
-      if (!fs.existsSync(`./${PACK_SRC}/${filename}`)) {
-        fs.mkdirSync(`./${PACK_SRC}/${filename}`);
-      }
-
-      // Load the database.
-      const db = new Datastore({ filename: file.path, autoload: true });
-      db.loadDatabase();
-
-      // Export the packs.
-      db.find({}, (err, packs) => {
-        // Iterate through each compendium entry.
-        packs.forEach(pack => {
-          // Remove permissions and _id
-          pack = sanitizePack(pack);
-
-          // Convert to a Yaml document.
-          let output = jsYaml.dump(pack, {
-            quotingType: "'",
-            forceQuotes: true,
-            noRefs: true,
-            sortKeys: false
-          });
-
-          // Sluggify the filename.
-          let packName = sluggify(pack.name);
-
-          // Write to the file system.
-          fs.writeFileSync(`./${PACK_SRC}/${filename}/${packName}.yml`, output);
-        });
-      });
-
-      // Complete the through2 callback.
-      callback(null, file);
-    }));
+  const packs = gulp.src(`${PACK_DEST}/*`)
+    .pipe(shell([
+      'fvtt package --id dungeonworld --type System unpack <%= file.stem %> -c --yaml --in dist/packs --out src/packs/<%= file.stem %>'
+    ]));
 
   // Call the streams.
   return mergeStream.call(null, packs);
@@ -223,11 +143,7 @@ function copyFiles() {
   return gulp.src(SYSTEM_COPY, {base: 'src'})
     .pipe(gulp.dest('./dist'))
 }
-function copyManifest() {
-  return gulp.src('./dist/system.json')
-    .pipe(gulp.dest('./'))
-}
-const copyTask = gulp.series(copyFiles, copyManifest);
+const copyTask = gulp.series(copyFiles);
 
 /* ----------------------------------------- */
 /* Convert images
@@ -331,18 +247,17 @@ const defaultTask = gulp.series(
   compileImages,
   compileScss,
   copyFiles,
-  copyManifest,
   watchUpdates
 );
 const buildTask = gulp.series(
-  deleteFiles,
-  compileYaml,
-  compileImages,
-  compileScss,
-  copyFiles,
-  copyManifest,
   cleanPacks,
-  compilePacks
+  deleteFiles,
+  gulp.parallel(
+    compileYaml,
+    compileScss,
+    copyFiles,
+    compilePacks
+  )
 );
 
 exports.default = defaultTask;

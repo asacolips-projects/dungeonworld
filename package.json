@@ -39,5 +39,9 @@
     "sass": "^1.52.1",
     "through2": "^4.0.2",
     "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^1.0.2",
+    "gulp-shell": "^0.8.0"
   }
 }
