@@ -255,5 +255,5 @@ socket: true
 url: https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld
 manifest: https://asacolips-artifacts.s3.amazonaws.com/dungeonworld/latest/system.json
 download: https://asacolips-artifacts.s3.amazonaws.com/dungeonworld/1.7.2/dungeonworld.zip
-changelog: https://github.com/asacolips-projects/dungeonworld/blob/latest/CHANGELOG.md
+changelog: https://github.com/asacolips-projects/dungeonworld/blob/main/CHANGELOG.md
 bugs: https://github.com/asacolips-projects/dungeonworld/issues
