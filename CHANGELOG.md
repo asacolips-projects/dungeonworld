@@ -1,3 +1,9 @@
+# 1.7.2
+
+Release notes: https://github.com/asacolips-projects/dungeonworld/releases/tag/1.7.2
+
+- Fixed various bugs related to enriched text fields.
+
 # 1.7.1
 
 ## Bug Fixes
