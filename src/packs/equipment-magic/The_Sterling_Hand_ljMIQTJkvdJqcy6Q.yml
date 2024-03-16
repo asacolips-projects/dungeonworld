@@ -1,0 +1,27 @@
+name: The Sterling Hand
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>Crafted by dwarven whitesmiths, this mirrored-metal hand is deeply scored
+    with runes of power and rejuvenation. Meant to replace wounded or destroyed
+    limbs from mining accidents, the Sterling Hand bonds to the wound, old or
+    new, and is strong and stout. It can be used as a weapon (Near range) and is
+    made of pure enough silver to harm creatures affected by such.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 0
+  tags: '[{"value":"near"}]'
+  tagsString: near
+  magic: true
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/equipment/hand/gauntlet-armored-leather-teal-orange.webp
+effects: []
+_id: ljMIQTJkvdJqcy6Q
+_key: '!items!ljMIQTJkvdJqcy6Q'
+

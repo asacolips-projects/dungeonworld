@@ -1,0 +1,22 @@
+name: Club
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>A blunt weapon made of wood.</p>
+  class: ''
+  quantity: 1
+  weight: 2
+  uses: 0
+  tags: '[{"value":"close"}]'
+  tagsString: close
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/clubs/club-heavy-barbed-brown.webp
+effects: []
+_id: jGEMSwSsLlVCi8Wi
+_key: '!items!jGEMSwSsLlVCi8Wi'
+

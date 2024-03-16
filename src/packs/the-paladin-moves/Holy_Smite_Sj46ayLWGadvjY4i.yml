@@ -1,0 +1,42 @@
+name: Holy Smite
+type: move
+flags: {}
+img: icons/skills/melee/sword-winged-holy-orange.webp
+_id: Sj46ayLWGadvjY4i
+system:
+  name: ''
+  description: |-
+    <p>While on a Quest you deal +1d8 damage.</p>
+    <p>Additional damage roll: [[/roll 1d8]]</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Paladin
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Smite
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678651640290
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!Sj46ayLWGadvjY4i'
+

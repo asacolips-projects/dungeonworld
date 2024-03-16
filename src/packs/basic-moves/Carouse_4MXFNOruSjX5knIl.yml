@@ -1,0 +1,33 @@
+name: Carouse
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>return triumphant and throw a big party</strong>, spend
+    100 coin and roll + extra 100s of coin spent.</p>
+  choices: >-
+    <ul> <li>You befriend a useful NPC</li> <li>You hear rumors of an
+    opportunity</li> <li>You gain useful information</li> <li>You are not
+    entangled, ensorcelled, or tricked</li> </ul>
+  class: ''
+  rollType: BOND
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: special
+  moveGroup: ''
+  moveResults:
+    failure:
+      value: <p>You still choose one, but things get really out of hand.</p>
+    partial:
+      value: <p>Choose 1.</p>
+    success:
+      value: <p>Choose 3.</p>
+flags: {}
+img: icons/containers/kitchenware/goblet-gold-red.webp
+effects: []
+_id: 4MXFNOruSjX5knIl
+_key: '!items!4MXFNOruSjX5knIl'
+

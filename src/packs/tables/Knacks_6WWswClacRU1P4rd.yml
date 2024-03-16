@@ -1,0 +1,1217 @@
+_id: 6WWswClacRU1P4rd
+name: Knacks
+permission:
+  default: 0
+flags: {}
+img: icons/svg/d20-grey.svg
+description: >-
+  When you need a quick NPC all you need is an instinct and some way to pursue
+  it. We call that a knack, it can be anything from a skill to a title to a debt
+  owed. Combine the two and you have an NPC who has something they want and a
+  way to try to get it—you’re ready to go.
+results:
+  - _id: ChNprsT47EIDu5V5
+    flags: {}
+    type: 0
+    text: Criminal connections
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 1
+      - 1
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.ChNprsT47EIDu5V5'
+  - _id: Cu8WDjAirplrnIpO
+    flags: {}
+    type: 0
+    text: Muscle
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 2
+      - 2
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.Cu8WDjAirplrnIpO'
+  - _id: GSsa5A8i5y86OMHR
+    flags: {}
+    type: 0
+    text: Skill with a specific weapon
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 3
+      - 3
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.GSsa5A8i5y86OMHR'
+  - _id: Md4CYsA75UI115V0
+    flags: {}
+    type: 0
+    text: Hedge wizardry
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 4
+      - 4
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.Md4CYsA75UI115V0'
+  - _id: VCcd9QnkzLlTywb2
+    flags: {}
+    type: 0
+    text: Comprehensive local knowledge
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 5
+      - 5
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.VCcd9QnkzLlTywb2'
+  - _id: oao6Gdhm6if1BbnO
+    flags: {}
+    type: 0
+    text: Noble blood
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 6
+      - 6
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.oao6Gdhm6if1BbnO'
+  - _id: A3oWL1o3DnfMTDp4
+    flags: {}
+    type: 0
+    text: A one-of-a-kind item
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 7
+      - 7
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.A3oWL1o3DnfMTDp4'
+  - _id: OxGkMB2jhcp1nje9
+    flags: {}
+    type: 0
+    text: Special destiny
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 8
+      - 8
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.OxGkMB2jhcp1nje9'
+  - _id: eUyoMxFMrlpVQE9F
+    flags: {}
+    type: 0
+    text: Unique perspective
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 9
+      - 9
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.eUyoMxFMrlpVQE9F'
+  - _id: dWWR1ICMSTeZAkSn
+    flags: {}
+    type: 0
+    text: Hidden knowledge
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 10
+      - 10
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.dWWR1ICMSTeZAkSn'
+  - _id: VllUwPynFB0SoLwL
+    flags: {}
+    type: 0
+    text: Magical awareness
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 11
+      - 11
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.VllUwPynFB0SoLwL'
+  - _id: K7RbtoSrugJOVv8a
+    flags: {}
+    type: 0
+    text: Abnormal parentage
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 12
+      - 12
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.K7RbtoSrugJOVv8a'
+  - _id: lCfAInr3N0OoU2CH
+    flags: {}
+    type: 0
+    text: Political leverage
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 13
+      - 13
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.lCfAInr3N0OoU2CH'
+  - _id: i8EKgvK4vH77Pnbv
+    flags: {}
+    type: 0
+    text: A tie to a monster
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 14
+      - 14
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.i8EKgvK4vH77Pnbv'
+  - _id: S2GrL8uBwVbC8UiG
+    flags: {}
+    type: 0
+    text: A secret
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 15
+      - 15
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.S2GrL8uBwVbC8UiG'
+  - _id: 92yTLd0EXuOcTm2o
+    flags: {}
+    type: 0
+    text: True love
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 16
+      - 16
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.92yTLd0EXuOcTm2o'
+  - _id: x0CxMfgfaBuZf56N
+    flags: {}
+    type: 0
+    text: An innocent heart
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 17
+      - 17
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.x0CxMfgfaBuZf56N'
+  - _id: fGz7GKo8cdyWMdBY
+    flags: {}
+    type: 0
+    text: A plan for the perfect crime
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 18
+      - 18
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.fGz7GKo8cdyWMdBY'
+  - _id: QsOo4kk0oT4RCb7f
+    flags: {}
+    type: 0
+    text: A one-way ticket to paradise
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 19
+      - 19
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.QsOo4kk0oT4RCb7f'
+  - _id: Wkkjr4Wbhx9BKYQH
+    flags: {}
+    type: 0
+    text: A mysterious ore
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 20
+      - 20
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.Wkkjr4Wbhx9BKYQH'
+  - _id: UZFZOtVggxOxaj79
+    flags: {}
+    type: 0
+    text: Money, money, money
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 21
+      - 21
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.UZFZOtVggxOxaj79'
+  - _id: VgMfYnAR0zG62NOm
+    flags: {}
+    type: 0
+    text: Divine blessing
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 22
+      - 22
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.VgMfYnAR0zG62NOm'
+  - _id: PqqqSjCaA6gSHX89
+    flags: {}
+    type: 0
+    text: Immunity from the law
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 23
+      - 23
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.PqqqSjCaA6gSHX89'
+  - _id: EdxRbTyairg50cov
+    flags: {}
+    type: 0
+    text: Prophecy
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 24
+      - 24
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.EdxRbTyairg50cov'
+  - _id: tgCovrMQxE3uOrom
+    flags: {}
+    type: 0
+    text: Secret martial arts techniques
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 25
+      - 25
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.tgCovrMQxE3uOrom'
+  - _id: rS4PvlV8Z8WBHst8
+    flags: {}
+    type: 0
+    text: A ring of power
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 26
+      - 26
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.rS4PvlV8Z8WBHst8'
+  - _id: uHMFToGVgUk46KfE
+    flags: {}
+    type: 0
+    text: A much-needed bag of taters
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 27
+      - 27
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.uHMFToGVgUk46KfE'
+  - _id: vPVQ1786L4bl8BmY
+    flags: {}
+    type: 0
+    text: A heart
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 28
+      - 28
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.vPVQ1786L4bl8BmY'
+  - _id: he90DzKPhYfIjcs1
+    flags: {}
+    type: 0
+    text: A fortified position
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 29
+      - 29
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.he90DzKPhYfIjcs1'
+  - _id: WtdH52Vzd4P1VGxh
+    flags: {}
+    type: 0
+    text: Lawmaking
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 30
+      - 30
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.WtdH52Vzd4P1VGxh'
+  - _id: bhYScZkhN5IDdLmc
+    flags: {}
+    type: 0
+    text: Tongues
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 31
+      - 31
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.bhYScZkhN5IDdLmc'
+  - _id: x4bnMF9pRjdrqwod
+    flags: {}
+    type: 0
+    text: A discerning eye
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 32
+      - 32
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.x4bnMF9pRjdrqwod'
+  - _id: wbh3fzVAkLyR2zf0
+    flags: {}
+    type: 0
+    text: Endurance
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 33
+      - 33
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.wbh3fzVAkLyR2zf0'
+  - _id: wTnf7nw7PshJhJJV
+    flags: {}
+    type: 0
+    text: A safe place
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 34
+      - 34
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.wTnf7nw7PshJhJJV'
+  - _id: NbYbHU0CMwMiHQ73
+    flags: {}
+    type: 0
+    text: Visions
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 35
+      - 35
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.NbYbHU0CMwMiHQ73'
+  - _id: YGYnLXY5h5RRixQx
+    flags: {}
+    type: 0
+    text: A beautiful mind
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 36
+      - 36
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.YGYnLXY5h5RRixQx'
+  - _id: DdrLIwXuuOKrECin
+    flags: {}
+    type: 0
+    text: A clear voice
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 37
+      - 37
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.DdrLIwXuuOKrECin'
+  - _id: TIqUtIUrWAjajKTt
+    flags: {}
+    type: 0
+    text: Stunning looks
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 38
+      - 38
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.TIqUtIUrWAjajKTt'
+  - _id: iAwhkVeHL7XGPMU7
+    flags: {}
+    type: 0
+    text: A catchy tune
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 39
+      - 39
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.iAwhkVeHL7XGPMU7'
+  - _id: 2VdkxdsqEJ69F3yZ
+    flags: {}
+    type: 0
+    text: Invention
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 40
+      - 40
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.2VdkxdsqEJ69F3yZ'
+  - _id: 7MPYHuMJB69wBn4w
+    flags: {}
+    type: 0
+    text: Baking
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 41
+      - 41
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.7MPYHuMJB69wBn4w'
+  - _id: N6fKz9Vj5z7lNMHv
+    flags: {}
+    type: 0
+    text: Brewing
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 42
+      - 42
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.N6fKz9Vj5z7lNMHv'
+  - _id: DlQV8jH3Ob8AZDhd
+    flags: {}
+    type: 0
+    text: Smelting
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 43
+      - 43
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.DlQV8jH3Ob8AZDhd'
+  - _id: MYgOihjmZudO0US3
+    flags: {}
+    type: 0
+    text: Woodworking
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 44
+      - 44
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.MYgOihjmZudO0US3'
+  - _id: fN7f4Wqx9eM8UvWt
+    flags: {}
+    type: 0
+    text: Writing
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 45
+      - 45
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.fN7f4Wqx9eM8UvWt'
+  - _id: cccsIBREgepJ9tDY
+    flags: {}
+    type: 0
+    text: Immunity to fire
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 46
+      - 46
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.cccsIBREgepJ9tDY'
+  - _id: 432ZLVnUpfjFVO2v
+    flags: {}
+    type: 0
+    text: Cooking
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 47
+      - 47
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.432ZLVnUpfjFVO2v'
+  - _id: Xcjsjf3bmmIs1P3h
+    flags: {}
+    type: 0
+    text: Storytelling
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 48
+      - 48
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.Xcjsjf3bmmIs1P3h'
+  - _id: S2qnLXLjbh6YDszh
+    flags: {}
+    type: 0
+    text: Ratcatching
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 49
+      - 49
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.S2qnLXLjbh6YDszh'
+  - _id: TWvCJzeojVsLy9b0
+    flags: {}
+    type: 0
+    text: Lying
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 50
+      - 50
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.TWvCJzeojVsLy9b0'
+  - _id: r3a3kxMYAbxn0w4J
+    flags: {}
+    type: 0
+    text: Utter unremarkableness
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 51
+      - 51
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.r3a3kxMYAbxn0w4J'
+  - _id: uOdi4kymJKKMzjm5
+    flags: {}
+    type: 0
+    text: Mind-bending sexiness
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 52
+      - 52
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.uOdi4kymJKKMzjm5'
+  - _id: KvZUVYoKJAkgNcrO
+    flags: {}
+    type: 0
+    text: Undefinable coolness
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 53
+      - 53
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.KvZUVYoKJAkgNcrO'
+  - _id: UJc76rbNhWAoARGI
+    flags: {}
+    type: 0
+    text: A way with knots
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 54
+      - 54
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.UJc76rbNhWAoARGI'
+  - _id: 4ghbRVc4ZMyPJfD6
+    flags: {}
+    type: 0
+    text: Wheels of polished steel
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 55
+      - 55
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.4ghbRVc4ZMyPJfD6'
+  - _id: 01Qq2hCFAVVhhCxO
+    flags: {}
+    type: 0
+    text: A magic carpet
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 56
+      - 56
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.01Qq2hCFAVVhhCxO'
+  - _id: u8ZuLbhQww6y1q9t
+    flags: {}
+    type: 0
+    text: Endless ideas
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 57
+      - 57
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.u8ZuLbhQww6y1q9t'
+  - _id: ctXjwPsG3SJHOCqW
+    flags: {}
+    type: 0
+    text: Persistence
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 58
+      - 58
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.ctXjwPsG3SJHOCqW'
+  - _id: dnYdgAMhdhLMuUKr
+    flags: {}
+    type: 0
+    text: A stockpile of food
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 59
+      - 59
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.dnYdgAMhdhLMuUKr'
+  - _id: m12QyVkXI9pyd8lm
+    flags: {}
+    type: 0
+    text: A hidden path
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 60
+      - 60
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.m12QyVkXI9pyd8lm'
+  - _id: BDtyFlrj61nudR9b
+    flags: {}
+    type: 0
+    text: Piety
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 61
+      - 61
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.BDtyFlrj61nudR9b'
+  - _id: T7077yJK6GnmHDxS
+    flags: {}
+    type: 0
+    text: Resistance to disease
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 62
+      - 62
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.T7077yJK6GnmHDxS'
+  - _id: p8AcCVrUSIWenm9Q
+    flags: {}
+    type: 0
+    text: A library
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 63
+      - 63
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.p8AcCVrUSIWenm9Q'
+  - _id: E7fsddYSxhHKCEDc
+    flags: {}
+    type: 0
+    text: A silver tongue
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 64
+      - 64
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.E7fsddYSxhHKCEDc'
+  - _id: 0DDQS7EETEldjtfK
+    flags: {}
+    type: 0
+    text: Bloodline
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 65
+      - 65
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.0DDQS7EETEldjtfK'
+  - _id: UcRUOYJERidcuXsJ
+    flags: {}
+    type: 0
+    text: An innate spell
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 66
+      - 66
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.UcRUOYJERidcuXsJ'
+  - _id: 2YgtGBBp9vbMuF4c
+    flags: {}
+    type: 0
+    text: Balance
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 67
+      - 67
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.2YgtGBBp9vbMuF4c'
+  - _id: R0mfCBGsaJQtR53N
+    flags: {}
+    type: 0
+    text: Souls
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 68
+      - 68
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.R0mfCBGsaJQtR53N'
+  - _id: YSzBVMG36Rz0YScr
+    flags: {}
+    type: 0
+    text: Speed
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 69
+      - 69
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.YSzBVMG36Rz0YScr'
+  - _id: 4C4ApcnjNE1WOdme
+    flags: {}
+    type: 0
+    text: A sense of right and wrong
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 70
+      - 70
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.4C4ApcnjNE1WOdme'
+  - _id: CXSaqp5Ladd99ovy
+    flags: {}
+    type: 0
+    text: Certainty
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 71
+      - 71
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.CXSaqp5Ladd99ovy'
+  - _id: vM8dmADCHYXNuDhC
+    flags: {}
+    type: 0
+    text: An eye for detail
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 72
+      - 72
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.vM8dmADCHYXNuDhC'
+  - _id: zNR9C60dbvXu7vXw
+    flags: {}
+    type: 0
+    text: Heroic self-sacrifice
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 73
+      - 73
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.zNR9C60dbvXu7vXw'
+  - _id: io5eWjW1Z5lCtYjP
+    flags: {}
+    type: 0
+    text: Sense of direction
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 74
+      - 74
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.io5eWjW1Z5lCtYjP'
+  - _id: 3wmbUNsytpdc1qw1
+    flags: {}
+    type: 0
+    text: A big idea
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 75
+      - 75
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.3wmbUNsytpdc1qw1'
+  - _id: rOFRAfhCbrArbWyq
+    flags: {}
+    type: 0
+    text: A hidden entrance to the city
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 76
+      - 76
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.rOFRAfhCbrArbWyq'
+  - _id: SsoqvxMU1cr9piUi
+    flags: {}
+    type: 0
+    text: The love of someone powerful
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 77
+      - 77
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.SsoqvxMU1cr9piUi'
+  - _id: PsIjnIFMgepPkJNV
+    flags: {}
+    type: 0
+    text: Unquestioning loyalty
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 78
+      - 78
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.PsIjnIFMgepPkJNV'
+  - _id: 4Q5LSpeCssiai1Pm
+    flags: {}
+    type: 0
+    text: Exotic fruit
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 79
+      - 79
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.4Q5LSpeCssiai1Pm'
+  - _id: ymdncXD4YUgVyDP0
+    flags: {}
+    type: 0
+    text: Poison
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 80
+      - 80
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.ymdncXD4YUgVyDP0'
+  - _id: iKqu6RfwbuHmCCRW
+    flags: {}
+    type: 0
+    text: Perfect memory
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 81
+      - 81
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.iKqu6RfwbuHmCCRW'
+  - _id: vrRL1CJ9FOA6XVzF
+    flags: {}
+    type: 0
+    text: The language of birds
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 82
+      - 82
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.vrRL1CJ9FOA6XVzF'
+  - _id: 29Lp6a5Murkghtfd
+    flags: {}
+    type: 0
+    text: A key to an important door
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 83
+      - 83
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.29Lp6a5Murkghtfd'
+  - _id: UcB4EfzsSjSLkNQ1
+    flags: {}
+    type: 0
+    text: Metalworking
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 84
+      - 84
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.UcB4EfzsSjSLkNQ1'
+  - _id: W5vNtnVghQjSIutc
+    flags: {}
+    type: 0
+    text: Mysterious benefactors
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 85
+      - 85
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.W5vNtnVghQjSIutc'
+  - _id: FtXFkeTTK7yMWJOd
+    flags: {}
+    type: 0
+    text: Steely nerves
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 86
+      - 86
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.FtXFkeTTK7yMWJOd'
+  - _id: dv88T6sVzrb7febZ
+    flags: {}
+    type: 0
+    text: Bluffing
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 87
+      - 87
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.dv88T6sVzrb7febZ'
+  - _id: SPbVj7eLBxOkC9ty
+    flags: {}
+    type: 0
+    text: A trained wolf
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 88
+      - 88
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.SPbVj7eLBxOkC9ty'
+  - _id: B1woWy8CZfyMwqNs
+    flags: {}
+    type: 0
+    text: A long-lost sibling, regained
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 89
+      - 89
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.B1woWy8CZfyMwqNs'
+  - _id: fQ65ADg93fu2GDPv
+    flags: {}
+    type: 0
+    text: An arrow with your name on it
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 90
+      - 90
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.fQ65ADg93fu2GDPv'
+  - _id: tjjkrYeKXdg7mapQ
+    flags: {}
+    type: 0
+    text: A true name
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 91
+      - 91
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.tjjkrYeKXdg7mapQ'
+  - _id: ZqQQfZxDITrESQTU
+    flags: {}
+    type: 0
+    text: Luck
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 92
+      - 92
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.ZqQQfZxDITrESQTU'
+  - _id: C4zSBPg6VrBmMPrZ
+    flags: {}
+    type: 0
+    text: The attention of supernatural powers
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 93
+      - 93
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.C4zSBPg6VrBmMPrZ'
+  - _id: 3UUZCfoXi5YfbYLg
+    flags: {}
+    type: 0
+    text: Kindness
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 94
+      - 94
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.3UUZCfoXi5YfbYLg'
+  - _id: kTkhyn6g6x8N4q3N
+    flags: {}
+    type: 0
+    text: Strange tattoos
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 95
+      - 95
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.kTkhyn6g6x8N4q3N'
+  - _id: jdNgIsfcaF0ZL5JF
+    flags: {}
+    type: 0
+    text: A majestic beard
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 96
+      - 96
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.jdNgIsfcaF0ZL5JF'
+  - _id: njy03o3htnexSniq
+    flags: {}
+    type: 0
+    text: A book in a strange language
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 97
+      - 97
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.njy03o3htnexSniq'
+  - _id: qwGEt6nt56YwCgmB
+    flags: {}
+    type: 0
+    text: Power overwhelming
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 98
+      - 98
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.qwGEt6nt56YwCgmB'
+  - _id: clflcxAPu9kMpuBy
+    flags: {}
+    type: 0
+    text: Delusions of grandeur
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 99
+      - 99
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.clflcxAPu9kMpuBy'
+  - _id: fVJu1LA30neFgv3a
+    flags: {}
+    type: 0
+    text: The wind at his back and a spring in his step
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 100
+      - 100
+    drawn: false
+    _key: '!tables.results!6WWswClacRU1P4rd.fVJu1LA30neFgv3a'
+formula: 1d100
+replacement: true
+displayRoll: true
+_key: '!tables!6WWswClacRU1P4rd'
+

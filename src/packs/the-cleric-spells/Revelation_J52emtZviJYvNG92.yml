@@ -1,0 +1,20 @@
+name: Revelation
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Your deity answers your prayers with a moment of perfect understanding.
+    The GM will shed light on the current situation. When acting on the
+    information, you take +1 forward.</p>
+  spellLevel: 5
+  rollFormula: ''
+  class: The Cleric
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/evil-eye-red-3.webp
+effects: []
+_id: J52emtZviJYvNG92
+_key: '!items!J52emtZviJYvNG92'
+

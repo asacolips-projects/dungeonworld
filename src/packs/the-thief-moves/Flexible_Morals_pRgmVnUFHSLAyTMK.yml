@@ -1,0 +1,42 @@
+name: Flexible Morals
+type: move
+flags: {}
+img: icons/skills/social/theft-pickpocket-bribery-brown.webp
+_id: pRgmVnUFHSLAyTMK
+system:
+  name: ''
+  description: >-
+    <p>When <strong>someone tries to detect your alignment </strong>you can tell
+    them any alignment you like.</p>
+  choices: ''
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Thief
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139498459
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!pRgmVnUFHSLAyTMK'
+

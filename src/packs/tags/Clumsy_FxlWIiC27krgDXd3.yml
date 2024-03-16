@@ -1,0 +1,15 @@
+name: Clumsy
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>It&rsquo;s tough to move around with. -1 ongoing while using it. This
+    penalty is cumulative.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: FxlWIiC27krgDXd3
+_key: '!items!FxlWIiC27krgDXd3'
+

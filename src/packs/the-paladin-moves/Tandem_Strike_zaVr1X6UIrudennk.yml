@@ -1,0 +1,45 @@
+name: Tandem Strike
+type: move
+flags: {}
+img: icons/skills/melee/strike-weapons-orange.webp
+_id: zaVr1X6UIrudennk
+system:
+  name: ''
+  description: >-
+    <p>When you<strong> Hack &amp; Slash</strong>, choose an ally. Their next
+    attack against your target does +1d4 damage and they take +1 forward against
+    them.</p>
+
+    <p>Additional damage roll: [[/roll 1d4]]</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Paladin
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Setup Strike
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678651924342
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!zaVr1X6UIrudennk'
+

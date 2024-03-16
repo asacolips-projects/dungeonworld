@@ -1,0 +1,44 @@
+_id: FMAyeL8t1aUtOLg9
+name: Lay On Hands
+type: move
+flags: {}
+img: icons/magic/life/heart-cross-strong-flame-green.webp
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>touch someone</strong>, skin to skin, and pray for their
+    well-being, roll+CHA.</p>
+  choices: ''
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>You heal [[1d8]] damage from them or remove one disease. However, the
+        damage or disease is transferred to you.</p>
+    success:
+      value: <p>You heal [[1d8]] damage from them or remove one disease.</p>
+  class: The Paladin
+  rollType: CHA
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678649873257
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!FMAyeL8t1aUtOLg9'
+

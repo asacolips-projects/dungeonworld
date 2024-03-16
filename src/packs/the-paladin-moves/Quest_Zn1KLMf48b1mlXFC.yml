@@ -1,0 +1,94 @@
+name: Quest
+type: move
+flags: {}
+img: icons/sundries/books/book-red-exclamation.webp
+_id: Zn1KLMf48b1mlXFC
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>dedicate yourself to a mission</strong> through prayer
+    and ritual cleansing, state what you set out to do:</p>
+
+    <ul>
+
+    <li>Slay ______________, a great blight on the land.</li>
+
+    <li>Defend _____________ from the iniquities that beset them.</li>
+
+    <li>Discover the truth of ____________________.</li>
+
+    </ul>
+
+    <p>Then choose up to two boons:</p>
+
+    <ul>
+
+    <li>An unwavering sense of direction to _______________________</li>
+
+    <li>Invulnerability to _____________ (edged weapons, fire, enchantment,
+    etc.)</li>
+
+    <li>A mark of divine authority.</li>
+
+    <li>Senses that pierce lies.</li>
+
+    <li>A voice that transcends language.</li>
+
+    <li>Freedom from hunger, thirst, and sleep.</li>
+
+    </ul>
+
+    <p>The GM will then tell you what vow or vows is required of you to maintain
+    your blessing:</p>
+
+    <ul>
+
+    <li><strong>Honor </strong>(forbidden: cowardly tactics and tricks)</li>
+
+    <li><strong>Temperance </strong>(forbidden: gluttony in food, drink, and
+    pleasure of the flesh)</li>
+
+    <li><strong>Piety </strong>(required: observance of daily holy
+    services)</li>
+
+    <li><strong>Valor </strong>(forbidden: suffering an evil creature to
+    live)</li>
+
+    <li><strong>Truth </strong>(forbidden: lies)</li>
+
+    <li><strong>Hospitality </strong>(required: comfort to those in need, no
+    matter who they are)</li>
+
+    </ul>
+  choices: ''
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Paladin
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678627440405
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!Zn1KLMf48b1mlXFC'
+

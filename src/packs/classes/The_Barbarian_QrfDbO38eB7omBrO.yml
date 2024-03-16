@@ -1,0 +1,64 @@
+_id: QrfDbO38eB7omBrO
+name: The Barbarian
+permission:
+  default: 0
+type: class
+data:
+  name: ''
+  description: >-
+    <p>Hither you came from parts unknown. Sword in hand—a reaver. A slayer.</p>
+
+    <p>Let the wizard cast his spells. What good is magick when steel cuts
+    through flesh and bone just the same? The Paladin swears fealty to the
+    divine. She can keep her fairy tale god—you are your own master.</p>
+
+    <p>You hail from the far reaches of Dungeon World in search of—what? Glory?
+    Treasure? Spilt blood? In the end it matters not. They call you barbarian.
+    Uncivilized. Let them. You know better. Their world of nobles and laws is
+    fleeting.</p>
+
+    <p>You know what is best in life.</p>
+  races:
+    '0':
+      label: Outsider
+      description: >-
+        You may be elf, dwarf, halfling, or human, but you and your people are
+        not from around here. At the beginning of each session, the GM will ask
+        you something about your homeland, why you left, or what you left
+        behind. If you answer them, mark XP.
+  alignments:
+    '0':
+      label: Neutral
+      description: Teach someone the ways of your people.
+    '1':
+      label: Chaotic
+      description: Eschew a convention of the civilized world.
+  equipment:
+    '0':
+      label: Starting gear
+      mode: checkbox
+      items:
+        - 6JcOoZ8CNqYxLgyQ
+        - nMag6sXXRqc6SC4Q
+        - 1YuCznJbmL9wFSjk
+    '1':
+      label: Choose your weapon
+      mode: radio
+      items:
+        - NKIo4WZMF7cWgpAi
+        - SIDfurffR6QYixJk
+    '2':
+      label: Choose gear
+      mode: checkbox
+      items:
+        - YwHV7WYzTPSAOorl
+        - 6JcOoZ8CNqYxLgyQ
+        - ic5dH6aNzBgEuTjA
+  hp: 8
+  load: 8
+  damage: d10
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/yellow_27.webp
+effects: []
+_key: '!items!QrfDbO38eB7omBrO'
+

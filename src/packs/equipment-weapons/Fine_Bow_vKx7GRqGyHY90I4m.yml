@@ -1,0 +1,22 @@
+name: Fine Bow
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>A well crafted bow.</p>
+  class: ''
+  quantity: 1
+  weight: 2
+  uses: 0
+  tags: '[{"value":"near"},{"value":"far"}]'
+  tagsString: near, far
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/bows/bow-ornamental-carved-brown.webp
+effects: []
+_id: vKx7GRqGyHY90I4m
+_key: '!items!vKx7GRqGyHY90I4m'
+

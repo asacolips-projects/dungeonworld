@@ -1,0 +1,55 @@
+_id: k1t8dBC7yr6Gf6Dy
+name: Heist
+type: move
+flags: {}
+img: icons/skills/trades/academics-merchant-scribe.webp
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>take time to make a plan to steal something</strong>,
+    name the thing you want to steal and ask the GM these questions. When acting
+    on the answers you and your allies take +1 forward.</p>
+
+    <ul>
+
+    <li>Who will notice it’s missing?</li>
+
+    <li>What’s its most powerful defense?</li>
+
+    <li>Who will come after it?</li>
+
+    <li>Who else wants it?</li>
+
+    </ul>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Thief
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139265635
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!k1t8dBC7yr6Gf6Dy'
+

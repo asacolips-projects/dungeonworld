@@ -1,0 +1,40 @@
+name: Iron Hide
+type: move
+flags: {}
+img: icons/magic/defensive/armor-stone-skin.webp
+_id: 7ZLzYhfyerPoqg0S
+system:
+  name: ''
+  description: <p>You gain +1 armor.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Fighter
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678127611746
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!7ZLzYhfyerPoqg0S'
+

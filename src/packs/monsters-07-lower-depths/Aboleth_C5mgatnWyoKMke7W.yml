@@ -1,0 +1,87 @@
+_id: C5mgatnWyoKMke7W
+name: Aboleth
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 18
+      min: 0
+      max: 18
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d10+3
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Telepathy
+  details:
+    biography: >-
+      <p>Deep below the surface of the world, in freshwater seas untouched by
+      the sun, dwell the aboleth. Fish the size of whales, with strange growths
+      of gelatinous feelers used to probe the lightless shores. They’re served
+      by slaves: blind albino victims of any race unfortunate enough to stumble
+      on them, drained of thought and life by the powers of the aboleth’s alien
+      mind. In the depths they plot against each other, fishy cultists building
+      and digging upward towards the surface until someday, they’ll breach it.
+      For now, they sleep and dream and guide their pallid minions to do their
+      bidding.</p>
+
+      <p>Instinct: To command</p>
+
+      <ul>
+
+      <li>Invade a mind</li>
+
+      <li>Turn minions on them</li>
+
+      <li>Put a plan in motion</li>
+
+      </ul>
+  tags: '[{"value":"group"},{"value":"huge"},{"value":"intelligent"}]'
+  tagsString: group, huge, intelligent
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Aboleth
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: C5mgatnWyoKMke7W
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!C5mgatnWyoKMke7W'
+

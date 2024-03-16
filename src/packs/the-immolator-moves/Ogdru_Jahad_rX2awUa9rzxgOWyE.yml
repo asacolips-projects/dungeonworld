@@ -1,0 +1,42 @@
+_id: rX2awUa9rzxgOWyE
+name: Ogdru Jahad
+type: move
+flags: {}
+img: icons/magic/fire/flame-burning-hand-white.webp
+system:
+  name: ''
+  description: >-
+    <p>Gain the Wizard move Ritual. The GM will always tell you what you have to
+    sacrifice to gain the effect you desire.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Immolator
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678744915124
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!rX2awUa9rzxgOWyE'
+

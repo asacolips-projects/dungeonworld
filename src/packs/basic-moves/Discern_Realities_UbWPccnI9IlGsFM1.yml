@@ -1,0 +1,34 @@
+name: Discern Realities
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>closely study a situation or person</strong>, roll+Wis.
+    Either way, take +1 forward when acting on the answers.</p>
+  choices: >-
+    <ul><li>What happened here recently?</li> <li>What is about to happen?</li>
+    <li>What should I be on the lookout for?</li> <li>What here is useful or
+    valuable to me?</li> <li>Who’s really in control here?</li> <li>What here is
+    not what it appears to be?</li></ul>
+  class: ''
+  rollType: WIS
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: basic
+  moveGroup: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: <p>Ask one question from the list.</p>
+    success:
+      value: <p>Ask the GM three questions from the list.</p>
+flags: {}
+img: icons/tools/scribal/magnifying-glass.webp
+effects: []
+_id: UbWPccnI9IlGsFM1
+_key: '!items!UbWPccnI9IlGsFM1'
+

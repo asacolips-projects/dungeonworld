@@ -1,0 +1,64 @@
+name: Command
+type: move
+flags: {}
+img: icons/skills/movement/arrow-upward-yellow.webp
+_id: azI3Xl5tfqxLaoUY
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>work with your animal companion</strong> on something
+    it’s trained in...</p>
+
+    <ul>
+
+    <li>and you attack the same target, add its <strong>ferocity </strong>to
+    your <strong>damage</strong></li>
+
+    <li>and you track, add its <strong>cunning </strong>to your
+    <strong>roll</strong></li>
+
+    <li>and you take damage, add its <strong>armor </strong>to your
+    <strong>armor</strong></li>
+
+    <li>and you Discern Realities, add its <strong>cunning </strong>to your
+    <strong>roll</strong></li>
+
+    <li>and you Parley, add its <strong>cunning </strong>to your
+    <strong>roll</strong></li>
+
+    <li>and someone Interferes with you, add its <strong>instinct </strong>to
+    their <strong>roll</strong></li>
+
+    </ul>
+  choices: ''
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Ranger
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139577605
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!azI3Xl5tfqxLaoUY'
+

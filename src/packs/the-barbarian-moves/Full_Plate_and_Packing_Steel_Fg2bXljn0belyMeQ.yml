@@ -1,0 +1,40 @@
+_id: Fg2bXljn0belyMeQ
+name: Full Plate and Packing Steel
+type: move
+flags: {}
+img: icons/environment/people/infantry-armored.webp
+system:
+  name: ''
+  description: <p>You ignore the clumsy tag on armor you wear.</p>
+  choices: ''
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Barbarian
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: barbarian-armor
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815066725
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!Fg2bXljn0belyMeQ'
+

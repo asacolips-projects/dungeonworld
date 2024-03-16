@@ -1,0 +1,34 @@
+name: Dominate
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Your touch pushes your mind into someone else’s. You gain 1d4 hold. Spend
+    one hold to make the target take one of these actions:</p>
+
+    <ul>
+
+    <li>Speak a few words of your choice</li>
+
+    <li>Give you something they hold</li>
+
+    <li>Make a concerted attack on a target of your choice</li>
+
+    <li>Truthfully answer one question</li>
+
+    </ul>
+
+    <p>If you run out of hold the spell ends. If the target takes damage you
+    lose 1 hold. While the spell is ongoing you cannot cast a spell.</p>
+  spellLevel: 7
+  rollFormula: 1d4
+  class: The Wizard
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/wind-grasp-magenta-3.webp
+effects: []
+_id: L9ZgxJ3AQ3Nv02qj
+_key: '!items!L9ZgxJ3AQ3Nv02qj'
+

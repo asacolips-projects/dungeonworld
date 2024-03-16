@@ -1,0 +1,27 @@
+name: Earworm Wax
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>A yellowish candle. Seems never to burn out and the light it casts is
+    strange and weak. Its wax is always cool, too. Drip the wax into the ear of
+    a target and gain 3 hold. Spend that hold and ask your target a question.
+    They find themselves telling you the whole truth, despite themselves. The
+    consequences, after the fact? Those are up to you to deal with.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 1
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/sundries/lights/candle-unlit-yellow.webp
+effects: []
+_id: 2oVVIzQibqruEch0
+_key: '!items!2oVVIzQibqruEch0'
+

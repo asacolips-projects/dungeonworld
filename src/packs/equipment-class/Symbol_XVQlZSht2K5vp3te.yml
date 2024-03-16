@@ -1,0 +1,21 @@
+name: Symbol
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>A Symbol of your sacrifices past, describe it:</p>
+  quantity: 1
+  weight: 0
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: false
+  itemType: ''
+  attributes: {}
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: XVQlZSht2K5vp3te
+effects: []
+_key: '!items!XVQlZSht2K5vp3te'
+

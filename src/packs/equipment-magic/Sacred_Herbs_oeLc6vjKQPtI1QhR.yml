@@ -1,0 +1,32 @@
+name: Sacred Herbs
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>The sacred herbs, collected and prepared by an order of lost
+    wizard-monks, can be found in bundles with two or three uses to them. Kept
+    dry, they last indefinitely. When smoked in a pipe or consumed in an incense
+    burner and the thick, blue smoke inhaled, these herbs will grant you strange
+    visions of faraway places and distant times. If you focus your will on a
+    particular person, place or thing, the herbs will respond: roll+WIS. ✴On a
+    10+, the vision is clear and useful— yielding some valid information. ✴On a
+    7–9, the vision is about the thing desired, but is unclear, fraught with
+    metaphor or somehow difficult to understand. ✴On a miss, the GM will ask
+    you, “What is it you fear most?” You must answer honestly, of course.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 3
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/commodities/flowers/lotus-pink.webp
+effects: []
+_id: oeLc6vjKQPtI1QhR
+_key: '!items!oeLc6vjKQPtI1QhR'
+

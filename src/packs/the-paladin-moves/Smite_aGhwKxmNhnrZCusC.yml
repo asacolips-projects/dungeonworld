@@ -1,0 +1,42 @@
+name: Smite
+type: move
+flags: {}
+img: icons/weapons/swords/sword-gold-holy.webp
+_id: aGhwKxmNhnrZCusC
+system:
+  name: ''
+  description: |-
+    <p>While on a Quest you deal +1d4 damage.</p>
+    <p>Additional damage roll: [[/roll 1d4]]</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Paladin
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678651649478
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!aGhwKxmNhnrZCusC'
+

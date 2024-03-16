@@ -1,0 +1,32 @@
+name: Bolster
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you<strong> spend your leisure time in study, meditation, or hard
+    practice, you gain preparation</strong>. If you prepare for a week or two, 1
+    preparation. If you prepare for a month or longer, 3 preparation. When your
+    preparation pays off spend 1 preparation for +1 to any roll. You can only
+    spend onepreparation per roll.</p>
+  class: ''
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: special
+  moveGroup: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/affliction_24.webp
+effects: []
+_id: qdxEBncoO9DzbQTt
+_key: '!items!qdxEBncoO9DzbQTt'
+

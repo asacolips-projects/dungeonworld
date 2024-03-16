@@ -1,0 +1,24 @@
+name: Tricksy Rope
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>A rope that listens. Does tricks, too, like a smart and more obedient
+    snake might. Tell it “Coil” or “Slack” or “Come here, rope” and it will.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/sundries/survival/rope-coiled-tan.webp
+effects: []
+_id: p1JmNdUQgYK1yG10
+_key: '!items!p1JmNdUQgYK1yG10'
+

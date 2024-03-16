@@ -1,0 +1,88 @@
+_id: E3yxpMBx0fP3V6Ah
+name: Griffin
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 10
+      min: 0
+      max: 10
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d8+3
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Wings
+  details:
+    biography: >-
+      <p>On first glance, one might mistake the griffin for another magical
+      mistake like the manticore or the chimera. It looks the part, doesn’t it?
+      These creatures have the regal haughtiness of a lion and the arrogant
+      bearing of an eagle, but they temper those with the unshakeable loyalty of
+      both. To earn the friendship of a griffin is to have an ally all your
+      living days. Truly a gift, that. If you’re ever lucky enough to meet one
+      be respectful and deferential above all else. It may not seem it but they
+      can perceive the subtlest slights and will answer them with a sharp beak
+      and talons.</p>
+
+      <p>Instinct: To serve allies</p>
+
+      <ul>
+
+      <li>Judge someone’s worthiness</li>
+
+      <li>Carry an ally aloft</li>
+
+      <li>Strike from above</li>
+
+      </ul>
+  tags: >-
+    [{"value":"group"},{"value":"large"},{"value":"organized"},{"value":"close"},{"value":"reach"},{"value":"forceful"}]
+  tagsString: group, large, organized, close, reach, forceful
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Griffin
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: E3yxpMBx0fP3V6Ah
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!E3yxpMBx0fP3V6Ah'
+

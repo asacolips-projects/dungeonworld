@@ -1,0 +1,25 @@
+name: Flail
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p><span style="color: #4d5156; font-family: Roboto, arial, sans-serif;
+    background-color: #ffffff;">A weapon consisting of a striking head attached
+    to a handle by a chain.</span></p>
+  class: ''
+  quantity: 1
+  weight: 2
+  uses: 0
+  tags: '[{"value":"close"},{"value":"+1 damage"}]'
+  tagsString: close, +1 damage
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/maces/flail-spiked-grey.webp
+effects: []
+_id: U2Od7p6NKuEpstP4
+_key: '!items!U2Od7p6NKuEpstP4'
+

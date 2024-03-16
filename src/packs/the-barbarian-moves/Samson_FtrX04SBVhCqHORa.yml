@@ -1,0 +1,42 @@
+name: Samson
+type: move
+flags: {}
+img: icons/magic/fire/flame-burning-chain.webp
+_id: FtrX04SBVhCqHORa
+system:
+  name: ''
+  description: >-
+    <p>You may take a debility to immediately break free of any physical or
+    mental restraint.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Barbarian
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815125168
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!FtrX04SBVhCqHORa'
+

@@ -1,0 +1,43 @@
+name: Devious
+type: move
+flags: {}
+img: icons/magic/unholy/silhouette-robe-evil-power.webp
+_id: ZixjW0KOfmlRomQn
+system:
+  name: ''
+  description: >-
+    <p>When you use <strong>Charming &amp; Open</strong> you may also ask “How
+    are you vulnerable to me?” Your subject may not ask this question of
+    you.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Bard
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678528545605
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!ZixjW0KOfmlRomQn'
+

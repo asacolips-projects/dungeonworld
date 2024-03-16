@@ -1,0 +1,45 @@
+_id: 0XRdOePvn0EMpu8e
+name: The Druid Sleep
+type: move
+flags: {}
+img: icons/environment/wilderness/island.webp
+system:
+  name: ''
+  description: >-
+    <p>When you take this move, the next opportunity that you have safety and
+    time to spend in an appropriate location, you may attune yourself to a new
+    land. This effect occurs only once and the GM will tell you how long it will
+    take and what cost you must pay. From then on, you are considered to be born
+    of the soil in both lands.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Druid
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678608961080
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!0XRdOePvn0EMpu8e'
+

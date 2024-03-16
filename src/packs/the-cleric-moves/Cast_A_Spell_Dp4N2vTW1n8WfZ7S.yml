@@ -1,0 +1,51 @@
+_id: Dp4N2vTW1n8WfZ7S
+name: Cast A Spell
+type: move
+flags: {}
+img: icons/magic/light/orbs-firefly-hand-yellow.webp
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>unleash a spell granted by your deity</strong>,
+    roll+WIS.</p> <p>Note that maintaining spells with ongoing effects will
+    sometimes cause a penalty to your roll to cast a spell.</p>
+  choices: ''
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>On a 7-9 the spell is cast, but choose one:</p> <ul> <li>You draw
+        unwelcome attention or put yourself in a spot. The GM will tell you
+        how.</li> <li>Your casting distances you from your deity; take -1
+        ongoing to cast a spell until the next time you commune.</li> <li>After
+        it is cast, the spell is revoked by your deity. You cannot cast the
+        spell again until you commune and have it granted to you.</li> </ul>
+    success:
+      value: >-
+        <p>The spell is successfully cast and your deity does not revoke the
+        spell, so you may cast it again.</p>
+  class: The Cleric
+  rollType: WIS
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678547496380
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!Dp4N2vTW1n8WfZ7S'
+

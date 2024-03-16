@@ -1,0 +1,44 @@
+name: From Hell’s Heart
+type: move
+flags: {}
+img: icons/magic/unholy/projectiles-binary-pink.webp
+_id: ZmukbBqafHbvy5WS
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>summon fire </strong>with any of your moves, you can
+    replace it with the black fires of hell itself. This fire does not burn with
+    heat and ignores armor, scorching the soul itself. Those creatures without
+    souls cannot be harmed by this type of flame.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Immolator
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678744432199
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!ZmukbBqafHbvy5WS'
+

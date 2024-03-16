@@ -1,0 +1,88 @@
+_id: PsDTpE2xt0Z51Jo8
+name: Sigben
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 11
+      min: 0
+      max: 11
+    ac:
+      value: 2
+      base: 0
+      min: 0
+    damage:
+      value: d6+1
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Vampire spawn
+  details:
+    biography: >-
+      <blockquote>
+
+      <p>Aswang-hound and hopping whip-tail! Sent by vampires on their two,
+      twisted legs, these ugly things look like the head of a rat or a
+      crocodile, maybe, furry though and sharp of tooth. They have withered
+      wings, but cannot use them and long, whipping tails, spurred with poison
+      tips. Stupid, vengeful and mischievous they cause all kinds of chaos when
+      let out of the strange clay jars in which they’re born. Only a vampire
+      could love such a wretched thing.</p>
+
+      </blockquote>
+
+      <p>Instinct: To disturb</p>
+
+      <ul>
+
+      <li>Poison them</li>
+
+      <li>Do a vampire’s bidding</li>
+
+      </ul>
+  tags: >-
+    [{"value":"horde"},{"value":"large"},{"value":"construct"},{"value":"close"},{"value":"reach"}]
+  tagsString: horde, large, construct, close, reach
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Sigben
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: PsDTpE2xt0Z51Jo8
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!PsDTpE2xt0Z51Jo8'
+

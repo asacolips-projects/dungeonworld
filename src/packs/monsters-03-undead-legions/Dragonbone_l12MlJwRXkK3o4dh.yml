@@ -1,0 +1,82 @@
+_id: l12MlJwRXkK3o4dh
+name: Dragonbone
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 20
+      min: 0
+      max: 20
+    ac:
+      value: 2
+      base: 0
+      min: 0
+    damage:
+      value: d10+3
+      misc: ''
+      piercing: 3 piercing
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>Mystical sorcerers debate: is this creature truly undead or is it a
+      golem made of a particularly rare and blasphemous material? The bones,
+      sinews and scales of a dead dragon make up this bleak automaton. Winged
+      but flightless, dragon-shaped but without the mighty fire of such a noble
+      thing, the dragonbone serves its master with a twisted devotion and is
+      often set to assault the keeps and towers of rival necromancers. It would
+      take a being of some considerable evil to twist the remains of a dragon
+      thus.</p>
+
+      <p>Instinct: To serve</p>
+
+      <ul>
+
+      <li>Attack unrelentingly</li>
+
+      </ul>
+  tags: '[{"value":"solitary"},{"value":"huge"},{"value":"reach"},{"value":"messy"}]'
+  tagsString: solitary, huge, reach, messy
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Dragonbone
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: l12MlJwRXkK3o4dh
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!l12MlJwRXkK3o4dh'
+

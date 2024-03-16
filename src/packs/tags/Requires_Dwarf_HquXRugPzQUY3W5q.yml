@@ -1,0 +1,15 @@
+name: Requires Dwarf
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>It&rsquo;s only useful to certain people. If you don&rsquo;t meet the
+    requirements it works poorly, if at all.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: HquXRugPzQUY3W5q
+_key: '!items!HquXRugPzQUY3W5q'
+

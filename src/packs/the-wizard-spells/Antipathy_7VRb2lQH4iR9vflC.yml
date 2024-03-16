@@ -1,0 +1,23 @@
+name: Antipathy
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Choose a target and describe a type of creature or an alignment.
+    Creatures of the specified type or alignment cannot come within sight of the
+    target. If a creature of the specified type does find itself within sight of
+    the target, it immediately flees. This effect continues until you leave the
+    target’s presence or you dismiss the spell. While the spell is ongoing you
+    take -1 to cast a spell.</p>
+  spellLevel: 9
+  rollFormula: ''
+  class: The Wizard
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/horror-eerie-3.webp
+effects: []
+_id: 7VRb2lQH4iR9vflC
+_key: '!items!7VRb2lQH4iR9vflC'
+

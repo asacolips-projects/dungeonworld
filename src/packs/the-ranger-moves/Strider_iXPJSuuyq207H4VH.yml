@@ -1,0 +1,42 @@
+name: Strider
+type: move
+flags: {}
+img: icons/tools/navigation/map-chart-tan.webp
+_id: iXPJSuuyq207H4VH
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>Undertake A Perilous Journey</strong> you can take two
+    roles. Roll twice and use the better result for both roles.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Ranger
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Follow Me
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678556382019
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!iXPJSuuyq207H4VH'
+

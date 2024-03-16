@@ -1,0 +1,22 @@
+name: Personal Feast
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>Ostentatious to say the least.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 1
+  tags: '[{"value":"ration"}]'
+  tagsString: ration
+  magic: false
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/tools/cooking/oven-stone-grey.webp
+effects: []
+_id: Hell40CIHIwYjVRQ
+_key: '!items!Hell40CIHIwYjVRQ'
+

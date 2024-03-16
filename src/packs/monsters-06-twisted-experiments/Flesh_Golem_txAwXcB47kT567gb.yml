@@ -1,0 +1,81 @@
+_id: txAwXcB47kT567gb
+name: Flesh Golem
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 3
+      min: 0
+      max: 3
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d6+2
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Many body parts
+  details:
+    biography: >-
+      <p>Stolen bits and pieces in the night. Graveyards stealthily uprooted and
+      maybe tonight an arm, a leg, another head (the last one came apart too
+      soon). Even the humblest hedge-enchanter can make do with what he can and,
+      with a little creativity, well—it’s not only the college that can make
+      life, hmm? We’ll show them.</p>
+
+      <p>Instinct: To live</p>
+
+      <ul>
+
+      <li>Follow orders</li>
+
+      <li>Detach a body part</li>
+
+      </ul>
+  tags: '[{"value":"horde"},{"value":"close"},{"value":"forceful"}]'
+  tagsString: horde, close, forceful
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Flesh Golem
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: txAwXcB47kT567gb
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!txAwXcB47kT567gb'
+

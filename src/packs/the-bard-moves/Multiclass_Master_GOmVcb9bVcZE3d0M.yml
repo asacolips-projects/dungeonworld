@@ -1,0 +1,42 @@
+name: Multiclass Master
+type: move
+flags: {}
+img: icons/magic/defensive/shield-barrier-flaming-pentagon-orange.webp
+_id: GOmVcb9bVcZE3d0M
+system:
+  name: ''
+  description: >-
+    <p>Get a move from another class. Treat your level as one lower for choosing
+    the move.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Bard
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678529856821
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!GOmVcb9bVcZE3d0M'
+

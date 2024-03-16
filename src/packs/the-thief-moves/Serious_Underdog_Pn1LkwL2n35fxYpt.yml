@@ -1,0 +1,42 @@
+name: Serious Underdog
+type: move
+flags: {}
+img: icons/creatures/mammals/dog-husky-white-blue.webp
+_id: Pn1LkwL2n35fxYpt
+system:
+  name: ''
+  description: >-
+    <p>You have +1 armor. When you’re outnumbered, you have +2 armor
+    instead.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Thief
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Underdog
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139282597
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!Pn1LkwL2n35fxYpt'
+

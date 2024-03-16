@@ -1,0 +1,42 @@
+name: Fanning The Flames
+type: move
+flags: {}
+img: icons/magic/fire/projectile-bolts-salvo-red.webp
+_id: EcoTiYa0g7jmxDyF
+system:
+  name: ''
+  description: >-
+    <p>You may apply the effects of your Firebrand move to a group of people - a
+    dozen or so - all at once.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Immolator
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Firebrand
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678744053920
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!EcoTiYa0g7jmxDyF'
+

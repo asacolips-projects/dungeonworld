@@ -1,0 +1,22 @@
+name: Axe
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>An implement that can be used to split and chop wood, or as a weapon.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: '[{"value":"close"}]'
+  tagsString: close
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/axes/axe-battle-black.webp
+effects: []
+_id: NKIo4WZMF7cWgpAi
+_key: '!items!NKIo4WZMF7cWgpAi'
+

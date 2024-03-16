@@ -1,0 +1,90 @@
+_id: AEoEBZ2nNh6fGknd
+name: Making a Hireling
+permission:
+  default: 0
+folder: pT118pRlosZeToCW
+sort: 900000
+flags: {}
+content: >-
+  <h1>About</h1>
+
+  <p>Hirelings are not heroes. A hireling may become a hero, as a replacement
+  character, but until that time they&rsquo;re just another GM character. As
+  such their exact HP, armor, and damage aren&rsquo;t particularly important. A
+  hireling is defined by their Skill (or Skills) a Cost and a Loyalty score.</p>
+
+  <p>A hireling&rsquo;s skill is a special benefit they provide to the players.
+  Most skills are related to class abilities, allowing a hireling to fill in for
+  a certain class. If you don&rsquo;t have a ranger but you need to track the
+  assassin&rsquo;s route out of Torsea anyway, you need a Tracker. Each skill
+  has a rank, usually from 1 to 10. The higher the rank the more trained the
+  hireling. Generally hirelings only work for adventurers of equal or higher
+  level than their highest skill.</p>
+
+  <p>Skills don&rsquo;t limit what a hireling can do, they just provide
+  mechanics for a certain ability. A hireling with the protector skill can still
+  carry your burdens or check for traps, but the outcome isn&rsquo;t guaranteed
+  by a rule. It will fall entirely to the circumstances and the GM. Sending a
+  hireling to do something that is clearly beyond their abilities is asking the
+  GM for trouble.</p>
+
+  <p>No hireling works for free. The hireling&rsquo;s cost is what it takes to
+  keep them with the player characters. If the hireling&rsquo;s cost isn&rsquo;t
+  paid regularly (usually once a session) they&rsquo;re liable to quit or turn
+  on their employers.</p>
+
+  <p>&nbsp;</p>
+
+  <h1>Making a Hireling</h1>
+
+  <p>Hirelings are easy to make on the fly. When someone enters the
+  players&rsquo; employ note down their name and what cost they&rsquo;ve agreed
+  to as well as any skills they may have.<br />Start with a number based on
+  where the hireling was found.</p>
+
+  <ul>
+
+  <li>Hirelings in villages start with 2&ndash;5.</li>
+
+  <li>Town hirelings get 4&ndash;6.</li>
+
+  <li>Keep hirelings are 5&ndash;8.</li>
+
+  <li>City hirelings are 6&ndash;10.</li>
+
+  </ul>
+
+  <p>Distribute the hireling&rsquo;s number between loyalty, a main skill, and
+  zero or more secondary skills. Starting loyalty higher than 2 is unusual, as
+  is starting loyalty below 0.</p>
+
+  <p>Choose a cost for the hireling and you&rsquo;re done.</p>
+
+  <p><br />A hireling&rsquo;s stats, especially their loyalty, may change during
+  play as a reflection of events. A particular kindness or bonus from the
+  players is worth +1 loyalty forward. Disrespect is -1 loyalty forward. If
+  it&rsquo;s been a while since their cost was last paid they get -1 loyalty
+  ongoing until their cost is met. A hireling's loyalty may be permanently
+  increased when they achieve some great deed with the players. A significant
+  failure or beating may permanently lower the hireling&rsquo;s loyalty.</p>
+
+  <h3>Costs</h3>
+
+  <ul>
+
+  <li>The Thrill of Victory</li>
+
+  <li>Money</li>
+
+  <li>Uncovered Knowledge</li>
+
+  <li>Fame and Glory</li>
+
+  <li>Debauchery</li>
+
+  <li>Good Accomplished</li>
+
+  </ul>
+pages: []
+_key: '!journal!AEoEBZ2nNh6fGknd'
+

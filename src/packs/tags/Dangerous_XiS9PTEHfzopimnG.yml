@@ -1,0 +1,16 @@
+name: Dangerous
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>It&rsquo;s easy to get in trouble with it. If you interact with it
+    without proper precautions the GM may freely invoke the consequences of your
+    foolish actions.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: XiS9PTEHfzopimnG
+_key: '!items!XiS9PTEHfzopimnG'
+

@@ -1,0 +1,62 @@
+_id: yU9oYfWl4ehEbXLI
+name: Ritual
+type: move
+flags: {}
+img: icons/magic/symbols/star-inverted-yellow.webp
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>draw on a place of power</strong> to create a magical
+    effect, tell the GM what you’re trying to achieve. Ritual effects are always
+    possible, but the GM will give you one to four of the following
+    conditions:</p>
+
+    <ul>
+
+    <li>It’s going to take days/weeks/months</li>
+
+    <li>First you must ____</li>
+
+    <li>You’ll need help from ____</li>
+
+    <li>It will require a lot of money</li>
+
+    <li>The best you can do is a lesser version, unreliable and limited</li>
+
+    <li>You and your allies will risk danger from ____</li>
+
+    <li>You’ll have to disenchant ____ to do it</li>
+
+    </ul>
+  choices: ''
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Wizard
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678660377357
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!yU9oYfWl4ehEbXLI'
+

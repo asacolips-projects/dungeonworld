@@ -1,0 +1,15 @@
+name: Messy
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>It does damage in a particularly destructive way, ripping people and
+    things apart.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: CoEKiGcLhaLNLuw1
+_key: '!items!CoEKiGcLhaLNLuw1'
+

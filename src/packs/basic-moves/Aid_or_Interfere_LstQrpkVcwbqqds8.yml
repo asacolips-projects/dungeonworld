@@ -1,0 +1,29 @@
+name: Aid or Interfere
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>help or hinder someone you have a Bond with</strong>,
+    roll+Bond with them.</p>
+  class: ''
+  rollType: BOND
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: basic
+  moveGroup: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: On a 7–9 you also expose yourself to danger, retribution, or cost.
+    success:
+      value: On a hit they take +1 or -2, your choice.
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/red_05.webp
+effects: []
+_id: LstQrpkVcwbqqds8
+_key: '!items!LstQrpkVcwbqqds8'
+

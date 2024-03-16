@@ -1,0 +1,45 @@
+_id: y16rE2r43j0i6UVI
+name: Penitent
+type: move
+flags: {}
+img: icons/skills/wounds/injury-pain-body-orange.webp
+system:
+  name: ''
+  description: >-
+    <p>When you<strong> take damage</strong> and embrace the pain, you may take
+    +1d4 damage (ignoring armor). If you do, take +1 forward to cast a
+    spell.</p>
+
+    <p>Bonus damage roll: [[/roll 1d4]]</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Cleric
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678548550688
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!y16rE2r43j0i6UVI'
+

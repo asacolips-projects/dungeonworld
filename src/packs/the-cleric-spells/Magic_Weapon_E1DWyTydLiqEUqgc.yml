@@ -1,0 +1,21 @@
+name: Magic Weapon
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>The weapon you hold while casting does +1d4 damage until you dismiss this
+    spell. While this spell is ongoing you take -1 to cast a spell.</p>
+
+    <p>Additional damage roll: [[/roll 1d4]]</p>
+  spellLevel: 1
+  rollFormula: 1d4
+  class: The Cleric
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/enchant-jade-3.webp
+effects: []
+_id: E1DWyTydLiqEUqgc
+_key: '!items!E1DWyTydLiqEUqgc'
+

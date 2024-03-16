@@ -1,0 +1,15 @@
+name: Stealthy
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>It can avoid detection and prefers to attack with the element of
+    surprise.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: EAnDsraHV0j0a7YS
+_key: '!items!EAnDsraHV0j0a7YS'
+

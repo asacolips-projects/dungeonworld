@@ -1,0 +1,42 @@
+_id: 2iWmRWUKvulqYllL
+name: The Scales Of Life And Death
+type: move
+flags: {}
+img: icons/skills/social/trading-justice-scale-gold.webp
+system:
+  name: ''
+  description: >-
+    <p>When <strong>someone takes their last breath</strong> in your presence,
+    they take +1 to the roll.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Cleric
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678548479703
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!2iWmRWUKvulqYllL'
+

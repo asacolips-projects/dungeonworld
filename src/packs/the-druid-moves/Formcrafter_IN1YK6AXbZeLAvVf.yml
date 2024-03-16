@@ -1,0 +1,43 @@
+name: Formcrafter
+type: move
+flags: {}
+img: icons/magic/symbols/cog-glowing-green.webp
+_id: IN1YK6AXbZeLAvVf
+system:
+  name: ''
+  description: >-
+    <p>When you shapeshift choose a stat: you take +1 ongoing to rolls using
+    that stat while shifted. The GM will choose a stat, too: you take -1 ongoing
+    to rolls using that stat while shifted.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Druid
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678608392477
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!IN1YK6AXbZeLAvVf'
+

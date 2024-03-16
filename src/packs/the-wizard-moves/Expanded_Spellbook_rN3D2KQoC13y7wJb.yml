@@ -1,0 +1,40 @@
+name: Expanded Spellbook
+type: move
+flags: {}
+img: icons/skills/trades/academics-book-study-runes.webp
+_id: rN3D2KQoC13y7wJb
+system:
+  name: ''
+  description: <p>Add a new spell from the spell list of any class to your spellbook.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Wizard
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678659729085
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!rN3D2KQoC13y7wJb'
+

@@ -1,0 +1,42 @@
+name: Red of Tooth and Claw
+type: move
+flags: {}
+img: icons/creatures/reptiles/lizard-mouth-glowing-red.webp
+_id: iLspH8wR3twQhj5t
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>are in an appropriate animal form</strong> (something
+    dangerous) increase your damage to d8.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Druid
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678608568725
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!iLspH8wR3twQhj5t'
+

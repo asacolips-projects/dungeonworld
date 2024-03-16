@@ -1,0 +1,44 @@
+_id: w3R47rR1mISfiiVS
+name: Doppleganger's Dance
+type: move
+flags: {}
+img: icons/magic/control/encase-creature-humanoid-hold.webp
+system:
+  name: ''
+  description: >-
+    <p>You are able to study the essence of specific individuals to take their
+    exact form, including men, elves, or the like. Suppressing your tell is
+    possible, but if you do, take -1 ongoing until you return to your own
+    form.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Druid
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678607882011
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!w3R47rR1mISfiiVS'
+

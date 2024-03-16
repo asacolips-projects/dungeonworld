@@ -1,0 +1,42 @@
+_id: siFVo2gEUKgW8P8B
+name: Shed
+type: move
+flags: {}
+img: icons/magic/nature/leaf-armor-scale-green.webp
+system:
+  name: ''
+  description: >-
+    <p>When you<strong> take damage while shapeshifted</strong> you may choose
+    to revert to your natural form to negate the damage.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Druid
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678608789654
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!siFVo2gEUKgW8P8B'
+

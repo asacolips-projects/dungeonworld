@@ -1,0 +1,32 @@
+name: Parley
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>have leverage on a GM character and manipulate
+    them</strong>, roll+Cha.</p>
+  choices: ''
+  class: ''
+  rollType: CHA
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: basic
+  moveGroup: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: <p>They need some concrete assurance of your promise, right now.</p>
+    success:
+      value: >-
+        <p>They ask you for something and do it if you make them a promise
+        first.</p>
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/light_07.webp
+effects: []
+_id: ZYhgtf6VxsEqBaw4
+_key: '!items!ZYhgtf6VxsEqBaw4'
+

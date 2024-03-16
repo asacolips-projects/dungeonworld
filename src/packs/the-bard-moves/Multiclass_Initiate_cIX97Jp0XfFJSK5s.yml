@@ -1,0 +1,42 @@
+_id: cIX97Jp0XfFJSK5s
+name: Multiclass Initiate
+type: move
+flags: {}
+img: icons/magic/defensive/shield-barrier-flaming-diamond-orange.webp
+system:
+  name: ''
+  description: >-
+    <p>Get one move from another class. Treat your level as one lower for
+    choosing the move.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Bard
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678529848770
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!cIX97Jp0XfFJSK5s'
+

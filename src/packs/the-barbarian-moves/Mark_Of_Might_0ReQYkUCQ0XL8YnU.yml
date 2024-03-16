@@ -1,0 +1,46 @@
+name: Mark Of Might
+type: move
+flags: {}
+img: icons/magic/symbols/rune-sigil-hook-white-red.webp
+_id: 0ReQYkUCQ0XL8YnU
+system:
+  name: ''
+  description: >-
+    <p>When you take this move and <strong>spend some uninterrupted time
+    reflecting on your past glories</strong>, you may mark yourself with a
+    symbol of your power (a long braid tied with bells, ritual scars or tattoos,
+    etc.) Any intelligent mortal creature who sees this symbol knows
+    instinctively that you are a force to be reckoned with and treats you
+    appropriately.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Barbarian
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815136193
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!0ReQYkUCQ0XL8YnU'
+

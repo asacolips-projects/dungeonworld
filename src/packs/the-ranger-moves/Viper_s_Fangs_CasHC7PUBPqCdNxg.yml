@@ -1,0 +1,44 @@
+name: Viper’s Fangs
+type: move
+flags: {}
+img: icons/creatures/reptiles/snake-fangs-bite-green.webp
+_id: CasHC7PUBPqCdNxg
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>strike an enemy with two weapons at once</strong>, add
+    an extra 1d8 damage for your off-hand strike.</p>
+
+    <p>Additional damage roll: [[/roll 1d8]]</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Ranger
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Viper’s Strike
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678556469984
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!CasHC7PUBPqCdNxg'
+

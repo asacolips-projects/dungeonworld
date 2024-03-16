@@ -1,0 +1,42 @@
+name: A Little Help From My Friends
+type: move
+flags: {}
+img: icons/skills/social/diplomacy-handshake.webp
+_id: YtznpOdHUqHO85BP
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>successfully aid someone</strong> you take +1 forward as
+    well.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Bard
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678527858535
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!YtznpOdHUqHO85BP'
+

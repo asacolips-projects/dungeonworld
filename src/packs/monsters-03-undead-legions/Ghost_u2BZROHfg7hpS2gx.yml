@@ -1,0 +1,87 @@
+_id: u2BZROHfg7hpS2gx
+name: Ghost
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 16
+      min: 0
+      max: 16
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Insubstantial
+  details:
+    biography: >-
+      <p>Every culture tells the story the same way. You live, you love or you
+      hate, you win or you lose, you die somehow you’re not too fond of and here
+      you are, ghostly and full of disappointment and what have you. Some people
+      take it upon themselves, brave and kindly folks, to seek out the dead and
+      help them pass to their rightful rest. You can find them, most times, down
+      at the tavern drinking away the terrors they’ve seen or babbling to
+      themselves in the madhouse. Death takes a toll on the living, no matter
+      how you come by it.</p>
+
+      <p>Instinct: To haunt</p>
+
+      <ul>
+
+      <li>Reveal the terrifying nature of death</li>
+
+      <li>Haunt a place of importance</li>
+
+      <li>Offer information from the other side, at a price</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"devious"},{"value":"terrifying"},{"value":"close"},{"value":"reach"}]
+  tagsString: solitary, devious, terrifying, close, reach
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Ghost
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: u2BZROHfg7hpS2gx
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!u2BZROHfg7hpS2gx'
+

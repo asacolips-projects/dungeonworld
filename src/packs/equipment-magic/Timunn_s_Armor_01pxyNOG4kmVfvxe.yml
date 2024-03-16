@@ -1,0 +1,25 @@
+name: Timunn’s Armor
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>A stealthy suit of armor, it appears as many things to many people and
+    blends in with appropriate apparel. The wearer always seems the height of
+    fashion to any who gaze upon him.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: '[{"value":"1 armor"}]'
+  tagsString: 1 armor
+  magic: true
+  itemType: armor
+  attributes: {}
+flags: {}
+img: icons/equipment/chest/breastplate-layered-leather-blue.webp
+effects: []
+_id: 01pxyNOG4kmVfvxe
+_key: '!items!01pxyNOG4kmVfvxe'
+
