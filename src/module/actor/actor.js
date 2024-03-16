@@ -149,16 +149,16 @@ export class ActorDw extends Actor {
   getRollData() {
     const rollData = super.getRollData();
 
-    if (this.type === 'character') {
-      for (let prop of ['attributes', 'abilities']) {
-        for (let [k, v] of Object.entries(rollData[prop])) {
-          v.val = v.value;
-          rollData[k] = v;
-        }
+    for (let prop of ['attributes', 'abilities']) {
+      if (!rollData?.[prop]) continue;
+      for (let [k, v] of Object.entries(rollData[prop])) {
+        v.val = v.value;
+        rollData[k] = v;
       }
-      rollData.attr = rollData.attributes;
-      rollData.abil = rollData.abilities;
     }
+
+    if (rollData?.attributes) rollData.attr = rollData.attributes;
+    if (rollData?.abilities) rollData.abil = rollData.abilities;
 
     return rollData;
   }
