@@ -6,23 +6,8 @@
         </div>
     </header>
 
-    {{!-- Sheet Tab Navigation --}}
-    {{!-- <nav class="sheet-navigation sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">{{localize "DW.Common.Description" }}</a>
-        <a class="item" data-tab="details">{{localize "DW.Common.Details" }}</a>
-    </nav> --}}
-
     {{!-- Sheet Body --}}
     <section class="sheet-body">
-
-        {{!-- Description Tab --}}
-        {{!-- <div class="tab" data-group="primary" data-tab="description"> --}}
-            {{editor system.description target="system.description" button=true owner=owner editable=editable}}
-        {{!-- </div> --}}
-
-        {{!-- Details Tab --}}
-        {{!--
-        <div class="tab" data-group="primary" data-tab="details">
-        </div> --}}
+        {{editor system.descriptionEnriched target="system.description" button=true owner=owner editable=editable}}
     </section>
 </form>
