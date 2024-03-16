@@ -26,9 +26,9 @@ const systemRaw = fs.readFileSync('./dist/system.json');
 let system = JSON.parse(systemRaw);
 
 // Set the artifact path.
-let artifactBranch = argv.ref_type == 'branch' ? argv.tag : 'master';
+let artifactBranch = argv.ref_type == 'branch' ? argv.tag : 'latest';
 let artifactVersion = argv.ref_type == 'tag' ? argv.tag : null;
-let versionParsed = 'master';
+let versionParsed = 'latest';
 let bucket = argv.bucket ? argv.bucket : '';
 
 // Calculate branch based on tag.
@@ -40,9 +40,9 @@ if (argv.ref_type == 'tag') {
   if (versionParsed && versionParsed[0]) {
     artifactBranch = versionParsed[0];
   }
-  // Otherwise, assume it's the master branch.
+  // Otherwise, assume it's the latest branch.
   else {
-    artifactBranch = 'master';
+    artifactBranch = 'latest';
   }
 }
 // Calculate tag based on branch.

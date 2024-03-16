@@ -9,8 +9,8 @@ else
   # If this is a tag with "beta" or "alpha", return that part.
   if [[ $REF =~ $REGEX ]]; then
     echo `echo $REF | sed -r "s/.*($REGEX).*/\1/"`
-  # Fallback to master.
+  # Fallback to latest.
   else
-    echo 'master'
+    echo 'latest'
   fi
 fi
