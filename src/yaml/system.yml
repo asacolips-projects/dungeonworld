@@ -7,7 +7,7 @@ compatibleCoreVersion: "11"
 compatibility:
   minimum: "11"
   verified: "11.315"
-  maximum: "11"
+  maximum: "12"
 authors:
   - name: 'Asacolips'
 esmodules:
