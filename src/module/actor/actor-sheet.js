@@ -105,6 +105,9 @@ export class DwActorSheet extends ActorSheet {
     this._prepareCharacterItems(context);
     this._prepareNpcItems(context);
 
+    // Enrich the bio field.
+    context.system.details.biographyEnriched = await TextEditor.enrichHTML(context.system.details.biography, context.enrichmentOptions);
+
     // Add classlist.
     if (this.actor.type == 'character') {
       context.system.classlist = await DwClassList.getClasses();
@@ -116,7 +119,6 @@ export class DwActorSheet extends ActorSheet {
       };
 
       // Handle enriched fields.
-      context.system.details.biographyEnriched = await TextEditor.enrichHTML(context.system.details.biography, context.enrichmentOptions);
       context.system.details.lookEnriched = await TextEditor.enrichHTML(context.system.details.look, context.enrichmentOptions);
       context.system.details.alignment.enriched = await TextEditor.enrichHTML(context.system.details.alignment.description, context.enrichmentOptions);
       context.system.details.race.enriched = await TextEditor.enrichHTML(context.system.details.race.description, context.enrichmentOptions);
@@ -1332,7 +1334,7 @@ export class DwActorSheet extends ActorSheet {
       let $self = $(a);
       $self.toggleClass('unequipped');
 
-      let update = 
+      let update =
       { "system.equipped": !item.system.equipped };
       await item.update(update, {});
 
