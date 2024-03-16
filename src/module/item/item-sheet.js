@@ -120,8 +120,14 @@ export class DwItemSheet extends ItemSheet {
       if (context.system.moveResults) {
         for (let key of Object.keys(context.system.moveResults)) {
           context.system.moveResults[key].key = `system.moveResults.${key}.value`;
+          context.system.moveResults[key].enriched = await TextEditor.enrichHTML(context.system.moveResults[key].value, enrichmentOptions);
         }
       }
+    }
+
+    // Handle choices.
+    if (context.system?.choices) {
+      context.system.choicesEnriched = await TextEditor.enrichHTML(context.system.choices, enrichmentOptions);
     }
 
     // Handle bonds.
