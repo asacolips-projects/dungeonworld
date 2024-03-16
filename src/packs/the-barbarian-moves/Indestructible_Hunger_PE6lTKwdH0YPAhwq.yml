@@ -1,0 +1,43 @@
+name: Indestructible Hunger
+type: move
+flags: {}
+img: icons/consumables/food/cooked-grilled-ham-hock-glazed-brown.webp
+_id: PE6lTKwdH0YPAhwq
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>take damage</strong> you can choose to take -1 ongoing
+    until you sate one of your appetites instead of taking the damage. If you
+    already have this penalty you cannot choose this option.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Barbarian
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815076542
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!PE6lTKwdH0YPAhwq'
+

@@ -1,0 +1,48 @@
+_id: Y5eKALcZvyiK1Ecu
+name: Turn Undead
+type: move
+flags: {}
+img: icons/magic/death/undead-skeleton-deformed-red.webp
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>hold your holy symbol aloft and call on your deity for
+    protection</strong>, roll+WIS.</p>
+  choices: ''
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>So long as you continue to pray and brandish your holy symbol, no
+        undead may come within reach of you.</p>
+    success:
+      value: >-
+        <p>So long as you continue to pray and brandish your holy symbol, no
+        undead may come within reach of you. You also momentarily daze
+        intelligent undead and cause mindless undead to flee. Aggression breaks
+        the effects and they are able to act as normal.</p>
+  class: The Cleric
+  rollType: WIS
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678548432543
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!Y5eKALcZvyiK1Ecu'
+

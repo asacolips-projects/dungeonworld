@@ -1,0 +1,48 @@
+name: For The Blood God
+type: move
+flags: {}
+img: icons/skills/wounds/blood-cells-vessel-red-orange.webp
+_id: bKbEi6MLGNKEmeuA
+system:
+  name: ''
+  description: >-
+    <p>You are initiated in the old ways, the ways of sacrifice. Choose
+    something your gods (or the ancestor spirits, or your totem, etc)
+    value—gold, blood, bones or the like. When you <strong>sacrifice those
+    things as per your rites and rituals</strong>, roll+WIS.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: <p>You earn the ire of the fickle spirits.</p>
+    partial:
+      value: >-
+        <p>The sacrifice is not enough and your gods take of your flesh as well,
+        but still grant you some insight or boon.</p>
+    success:
+      value: >-
+        <p>The GM will grant you insight into your current trouble or a boon to
+        help you.</p>
+  class: The Barbarian
+  rollType: WIS
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815063738
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!bKbEi6MLGNKEmeuA'
+

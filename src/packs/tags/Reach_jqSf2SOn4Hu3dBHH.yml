@@ -1,0 +1,15 @@
+name: Reach
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>It&rsquo;s useful for attacking something that&rsquo;s several feet
+    away&mdash;maybe as far as ten.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: jqSf2SOn4Hu3dBHH
+_key: '!items!jqSf2SOn4Hu3dBHH'
+

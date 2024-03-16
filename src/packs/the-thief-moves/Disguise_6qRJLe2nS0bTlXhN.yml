@@ -1,0 +1,44 @@
+name: Disguise
+type: move
+flags: {}
+img: icons/equipment/head/hood-ringed-leather-red.webp
+_id: 6qRJLe2nS0bTlXhN
+system:
+  name: ''
+  description: >-
+    <p>When you<strong> have time and materials </strong>you can create a
+    disguise that will fool anyone into thinking you’re another creature of
+    about the same size and shape. Your actions can give you away but your
+    appearance won’t</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Thief
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139148543
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!6qRJLe2nS0bTlXhN'
+

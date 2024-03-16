@@ -1,0 +1,42 @@
+name: Vicious Cacophony
+type: move
+flags: {}
+img: icons/magic/sonic/explosion-shock-wave-teal.webp
+_id: VrHs4ERTZOhaws2m
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>grant bonus damage with Arcane Art</strong>, you grant
+    an extra +1d4 damage.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Bard
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678530008980
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!VrHs4ERTZOhaws2m'
+

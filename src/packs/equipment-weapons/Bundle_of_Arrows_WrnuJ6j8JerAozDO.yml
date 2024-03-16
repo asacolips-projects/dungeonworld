@@ -1,0 +1,22 @@
+name: Bundle of Arrows
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>A bundle of average arrows.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 3
+  tags: '[{"value":"3 ammo"}]'
+  tagsString: 3 ammo
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/ammunition/arrows-barbed-white.webp
+effects: []
+_id: WrnuJ6j8JerAozDO
+_key: '!items!WrnuJ6j8JerAozDO'
+

@@ -1,0 +1,32 @@
+name: Make Camp
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>settle in to rest consume a ration</strong>. If you’re
+    somewhere dangerous decide the watch order as well. If you have enough XP
+    you may level up. When you wake from at least a few uninterrupted hours of
+    sleep heal damage equal to half your max HP.</p>
+  choices: ''
+  class: ''
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: special
+  moveGroup: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+flags: {}
+img: icons/environment/settlement/tent.webp
+effects: []
+_id: FD8t2UyHWhygBa0X
+_key: '!items!FD8t2UyHWhygBa0X'
+

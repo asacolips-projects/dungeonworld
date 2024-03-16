@@ -1,0 +1,19 @@
+name: Detect Magic
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>One of your senses is briefly attuned to magic. The GM will tell you what
+    here is magical.</p>
+  spellLevel: 1
+  rollFormula: ''
+  class: The Wizard
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/runes-magenta-3.webp
+effects: []
+_id: Qu860CPdbkn5EhvF
+_key: '!items!Qu860CPdbkn5EhvF'
+

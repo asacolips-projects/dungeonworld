@@ -1,0 +1,24 @@
+_id: XE4fIg1k2VOTyKIM
+name: GM Moves
+permission:
+  default: 0
+folder: ''
+flags: {}
+content: |-
+  <ul>
+  <li>Use a monster, danger, or location move</li>
+  <li>Reveal an unwelcome truth</li>
+  <li>Show signs of an approaching threat</li>
+  <li>Deal damage</li>
+  <li>Use up their resources</li>
+  <li>Turn their move back on them</li>
+  <li>Separate them</li>
+  <li>Give an opportunity that fits a class’ abilities</li>
+  <li>Show a downside to their class, race, or equipment</li>
+  <li>Offer an opportunity, with or without cost</li>
+  <li>Put someone in a spot</li>
+  <li>Tell them the requirements or consequences and ask</li>
+  </ul>
+pages: []
+_key: '!journal!XE4fIg1k2VOTyKIM'
+

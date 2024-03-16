@@ -1,0 +1,44 @@
+name: Impervious Defender
+type: move
+flags: {}
+img: icons/magic/defensive/shield-barrier-deflect-gold.webp
+_id: RD2yaQhSKQEzy4r9
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>Defend </strong>you always get +1 hold, even on a 6-.
+    When you get a 12+ to defend instead of getting hold the nearest attacking
+    creature is stymied giving you a clear advantage, the GM will describe
+    it.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Paladin
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Staunch Defender
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678651709363
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!RD2yaQhSKQEzy4r9'
+

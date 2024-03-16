@@ -1,0 +1,91 @@
+_id: KNPTJBQStWX0NeDo
+name: Dragon Whelp
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 16
+      min: 0
+      max: 16
+    ac:
+      value: 3
+      base: 0
+      min: 0
+    damage:
+      value: d10+2
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Wings, Elemental Blood
+  details:
+    biography: >-
+      <p>What? Did you think they were all a mile long? Did you think they
+      didn’t come smaller than that? Sure, they may be no bigger than a dog and
+      no smarter than an ape, but a dragon whelp can still belch up a hellish
+      ball of fire that’ll melt your armor shut and drop you screaming into the
+      mud. Their scales, too, are softer than those of their bigger kin, but can
+      still turn aside an arrow or sword not perfectly aimed. Size is not the
+      only measure of might.</p>
+
+      <p>Instinct: To grow in power</p>
+
+      <ul>
+
+      <li>Start a lair, form a base of power</li>
+
+      <li>Call on family ties</li>
+
+      <li>Demand oaths of servitude</li>
+
+      </ul>
+  tags: >-
+    [{"value":"close"},{"value":"near"},{"value":"solitary"},{"value":"small"},{"value":"intelligent"},{"value":"cautious"},{"value":"hoarder"}]
+  tagsString: close, near, solitary, small, intelligent, cautious, hoarder
+sort: 100001
+flags: {}
+img: systems/dungeonworld/tokens/enemies/Pseudodragon_Tiny_Dragon_01.webp
+token:
+  flags: {}
+  name: Dragon Whelp
+  displayName: 0
+  img: systems/dungeonworld/tokens/enemies/Pseudodragon_Tiny_Dragon_01.webp
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  mirrorX: false
+  mirrorY: false
+  lockRotation: false
+  rotation: 0
+  vision: true
+  dimSight: 60
+  brightSight: 30
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightColor: ''
+  lightAlpha: 1
+  actorId: KNPTJBQStWX0NeDo
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 20
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: ''
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!KNPTJBQStWX0NeDo'
+

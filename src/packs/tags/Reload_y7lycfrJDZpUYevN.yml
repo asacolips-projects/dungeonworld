@@ -1,0 +1,15 @@
+name: Reload
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>After you attack with it, it takes more than a moment to reset for
+    another attack.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: y7lycfrJDZpUYevN
+_key: '!items!y7lycfrJDZpUYevN'
+

@@ -1,0 +1,15 @@
+name: +2 damage
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>It is particularly harmful to your enemies. When you deal damage, you add
+    n to it.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: H57So2q5BCIibjuI
+_key: '!items!H57So2q5BCIibjuI'
+

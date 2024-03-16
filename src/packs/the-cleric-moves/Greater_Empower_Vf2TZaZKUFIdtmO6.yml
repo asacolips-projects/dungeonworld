@@ -1,0 +1,51 @@
+name: Greater Empower
+type: move
+flags: {}
+img: icons/magic/light/beam-rays-orange-large.webp
+_id: Vf2TZaZKUFIdtmO6
+system:
+  name: ''
+  description: >-
+    <p>When you<strong> cast a spell</strong>, on a 10-11 you have the option of
+    choosing from the 7–9 list. If you do, you may choose one of these effects
+    as well. On a 12+ you get to choose one of these effects for free.</p>
+
+    <ul>
+
+    <li>The spell’s effects are doubled</li>
+
+    <li>The spell’s targets are doubled</li>
+
+    </ul>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Cleric
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Empower
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678547889951
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!Vf2TZaZKUFIdtmO6'
+

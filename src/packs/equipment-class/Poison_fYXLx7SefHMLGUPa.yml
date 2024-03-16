@@ -1,0 +1,22 @@
+name: Poison
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: ''
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 3
+  tags: ''
+  tagsString: ''
+  magic: false
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: fYXLx7SefHMLGUPa
+effects: []
+_key: '!items!fYXLx7SefHMLGUPa'
+

@@ -1,0 +1,24 @@
+_id: fOI6B4oTOKL05MrY
+name: Principals
+permission:
+  default: 0
+folder: ''
+flags: {}
+content: |-
+  <ul>
+  <li>Draw Maps, leave blanks</li>
+  <li>Address the characters, not the players</li>
+  <li>Embrace the fantastic</li>
+  <li>Make a move that follows</li>
+  <li>Never speak the name of your move</li>
+  <li>Give every monster life</li>
+  <li>Name every person</li>
+  <li>Ask questions and use the answers</li>
+  <li>Be a fan of the characters</li>
+  <li>Think dangerous</li>
+  <li>Begin and end with the fiction</li>
+  <li>Think offscreen, too</li>
+  </ul>
+pages: []
+_key: '!journal!fOI6B4oTOKL05MrY'
+

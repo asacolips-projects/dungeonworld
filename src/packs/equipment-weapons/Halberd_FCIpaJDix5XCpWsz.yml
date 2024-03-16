@@ -1,0 +1,22 @@
+name: Halberd
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>A two-handed pole weapon.</p>
+  class: ''
+  quantity: 1
+  weight: 2
+  uses: 0
+  tags: '[{"value":"reach"},{"value":"+1 damage"},{"value":"two-handed"}]'
+  tagsString: reach, +1 damage, two-handed
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/polearms/halberd-crescent-wood.webp
+effects: []
+_id: FCIpaJDix5XCpWsz
+_key: '!items!FCIpaJDix5XCpWsz'
+

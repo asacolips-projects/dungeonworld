@@ -1,0 +1,13 @@
+name: Far
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: <p>It&rsquo;s useful for attacking something in shouting distance.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: k5btFdZldGyNVeTZ
+_key: '!items!k5btFdZldGyNVeTZ'
+

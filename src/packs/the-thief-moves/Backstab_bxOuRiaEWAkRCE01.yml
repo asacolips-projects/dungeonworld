@@ -1,0 +1,46 @@
+name: Backstab
+type: move
+flags: {}
+img: icons/skills/melee/strike-dagger-white-orange.webp
+_id: bxOuRiaEWAkRCE01
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>attack a surprised or defenseless enemy with a melee
+    weapon</strong>, you can choose to deal your damage or roll+DEX.</p>
+  choices: >-
+    <ul> <li>You don’t get into melee with them</li> <li>You deal your damage +
+    [[1d6]]</li> <li>You create an advantage, +1 forward to you or an ally
+    acting on it</li> <li>Reduce their armor by 1 until they repair it</li>
+    </ul>
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: <p>Choose 1.</p>
+    success:
+      value: <p>Choose 2.</p>
+  class: The Thief
+  rollType: DEX
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139056609
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!bxOuRiaEWAkRCE01'
+

@@ -1,0 +1,58 @@
+_id: B0OT5UbbYD6QY6fX
+name: Making a City
+permission:
+  default: 0
+folder: pT118pRlosZeToCW
+sort: 1400000
+flags: {}
+content: >-
+  <h1>Making a City</h1>
+
+  <p>By default a city is Moderate, Steady, Guard, Market, and Guild (one of
+  your choice). It also has Oaths with at least two other steadings, usually a
+  town and a keep. If the city has trade with at least one steading and fealty
+  from at least one steading choose one:</p>
+
+  <ul>
+
+  <li>The city has permanent defenses, like walls: +Defenses, Oath (your
+  choice)</li>
+
+  <li>The city is ruled by a single individual: Personage (the ruler), Power
+  (Political)</li>
+
+  <li>The city is diverse: Dwarven or Elven or both</li>
+
+  <li>The city is a trade hub: Trade (every steading nearby), +Prosperity</li>
+
+  <li>The city is ancient, built on top of its own ruins: History (your choice),
+  Divine</li>
+
+  <li>The city is a center of learning: Arcane, Craft (your choice), Power
+  (Arcane)</li>
+
+  </ul>
+
+  <p><br />Choose one problem:</p>
+
+  <ul>
+
+  <li>The city has outgrown its resources: +Population, Need (food)</li>
+
+  <li>The city has designs on nearby territory: Enmity (nearby steadings),
+  +Defenses</li>
+
+  <li>The city is ruled by a theocracy: -Defenses, Power (Divine)</li>
+
+  <li>The city is ruled by the people: -Defenses, +Population</li>
+
+  <li>The city has supernatural defenses: +Defenses, Blight (related
+  supernatural creatures)</li>
+
+  <li>The city lies on a place of power: Arcane, Personage (whoever watches the
+  place of power), Blight (arcane creatures)</li>
+
+  </ul>
+pages: []
+_key: '!journal!B0OT5UbbYD6QY6fX'
+

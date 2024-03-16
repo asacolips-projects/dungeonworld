@@ -1,0 +1,44 @@
+_id: OAKzXBUzXosNFuMa
+name: Self-Powered
+type: move
+flags: {}
+img: icons/magic/light/explosion-star-glow-silhouette.webp
+system:
+  name: ''
+  description: >-
+    <p>When you have time, arcane materials, and a safe space, you can create
+    your own place of power. Describe to the GM what kind of&nbsp;power it is
+    and how you’re binding it to this&nbsp;place, the GM will tell you one kind
+    of creature that will have an interest in this.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Wizard
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678660429549
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!OAKzXBUzXosNFuMa'
+

@@ -1,0 +1,256 @@
+_id: M4WHMYILMaopiP7s
+name: Treasure
+permission:
+  default: 0
+flags: {}
+img: icons/svg/d20-grey.svg
+description: >-
+  When the players search the belongings of a monster (be they on their person
+  or tucked away somewhere) describe them honestly. If the monster has
+  accumulated some wealth you can roll that randomly. Start with the monster’s
+  damage die, modified if the monster is:
+
+  • Hoarder: roll damage die twice, take higher result
+
+  • Far from home: add at least one ration (usable by anyone with similar taste)
+
+  • Magical: some strange item, possibly magical
+
+  • Divine: a sign of a deity (or deities)
+
+  • Planar: something not of this earth
+
+  • Lord over others: +1d4 to the roll
+
+  • Ancient and noteworthy: +1d4 to the roll
+
+  Roll the monster’s damage die plus any added dice to find the monster’s
+  treasure:
+results:
+  - _id: CrCKkA3Mc5tTldUO
+    flags: {}
+    type: 0
+    text: A few coins, [[/r 2d8]] or so.
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 1
+      - 1
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.CrCKkA3Mc5tTldUO'
+  - _id: e4lKME7WMAfKcBER
+    flags: {}
+    type: 0
+    text: An item useful to the current situation.
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 2
+      - 2
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.e4lKME7WMAfKcBER'
+  - _id: 6M58b6m0t7V7CWvS
+    flags: {}
+    type: 0
+    text: Several coins, about [[/r 4d10]]
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 3
+      - 3
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.6M58b6m0t7V7CWvS'
+  - _id: zOQCPro6v1zuAOE0
+    flags: {}
+    type: 0
+    text: >-
+      A small item (gem, art) of considerable value, worth as much as [[/r
+      2d10]]×10 coins, 0 weight
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 4
+      - 4
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.zOQCPro6v1zuAOE0'
+  - _id: duQuDJfBYhPXvpYT
+    flags: {}
+    type: 0
+    text: Some minor magical trinket
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 5
+      - 5
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.duQuDJfBYhPXvpYT'
+  - _id: 3NFKhRasrFBNYNu0
+    flags: {}
+    type: 0
+    text: Useful information (in the form of clues, notes, etc.)
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 6
+      - 6
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.3NFKhRasrFBNYNu0'
+  - _id: iq8qf0JVB5NDN3MP
+    flags: {}
+    type: 0
+    text: A bag of coins, [[/r 1d4]]×100 or thereabouts. 1 weight per 100.
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 7
+      - 7
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.iq8qf0JVB5NDN3MP'
+  - _id: PduPXpzniL97rKvN
+    flags: {}
+    type: 0
+    text: A very valuable small item (gem, art) worth [[/r 2d6]]×100, 0 weight
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 8
+      - 8
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.PduPXpzniL97rKvN'
+  - _id: iXu4I1bRHWs1j5IA
+    flags: {}
+    type: 0
+    text: >-
+      A chest of coins and other small valuables. 1 weight but worth [[/r
+      3d6]]×100 coins.
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 9
+      - 9
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.iXu4I1bRHWs1j5IA'
+  - _id: 149E5xxpbAdQCg5q
+    flags: {}
+    type: 0
+    text: A magical item or magical effect
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 10
+      - 10
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.149E5xxpbAdQCg5q'
+  - _id: sNlaVQzxymDphsFA
+    flags: {}
+    type: 0
+    text: Many bags of coins for a total of [[/r 2d4]]×100 or so
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 11
+      - 11
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.sNlaVQzxymDphsFA'
+  - _id: PU0eExX4HwbcG6dH
+    flags: {}
+    type: 0
+    text: A sign of office (crown, banner) worth at least [[/r 3d4]]×100 coins
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 12
+      - 12
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.PU0eExX4HwbcG6dH'
+  - _id: mOxByhOQEN3TWWzt
+    flags: {}
+    type: 0
+    text: A large art item worth [[/r 4d4]]×100 coins, 1 weight
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 13
+      - 13
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.mOxByhOQEN3TWWzt'
+  - _id: SSxIsPqUWPeEc2XK
+    flags: {}
+    type: 0
+    text: A unique item worth at least [[/r 5d4]]×100 coins
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 14
+      - 14
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.SSxIsPqUWPeEc2XK'
+  - _id: MmR5MesSy0UciL3z
+    flags: {}
+    type: 0
+    text: All the information needed to learn a new spell and roll again
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 15
+      - 15
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.MmR5MesSy0UciL3z'
+  - _id: a4cPTMuDkyWIUmbm
+    flags: {}
+    type: 0
+    text: A portal or secret path (or directions to one) and roll again
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 16
+      - 16
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.a4cPTMuDkyWIUmbm'
+  - _id: ELClBeSHICcr4JHT
+    flags: {}
+    type: 0
+    text: Something relating to one of the characters and roll again
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 17
+      - 17
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.ELClBeSHICcr4JHT'
+  - _id: 1rycwoL5ReC455E3
+    flags: {}
+    type: 0
+    text: >-
+      A hoard: [[/r 1d10]]×1000 coins and [[/r 1d10]]×10 gems worth [[/r
+      2d6]]×100 each
+    img: icons/svg/d20-black.svg
+    resultId: ''
+    weight: 1
+    range:
+      - 18
+      - 18
+    drawn: false
+    _key: '!tables.results!M4WHMYILMaopiP7s.1rycwoL5ReC455E3'
+formula: 1d18
+replacement: true
+displayRoll: true
+_key: '!tables!M4WHMYILMaopiP7s'
+

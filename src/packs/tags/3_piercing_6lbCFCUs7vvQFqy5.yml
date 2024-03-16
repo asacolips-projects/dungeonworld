@@ -1,0 +1,15 @@
+name: 3 piercing
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>It goes right through armor. When you deal damage with n piercing, you
+    subtract n from the enemy&rsquo;s armor for that attack.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: 6lbCFCUs7vvQFqy5
+_key: '!items!6lbCFCUs7vvQFqy5'
+

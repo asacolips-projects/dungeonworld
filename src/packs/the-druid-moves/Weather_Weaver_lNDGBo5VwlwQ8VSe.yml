@@ -1,0 +1,43 @@
+_id: lNDGBo5VwlwQ8VSe
+name: Weather Weaver
+type: move
+flags: {}
+img: icons/magic/air/weather-clouds-rainbow.webp
+system:
+  name: ''
+  description: >-
+    <p>When you<strong> are under open skies when the sun rises</strong> the GM
+    will ask you what the weather will be that day. Tell them whatever you like,
+    it comes to pass.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Druid
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678609045104
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!lNDGBo5VwlwQ8VSe'
+

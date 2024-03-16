@@ -1,0 +1,16 @@
+name: 1 armor
+permission:
+  default: 0
+type: tag
+data:
+  name: ''
+  description: >-
+    <p>It protects you from harm and absorbs damage. When you take damage,
+    subtract your armor from the total. If you have more than one item with n
+    Armor, only the highest value counts.</p>
+flags: {}
+img: icons/svg/mystery-man.svg
+effects: []
+_id: LcgpWsp5m5BLz2zZ
+_key: '!items!LcgpWsp5m5BLz2zZ'
+

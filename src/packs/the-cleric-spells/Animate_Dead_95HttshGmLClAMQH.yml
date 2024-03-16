@@ -1,0 +1,37 @@
+name: Animate Dead
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>You invoke a hungry spirit to possess a recently-dead body and serve you.
+    This creates a zombie that follows your orders to the best of its limited
+    abilities. Treat the zombie as a character, but with access to only the
+    basic moves. It has a +1 modifier for all stats and 1 HP. The zombie also
+    gets your choice of 1d4 of these traits:</p>
+
+    <ul>
+
+    <li>It’s talented. Give one stat a +2 modifier.</li>
+
+    <li>It’s durable. It has +2 HP for each level you have.</li>
+
+    <li>It has a functioning brain and can complete complex tasks. • It does not
+    appear obviously dead, at least for a day or two.</li>
+
+    </ul>
+
+    <p>The zombie lasts until it is destroyed by taking damage in excess of its
+    HP, or until you end the spell. While this spell is ongoing you take -1 to
+    cast a spell.</p>
+  spellLevel: 3
+  rollFormula: 1d4
+  class: The Cleric
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/affliction_17.webp
+effects: []
+_id: 95HttshGmLClAMQH
+_key: '!items!95HttshGmLClAMQH'
+

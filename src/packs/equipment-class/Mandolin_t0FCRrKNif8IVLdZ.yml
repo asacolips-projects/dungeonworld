@@ -1,0 +1,21 @@
+name: Mandolin
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>A stringed musical instrument with a bit more flavor than a lute.</p>
+  quantity: 1
+  weight: 0
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: false
+  itemType: ''
+  attributes: {}
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: t0FCRrKNif8IVLdZ
+effects: []
+_key: '!items!t0FCRrKNif8IVLdZ'
+

@@ -1,0 +1,48 @@
+_id: XpWretIvmbQ7knVk
+name: Arcane Art
+type: move
+flags: {}
+img: icons/skills/trades/music-notes-sound-blue.webp
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>weave a performance into a basic spell</strong>, choose
+    an ally and an effect:</p>
+  choices: >-
+    <ul> <li>Heal [[1d8]] damage</li> <li>+ [[1d4]] forward to damage</li>
+    <li>Their mind is shaken clear of one enchantment</li> <li>The next time
+    someone successfully assists the target with aid, they get +2 instead of
+    +1</li> </ul>
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>Your spell still works, but you draw unwanted attention or your magic
+        reverberates to other targets affecting them as well, GM’s choice.</p>
+    success:
+      value: <p>The ally gets the selected effect.</p>
+  class: The Bard
+  rollType: CHA
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678528084263
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!XpWretIvmbQ7knVk'
+

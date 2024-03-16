@@ -1,0 +1,23 @@
+name: Visions Through Time
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Cast this spell and gaze into a reflective surface to see into the depths
+    of time. The GM will reveal the details of a grim portent to you—a bleak
+    event that will come to pass without your intervention. They’ll tell you
+    something useful about how you can interfere with the grim portent’s dark
+    outcomes. Rare is the portent that claims “You’ll live happily ever after.”
+    Sorry.</p>
+  spellLevel: 3
+  rollFormula: ''
+  class: The Wizard
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/shadow_12.webp
+effects: []
+_id: QDiZ6yGaGb7qvWhu
+_key: '!items!QDiZ6yGaGb7qvWhu'
+

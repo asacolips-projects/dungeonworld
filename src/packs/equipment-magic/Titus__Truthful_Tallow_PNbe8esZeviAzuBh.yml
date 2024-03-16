@@ -1,0 +1,26 @@
+name: Titus’ Truthful Tallow
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>A candle of ivory- and copper-colored tallow with a wick of spun silver.
+    When lit, none upon whom its light falls is able to tell a lie. They may
+    keep silent or dissemble but when asked a question directly, they can speak
+    naught but truth.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/sundries/lights/candle-lit-yellow.webp
+effects: []
+_id: PNbe8esZeviAzuBh
+_key: '!items!PNbe8esZeviAzuBh'
+

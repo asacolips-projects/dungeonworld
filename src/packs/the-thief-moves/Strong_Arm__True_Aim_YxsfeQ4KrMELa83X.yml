@@ -1,0 +1,42 @@
+name: Strong Arm, True Aim
+type: move
+flags: {}
+img: icons/skills/ranged/projectile-spiral-gray.webp
+_id: YxsfeQ4KrMELa83X
+system:
+  name: ''
+  description: >-
+    <p>You can throw any melee weapon, using it to volley. A thrown melee weapon
+    is gone; you can never choose to reduce ammo on a 7–9.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Thief
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139311007
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!YxsfeQ4KrMELa83X'
+

@@ -1,0 +1,79 @@
+_id: jSOmcAi9o4CADPGB
+name: Goblin Orkaster
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 12
+      min: 0
+      max: 12
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d10+1
+      misc: ''
+      piercing: ignores armor
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: |-
+      <p>Oh lord, who taught them magic?</p>
+      <p>Instinct: To tap power beyond their stature</p>
+      <ul>
+      <li>Unleash a poorly understood spell</li>
+      <li>Pour forth magical chaos</li>
+      <li>Use other goblins for shields</li>
+      </ul>
+  tags: >-
+    [{"value":"near"},{"value":"far"},{"value":"solitary"},{"value":"small"},{"value":"magical"},{"value":"intelligent"},{"value":"organized"}]
+  tagsString: near, far, solitary, small, magical, intelligent, organized
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Goblin Orkaster
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  mirrorX: false
+  mirrorY: false
+  lockRotation: false
+  rotation: 0
+  vision: true
+  dimSight: 60
+  brightSight: 30
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightColor: ''
+  lightAlpha: 1
+  actorId: jSOmcAi9o4CADPGB
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 20
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: ''
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!jSOmcAi9o4CADPGB'
+

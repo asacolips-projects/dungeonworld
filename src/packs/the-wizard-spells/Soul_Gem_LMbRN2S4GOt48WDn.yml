@@ -1,0 +1,22 @@
+name: Soul Gem
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>You trap the soul of a dying creature within&nbsp;a gem. The trapped
+    creature is aware of its imprisonment but can still be manipulated through
+    spells, parley, and other effects. All moves against the trapped creature
+    are at +1. You can free the soul at any time but it can never be recaptured
+    once freed.</p>
+  spellLevel: 9
+  rollFormula: ''
+  class: The Wizard
+  prepared: false
+flags: {}
+img: icons/commodities/gems/gem-rough-round-pink.webp
+effects: []
+_id: LMbRN2S4GOt48WDn
+_key: '!items!LMbRN2S4GOt48WDn'
+

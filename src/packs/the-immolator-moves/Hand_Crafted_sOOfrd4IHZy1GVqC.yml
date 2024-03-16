@@ -1,0 +1,44 @@
+_id: sOOfrd4IHZy1GVqC
+name: Hand Crafted
+type: move
+flags: {}
+img: icons/skills/trades/smithing-tongs-metal-red.webp
+system:
+  name: ''
+  description: >-
+    <p>You may use your hands in place of tools and fire to craft metal objects.
+    Mundane weapons, armor and metal jewellery can all be formed from their raw
+    components. You may unmake these things, as well, but to do so without time
+    and safety might require that you Defy Danger first.</p>
+  choices: ''
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Immolator
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678744509821
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!sOOfrd4IHZy1GVqC'
+

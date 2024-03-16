@@ -1,0 +1,57 @@
+_id: diCdPzrb3GQPMN28
+name: General Equipment - Tags
+permission:
+  default: 0
+folder: pT118pRlosZeToCW
+sort: 200000
+flags: {}
+content: >-
+  <h1>General Equipment Tags</h1>
+
+  <p>These are general tags that can apply to just about any piece of gear.
+  You&rsquo;ll see them on armor, weapons or general adventuring tools.</p>
+
+  <ul>
+
+  <li><strong>Applied: </strong>It&rsquo;s only useful when carefully applied to
+  a person or to something they eat or drink.</li>
+
+  <li><strong>Awkward: </strong>It&rsquo;s unwieldy and tough to use.</li>
+
+  <li><strong>+Bonus: </strong>It modifies your effectiveness in a specified
+  situation. It might be &ldquo;+1 forward to spout lore&rdquo; or &ldquo;-1
+  ongoing to hack and slash.&rdquo;</li>
+
+  <li><strong>n coins: </strong>How much it costs to buy, normally. If the cost
+  includes &ldquo;-Charisma&rdquo; a little negotiation subtracts the
+  haggler&rsquo;s Charisma score (not modifier) from the price.</li>
+
+  <li><strong>Dangerous: </strong>It&rsquo;s easy to get in trouble with it. If
+  you interact with it without proper precautions the GM may freely invoke the
+  consequences of your foolish actions.</li>
+
+  <li><strong>Ration: </strong>It&rsquo;s edible, more or less.<br />Requires:
+  It&rsquo;s only useful to certain people. If you don&rsquo;t meet the
+  requirements it works poorly, if at all.</li>
+
+  <li><strong>Slow: </strong>It takes minutes or more to use.</li>
+
+  <li><strong>Touch: </strong>It&rsquo;s used by touching it to the
+  target&rsquo;s skin.</li>
+
+  <li><strong>Two-handed: </strong>It takes two hands to use it
+  effectively.</li>
+
+  <li><strong>n weight: </strong>Count the listed amount against your Load.
+  Something with no listed weight isn&rsquo;t designed to be carried. 100 coins
+  in standard denominations is 1 weight. The same value in gems or fine art may
+  be lighter or heavier.</li>
+
+  <li><strong>Worn: </strong>To use it, you have to be wearing it.</li>
+
+  <li><strong>n Uses: </strong>It can only be used n times.</li>
+
+  </ul>
+pages: []
+_key: '!journal!diCdPzrb3GQPMN28'
+

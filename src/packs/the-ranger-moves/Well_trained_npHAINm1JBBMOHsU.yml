@@ -1,0 +1,40 @@
+_id: npHAINm1JBBMOHsU
+name: Well-trained
+type: move
+flags: {}
+img: icons/creatures/mammals/beast-horned-scaled-glowing-orange.webp
+system:
+  name: ''
+  description: <p>Choose another training for your animal companion.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Ranger
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678556757655
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!npHAINm1JBBMOHsU'
+

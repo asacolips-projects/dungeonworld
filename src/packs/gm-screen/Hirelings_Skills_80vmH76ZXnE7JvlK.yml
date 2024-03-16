@@ -1,0 +1,113 @@
+_id: 80vmH76ZXnE7JvlK
+name: Hirelings Skills
+permission:
+  default: 0
+folder: pT118pRlosZeToCW
+sort: 900000
+flags: {}
+content: >-
+  <h1>Skills</h1>
+
+  <h2>Adept</h2>
+
+  <p>An adept has at least apprenticed to an arcane expert, but is not powerful
+  in their own right. They&rsquo;re the grad students of the arcane world.</p>
+
+  <p><br /><strong>Arcane Assistance&mdash;</strong>When an adept aids in the
+  casting of a spell of lower level than their skill, the spell&rsquo;s effects
+  have greater range, duration, or potency. The exact effects depend on the
+  situation and the spell and are up to the GM. The GM will describe what
+  effects the assist will add before the spell is cast. The most important
+  feature of casting with an adept is that any negative effects of the casting
+  are focused on the adept first.</p>
+
+  <p>&nbsp;</p>
+
+  <h2>Burglar</h2>
+
+  <p>Burglars are skilled in a variety of areas, most of them illicit or
+  dangerous. They are good with devices and traps, but not too helpful in the
+  field of battle.</p>
+
+  <p><br /><strong>Experimental Trap Disarming&mdash;</strong>When a burglar
+  leads the way they can detect traps almost in time. If a trap would be sprung
+  while a burglar is leading the way the burglar suffers the full effects but
+  the players get +skill against the trap and add the burglar&rsquo;s skill to
+  their armor against the trap. Most traps leave a burglar in need of immediate
+  healing. If the players Make Camp near the trap, the burglar can disarm it by
+  the time camp is broken.</p>
+
+  <p>&nbsp;</p>
+
+  <h2>Minstrel</h2>
+
+  <p>When a smiling face is needed to smooth things over or negotiate a deal a
+  minstrel is always happy to lend their services for the proper price.</p>
+
+  <p><br /><strong>A Hero&rsquo;s Welcome&mdash;</strong>When you enter a place
+  of food, drink, or entertainment with a minstrel you will be treated as a
+  friend by everyone present (unless your actions prove otherwise). You also
+  subtract the minstrel&rsquo;s skill from all prices in town.</p>
+
+  <p>&nbsp;</p>
+
+  <h2>Priest</h2>
+
+  <p>Priests are the lower ranking clergy of a religion, performing minor
+  offices and regular sacraments. While not granted spells themselves, they are
+  able to call upon their deity for minor aid.</p>
+
+  <p><br /><strong>Ministry&mdash;</strong>When you make camp with a priest if
+  you would normally heal you heal +skill HP.</p>
+
+  <p><br /><strong>First Aid&mdash;</strong>When a priest staunches your wounds
+  heal 2&times;skill HP. You take -1 forward as their healing is painful and
+  distracting.</p>
+
+  <p>&nbsp;</p>
+
+  <h2>Protector</h2>
+
+  <p>A protector stands between their employer and the blades, fangs, teeth, and
+  spells that would harm them.</p>
+
+  <p><strong>Sentry&mdash;</strong>When a protector stands between you and an
+  attack you increase your armor against that attack by the defender&rsquo;s
+  skill, then reduce their skill by 1 until they receive healing or have time to
+  mend.</p>
+
+  <p><br /><strong>Intervene&mdash;</strong>When a protector helps you defy
+  danger you may opt to take +1 from their aid. If you do you cannot get a 10+
+  result, a 10+ instead counts as a 7&ndash;9.</p>
+
+  <p>&nbsp;</p>
+
+  <h2>Tracker</h2>
+
+  <p>Trackers know the secrets of following a trail, but they don&rsquo;t have
+  the experience with strange creatures and exotic locales that make for a great
+  hunter.</p>
+
+  <p><br /><strong>Track&mdash;</strong>When a tracker is given time to study a
+  trail while Making Camp, when camp is broken they can follow the trail to the
+  next major change in terrain, travel, or weather.</p>
+
+  <p><br /><strong>Guide&mdash;</strong>When a tracker leads the way you
+  automatically succeed on any Perilous Journey of a distance (in rations) lower
+  than the tracker&rsquo;s skill.</p>
+
+  <p>&nbsp;</p>
+
+  <h2>Warrior</h2>
+
+  <p>Warriors are not masters of combat, but they are handy with a weapon.</p>
+
+  <p><br /><strong>Man-at-arms&mdash;</strong>When you deal damage while a
+  warrior aids you add their skill to the damage done. If your attack results in
+  consequences (like a counter attack) the man-at-arms takes the brunt of
+  it.</p>
+
+  <p>&nbsp;</p>
+pages: []
+_key: '!journal!80vmH76ZXnE7JvlK'
+

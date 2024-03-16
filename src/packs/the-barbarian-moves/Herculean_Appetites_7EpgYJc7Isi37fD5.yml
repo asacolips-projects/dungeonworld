@@ -1,0 +1,62 @@
+name: Herculean Appetites
+type: move
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/blood_11.webp
+_id: 7EpgYJc7Isi37fD5
+system:
+  name: ''
+  description: >-
+    <p>Others may content themselves with just a taste of wine, or dominion over
+    a servant or two, but you want more. Choose two appetites. While
+    <strong>pursuing one of your appetites if you would roll for a
+    move</strong>, instead of rolling 2d6 you roll 1d6+1d8. If the d6 is the
+    higher die of the pair, the GM will also introduce a complication or danger
+    that comes about due to your heedless pursuits.</p>
+
+    <ul>
+
+    <li>Pure destruction</li>
+
+    <li>Power over others</li>
+
+    <li>Mortal pleasures</li>
+
+    <li>Conquest</li>
+
+    <li>Riches and property</li>
+
+    <li>Fame and glory</li>
+
+    </ul>
+  choices: ''
+  moveType: starting
+  rollFormula: d6+d8+@str.mod
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Barbarian
+  rollType: FORMULA
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815073266
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!7EpgYJc7Isi37fD5'
+

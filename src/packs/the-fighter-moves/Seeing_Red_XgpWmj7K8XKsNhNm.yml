@@ -1,0 +1,42 @@
+name: Seeing Red
+type: move
+flags: {}
+img: icons/skills/wounds/injury-eyes-blood-red-pink.webp
+_id: XgpWmj7K8XKsNhNm
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>Discern Realities </strong>during combat, you take
+    +1.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Fighter
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678127685549
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!XgpWmj7K8XKsNhNm'
+

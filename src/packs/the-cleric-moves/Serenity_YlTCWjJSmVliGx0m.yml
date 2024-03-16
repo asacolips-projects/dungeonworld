@@ -1,0 +1,42 @@
+_id: YlTCWjJSmVliGx0m
+name: Serenity
+type: move
+flags: {}
+img: icons/magic/holy/yin-yang-balance-symbol.webp
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>cast a spell</strong> you ignore the first -1 penalty
+    from ongoing spells.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Cleric
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678548510005
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!YlTCWjJSmVliGx0m'
+

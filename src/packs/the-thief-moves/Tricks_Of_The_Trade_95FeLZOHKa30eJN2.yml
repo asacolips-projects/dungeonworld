@@ -1,0 +1,44 @@
+name: Tricks Of The Trade
+type: move
+flags: {}
+img: icons/skills/trades/security-locksmith-key-gray.webp
+_id: 95FeLZOHKa30eJN2
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>pick locks or pockets or disable traps</strong>,
+    roll+DEX.</p>
+  choices: ''
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>You still do it, but the GM will offer you two options between
+        suspicion, danger, or cost.</p>
+    success:
+      value: <p>You do it, no problem.</p>
+  class: The Thief
+  rollType: DEX
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139332210
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!95FeLZOHKa30eJN2'
+

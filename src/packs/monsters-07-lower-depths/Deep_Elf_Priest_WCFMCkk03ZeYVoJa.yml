@@ -1,0 +1,87 @@
+_id: WCFMCkk03ZeYVoJa
+name: Deep Elf Priest
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 14
+      min: 0
+      max: 14
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d10+2
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Divine connection
+  details:
+    biography: >-
+      <p>The spirits of the trees and the lady sunlight are far, far from home
+      in the depths where the deep elves dwell. New gods were found there,
+      waiting for their children to come home. Gods of the spiders, the fungal
+      forests, and things that whisper in the forbidden caves. The deep elves,
+      ever attuned to the world around them, listened with hateful intent to
+      their new gods and found a new source of power. Hate calls to hate and
+      grim alliances were made. Even among these spiteful ranks, piety finds a
+      way to express itself.</p>
+
+      <p>Instinct: To pass on divine vengeance</p>
+
+      <ul>
+
+      <li>Weave spells of hatred and malice</li>
+
+      <li>Rally the deep elves</li>
+
+      <li>Pass on divine knowledge</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"divine"},{"value":"intelligent"},{"value":"organized"},{"value":"close"},{"value":"reach"}]
+  tagsString: solitary, divine, intelligent, organized, close, reach
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Deep Elf Priest
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: WCFMCkk03ZeYVoJa
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!WCFMCkk03ZeYVoJa'
+

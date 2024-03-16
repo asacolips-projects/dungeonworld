@@ -1,0 +1,20 @@
+name: Bless
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Your deity smiles upon a combatant of your choice. They take +1 ongoing
+    so long as battle continues and they stand and fight. While this spell is
+    ongoing you take -1 to cast a spell.</p>
+  spellLevel: 1
+  rollFormula: ''
+  class: The Cleric
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/light_10.webp
+effects: []
+_id: Cd6t1grMvgXJmDVg
+_key: '!items!Cd6t1grMvgXJmDVg'
+

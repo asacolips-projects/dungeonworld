@@ -1,0 +1,22 @@
+name: Oil of Tagit
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: <p>The target falls into a light sleep.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 1
+  tags: '[{"value":"dangerous"},{"value":"applied"}]'
+  tagsString: dangerous, applied
+  magic: false
+  itemType: poison
+  attributes: {}
+flags: {}
+img: icons/commodities/flowers/buds-black.webp
+effects: []
+_id: wSMWnbv1XlTZdH3Q
+_key: '!items!wSMWnbv1XlTZdH3Q'
+

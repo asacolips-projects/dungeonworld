@@ -1,0 +1,21 @@
+name: Repair
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Choose one event in the target’s past. All effects of that event,
+    including damage, poison, disease, and magical effects, are ended and
+    repaired. HP and diseases are healed, poisons are neutralized, magical
+    effects are ended.</p>
+  spellLevel: 9
+  rollFormula: ''
+  class: The Cleric
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/light_04.webp
+effects: []
+_id: WwNtrU0bJN9cHb1F
+_key: '!items!WwNtrU0bJN9cHb1F'
+

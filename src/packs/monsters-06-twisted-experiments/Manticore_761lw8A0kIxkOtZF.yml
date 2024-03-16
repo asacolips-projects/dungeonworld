@@ -1,0 +1,86 @@
+_id: 761lw8A0kIxkOtZF
+name: Manticore
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 16
+      min: 0
+      max: 16
+    ac:
+      value: 3
+      base: 0
+      min: 0
+    damage:
+      value: d10+1
+      misc: ''
+      piercing: 1 piercing
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Wings
+  details:
+    biography: >-
+      <p>If the chimera is the first step down a dark path, the manticore is a
+      door that can’t be closed once it’s been opened. A lion, a scorpion, the
+      wings of a drake. All difficult to obtain but not impossible and just
+      animals, anyway. The last component, the hissing hateful face of the
+      beast, is the ingredient that makes a manticore so cruel. Young or old,
+      man or woman, it matters not but that they are human, living and
+      breathing, married to the creature with twisted magic. All sense of who
+      they are is lost, and maybe that’s a blessing, but the beast is born from
+      human suffering. No wonder, then, that they’re all so eager to kill.</p>
+
+      <p>Instinct: To kill</p>
+
+      <ul>
+
+      <li>Poison them</li>
+
+      <li>Rip something apart</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"large"},{"value":"construct"},{"value":"close"},{"value":"reach"},{"value":"messy"}]
+  tagsString: solitary, large, construct, close, reach, messy
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Mainticore
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 761lw8A0kIxkOtZF
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!761lw8A0kIxkOtZF'
+

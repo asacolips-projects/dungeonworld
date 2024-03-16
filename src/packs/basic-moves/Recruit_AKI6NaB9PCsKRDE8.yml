@@ -1,0 +1,39 @@
+name: Recruit
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>put out word that you’re looking to hire help</strong>,
+    roll. If you make it known...</p> <ul> <li>...that your pay is generous,
+    take +1</li> <li>...what you’re setting out to do, take +1</li> <li>...that
+    they’ll get a share of whatever you find, take +1</li> </ul> <p>If you have
+    a useful reputation around these parts take an additional +1.</p> <p>If you
+    turn away applicants you take -1 forward to Recruit.</p>
+  choices: ''
+  class: ''
+  rollType: BOND
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: special
+  moveGroup: ''
+  moveResults:
+    failure:
+      value: >-
+        <p>Someone influential and ill-suited declares they’d like to come along
+        (a foolhardy youth, a loose-cannon, or a veiled enemy, for example),
+        bring them and take the consequences or turn them away.</p>
+    partial:
+      value: <p>You’ll have to settle for someone close or turn them away.</p>
+    success:
+      value: >-
+        <p>You’ve got your pick of a number of skilled applicants, your choice
+        who you hire, no penalty for not taking them along.</p>
+flags: {}
+img: icons/environment/people/spearfighter.webp
+effects: []
+_id: AKI6NaB9PCsKRDE8
+_key: '!items!AKI6NaB9PCsKRDE8'
+

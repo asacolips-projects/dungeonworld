@@ -1,0 +1,40 @@
+name: Prodigy
+type: move
+flags: {}
+img: icons/magic/control/energy-stream-link-teal.webp
+_id: CYNgds772Cf56sQ0
+system:
+  name: ''
+  description: <p>Choose a spell. You prepare that spell as if it were one level lower.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Wizard
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678660083092
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!CYNgds772Cf56sQ0'
+

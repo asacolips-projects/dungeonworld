@@ -1,0 +1,43 @@
+name: Observant
+type: move
+flags: {}
+img: icons/skills/trades/academics-investigation-study-blue.webp
+_id: wm2Maqvgu8f5Y1ht
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>hunt and track</strong>, on a hit you may also ask one
+    question about the creature you are tracking from the Discern Realities list
+    for free.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Ranger
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678139659884
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!wm2Maqvgu8f5Y1ht'
+

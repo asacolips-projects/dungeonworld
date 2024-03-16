@@ -1,0 +1,87 @@
+_id: 8w4IwL9C9toOtq7y
+name: Medusa
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 12
+      min: 0
+      max: 12
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: d6
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Look turns you to stone
+  details:
+    biography: >-
+      <p>The medusa are children of a serpent-haired mother, birthing them in
+      ancient times to bear her name across the ages. They dwell near places of
+      civilization—luring folks to their caves with promises of beauty or riches
+      untold. Fine appreciators of art, the medusa curate strange collections of
+      their victims, terror or ecstasy frozen forever in stone. It satisfies
+      their vanity to know they were the last thing seen in so many lives.
+      Arrogant, proud, and spiteful, in their way, they seek what so many
+      do—endless company.</p>
+
+      <p>Instinct: To collect</p>
+
+      <ul>
+
+      <li>Turn a body part to stone with a look</li>
+
+      <li>Draw someone’s gaze</li>
+
+      <li>Show hidden terrible beauty</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"devious"},{"value":"intelligent"},{"value":"hoarder"},{"value":"close"}]
+  tagsString: solitary, devious, intelligent, hoarder, close
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Medusa
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 8w4IwL9C9toOtq7y
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!8w4IwL9C9toOtq7y'
+

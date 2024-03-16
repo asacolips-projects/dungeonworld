@@ -1,0 +1,46 @@
+name: What Are You Waiting For?
+type: move
+flags: {}
+img: icons/skills/melee/hand-grip-staff-teal.webp
+_id: XxW3y6veAnNmSBq9
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>cry out a challenge to your enemies</strong>,
+    roll+CON.</p>
+  choices: ''
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>Only a few (the weakest or most foolhardy among them) fall prey to
+        your taunting.</p>
+    success:
+      value: >-
+        <p>They treat you as the most obvious threat to be dealt with and ignore
+        your companions, take +2 damage ongoing against them.</p>
+  class: The Barbarian
+  rollType: CON
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815107032
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!XxW3y6veAnNmSBq9'
+

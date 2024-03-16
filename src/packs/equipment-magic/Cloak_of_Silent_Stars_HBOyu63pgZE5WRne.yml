@@ -1,0 +1,30 @@
+name: Cloak of Silent Stars
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>A cape of rich black velvet outside and sparkling with tiny points of
+    light within, this cloak bends fate, time and reality around it to protect
+    the wearer, who may defy danger with whatever stat they like. To do this,
+    the wearer invokes the cloak’s magic and their player describes how the
+    cloak helps “break the rules.” They can deflect a fireball with CHA by
+    convincing it they deserve to live or elude a fall by applying the mighty
+    logic of their INT to prove the fall won’t hurt. The cloak makes it so. It
+    can be used once for each stat before losing its magic.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: armor
+  attributes: {}
+flags: {}
+img: icons/equipment/back/cloak-heavy-fur-blue.webp
+effects: []
+_id: HBOyu63pgZE5WRne
+_key: '!items!HBOyu63pgZE5WRne'
+

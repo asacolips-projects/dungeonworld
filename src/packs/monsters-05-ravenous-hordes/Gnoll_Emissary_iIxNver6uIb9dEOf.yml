@@ -1,0 +1,83 @@
+_id: iIxNver6uIb9dEOf
+name: Gnoll Emissary
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 18
+      min: 0
+      max: 18
+    ac:
+      value: 1
+      base: 0
+      min: 0
+    damage:
+      value: d10+2
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Scent
+  details:
+    biography: >-
+      <p>Oh, an emissary! How nice. I suspect you didn’t know the gnolls had
+      ambassadors, did you? Yes, even these mangy hyenas have to make nice
+      sometimes. No, no, not with us. Nor the dwarves, neither. No, the emissary
+      is the one, among his packmates, who trucks directly with their dripping
+      demon lord. Frightening? Too right. Every hound has a master with his hand
+      on the chain. This gnoll hears his master’s voice. Hears it and obeys.</p>
+
+      <p>Instinct: To share divine insight</p>
+
+      <ul>
+
+      <li>Pass on demonic influence</li>
+
+      <li>Drive the pack into a fervor</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"divine"},{"value":"intelligent"},{"value":"organized"},{"value":"close"},{"value":"reach"}]
+  tagsString: solitary, divine, intelligent, organized, close, reach
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Gnoll Emissary
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: iIxNver6uIb9dEOf
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!iIxNver6uIb9dEOf'
+

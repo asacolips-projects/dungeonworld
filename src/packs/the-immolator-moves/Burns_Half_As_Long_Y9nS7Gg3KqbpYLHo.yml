@@ -1,0 +1,42 @@
+name: Burns Half As Long
+type: move
+flags: {}
+img: icons/magic/fire/explosion-embers-evade-silhouette.webp
+_id: Y9nS7Gg3KqbpYLHo
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>sacrifice a victory to the flames of fate</strong>,
+    treat any roll of 10+ as a miss.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Immolator
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: Burns Twice As Bright
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678744032825
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!Y9nS7Gg3KqbpYLHo'
+

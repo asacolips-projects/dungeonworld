@@ -1,0 +1,85 @@
+_id: irZtvoUs7gLqzw9H
+name: Deep Elf Swordmaster
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 6
+      min: 0
+      max: 6
+    ac:
+      value: 2
+      base: 0
+      min: 0
+    damage:
+      value: 2d8kh+2
+      misc: ''
+      piercing: 1 piercing
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>The deep elves lost the sweetness and gentle peace of their bright
+      cousins ages ago, but they did not abandon grace. They move with a
+      swiftness and beauty that would bring a tear to any warrior’s eye. In the
+      dark, they’ve practiced. A cruelty has infested their swordsmanship—a
+      wickedness comes to the fore. Barbed blades and whips replace the shining
+      pennant-spears of elven battles on the surface. The swordmasters of the
+      deep elf clans do not merely seek to kill, but to punish with every stroke
+      of their blades. Wickedness and pain are their currency.</p>
+
+      <p>Instinct: To punish unbelievers</p>
+
+      <ul>
+
+      <li>Inflict pain beyond measure</li>
+
+      <li>Use the dark to advantage</li>
+
+      </ul>
+  tags: >-
+    [{"value":"group"},{"value":"intelligent"},{"value":"organized"},{"value":"close"}]
+  tagsString: group, intelligent, organized, close
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Deep Elf Swordmaster
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: irZtvoUs7gLqzw9H
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!irZtvoUs7gLqzw9H'
+

@@ -1,0 +1,42 @@
+name: The Enkindler
+type: move
+flags: {}
+img: icons/skills/social/intimidation-impressing.webp
+_id: 3zPJfcwfDfASiWMB
+system:
+  name: ''
+  description: <p>When you <strong>bolster the courage of others</strong> roll+CHA.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: <p>They’re cowed or terrified by your presence.</p>
+    partial:
+      value: >-
+        <p>This effect is fleeting, they realize its superficiality and resort
+        to cowardice after a moment or two.</p>
+    success:
+      value: <p>They shake off all fear and doubt, becoming brave in an instant.</p>
+  class: The Immolator
+  rollType: CHA
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678745016207
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!3zPJfcwfDfASiWMB'
+

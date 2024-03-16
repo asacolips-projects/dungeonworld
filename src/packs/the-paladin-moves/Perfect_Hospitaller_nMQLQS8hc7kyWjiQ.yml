@@ -1,0 +1,42 @@
+name: Perfect Hospitaller
+type: move
+flags: {}
+img: icons/magic/life/heart-hand-gold-green-light.webp
+_id: nMQLQS8hc7kyWjiQ
+system:
+  name: ''
+  description: |-
+    <p>When you <strong>heal an ally</strong>, you heal +2d8 damage.</p>
+    <p>Additional healing roll: [[/roll 2d8]]</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Paladin
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Hospitaller
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678651328624
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!nMQLQS8hc7kyWjiQ'
+

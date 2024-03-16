@@ -1,0 +1,43 @@
+name: Quick Study
+type: move
+flags: {}
+img: icons/creatures/eyes/human-single-brown.webp
+_id: f5G8veAoOZEY6YKP
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>see the effects of an arcane&nbsp;spell</strong>, ask
+    the GM the name of the spell and&nbsp;its effects. You take +1 when acting
+    on the answers.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Wizard
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678660356037
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!f5G8veAoOZEY6YKP'
+

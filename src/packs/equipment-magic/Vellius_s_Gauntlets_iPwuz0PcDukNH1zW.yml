@@ -1,0 +1,28 @@
+name: Vellius’s Gauntlets
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>Crafted in the name of Vellius the Clumsy, Vellius the Butter-Fingered,
+    Vellius the Clod, these gloves of simple cloth prevent you from dropping any
+    object you don’t intent to. You cannot be disarmed and will not fall from
+    any rope or ladder, for example. This item can get very messy if you have
+    something strong pulling at your legs while you grip onto something
+    solid.</p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: armor
+  attributes: {}
+flags: {}
+img: icons/equipment/hand/glove-simple-leather-gem-blue.webp
+effects: []
+_id: iPwuz0PcDukNH1zW
+_key: '!items!iPwuz0PcDukNH1zW'
+

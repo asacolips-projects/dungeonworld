@@ -1,0 +1,43 @@
+name: Heirloom
+type: move
+flags: {}
+img: icons/weapons/swords/sword-gold-holy.webp
+_id: 3TrwwyaE1Yj01DCL
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>consult the spirits that reside within your signature
+    weapon</strong>, they will give you an insight relating to the current
+    situation, and might ask you some questions in return, roll+CHA.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: <p> the GM will give you an impression.</p>
+    success:
+      value: <p>The GM will give you good detail.</p>
+  class: The Fighter
+  rollType: CHA
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678127555674
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!3TrwwyaE1Yj01DCL'
+

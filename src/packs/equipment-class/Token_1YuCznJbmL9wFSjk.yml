@@ -1,0 +1,23 @@
+name: Token
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>Some Token of where you’ve travelled or where you’re from or of your
+    homeland.</p>
+  quantity: 1
+  weight: 0
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: false
+  itemType: ''
+  attributes: {}
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: 1YuCznJbmL9wFSjk
+effects: []
+_key: '!items!1YuCznJbmL9wFSjk'
+

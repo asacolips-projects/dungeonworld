@@ -1,0 +1,25 @@
+name: Mace
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p><span style="color: #222222; font-family: Roboto, arial, sans-serif;
+    font-size: 16px; background-color: #ffffff;">A weapon with a heavy head on a
+    solid shaft used to bludgeon opponents.</span></p>
+  class: ''
+  quantity: 1
+  weight: 1
+  uses: 0
+  tags: '[{"value":"close"}]'
+  tagsString: close
+  magic: false
+  itemType: weapon
+  attributes: {}
+flags: {}
+img: icons/weapons/maces/mace-round-studded.webp
+effects: []
+_id: LmjG7mONJ7GIBHIc
+_key: '!items!LmjG7mONJ7GIBHIc'
+

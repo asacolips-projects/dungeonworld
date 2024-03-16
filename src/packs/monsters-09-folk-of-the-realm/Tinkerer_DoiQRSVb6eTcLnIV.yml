@@ -1,0 +1,85 @@
+_id: DoiQRSVb6eTcLnIV
+name: Tinkerer
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: null
+      min: 0
+      max: null
+    ac:
+      value: null
+      base: 0
+      min: 0
+    damage:
+      value: ''
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <p>It’s said that if you see a tinker on the road and you don’t offer him
+      a swig of ale or some of your food that he’ll leave a curse of bad luck
+      behind. A tinker is a funny thing. These strange folk often travel the
+      roads between towns with their oddment carts and favorite mules. With a
+      ratty dog and always a story to tell. Sometimes the mail, too, if you’re
+      lucky and live in a place where Queen’s Post won’t go. If you’re kind,
+      maybe they’ll sell you a rose that never wilts or a clock that chimes with
+      the sound of faerie laughter. Or maybe they’re just antisocial peddlers.
+      You never know, right?</p>
+
+      <p>Instinct: To create</p>
+
+      <ul>
+
+      <li>Offer an oddity at a price</li>
+
+      <li>Spin tales of great danger and reward in far-off lands</li>
+
+      </ul>
+  tags: ''
+  tagsString: ''
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Tinkerer
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: DoiQRSVb6eTcLnIV
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!DoiQRSVb6eTcLnIV'
+

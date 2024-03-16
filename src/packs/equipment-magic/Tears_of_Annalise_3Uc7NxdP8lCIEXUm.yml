@@ -1,0 +1,27 @@
+name: Tears of Annalise
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>Cloudy red gemstones the size of a thumbnail, the Tears of Annalise are
+    always found in pairs. When swallowed by two different people, they bind the
+    swallowers together—when either feels strong emotions (particularly sadness,
+    loss, fear or desire) the other feels it, as well. The effects last until
+    one spills the blood of the other.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/commodities/gems/pearl-fire-swirl.webp
+effects: []
+_id: 3Uc7NxdP8lCIEXUm
+_key: '!items!3Uc7NxdP8lCIEXUm'
+

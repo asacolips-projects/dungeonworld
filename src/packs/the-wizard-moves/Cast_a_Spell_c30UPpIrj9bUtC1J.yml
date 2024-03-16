@@ -1,0 +1,51 @@
+_id: c30UPpIrj9bUtC1J
+name: Cast a Spell
+type: move
+flags: {}
+img: icons/magic/light/hand-sparks-smoke-green.webp
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>release a spell you’ve prepared</strong>, roll+INT.</p>
+    <p>Note that maintaining spells with ongoing effects will sometimes cause a
+    penalty to your roll to cast a spell.</p>
+  choices: ''
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: >-
+        <p>The spell is cast, but choose one:</p> <ul> <li>You draw unwelcome
+        attention or put yourself in a spot. The GM will tell you how.</li>
+        <li>The spell disturbs the fabric of reality as it is cast; take -1
+        ongoing to cast a spell until the next time you Prepare Spells.</li>
+        <li>After it is cast, the spell is forgotten. You cannot cast the spell
+        again until you prepare spells.</li> </ul>
+    success:
+      value: >-
+        <p>The the spell is successfully cast and you may cast the spell again
+        later.</p>
+  class: The Wizard
+  rollType: INT
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678659432417
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!c30UPpIrj9bUtC1J'
+

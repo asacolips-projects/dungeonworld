@@ -1,0 +1,41 @@
+name: The Echo
+type: equipment
+flags: {}
+img: icons/consumables/potions/bottle-bulb-empty-glass.webp
+effects: []
+_id: qsddOpMD6wFIhFX9
+system:
+  name: ''
+  description: >-
+    <p>A seemingly empty bottle. Once unstoppered, the whispers of another plane
+    resound once and fall silent. In the silence, the bearer learns in his soul
+    the coming of one great danger and how he can avoid it. At any point after
+    you use the Echo, you can ignore the results of any single die roll—yours or
+    another player’s—and roll again. Once opened, the Echo is released and gone
+    forever.</p>
+  class: ''
+  quantity: 1
+  equipped: false
+  weight: 0
+  price: 0
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+ownership:
+  default: 0
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678918006753
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!qsddOpMD6wFIhFX9'
+

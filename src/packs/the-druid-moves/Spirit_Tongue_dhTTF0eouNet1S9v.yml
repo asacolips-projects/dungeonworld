@@ -1,0 +1,43 @@
+_id: dhTTF0eouNet1S9v
+name: Spirit Tongue
+type: move
+flags: {}
+img: icons/commodities/biological/tongue-violet.webp
+system:
+  name: ''
+  description: >-
+    <p>The grunts, barks, chirps, and calls of the creatures of the wild are as
+    language to you. You can understand any animal native to your land or akin
+    to one whose essence you have studied.</p>
+  choices: ''
+  moveType: starting
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Druid
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678608813289
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!dhTTF0eouNet1S9v'
+

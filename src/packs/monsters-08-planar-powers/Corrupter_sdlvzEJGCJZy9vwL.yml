@@ -1,0 +1,91 @@
+_id: sdlvzEJGCJZy9vwL
+name: Corrupter
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 12
+      min: 0
+      max: 12
+    ac:
+      value: 0
+      base: 0
+      min: 0
+    damage:
+      value: 2d8kl
+      misc: ''
+      piercing: ''
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: ''
+  details:
+    biography: >-
+      <blockquote>
+
+      <p>Surely, my good man, you must know why I am here. Must know who I am.
+      You said the words. You spilled the blood and followed the instructions
+      almost to the letter. Your pronunciation was a bit off but that’s to be
+      expected. I’ve come to give you what you’ve always wanted, friend. Glory,
+      love, money? Paltry things when you’ve the vaults of hell to plumb. Don’t
+      look so shocked, you knew what this was. You have but one thing we desire.
+      Promise it to us, and the world shall be yours for the taking. Trust
+      me.</p>
+
+      </blockquote>
+
+      <p>Instinct: To bargain</p>
+
+      <ul>
+
+      <li>Offer a deal with horrible consequences</li>
+
+      <li>Plumb the vaults of hell for a bargaining chip</li>
+
+      <li>Make a show of power</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"devious"},{"value":"planar"},{"value":"hoarder"},{"value":"close"}]
+  tagsString: solitary, devious, planar, hoarder, close
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Corrupter
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: sdlvzEJGCJZy9vwL
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!sdlvzEJGCJZy9vwL'
+

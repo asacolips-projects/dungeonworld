@@ -1,0 +1,38 @@
+name: Last Breath
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you’re <strong>dying </strong>you catch a glimpse of what lies
+    beyond the Black Gates of Death’s Kingdom (the GM will describe it). Then
+    roll (just roll, +nothing—yeah, Death doesn’t care how tough or cool you
+    are).</p>
+  choices: ''
+  class: ''
+  rollType: BOND
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: special
+  moveGroup: ''
+  moveResults:
+    failure:
+      value: >-
+        <p>Your fate is sealed. You’re marked as Death’s own and you’ll cross
+        the threshold soon. The GM will tell you when</p>
+    partial:
+      value: >-
+        <p>Death will offer you a bargain. Take it and stabilize or refuse and
+        pass beyond the Black Gates into whatever fate awaits you.</p>
+    success:
+      value: >-
+        <p>You’ve cheated death — you’re in a bad spot but you’re still
+        alive.</p>
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/shadow_17.webp
+effects: []
+_id: GWkqFn4zX1QZFtIG
+_key: '!items!GWkqFn4zX1QZFtIG'
+

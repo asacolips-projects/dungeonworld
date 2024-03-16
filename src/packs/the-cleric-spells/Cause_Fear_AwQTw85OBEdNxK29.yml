@@ -1,0 +1,22 @@
+name: Cause Fear
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Choose a target you can see and a nearby object. The target is afraid of
+    the object so long as you maintain the spell. Their reaction is up to them:
+    flee, panic, beg, fight. While this spell is ongoing you take -1 to cast a
+    spell. You cannot target entities with less than animal intelligence
+    (magical constructs, undead, automatons, and the like).</p>
+  spellLevel: 1
+  rollFormula: ''
+  class: The Cleric
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/blood_13.webp
+effects: []
+_id: AwQTw85OBEdNxK29
+_key: '!items!AwQTw85OBEdNxK29'
+

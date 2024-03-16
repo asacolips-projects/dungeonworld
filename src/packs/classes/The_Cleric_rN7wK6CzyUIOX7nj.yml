@@ -1,0 +1,79 @@
+_id: rN7wK6CzyUIOX7nj
+name: The Cleric
+permission:
+  default: 0
+type: class
+data:
+  name: ''
+  description: >-
+    <p>The lands of Dungeon World are a gods-forsaken mess. They’re lousy with
+    the walking dead, beasts of all sorts, and the vast unnatural spaces between
+    safe and temple-blessed civilizations. It is a godless world out there.
+    That’s why it needs you.</p>
+
+    <p>Bringing the glory of your god to the heathens isn’t just in your
+    nature—it’s your calling. It falls to you to proselytize with sword and mace
+    and spell. To cleave deep into the witless heart of the wilds and plant the
+    seed of divinity there. Some say that it is best to keep god close to your
+    heart. You know that’s rubbish. God lives at the edge of a blade.</p>
+
+    <p>Show the world who is lord.</p>
+  races:
+    '0':
+      label: Dwarf
+      description: >-
+        You are one with stone. When you commune you are also granted a special
+        version of Words of the Unspeaking as a rote which only works on stone.
+    '1':
+      label: Human
+      description: >-
+        Your faith is diverse. Choose one wizard spell. You can cast and be
+        granted that spell as if it was a cleric spell.
+  alignments:
+    '0':
+      label: Good
+      description: Endanger yourself to heal another.
+    '1':
+      label: Lawful
+      description: Endanger yourself following the precepts of your church or god.
+    '2':
+      label: Evil
+      description: Harm another to prove the superiority of your church or god.
+  equipment:
+    '0':
+      label: Starting gear
+      mode: checkbox
+      items:
+        - Iy4Iw8nsJXNIz8bG
+        - 6JcOoZ8CNqYxLgyQ
+      objects: []
+    '1':
+      label: Choose your defenses
+      mode: radio
+      items:
+        - ic5dH6aNzBgEuTjA
+        - FkfxRU6NiOzEzkIy
+      objects: []
+    '2':
+      label: Choose your armament
+      mode: checkbox
+      items:
+        - fvtXSG3oibD5SuIP
+        - LmjG7mONJ7GIBHIc
+        - xu45M9oglN3VEWHC
+        - Z7tBUvJQZEk6YHXv
+    '3':
+      label: Choose gear
+      mode: checkbox
+      items:
+        - 6JcOoZ8CNqYxLgyQ
+        - YwHV7WYzTPSAOorl
+        - CMhNmAwhLVZk9lfq
+  hp: 8
+  load: 10
+  damage: d6
+flags: {}
+img: systems/dungeonworld/assets/icons/skills/light_06.webp
+effects: []
+_key: '!items!rN7wK6CzyUIOX7nj'
+

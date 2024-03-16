@@ -1,0 +1,42 @@
+name: My Love For You Is Like A Truck
+type: move
+flags: {}
+img: icons/magic/control/buff-strength-muscle-damage-orange.webp
+_id: ZP30B3LleswRpnya
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>perform a feat of strength</strong>, name someone
+    present whom you have impressed and take +1 forward to parley with them.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Barbarian
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815129394
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!ZP30B3LleswRpnya'
+

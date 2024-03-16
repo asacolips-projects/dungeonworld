@@ -1,0 +1,27 @@
+name: Nightsider’s Key
+permission:
+  default: 0
+type: equipment
+data:
+  name: ''
+  description: >-
+    <p>This key unlocks any door for you, provided you don’t belong where you
+    intend to go. So long as you do nothing that would alert another to your
+    presence (remaining unheard, unseen and unnoticed) and takes nothing more
+    than your memories out with you, the key’s magic will prevent your intrusion
+    from ever being discovered. It’s like you were never there at all.</p>
+  class: ''
+  quantity: 1
+  weight: 0
+  uses: 0
+  tags: ''
+  tagsString: ''
+  magic: true
+  itemType: dungeongear
+  attributes: {}
+flags: {}
+img: icons/sundries/misc/key-jeweled-gold-purple.webp
+effects: []
+_id: pJVk8P6kPKyBbKgC
+_key: '!items!pJVk8P6kPKyBbKgC'
+

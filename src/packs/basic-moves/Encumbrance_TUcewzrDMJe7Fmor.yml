@@ -1,0 +1,33 @@
+name: Encumbrance
+permission:
+  default: 0
+type: move
+data:
+  name: ''
+  description: >-
+    <p>When you <strong>make a move while carrying weight up to or equal to
+    Load</strong>, you’re fine.</p> <p>When you make a move while carrying
+    weight equal to load+1 or load+2, you take -1.</p> <p>When you make a move
+    while carrying weight greater than load+2, you have a choice: drop at least
+    1 weight and roll at -1, or automatically fail.</p>
+  choices: ''
+  class: ''
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 0
+  requiresMove: ''
+  moveType: special
+  moveGroup: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+flags: {}
+img: icons/tools/smithing/anvil.webp
+effects: []
+_id: TUcewzrDMJe7Fmor
+_key: '!items!TUcewzrDMJe7Fmor'
+

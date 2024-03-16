@@ -1,0 +1,42 @@
+name: Merciless
+type: move
+flags: {}
+img: icons/skills/melee/strike-dagger-skull-white.webp
+_id: l544GxBPRWLP18gQ
+system:
+  name: ''
+  description: |-
+    <p>When you<strong> deal damage</strong>, deal +1d4 damage.</p>
+    <p>Additional damage roll: [[/roll 1d4]]</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Fighter
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678127629829
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!l544GxBPRWLP18gQ'
+

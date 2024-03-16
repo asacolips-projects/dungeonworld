@@ -1,0 +1,42 @@
+name: On The Move
+type: move
+flags: {}
+img: icons/skills/movement/feet-winged-boots-brown.webp
+_id: POlJ6h45318RxURi
+system:
+  name: ''
+  description: >-
+    <p>When you <strong>defy a danger caused by movement</strong> (maybe falling
+    off a narrow bridge or rushing past an armed guard) take +1.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Barbarian
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 2
+  requiresMove: ''
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678815127352
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!POlJ6h45318RxURi'
+

@@ -1,0 +1,20 @@
+name: Storm Of Vengeance
+permission:
+  default: 0
+type: spell
+data:
+  name: ''
+  description: >-
+    <p>Your deity brings the unnatural weather of your choice to pass. Rain of
+    blood or acid, clouds of souls, wind that can carry away buildings, or any
+    other weather you can imagine: ask and it shall come.</p>
+  spellLevel: 9
+  rollFormula: ''
+  class: The Cleric
+  prepared: false
+flags: {}
+img: systems/dungeonworld/assets/icons/spells/wind-magenta-3.webp
+effects: []
+_id: XZiGmBF2pRlmqAdy
+_key: '!items!XZiGmBF2pRlmqAdy'
+

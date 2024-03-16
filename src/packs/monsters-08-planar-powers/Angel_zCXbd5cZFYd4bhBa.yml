@@ -1,0 +1,92 @@
+_id: zCXbd5cZFYd4bhBa
+name: Angel
+permission:
+  default: 0
+type: npc
+data:
+  attributes:
+    hp:
+      value: 18
+      min: 0
+      max: 18
+    ac:
+      value: 4
+      base: 0
+      min: 0
+    damage:
+      value: 2d10kh+4
+      misc: ''
+      piercing: ignores armor
+    level:
+      value: 1
+      min: 0
+      max: 10
+    xp:
+      value: 0
+      min: 0
+    specialQualities:
+      value: Wings
+  details:
+    biography: >-
+      <blockquote>
+
+      <p>So was it written that the heavens opened up to Avra’hal and did an
+      angel from the clouds emerge to speak unto her and so did it appear to her
+      as her firstborn daughter—beautiful, of ebon skin and golden eyes—and did
+      Avra’hal weep to see it. ‘Be not afraid,’ it commanded her. ‘Go to the
+      villages I have shown you in your dreams and unto them show the word I
+      have written on your soul.’ Avra’hal wept and wept and did agree to do
+      this and did take up her sword and tome and did into the villages go, a
+      great thirst for blood on her lips for the word the angel wrote upon the
+      soul of Avra’hal was ‘kill’.</p>
+
+      </blockquote>
+
+      <p>Instinct: To share divine will</p>
+
+      <ul>
+
+      <li>Deliver visions and prophecy</li>
+
+      <li>Stir mortals to action</li>
+
+      <li>Expose sin and injustice</li>
+
+      </ul>
+  tags: >-
+    [{"value":"solitary"},{"value":"terrifying"},{"value":"divine"},{"value":"intelligent"},{"value":"organized"},{"value":"close"},{"value":"forceful"}]
+  tagsString: solitary, terrifying, divine, intelligent, organized, close, forceful
+sort: 100001
+flags: {}
+img: icons/svg/mystery-man.svg
+token:
+  flags: {}
+  name: Angel
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: zCXbd5cZFYd4bhBa
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items: []
+effects: []
+_key: '!actors!zCXbd5cZFYd4bhBa'
+

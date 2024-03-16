@@ -1,0 +1,43 @@
+name: Divine Authority
+type: move
+flags: {}
+img: icons/skills/social/diplomacy-handshake-yellow.webp
+_id: zcopuy8VlyAygHZ1
+system:
+  name: ''
+  description: >-
+    <p>Take +1 to order hirelings. When you roll a 12+ the hireling transcends
+    their moment of fear and doubt and carries out your&nbsp;order with
+    particular effectiveness or&nbsp;efficiency.</p>
+  choices: ''
+  moveType: advanced
+  rollFormula: ''
+  moveResults:
+    failure:
+      value: ''
+    partial:
+      value: ''
+    success:
+      value: ''
+  class: The Paladin
+  rollType: ''
+  rollMod: 0
+  requiresLevel: 6
+  requiresMove: Voice Of Authority
+  moveGroup: ''
+ownership:
+  default: 0
+effects: []
+folder: null
+sort: 0
+_stats:
+  systemId: dungeonworld
+  systemVersion: 1.6.2
+  coreVersion: '10.291'
+  createdTime: null
+  modifiedTime: 1678650040860
+  lastModifiedBy: ZAKkxHEmCmVhvUjX
+permission:
+  default: 0
+_key: '!items!zcopuy8VlyAygHZ1'
+
