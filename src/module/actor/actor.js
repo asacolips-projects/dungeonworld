@@ -145,6 +145,24 @@ export class ActorDw extends Actor {
     }
   }
 
+  /** @override */
+  getRollData() {
+    const rollData = super.getRollData();
+
+    for (let prop of ['attributes', 'abilities']) {
+      if (!rollData?.[prop]) continue;
+      for (let [k, v] of Object.entries(rollData[prop])) {
+        v.val = v.value;
+        rollData[k] = v;
+      }
+    }
+
+    if (rollData?.attributes) rollData.attr = rollData.attributes;
+    if (rollData?.abilities) rollData.abil = rollData.abilities;
+
+    return rollData;
+  }
+
   /**
    * Listen for click events on rollables.
    * @param {MouseEvent} event

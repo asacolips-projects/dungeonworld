@@ -74,7 +74,7 @@
             <ol class="items-list">
             {{#each bonds as |item id|}}
               <li class="item flexrow" data-item-id="{{item._id}}">
-                <div class="item-description item-edit">{{{enrichText item.name ../rollData}}}</div>
+                <div class="item-description item-edit">{{{item.nameEnriched}}}</div>
                 <div class="item-controls">
                   <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                 </div>
@@ -396,7 +396,7 @@
                           <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         </div>
                         <div class="item-description">
-                          <div class="description">{{{enrichText item.system.description ../../rollData}}}</div>
+                          <div class="description">{{{item.system.descriptionEnriched}}}</div>
                         </div>
                       </li>
                     {{/each}}
@@ -452,7 +452,7 @@
                           </div>
                           <div class="item-description">
                             {{#if item.system.tags}}{{{dwTags item.system.tags}}}{{/if}}
-                            <div class="description">{{{enrichText item.system.description ../rollData}}}</div>
+                            <div class="description">{{{item.system.descriptionEnriched}}}</div>
                           </div>
                       </li>
                   {{/each}}

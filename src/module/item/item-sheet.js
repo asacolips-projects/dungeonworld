@@ -83,6 +83,18 @@ export class DwItemSheet extends ItemSheet {
     // Add classlist.
     context.system.classlist = await DwClassList.getClasses();
 
+    // Prepare enrichment options.
+    const enrichmentOptions = {
+      async: true,
+      documents: true,
+      secrets: this.item.isOwner,
+      rollData: this.item.getRollData(),
+      relativeTo: this.item
+    };
+
+    // Handle enriched fields.
+    context.system.descriptionEnriched = await TextEditor.enrichHTML(context.system.description, enrichmentOptions);
+
     // Handle preprocessing for tagify data.
     if (itemData.type == 'equipment') {
       // If there are tags, convert it into a string.
@@ -108,8 +120,19 @@ export class DwItemSheet extends ItemSheet {
       if (context.system.moveResults) {
         for (let key of Object.keys(context.system.moveResults)) {
           context.system.moveResults[key].key = `system.moveResults.${key}.value`;
+          context.system.moveResults[key].enriched = await TextEditor.enrichHTML(context.system.moveResults[key].value, enrichmentOptions);
         }
       }
+    }
+
+    // Handle choices.
+    if (context.system?.choices) {
+      context.system.choicesEnriched = await TextEditor.enrichHTML(context.system.choices, enrichmentOptions);
+    }
+
+    // Handle bonds.
+    if (itemData.type == 'bond') {
+      context.item.nameEnriched = await TextEditor.enrichHTML(context.item.name, enrichmentOptions);
     }
 
     let returnData = {

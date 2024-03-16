@@ -131,53 +131,6 @@ export class DwUtility {
     };
   }
 
-  static replaceRollData() {
-    /**
-     * Override the default getRollData() method to add abbreviations for the
-     * abilities and attributes properties.
-     */
-    const original = Actor.prototype.getRollData;
-    Actor.prototype.getRollData = function() {
-      // Use the actor by default.
-      let actor = this;
-
-      // Use the current token if possible.
-      // TODO: Confirm this works.
-      if (typeof canvas.tokens !== 'undefined') {
-        let token = canvas.tokens.controlled.find(t => t.id == this.id);
-        if (token) {
-          actor = token.actor;
-        }
-      }
-
-      const data = original.call(actor);
-
-      // Re-map all attributes onto the base roll data
-      let newData = mergeObject(data.attributes, data.abilities);
-      delete data.init;
-      for (let [k, v] of Object.entries(newData)) {
-        switch (k) {
-          // case 'level':
-          //   data.lvl = v.value;
-          //   break;
-
-          default:
-            if (!(k in data)) {
-              v.val = v.value;
-              // delete v.value;
-              data[k] = v;
-            }
-            break;
-        }
-      }
-
-      // Old syntax shorthand.
-      data.attr = data.attributes;
-      data.abil = data.abilities;
-      return data;
-    };
-  }
-
   static async loadCompendia(slug) {
 
     const compendium = []

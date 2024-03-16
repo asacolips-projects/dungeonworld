@@ -46,6 +46,14 @@ export class ItemDw extends Item {
     return equipment;
   }
 
+  /** @override */
+  getRollData() {
+    return this.actor ? {
+      ...super.getRollData(),
+      ...this.actor.getRollData()
+    } : super.getRollData();
+  }
+
   /**
    * Roll the item to Chat, creating a chat card which contains follow up attack or damage roll options
    * @return {Promise}

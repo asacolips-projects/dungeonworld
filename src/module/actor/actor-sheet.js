@@ -102,8 +102,11 @@ export class DwActorSheet extends ActorSheet {
     };
 
     // Prepare items.
-    this._prepareCharacterItems(context);
-    this._prepareNpcItems(context);
+    await this._prepareCharacterItems(context);
+    await this._prepareNpcItems(context);
+
+    // Enrich the bio field.
+    context.system.details.biographyEnriched = await TextEditor.enrichHTML(context.system.details.biography, context.enrichmentOptions);
 
     // Add classlist.
     if (this.actor.type == 'character') {
@@ -116,7 +119,6 @@ export class DwActorSheet extends ActorSheet {
       };
 
       // Handle enriched fields.
-      context.system.details.biographyEnriched = await TextEditor.enrichHTML(context.system.details.biography, context.enrichmentOptions);
       context.system.details.lookEnriched = await TextEditor.enrichHTML(context.system.details.look, context.enrichmentOptions);
       context.system.details.alignment.enriched = await TextEditor.enrichHTML(context.system.details.alignment.description, context.enrichmentOptions);
       context.system.details.race.enriched = await TextEditor.enrichHTML(context.system.details.race.description, context.enrichmentOptions);
@@ -206,11 +208,17 @@ export class DwActorSheet extends ActorSheet {
    *
    * @return {undefined}
    */
-  _prepareCharacterItems(sheetData) {
+  async _prepareCharacterItems(sheetData) {
     // Exit early if this isn't a character.
     if (sheetData.actor.type !== 'character') return;
 
     const actorData = sheetData.actor;
+    const enrichmentOptions = {
+      async: true,
+      documents: true,
+      secrets: this.actor.isOwner,
+      rollData: this.actor.getRollData(),
+    };
 
     // Initialize containers.
     const moves = [];
@@ -232,9 +240,21 @@ export class DwActorSheet extends ActorSheet {
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     for (let i of sheetData.items) {
+      const item = this.actor.items.get(i._id);
+      enrichmentOptions.relativeTo = item;
+      enrichmentOptions.rollData = item.getRollData();
+      if (i.system?.description) {
+        i.system.descriptionEnriched = await TextEditor.enrichHTML(i.system.description, enrichmentOptions);
+      }
+
       i.img = i.img || DEFAULT_TOKEN;
       // If this is a move, sort into various arrays.
       if (i.type === 'move') {
+        i.system.choicesEnriched = await TextEditor.enrichHTML(i.system.choices, enrichmentOptions);
+        for (let [k, v] of Object.entries(i.system.moveResults)) {
+          i.system.moveResults[k].enriched = await TextEditor.enrichHTML(v.value, enrichmentOptions);
+        }
+
         switch (i.system.moveType) {
         case 'basic':
           basicMoves.push(i);
@@ -267,6 +287,7 @@ export class DwActorSheet extends ActorSheet {
         equipment.push(i);
       }
       else if (i.type === 'bond') {
+        i.nameEnriched = await TextEditor.enrichHTML(i.name, enrichmentOptions);
         bonds.push(i);
       }
     }
@@ -290,7 +311,7 @@ export class DwActorSheet extends ActorSheet {
    *
    * @param {Object} actorData The actor to prepare.
    */
-  _prepareNpcItems(sheetData) {
+  async _prepareNpcItems(sheetData) {
     // Exit early if this isn't an npc.
     if (sheetData.actor.type != 'npc') return;
 
@@ -312,6 +333,12 @@ export class DwActorSheet extends ActorSheet {
     }
 
     const actorData = sheetData.actor;
+    const enrichmentOptions = {
+      async: true,
+      documents: true,
+      secrets: this.actor.isOwner,
+      rollData: this.actor.getRollData(),
+    };
 
     // Initialize containers.
     const moves = [];
@@ -321,6 +348,13 @@ export class DwActorSheet extends ActorSheet {
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     for (let i of sheetData.items) {
+      const item = this.actor.items.get(i._id);
+      enrichmentOptions.relativeTo = item;
+      enrichmentOptions.rollData = item.getRollData();
+      if (i.system?.description) {
+        i.system.descriptionEnriched = await TextEditor.enrichHTML(i.system.description, enrichmentOptions);
+      }
+
       i.img = i.img || DEFAULT_TOKEN;
       // If this is a move, sort into various arrays.
       if (i.type === 'npcMove') {
@@ -1332,7 +1366,7 @@ export class DwActorSheet extends ActorSheet {
       let $self = $(a);
       $self.toggleClass('unequipped');
 
-      let update = 
+      let update =
       { "system.equipped": !item.system.equipped };
       await item.update(update, {});
 
