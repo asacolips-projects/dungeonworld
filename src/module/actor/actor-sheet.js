@@ -241,9 +241,18 @@ export class DwActorSheet extends ActorSheet {
     // let totalWeight = 0;
     for (let i of sheetData.items) {
       enrichmentOptions.relativeTo = this.actor.items.get(i._id);
+      if (i.system?.description) {
+        i.system.descriptionEnriched = await TextEditor.enrichHTML(i.system.description, enrichmentOptions);
+      }
+
       i.img = i.img || DEFAULT_TOKEN;
       // If this is a move, sort into various arrays.
       if (i.type === 'move') {
+        i.system.choicesEnriched = await TextEditor.enrichHTML(i.system.choices, enrichmentOptions);
+        for (let [k, v] of Object.entries(i.system.moveResults)) {
+          i.system.moveResults[k].enriched = await TextEditor.enrichHTML(v.value, enrichmentOptions);
+        }
+
         switch (i.system.moveType) {
         case 'basic':
           basicMoves.push(i);
