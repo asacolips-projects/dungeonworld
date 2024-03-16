@@ -83,6 +83,15 @@ export class DwItemSheet extends ItemSheet {
     // Add classlist.
     context.system.classlist = await DwClassList.getClasses();
 
+    // Prepare enrichment options.
+    const enrichmentOptions = {
+      async: true,
+      documents: true,
+      secrets: this.item.isOwner,
+      rollData: this.item.getRollData(),
+      relativeTo: this.item
+    };
+
     // Handle preprocessing for tagify data.
     if (itemData.type == 'equipment') {
       // If there are tags, convert it into a string.
@@ -110,6 +119,11 @@ export class DwItemSheet extends ItemSheet {
           context.system.moveResults[key].key = `system.moveResults.${key}.value`;
         }
       }
+    }
+
+    // Handle bonds.
+    if (itemData.type == 'bond') {
+      context.item.nameEnriched = await TextEditor.enrichHTML(context.item.name, enrichmentOptions);
     }
 
     let returnData = {

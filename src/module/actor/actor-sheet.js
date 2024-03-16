@@ -102,7 +102,7 @@ export class DwActorSheet extends ActorSheet {
     };
 
     // Prepare items.
-    this._prepareCharacterItems(context);
+    await this._prepareCharacterItems(context);
     this._prepareNpcItems(context);
 
     // Enrich the bio field.
@@ -208,11 +208,17 @@ export class DwActorSheet extends ActorSheet {
    *
    * @return {undefined}
    */
-  _prepareCharacterItems(sheetData) {
+  async _prepareCharacterItems(sheetData) {
     // Exit early if this isn't a character.
     if (sheetData.actor.type !== 'character') return;
 
     const actorData = sheetData.actor;
+    const enrichmentOptions = {
+      async: true,
+      documents: true,
+      secrets: this.actor.isOwner,
+      rollData: this.actor.getRollData(),
+    };
 
     // Initialize containers.
     const moves = [];
@@ -234,6 +240,7 @@ export class DwActorSheet extends ActorSheet {
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     for (let i of sheetData.items) {
+      enrichmentOptions.relativeTo = this.actor.items.get(i._id);
       i.img = i.img || DEFAULT_TOKEN;
       // If this is a move, sort into various arrays.
       if (i.type === 'move') {
@@ -269,6 +276,7 @@ export class DwActorSheet extends ActorSheet {
         equipment.push(i);
       }
       else if (i.type === 'bond') {
+        i.nameEnriched = await TextEditor.enrichHTML(i.name, enrichmentOptions);
         bonds.push(i);
       }
     }
