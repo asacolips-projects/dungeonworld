@@ -49,7 +49,7 @@ export class DwRolls {
     let label = options?.data?.label ?? '';
 
     // Prepare template data for the roll.
-    let templateData = options.templateData ? duplicate(options.templateData): {};
+    let templateData = options.templateData ? foundry.utils.duplicate(options.templateData): {};
     let data = {};
 
     let dlgOptions = {
@@ -210,7 +210,7 @@ export class DwRolls {
       // Test if the roll is a formula.
       let validRoll = false;
       try {
-        validRoll = await(new Roll(roll.trim(), rollData).evaluate({async: true}));
+        validRoll = await (new Roll(roll.trim(), rollData).evaluate());
       } catch (error) {
         validRoll = false;
       }
@@ -246,7 +246,7 @@ export class DwRolls {
         if (formulaOverride && formula.includes('2d6')) {
           let overrideIsValid = false;
           try {
-            overrideIsValid = await (new Roll(formulaOverride.trim(), rollData).evaluate({async: true}));
+            overrideIsValid = await (new Roll(formulaOverride.trim(), rollData).evaluate());
           }
           catch (error) {
             overrideIsValid = false;
@@ -311,7 +311,7 @@ export class DwRolls {
       if (formula != null) {
         // Do the roll.
         let roll = new Roll(`${formula}`, rollData);
-        await (roll.evaluate({async: true}));
+        await (roll.evaluate());
         let rollType = templateData.rollType ?? 'none';
         // Add success notification.
         if (resultRangeNeeded || rollType == 'move') {

@@ -16,7 +16,7 @@ export class DwItemSheet extends ItemSheet {
 
   /** @override */
   static get defaultOptions() {
-    let options = mergeObject(super.defaultOptions, {
+    let options = foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "item"],
       width: 520,
       height: 480,
@@ -67,6 +67,8 @@ export class DwItemSheet extends ItemSheet {
     let items = {};
     let effects = {};
     let actor = null;
+
+    context.system = foundry.utils.duplicate(this.item.system);
 
     this.options.title = this.document.name;
     isOwner = this.document.isOwner;
@@ -147,6 +149,8 @@ export class DwItemSheet extends ItemSheet {
       title: context.name
     };
 
+    console.log('itemData', returnData);
+
     return returnData;
   }
 
@@ -155,14 +159,6 @@ export class DwItemSheet extends ItemSheet {
   /** @override */
   async activateListeners(html) {
     super.activateListeners(html);
-
-    // Activate tabs
-    let tabs = html.find('.tabs');
-    let initial = this._sheetTab;
-    new TabsV2(tabs, {
-      initial: initial,
-      callback: clicked => this._sheetTab = clicked.data("tab")
-    });
 
     this._tagify(html, this.isEditable);
 
@@ -308,7 +304,7 @@ export class DwItemSheet extends ItemSheet {
         newKey = newKey.children[0];
 
         let update = {
-          system: duplicate(this.object.system)
+          system: foundry.utils.duplicate(this.object.system)
         };
         update.system.equipment[nk] = {
           label: '',
@@ -367,7 +363,7 @@ export class DwItemSheet extends ItemSheet {
     if (typeof formObj.system.equipment == 'object') {
       for (let [k, v] of Object.entries(formObj.system.equipment)) {
         if (i != k) {
-          v.items = duplicate(this.object.system.equipment[k]?.items ?? []);
+          v.items = foundry.utils.duplicate(this.object.system.equipment[k]?.items ?? []);
           formObj.system.equipment[i] = v;
           delete formObj.system.equipment[k];
           deletedKeys.push(`equipment.${k}`);

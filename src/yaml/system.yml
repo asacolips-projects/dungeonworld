@@ -2,11 +2,9 @@ name: dungeonworld
 title: Dungeon World
 description: The Dungeon World system for FoundryVTT!
 version: "1.7.2"
-minimumCoreVersion: "11"
-compatibleCoreVersion: "11"
 compatibility:
-  minimum: "11"
-  verified: "11.315"
+  minimum: "12"
+  verified: "12.328"
   maximum: "12"
 authors:
   - name: 'Asacolips'

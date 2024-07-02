@@ -8,7 +8,7 @@ export class DwActorNpcSheet extends DwActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    let options = mergeObject(super.defaultOptions, {
+    let options = foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "actor", "npc"],
       width: 560,
       height: 640,

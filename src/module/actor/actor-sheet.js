@@ -17,7 +17,7 @@ export class DwActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    let options = mergeObject(super.defaultOptions, {
+    let options = foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "actor"],
       width: 840,
       height: 780,
@@ -596,7 +596,7 @@ export class DwActorSheet extends ActorSheet {
           class_item.system.equipment[group]['objects'] = group_items;
           equipment_list = equipment_list.concat(group_items);
         }
-        equipment = duplicate(class_item.system.equipment);
+        equipment = foundry.utils.duplicate(class_item.system.equipment);
       }
     }
 
@@ -906,7 +906,7 @@ export class DwActorSheet extends ActorSheet {
 
       // Prepare moves for saving.
       new_moves = moves.map(m => {
-        return duplicate(m);
+        return foundry.utils.duplicate(m);
       });
     }
 
@@ -915,7 +915,7 @@ export class DwActorSheet extends ActorSheet {
     if (equipment_ids.length > 0) {
       let equipment = itemData.equipment.filter(e => equipment_ids.includes(e.id));
       new_equipment = equipment.map(e => {
-        return duplicate(e);
+        return foundry.utils.duplicate(e);
       });
     }
 
@@ -933,7 +933,7 @@ export class DwActorSheet extends ActorSheet {
         }
         // Append to the update array.
         new_spells = spells.map(s => {
-          return duplicate(s);
+          return foundry.utils.duplicate(s);
         });
       }
     }
@@ -1102,7 +1102,7 @@ export class DwActorSheet extends ActorSheet {
           class_item.system.equipment[group]['objects'] = group_items;
           equipment_list = equipment_list.concat(group_items);
         }
-        equipment = duplicate(class_item.system.equipment);
+        equipment = foundry.utils.duplicate(class_item.system.equipment);
       }
 
     // Get ability scores.
@@ -1489,7 +1489,7 @@ export class DwActorSheet extends ActorSheet {
     event.preventDefault();
     const header = event.currentTarget;
     const type = header.dataset.type;
-    const data = duplicate(header.dataset);
+    const data = foundry.utils.duplicate(header.dataset);
     data.moveType = data.movetype;
     data.spellLevel = data.level;
     const name = type == 'bond' ? game.i18n.localize("DW.BondDefault") : `New ${type.capitalize()}`;
