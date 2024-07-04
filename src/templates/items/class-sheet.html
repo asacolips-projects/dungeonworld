@@ -83,14 +83,7 @@
                 <label>{{localize "DW.ClassDamage"}}</label>
                 <div class="help-text">{{localize "DW.ClassDamageHelp"}}</div>
                 <select name="system.damage" data-dtype="String">
-                  {{#select system.damage}}
-                  <option value="">—</option>
-                  <option value="d4">d4</option>
-                  <option value="d6">d6</option>
-                  <option value="d8">d8</option>
-                  <option value="d10">d10</option>
-                  <option value="d12">d12</option>
-                  {{/select}}
+                  {{selectOptions selects.damages selected=system.damage blank='—'}}
                 </select>
               </div>
             </div>
@@ -118,10 +111,7 @@
                 <div class="cell__title">
                   <input type="text" name="system.equipment.{{groupId}}.label" placeholder="{{localize "DW.ClassEquipmentGroupPlaceholder"}}" value="{{equipmentGroup.label}}">
                   <select name="system.equipment.{{groupId}}.mode">
-                    {{#select equipmentGroup.mode}}
-                    <option value="radio">{{localize "DW.ChooseOne"}}</option>
-                    <option value="checkbox">{{localize "DW.ChooseAny"}}</option>
-                    {{/select}}
+                    {{selectOptions ../selects.equipmentGroupModes selected=equipmentGroup.mode localize=true}}
                   </select>
                   <div class="class-controls">
                     <a class="class-control" data-action="delete" data-type="equipment-groups" data-index="{{groupId}}"><i class="fas fa-trash"></i></a>

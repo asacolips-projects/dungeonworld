@@ -91,7 +91,7 @@ Actor:
   npc:
     templates:
       - base
-    tags: []
+    tags: '[]'
     tagsString: ''
 Item:
   types:
@@ -141,7 +141,7 @@ Item:
     weight: 0
     price: 0
     uses: 0
-    tags: []
+    tags: '[]'
     tagsString: ''
     magic: false
     itemType: null

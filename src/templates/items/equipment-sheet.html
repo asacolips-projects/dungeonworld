@@ -28,7 +28,7 @@
           <div class="resource">
             <label for="tag" class="control-label">{{localize "DW.Tags"}}</label>
             <div class="help-text"><p>{{localize "DW.TagsHelp" }}</p></div>
-            <input class='tags-input-source' placeholder='write some tags' value='{{ system.tags }}'/>
+            <input class='tags-input-source' name="system.tags" placeholder='write some tags' value='{{ system.tags }}'/>
           </div>
           <div class="resource">
             <label>{{localize "DW.Equipped"}}</label>
@@ -63,20 +63,7 @@
           <div class="resource">
             <label>{{localize "DW.ItemType"}}</label>
             <select name="system.itemType" data-dtype="String">
-              {{#select system.itemType}}
-              <option value="">—</option>
-              <option value="weapon">{{localize "DW.Weapon"}}</option>
-              <option value="armor">{{localize "DW.Armor"}}</option>
-              <option value="dungeongear">{{localize "DW.DungeonGear"}}</option>
-              <option value="poison">{{localize "DW.Poison"}}</option>
-              <option value="service">{{localize "DW.Service"}}</option>
-              <option value="meal">{{localize "DW.Meal"}}</option>
-              <option value="transport">{{localize "DW.Transport"}}</option>
-              <option value="landbuilding">{{localize "DW.LandBuildings"}}</option>
-              <option value="bribe">{{localize "DW.Bribe"}}</option>
-              <option value="giftsfinery">{{localize "DW.GiftsFinery"}}</option>
-              <option value="hoard">{{localize "DW.Hoard"}}</option>
-              {{/select}}
+              {{selectOptions selects.itemTypes selected=system.itemType blank='—' localize=true}}
             </select>
           </div>
         </div>

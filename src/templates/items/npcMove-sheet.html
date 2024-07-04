@@ -40,11 +40,7 @@
           <div class="resource">
             <label>{{localize "DW.MoveType"}}</label>
             <select name="system.moveType" data-dtype="String">
-              {{#select system.moveType}}
-              <option value="">—</option>
-              <option value="basic">{{localize "DW.MoveBasic"}}</option>
-              <option value="special">{{localize "DW.MoveSpecial"}}</option>
-              {{/select}}
+              {{selectOptions selects.moveTypes selected=system.moveType blank="—" localize=true}}
             </select>
           </div>
 

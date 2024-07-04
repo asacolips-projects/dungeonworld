@@ -171,6 +171,18 @@ export class DwActorSheet extends ActorSheet {
     // Check if ability scores are disabled
     context.system.noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
 
+    // Setup select options.
+    context.selects = {};
+    if (this.actor.type == 'character') {
+      context.selects.damages = {
+        d4: 'd4',
+        d6: 'd6',
+        d8: 'd8',
+        d10: 'd10',
+        d12: 'd12',
+      };
+    }
+
     // Return data to the sheet
     let returnData = {
       actor: this.object,
@@ -189,6 +201,7 @@ export class DwActorSheet extends ActorSheet {
       effects: effects,
       items: items,
       flags: this.object?.flags,
+      selects: context.selects,
       limited: this.object.limited,
       options: this.options,
       owner: isOwner,
@@ -478,7 +491,7 @@ export class DwActorSheet extends ActorSheet {
       let system = {};
       let changed = false;
       // Retrieve the existin value.
-      system[attr] = Number(getProperty(this.actor.system, attr));
+      system[attr] = Number(foundry.utils.getProperty(this.actor.system, attr));
       // Decrease the value.
       if (action == 'decrease') {
         system[attr] -= 1;
@@ -1581,27 +1594,30 @@ export class DwActorSheet extends ActorSheet {
         }
       });
 
-      // Update document with the changes.
-      this.tagify.on('change', e => {
-        // Grab the raw tags.
-        let newTags = e.detail.value;
-        // Parse it into a string.
-        let tagArray = [];
-        try {
-          tagArray = JSON.parse(newTags);
-        } catch (e) {
-          tagArray = [newTags];
-        }
-        let newTagsString = tagArray.map((item) => {
-          return item.value;
-        }).join(', ');
+      // @todo this version of tagify updates has a strange race condition.
+      // We've temporarily switched to just using the `system.tags` name prop.
 
-        // Apply the update.
-        this.document.update({
-          'system.tags': newTags,
-          'system.tagsString': newTagsString
-        }, {render: false});
-      });
+      // // Update document with the changes.
+      // this.tagify.on('change', e => {
+      //   // Grab the raw tags.
+      //   let newTags = e.detail.value;
+      //   // Parse it into a string.
+      //   let tagArray = [];
+      //   try {
+      //     tagArray = JSON.parse(newTags);
+      //   } catch (e) {
+      //     tagArray = [newTags];
+      //   }
+      //   let newTagsString = tagArray.map((item) => {
+      //     return item.value;
+      //   }).join(', ');
+
+      //   // Apply the update.
+      //   this.document.update({
+      //     'system.tags': newTags,
+      //     'system.tagsString': newTagsString
+      //   }, {render: false});
+      // });
     }
   }
 }
