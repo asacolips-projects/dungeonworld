@@ -97,14 +97,7 @@
             {{!-- <input type="text" name="system.attributes.damage.value" value="{{system.attributes.damage.value}}" data-dtype="String"/> --}}
             <div class="damage-inputs">
               <select name="system.attributes.damage.value" data-dtype="String">
-                {{#select system.attributes.damage.value}}
-                <option value="">—</option>
-                <option value="d4">d4</option>
-                <option value="d6">d6</option>
-                <option value="d8">d8</option>
-                <option value="d10">d10</option>
-                <option value="d12">d12</option>
-                {{/select}}
+                {{selectOptions selects.damages selected=system.attributes.damage.value blank='—'}}
               </select>
               <span>+</span>
               <input type="text" name="system.attributes.damage.misc" value="{{system.attributes.damage.misc}}" placeholder="{{localize "DW.Misc"}}" data-dtype="String"/>

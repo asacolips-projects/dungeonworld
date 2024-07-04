@@ -9,7 +9,7 @@ export class DwClassItemSheet extends DwItemSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "item", "class"],
       width: 960,
       height: 640,
@@ -99,7 +99,7 @@ export class DwClassItemSheet extends DwItemSheet {
   }
 
   async _deleteEquipment(equipmentId, groupId) {
-    let originalData = duplicate(this.item);
+    let originalData = foundry.utils.duplicate(this.item);
     let itemData = {};
 
     // Filter items.
@@ -112,7 +112,7 @@ export class DwClassItemSheet extends DwItemSheet {
   }
 
   async _createEquipment(equipmentId, groupId) {
-    let originalData = duplicate(this.item);
+    let originalData = foundry.utils.duplicate(this.item);
     let itemData = {};
 
     // Filter items.

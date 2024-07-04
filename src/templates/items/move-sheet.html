@@ -46,18 +46,7 @@
           <div class="resource">
             <label>{{localize "DW.Roll"}}</label>
             <select name="system.rollType" data-dtype="String">
-              {{#select system.rollType}}
-              <option value="">—</option>
-              <option value="STR">{{localize "DW.STR"}}</option>
-              <option value="DEX">{{localize "DW.DEX"}}</option>
-              <option value="CON">{{localize "DW.CON"}}</option>
-              <option value="INT">{{localize "DW.INT"}}</option>
-              <option value="WIS">{{localize "DW.WIS"}}</option>
-              <option value="CHA">{{localize "DW.CHA"}}</option>
-              <option value="ASK">{{localize "DW.ASK"}}</option>
-              <option value="BOND">{{localizeOverride "DW.Modifier" "bondSingle"}}</option>
-              <option value="FORMULA">{{localize "DW.FORMULA"}}</option>
-              {{/select}}
+              {{selectOptions selects.rollTypes selected=system.rollType blank='—' localize=true}}
             </select>
           </div>
 
@@ -76,25 +65,14 @@
           <div class="resource">
             <label>{{localize "DW.Class"}}</label>
             <select name="system.class">
-              {{#select system.class}}
-                <option value="">—</option>
-                {{#each system.classlist as |class id|}}
-                <option value="{{class}}">{{class}}</option>
-                {{/each}}
-              {{/select}}
+              {{selectOptions selects.classes selected=system.class blank='—' localize=true}}
             </select>
           </div>
 
           <div class="resource">
             <label>{{localize "DW.MoveType"}}</label>
             <select name="system.moveType" data-dtype="String">
-              {{#select system.moveType}}
-              <option value="">—</option>
-              <option value="basic">{{localize "DW.MoveBasic"}}</option>
-              <option value="starting">{{localize "DW.MoveStarting"}}</option>
-              <option value="advanced">{{localize "DW.MoveAdvanced"}}</option>
-              <option value="special">{{localize "DW.MoveSpecial"}}</option>
-              {{/select}}
+              {{selectOptions selects.moveTypes selected=system.moveType blank="—" localize=true}}
             </select>
           </div>
 

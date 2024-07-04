@@ -17,7 +17,7 @@ export class DwActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    let options = mergeObject(super.defaultOptions, {
+    let options = foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "actor"],
       width: 840,
       height: 780,
@@ -171,6 +171,18 @@ export class DwActorSheet extends ActorSheet {
     // Check if ability scores are disabled
     context.system.noAbilityScores = game.settings.get('dungeonworld', 'noAbilityScores');
 
+    // Setup select options.
+    context.selects = {};
+    if (this.actor.type == 'character') {
+      context.selects.damages = {
+        d4: 'd4',
+        d6: 'd6',
+        d8: 'd8',
+        d10: 'd10',
+        d12: 'd12',
+      };
+    }
+
     // Return data to the sheet
     let returnData = {
       actor: this.object,
@@ -189,6 +201,7 @@ export class DwActorSheet extends ActorSheet {
       effects: effects,
       items: items,
       flags: this.object?.flags,
+      selects: context.selects,
       limited: this.object.limited,
       options: this.options,
       owner: isOwner,
@@ -478,7 +491,7 @@ export class DwActorSheet extends ActorSheet {
       let system = {};
       let changed = false;
       // Retrieve the existin value.
-      system[attr] = Number(getProperty(this.actor.system, attr));
+      system[attr] = Number(foundry.utils.getProperty(this.actor.system, attr));
       // Decrease the value.
       if (action == 'decrease') {
         system[attr] -= 1;
@@ -596,7 +609,7 @@ export class DwActorSheet extends ActorSheet {
           class_item.system.equipment[group]['objects'] = group_items;
           equipment_list = equipment_list.concat(group_items);
         }
-        equipment = duplicate(class_item.system.equipment);
+        equipment = foundry.utils.duplicate(class_item.system.equipment);
       }
     }
 
@@ -906,7 +919,7 @@ export class DwActorSheet extends ActorSheet {
 
       // Prepare moves for saving.
       new_moves = moves.map(m => {
-        return duplicate(m);
+        return foundry.utils.duplicate(m);
       });
     }
 
@@ -915,7 +928,7 @@ export class DwActorSheet extends ActorSheet {
     if (equipment_ids.length > 0) {
       let equipment = itemData.equipment.filter(e => equipment_ids.includes(e.id));
       new_equipment = equipment.map(e => {
-        return duplicate(e);
+        return foundry.utils.duplicate(e);
       });
     }
 
@@ -933,7 +946,7 @@ export class DwActorSheet extends ActorSheet {
         }
         // Append to the update array.
         new_spells = spells.map(s => {
-          return duplicate(s);
+          return foundry.utils.duplicate(s);
         });
       }
     }
@@ -1102,7 +1115,7 @@ export class DwActorSheet extends ActorSheet {
           class_item.system.equipment[group]['objects'] = group_items;
           equipment_list = equipment_list.concat(group_items);
         }
-        equipment = duplicate(class_item.system.equipment);
+        equipment = foundry.utils.duplicate(class_item.system.equipment);
       }
 
     // Get ability scores.
@@ -1489,7 +1502,7 @@ export class DwActorSheet extends ActorSheet {
     event.preventDefault();
     const header = event.currentTarget;
     const type = header.dataset.type;
-    const data = duplicate(header.dataset);
+    const data = foundry.utils.duplicate(header.dataset);
     data.moveType = data.movetype;
     data.spellLevel = data.level;
     const name = type == 'bond' ? game.i18n.localize("DW.BondDefault") : `New ${type.capitalize()}`;
@@ -1581,27 +1594,30 @@ export class DwActorSheet extends ActorSheet {
         }
       });
 
-      // Update document with the changes.
-      this.tagify.on('change', e => {
-        // Grab the raw tags.
-        let newTags = e.detail.value;
-        // Parse it into a string.
-        let tagArray = [];
-        try {
-          tagArray = JSON.parse(newTags);
-        } catch (e) {
-          tagArray = [newTags];
-        }
-        let newTagsString = tagArray.map((item) => {
-          return item.value;
-        }).join(', ');
+      // @todo this version of tagify updates has a strange race condition.
+      // We've temporarily switched to just using the `system.tags` name prop.
 
-        // Apply the update.
-        this.document.update({
-          'system.tags': newTags,
-          'system.tagsString': newTagsString
-        }, {render: false});
-      });
+      // // Update document with the changes.
+      // this.tagify.on('change', e => {
+      //   // Grab the raw tags.
+      //   let newTags = e.detail.value;
+      //   // Parse it into a string.
+      //   let tagArray = [];
+      //   try {
+      //     tagArray = JSON.parse(newTags);
+      //   } catch (e) {
+      //     tagArray = [newTags];
+      //   }
+      //   let newTagsString = tagArray.map((item) => {
+      //     return item.value;
+      //   }).join(', ');
+
+      //   // Apply the update.
+      //   this.document.update({
+      //     'system.tags': newTags,
+      //     'system.tagsString': newTagsString
+      //   }, {render: false});
+      // });
     }
   }
 }

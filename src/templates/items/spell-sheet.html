@@ -28,12 +28,7 @@
           <div class="resource">
             <label>{{localize "DW.Class"}}</label>
             <select name="system.class">
-              {{#select system.class}}
-                <option value="">—</option>
-                {{#each system.classlist as |class id|}}
-                <option value="{{class}}">{{class}}</option>
-                {{/each}}
-              {{/select}}
+              {{selectOptions selects.classes selected=system.class blank='—' localize=true}}
             </select>
           </div>
 

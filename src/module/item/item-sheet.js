@@ -16,7 +16,7 @@ export class DwItemSheet extends ItemSheet {
 
   /** @override */
   static get defaultOptions() {
-    let options = mergeObject(super.defaultOptions, {
+    let options = foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["dungeonworld", "sheet", "item"],
       width: 520,
       height: 480,
@@ -67,6 +67,8 @@ export class DwItemSheet extends ItemSheet {
     let items = {};
     let effects = {};
     let actor = null;
+
+    context.system = foundry.utils.duplicate(this.item.system);
 
     this.options.title = this.document.name;
     isOwner = this.document.isOwner;
@@ -135,12 +137,76 @@ export class DwItemSheet extends ItemSheet {
       context.item.nameEnriched = await TextEditor.enrichHTML(context.item.name, enrichmentOptions);
     }
 
+    // Handle select options.
+    context.selects = {};
+    if (itemData.type == 'equipment') {
+      context.selects.itemTypes = {
+        weapon: 'DW.Weapon',
+        armor: 'DW.Armor',
+        dungeongear: 'DW.DungeonGear',
+        poison: 'DW.Poison',
+        service: 'DW.Service',
+        meal: 'DW.Meal',
+        transport: 'DW.Transport',
+        landbuilding: 'DW.LandBuildings',
+        bribe: 'DW.Bribe',
+        giftsfinery: 'DW.GiftsFinery',
+        hoard: 'DW.Hoard',
+      };
+    }
+    if (itemData.type == 'spell' || itemData.type == 'move') {
+      context.selects.classes = {};
+      for (let k of context.system.classlist) {
+        context.selects.classes[k] = k;
+      }
+    }
+    if (itemData.type == 'npcMove') {
+      context.selects.moveTypes = {
+        basic: 'DW.MoveBasic',
+        special: 'DW.MoveSpecial',
+      };
+    }
+    if (itemData.type == 'move') {
+      context.selects.moveTypes = {
+        basic: 'DW.MoveBasic',
+        starting: 'DW.MoveStarting',
+        advanced: 'DW.MoveAdvanced',
+        special: 'DW.MoveSpecial',
+      };
+
+      context.selects.rollTypes = {
+        STR: 'DW.STR',
+        DEX: 'DW.DEX',
+        CON: 'DW.CON',
+        INT: 'DW.INT',
+        WIS: 'DW.WIS',
+        CHA: 'DW.CHA',
+        ASK: 'DW.ASK',
+        BOND: 'DW.Modifier',
+        FORMULA: 'DW.FORMULA',
+      };
+    }
+    if (itemData.type == 'class') {
+      context.selects.damages = {
+        d4: 'd4',
+        d6: 'd6',
+        d8: 'd8',
+        d10: 'd10',
+        d12: 'd12',
+      };
+      context.selects.equipmentGroupModes = {
+        radio: 'DW.ChooseOne',
+        checkbox: 'DW.ChooseAny',
+      };
+    }
+
     let returnData = {
       item: this.object,
       cssClass: isEditable ? "editable" : "locked",
       editable: isEditable,
       system: context.system,
       effects: effects,
+      selects: context.selects,
       limited: this.object.limited,
       options: this.options,
       owner: isOwner,
@@ -155,14 +221,6 @@ export class DwItemSheet extends ItemSheet {
   /** @override */
   async activateListeners(html) {
     super.activateListeners(html);
-
-    // Activate tabs
-    let tabs = html.find('.tabs');
-    let initial = this._sheetTab;
-    new TabsV2(tabs, {
-      initial: initial,
-      callback: clicked => this._sheetTab = clicked.data("tab")
-    });
 
     this._tagify(html, this.isEditable);
 
@@ -234,29 +292,32 @@ export class DwItemSheet extends ItemSheet {
         }
       });
 
-      // Update document with the changes.
-      this.tagify.on('change', e => {
-        // Grab the raw tags.
-        let newTags = e.detail.value;
-        // Parse it into a string.
-        let tagArray = [];
-        try {
-          tagArray = JSON.parse(newTags);
-        } catch (e) {
-          tagArray = [newTags];
-        }
-        let newTagsString = tagArray.map((item) => {
-          return item.value;
-        }).join(', ');
+      // @todo this version of tagify updates has a strange race condition.
+      // We've temporarily switched to just using the `system.tags` name prop.
 
-        // Apply the update.
-        this.document.update({
-          'system.tags': newTags,
-          'system.tagsString': newTagsString
-        }, {render: false});
+      // // Update document with the changes.
+      // this.tagify.on('change', e => {
+      //   // Grab the raw tags.
+      //   let newTags = e.detail.value;
+      //   // Parse it into a string.
+      //   let tagArray = [];
+      //   try {
+      //     tagArray = JSON.parse(newTags);
+      //   } catch (e) {
+      //     tagArray = [newTags];
+      //   }
+      //   let newTagsString = tagArray.map((item) => {
+      //     return item.value;
+      //   }).join(', ');
 
-        this.needsRender = true;
-      });
+      //   // Apply the update.
+      //   this.document.update({
+      //     'system.tags': newTags,
+      //     'system.tagsString': newTagsString
+      //   }, {render: false});
+
+      //   this.needsRender = true;
+      // });
     }
   }
 
@@ -308,7 +369,7 @@ export class DwItemSheet extends ItemSheet {
         newKey = newKey.children[0];
 
         let update = {
-          system: duplicate(this.object.system)
+          system: foundry.utils.duplicate(this.object.system)
         };
         update.system.equipment[nk] = {
           label: '',
@@ -359,7 +420,7 @@ export class DwItemSheet extends ItemSheet {
     }
 
     // Handle the freeform lists on classes.
-    const formObj = expandObject(formData);
+    const formObj = foundry.utils.expandObject(formData);
 
     // Re-index the equipment.
     let i = 0;
@@ -367,7 +428,7 @@ export class DwItemSheet extends ItemSheet {
     if (typeof formObj.system.equipment == 'object') {
       for (let [k, v] of Object.entries(formObj.system.equipment)) {
         if (i != k) {
-          v.items = duplicate(this.object.system.equipment[k]?.items ?? []);
+          v.items = foundry.utils.duplicate(this.object.system.equipment[k]?.items ?? []);
           formObj.system.equipment[i] = v;
           delete formObj.system.equipment[k];
           deletedKeys.push(`equipment.${k}`);

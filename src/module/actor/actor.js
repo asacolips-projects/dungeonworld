@@ -134,7 +134,7 @@ export class ActorDw extends Actor {
     if (isNaN(xpRequired)) {
       // Evaluate the max XP roll.
       let xpRequiredRoll = new Roll(xpRequiredFormula, this.getRollData());
-      xpRequiredRoll.roll({async: false});
+      xpRequiredRoll.evaluateSync();
       xpRequired = xpRequiredRoll?.total ?? Number(data.attributes.level.value) + 7;
     }
     data.attributes.xp.max = xpRequired;

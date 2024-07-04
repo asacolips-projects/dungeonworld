@@ -143,14 +143,6 @@ export class CombatSidebarDw {
             // Retrieve the default encounter.
             let combat = game.combat;
 
-            // TODO: This is how foundry.js retrieves the combat in certain
-            // scenarios, so I'm leaving it here as a comment in case this
-            // needs to be refactored.
-            // ---------------------------------------------------------------
-            // const view = game.scenes.viewed;
-            // const combats = view ? game.combats.filter(c => c.data.scene === view.id) : [];
-            // let combat = combats.length ? combats.find(c => c.data.active) || combats[0] : null;
-
             // Retreive the drop target, remove any hover classes.
             let $self = $(event.originalEvent.target);
             let $dropTarget = $self.parents('.directory-item');

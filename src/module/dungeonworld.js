@@ -499,7 +499,7 @@ Hooks.on('createActor', async (actor, options, id) => {
     updates['token.disposition'] = 1;
 
     // Add to the actor.
-    const movesToAdd = moves.map(m => duplicate(m));
+    const movesToAdd = moves.map(m => foundry.utils.duplicate(m));
 
     // Only execute the function once.
     const owners = [];
