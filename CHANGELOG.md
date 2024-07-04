@@ -1,3 +1,10 @@
+# 1.8.0
+
+Release notes: https://github.com/asacolips-projects/dungeonworld/releases/tag/1.8.0
+
+- Added Foundry v12 support
+- Removed Foundry v11 support
+
 # 1.7.2
 
 Release notes: https://github.com/asacolips-projects/dungeonworld/releases/tag/1.7.2
