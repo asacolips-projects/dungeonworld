@@ -42,7 +42,7 @@ DW.Look: Utseende
 DW.Alignment: Inriktning
 DW.Alignments: Inriktningar
 DW.Class: Klass
-DW.ClassViewer: "Klassvisare"                             
+DW.ClassViewer: "Klassvisare"
 DW.Race: Släkte
 DW.Races: Släkten
 DW.Bond: Band
@@ -103,7 +103,7 @@ DW.Quantity: Antal
 DW.Qty: St.
 DW.Weight: Vikt
 DW.Price: "Pris"
-DW.DamageOverride: "Ersätt skada"              
+DW.DamageOverride: "Ersätt skada"
 DW.Wt: Vikt
 DW.Uses: Doser
 DW.MagicItem: Magiskt föremål
