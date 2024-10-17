@@ -1,4 +1,12 @@
----
+TYPES.Actor.character: "Rollperson"
+TYPES.Actor.npc: "SLP"
+TYPES.Item.move: "Drag"
+TYPES.Item.npcMove: "SLP-drag"
+TYPES.Item.equipment: "Utrustning"
+TYPES.Item.spell: "Besvärjelse"
+TYPES.Item.bond: "Band"
+TYPES.Item.tag: "Etikett"
+TYPES.Item.class: "Klass"             
 Dungeon World: Dungeon World
 DW.title: Dungeon World
 DW.description: Spela Dungeon World i Foundry VTT!
@@ -34,6 +42,7 @@ DW.Look: Utseende
 DW.Alignment: Inriktning
 DW.Alignments: Inriktningar
 DW.Class: Klass
+DW.ClassViewer: "Klassvisare"
 DW.Race: Släkte
 DW.Races: Släkten
 DW.Bond: Band
@@ -93,6 +102,8 @@ DW.Equipped: Buren
 DW.Quantity: Antal
 DW.Qty: St.
 DW.Weight: Vikt
+DW.Price: "Pris"
+DW.DamageOverride: "Ersätt skada"
 DW.Wt: Vikt
 DW.Uses: Doser
 DW.MagicItem: Magiskt föremål
@@ -158,6 +169,7 @@ DW.ChooseResult: Välj resultat
 DW.Choices: Valmöjligheter
 DW.MarkXp: Lägg till ett erfarenhetspoäng
 DW.XpMarked: Erfarenhetspoäng tillagd
+
 DW.the-barbarian.Bond1: _______________ är ynklig och dåraktig, men roar mig.
 DW.the-barbarian.Bond2: _______________ sätt är märkligt och förvirrande.
 DW.the-barbarian.Bond3: _______________ hamnar alltid i problem; jag måste skydda hen mot sig själv.
@@ -198,6 +210,7 @@ DW.the-ranger.Bond1: Jag har guidat _______________ tidigare och de står i skul
 DW.the-ranger.Bond2: _______________ är en naturvän och jag kommer därför också att vara hens vän.
 DW.the-ranger.Bond3: _______________ respekterar inte naturen och därför respekterar jag inte dem.
 DW.the-ranger.Bond4: _______________ förstår inte vildmarkslivet, så jag ska lära dem.
+
 DW.Settings.itemIcons.name: Aktivera föremålsikoner
 DW.Settings.itemIcons.hint: Aktivera ikoner på rollformuläret för drag, besvärjelser och utrustning (kräver att webbläsaren laddas om).
 DW.Settings.nightmode.name: Aktivera nattläge
@@ -210,46 +223,66 @@ DW.Settings.advForward.name: Rensa Fördel/Nackdel efter slaget
 DW.Settings.advForward.hint: Om den här är vald återgår slagen till det normala efter varje slag, istället för att behålla Fördel/Nackdel (ungefär som Framåt).
 DW.Settings.disDebility.name: Svagheter ger nackdelar
 DW.Settings.disDebility.hint: När den här är aktiv, ger svagheter en nackdel vid tärningsslaget snarare än att förändra grundegenskapens modifikation.
+DW.Settings.coinWeight.name: "Myntvikt"
+DW.Settings.coinWeight.hint: "Antal mynt som motsvarar en viktenhet, 0 gör mynt viktlösa"
+
 DW.Settings.alignmentSingle.name: Skriv över "Inriktning" (singular).
 DW.Settings.alignmentSingle.hint: Skriv över "Inriktning", med till exempel "Drivkraft".
 DW.Settings.alignmentPlural.name: Skriv över "Inriktningar" (plural).
 DW.Settings.alignmentPlural.hint: Skriv över "Inriktningar", med till exempel "Drivkrafter".
+
 DW.Settings.raceSingle.name: Skriv över "Släkte" (singular).
 DW.Settings.raceSingle.hint: Skriv över "Släkte", med till exempel "Bakgrund".
 DW.Settings.racePlural.name: Skriv över "Släkten" (plural).
 DW.Settings.racePlural.hint: Skriv över "Släkten", med till exempel "Bakgrunder".
+
 DW.Settings.bondSingle.name: Skriv över "Band" (singular).
 DW.Settings.bondSingle.hint: Skriv över "Band", till exempel med "Flagga".
 DW.Settings.bondPlural.name: Skriv över "Band" (plural).
 DW.Settings.bondPlural.hint: Skriv över "Band", till exempel med "Flaggor".
+
 DW.Settings.noCompendiumAutoData.name: Exkludera Dungeon World kompendiumdata
 DW.Settings.noCompendiumAutoData.hint: Exkludera drag och klasser som kommer från Dungeon Worlds standardkompenium, så att DW-hack som Homebrew World ska kunna återanvända samma klassnamn
+
 DW.Settings.compendiumPrefix.name: Kompendiumprefix
 DW.Settings.compendiumPrefix.hint: Välj automatiskt drag och klasser från kompendier med detta prefix, för DW-hack som Homebrew World. Om du till exempel anger "HBW", väljs klasserna från kompendiet som heter "HBW Classes" och drag för Krigaren väljs från "HBW The Fighter Moves". Låt fältet vara tomt för att avaktivera funktionen.
+
 DW.Settings.noAbilityScores.name: Inga grundegenskapsvärden
 DW.Settings.noAbilityScores.hint: Använd endast modifikationen, för DW-hack som Homebrew World
+
 DW.Settings.noAbilityIncrease.name: Ingen ökning av grundegenskaperna
 DW.Settings.noAbilityIncrease.hint: Grundegenskaperna ökar inte när karaktären går upp i nivå, för DW-hack som Homebrew World
+
 DW.Settings.noConstitutionToHP.name: Lägg inte till Fysik-värdet till TÅL
 DW.Settings.noConstitutionToHP.hint: Används för DW-hack som Homebrew World
+
 DW.Settings.noSTRToMaxLoad.name: Lägg inte till STY till max bärförmåga
 DW.Settings.noSTRToMaxLoad.hint: Används för DW-hack som Homebrew World
+
 DW.Settings.debilityLabelSTR.name: Svaghet för STY
 DW.Settings.debilityLabelSTR.hint: ''
+
 DW.Settings.debilityLabelDEX.name: Svaghet för SMI
 DW.Settings.debilityLabelDEX.hint: ''
+
 DW.Settings.debilityLabelCON.name: Svaghet för FYS
 DW.Settings.debilityLabelCON.hint: ''
+
 DW.Settings.debilityLabelINT.name: Svaghet för INT
 DW.Settings.debilityLabelINT.hint: ''
+
 DW.Settings.debilityLabelWIS.name: Svaghet för VIS
 DW.Settings.debilityLabelWIS.hint: ''
+
 DW.Settings.debilityLabelCHA.name: Svaghet för KAR
 DW.Settings.debilityLabelCHA.hint: ''
+
 DW.Dialog.askTitle: Välj ett värde
 DW.Dialog.askContent: Välj ett värde för det här <strong>{name}</strong> draget.
 DW.Dialog.bondTitle: Lägg in modifikation
 DW.Dialog.bondContent: Lägg in en modifikation för bandet eller en modifikation för det här <strong>{name}</strong> draget.
+
 DW.Notifications.noClassWarning: Du måste välja en existerande klass innan du går upp i nivå.
+
 DW.Scrolling.armorReduced: "{reduced} Rustning skyddar"
 DW.Scrolling.armorPiercing: "{piercing} Rustning ignoreras"
