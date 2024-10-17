@@ -342,10 +342,16 @@ export class ActorDw extends Actor {
 
     if (newHp !== hp) {
       const update = {'system.attributes.hp.value': newHp};
+      // Set options.dw so that we can update scrolling text in
+      // preUpdate and onUpdate.
       const context = {
-        'dw.armor.reduced': reduced,
-        'dw.armor.value': armor,
-        'dw.armor.piercing': piercing
+        dw: {
+          armor: {
+            reduced: reduced,
+            value: armor,
+            piercing: piercing,
+          },
+        },
       };
       return this.update(update, context);
     }
