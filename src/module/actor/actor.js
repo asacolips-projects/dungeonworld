@@ -374,7 +374,7 @@ export class ActorDw extends Actor {
       }
 
       for ( let token of tokens ) {
-        const pct = delta !== 0 ? Math.clamped(Math.abs(delta) / max, 0, 1) : 0.25;
+        const pct = delta !== 0 ? Math.clamp(Math.abs(delta) / max, 0, 1) : 0.25;
         let content = delta !== 0 ? delta.signedString() + " " + suffix : suffix;
         let textOptions = {
           anchor: CONST.TEXT_ANCHOR_POINTS.CENTER,
@@ -394,8 +394,9 @@ export class ActorDw extends Actor {
   /** @override */
   async _preUpdate(data, options, userId) {
     await super._preUpdate(data, options, userId);
+    options.dw = options?.dw ?? {};
 
-    if (options?.dw) {
+    if (!options.dw?.preUpdate) {
       options.dw.preUpdate = {system: foundry.utils.duplicate(this.system)};
     }
   }
