@@ -48,7 +48,7 @@ DW.Races: Släkten
 DW.Bond: Band
 DW.Bonds: Band
 DW.Tags: Etiketter
-DW.AddBond: Lägg till band
+DW.Add: Lägg till
 DW.BondDefault: _____ har ett band till mig
 DW.BondHelp: ________ beskriv bandet här.
 DW.Dialog.Bond1: 'Välj en bonus för det här bandet '
