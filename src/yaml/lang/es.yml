@@ -36,6 +36,7 @@ DW.Races: Razas
 DW.Bond: Vínculo
 DW.Bonds: Vínculos
 DW.Tags: Etiquetas
+DW.Add: Añada
 DW.BondDefault: _____ tiene un vínculo conmigo
 DW.BondHelp: ________ el texto del vínculo va aquí.
 DW.Dialog.Bond1: 'Elige la bonificación para el vínculo en este '
