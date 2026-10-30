@@ -14,6 +14,13 @@
   }
 }
 
+.cell--alignment,
+.cell--race {
+  .editor {
+    min-height: 140px;
+  }
+}
+
 .cell--bonds {
   .items-list {
     padding: 0;

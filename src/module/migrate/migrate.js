@@ -60,13 +60,13 @@ export class MigrateDw {
 
         // If this is a valid move, update it.
         if (moveType) {
-          await actor.updateEmbeddedDocuments("Item", {
+          await actor.updateEmbeddedDocuments("Item", [{
             _id: item.id,
             name: item.name,
-            data: {
+            system: {
               moveType: moveType
             }
-          });
+          }]);
         }
       }
     }

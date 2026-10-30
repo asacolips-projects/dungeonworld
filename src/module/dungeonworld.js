@@ -384,7 +384,7 @@ Hooks.on('createChatMessage', async (message, options, id) => {
           })
           // Update the chat log scroll position.
             .then(m => {
-              let chatLog = document.querySelector('#chat-log');
+              let chatLog = document.querySelector('#chat-log, .chat-log');
               chatLog.scrollTop = chatLog.scrollHeight;
             });
         })
@@ -483,11 +483,11 @@ Hooks.on('createActor', async (actor, options, id) => {
     updates['system.details.look'] = game.i18n.localize('DW.DefaultLook');
 
     // Link the token.
-    updates['token.actorLink'] = true;
-    updates['token.bar1'] = { attribute: 'attributes.hp' };
-    updates['token.bar2'] = { attribute: 'attributes.xp' };
-    updates['token.displayBars'] = 20;
-    updates['token.disposition'] = 1;
+    updates['prototypeToken.actorLink'] = true;
+    updates['prototypeToken.bar1'] = { attribute: 'attributes.hp' };
+    updates['prototypeToken.bar2'] = { attribute: 'attributes.xp' };
+    updates['prototypeToken.displayBars'] = 20;
+    updates['prototypeToken.disposition'] = 1;
 
     // Add to the actor.
     const movesToAdd = moves.map(m => foundry.utils.duplicate(m));
@@ -510,10 +510,10 @@ Hooks.on('createActor', async (actor, options, id) => {
   }
 
   if (actor.type == 'npc') {
-    updates['token.bar1'] = { attribute: 'attributes.hp' };
-    updates['token.bar2'] = { attribute: null };
-    updates['token.displayBars'] = 20;
-    updates['token.disposition'] = -1;
+    updates['prototypeToken.bar1'] = { attribute: 'attributes.hp' };
+    updates['prototypeToken.bar2'] = { attribute: null };
+    updates['prototypeToken.displayBars'] = 20;
+    updates['prototypeToken.disposition'] = -1;
   }
 
   if (updates && Object.keys(updates).length > 0) {
@@ -671,9 +671,7 @@ function rollItemMacro(itemData) {
   else {
     const speaker = ChatMessage.getSpeaker();
     const itemName = itemData;
-    let actor;
-    if (speaker.token) actor = game.actors.tokens[speaker.token];
-    if (!actor) actor = game.actors.get(speaker.actor);
+    const actor = ChatMessage.getSpeakerActor(speaker);
     const item = actor ? actor.items.find(i => i.name === itemName) : null;
     if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
 

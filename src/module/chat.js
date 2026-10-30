@@ -66,10 +66,8 @@ function _getChatCardActor(card) {
     const [sceneId, tokenId] = tokenKey.split(".");
     const scene = game.scenes.get(sceneId);
     if (!scene) return null;
-    const tokenData = scene.getEmbeddedDocument("Token", tokenId);
-    if (!tokenData) return null;
-    const token = new Token(tokenData);
-    return token.actor;
+    const tokenDoc = scene.tokens.get(tokenId);
+    return tokenDoc?.actor ?? null;
   }
 
   // Case 2 - use Actor ID directory
