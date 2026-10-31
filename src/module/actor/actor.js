@@ -231,10 +231,10 @@ export class ActorDw extends Actor {
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: actor })
     };
-    let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
-    if (rollMode === "selfroll") chatData["whisper"] = [game.user.id];
-    if (rollMode === "blindroll") chatData["blind"] = true;
+    let messageMode = game.settings.get("core", "messageMode");
+    if (["gm", "blind"].includes(messageMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
+    if (messageMode === "self") chatData["whisper"] = [game.user.id];
+    if (messageMode === "blind") chatData["blind"] = true;
     // Handle dice rolls.
     if (roll) {
       // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
@@ -260,7 +260,7 @@ export class ActorDw extends Actor {
       if (formula != null) {
         // Do the roll.
         let roll = new Roll(`${formula}`, actor.getRollData());
-        await roll.roll();
+        await roll.evaluate();
         // Add success notification.
         if (formula.includes('2d6')) {
           if (roll.total < 7) {
@@ -282,7 +282,6 @@ export class ActorDw extends Actor {
               game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
             }
             else {
-              chatData.sound = CONFIG.sounds.dice;
               ChatMessage.create(chatData);
             }
           });

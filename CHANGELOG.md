@@ -1,3 +1,8 @@
+# 1.10.0
+Release notes: https://github.com/asacolips-projects/dungeonworld/releases/tag/1.10.0
+- Added Foundry v14 support
+- Removed Foundry v13 support
+
 # 1.9.0
 Release notes: https://github.com/asacolips-projects/dungeonworld/releases/tag/1.9.0
 - Added Foundry v13 support

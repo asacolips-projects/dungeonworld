@@ -35,14 +35,13 @@
     "gulp-yaml": "^2.0.4",
     "js-yaml": "^4.1.0",
     "merge-stream": "^2.0.0",
-    "nedb": "^1.8.0",
     "path": "^0.12.7",
     "sass": "^1.52.1",
     "through2": "^4.0.2",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
-    "@foundryvtt/foundryvtt-cli": "^1.0.2",
+    "@foundryvtt/foundryvtt-cli": "^3.0.5",
     "gulp-shell": "^0.8.0"
   }
 }

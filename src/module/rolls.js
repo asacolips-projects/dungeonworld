@@ -173,10 +173,10 @@ export class DwRolls {
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor })
     };
-    let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
-    if (rollMode === "selfroll") chatData["whisper"] = [game.user.id];
-    if (rollMode === "blindroll") chatData["blind"] = true;
+    let messageMode = game.settings.get("core", "messageMode");
+    if (["gm", "blind"].includes(messageMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
+    if (messageMode === "self") chatData["whisper"] = [game.user.id];
+    if (messageMode === "blind") chatData["blind"] = true;
     // Define tags.
     let baseTags = this.item?.system?.tags ?? this.actor?.system?.tags;
     let tags = [];
@@ -372,7 +372,6 @@ export class DwRolls {
               game.dice3d.showForRoll(roll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
             }
             else {
-              chatData.sound = CONFIG.sounds.dice;
               ChatMessage.create(chatData);
             }
           });

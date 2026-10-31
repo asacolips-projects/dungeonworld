@@ -206,8 +206,8 @@ export class CombatSidebarDw {
       ui.combat.render();
     });
 
-    Hooks.on('updateToken', (scene, token, data, options, id) => {
-      if (data.actorData) {
+    Hooks.on('updateToken', (tokenDocument, change, options, userId) => {
+      if (change.actorData) {
         ui.combat.render();
       }
     });
@@ -363,7 +363,7 @@ export class CombatSidebarDw {
 
         // If this is the GM or the owner, push to the combatants list.
         // Otherwise, only push if the token isn't hidden in the scene.
-        const combatantToken = combatant?.token ?? combat?._token;
+        const combatantToken = combatant?.token;
         if (game.user.isGM || combatant.isOwner || !combatantToken?.hidden) {
           groups[group].push(combatant);
         }
